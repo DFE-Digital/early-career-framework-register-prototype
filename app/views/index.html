@@ -18,30 +18,23 @@
         If you spot any bugs, please <a href="https://ukgovernmentdfe.slack.com/team/U01EB8Q4M37" target="_blank">send message me on slack</a>.</p>
 
 
-      <h2 class="govuk-heading-m">GOV.UK hosted content</h2>
-      {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
-      {{ govukAccordion({
-        id: "accordion-default",
-        items: [
-          {
-            heading: {
-              text: "Start page"
-            },
-            content: {
-              html: "<p class='govuk-body'><a href='http://localhost:3000/start'>Start page</a></p>"
-            }
-          },
-            {
-            heading: {
-              text: "Sub topic pages"
-            },
-            content: {
-              html: "<p class='govuk-body'><a href='http://localhost:3000/guidance_1'>Guidance</a></p>"
-            }
-          }
-        ]
-      }) }}
+      <h2 class="govuk-heading-m">Non-authenticated</h2>
+      <dl class='govuk-list app-list--definition'>
+        <dt><a href='/start'>Start page</a></dt>
+        <dd>Description here</dd>
+        <dt><a href='/guidance_1'>Guidance</a></dt>
+        <dd>Description here</dd>
+        <dt><a href='/sign-in' target='_blank'>Sign in</a></dt>
+        <dd>Description here</dd>
+        <dt><a href='/sign-in-email-sent' target='_blank'>Check your email</a></dt>
+        <dd>Description here</dd>
+        <dt><a href='/sign-in-email' target='_blank'>Pseudo email</a></dt>
+        <dd>Description here</dd>
+      </dl>
+
       <p classs="govuk-!-margin-bottom-9">&nbsp;</p>
+
+
       <h2 class="govuk-heading-m">Learning platform</h2>
       {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
       {{ govukAccordion({
@@ -55,13 +48,7 @@
               html: "
               <h2 class='govuk-heading-m'>Start of journey</h2>
               <dl class='govuk-list app-list--definition'>
-                <dt><a href='#' target='_blank'>Start page</a></dt>
-                <dd>Description here</dd>
-                <dt><a href='#' target='_blank'>Create an account</a></dt>
-                <dd>Description here</dd>
-                <dt><a href='#' target='_blank'>Sign in</a></dt>
-                <dd>Description here</dd>
-                <dt><a href='#' target='_blank'>Dashboard</a></dt>
+                <dt><a href='/ect-induction-course-outline' target='_blank'>Induction course outline (dashboard)</a></dt>
                 <dd>Description here</dd>
               </dl>
               <h2 class='govuk-heading-m'>Core Induction Programme (CIP)</h2>
