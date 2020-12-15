@@ -61,3 +61,11 @@ $govuk-assets-path: '/govuk/assets/';
     width: 20px;
     overflow: hidden;
 }
+
+a.signout {
+    color: #FFF;
+    font-weight: 700;
+    position: absolute;
+    right: calc(50% - 475px);
+    top: 15px;
+}
