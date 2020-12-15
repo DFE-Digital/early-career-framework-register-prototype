@@ -17,19 +17,16 @@
   },
   html: 'This isn&apos;t a real service'
 }) }}
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Home</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Section</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link">Subsection</a>
-      </li>
-    </ol>
-  </div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Department for Education</a>
+    </li>
+  </ol>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -37,33 +34,41 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {% if serviceName %} {{ serviceName }} {% endif %}
+        Training for new teachers
       </h1>
 
-      <p>Use this service to:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>do something</li>
-        <li>update your name, address or other details</li>
-        <li>do something else</li>
+      <p class="govuk-body govuk-!-margin-bottom-1">New teachers can use this service to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>access training materials</li>
+        <li>take tests at the end of modules</li>
       </ul>
 
-      <p>Registering takes around 5 minutes.</p>
+      <p class="govuk-body govuk-!-margin-bottom-1">Teaching mentors can use this service to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>access materials to use in sessions with teachers</li>
+        <li>check the progress of teachers they are mentoring</li>
+      </ul>
 
-      <a href="/sign-in" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
-        Start now
+      <p class="govuk-body govuk-!-margin-bottom-1">Schools, colleges, academies and trusts can use this service to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>choose how to run their induction programme</li>
+        <li>find an approved lead provider to partner with</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-margin-bottom-1">Lead providers can use this service to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>find available schools to partner with</li>
+        <li>update the Department for Education about new partnerships</li>
+      </ul>
+
+      <p>Creating an account takes around 5 minutes.</p>
+
+      <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+        Create account
         <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </a>
-
-      <h2 class="govuk-heading-m">Before you start</h2>
-
-      <p>You can also <a href="#">register by post</a>.</p>
-
-      <p>The online service is also available in <a href="#">Welsh (Cymraeg)</a>.</p>
-
-      <p>You can’t register for this service if you’re in the UK illegally.</p>
 
     </div>
 
