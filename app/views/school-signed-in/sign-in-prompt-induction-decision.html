@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Create account
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Welcome to your account</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">To confirm your induction programme, we will ask you a few quick questions.</p>
+
+      <form class="form" action="#" method="post" class="govuk-!-margin-bottom-8">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {{ govukRadios({
+          idPrefix: "chosen-induction-training",
+          name: "chosen-induction-training",
+          fieldset: {
+            legend: {
+              text: "How do you want to run your induction in the 2021/22 academic year?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "fip",
+              text: "Use a training provider funded by DfE"
+            },
+            {
+              value: "cip",
+              text: "Use the training materials to deliver your own"
+            },
+            {
+              value: "diy",
+              text: "Design your own induction based on the Early Career Framework"
+            },
+            {
+              value: "dont-know",
+              text: "I don't know yet"
+            }
+          ]
+        }) }}
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

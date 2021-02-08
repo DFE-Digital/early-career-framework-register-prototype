@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your email
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+      {{ govukPanel({
+        titleText: "Your school is now registered"
+      }) }}
+
+      <p class="govuk-body">You can use your email address to sign in at any time. No password required.</p>
+      <p class="govuk-body">Continue to your account for more guidance and next steps.</p>
+
+      <form class="form" action="/school-signed-in/sign-in-prompt-induction-decision" method="post" class="govuk-!-margin-bottom-8">
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

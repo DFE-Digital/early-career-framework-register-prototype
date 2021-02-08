@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+  <!--[if lte IE 8]><link href="/public/stylesheets/unbranded-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if gt IE 8]><!--><link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+
+
+<style media='screen'>
+  body {
+    font-family: "GDS Transport", arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+font-weight: 400;
+font-size: 19px;
+font-size: 0.875rem;
+line-height: 1.14286;
+  }
+  .pseudo-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background: #f5f5f5;
+  }
+  .pseudo-email-template {
+    background: #FFF url({{ asset_path }}images/email-header.png) no-repeat center top;
+        background-size: 100%;
+        height: 430px;
+        box-shadow: 0px 0px 40px rgb(0 0 0 / 25%);
+        max-width: 550px;
+        margin: 70px auto 0;
+        padding: 90px 20px 30px;
+        position: relative;
+        z-index: 10;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 2px solid #CCC;
+        border-top: 20px solid #CCC;
+  }
+ p {
+   font-size: 19px;
+ }
+</style>
+<div class="pseudo-bg"></div>
+<div class="pseudo-email-template">
+<p>Hello<br/><br /> To register your school, you must verify your email. This link will expire in 24 hours.</p>
+<p><a href="/register-school/register-school-8">https://gov.uk/as9d7y9238g2ufvu/1239dasod3189yr92fb</a></p>
+<p>The ECF Team</p>
+</div>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}

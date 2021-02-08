@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Create account
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/register-school/register-school-4">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="register-school-6" method="post" class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-l">Confirm your details</h2>
+
+          <h3 class="govuk-heading-m">School</h3>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                School
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Acorn School
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                URN
+              </dt>
+              <dd class="govuk-summary-list__value">
+                135066
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Andrews Furlong, <br />
+                Mill Road, <br />
+                Banham, <br />
+                Norwich, Norfolk, <br />
+                NR16 2HU
+              </dd>
+            </div>
+          </dl>
+
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+          {{ govukInput({
+            label: {
+              text: "Full name",
+              classes: "govuk-label--m",
+              isPageHeading: true
+            },
+            classes: "govuk-input--width-20",
+            id: "full-name",
+            name: "full-name"
+          }) }}
+
+          <div class="govuk-form-group govuk-!-margin-bottom-8">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school email address</h2>
+            <label class="govuk-label" for="event-name">If you need other colleagues to sign in, use an email  you can all access.</label>
+            <input class="govuk-input govuk-input--width-20" id="event-name" name="event-name" type="text">
+          </div>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
