@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Sign in
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/sign-in">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        You do not have an account
+      </h1>
+
+      <h3 class="govuk-heading-m">School coordinators or leads</h3>
+      <p class="govuk-body">If you are responsible for running induction, <a href="/register-school/register-school-1">Register your school</a>.</p>
+
+      <h3 class="govuk-heading-m">New teachers</h3>
+      <p class="govuk-body">You will be registered by your school before your induction starts. Contact your school coordinator.</p>
+
+      <h3 class="govuk-heading-m">Training providers</h3>
+      <p class="govuk-body">The Department for Education creates your account. Contact <a href="#">ecf-support@digital.education.gov.uk</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
