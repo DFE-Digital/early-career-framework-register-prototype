@@ -4,6 +4,26 @@
   How do you want to run your induction in the 2021/22 academic year?
 {% endblock %}
 
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+  homepageUrl: "/start",
+  serviceName: "Training for new teachers",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "name@domain.com",
+      active: false
+    },
+    {
+      href: "/sign-out",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
 {% block beforeContent %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
