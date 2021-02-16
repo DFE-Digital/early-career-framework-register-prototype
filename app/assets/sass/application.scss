@@ -80,6 +80,16 @@ a.signout {
     background: transparent;
     border: 1px solid #CCC;
   }
+  .side-options .govuk-fieldset__legend--m {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .side-options .govuk-form-group {
+    margin-bottom: 15px;
+  }
+  .side-options .govuk-button {
+    margin-bottom: 10px;
+  }
 
 .dashboard-numbers {
   background: #f3f2f1;
