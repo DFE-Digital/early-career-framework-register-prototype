@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your email
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/sign-in">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check your email
+      </h1>
+
+      <p class="govuk-body-l">We've sent you an email to complete your sign in.</p>
+
+      <h3 class="govuk-heading-s">If you don't get an email:</h3>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>first check your spam or junk folder</li>
+        <li>contact us: <a href="mailto:ecf-support@digital.education.gov.uk">ecf-support@digital.education.gov.uk</a></li>
+      </ul>
+      <br /><br /><br /><br />
+
+      <p class="govuk-body"><a href="/pseudo-email-sign-in">Example email</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

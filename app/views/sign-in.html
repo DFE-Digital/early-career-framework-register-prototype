@@ -24,15 +24,15 @@
         Sign in
       </h1>
 
-      <form class="form" action="/sign-in-no-account" method="post">
+      <form class="form" action="/sign-in-check-email" method="post">
       {% from "govuk/components/input/macro.njk" import govukInput %}
       {{ govukInput({
         label: {
           text: "Email address"
         },
         classes: "govuk-input--width-20",
-        id: "event-name",
-        name: "event-name"
+        id: "sign-in-email-address",
+        name: "sign-in-email-address"
       }) }}
       {% from "govuk/components/button/macro.njk" import govukButton %}
       {{ govukButton({

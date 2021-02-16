@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Lorem Ipsum Education Ltd.
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">2021 participant recruitment</h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers key-number">
+        <p class="govuk-heading-xl">300</p>
+        <p class="govuk-heading-s">participant target</p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers">
+        <p class="govuk-heading-xl">77</p>
+        <p class="govuk-heading-s">recruited participants</p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers">
+        <p class="govuk-heading-xl">34</p>
+        <p class="govuk-heading-s">partnerships with schools</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

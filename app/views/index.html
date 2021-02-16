@@ -17,6 +17,47 @@
       <p class="govuk-body">Links to the different user journeys can be found below.
         If you spot any bugs, please <a href="https://ukgovernmentdfe.slack.com/team/U01EB8Q4M37" target="_blank">send message me on slack</a>.</p>
 
+
+            <div class="index-group">
+              <form class="form" action="/index" method="post" class="govuk-!-margin-bottom-8">
+                <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__legend--m">
+                    Select sign in journey mode
+                  </h1>
+                </legend>
+                <div class="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="schooldecisionmaker" name="journey-mode" type="radio" value="schooldecisionmaker" {{ checked("journey-mode", "schooldecisionmaker") }}>
+                    <label class="govuk-label govuk-radios__label" for="schooldecisionmaker">
+                      School Decision Maker
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="trainingprovider" name="journey-mode" type="radio" value="trainingprovider" {{ checked("journey-mode", "trainingprovider") }}>
+                    <label class="govuk-label govuk-radios__label" for="trainingprovider">
+                      Training Provider
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
+                    <label class="govuk-label govuk-radios__label" for="noaccount">
+                      No account
+                    </label>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+            {{ govukButton({
+              text: "Save"
+            }) }}
+          </form>
+        </div>
+
       <div class="index-group">
         <h2 class="govuk-heading-m">All users</h2>
         <dl class='govuk-list app-list--definition'>
@@ -26,7 +67,7 @@
       </div>
 
       <div class="index-group">
-        <h2 class="govuk-heading-m">School Induction Co-ordinator</h2>
+        <h2 class="govuk-heading-m">School Decision Maker</h2>
         <dl class='govuk-list app-list--definition'>
           <dt><a href='/pseudo-email-school-invite'>School invite email</a></dt>
           <dd>Email sent to school, alterting them to the new service</dd>
