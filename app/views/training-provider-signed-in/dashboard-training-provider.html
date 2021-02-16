@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block beforeContent %}
+
+
+
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
   tag: {
@@ -12,6 +15,20 @@
   },
   html: 'This isn&apos;t a real service'
 }) }}
+
+<nav class="app-navigation govuk-clearfix">
+  <ul class="app-navigation__list app-width-container">
+
+    <li class="app-navigation__list-item app-navigation__list-item--current">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/dashboard-training-provider">Overview</a>
+    </li>
+
+    <li class="app-navigation__list-item">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/schools">Schools</a>
+    </li>
+
+  </ul>
+</nav>
 {% endblock %}
 
 {% block content %}
