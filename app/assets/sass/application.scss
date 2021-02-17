@@ -76,6 +76,12 @@ a.signout {
   padding: 1.5em;
   margin-bottom: 1.5em;
 }
+  .index-group p.govuk-body {
+    margin-bottom: 0;
+  }
+  .index-group .govuk-heading-m {
+    margin-bottom: 10px
+  }
   .side-options {
     background: transparent;
     border: 1px solid #CCC;
