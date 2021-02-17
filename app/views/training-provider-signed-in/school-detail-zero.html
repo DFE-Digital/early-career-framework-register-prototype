@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Vale Valley Primary School
+{% endblock %}
+{% block beforeContent %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+
+<nav class="app-navigation govuk-clearfix">
+  <ul class="app-navigation__list app-width-container">
+
+    <li class="app-navigation__list-item">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
+    </li>
+
+    <li class="app-navigation__list-item app-navigation__list-item--current">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
+    </li>
+
+  </ul>
+</nav>
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Schools",
+      href: "/training-provider-signed-in/school-listing-2021"
+    },
+    {
+      text: "2021 cohort",
+      href: "/training-provider-signed-in/school-listing-2021"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+        Vale Valley Primary School
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">2021 recruitment</h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers key-number">
+        <p class="govuk-heading-xl">0</p>
+        <p class="govuk-heading-s">participants added by schools</p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers">
+        <p class="govuk-heading-xl">0</p>
+        <p class="govuk-heading-s">early career teachers</p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="dashboard-numbers">
+        <p class="govuk-heading-xl">0</p>
+        <p class="govuk-heading-s">Mentors</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-m govuk-!-margin-bottom-2">
+        School information
+      </h1>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "URN"
+            },
+            value: {
+              text: "937486"
+            }
+          },
+          {
+            key: {
+              text: "Local authority"
+            },
+            value: {
+              text: "Essex"
+            }
+          },
+          {
+            key: {
+              text: "Induction co-ordinator"
+            },
+            value: {
+              html: '<a href="#">jane.smith@valevalley.sch.uk</a>'
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
