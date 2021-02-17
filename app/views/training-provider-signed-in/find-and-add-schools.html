@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Find and add schools
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+
+<nav class="app-navigation govuk-clearfix">
+  <ul class="app-navigation__list app-width-container">
+
+    <li class="app-navigation__list-item">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
+    </li>
+
+    <li class="app-navigation__list-item app-navigation__list-item--current">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
+    </li>
+
+  </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
+        Find and add schools
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body">Use the search to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>find eligible schools you can recruit</li>
+        <li>add your new partnerships</li>
+      </ul>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              Search by:
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+            <div class="govuk-form-group">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="name-or-urn">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Name or URN
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="name-or-urn">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Enter name, URN, LAESTAB or UKPRN
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                </div>
+                <div class="govuk-form-group">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input id="include-schools-in-partnership" type="checkbox" checked="checked" name="OpenOnly" value="true" class="govuk-checkboxes__input">
+                        <label for="include-schools-in-partnership" class="govuk-checkboxes__label">Include schools already in a partnership</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Search</button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="govuk-form-group">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="location">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Location
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="location">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Enter postcode, town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                </div>
+                <div class="govuk-form-group">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input id="include-schools-in-partnership" type="checkbox" checked="checked" name="OpenOnly" value="true" class="govuk-checkboxes__input">
+                        <label for="include-schools-in-partnership" class="govuk-checkboxes__label">Include schools already in a partnership</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Search</button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="govuk-form-group">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="local-authority">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Local authority
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="local-authority">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Enter a local authority (LA)
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                </div>
+                <div class="govuk-form-group">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input id="include-schools-in-partnership" type="checkbox" checked="checked" name="OpenOnly" value="true" class="govuk-checkboxes__input">
+                        <label for="include-schools-in-partnership" class="govuk-checkboxes__label">Include schools already in a partnership</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Search</button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-form-group">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+                <label class="govuk-label govuk-radios__label" for="contact-3">
+                  All schools
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-text">
+                    Mobile phone number
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-text" name="contact-by-text" type="tel">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}
