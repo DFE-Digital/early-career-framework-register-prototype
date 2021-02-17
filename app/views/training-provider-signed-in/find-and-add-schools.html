@@ -61,8 +61,8 @@
 
             <div class="govuk-form-group">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="name-or-urn">
-                <label class="govuk-label govuk-radios__label" for="contact">
+                <input class="govuk-radios__input" id="search-by-1" name="search-by" type="radio" value="name-or-urn" data-aria-controls="name-or-urn">
+                <label class="govuk-label govuk-radios__label" for="search-by-1">
                   Name or URN
                 </label>
               </div>
@@ -91,8 +91,8 @@
 
             <div class="govuk-form-group">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="location">
-                <label class="govuk-label govuk-radios__label" for="contact">
+                <input class="govuk-radios__input" id="search-by-2" name="search-by" type="radio" value="location" data-aria-controls="location">
+                <label class="govuk-label govuk-radios__label" for="search-by-2">
                   Location
                 </label>
               </div>
@@ -121,8 +121,8 @@
 
             <div class="govuk-form-group">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="local-authority">
-                <label class="govuk-label govuk-radios__label" for="contact">
+                <input class="govuk-radios__input" id="search-by-3" name="search-by" type="radio" value="local-authority" data-aria-controls="local-authority">
+                <label class="govuk-label govuk-radios__label" for="search-by-3">
                   Local authority
                 </label>
               </div>
@@ -149,21 +149,59 @@
 
 
 
+            <div class="govuk-form-group">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="search-by-4" name="search-by" type="radio" value="mat-network" data-aria-controls="mat-network">
+                <label class="govuk-label govuk-radios__label" for="search-by-4">
+                  Establishment group (MAT / network)
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="mat-network">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Enter name
+                  </label>
+                  <div id="event-name-hint" class="govuk-hint">
+                    You can search for academy trusts and sponsors, local authority maintained school federations and trusts
+                  </div>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                </div>
+                <div class="govuk-form-group">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input id="include-schools-in-partnership" type="checkbox" checked="checked" name="OpenOnly" value="true" class="govuk-checkboxes__input">
+                        <label for="include-schools-in-partnership" class="govuk-checkboxes__label">Include schools already in a partnership</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Search</button>
+                </div>
+              </div>
+            </div>
+
+
+
             <div class="govuk-radios__divider">or</div>
 
             <div class="govuk-form-group">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
-                <label class="govuk-label govuk-radios__label" for="contact-3">
+                <input class="govuk-radios__input" id="search-by-5" name="search-by" type="radio" value="all-schools" data-aria-controls="all-schools">
+                <label class="govuk-label govuk-radios__label" for="search-by-5">
                   All schools
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="all-schools">
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-text">
-                    Mobile phone number
-                  </label>
-                  <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-text" name="contact-by-text" type="tel">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input id="include-schools-in-partnership" type="checkbox" checked="checked" name="OpenOnly" value="true" class="govuk-checkboxes__input">
+                        <label for="include-schools-in-partnership" class="govuk-checkboxes__label">Include schools already in a partnership</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Search</button>
                 </div>
               </div>
             </div>
