@@ -3,10 +3,7 @@
 {% block pageTitle %}
   Abacus Primary School
 {% endblock %}
-
 {% block beforeContent %}
-
-
 
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
@@ -24,7 +21,7 @@
     </li>
 
     <li class="app-navigation__list-item app-navigation__list-item--current">
-      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing">Schools</a>
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
     </li>
 
   </ul>
@@ -32,6 +29,18 @@
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Schools",
+      href: "/training-provider-signed-in/school-listing-2021"
+    },
+    {
+      text: "2021 cohort",
+      href: "/training-provider-signed-in/school-listing-2021"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -52,19 +61,19 @@
   <div class="govuk-grid-row govuk-!-margin-bottom-6">
     <div class="govuk-grid-column-one-third">
       <div class="dashboard-numbers key-number">
-        <p class="govuk-heading-xl">6</p>
-        <p class="govuk-heading-s">participants</p>
+        <p class="govuk-heading-xl">2</p>
+        <p class="govuk-heading-s">participants added by schools</p>
       </div>
     </div>
     <div class="govuk-grid-column-one-third">
       <div class="dashboard-numbers">
-        <p class="govuk-heading-xl">4</p>
+        <p class="govuk-heading-xl">1</p>
         <p class="govuk-heading-s">early career teachers</p>
       </div>
     </div>
     <div class="govuk-grid-column-one-third">
       <div class="dashboard-numbers">
-        <p class="govuk-heading-xl">2</p>
+        <p class="govuk-heading-xl">1</p>
         <p class="govuk-heading-s">Mentors</p>
       </div>
     </div>
@@ -109,6 +118,14 @@
             },
             value: {
               html: "Pupil premium"
+            }
+          },
+          {
+            key: {
+              text: "Induction co-ordinator"
+            },
+            value: {
+              html: '<a href="#">jane.smith@acornprimary.sch.uk</a>'
             }
           }
         ]

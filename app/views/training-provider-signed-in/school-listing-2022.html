@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your schools: 2022 cohort
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+
+<nav class="app-navigation govuk-clearfix">
+  <ul class="app-navigation__list app-width-container">
+
+    <li class="app-navigation__list-item">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
+    </li>
+
+    <li class="app-navigation__list-item app-navigation__list-item--current">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
+    </li>
+
+  </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+        Your schools
+      </h1>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <form class="form top-right" action="find-and-add-schools" method="post" class="govuk-!-margin-bottom-9">
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+        text: "Find and add schools"
+      }) }}
+      </form>
+    </div>
+  </div>
+
+  <nav class="hmcts-sub-navigation" aria-label="Sub navigation">
+    <ul class="hmcts-sub-navigation__list">
+      <li class="hmcts-sub-navigation__item">
+        <a class="hmcts-sub-navigation__link govuk-link--no-visited-state" href="/training-provider-signed-in/school-listing-2021">
+          2021 cohort
+        </a>
+      </li>
+      <li class="hmcts-sub-navigation__item">
+        <a class="hmcts-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="/training-provider-signed-in/school-listing-2022">
+          2022 cohort
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--
+  <div class="govuk-grid-row govuk-!-margin-bottom-3">
+    <div class="govuk-grid-column-full">
+      <h3 class="govuk-heading-l">
+        2022 cohort
+      </h3>
+    </div>
+  </div>
+  -->
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">You cannot recruit in this cohort yet</p>
+    </div>
+  </div>
+
+
+
+{% endblock %}
