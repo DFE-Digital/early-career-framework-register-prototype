@@ -945,19 +945,29 @@
           submitButton.disabled = false
           removeButton.classList.remove("govuk-button--disabled")
         }
+
+
+        const selectAll = document.getElementById("select-all")
+        selectAll.checked = selectedRows === rowSelects.length;
       }
       onRowSelectUpdate()
 
-      const clearCheckboxes = () => {
-        getRowSelects().forEach(el => el.checked = false)
+      const setCheckboxes = (value) => {
+        getRowSelects().forEach(el => el.checked = value)
       }
 
+      const clearAll = () => setCheckboxes(false)
+
       const removeButton = document.getElementById("remove-button")
-      removeButton.addEventListener("click", () => {clearCheckboxes(); onRowSelectUpdate()})
+      removeButton.addEventListener("click", () => {clearAll(); onRowSelectUpdate()})
+      const selectAll = document.getElementById("select-all")
+      selectAll.addEventListener("click", () => {
+        setCheckboxes(selectAll.checked)
+        onRowSelectUpdate()
+      })
 
 
       const rowSelects = getRowSelects()
-      console.log("executing" + rowSelects.length)
       rowSelects.forEach(el => el.addEventListener("change", onRowSelectUpdate))
 
     </script>
