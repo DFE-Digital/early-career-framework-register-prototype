@@ -96,7 +96,22 @@ a.signout {
     line-height: 1.31579;
 }
   .search-results-table .govuk-tag {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .search-results-table .govuk-checkboxes--small .govuk-checkboxes__item {
+        padding-left: 24px;
+  }
+  .search-results-table .govuk-checkboxes--small .govuk-checkboxes__input {
+    top: -10px;
+  }
+  .search-results-table .govuk-checkboxes--small .govuk-checkboxes__label {
+    padding: 0;
+  }
+  .search-results-table .govuk-checkboxes--small .govuk-checkboxes__label:before {
+    top: -1px;
+  }
+  .search-results-table .govuk-checkboxes--small .govuk-checkboxes__label:after {
+    top: 6px;
   }
 
 .index-group {
