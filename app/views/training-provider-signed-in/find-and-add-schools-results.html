@@ -64,20 +64,372 @@
         <h3 class="govuk-heading-s">Filter</h3>
         <a href="#" class="govuk-link clear-filters">Clear all filters</a>
 
-        <div class="govuk-form-group govuk-!-margin-bottom-0 search-filter">
-          <label class="govuk-label govuk-label--s" for="school-name">
-            Search
-          </label>
-          <input class="govuk-input govuk-!-margin-bottom-3" id="school-name" name="school-name" type="text">
+        <div class="govuk-form-group search-filter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <label class="govuk-label govuk-label--s" for="school-name">
+                  Characteristic
+                </label>
+              </legend>
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="characteristic-1" name="characteristic" type="checkbox" value="premium">
+                  <label class="govuk-label govuk-checkboxes__label" for="characteristic-1">
+                    Pupil premium above 40%
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="characteristic-2" name="characteristic" type="checkbox" value="remote">
+                  <label class="govuk-label govuk-checkboxes__label" for="characteristic-2">
+                    Located in remote area
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
         </div>
 
-      </div>
 
+        <div class="govuk-form-group search-filter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <label class="govuk-label govuk-label--s" for="school-name">
+                  Partnership status
+                </label>
+              </legend>
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="partnership-1" name="partnership" type="checkbox" value="in-partnership">
+                  <label class="govuk-label govuk-checkboxes__label" for="partnership-1">
+                    In a partnership
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+
+
+        <div class="govuk-form-group search-filter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <label class="govuk-label govuk-label--s" for="school-name">
+                  MAT / Network
+                </label>
+                <span class="js-counter">1 selected</span>
+              </legend>
+              <div class="app-c-option-select__filter">    <label for="input-b81feadd" class="govuk-label govuk-visually-hidden">
+                Filter Content type
+              </label>
+                  <input name="option-select-filter" id="input-b81feadd" class="app-c-option-select__filter-input govuk-input" type="text" aria-describedby="checkboxes-b60e6f52-count" aria-controls="checkboxes-b60e6f52">
+              </div>
+              <div class="govuk-checkboxes govuk-checkboxes--small checkboxes-max-height">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    All
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Abbey Academies Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    Abbey Park Schools Federation
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Academies Enterprise Trust (AET)
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Academy Transformation Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-6" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-6">
+                    Barnet Early Years Alliance
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-7" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-7">
+                    Barrow Sixth Form College
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    Barry Townsley CBE
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Barton Court Academy Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    BAWB Federation
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Be The Change MAT
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Bath and North East Somerset
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Abbey Academies Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    Abbey Park Schools Federation
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Academies Enterprise Trust (AET)
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Academy Transformation Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-6" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-6">
+                    Barnet Early Years Alliance
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-7" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-7">
+                    Barrow Sixth Form College
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    Barry Townsley CBE
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Barton Court Academy Trust
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    BAWB Federation
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Be The Change MAT
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Bath and North East Somerset
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+
+
+        <div class="govuk-form-group search-filter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <label class="govuk-label govuk-label--s" for="school-name">
+                  Local authority
+                </label>
+              </legend>
+              <div class="app-c-option-select__filter">    <label for="input-b81feadd" class="govuk-label govuk-visually-hidden">
+                Filter Content type
+              </label>
+                  <input name="option-select-filter" id="input-b81feadd" class="app-c-option-select__filter-input govuk-input" type="text" aria-describedby="checkboxes-b60e6f52-count" aria-controls="checkboxes-b60e6f52">
+              </div>
+              <div class="govuk-checkboxes govuk-checkboxes--small checkboxes-max-height">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    All
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Barking and Dagenham
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    Barnet
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Barnsley
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Bath and North East Somerset
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-6" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-6">
+                    Bedford
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-7" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-7">
+                    Bexley
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    All
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Barking and Dagenham
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    Barnet
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Barnsley
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Bath and North East Somerset
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-6" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-6">
+                    Bedford
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-7" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-7">
+                    Bexley
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-1" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-1">
+                    All
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-2" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-2">
+                    Barking and Dagenham
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-3" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-3">
+                    Barnet
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-4" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-4">
+                    Barnsley
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-5" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-5">
+                    Bath and North East Somerset
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-6" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-6">
+                    Bedford
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="la-7" name="all" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="la-7">
+                    Bexley
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
     </div>
 
     <div class="govuk-grid-column-three-quarters">
       <form class="form" action="/training-provider-signed-in/find-and-add-schools-confirm" method="post" class="govuk-!-margin-bottom-8">
         <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Add partnerships with 12 schools</button>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Remove all 10 schools</button>
       </form>
 
       <table class="govuk-table search-results-table">
@@ -85,7 +437,7 @@
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Name</th>
             <th scope="col" class="govuk-table__header">Network</th>
-            <th scope="col" class="govuk-table__header">LA</th>
+            <th scope="col" class="govuk-table__header">Local authority</th>
             <th scope="col" class="govuk-table__header">Status</th>
             <th scope="col" class="govuk-table__header">
               <div class="govuk-checkboxes govuk-checkboxes--small">
@@ -104,7 +456,7 @@
             <td class="govuk-table__cell">Abacus Primary School</td>
             <td class="govuk-table__cell">Banforth Academies Trust</td>
             <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell "></td>
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
@@ -116,8 +468,456 @@
             </td>
           </tr>
 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
         </tbody>
       </table>
+      <nav class="hmcts-pagination" id="pagination-label">
+        <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+        <ul class="hmcts-pagination__list">
+          <li class="hmcts-pagination__item  hmcts-pagination__item--prev">
+            <a class="hmcts-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+          </li>
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=1">1</a></li>
+          <li class="hmcts-pagination__item hmcts-pagination__item--dots">...</li>
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=5">5</a></li>
+          <li class="hmcts-pagination__item hmcts-pagination__item--active">6</li>
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=7">7</a></li>
+          <li class="hmcts-pagination__item hmcts-pagination__item--dots">...</li>
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=10">10</a></li>
+          <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+            <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+          </li>
+        </ul>
+        <p class="hmcts-pagination__results">Showing <b>10</b> to <b>20</b> of <b>256</b> results</p>
+      </nav>
 
 
     </div>
