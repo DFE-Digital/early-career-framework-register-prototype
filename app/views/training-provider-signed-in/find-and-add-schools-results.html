@@ -429,7 +429,7 @@
     <div class="govuk-grid-column-three-quarters">
       <form class="form" action="/training-provider-signed-in/find-and-add-schools-confirm" method="post" class="govuk-!-margin-bottom-8">
         <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Add partnerships with 12 schools</button>
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Remove all 10 schools</button>
+        <button class="govuk-button govuk-button--secondary" id="remove-button" data-module="govuk-button">Remove all 10 schools</button>
       </form>
 
       <table class="govuk-table search-results-table">
@@ -442,8 +442,8 @@
             <th scope="col" class="govuk-table__header">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  <input class="govuk-checkboxes__input" id="select-all" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-all">
                   </label>
                 </div>
               </div>
@@ -460,7 +460,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -485,7 +485,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -501,7 +501,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -517,32 +517,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
-            <td class="govuk-table__cell ">
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -567,7 +542,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -592,39 +567,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -649,41 +592,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
-            <td class="govuk-table__cell ">
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
-            <td class="govuk-table__cell ">
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -699,7 +608,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -715,23 +624,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -756,23 +649,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Abacus Primary School</td>
-            <td class="govuk-table__cell">Banforth Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-            <td class="govuk-table__cell "></td>
-            <td class="govuk-table__cell ">
-              <div class="govuk-checkboxes govuk-checkboxes--small">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -806,7 +683,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -822,7 +699,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -838,7 +715,7 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -854,7 +731,32 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -870,7 +772,41 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--grey">In partnership</strong></td>
+            <td class="govuk-table__cell ">
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -886,7 +822,71 @@
             <td class="govuk-table__cell ">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Abacus Primary School</td>
+            <td class="govuk-table__cell">Banforth Academies Trust</td>
+            <td class="govuk-table__cell ">Stockport</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell ">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input row-select" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                   </label>
                 </div>
@@ -923,5 +923,24 @@
     </div>
 
   </div>
+
+
+    <script>
+      const onRowSelectUpdate = () => {
+        const rowSelects = Array.from(document.getElementsByClassName('row-select'))
+        const selectedRows = rowSelects.filter(el => el.checked).length
+        const submitButton = document.getElementById("name-search-submit")
+        const removeButton = document.getElementById("remove-button")
+        submitButton.innerText = `Add partnerships with ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
+        removeButton.innerText = `Remove all ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
+      }
+
+      onRowSelectUpdate()
+
+      const rowSelects = Array.from(document.getElementsByClassName('row-select'))
+      console.log("executing" + rowSelects.length)
+      rowSelects.forEach(el => el.addEventListener("change", onRowSelectUpdate))
+
+    </script>
 
 {% endblock %}
