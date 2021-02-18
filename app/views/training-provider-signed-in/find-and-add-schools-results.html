@@ -938,6 +938,13 @@
         submitButton.innerText = `Add partnerships with ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
         removeButton.innerText = `Remove all ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
         selectedCount.value = selectedRows
+        if(selectedRows === 0) {
+          submitButton.disabled = true
+          removeButton.classList.add("govuk-button--disabled")
+        } else {
+          submitButton.disabled = false
+          removeButton.classList.remove("govuk-button--disabled")
+        }
       }
       onRowSelectUpdate()
 
