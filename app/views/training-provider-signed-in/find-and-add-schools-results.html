@@ -429,7 +429,7 @@
     <div class="govuk-grid-column-three-quarters">
       <form class="form" action="/training-provider-signed-in/find-and-add-schools-confirm" method="post" class="govuk-!-margin-bottom-8">
         <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Add partnerships with 12 schools</button>
-        <button class="govuk-button govuk-button--secondary" id="remove-button" data-module="govuk-button">Remove all 10 schools</button>
+        <div class="govuk-button govuk-button--secondary" id="remove-button" data-module="govuk-button">Remove all 10 schools</div>
       </form>
 
       <table class="govuk-table search-results-table">
@@ -926,18 +926,29 @@
 
 
     <script>
+      function getRowSelects () {
+        return Array.from(document.getElementsByClassName('row-select'))
+      }
+
       const onRowSelectUpdate = () => {
-        const rowSelects = Array.from(document.getElementsByClassName('row-select'))
+        const rowSelects = getRowSelects()
         const selectedRows = rowSelects.filter(el => el.checked).length
         const submitButton = document.getElementById("name-search-submit")
         const removeButton = document.getElementById("remove-button")
         submitButton.innerText = `Add partnerships with ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
         removeButton.innerText = `Remove all ${selectedRows} school${selectedRows === 1 ? "" : "s"}`
       }
-
       onRowSelectUpdate()
 
-      const rowSelects = Array.from(document.getElementsByClassName('row-select'))
+      const clearCheckboxes = () => {
+        getRowSelects().forEach(el => el.checked = false)
+      }
+
+      const removeButton = document.getElementById("remove-button")
+      removeButton.addEventListener("click", () => {clearCheckboxes(); onRowSelectUpdate()})
+
+
+      const rowSelects = getRowSelects()
       console.log("executing" + rowSelects.length)
       rowSelects.forEach(el => el.addEventListener("change", onRowSelectUpdate))
 
