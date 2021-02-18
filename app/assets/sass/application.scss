@@ -71,6 +71,34 @@ a.signout {
 }
 
 
+.search-filter {
+  padding: 15px;
+  background: #f5f5f5;
+  margin-bottom: 20px;
+}
+  .filter-group {
+    position: relative;
+  }
+  .clear-filters {
+    font-family: "GDS Transport",arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        line-height: 1.1428571429;
+        position: absolute;
+        right: 0px;
+        top: 5px;
+        text-align: right;
+  }
+
+.search-results-table {
+  font-size: 16px;
+    line-height: 1.31579;
+}
+  .search-results-table .govuk-tag {
+    font-size: 14px;
+  }
+
 .index-group {
   background: #f5f5f5;
   padding: 1.5em;
