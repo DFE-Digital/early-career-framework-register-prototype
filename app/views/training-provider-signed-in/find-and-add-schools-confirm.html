@@ -41,7 +41,7 @@
   <div class="govuk-grid-row govuk-!-margin-bottom-5">
     <div class="govuk-grid-column-one-half">
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
-        Add partnerships with these 12 schools
+        Add partnerships with these {{ data['selected-count'] }} schools
       </h1>
     </div>
   </div>
@@ -64,73 +64,13 @@
             <th scope="col" class="govuk-table__header">Local authority</th>
           </tr>
         </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Abacus Primary School</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Bahr Academy</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Camden</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">The Rosary Catholic School</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Cleave Prior Primary School</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Essex</td>
-          </tr>
+        <tbody class="govuk-table__body" id="table-body">
 
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Lorem ipsum dolor sit amet</a></td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell ">Stockport</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Suspendisse auctor</a></td>
-            <td class="govuk-table__cell">Suspendisse purus</td>
-            <td class="govuk-table__cell ">Camden</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Donec vitae faucibus</a></td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell ">Stockport</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Etiam porttitor</a></td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell ">Essex</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Donec vitae faucibus</a></td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell ">Camden</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Etiam porttitor</a></td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell ">Camden</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Abacus Primary School</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Stockport</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Bahr Academy</a></td>
-            <td class="govuk-table__cell">Abbey Academies Trust</td>
-            <td class="govuk-table__cell ">Essex</td>
-          </tr>
         </tbody>
       </table>
 
       <form class="form" action="/training-provider-signed-in/find-and-add-schools-success" method="post" class="govuk-!-margin-bottom-8">
-        <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">I have contracts in place with these 12 schools</button>
+        <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">I have contracts in place with these {{ data["selected-count"]}} schools</button>
       </form>
 
       <form class="form" action="/training-provider-signed-in/find-and-add-schools-results" method="post" class="govuk-!-margin-bottom-8">
@@ -138,5 +78,17 @@
       </form>
     </div>
   </div>
+
+  <script>
+    const selectedCount = {{ data["selected-count"] }}
+    const tableBody = document.getElementById("table-body")
+    for(let i = 0; i < selectedCount; i++) {
+      tableBody.innerHTML += `<tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href='/training-provider-signed-in/school-detail' class="govuk-link--no-visited-state">Abacus Primary School</a></td>
+      <td class="govuk-table__cell">Abbey Academies Trust</td>
+      <td class="govuk-table__cell ">Stockport</td>
+    </tr>`
+    }
+  </script>
 
 {% endblock %}
