@@ -942,10 +942,10 @@
         selectedCount.value = selectedRows
         if(selectedRows === 0) {
           submitButton.disabled = true
-          removeButton.classList.add("govuk-button--disabled")
+          removeButton.style.display = "none"
         } else {
           submitButton.disabled = false
-          removeButton.classList.remove("govuk-button--disabled")
+          removeButton.style.display = "inline-block"
         }
 
 
