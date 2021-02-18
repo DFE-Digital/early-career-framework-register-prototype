@@ -147,11 +147,23 @@ display: block;
   font-size: 16px;
     line-height: 1.31579;
 }
+  .search-results-table .govuk-table__header {
+        padding: 10px 15px 10px 0;
+  }
+  .search-results-table .sub-row {
+    display: block;
+    color: #505a5f;
+    font-weight: normal;
+    font-size: 15px;
+  }
   .search-results-table .govuk-table__cell {
     padding: 15px 20px 14px 0;
   }
   .search-results-table .govuk-tag {
     font-size: 12px;
+  }
+  .search-results-table tr td:last-of-type {
+    padding-right: 0;
   }
   .search-results-table .govuk-checkboxes--small .govuk-checkboxes__item {
         padding-left: 24px;
