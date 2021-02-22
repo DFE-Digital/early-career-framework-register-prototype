@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Journey settings
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Department for Education</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="">
+        <form class="form" action="/start-testing" method="post" class="govuk-!-margin-bottom-8">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
+                  Choose a user journey
+                </h1>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schooldecisionmaker" name="journey-mode" type="radio" value="schooldecisionmaker" {{ checked("journey-mode", "schooldecisionmaker") }}>
+                  <label class="govuk-label govuk-radios__label" for="schooldecisionmaker">
+                    School Decision Maker
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="trainingprovider" name="journey-mode" type="radio" value="trainingprovider" {{ checked("journey-mode", "trainingprovider") }}>
+                  <label class="govuk-label govuk-radios__label" for="trainingprovider">
+                    Training Provider
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
+                  <label class="govuk-label govuk-radios__label" for="noaccount">
+                    No account
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
+            text: "Save journey"
+          }) }}
+        </form>
+      </div>
+
+  </div>
+{% endblock %}

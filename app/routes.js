@@ -5,6 +5,20 @@ const router = express.Router()
 
 
 // Branching for sign in
+router.post('/start-testing', function (req, res) {
+  const journeyMode = req.session.data['journey-mode']
+  if (journeyMode === 'trainingprovider') {
+    res.redirect('/pseudo-email-training-provider-invite')
+  }
+  else if (journeyMode === 'schooldecisionmaker') {
+    res.redirect('/pseudo-email-school-invite')
+  } else {
+    res.redirect('/start')
+  }
+})
+
+
+// Branching for sign in
 router.post('/sign-in-check-email', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'noaccount') {
