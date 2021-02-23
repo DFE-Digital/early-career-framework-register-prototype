@@ -80,146 +80,35 @@
 
   <script>
     const schools = {
-      abacus: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Abacus Primary School</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Oxfordshire</td>
-    </tr>
-    `,
-      banforth: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">The King's School Canterbury</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Canterbury</td>
-    </tr>`,
-      canterbury: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Canterbury Christ Church University</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Canterbury</td>
-    </tr>`,
-      barton: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Barton Court Grammar School</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Hertfordshire</td>
-    </tr>`,
-      orchard: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">The Orchard School</td>
-      <td class="govuk-table__cell">Abbey Multi Academy Trust</td>
-      <td class="govuk-table__cell ">Oxfordshire</td>
-    </tr>`,
-      pilgrim: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Pilgrims' Way Primary School</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Romford</td>
-    </tr>`,
-      stephen: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">St Stephen's Infant School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Bristol</td>
-    </tr>`,
-      stephenj: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">St Stephen's Junior School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Gloucester</td>
-    </tr>`,
-      langton: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Simon Langton Grammar School for Boys</td>
-      <td class="govuk-table__cell">ABNEY TRUST</td>
-      <td class="govuk-table__cell ">Canterbury</td>
-    </tr>`,
-      blean: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Blean Primary School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Norfolk</td>
-    </tr>`,
-      sturry: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Sturry Church of England Primary School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Somerset</td>
-    </tr>`,
-      rose: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">St Rose's Special School</td>
-      <td class="govuk-table__cell">BECKFOOT TRUST</td>
-      <td class="govuk-table__cell ">Stockport</td>
-    </tr>`,
-      uplands: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Uplands Community Primary School</td>
-      <td class="govuk-table__cell">ACADEMY @ WORDEN</td>
-      <td class="govuk-table__cell ">Somerset</td>
-    </tr>`,
-      callowell: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Callowell Primary School</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Norfolk</td>
-    </tr>`,
-      archway: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Archway School</td>
-      <td class="govuk-table__cell">Acer Trust</td>
-      <td class="govuk-table__cell ">Somerset</td>
-    </tr>`,
-      severn: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Severn View Academy</td>
-      <td class="govuk-table__cell">Acer Trust</td>
-      <td class="govuk-table__cell ">North Lincolnshire</td>
-    </tr>`,
-      eastcomb: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Eastcombe Primary School</td>
-      <td class="govuk-table__cell">BECKFOOT TRUST</td>
-      <td class="govuk-table__cell ">Stockport</td>
-    </tr>`,
-      thomas: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Thomas Keble School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Norfolk</td>
-    </tr>`,
-      amberley: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Amberley Parochial School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">North Lincolnshire</td>
-    </tr>`,
-      maidenhill: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Maidenhill School</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">Stockport</td>
-    </tr>`,
-      croft: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">The Croft Primary School</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell ">Stockport</td>
-    </tr>`,
-      wycliffe: `
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Wycliffe College</td>
-      <td class="govuk-table__cell">Banforth Academies Trust</td>
-      <td class="govuk-table__cell ">North Lincolnshire</td>
-    </tr>`
+      abacus: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Abacus Primary School</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Oxfordshire</td>\n    </tr>\n    ",
+      banforth: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>The King's School Canterbury</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Canterbury</td>\n    </tr>",
+      canterbury: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Canterbury Christ Church University</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Canterbury</td>\n    </tr>",
+      barton: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Barton Court Grammar School</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Hertfordshire</td>\n    </tr>",
+      orchard: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>The Orchard School</td>\n      <td class='govuk-table__cell'>Abbey Multi Academy Trust</td>\n      <td class='govuk-table__cell '>Oxfordshire</td>\n    </tr>",
+      pilgrim: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Pilgrims' Way Primary School</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Romford</td>\n    </tr>",
+      stephen: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>St Stephen's Infant School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Bristol</td>\n    </tr>",
+      stephenj: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>St Stephen's Junior School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Gloucester</td>\n    </tr>",
+      langton: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Simon Langton Grammar School for Boys</td>\n      <td class='govuk-table__cell'>ABNEY TRUST</td>\n      <td class='govuk-table__cell '>Canterbury</td>\n    </tr>",
+      blean: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Blean Primary School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Norfolk</td>\n    </tr>",
+      sturry: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Sturry Church of England Primary School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Somerset</td>\n    </tr>",
+      rose: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>St Rose's Special School</td>\n      <td class='govuk-table__cell'>BECKFOOT TRUST</td>\n      <td class='govuk-table__cell '>Stockport</td>\n    </tr>",
+      uplands: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Uplands Community Primary School</td>\n      <td class='govuk-table__cell'>ACADEMY @ WORDEN</td>\n      <td class='govuk-table__cell '>Somerset</td>\n    </tr>",
+      callowell: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Callowell Primary School</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Norfolk</td>\n    </tr>",
+      archway: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Archway School</td>\n      <td class='govuk-table__cell'>Acer Trust</td>\n      <td class='govuk-table__cell '>Somerset</td>\n    </tr>",
+      severn: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Severn View Academy</td>\n      <td class='govuk-table__cell'>Acer Trust</td>\n      <td class='govuk-table__cell '>North Lincolnshire</td>\n    </tr>",
+      eastcomb: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Eastcombe Primary School</td>\n      <td class='govuk-table__cell'>BECKFOOT TRUST</td>\n      <td class='govuk-table__cell '>Stockport</td>\n    </tr>",
+      thomas: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Thomas Keble School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Norfolk</td>\n    </tr>",
+      amberley: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Amberley Parochial School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>North Lincolnshire</td>\n    </tr>",
+      maidenhill: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Maidenhill School</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>Stockport</td>\n    </tr>",
+      croft: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>The Croft Primary School</td>\n      <td class='govuk-table__cell'></td>\n      <td class='govuk-table__cell '>Stockport</td>\n    </tr>",
+      wycliffe: "\n    <tr class='govuk-table__row'>\n      <td class='govuk-table__cell'>Wycliffe College</td>\n      <td class='govuk-table__cell'>Banforth Academies Trust</td>\n      <td class='govuk-table__cell '>North Lincolnshire</td>\n    </tr>"
     }
 
-    const selectedCount = {{ data["selected-count"] }}
-    const selectedSchools = "{{ data["selected-school"] }}".split(",")
+    const selectedCount = {{ data['selected-count'] }}
+    const selectedSchools = '{{ data['selected-school'] }}'.split(',')
     console.log(selectedSchools)
-    const tableBody = document.getElementById("table-body")
-    selectedSchools.forEach(school => tableBody.innerHTML += schools[school])
+    const tableBody = document.getElementById('table-body')
+    selectedSchools.forEach(function(school) {tableBody.innerHTML += schools[school]})
 
   </script>
 
