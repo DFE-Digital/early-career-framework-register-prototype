@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Find your school
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-1">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/school-resend-nomination-email/resend-nomination-3" method="post" class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+            {{ govukInput({
+            label: {
+              text: "Find your school",
+              classes: "govuk-label--l"
+            },
+            hint: {
+              text: "Enter name, URN, LAESTAB or UKPRN"
+            },
+            classes: "govuk-input--width-20",
+            id: "school-lookup",
+            name: "school-lookup"
+          }) }}
+        </div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

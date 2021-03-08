@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  School Lead has been nominated
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-!-margin-bottom-8">
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+      {{ govukPanel({
+        titleText: "School Lead has been nominated"
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>The new lead will be notified</li>
+        <li>They can then login and do stuff</li>
+        <li>All future ECF comms will go to this person</li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

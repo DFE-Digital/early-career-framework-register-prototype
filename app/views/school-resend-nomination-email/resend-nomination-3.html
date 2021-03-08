@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm and send nomination instructions to the school
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-2">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Confirm and send nomination instructions to the school</h1>
+
+      <div class="govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">School details</h2>
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Acorn Primary School"
+            }
+          },
+          {
+            key: {
+              text: "URN"
+            },
+            value: {
+              text: "9348523"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU"
+            }
+          }
+        ]
+      }) }}
+      <p class="govuk-body"><a class="govuk-link--no-visited-state" href="/school-resend-nomination-email/resend-nomination-1">Change school</a></p>
+      </div>
+
+      <form class="form" action="/school-resend-nomination-email/resend-nomination-4" method="post" class="govuk-!-margin-bottom-8">
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
