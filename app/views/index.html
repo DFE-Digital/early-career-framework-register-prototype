@@ -26,6 +26,8 @@
           <dd>Link to share with user testing participants</dd>
           <dt><a href='/start' class="govuk-link--no-visited-state">Start page</a></dt>
           <dd>Front door to the service, probably hosted on GOVUK</dd>
+          <dt><a href='/sign-in' class="govuk-link--no-visited-state">Sign in</a></dt>
+          <dd>Sign in page for all users of the service</dd>
         </dl>
       </div>
 
@@ -36,9 +38,12 @@
           <dd>School admin staff (or those monitoring the "main GIAS email address") recieve an email and are asked to nominate their school leads.</dd>
           <dt><a href='school-resend-nomination-email/resend-nomination-1' class="govuk-link--no-visited-state">Resend the School Lead nomination email</a></dt>
           <dd>Users trigger the resending of the nomination email, because either the original email has been lost / deleted or the link in it has expired.</dd>
+          <dt><a href='school-lead-notification-and-sign-in/notification-of-school-lead' class="govuk-link--no-visited-state">Notification of school lead and sign in</a></dt>
+          <dd>School lead finds out via email that they have been nominated, and follows instructions to sign in.</dd>
         </dl>
       </div>
 
+      <!--
       <div class="index-group">
         <h2 class="govuk-heading-m">Training Providers (LPs / DPs)</h2>
         <dl class='govuk-list app-list--definition'>
@@ -50,6 +55,7 @@
           <dd>Where they can view schools who they have partnered with</dd>
         </dl>
       </div>
+      -->
 
       <p classs="govuk-!-margin-bottom-9">&nbsp;</p>
 
@@ -67,21 +73,41 @@
               </legend>
               <div class="govuk-radios govuk-radios--small">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="schooldecisionmaker" name="journey-mode" type="radio" value="schooldecisionmaker" {{ checked("journey-mode", "schooldecisionmaker") }}>
-                  <label class="govuk-label govuk-radios__label" for="schooldecisionmaker">
-                    School Decision Maker
+                  <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
+                  <label class="govuk-label govuk-radios__label" for="noaccount">
+                    No account
                   </label>
                 </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolNoDecision" name="journey-mode" type="radio" value="schoolNoDecision" {{ checked("journey-mode", "schoolNoDecision") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolNoDecision">
+                    School not in partnership or not chosen provision yet
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolFIP" name="journey-mode" type="radio" value="schoolFIP" {{ checked("journey-mode", "schoolFIP") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolFIP">
+                    School chosen FIP (or have entered into a partnership)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolCIP" name="journey-mode" type="radio" value="schoolCIP" {{ checked("journey-mode", "schoolCIP") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolCIP">
+                    School chosen CIP
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolJustReleased" name="journey-mode" type="radio" value="schoolJustReleased" {{ checked("journey-mode", "schoolJustReleased") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolJustReleased">
+                    School just released or removed by provider
+                  </label>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="trainingprovider" name="journey-mode" type="radio" value="trainingprovider" {{ checked("journey-mode", "trainingprovider") }}>
                   <label class="govuk-label govuk-radios__label" for="trainingprovider">
                     Training Provider
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
-                  <label class="govuk-label govuk-radios__label" for="noaccount">
-                    No account
                   </label>
                 </div>
               </div>

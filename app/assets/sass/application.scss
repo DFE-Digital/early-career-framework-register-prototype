@@ -549,3 +549,9 @@ form.top-right {
 .hmcts-sub-navigation__link[aria-current="page"]:focus:before {
   background-color: #0b0c0c;
 }
+
+.govuk-section-break {
+  width: 100%;
+    margin-top: 10px;
+    float: left;
+}

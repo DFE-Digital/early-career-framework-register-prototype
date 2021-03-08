@@ -38,9 +38,8 @@ router.post('/dashboard', function (req, res) {
   if (journeyMode === 'trainingprovider') {
     res.redirect('/training-provider-signed-in/dashboard-training-provider')
   }
-  // disabling school sign in for the timebeing
-  else if (journeyMode === 'schooldecisionmaker') {
-    res.redirect('/sign-in-no-account')
+  else if (journeyMode === 'schoolNoDecision') {
+    res.redirect('/school-signed-in/no-decision/prompt-choose-provision')
   } else {
     res.redirect('/sign-in-no-account')
   }
