@@ -33,7 +33,7 @@
   html: 'This isn&apos;t a real service'
 }) }}
 {% endblock %}
-
+<a class="govuk-back-link" href="/school-signed-in/fip/fip-cohort-detail">Back</a>
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -41,7 +41,7 @@
 
       <h1 class="govuk-heading-l">Estimated number of participants starting in 2021</h1>
 
-      <form class="form" action="/school-nominate-school-lead/nominate-school-lead-3" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="/school-signed-in/fip/fip-cohort-detail" method="post" class="govuk-!-margin-bottom-8">
         <div class="govuk-form-group">
           {{ govukInput({
             label: {

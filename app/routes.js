@@ -49,7 +49,7 @@ router.post('/dashboard', function (req, res) {
 router.post('/school-signed-in/no-decision/prompt-choose-provision', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-estimated-participants')
+    res.redirect('/school-signed-in/fip/fip-cohort-detail')
   } else {
     res.redirect('/school-signed-in/cip/cip-course-choice')
   }
