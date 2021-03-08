@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How do you want to run your induction in the 2021/22 academic year?
+  What training materials do you want this cohort to use?
 {% endblock %}
 
 {% block header %}
@@ -39,33 +39,34 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Welcome to your account</h1>
+      <h1 class="govuk-heading-l">What training materials do you want the 2021/22 cohort to use?</h1>
 
-      <p class="govuk-body govuk-!-margin-bottom-7">To confirm your induction programme, we will ask you a few quick questions.</p>
+      <p class="govuk-body">Probably some note here that it's not possible to switch between training materials after a particular date, or have students using different training materials...</p>
+
+      <p class="govuk-body">A link to some <a href="#">guidance comparing and previewing</a> different course materials.</p>
 
       <form class="form" action="/school-signed-in/no-decision/prompt-choose-provision" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          idPrefix: "journey-mode",
-          name: "journey-mode",
-          fieldset: {
-            legend: {
-              text: "How do you want to run your induction in the 2021/22 academic year?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "Maybe some links to further guidance here too as hint text."
-          },
+          idPrefix: "cip-course-choice",
+          name: "cip-course-choice",
+
           items: [
             {
-              value: "schoolFIP",
-              text: "Use a training provider funded by the Department for Education"
+              value: "ambition",
+              text: "Ambition Institute"
             },
             {
-              value: "schoolCIP",
-              text: "Use the free development materials"
+              value: "EDT",
+              text: "Education Development Trust"
+            },
+            {
+              value: "TeachFirst",
+              text: "Teach First"
+            },
+            {
+              value: "UCL",
+              text: "UCL Early Career Teacher Consortium"
             }
           ]
         }) }}

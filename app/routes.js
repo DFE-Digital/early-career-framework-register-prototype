@@ -45,23 +45,13 @@ router.post('/dashboard', function (req, res) {
   }
 })
 
-// Branching for register-school-2
-router.post('/register-school/register-school-3', function (req, res) {
-  const willYouBeTrainingAnswer = req.session.data['will-you-be-training']
-  if (willYouBeTrainingAnswer === 'yes') {
-    res.redirect('/register-school/register-school-3')
+// Branching on choosing provision
+router.post('/school-signed-in/no-decision/prompt-choose-provision', function (req, res) {
+  const journeyMode = req.session.data['journey-mode']
+  if (journeyMode === 'schoolFIP') {
+    res.redirect('/school-signed-in/fip/fip-estimated-participants')
   } else {
-    res.redirect('/register-school/register-later-no-participants')
-  }
-})
-
-// Branching for register-school-3
-router.post('/register-school/register-school-4', function (req, res) {
-  const chosenInductionTraining = req.session.data['chosen-induction-training']
-  if (chosenInductionTraining === 'yes') {
-    res.redirect('/register-school/register-school-4')
-  } else {
-    res.redirect('/register-school/register-later-no-decision')
+    res.redirect('/school-signed-in/cip/cip-course-choice')
   }
 })
 

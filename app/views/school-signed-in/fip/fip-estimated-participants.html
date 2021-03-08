@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Estimated number of participants starting in 2021
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+  homepageUrl: "/start",
+  serviceName: "Induction for early career teachers",
+  serviceUrl: "/start",
+  navigation: [
+    {
+      href: "#1",
+      text: data['school-email-address'],
+      active: false
+    },
+    {
+      href: "/sign-out",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Estimated number of participants starting in 2021</h1>
+
+      <form class="form" action="/school-nominate-school-lead/nominate-school-lead-3" method="post" class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+          {{ govukInput({
+            label: {
+              text: "Estimated number of ECTs"
+            },
+            classes: "govuk-input--width-20",
+            id: "estimated-ects",
+            name: "estimated-ects",
+            spellcheck: false
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Estimated number of Mentors"
+            },
+            classes: "govuk-input--width-20",
+            id: "estimated-mentors",
+            name: "estimated-mentors",
+            spellcheck: false
+          }) }}
+        </div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

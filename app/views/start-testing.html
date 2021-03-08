@@ -35,31 +35,51 @@
 
 
       <div class="">
-        <form class="form" action="/start-testing" method="post" class="govuk-!-margin-bottom-8">
+        <form class="form" action="/index" method="post" class="govuk-!-margin-bottom-8">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
-                  Choose a user journey
+                <h1 class="govuk-fieldset__legend--xl">
+                  Set testing scenario
                 </h1>
               </legend>
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="schooldecisionmaker" name="journey-mode" type="radio" value="schooldecisionmaker" {{ checked("journey-mode", "schooldecisionmaker") }}>
-                  <label class="govuk-label govuk-radios__label" for="schooldecisionmaker">
-                    School Decision Maker
+                  <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
+                  <label class="govuk-label govuk-radios__label" for="noaccount">
+                    No account
                   </label>
                 </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolNoDecision" name="journey-mode" type="radio" value="schoolNoDecision" {{ checked("journey-mode", "schoolNoDecision") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolNoDecision">
+                    School not in partnership or not chosen provision yet
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolFIP" name="journey-mode" type="radio" value="schoolFIP" {{ checked("journey-mode", "schoolFIP") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolFIP">
+                    School chosen FIP (or have entered into a partnership)
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolCIP" name="journey-mode" type="radio" value="schoolCIP" {{ checked("journey-mode", "schoolCIP") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolCIP">
+                    School chosen CIP
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="schoolJustReleased" name="journey-mode" type="radio" value="schoolJustReleased" {{ checked("journey-mode", "schoolJustReleased") }}>
+                  <label class="govuk-label govuk-radios__label" for="schoolJustReleased">
+                    School just released or removed by provider
+                  </label>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="trainingprovider" name="journey-mode" type="radio" value="trainingprovider" {{ checked("journey-mode", "trainingprovider") }}>
                   <label class="govuk-label govuk-radios__label" for="trainingprovider">
                     Training Provider
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
-                  <label class="govuk-label govuk-radios__label" for="noaccount">
-                    No account
                   </label>
                 </div>
               </div>
