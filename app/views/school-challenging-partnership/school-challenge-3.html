@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Challenge has been submitted and partnership removed
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-!-margin-bottom-8">
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+      {{ govukPanel({
+        titleText: "Challenge has been submitted and partnership removed"
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the training provider will be notified</li>
+        <li>you can continue with your induction as planned</li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
