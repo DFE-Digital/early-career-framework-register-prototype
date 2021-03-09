@@ -80,6 +80,10 @@
                 <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
                   Action required
                 </strong>
+              {% elseif (data['estimated-ects'] == "") %}
+                <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+                  Action required
+                </strong>
               {% else %}
                 <strong class="govuk-tag app-task-list__tag">
                   Complete
