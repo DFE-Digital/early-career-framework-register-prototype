@@ -41,7 +41,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if (data['estimated-ects'] != "") %}
+      {% if (data['estimated-ects'] === undefined) %}
+
+
+      {% else %}
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
         {% set html %}
@@ -73,7 +76,7 @@
                   Enter your estimated number of participants
                 </a>
               </span>
-              {% if (data['estimated-ects'] == "") %}
+              {% if (data['estimated-ects'] === undefined) %}
                 <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
                   Action required
                 </strong>
