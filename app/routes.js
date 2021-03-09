@@ -52,7 +52,7 @@ router.post('/school-signed-in/no-decision/prompt-choose-provision', function (r
   if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-cohort-detail')
   } else {
-    res.redirect('/school-signed-in/cip/cip-course-choice')
+    res.redirect('/school-signed-in/cip/cip-cohort-detail')
   }
 })
 
