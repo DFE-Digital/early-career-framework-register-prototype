@@ -41,6 +41,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if (data['cip-course-choice']  === undefined) %}
+
+      {% else %}
+
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+        {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+          Course choice has been saved
+        </h3>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+        html: html,
+        type: 'success'
+        }) }}
+
+      {% endif %}
+
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021 cohort</h1>
       <p class="govuk-body-l govuk-!-margin-bottom-8">Using the free development materials</p>
 
@@ -57,9 +75,15 @@
                   Choose your CIP course
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
-                Action required
-              </strong>
+              {% if (data['cip-course-choice'] === undefined) %}
+                <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+                  Action required
+                </strong>
+              {% else %}
+                <strong class="govuk-tag app-task-list__tag">
+                  Complete
+                </strong>
+              {% endif %}
             </li>
 
             <li class="app-task-list__item">

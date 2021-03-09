@@ -3,7 +3,6 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-
 // Branching for sign in
 router.post('/start-testing', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
