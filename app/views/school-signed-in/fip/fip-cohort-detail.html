@@ -7,7 +7,7 @@
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
-  homepageUrl: "/start",
+  homepageUrl: "/index",
   serviceName: "Induction for early career teachers",
   serviceUrl: "/start",
   navigation: [
@@ -77,11 +77,11 @@
                 </a>
               </span>
               {% if (data['estimated-ects'] === undefined) %}
-                <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+                <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                   Action required
                 </strong>
               {% elseif (data['estimated-ects'] == "") %}
-                <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+                <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                   Action required
                 </strong>
               {% else %}
@@ -97,7 +97,7 @@
                   Find a training provider and form a partnership
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+              <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                 Action required
               </strong>
             </li>
@@ -108,7 +108,7 @@
                   Give training provider GDPR permissions etc.
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+              <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                 Action required
               </strong>
             </li>
