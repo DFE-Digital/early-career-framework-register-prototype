@@ -37,9 +37,10 @@ router.post('/dashboard', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'trainingprovider') {
     res.redirect('/training-provider-signed-in/dashboard-training-provider')
-  }
-  else if (journeyMode === 'schoolNoDecision') {
+  } else if (journeyMode === 'schoolNoDecision') {
     res.redirect('/school-signed-in/no-decision/prompt-choose-provision')
+  } else if (journeyMode === 'schoolFIP') {
+    res.redirect('/school-signed-in/fip/fip-choose-cohort')
   } else {
     res.redirect('/sign-in-no-account')
   }
