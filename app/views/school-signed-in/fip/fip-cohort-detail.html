@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  2021 cohort
+  2021
 {% endblock %}
 
 {% block header %}
@@ -60,8 +60,8 @@
 
       {% endif %}
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021 cohort</h1>
-      <p class="govuk-body-l govuk-!-margin-bottom-8">Training provider funded by DfE</p>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021</h1>
+      <p class="govuk-body-l govuk-!-margin-bottom-8">Using a training provider funded by the DfE</p>
 
       <ol class="app-task-list">
         <li>
@@ -73,7 +73,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="/school-signed-in/fip/fip-estimated-participants" aria-describedby="eligibility-status">
-                  Enter your estimated number of participants
+                  Add estimated numbers of teachers and mentors
                 </a>
               </span>
               {% if (data['estimated-ects'] === undefined) %}
@@ -94,7 +94,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="/school-signed-in/fip/fip-find-training-provider" aria-describedby="eligibility-status">
-                  Find a training provider and form a partnership
+                  Sign up with a provider
                 </a>
               </span>
               {% if (data['FIPStatus'] == "inPartnership") %}
@@ -111,7 +111,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="#" aria-describedby="eligibility-status">
-                  Give training provider GDPR permissions etc.
+                  Read and accept privacy and data policy
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
@@ -121,7 +121,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Add participants to your cohort
+                  Add teachers and mentors
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
                 Cannot start yet

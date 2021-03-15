@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  How do you want to run your induction in the 2021/22 academic year?
+  Welcome
 {% endblock %}
 
 {% block header %}
@@ -39,9 +39,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Welcome to your account</h1>
-
-      <p class="govuk-body govuk-!-margin-bottom-7">To confirm your induction programme, we will ask you a few quick questions.</p>
+      <h1 class="govuk-heading-xl">Welcome</h1>
 
       <form class="form" action="/school-signed-in/no-decision/prompt-choose-provision" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -50,22 +48,22 @@
           name: "journey-mode",
           fieldset: {
             legend: {
-              text: "How do you want to run your induction in the 2021/22 academic year?",
+              text: "Which programme do you want to run in the 2021/22 academic year?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Maybe some links to further guidance here too as hint text."
+            text: "See our guidance on programmes if you’re not sure."
           },
           items: [
             {
               value: "schoolFIP",
-              text: "Use a training provider funded by the Department for Education"
+              text: "a programme delivered by a training provider, funded by the Department for Education (DfE)"
             },
             {
               value: "schoolCIP",
-              text: "Use the free development materials"
+              text: "a programme delivered by the school, using accredited materials"
             }
           ]
         }) }}
