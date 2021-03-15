@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  2021 cohort
+  2021
 {% endblock %}
 
 {% block header %}
@@ -59,8 +59,8 @@
 
       {% endif %}
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021 cohort</h1>
-      <p class="govuk-body-l govuk-!-margin-bottom-8">Using the free development materials</p>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021</h1>
+      <p class="govuk-body-l govuk-!-margin-bottom-8">Training using accredited materials.</p>
 
       <ol class="app-task-list">
         <li>
@@ -72,23 +72,23 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-course-choice" aria-describedby="eligibility-status">
-                  Choose your CIP course
+                  Choose your training materials
                 </a>
               </span>
               {% if (data['cip-course-choice'] === undefined) %}
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                  Action required
+                  To do
                 </strong>
               {% else %}
                 <strong class="govuk-tag app-task-list__tag">
-                  Complete
+                  Done
                 </strong>
               {% endif %}
             </li>
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Add participants to your cohort
+                  Add teachers and mentors
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
                 Cannot start yet
