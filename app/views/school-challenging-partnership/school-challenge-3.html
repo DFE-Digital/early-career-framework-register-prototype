@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Challenge has been submitted and partnership removed
+  Your report has been submitted
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,14 +22,15 @@
       <div class="govuk-!-margin-bottom-8">
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
       {{ govukPanel({
-        titleText: "Challenge has been submitted and partnership removed"
+        titleText: "Your report has been submitted"
       }) }}
       </div>
 
       <h3 class="govuk-heading-m">What happens next</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li>the training provider will be notified</li>
-        <li>you can continue with your induction as planned</li>
+        <li>they may also contact you to discuss any issues</li>
+        <li>if you do not hear from a training provider, your issue will be resolved directly</li>
       </ul>
 
     </div>

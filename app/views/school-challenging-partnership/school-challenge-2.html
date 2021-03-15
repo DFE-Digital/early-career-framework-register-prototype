@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Challenge or report a mistake with a partnership
+  Report that your school has been signed up incorrectly
 {% endblock %}
 
 {% block header %}
@@ -28,9 +28,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Challenge or report a mistake with the partnership between Acorn Valley School and Eduction Development Trust</h1>
+      <h1 class="govuk-heading-xl">Report that your school has been signed up incorrectly</h1>
 
-      <p class="govuk-body govuk-!-margin-bottom-7">You may have only had contact with a delivery partner (someone working on behalf of The Education Development Trust). Check before you continue.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have received a confirmation from {Delivery partner} but you believe this is incorrect.</p>
 
       <form class="form" action="/school-challenging-partnership/school-challenge-3" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -61,30 +61,23 @@
           items: [
             {
               value: "alreadyPartnered",
-              text: "I have already partnered with a different training provider"
+              text: "I have already signed a contract with another provider"
+            },
+            {
+              value: "notAgreedNotSigned",
+              text: "We have not agreed or signed a contract"
             },
             {
               value: "dontRecognise",
-              text: "I don't recognise this training provider"
-            },
-            {
-              value: "changedMind",
-              text: "I have changed my mind"
+              text: "I do not recognise this training provider"
             },
             {
               value: "noInductions",
-              text: "I'm not doing any inductions this year"
+              text: "We do not have any early career teachers this year"
             },
             {
               value: "mistake",
               text: "This looks like a mistake"
-            },
-            {
-              value: "mistake",
-              text: "Other",
-                conditional: {
-                html: otherHtml
-              }
             }
           ]
         }) }}
