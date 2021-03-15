@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Nominate a school lead
+  Nominate an induction tutor
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,13 +20,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Nominate a school lead</h1>
+      <h1 class="govuk-heading-xl">Nominate an induction tutor</h1>
 
-      <p class="govuk-body">This person will be in charge of;</p>
+      <p class="govuk-body">This is someone who is responsible for running induction at your school.</p>
+      <p class="govuk-body">They will:</p>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
-        <li>Adding ECTs and Mentors to the platform</li>
-        <li>Making decisions on behalf of the school and telling DfE</li>
-        <li>etc</li>
+        <li>confirm the type of induction programme your school wants to run</li>
+        <li>tell us which early career teachers and mentors are starting a programme</li>
+        <li>receive any future notifications about this service</li>
       </ul>
 
       <form class="form" action="/school-resend-nomination-email/resend-nomination-2" method="post" class="govuk-!-margin-bottom-8">
