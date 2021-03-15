@@ -43,7 +43,7 @@
                   Choose your user testing scenario
                 </h1>
               </legend>
-              <div class="govuk-radios">
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="noaccount" name="journey-mode" type="radio" value="noaccount" {{ checked("journey-mode", "noaccount") }}>
                   <label class="govuk-label govuk-radios__label" for="noaccount">
@@ -58,15 +58,33 @@
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="schoolFIP" name="journey-mode" type="radio" value="schoolFIP" {{ checked("journey-mode", "schoolFIP") }}>
+                  <input class="govuk-radios__input" id="schoolFIP" name="journey-mode" data-aria-controls="conditional-FIP" type="radio" value="schoolFIP" {{ checked("journey-mode", "schoolFIP") }}>
                   <label class="govuk-label govuk-radios__label" for="schoolFIP">
-                    School chosen FIP (or have entered into a partnership)
+                    School has chosen FIP
                   </label>
                 </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-FIP">
+
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="FIPStatus" name="FIPStatus" type="checkbox" value="inPartnership" {{ checked("FIPStatus", "inPartnership") }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="FIPStatus">
+                            In partnership
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                 </div>
+
+
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="schoolCIP" name="journey-mode" type="radio" value="schoolCIP" {{ checked("journey-mode", "schoolCIP") }}>
                   <label class="govuk-label govuk-radios__label" for="schoolCIP">
-                    School chosen CIP
+                    School has chosen CIP
                   </label>
                 </div>
                 <div class="govuk-radios__item">
