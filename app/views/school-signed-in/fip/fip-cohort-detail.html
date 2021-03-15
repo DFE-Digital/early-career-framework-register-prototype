@@ -78,15 +78,15 @@
               </span>
               {% if (data['estimated-ects'] === undefined) %}
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                  Action required
+                  To do
                 </strong>
               {% elseif (data['estimated-ects'] == "") %}
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                  Action required
+                  In progress
                 </strong>
               {% else %}
                 <strong class="govuk-tag app-task-list__tag">
-                  Complete
+                  Done
                 </strong>
               {% endif %}
             </li>
@@ -99,11 +99,11 @@
               </span>
               {% if (data['FIPStatus'] == "inPartnership") %}
                 <strong class="govuk-tag app-task-list__tag">
-                  Complete
+                  Done
                 </strong>
               {% else %}
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                  Action required
+                  To do
                 </strong>
               {% endif %}
             </li>
@@ -115,7 +115,7 @@
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                Action required
+                To do
               </strong>
             </li>
 

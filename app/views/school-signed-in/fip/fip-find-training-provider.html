@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Estimated number of participants starting in 2021
+  Sign up with a training provider
 {% endblock %}
 
 {% block header %}
@@ -40,8 +40,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Form partnership with training provider</h1>
+      <span class="govuk-caption-m">2021</span>
+      <h1 class="govuk-heading-l">Sign up with a training provider</h1>
 
       {% if (data['FIPStatus'] == "inPartnership") %}
 
@@ -71,9 +71,13 @@
 
       {% else %}
 
-        <p class="govuk-body">You need to form a partnership in order for training to be delivered.</p>
-        <p class="govuk-body"><a class="govuk-link--no-visited-state" href="/school-signed-in/fip/fip-estimated-participants" aria-describedby="eligibility-status">Learn about how to choose a training provider</a>.</p>
-        <p>When you have formed a partnership, the training provider will tell DfE. You'll be notified of this new partnership by email and this page will be updated. It may take a few weeks for this to happen.</p>
+        <p class="govuk-body">You need to sign a contract with a training provider so they can deliver your programme.</p>
+        <p class="govuk-body"><a class="govuk-link--no-visited-state" href="#" aria-describedby="eligibility-status">Find a provider</a>.</p>
+        <h3 class="govuk-heading-m">Updates</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>you'll get an email when the provider has confirmed your contract with the DfE</li>
+          <li>this may take a few weeks but this page will automatically update</li>
+        </ul>
 
       {% endif %}
 
