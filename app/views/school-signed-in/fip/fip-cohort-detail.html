@@ -97,9 +97,15 @@
                   Find a training provider and form a partnership
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
-                Action required
-              </strong>
+              {% if (data['FIPStatus'] == "inPartnership") %}
+                <strong class="govuk-tag app-task-list__tag">
+                  Complete
+                </strong>
+              {% else %}
+                <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
+                  Action required
+                </strong>
+              {% endif %}
             </li>
 
             <li class="app-task-list__item">
