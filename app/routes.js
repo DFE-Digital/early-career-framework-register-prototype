@@ -18,6 +18,7 @@ router.post('/start-testing', function (req, res) {
 
 
 // Branching for sign in
+/*
 router.post('/sign-in-check-email', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'noaccount') {
@@ -29,7 +30,7 @@ router.post('/sign-in-check-email', function (req, res) {
   } else {
     res.redirect('/sign-in-check-email')
   }
-})
+})*/
 
 // Branching for access to dashboard (/sign-in-continue-to-account)
 router.post('/dashboard', function (req, res) {
