@@ -41,24 +41,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if (data['cip-course-choice']  === undefined) %}
-
-      {% else %}
-
-        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-        {% set html %}
-        <h3 class="govuk-notification-banner__heading">
-          Course choice has been saved
-        </h3>
-        {% endset %}
-
-        {{ govukNotificationBanner({
-        html: html,
-        type: 'success'
-        }) }}
-
-      {% endif %}
-
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021</h1>
       <p class="govuk-body-l govuk-!-margin-bottom-8">Training using accredited materials.</p>
 
@@ -88,7 +70,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Add teachers and mentors
+                  <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-add-participants">Add teachers and mentors</a>
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
                 Cannot start yet

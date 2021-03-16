@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add teachers and mentors
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "Induction for early career teachers",
+  serviceUrl: "/start",
+  navigation: [
+    {
+      href: "#1",
+      text: data['school-email-address'],
+      active: false
+    },
+    {
+      href: "/sign-out",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/school-signed-in/cip/cip-cohort-detail">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-m">2021</span>
+      <h1 class="govuk-heading-l">Add teachers and mentors</h1>
+
+      <p class="govuk-body">You will be able to start adding your ECTs and Mentors in July. We will notify you when you can start doing this.</p>
+      <p class="govuk-body">In the meantime, it may help to start collecting information about each participant;</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>First name</li>
+        <li>Last name</li>
+        <li>Teacher reference number (TRN)</li>
+        <li>Date of birth</li>
+        <li>Email address</li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
