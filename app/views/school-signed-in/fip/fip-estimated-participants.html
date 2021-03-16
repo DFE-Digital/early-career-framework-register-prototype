@@ -42,14 +42,12 @@
 
       <span class="govuk-caption-m">2021</span>
       <h1 class="govuk-heading-l">How many early career teachers and mentors do you expect to have in your programme this year?</h1>
+      <p class="govuk-body">These can be rough estimates.</p>
       <form class="form" action="/school-signed-in/fip/fip-cohort-detail" method="post" class="govuk-!-margin-bottom-8">
         <div class="govuk-form-group">
           {{ govukInput({
             label: {
               text: "Number of early career teachers"
-            },
-            hint: {
-              text: "This can be a rough estimate"
             },
             classes: "govuk-input--width-20",
             id: "estimated-ects",
@@ -60,9 +58,6 @@
           {{ govukInput({
             label: {
               text: "Number of mentors"
-            },
-            hint: {
-              text: "This can be a rough estimate"
             },
             classes: "govuk-input--width-20",
             id: "estimated-mentors",
