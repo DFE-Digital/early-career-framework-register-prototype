@@ -6,11 +6,13 @@ const router = express.Router()
 // Branching for sign in
 router.post('/start-testing', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
-  if (journeyMode === 'trainingprovider') {
-    res.redirect('/pseudo-email-training-provider-invite')
+  if (journeyMode === 'schoolNoDecision') {
+    res.redirect('/school-nominate-school-lead/nominate-school-lead-1')
   }
-  else if (journeyMode === 'schooldecisionmaker') {
-    res.redirect('/pseudo-email-school-invite')
+  else if (journeyMode === 'schoolFIP') {
+    res.redirect('/school-signed-in/fip/fip-choose-cohort')
+  } else if (journeyMode === 'schoolCIP') {
+    res.redirect('/school-signed-in/cip/cip-choose-cohort')
   } else {
     res.redirect('/start')
   }
