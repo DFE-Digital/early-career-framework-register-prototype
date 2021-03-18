@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  If your email address is in our database, we’ve sent you an email.
+   If you have an account we’ll send you a link to sign in
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,15 +21,13 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        If your email address is in our database, we’ve sent you an email.
+       If you have an account we’ll send you a link to sign in
       </h1>
 
-      <p class="govuk-body-l">We've sent you an email to complete your sign in.</p>
-
-      <h3 class="govuk-heading-m">If you don't get an email:</h3>
+      <h3 class="govuk-heading-m">If you don’t get an email</h3>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-        <li>first check your spam or junk folder</li>
-        <li>if this is the first time you've used this service, <a href="/sign-in-check-account">you may not have an account</a></li>
+        <li>check your spam or junk folder</li>
+        <li><a class="govuk-link--no-visited-state" href="/sign-in-check-account">Check if you have an account</a></li>
         <li>contact us: <a href="mailto:ecf-support@digital.education.gov.uk">ecf-support@digital.education.gov.uk</a></li>
       </ul>
       <br /><br /><br /><br />
