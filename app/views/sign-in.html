@@ -4,6 +4,15 @@
   Sign in
 {% endblock %}
 
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "Manage training for early career teachers",
+  serviceUrl: "/start"
+}) }}
+{% endblock %}
+
 {% block beforeContent %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {{ govukPhaseBanner({
