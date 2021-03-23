@@ -41,21 +41,15 @@
 
       <h1 class="govuk-heading-xl">Welcome</h1>
 
+
+      <h3 class="govuk-heading-m">Which programme do you want to run in the 2021/22 academic year?</h3>
+      <p class="govuk-body"><a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">See our guidance on programmes</a> if you’re not sure</p>
+
       <form class="form" action="/school-signed-in/no-decision/prompt-choose-provision" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
           idPrefix: "journey-mode",
           name: "journey-mode",
-          fieldset: {
-            legend: {
-              text: "Which programme do you want to run in the 2021/22 academic year?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "See our guidance on programmes if you’re not sure."
-          },
           items: [
             {
               value: "schoolFIP",
