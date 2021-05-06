@@ -40,7 +40,7 @@ router.post('/dashboard', function (req, res) {
   if (journeyMode === 'trainingprovider') {
     res.redirect('/training-provider-signed-in/dashboard-training-provider')
   } else if (journeyMode === 'schoolNoDecision') {
-    res.redirect('/school-signed-in/no-decision/prompt-choose-provision')
+    res.redirect('/school-signed-in/no-decision/privacy-policy')
   } else if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-choose-cohort')
   } else if (journeyMode === 'schoolCIP') {
