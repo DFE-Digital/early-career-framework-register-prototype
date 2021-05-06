@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Nominate an induction tutor
+  Nominate an induction lead or tutor for [school name]
 {% endblock %}
 
 {% block header %}
@@ -29,74 +29,29 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Nominate an induction tutor</h1>
+      <h1 class="govuk-heading-xl">Nominate an induction lead or tutor for [school name]</h1>
 
-      <div class="govuk-!-margin-bottom-9">
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">School details</h2>
-      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: "Acorn Primary School"
-            }
-          },
-          {
-            key: {
-              text: "URN"
-            },
-            value: {
-              text: "9348523"
-            }
-          },
-          {
-            key: {
-              text: "Address"
-            },
-            value: {
-              html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU"
-            }
-          }
-        ]
-      }) }}
-      </div>
+        <p class="govuk-body">Your induction lead or tutor will use our online service to manage your school’s statutory induction programme and receive any notifications.</p>
 
-      <form class="form" action="/school-nominate-school-lead/nominate-school-lead-3" method="post" class="govuk-!-margin-bottom-8">
-        <div class="govuk-form-group">
-          <h2 class="govuk-heading-m">Your induction tutor</h2>
-          {{ govukInput({
-            label: {
-              text: "Full name"
-            },
-            classes: "govuk-input--width-20",
-            id: "full-name",
-            name: "full-name",
-            autocomplete: "name",
-            spellcheck: false
+        <p class="govuk-body">You <strong>only</strong> need to nominate someone if your school wants to:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>use an approved training provider</li>
+        </ul>
+
+        <p class="govuk-body">Or</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>use the DfE accredited materials</li>
+        </ul>
+
+        <form class="form" action="/school-nominate-school-lead/nominate-school-lead-3" method="post" class="govuk-!-margin-bottom-8">
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
+            text: "Continue"
           }) }}
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            hint: {
-              text: "They will sign in with this email and get future notifications about this service"
-            },
-            classes: "govuk-input--width-20",
-            id: "nominee-email-address",
-            name: "nominee-email-address",
-            type: "email",
-            autocomplete: "email",
-            spellcheck: false
-          }) }}
-        </div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      </form>
+        </form>
+
 
     </div>
   </div>
