@@ -26,6 +26,14 @@ font-size: 19px;
 font-size: 0.875rem;
 line-height: 1.14286;
   }
+  main.govuk-main-wrapper {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .govuk-skip-link {
+    display: none;
+  }
   .pseudo-bg {
     position: absolute;
     width: 100%;
@@ -40,7 +48,7 @@ line-height: 1.14286;
         height: 430px;
         box-shadow: 0px 0px 40px rgb(0 0 0 / 25%);
         max-width: 550px;
-        margin: 70px auto 0;
+        margin: 0 auto 0;
         padding: 90px 20px 30px;
         position: relative;
         z-index: 10;
@@ -52,14 +60,31 @@ line-height: 1.14286;
  p {
    font-size: 19px;
  }
+ .email-metadata {
+   margin: 0 auto 40px;
+   z-index: 10;
+   position: relative;
+   max-width: 550px;
+ }
+ .email-metadata p {
+   font-size: 14px;
+   margin:0 0 5px;
+ }
 </style>
 <div class="pseudo-bg"></div>
+<div class="email-metadata">
+  <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  <p><strong>Subject: </strong>Link to sign in</p>
+</div>
 <div class="pseudo-email-template">
-<p>Hello<br/><br />
-  To sign in to your account, please use this link:
-</p>
-<p><a href="/sign-in-continue-to-account">https://early-career-framework.service.gov.uk/sign-in/asiduh139r379GASd9u</a></p>
-<p>If this wasn't you, you can ignore this email.<br /><br />The Early Career Team</p>
+<p>Hello [full name],</p>
+
+<p>To sign in to your account, please follow this link:
+<a href="/sign-in-continue-to-account">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt</a>
+<br />(This link will expire at [current time + 1hr])</p>
+
+<p>Teacher Continuing Professional Development<br />
+<span style="color:#888888;">Department for Education</span></p>
 </div>
 {% endblock %}
 

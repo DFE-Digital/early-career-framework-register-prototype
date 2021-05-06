@@ -46,7 +46,7 @@ router.post('/dashboard', function (req, res) {
   } else if (journeyMode === 'schoolCIP') {
     res.redirect('/school-signed-in/cip/cip-choose-cohort')
   } else {
-    res.redirect('/sign-in-no-account')
+    res.redirect('/start-testing')
   }
 })
 
