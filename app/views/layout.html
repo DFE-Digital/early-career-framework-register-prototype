@@ -54,15 +54,41 @@
   {% block footer %}
     {{ govukFooter({
       meta: {
+        html: '<h2 class="govuk-heading-m">Support and guidance</h2><p class="govuk-body-s">If you have a question, or you&apos;ve had a problem using this service, please contact us at <a class="govuk-footer__link" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p><ul class="govuk-footer__inline-list">
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Privacy
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Cookies
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Accessibility
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="https://govuk-prototype-kit.herokuapp.com/">
+                    GOV.UK Prototype Kit v9.11.0
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/prototype-admin/clear-data">
+                    Clear data
+                  </a>
+                </li>
+
+            </ul>',
         items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
+
         ]
       }
     }) }}

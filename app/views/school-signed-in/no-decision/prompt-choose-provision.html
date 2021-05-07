@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Welcome
+  How do you want to run your induction programme this year?
 {% endblock %}
 
 {% block header %}
@@ -32,20 +32,19 @@
   },
   html: 'This isn&apos;t a real service'
 }) }}
+<a class="govuk-back-link" href="/school-signed-in/no-decision/pre-choose-provision">Back</a>
 {% endblock %}
+
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Welcome</h1>
-
-
-      <h3 class="govuk-heading-m">Which programme do you want to run in the 2021/22 academic year?</h3>
+      <h1 class="govuk-heading-l">How do you want to run your induction programme this year?</h1>
       <p class="govuk-body"><a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">See our guidance on programmes</a> if you’re not sure</p>
 
-      <form class="form" action="/school-signed-in/no-decision/prompt-choose-provision" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="/school-signed-in/no-decision/confirm-decision" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
           idPrefix: "journey-mode",
@@ -53,11 +52,11 @@
           items: [
             {
               value: "schoolFIP",
-              text: "a programme led by a training provider, funded by the Department for Education (DfE)"
+              text: "Use an approved training provider"
             },
             {
               value: "schoolCIP",
-              text: "a programme led by the school, using accredited materials"
+              text: "Use the DfE accredited materials"
             }
           ]
         }) }}

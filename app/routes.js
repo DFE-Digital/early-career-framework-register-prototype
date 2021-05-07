@@ -51,7 +51,7 @@ router.post('/dashboard', function (req, res) {
 })
 
 // Branching on choosing provision
-router.post('/school-signed-in/no-decision/prompt-choose-provision', function (req, res) {
+router.post('/school-signed-in/no-decision/provision-confirmed', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-cohort-detail')
