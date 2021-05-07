@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  2021
+  Next steps
 {% endblock %}
 
 {% block header %}
@@ -41,8 +41,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021</h1>
-      <p class="govuk-body-l govuk-!-margin-bottom-8">Training using accredited materials.</p>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021 cohort</h1>
+      <p class="govuk-body-l govuk-!-margin-bottom-8">Use DfE accredited materials</p>
 
       <ol class="app-task-list">
         <li>
@@ -53,16 +53,32 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-course-choice" aria-describedby="eligibility-status">
-                  Choose your training materials
+                <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-choose-provision">
+                  Choose your induction programme
                 </a>
               </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--green">
+                Done
+              </strong>
+            </li>
+
+            <li class="app-task-list__item">
               {% if (data['cip-course-choice'] === undefined) %}
+                <span class="app-task-list__task-name">
+                  <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-which-course" aria-describedby="eligibility-status">
+                    Choose your training materials
+                  </a>
+                </span>
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                   To do
                 </strong>
               {% else %}
-                <strong class="govuk-tag app-task-list__tag">
+              <span class="app-task-list__task-name">
+                <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-course-decision" aria-describedby="eligibility-status">
+                  Choose your training materials
+                </a>
+              </span>
+                <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--green">
                   Done
                 </strong>
               {% endif %}

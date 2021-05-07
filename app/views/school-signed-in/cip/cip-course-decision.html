@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add teachers and mentors
+Your accredited materials
 {% endblock %}
 
 {% block header %}
@@ -41,20 +41,19 @@
     <div class="govuk-grid-column-two-thirds">
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Add early career teachers and mentors</h1>
+<h1 class="govuk-heading-xl">Your accredited materials</h1>
 
-      <p class="govuk-body">From <strong>July</strong>, you can confirm which early career teachers and mentors are starting a programme this year.</p>
-      <p class="govuk-body">We will let you know when you can get started.</p>
+<p class="govuk-body-l"><strong>Your choice: </strong>{{ data['cip-course-choice'] }}</p>
 
-      <p class="govuk-body">For each early career teacher and mentor, you will need:</p>
+<h2 class="govuk-heading-m">Changing your materials</h2>
+<p>Each set of accredited materials is different. Before you change your materials:</p>
+<ul class='govuk-list govuk-list--bullet'>
+  <li>make sure the materials you want to change to are right for your school</li>
+  <li>if your early career teachers and mentors have started their programme, they will lose any progress on the service</li>
+</ul>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>first name</li>
-        <li>last name</li>
-        <li>teacher reference number (TRN)</li>
-        <li>date of birth</li>
-      </ul>
-
+<p class="govuk-body">If you want to change the materials you are using, contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
+</p>
     </div>
   </div>
 
