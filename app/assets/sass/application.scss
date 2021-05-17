@@ -637,3 +637,13 @@ form.top-right {
   font-style: italic;
   margin-top: 50px;
 }
+
+.miro-link a {
+  background: #e4e4e4 url(../images/miro-icon.png) no-repeat 4px center;
+  background-size: 16px;
+  display: inline-block;
+  padding: 1px 3px 1px 24px;
+  border-radius: 3px;
+  font-size: 15px;
+  color: #000;
+}
