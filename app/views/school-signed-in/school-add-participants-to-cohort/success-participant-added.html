@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Participant added
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "/index",
+    serviceName: "Manage training for early career teachers",
+    serviceUrl: "/start",
+  navigation: [
+    {
+      href: "#1",
+      text: data['school-email-address'],
+      active: false
+    },
+    {
+      href: "/sign-out",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
+        <h1 class="govuk-panel__title">
+          Participant added
+        </h1>
+        <div class="govuk-panel__body">
+          {{ data['participant-first-name'] }} {{ data['participant-last-name'] }} has been added as
+          {% if (data['participant-type'] === 'ect') %}
+            an Early Career Teacher
+          {% elseif (data['participant-type'] === 'mentor') %}
+            a Mentor
+          {% endif %}
+          to the <strong>2021 cohort</strong>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+        <li>The participant will be notified and asked to sign in and add further details</li>
+        <li>You will be able to check their progress by viewing the participants in this cohort</li>
+      </ul>
+
+      <form class="form" action="/school-signed-in/school-add-participants-to-cohort/choose-participant-type" method="post" class="govuk-!-margin-bottom-8">
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Add another participant"
+        }) }}
+      </form>
+      <p><a href="#" class="govuk-link govuk-link--no-visited-state">View participants</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

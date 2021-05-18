@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter personal details
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "/index",
+    serviceName: "Manage training for early career teachers",
+    serviceUrl: "/start",
+  navigation: [
+    {
+      href: "#1",
+      text: data['school-email-address'],
+      active: false
+    },
+    {
+      href: "/sign-out",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This isn&apos;t a real service'
+}) }}
+<a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/school-signed-in/school-add-participants-to-cohort/confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Enter their personal details",
+            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            html: 'First name'
+          },
+          value: data['participant-first-name'],
+          classes: "govuk-input--width-20",
+          id: "participant-first-name",
+          name: "participant-first-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: 'Last name'
+          },
+          value: data['participant-last-name'],
+          classes: "govuk-input--width-20",
+          id: "participant-last-name",
+          name: "participant-last-name"
+        }) }}
+
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-input--width-20",
+          id: "participant-email-address",
+          name: "participant-email-address",
+          value: data['participant-email-address'],
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {% endcall %}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
