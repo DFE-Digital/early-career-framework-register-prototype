@@ -32,7 +32,17 @@
   },
   html: 'This isn&apos;t a real service'
 }) }}
-<a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
+
+
+
+{% if (data['participant-type'] === 'ect') %}
+  <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
+{% elseif (data['participant-type'] === 'mentor') %}
+  <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
+{% else %}
+
+{% endif %}
+
 {% endblock %}
 
 

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Participant added
+  Mentor added
 {% endblock %}
 
 {% block header %}
@@ -45,13 +45,7 @@
           Participant added
         </h1>
         <div class="govuk-panel__body">
-          {{ data['participant-first-name'] }} {{ data['participant-last-name'] }} has been added as
-          {% if (data['participant-type'] === 'ect') %}
-            an Early Career Teacher
-          {% elseif (data['participant-type'] === 'mentor') %}
-            a Mentor
-          {% endif %}
-          to the <strong>2021 cohort</strong>
+          {{ data['choose-existing-mentor'] }} has been added as a Mentor to the <strong>2021 cohort</strong>
         </div>
       </div>
 
