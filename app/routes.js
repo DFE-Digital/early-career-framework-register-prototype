@@ -90,7 +90,7 @@ router.post('/school-signed-in/school-add-participants-to-cohort/confirm-partici
   }
 })
 
-// Lazy branching
+// Lazy branching as not sure how to do this one properly - it conflicts with other branching above
 router.post('/school-signed-in/school-add-participants-to-cohort/confirm-ect-details', function (req, res) {
   res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
 })
