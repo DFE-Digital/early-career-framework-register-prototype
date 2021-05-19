@@ -37,9 +37,7 @@ router.post('/sign-in-check-email', function (req, res) {
 // Branching for access to dashboard (/sign-in-continue-to-account)
 router.post('/dashboard', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
-  if (journeyMode === 'trainingprovider') {
-    res.redirect('/training-provider-signed-in/dashboard-training-provider')
-  } else if (journeyMode === 'schoolNoDecision') {
+  if (journeyMode === 'schoolNoDecision') {
     res.redirect('/school-signed-in/no-decision/privacy-policy')
   } else if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-choose-cohort')
@@ -63,7 +61,7 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
 
 // Branching on type of participant being added
 router.post('/school-signed-in/school-add-participants-to-cohort/choose-participant-type', function (req, res) {
-  const participantType = req.session.data['participant-type']
+  const participantType = req.session.data['participantType']
   if (participantType === 'ect') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
   } else if (participantType === 'mentor')  {
@@ -81,6 +79,20 @@ router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing
   }
 })
 
+// Branching to choose mentor from cohort, if adding an ECT and mentors have already been added to cohort
+router.post('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details', function (req, res) {
+  const schoolParticipantOptions = req.session.data['schoolParticipantOptions']
+  const participantType = req.session.data['participantType']
+  if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'ect'){
+    res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect')
+  } else {
+    res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
+  }
+})
 
+// Lazy branching
+router.post('/school-signed-in/school-add-participants-to-cohort/confirm-ect-details', function (req, res) {
+  res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
+})
 
 module.exports = router

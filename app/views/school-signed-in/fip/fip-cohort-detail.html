@@ -99,15 +99,35 @@
             </li>
 
 
+            {% if (data['schoolParticipantOptions'] === "hasAddedMentors") %}
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                    <a class="govuk-link--no-visited-state" href="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Add early career teachers and mentors</a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
+                  In progress
+                </strong>
+              </li>
+              {% elseif (data['schoolParticipantOptions'] === "canAddParticipants") %}
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                      <a class="govuk-link--no-visited-state" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add early career teachers and mentors</a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
+                    TO DO
+                  </strong>
+                </li>
+            {% elseif (data['schoolParticipantOptions'] === "cannotAddParticipants") %}
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                    <a class="govuk-link--no-visited-state" href="/school-signed-in/fip/fip-add-participants">Add early career teachers and mentors</a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
+                  Cannot start yet
+                </strong>
+              </li>
+            {% endif %}
 
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                  <a class="govuk-link--no-visited-state" href="/school-signed-in/fip/fip-add-participants">Add early career teachers and mentors</a>
-              </span>
-              <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
-                Cannot start yet
-              </strong>
-            </li>
 
           </ul>
         </li>

@@ -32,7 +32,13 @@
   },
   html: 'This isn&apos;t a real service'
 }) }}
+
+{% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
+<a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">Back</a>
+{% else %}
 <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
+{% endif %}
+
 {% endblock %}
 
 
@@ -64,9 +70,9 @@
               Participant type
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if (data['participant-type'] === 'ect') %}
+              {% if (data['participantType'] === 'ect') %}
                 Early Career Teacher
-              {% elseif (data['participant-type'] === 'mentor') %}
+              {% elseif (data['participantType'] === 'mentor') %}
                 Mentor
               {% endif %}
             </dd>
@@ -76,6 +82,23 @@
               </a>
             </dd>
           </div>
+
+          {% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Mentor
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['choose-mentor-from-cohort'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">
+                Change<span class="govuk-visually-hidden"> mentor</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
         </dl>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/success-participant-added" method="post" class="govuk-!-margin-bottom-8">

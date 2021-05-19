@@ -46,9 +46,9 @@
         </h1>
         <div class="govuk-panel__body">
           {{ data['participant-first-name'] }} {{ data['participant-last-name'] }} has been added as
-          {% if (data['participant-type'] === 'ect') %}
+          {% if (data['participantType'] === 'ect') %}
             an Early Career Teacher
-          {% elseif (data['participant-type'] === 'mentor') %}
+          {% elseif (data['participantType'] === 'mentor') %}
             a Mentor
           {% endif %}
           to the <strong>2021 cohort</strong>
@@ -63,7 +63,7 @@
 
       <a class="govuk-button" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add another participant</a>
 
-      <p><a href="#" class="govuk-link govuk-link--no-visited-state">View participants</a></p>
+      <p><a href="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" class="govuk-link govuk-link--no-visited-state">View participants</a></p>
 
     </div>
   </div>

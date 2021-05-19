@@ -35,12 +35,16 @@
 
 
       <div class="">
-        <form class="form" action="/start-testing" method="post" class="govuk-!-margin-bottom-8">
-          <div class="govuk-form-group">
+        <h1 class="govuk-heading-xl">
+          Setup the user testing scenario
+        </h1>
+        <div class="govuk-form-group">
+        <form class="form" action="/start-testing" method="post" class="">
+          <div class="govuk-form-group govuk-!-margin-bottom-8">
             <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__legend--xl">
-                  Choose your user testing scenario
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__legend--m">
+                  School programme and partnership options
                 </h1>
               </legend>
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -108,12 +112,47 @@
               </div>
 
             </fieldset>
+            </div>
+
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {{ govukRadios({
+              idPrefix: "schoolParticipantOptions",
+              name: "schoolParticipantOptions",
+              fieldset: {
+                legend: {
+                  text: "School partipant options",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                  value: "cannotAddParticipants",
+                  text: "School cannot add participants yet",
+                  checked: checked("schoolParticipantOptions", "cannotAddParticipants")
+                },
+                {
+                  value: "canAddParticipants",
+                  text: "School can start adding participants to this cohort",
+                  checked: checked("schoolParticipantOptions", "canAddParticipants")
+                },
+                {
+                  value: "hasAddedMentors",
+                  text: "School has already added some mentors to this cohort",
+                  checked: checked("schoolParticipantOptions", "hasAddedMentors")
+                }
+              ]
+            }) }}
+
+
+
           </div>
 
           {% from "govuk/components/button/macro.njk" import govukButton %}
           {{ govukButton({
             text: "Save journey"
           }) }}
+
         </form>
       </div>
 
