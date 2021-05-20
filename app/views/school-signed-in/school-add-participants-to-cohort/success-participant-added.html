@@ -42,28 +42,19 @@
 
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
         <h1 class="govuk-panel__title">
-          Participant added
+          You have added {{ data['participant-fullname'] }} to the 2021 cohort
         </h1>
-        <div class="govuk-panel__body">
-          {{ data['participant-fullname'] }} has been added as
-          {% if (data['participantType'] === 'ect') %}
-            an Early Career Teacher
-          {% elseif (data['participantType'] === 'mentor') %}
-            a Mentor
-          {% endif %}
-          to the <strong>2021 cohort</strong>
-        </div>
       </div>
 
       <h2 class="govuk-heading-m">What happens next?</h2>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
-        <li>The participant will be notified and asked to sign in and add further details</li>
-        <li>You will be able to check their progress by viewing the participants in this cohort</li>
+        <li>they will get an email to sign in and add any further details we need</li>
+        <li>you can view your early career teachers (ECTs) and mentors to see their status</li>
       </ul>
 
-      <a class="govuk-button" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add another participant</a>
+      <a class="govuk-button" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add a new ECT or mentor</a>
 
-      <p><a href="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" class="govuk-link govuk-link--no-visited-state">View participants</a></p>
+      <p><a href="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" class="govuk-link govuk-link--no-visited-state">View your ECTs and mentors</a></p>
 
     </div>
   </div>

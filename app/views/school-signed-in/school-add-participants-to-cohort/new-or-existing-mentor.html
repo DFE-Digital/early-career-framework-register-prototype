@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add a new mentor
+  Add mentor from cohort
 {% endblock %}
 
 {% block header %}
@@ -44,7 +44,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">Do you want to add a mentor from another cohort?</h1>
-      <p>Mentors can work across cohorts. You don't need to create a new account if they are already added to the platform.</p>
+      <p>Mentors can work across cohorts. You don’t need to add their details every time.</p>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -54,12 +54,12 @@
           items: [
             {
               value: "existingMentor",
-              text: "Yes, i want to add a mentor from an existing cohort",
+              text: "Yes, I want to add a mentor from another cohort",
               checked: checked("new-or-existing-mentor", "existingMentor")
             },
             {
               value: "newMentor",
-              text: "No, i want to create a new mentor",
+              text: "No, I want to add a new one",
               checked: checked("new-or-existing-mentor", "newMentor")
             }
           ]

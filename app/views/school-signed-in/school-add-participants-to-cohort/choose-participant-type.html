@@ -48,13 +48,23 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">What type of participant do you want to add to the 2021 cohort?</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Add your early career teachers and mentors</h1>
+
+      <p class="govuk-body">You need to add details of the early career teachers and mentors in this cohort.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">This is so we can verify them before their induction starts.</p>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/choose-participant-type" method="post" class="govuk-!-margin-bottom-8">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
           idPrefix: "participantType",
           name: "participantType",
+          fieldset: {
+            legend: {
+              text: "Do you want to add an early career teacher (ECT) or a mentor?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
           items: [
             {
               value: "ect",

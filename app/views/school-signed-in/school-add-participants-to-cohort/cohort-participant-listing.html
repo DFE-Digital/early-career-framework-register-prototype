@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Participants in cohort
+  Early career teachers and mentors
 {% endblock %}
 
 {% block header %}
@@ -50,9 +50,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Early career teachers and mentors</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Your early career teachers (ECTs) and mentors</h1>
 
-      <a class="govuk-button govuk-!-margin-bottom-8" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add participant to cohort</a>
+      <a class="govuk-button govuk-!-margin-bottom-8" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add a new ECT or mentor</a>
 
 
       {%- from "govuk/components/tag/macro.njk" import govukTag -%}
@@ -61,8 +61,8 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="col"> Full name </th>
-            <th class="govuk-table__header" scope="col"> Participant type </th>
-            <th class="govuk-table__header" scope="col"> Validation status </th>
+            <th class="govuk-table__header" scope="col"> Type </th>
+            <th class="govuk-table__header" scope="col"> Status </th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">

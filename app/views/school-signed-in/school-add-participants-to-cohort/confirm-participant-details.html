@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Confirm participant details
+  Confirm details
 {% endblock %}
 
 {% block header %}
@@ -47,13 +47,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Confirm these details are correct</h1>
-      <p class="govuk-body">The participant will be sent an email and asked to sign in and provide other details such as their TRN.</p>
+      <h1 class="govuk-heading-l">Confirm these details</h1>
+      <p class="govuk-body">We will send this person an email to sign in and add any further details.</p>
+
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Personal details
+              Details
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['participant-fullname'] }}<br />
@@ -67,7 +68,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Participant type
+              Type
             </dt>
             <dd class="govuk-summary-list__value">
               {% if (data['participantType'] === 'ect') %}
