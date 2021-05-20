@@ -66,24 +66,13 @@
 
         {{ govukInput({
           label: {
-            html: 'First name'
+            html: 'Full name'
           },
-          value: data['participant-first-name'],
+          value: data['participant-fullname'],
           classes: "govuk-input--width-20",
-          id: "participant-first-name",
-          name: "participant-first-name"
+          id: "participant-fullname",
+          name: "participant-fullname"
         }) }}
-
-        {{ govukInput({
-          label: {
-            html: 'Last name'
-          },
-          value: data['participant-last-name'],
-          classes: "govuk-input--width-20",
-          id: "participant-last-name",
-          name: "participant-last-name"
-        }) }}
-
 
         {{ govukInput({
           label: {
