@@ -1,47 +1,27 @@
 {% extends "layout.html" %}
+{% set title = 'How to get an account for this service' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageTitle %}
-  How to get an account for this service
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-<a class="govuk-back-link" href="/sign-in">Back</a>
+{% block pageNavigation %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/sign-in"
+  }) }}
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">How to get an account for this service</h1>
-    <h2 class="govuk-heading-m">Schools</h2>
-    <p class="govuk-body">Your school has been sent an email to nominate someone who manages statutory inductions at your school.</p>
-    <p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>
-    <p><a class="govuk-link" href="/school-resend-nomination-email/resend-nomination-1">Resend email</a></p>
-    <h2 class="govuk-heading-m">New teachers or mentors</h2>
-    <p class="govuk-body">You only need to sign in if you’re using our accredited training materials. We will send you sign in details before you start your programme.</p>
-    <h2 class="govuk-heading-m">Training providers</h2>
-    <p class="govuk-body">The Department for Education creates your account.<br>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
-</p>
-
-
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <h2 class="govuk-heading-m">Schools</h2>
+      <p class="govuk-body">Your school has been sent an email to nominate someone who manages statutory inductions at your school.</p>
+      <p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>
+      <p><a class="govuk-link" href="/school-resend-nomination-email/resend-nomination-1">Resend email</a></p>
+      <h2 class="govuk-heading-m">New teachers or mentors</h2>
+      <p class="govuk-body">You only need to sign in if you’re using our accredited training materials. We will send you sign in details before you start your programme.</p>
+      <h2 class="govuk-heading-m">Training providers</h2>
+      <p class="govuk-body">The Department for Education creates your account.<br>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
+      </p>
     </div>
   </div>
-
 {% endblock %}
