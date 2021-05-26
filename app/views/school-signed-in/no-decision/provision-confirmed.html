@@ -29,7 +29,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-!-margin-bottom-8">
-      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
       {{ govukPanel({
         titleText: "Induction programme confirmed",
         html: "You can now view the next steps for your programme."
@@ -38,7 +38,7 @@
 
     <form class="form" action="/school-signed-in/no-decision/provision-confirmed" method="post" class="govuk-!-margin-bottom-8">
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
+
       {{ govukButton({
         text: "Continue"
       }) }}

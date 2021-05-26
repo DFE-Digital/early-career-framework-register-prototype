@@ -37,7 +37,7 @@
       <h1 class="govuk-heading-xl">Which training materials do you want this cohort to use?</h1>
 
       <form class="form" action="/school-signed-in/cip/cip-course-confirmed" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
         {{ govukRadios({
           idPrefix: "cip-course-choice",
           name: "cip-course-choice",
@@ -65,7 +65,7 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}

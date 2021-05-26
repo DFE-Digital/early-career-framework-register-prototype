@@ -23,7 +23,7 @@
       <p class="govuk-body govuk-!-margin-bottom-7">[School name] has received a confirmation from [Delivery partner] but you believe this is incorrect.</p>
 
       <form class="form" action="/school-challenging-partnership/school-challenge-3" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
 
         {% set otherHtml %}
         {{ govukInput({
@@ -71,7 +71,7 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Submit"
         }) }}

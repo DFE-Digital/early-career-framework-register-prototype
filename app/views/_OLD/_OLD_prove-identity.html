@@ -18,7 +18,7 @@
       </h1>
 
       <form action="/identity-answer" method="post" class="form">
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
       {{ govukRadios({
         idPrefix: "where-do-you-live",
         name: "identity-answer",
@@ -42,7 +42,7 @@
           }
         ]
       }) }}
-      {% from "govuk/components/button/macro.njk" import govukButton %}
+
       {{ govukButton({
         text: "Continue"
       }) }}

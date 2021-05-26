@@ -45,7 +45,7 @@
       <p class="govuk-body govuk-!-margin-bottom-8">This is so we can verify them before their induction starts.</p>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/choose-participant-type" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
         {{ govukRadios({
           idPrefix: "participantType",
           name: "participantType",
@@ -69,7 +69,7 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}

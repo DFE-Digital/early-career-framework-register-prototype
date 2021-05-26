@@ -22,7 +22,7 @@
 
       <div class="govuk-!-margin-bottom-9">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
-      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
       {{ govukSummaryList({
         rows: [
           {
@@ -81,7 +81,7 @@
             spellcheck: false
           }) }}
         </div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Confirm"
         }) }}

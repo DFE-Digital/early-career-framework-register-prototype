@@ -38,7 +38,7 @@
       <p>Mentors can work across cohorts. You don’t need to add their details every time.</p>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
         {{ govukRadios({
           idPrefix: "new-or-existing-mentor",
           name: "new-or-existing-mentor",
@@ -55,7 +55,7 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}

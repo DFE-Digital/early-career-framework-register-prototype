@@ -37,7 +37,7 @@
       <h1 class="govuk-heading-l">Which mentor do you want to add to the 2021 cohort?</h1>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/success-mentor-added" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
         {{ govukRadios({
           idPrefix: "choose-existing-mentor",
           name: "choose-existing-mentor",
@@ -68,7 +68,7 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}

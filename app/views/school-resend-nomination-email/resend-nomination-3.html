@@ -29,7 +29,7 @@
 
       <div class="govuk-!-margin-bottom-9">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
-      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
       {{ govukSummaryList({
         rows: [
           {
@@ -63,7 +63,7 @@
 
       <form class="form" action="/school-resend-nomination-email/resend-nomination-4" method="post" class="govuk-!-margin-bottom-8">
 
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Confirm"
         }) }}
