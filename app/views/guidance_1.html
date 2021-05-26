@@ -1,35 +1,26 @@
 {% extends "layout.html" %}
+{% set title = 'Induction training and support for new teachers' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageTitle %}
-  Induction training and support for new teachers
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="/start">Start</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link">Induction training and support for new teachers</a>
-      </li>
-    </ol>
-  </div>
+{% block pageNavigation %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Start",
+        href: "/start"
+      },
+      {
+        text: title
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Induction training and support for new teachers
+        {{ title }}
       </h1>
 
       <p class='govuk-body'>From September 2021, new teachers in England must complete a 2-year induction after they have done their initial teacher training (ITT).</p>
@@ -58,8 +49,6 @@
       <p class='govuk-body'>[Find a training provider] </p>
       <p class='govuk-body'>[Free online materials] designed by education experts are also available. </p>
       <p class='govuk-body'>Alternatively, schools can design and deliver their own induction programme based on the ECF.</p>
-
     </div>
   </div>
-
 {% endblock %}

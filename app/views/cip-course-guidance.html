@@ -1,28 +1,13 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Induction training and support for new teachers
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-
-{% endblock %}
+{% set title = 'Choose study materials for your early career teachers' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-xl">
-        Choose study materials for your early career teachers
+        {{ title }}
       </h1>
-
 
       <p>It’s important to choose the right training materials for your school.</p>
 
@@ -332,5 +317,4 @@
 
     </div>
   </div>
-
 {% endblock %}
