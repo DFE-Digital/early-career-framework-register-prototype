@@ -1,54 +1,35 @@
 {% extends "layout.html" %}
+{% set title = 'Cohorts' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageTitle %}
-  Cohorts
-{% endblock %}
+{% block pageNavigation %}
+  <nav class="app-navigation govuk-clearfix">
+    <ul class="app-navigation__list app-width-container">
+      <li class="app-navigation__list-item">
+        <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
+      </li>
+      <li class="app-navigation__list-item app-navigation__list-item--current">
+        <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/cohort-listing">Cohorts</a>
+      </li>
+      <li class="app-navigation__list-item">
+        <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing">Schools</a>
+      </li>
+    </ul>
+  </nav>
 
-{% block beforeContent %}
-
-
-
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-
-<nav class="app-navigation govuk-clearfix">
-  <ul class="app-navigation__list app-width-container">
-
-    <li class="app-navigation__list-item">
-      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
-    </li>
-
-    <li class="app-navigation__list-item app-navigation__list-item--current">
-      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/cohort-listing">Cohorts</a>
-    </li>
-
-    <li class="app-navigation__list-item">
-      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing">Schools</a>
-    </li>
-
-  </ul>
-</nav>
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-<a class="govuk-back-link" href="/training-provider-signed-in/dashboard-training-provider">Back</a>
+  {{ govukBackLink({
+    text: "Back",
+    href: "/training-provider-signed-in/dashboard-training-provider"
+  }) }}
 {% endblock %}
 
 {% block content %}
-
-  <div class="govuk-grid-row govuk-!-margin-bottom-5">
-    <div class="govuk-grid-column-one-half">
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-        Cohorts
-      </h1>
-    </div>
-  </div>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+        {{ title }}
+      </h1>
+
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -67,5 +48,4 @@
       </table>
     </div>
   </div>
-
 {% endblock %}
