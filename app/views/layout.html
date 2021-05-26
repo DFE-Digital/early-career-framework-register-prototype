@@ -43,9 +43,24 @@
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
-    serviceUrl: "/",
+    serviceUrl: "/start",
     containerClasses: "govuk-width-container"
   }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if showPhaseBanner != false %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "Prototype"
+      },
+      html: "This is a prototype. It is not a real service."
+    }) }}
+  {% endif %}
+  {% block pageNavigation %}
+  {% endblock %}
+  {% block pageBanner %}
+  {% endblock %}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

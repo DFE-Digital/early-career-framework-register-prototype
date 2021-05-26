@@ -1,32 +1,9 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Journey settings
-{% endblock %}
+{% block pageTitle %}Journey settings{% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-<div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Department for Education</a>
-    </li>
-  </ol>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -114,7 +91,6 @@
             </fieldset>
             </div>
 
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
             {{ govukRadios({
               idPrefix: "schoolParticipantOptions",
               name: "schoolParticipantOptions",
@@ -148,7 +124,6 @@
 
           </div>
 
-          {% from "govuk/components/button/macro.njk" import govukButton %}
           {{ govukButton({
             text: "Save journey"
           }) }}

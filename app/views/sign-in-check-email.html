@@ -1,51 +1,24 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-   We’ve sent you a link to sign in
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-{% endblock %}
+{% set title = 'Check your email' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Check your email</h1>
-    <p class="govuk-body">If you have an account, we have sent you a link to sign in.</p>
-    <h2 class="govuk-heading-m">If you don’t get an email to sign in</h2>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>you must be nominated or sent sign in details to access this service. <a class="govuk-link" href="/sign-in-check-account">Find out how to get an account</a></li>
-      <li>check your spam or junk folder</li>
-      <li>contact us: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
-</li>
-    </ul>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p class="govuk-body">If you have an account, we have sent you a link to sign in.</p>
+      <h2 class="govuk-heading-m">If you don’t get an email to sign in</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you must be nominated or sent sign in details to access this service. <a class="govuk-link" href="/sign-in-check-account">Find out how to get an account</a></li>
+        <li>check your spam or junk folder</li>
+        <li>contact us: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
+        </li>
+      </ul>
 
-
-      {% if (data['journey-mode'] == "noemailsrecieved") %}
-
-      {% else %}
+      {% if not (data['journey-mode'] == "noemailsrecieved") %}
         <p class="govuk-body skip-to">Skip to: <a href="/pseudo-email-sign-in">Example email</a></p>
       {% endif %}
-
     </div>
   </div>
-
 {% endblock %}

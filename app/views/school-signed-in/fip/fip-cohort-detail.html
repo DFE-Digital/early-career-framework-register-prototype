@@ -24,16 +24,8 @@
 }) }}
 {% endblock %}
 
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-<a class="govuk-back-link" href="/school-signed-in/fip/fip-choose-cohort">Back</a>
-
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="/school-signed-in/fip/fip-choose-cohort">Back</a>
 {% endblock %}
 
 {% block content %}

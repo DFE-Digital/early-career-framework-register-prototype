@@ -1,45 +1,18 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  You are now signed in
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
-
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-{% endblock %}
+{% set title = 'You are now signed in' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-xl">
-        You are now signed in
+        {{ title }}
       </h1>
-
-      <form class="form" action="/dashboard" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+      <form class="form" action="/dashboard" method="post">
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
-
     </div>
   </div>
-
 {% endblock %}

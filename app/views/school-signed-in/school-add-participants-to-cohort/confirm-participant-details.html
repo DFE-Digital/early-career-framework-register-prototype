@@ -24,21 +24,12 @@
 }) }}
 {% endblock %}
 
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-
-{% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
-<a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">Back</a>
-{% else %}
-<a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
-{% endif %}
-
+{% block pageNavigation %}
+  {% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">Back</a>
+  {% else %}
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
+  {% endif %}
 {% endblock %}
 
 

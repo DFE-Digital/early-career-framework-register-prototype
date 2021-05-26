@@ -1,58 +1,42 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-Manage training for early career teachers
-{% endblock %}
+{% set title = 'Manage training for early career teachers' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
 
-{% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-{% endblock %}
-
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p class="govuk-body">This service is for induction leads/tutors nominated by their school.</p>
 
-      <h1 class="govuk-heading-xl">Manage training for early career teachers</h1>
-    <p class="govuk-body">This service is for induction leads/tutors nominated by their school.</p>
+      <p>Use this service to manage your school’s statutory induction programme for early career teachers.</p>
 
-    <p>Use this service to manage your school’s statutory induction programme for early career teachers.</p>
+      <p>Only use this service if your school wants to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use an approved training provider</li>
+      </ul>
+      <p>Or</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use the DfE accredited materials</li>
+      </ul>
 
-    <p>Only use this service if your school wants to:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>use an approved training provider</li>
-    </ul>
-    <p>Or</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>use the DfE accredited materials</li>
-    </ul>
+      <p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme. For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
 
-    <p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme.
-      For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
+      {{ govukButton({
+        text: "Start now",
+        href: "/sign-in",
+        isStartButton: true
+      }) }}
 
-      <a href="/sign-in" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-bottom-8" data-module="govuk-button">
-    Start now
-    <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-      <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-    </svg></a>
-
-    <h2 class="govuk-heading-m">Do you have an account?</h2>
-    <p class="govuk-body">Your school has been sent an email to nominate an induction lead or tutor. This is someone who manages statutory inductions at your school.</p>
-    <p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>
-    <p class="govuk-body"><a class="govuk-link" href="/nominations/choose-location">Resend email</a></p>
-
+      <h2 class="govuk-heading-m">Do you have an account?</h2>
+      <p class="govuk-body">Your school has been sent an email to nominate an induction lead or tutor. This is someone who manages statutory inductions at your school.</p>
+      <p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>
+      <p class="govuk-body"><a class="govuk-link" href="/nominations/choose-location">Resend email</a></p>
     </div>
-
     <div class="govuk-grid-column-one-third">
       <!--
       <aside class="app-related-items" role="complementary">
@@ -71,7 +55,5 @@ Manage training for early career teachers
       </aside>
       -->
     </div>
-
-
   </div>
 {% endblock %}

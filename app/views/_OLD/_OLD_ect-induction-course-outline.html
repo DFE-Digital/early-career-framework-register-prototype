@@ -4,17 +4,6 @@
   Induction course
 {% endblock %}
 
-{% block beforeContent %}
-
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-{% endblock %}
-
 {% block content %}
 <a href="/sign-out" class="signout">Sign out</a>
   <div class="govuk-grid-row">

@@ -1,39 +1,20 @@
 {% extends "layout.html" %}
+{% block pageTitle %}Partnerships have been added{% endblock %}
 
-{% block pageTitle %}
-  Partnerships have been added
-{% endblock %}
-
-{% block beforeContent %}
-
-
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-
+{% block pageNavigation %}
 <nav class="app-navigation govuk-clearfix">
   <ul class="app-navigation__list app-width-container">
-
     <li class="app-navigation__list-item">
       <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
     </li>
-
     <li class="app-navigation__list-item app-navigation__list-item--current">
       <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
     </li>
-
   </ul>
 </nav>
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row govuk-!-margin-bottom-5">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation">
@@ -44,29 +25,26 @@
     </div>
   </div>
 
-  <div class="govuk-grid-row govuk-!-margin-bottom-4">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-m">What happens next</h2>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
         <li>we will notify the schools and remind them to add their early career teachers and mentors</li>
         <li>you can check your schools to make sure they have done this and follow up if need be. This will ensure you are paid in time for your participants</li>
       </ul>
+
+      {{ govukButton({
+        text: 'Add more schools',
+        href: '/training-provider-signed-in/find-and-add-schools'
+      }) }}
+
+      <div>
+      {{ govukButton({
+        text: 'Check your schools',
+        href: '/training-provider-signed-in/school-listing-2021',
+        classes: 'govuk-button--secondary'
+      }) }}
+      </div>
     </div>
   </div>
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-
-      <form class="form" action="/training-provider-signed-in/find-and-add-schools" method="post" class="govuk-!-margin-bottom-8">
-        <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Add more schools</button>
-      </form>
-
-      <form class="form" action="/training-provider-signed-in/school-listing-2021" method="post" class="govuk-!-margin-bottom-8">
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Check your schools</button>
-      </form>
-
-    </div>
-  </div>
-
 {% endblock %}

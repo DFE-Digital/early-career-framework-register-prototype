@@ -4,32 +4,17 @@
   Your schools: 2021 cohort
 {% endblock %}
 
-{% block beforeContent %}
-
-
-
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This isn&apos;t a real service'
-}) }}
-
+{% block pageNavigation %}
 <nav class="app-navigation govuk-clearfix">
   <ul class="app-navigation__list app-width-container">
-
     <li class="app-navigation__list-item">
       <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/dashboard-training-provider">Overview</a>
     </li>
-
     <li class="app-navigation__list-item app-navigation__list-item--current">
       <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/training-provider-signed-in/school-listing-2021">Schools</a>
     </li>
-
   </ul>
 </nav>
-
 {% endblock %}
 
 {% block content %}
@@ -42,7 +27,6 @@
     </div>
     <div class="govuk-grid-column-one-half">
       <form class="form top-right" action="find-and-add-schools" method="post" class="govuk-!-margin-bottom-9">
-      {% from "govuk/components/button/macro.njk" import govukButton %}
       {{ govukButton({
         text: "Find and add schools"
       }) }}
