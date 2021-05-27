@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set showPhaseBanner = false %}
 
 {% block headIcons %}
   <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
@@ -14,66 +15,6 @@
 {% endblock %}
 
 {% block content %}
-
-
-<style media='screen'>
-  body {
-    font-family: "GDS Transport", arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-font-weight: 400;
-font-size: 19px;
-font-size: 0.875rem;
-line-height: 1.14286;
-background: #f5f5f5;
-  }
-  main.govuk-main-wrapper {
-    position: relative;
-    padding-top: 60px;
-    padding-bottom: 50px;
-  }
-  .govuk-skip-link {
-    display: none;
-  }
-  .pseudo-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    background: #f5f5f5;
-  }
-  .pseudo-email-template {
-    background: #FFF url({{ asset_path }}images/email-header.png) no-repeat center top;
-        background-size: 100%;
-        box-shadow: 0px 0px 40px rgb(0 0 0 / 25%);
-        max-width: 550px;
-        margin: 0 auto;
-        padding: 80px 20px 30px;
-        position: relative;
-        z-index: 10;
-        box-sizing: border-box;
-        border-radius: 10px;
-        border: 2px solid #CCC;
-        border-top: 20px solid #CCC;
-  }
-  .email-metadata {
-    margin: 0 auto 40px;
-    z-index: 10;
-    position: relative;
-    max-width: 550px;
-  }
-  .email-metadata p {
-    font-size: 14px;
-    margin:0 0 5px;
-  }
- p,li {
-   font-size: 19px;
- }
- p {
-   margin-bottom: 15px;
- }
-</style>
 <div class="pseudo-bg"></div>
 <div class="email-metadata">
   <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
@@ -85,18 +26,22 @@ background: #f5f5f5;
 <p>From September 2021 statutory induction is changing. Schools must offer their new early career teachers (ECTs) a 2 year induction programme.</p>
 
 <p>The Department for Education (DfE) has provided:</p>
-<ul>
+<ul class="govuk-list govuk-list--bullet">
   <li>statutory guidance so that schools know their roles and responsibilities</li>
-  <li>guidance on the 3 programmes that are compliant with the new regulations:</li>
+  <li>
+    guidance on the 3 programmes that are compliant with the new regulations:
+
+    <ol class="govuk-list govuk-list--number">
+      <li>an approved training provider leads the programme</li>
+      <li>the school delivers the programme using DfE accredited materials</li>
+      <li>schools design and deliver their own programme based on the early career framework (ECF)</li>
+    </ol>
+  </li>
 </ul>
-<ol>
-  <li>an approved training provider leads the programme</li>
-  <li>the school delivers the programme using DfE accredited materials</li>
-  <li>schools design and deliver their own programme based on the early career framework (ECF)</li>
-</ol>
+
 <p>Schools need to read our guidance and choose an approach that works for them:</p>
 <p><a class="govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview</a></p>
-<h2>What schools can do next</h2>
+<h2 class="govuk-heading-m">What schools can do next</h2>
 <p>We have launched an online service to help schools manage their new programme.</p>
 <p>When your school has decided on an approach, nominate someone who manages statutory inductions at your school:</p>
 
