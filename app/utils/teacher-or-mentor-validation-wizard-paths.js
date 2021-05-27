@@ -4,7 +4,11 @@ const {
 } = require('../utils/wizard-helpers')
 
 function validationWizardPaths (req) {
-  var paths = []
+  var paths = [
+    '/teacher-or-mentor/validation/privacy-policy',
+    '/teacher-or-mentor/validation/trn',
+    '/teacher-or-mentor/validation/name-changed'
+  ]
   return nextAndBackPaths(paths, req)
 }
 

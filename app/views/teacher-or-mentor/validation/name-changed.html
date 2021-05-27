@@ -1,0 +1,25 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Has your name changed since you became a qualified teacher?" %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    hint: {
+      html: '<p>Your name must match the name held in the Database of Qualified Teachers (DQT). If it doesn’t match, you cannot continue with your induction coaching.</p>'
+    },
+    items: [
+      {
+        text: 'Yes, I have changed my name'
+      },
+      {
+        text: 'No, I have the same name'
+      }
+    ]
+  } | decorateFormAttributes(['teacher-or-mentor-validation', 'name-changed'])) }}
+{% endblock %}

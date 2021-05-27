@@ -1,0 +1,52 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Do you know your teacher reference number (TRN)?" %}
+
+{% block form %}
+  {% set trnHtml %}
+    {{ govukInput({
+      label: {
+        text: 'Teacher reference number (TRN)',
+        classes: 'govuk-label--s'
+      }
+    } | decorateFormAttributes(['teacher-or-mentor-validation', 'trn'])) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    hint: {
+      html: '<p>Your teacher reference number (TRN) is used to check you’re eligible to study for an early career framework induction course.</p>'
+    },
+    items: [
+      {
+        text: 'Yes, I know my teacher reference number (TRN)',
+        conditional: {
+          html: trnHtml
+        }
+      },
+      {
+        text: 'No, I do not know my TRN'
+      },
+      {
+        text: 'I do not have a TRN'
+      }
+    ]
+  } | decorateFormAttributes(['teacher-or-mentor-validation', 'know-trn'])) }}
+
+  {% set helpHtml %}
+    <p>A teacher reference number (TRN) is a unique ID that allows us to check you are a teacher.</p>
+    <p>If you don’t know what your teacher reference number (TRN) is, this can usually be found on your payslip, teachers’ pension documentation or teacher training records.</p>
+    <p>The TRN has previously been known as a QTS, GTC, DfE, DfES or DCSF number.</p>
+    <p>You may not have a TRN if you qualified outside England or overseas.</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What is a teacher reference number?",
+    html: helpHtml
+  }) }}
+{% endblock %}
