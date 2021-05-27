@@ -1,27 +1,13 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Your report has been submitted
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Your repoeat has been submitted' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-!-margin-bottom-8">
-      {% from "govuk/components/panel/macro.njk" import govukPanel %}
       {{ govukPanel({
-        titleText: "Your report has been submitted"
+        titleText: title
       }) }}
       </div>
 
@@ -31,8 +17,6 @@
         <li>they may also contact you to discuss any issues</li>
         <li>if you do not hear from a training provider, we will update you directly</li>
       </ul>
-
     </div>
   </div>
-
 {% endblock %}

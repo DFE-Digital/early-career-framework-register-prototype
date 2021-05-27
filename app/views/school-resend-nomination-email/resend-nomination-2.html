@@ -1,17 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Find your school
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Find your school' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-1">Back</a>
@@ -26,7 +15,7 @@
         <div class="govuk-form-group">
             {{ govukInput({
             label: {
-              text: "Find your school",
+              text: title,
               classes: "govuk-label--l"
             },
             hint: {
@@ -37,7 +26,7 @@
             name: "school-lookup"
           }) }}
         </div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}

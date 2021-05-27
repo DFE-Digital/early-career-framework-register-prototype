@@ -1,17 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Confirm your details
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Confirm your details' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-2">Back</a>
@@ -21,15 +10,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">Confirm your details</h1>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
       <p class="govuk-body">We will send a link to the email address your school has listed on our register, <a href="https://get-information-schools.service.gov.uk/">Get Information about Schools</a>.</p>
 
       <p class="govuk-body govuk-!-margin-bottom-7">Your school will follow this link to nominate an induction lead or tutor.</p>
 
       <div class="govuk-!-margin-bottom-9">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
-      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
       {{ govukSummaryList({
         rows: [
           {
@@ -63,7 +51,7 @@
 
       <form class="form" action="/school-resend-nomination-email/resend-nomination-4" method="post" class="govuk-!-margin-bottom-8">
 
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Confirm"
         }) }}

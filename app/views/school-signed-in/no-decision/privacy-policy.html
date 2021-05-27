@@ -1,35 +1,14 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Privacy policy
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start",
-  navigation: [
-    {
-      href: "#1",
-      text: data['school-email-address'],
-      active: false
-    },
-    {
-      href: "/sign-out",
-      text: "Sign out"
-    }
-  ]
-}) }}
-{% endblock %}
+{% set schoolSignedIn = true %}
+{% set title = 'Privacy policy' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Privacy policy</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
   <p>Before you continue, please check our privacy policy</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -186,5 +165,4 @@
 
     </div>
   </div>
-
 {% endblock %}

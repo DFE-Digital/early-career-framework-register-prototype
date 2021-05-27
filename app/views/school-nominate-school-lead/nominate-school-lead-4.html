@@ -1,27 +1,13 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-Induction lead or tutor nominated
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Induction lead or tutor nominated' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-!-margin-bottom-8">
-      {% from "govuk/components/panel/macro.njk" import govukPanel %}
       {{ govukPanel({
-        titleText: "Induction lead or tutor nominated"
+        titleText: title
       }) }}
       </div>
 
@@ -33,8 +19,6 @@ Induction lead or tutor nominated
       </ul>
 
       <p class="govuk-body skip-to">Skip to: <a href="/school-lead-notification-and-sign-in/notification-of-school-lead">email that the Induction Tutor receives</a></p>
-
     </div>
   </div>
-
 {% endblock %}

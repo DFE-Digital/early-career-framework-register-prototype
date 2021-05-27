@@ -1,30 +1,15 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Report that your school has been signed up incorrectly
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Report that your school has been signed up incorrectly' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">Report that your school has been signed up incorrectly</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
       <p class="govuk-body govuk-!-margin-bottom-7">[School name] has received a confirmation from [Delivery partner] but you believe this is incorrect.</p>
 
       <form class="form" action="/school-challenging-partnership/school-challenge-3" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
         {% set otherHtml %}
         {{ govukInput({
           id: "other-reason",
@@ -71,13 +56,11 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Submit"
         }) }}
       </form>
-
     </div>
   </div>
-
 {% endblock %}

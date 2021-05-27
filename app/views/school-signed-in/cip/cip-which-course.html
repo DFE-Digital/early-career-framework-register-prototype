@@ -1,48 +1,24 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Check materials
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start",
-  navigation: [
-    {
-      href: "#1",
-      text: data['school-email-address'],
-      active: false
-    },
-    {
-      href: "/sign-out",
-      text: "Sign out"
-    }
-  ]
-}) }}
-{% endblock %}
+{% set schoolSignedIn = true %}
+{% set title = 'Do you know which accredited materials you want to use?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/cip/cip-cohort-detail">Back</a>
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Do you know which accredited materials you want to use?</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
       <p class="govuk-body">You will be choosing materials for any new early career teachers. They will access these materials on our service and complete a programme over 2 years.</p>
 
       <p class="govuk-body">Not sure? <a href="/cip-course-guidance"> Check our guidance on materials</a>.</p>
 
       <a class="govuk-button" href="/school-signed-in/cip/cip-course-choice">Continue</a>
-
     </div>
   </div>
-
 {% endblock %}

@@ -8,8 +8,7 @@ router.post('/start-testing', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolNoDecision') {
     res.redirect('/school-nominate-school-lead/nominate-school-lead-1')
-  }
-  else if (journeyMode === 'schoolFIP') {
+  } else if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-choose-cohort')
   } else if (journeyMode === 'schoolCIP') {
     res.redirect('/school-signed-in/cip/cip-choose-cohort')
@@ -17,7 +16,6 @@ router.post('/start-testing', function (req, res) {
     res.redirect('/start')
   }
 })
-
 
 // Branching for sign in
 /*
@@ -32,7 +30,7 @@ router.post('/sign-in-check-email', function (req, res) {
   } else {
     res.redirect('/sign-in-check-email')
   }
-})*/
+}) */
 
 // Branching for access to dashboard (/sign-in-continue-to-account)
 router.post('/dashboard', function (req, res) {
@@ -58,13 +56,12 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
   }
 })
 
-
 // Branching on type of participant being added
 router.post('/school-signed-in/school-add-participants-to-cohort/choose-participant-type', function (req, res) {
-  const participantType = req.session.data['participantType']
+  const participantType = req.session.data.participantType
   if (participantType === 'ect') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
-  } else if (participantType === 'mentor')  {
+  } else if (participantType === 'mentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor')
   }
 })
@@ -74,16 +71,16 @@ router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing
   const mentorType = req.session.data['new-or-existing-mentor']
   if (mentorType === 'newMentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
-  } else if (mentorType === 'existingMentor')  {
+  } else if (mentorType === 'existingMentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/mentor-from-existing-cohort')
   }
 })
 
 // Branching to choose mentor from cohort, if adding an ECT and mentors have already been added to cohort
 router.post('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details', function (req, res) {
-  const schoolParticipantOptions = req.session.data['schoolParticipantOptions']
-  const participantType = req.session.data['participantType']
-  if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'ect'){
+  const schoolParticipantOptions = req.session.data.schoolParticipantOptions
+  const participantType = req.session.data.participantType
+  if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'ect') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect')
   } else {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')

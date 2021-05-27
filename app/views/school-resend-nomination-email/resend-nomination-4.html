@@ -1,17 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Your school has been sent a link
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Your school has been sent a link' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 
@@ -19,9 +8,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-!-margin-bottom-8">
-      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
       {{ govukPanel({
-        titleText: "Your school has been sent a link"
+        titleText: title
       }) }}
       </div>
 

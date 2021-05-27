@@ -1,17 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Nominate an induction tutor
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-  homepageUrl: "/index",
-  serviceName: "Manage training for early career teachers",
-  serviceUrl: "/start"
-}) }}
-{% endblock %}
+{% set title = 'Nominate an induction tutor' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/sign-in">Back</a>
@@ -21,18 +10,17 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">Nominate an induction lead or tutor</h1>
-    <p>Your induction lead or tutor will use our online service to manage their statutory induction programme and
-      receive any notifications.</p>
-    <p>You only need to nominate someone if your school wants to:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>use an approved training provider</li>
-    </ul>
-    <p>Or</p>
-    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
-      <li>use the DfE accredited materials</li>
-    </ul>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p>Your induction lead or tutor will use our online service to manage their statutory induction programme and
+        receive any notifications.</p>
+      <p>You only need to nominate someone if your school wants to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use an approved training provider</li>
+      </ul>
+      <p>Or</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+        <li>use the DfE accredited materials</li>
+      </ul>
 
       <form class="form" action="/school-resend-nomination-email/resend-nomination-2" method="post" class="govuk-!-margin-bottom-8">
         <div class="govuk-form-group">
@@ -49,13 +37,11 @@
             name: "school-location"
           }) }}
         </div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
-
     </div>
   </div>
-
 {% endblock %}

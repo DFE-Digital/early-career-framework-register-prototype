@@ -1,28 +1,7 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Sign up with a training provider
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start",
-  navigation: [
-    {
-      href: "#1",
-      text: data['school-email-address'],
-      active: false
-    },
-    {
-      href: "/sign-out",
-      text: "Sign out"
-    }
-  ]
-}) }}
-{% endblock %}
+{% set schoolSignedIn = true %}
+{% set title = 'Sign up with a training provider' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/fip/fip-cohort-detail">Back</a>
@@ -37,10 +16,10 @@
       {% if (data['FIPStatus'] == "inPartnership") %}
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Sign up with a training provider</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
-        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
         {{ govukSummaryList({
           rows: [
             {

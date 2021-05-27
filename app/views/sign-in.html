@@ -1,14 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}Sign in{% endblock %}
 
-{% block header %}
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start"
-  }) }}
-{% endblock %}
-
 {% block pageNavigation %}
   {{ govukBackLink({
     text: "Back",

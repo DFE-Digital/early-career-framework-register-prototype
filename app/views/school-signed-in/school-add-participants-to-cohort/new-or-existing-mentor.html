@@ -1,44 +1,19 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Add mentor from cohort
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start",
-  navigation: [
-    {
-      href: "#1",
-      text: data['school-email-address'],
-      active: false
-    },
-    {
-      href: "/sign-out",
-      text: "Sign out"
-    }
-  ]
-}) }}
-{% endblock %}
+{% set schoolSignedIn = true %}
+{% set title = 'Do you want to add a mentor from another cohort?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
 {% endblock %}
 
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">Do you want to add a mentor from another cohort?</h1>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
       <p>Mentors can work across cohorts. You don’t need to add their details every time.</p>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor" method="post" class="govuk-!-margin-bottom-8">
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
           idPrefix: "new-or-existing-mentor",
           name: "new-or-existing-mentor",
@@ -55,14 +30,11 @@
             }
           ]
         }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
-
-
     </div>
   </div>
-
 {% endblock %}
