@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
+require('./routes/teacher-or-mentor-validation')(router)
 
 // Branching for sign in
 router.post('/start-testing', function (req, res) {
