@@ -1,0 +1,9 @@
+{% extends "_wizard-page.html" %}
+{% set title = "Registration complete" %}
+{% set buttonText = "Finish" %}
+
+{% block page %}
+  {{ govukPanel({
+    titleText: title
+  }) }}
+{% endblock %}

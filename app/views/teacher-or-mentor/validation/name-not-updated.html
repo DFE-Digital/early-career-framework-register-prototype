@@ -1,0 +1,24 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Do you want to register with an old name?" %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    items: [
+      {
+        text: 'Yes, use an old name',
+        value: 'yes'
+      },
+      {
+        text: 'No, I want to change my name on the Database of Qualified Teachers',
+        value: 'no'
+      }
+    ]
+  } | decorateFormAttributes(['teacher-or-mentor-validation', 'use-old-name'])) }}
+{% endblock %}
