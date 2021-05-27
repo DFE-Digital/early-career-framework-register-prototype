@@ -1,18 +1,14 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Manage your training
-{% endblock %}
+{% set title = 'Manage your training' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <span class="govuk-caption-l">Acorn Primary School</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Manage your training</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">{{ title }}</h1>
       <p class="govuk-body-l govuk-!-margin-bottom-5">Check and complete steps for every academic year/cohort</p>
-
 
       <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Your cohorts</h3>
       <table class="govuk-table">
@@ -39,8 +35,6 @@
           </tr>
         </tbody>
       </table>
-
     </div>
   </div>
-
 {% endblock %}

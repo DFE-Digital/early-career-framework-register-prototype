@@ -1,25 +1,17 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Programme confirmed
-{% endblock %}
+{% set title = 'Study materials saved' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-!-margin-bottom-8">
-
       {{ govukPanel({
-        titleText: "Study materials saved"
+        titleText: title
       }) }}
       </div>
-
-    <p class="govuk-body"><a href="/school-signed-in/cip/cip-cohort-detail"> Back to 2021 cohort</a></p>
-
+      <p class="govuk-body"><a href="/school-signed-in/cip/cip-cohort-detail"> Back to 2021 cohort</a></p>
     </div>
   </div>
-
 {% endblock %}

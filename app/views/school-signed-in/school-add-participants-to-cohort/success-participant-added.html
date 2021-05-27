@@ -1,17 +1,14 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Participant added
-{% endblock %}
+{% set title = 'You have added ' + data['participant-fullname'] + ' to the 2021 cohort' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
         <h1 class="govuk-panel__title">
-          You have added {{ data['participant-fullname'] }} to the 2021 cohort
+          {{ title }}
         </h1>
       </div>
 
@@ -24,8 +21,6 @@
       <a class="govuk-button" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add a new ECT or mentor</a>
 
       <p><a href="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" class="govuk-link govuk-link--no-visited-state">View your ECTs and mentors</a></p>
-
     </div>
   </div>
-
 {% endblock %}

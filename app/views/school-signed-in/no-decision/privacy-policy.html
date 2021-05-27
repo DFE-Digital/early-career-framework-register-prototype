@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Privacy policy
-{% endblock %}
+{% set title = 'Privacy policy' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Privacy policy</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
   <p>Before you continue, please check our privacy policy</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -167,5 +165,4 @@
 
     </div>
   </div>
-
 {% endblock %}

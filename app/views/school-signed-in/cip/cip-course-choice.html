@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  What training materials do you want this cohort to use?
-{% endblock %}
+{% set title = 'Which training materials do you want this cohort to use?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/cip/cip-which-course">Back</a>
@@ -15,7 +13,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Which training materials do you want this cohort to use?</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
       <form class="form" action="/school-signed-in/cip/cip-course-confirmed" method="post" class="govuk-!-margin-bottom-8">
 

@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Next steps
-{% endblock %}
+{% set title = '2021 cohort' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/cip/cip-choose-cohort">Back</a>
@@ -14,7 +12,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">2021 cohort</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">{{ title }}</h1>
       <p class="govuk-body-l govuk-!-margin-bottom-8">Use DfE accredited materials</p>
 
       <ol class="app-task-list">

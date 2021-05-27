@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Find your school
-{% endblock %}
+{% set title = 'Find your school' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-1">Back</a>
@@ -17,7 +15,7 @@
         <div class="govuk-form-group">
             {{ govukInput({
             label: {
-              text: "Find your school",
+              text: title,
               classes: "govuk-label--l"
             },
             hint: {

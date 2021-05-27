@@ -1,31 +1,22 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Programme confirmed
-{% endblock %}
+{% set title = 'Induction programme confirmed' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-!-margin-bottom-8">
-
       {{ govukPanel({
-        titleText: "Induction programme confirmed",
+        titleText: title,
         html: "You can now view the next steps for your programme."
       }) }}
       </div>
-
-    <form class="form" action="/school-signed-in/no-decision/provision-confirmed" method="post" class="govuk-!-margin-bottom-8">
-
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
-
+      <form class="form" action="/school-signed-in/no-decision/provision-confirmed" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
     </div>
   </div>
-
 {% endblock %}

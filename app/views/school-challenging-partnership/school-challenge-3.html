@@ -1,18 +1,13 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Your report has been submitted
-{% endblock %}
+{% set title = 'Your repoeat has been submitted' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-!-margin-bottom-8">
-
       {{ govukPanel({
-        titleText: "Your report has been submitted"
+        titleText: title
       }) }}
       </div>
 
@@ -22,8 +17,6 @@
         <li>they may also contact you to discuss any issues</li>
         <li>if you do not hear from a training provider, we will update you directly</li>
       </ul>
-
     </div>
   </div>
-
 {% endblock %}

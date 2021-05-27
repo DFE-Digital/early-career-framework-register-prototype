@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Your school has been sent a link
-{% endblock %}
+{% set title = 'Your school has been sent a link' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block content %}
 
@@ -12,7 +10,7 @@
       <div class="govuk-!-margin-bottom-8">
 
       {{ govukPanel({
-        titleText: "Your school has been sent a link"
+        titleText: title
       }) }}
       </div>
 

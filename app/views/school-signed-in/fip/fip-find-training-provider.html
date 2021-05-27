@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Sign up with a training provider
-{% endblock %}
+{% set title = 'Sign up with a training provider' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/fip/fip-cohort-detail">Back</a>
@@ -18,7 +16,7 @@
       {% if (data['FIPStatus'] == "inPartnership") %}
 
       <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">Sign up with a training provider</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
 

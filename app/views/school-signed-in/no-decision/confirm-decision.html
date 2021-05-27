@@ -1,31 +1,25 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Choose programme
-{% endblock %}
+{% set title = 'Confirm your induction programme' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/no-decision/prompt-choose-provision">Back</a>
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl">Confirm your induction programme</h1>
-    <p class="govuk-body">You have chosen to:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      {% if (data['journey-mode'] === "schoolFIP") %}
-        <li>Use an approved training provider</li>
-      {% else %}
-        <li>Use DfE accredited materials</li>
-      {% endif %}
-    </ul>
-    <a class="govuk-button" href="/school-signed-in/no-decision/provision-confirmed">Confirm</a>
-
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p class="govuk-body">You have chosen to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        {% if (data['journey-mode'] === "schoolFIP") %}
+          <li>Use an approved training provider</li>
+        {% else %}
+          <li>Use DfE accredited materials</li>
+        {% endif %}
+      </ul>
+      <a class="govuk-button" href="/school-signed-in/no-decision/provision-confirmed">Confirm</a>
     </div>
   </div>
-
 {% endblock %}

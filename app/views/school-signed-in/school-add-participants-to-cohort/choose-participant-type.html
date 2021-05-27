@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-
-{% block pageTitle %}
-  Choose type of participant
-{% endblock %}
+{% set title = 'Add your early career teachers and mentors' %}
+{% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
   {% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
@@ -15,12 +13,10 @@
   {% endif %}
 {% endblock %}
 
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Add your early career teachers and mentors</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ title }}</h1>
 
       <p class="govuk-body">You need to add details of the early career teachers and mentors in this cohort.</p>
       <p class="govuk-body govuk-!-margin-bottom-8">This is so we can verify them before their induction starts.</p>
@@ -55,9 +51,6 @@
           text: "Continue"
         }) }}
       </form>
-
-
     </div>
   </div>
-
 {% endblock %}
