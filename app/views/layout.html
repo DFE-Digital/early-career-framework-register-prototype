@@ -44,7 +44,17 @@
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/start",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "#1",
+        text: data['school-email-address'] or 'headteacher@school.gov.uk'
+      },
+      {
+        href: "/sign-out",
+        text: "Sign out"
+      }
+    ] if schoolSignedIn
   }) }}
 {% endblock %}
 

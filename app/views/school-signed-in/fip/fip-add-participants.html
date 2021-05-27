@@ -1,27 +1,8 @@
 {% extends "layout.html" %}
+{% set schoolSignedIn = true %}
 
 {% block pageTitle %}
   Add early career teachers and mentors
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage training for early career teachers",
-    serviceUrl: "/start",
-  navigation: [
-    {
-      href: "#1",
-      text: data['school-email-address'],
-      active: false
-    },
-    {
-      href: "/sign-out",
-      text: "Sign out"
-    }
-  ]
-}) }}
 {% endblock %}
 
 {% block pageNavigation %}
