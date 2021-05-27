@@ -1,0 +1,9 @@
+{% extends "_wizard-page.html" %}
+{% set title = "Privacy policy" %}
+
+{% block page %}
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+  <p>Before you continue, please check our privacy policy</p>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+  {% include 'includes/_privacy-policy.html' %}
+{% endblock %}
