@@ -1,0 +1,50 @@
+{% extends "_wizard-form.html" %}
+{% set title = "Your details" %}
+
+{% block form %}
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+  {% if data['teacher-or-mentor-validation']['use-old-name'] == 'yes' %}
+    {{ govukInput({
+      label: {
+        text: 'Current full name',
+        classes: 'govuk-label--m'
+      }
+    } | decorateFormAttributes(['teacher-or-mentor-validation', 'full-name'])) }}
+
+    {{ govukInput({
+      label: {
+        text: 'Old full name',
+        classes: 'govuk-label--m'
+      }
+    } | decorateFormAttributes(['teacher-or-mentor-validation', 'old-name'])) }}
+  {% else %}
+    {{ govukInput({
+      label: {
+        text: 'Full name',
+        classes: 'govuk-label--m'
+      }
+    } | decorateFormAttributes(['teacher-or-mentor-validation', 'full-name'])) }}
+  {% endif %}
+
+  {{ govukDateInput({
+    id: "date-of-birth",
+    namePrefix: "date-of-birth",
+    fieldset: {
+      legend: {
+        text: "Date of birth",
+        classes: 'govuk-label--m'
+      }
+    },
+    hint: {
+      text: "For example, 12 11 1995"
+    }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: 'National Insurance number (optional)',
+      classes: 'govuk-label--m'
+    }
+  } | decorateFormAttributes(['teacher-or-mentor-validation', 'nino'])) }}
+{% endblock %}

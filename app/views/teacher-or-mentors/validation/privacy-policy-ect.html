@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set title = 'Privacy policy' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p>Before you continue, please check our privacy policy</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      {% include 'includes/_privacy-policy.html' %}
+      <a class="govuk-button" href="/teacher-or-mentors/validation/trn-ect">Continue</a>
+    </div>
+  </div>
+{% endblock %}
