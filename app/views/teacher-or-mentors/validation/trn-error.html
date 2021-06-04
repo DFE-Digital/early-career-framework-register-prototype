@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set title = 'We cannot find your details' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+<form class="form" action="/teacher-or-mentors/validation/qct-ect" method="post">
+
+      <p class="govuk-body">We cannot find a match with the details you have provided.</p>
+      <p class="govuk-body">This could be because:</p>
+      <p class="govuk-body">If you cannot find your TRN, you can request a reminder.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+      <li>you have abbreviated your first name e.g. Rob/Robert</li>
+      <li>your surname is different to the name held on the DQT</li>
+      <li>you've entered an incorrect TRN</li>
+      <li>you've have entered an incorrect date of birth</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Request a TRN reminder by email</h2>
+      <p class="govuk-body">To request a reminder of your TRN, send an email to <a class="govuk-link" href="">qts.enquiries@education.gov.uk</a> which includes your:</p>
+      <ul class="govuk-list govuk-list--bullet">
+
+      <li>full name</li>
+      <li>date of birth</li>
+      <li>National Insurance number</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Request a TRN reminder by phone</h2>
+      <p class="govuk-body">Call the Teaching Regulation Agency on 020 7593 5394 <br> Make sure you have your National Insurance number ready before you call.</p>
+
+      {{ govukButton({
+        text: "Try again"
+      }) }}
+  </form>
+    </div>
+  </div>
+{% endblock %}

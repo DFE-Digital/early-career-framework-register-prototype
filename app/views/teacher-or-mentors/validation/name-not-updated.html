@@ -1,24 +1,52 @@
-{% extends "_wizard-form.html" %}
-{% set title = "Do you want to register with an old name?" %}
+{% extends "layout.html" %}
+{% set title = 'Name not updated' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{% block pageNavigation %}
+<a class="govuk-back-link" href="/teacher-or-mentors/validation/update-name">Back</a>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-{% block form %}
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: title,
-        isPageHeading: true,
-        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
-      }
-    },
-    items: [
-      {
-        text: 'Yes, use an old name',
-        value: 'yes'
-      },
-      {
-        text: 'No, I want to change my name on the Database of Qualified Teachers',
-        value: 'no'
-      }
-    ]
-  } | decorateFormAttributes(['teacher-or-mentor-validation', 'use-old-name'])) }}
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <p class="govuk-body"><p>If your name has not been updated and does not match the DQT, you have two options:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>use your old name to register with the service</li>
+      <li>change your name on the DQT</li>
+      </ul>
+
+      <form class="form" action="/teacher-or-mentors/validation/name-not-updated" method="post" class="govuk-!-margin-bottom-8">
+
+        {{ govukRadios({
+          idPrefix: "dqt-change",
+          name: "dqt-change",
+          fieldset: {
+          legend: {
+            text: "I want to:",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+        }
+        },
+          items: [
+            {
+              value: "existingMentor",
+              text: "Change my name on the DQT",
+              checked: checked("dqt-change", "existingMentor")
+            },
+            {
+              value: "newMentor",
+              text: "Register with my old name",
+              checked: checked("dqt-change", "newMentor")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
 {% endblock %}

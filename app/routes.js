@@ -76,6 +76,50 @@ router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing
   }
 })
 
+// Branching on TRN status of mentor/ect
+router.post('/teacher-or-mentors/validation/trn-ect', function (req, res) {
+  const trnType = req.session.data['trn-look']
+  if (trnType === 'newMentor') {
+    res.redirect('/teacher-or-mentors/validation/trn-info')
+  } else if (trnType === 'existingMentor') {
+    res.redirect('/teacher-or-mentors/validation/name-change-ect')
+  } else if (trnType === 'Mentor') {
+    res.redirect('/teacher-or-mentors/validation/trn-get')
+  }
+})
+
+// Branching on mentor/ect name change
+router.post('/teacher-or-mentors/validation/name-change-ect', function (req, res) {
+  const nameType = req.session.data['name-change']
+  if (nameType === 'newMentor') {
+    res.redirect('/teacher-or-mentors/validation/qct-ect')
+  } else if (nameType === 'existingMentor') {
+    res.redirect('/teacher-or-mentors/validation/update-name')
+  }
+})
+
+// Branching on TRN status of mentor/ect update name
+router.post('/teacher-or-mentors/validation/update-name', function (req, res) {
+  const nameExplain = req.session.data['nameChange']
+  if (nameExplain === 'newMentor') {
+    res.redirect('/teacher-or-mentors/validation/name-not-updated')
+  } else if (nameExplain === 'existingMentor') {
+    res.redirect('/teacher-or-mentors/validation/qct-ect')
+  } else if (nameExplain === 'Mentor') {
+    res.redirect('/teacher-or-mentors/validation/name-maybe')
+  }
+})
+
+// Branching on mentor/ect DQT name change
+router.post('/teacher-or-mentors/validation/name-not-updated', function (req, res) {
+  const dqtName = req.session.data['dqt-change']
+  if (dqtName === 'newMentor') {
+    res.redirect('/teacher-or-mentors/validation/qct-ect')
+  } else if (dqtName === 'existingMentor') {
+    res.redirect('/teacher-or-mentors/validation/dqt-contact')
+  }
+})
+
 // Branching to choose mentor from cohort, if adding an ECT and mentors have already been added to cohort
 router.post('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details', function (req, res) {
   const schoolParticipantOptions = req.session.data.schoolParticipantOptions
@@ -91,5 +135,7 @@ router.post('/school-signed-in/school-add-participants-to-cohort/confirm-partici
 router.post('/school-signed-in/school-add-participants-to-cohort/confirm-ect-details', function (req, res) {
   res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
 })
+
+
 
 module.exports = router

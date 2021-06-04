@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% set title = 'Updated name' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{% block pageNavigation %}
+<a class="govuk-back-link" href="/teacher-or-mentors/validation/name-change-ect">Back</a>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <p class="govuk-body">If you've changed your name and want to use it for work, and any training  certificates gained, it must also be changed on the Database of Qualified Teachers (DQT).</p>
+
+
+      <form class="form" action="/teacher-or-mentors/validation/update-name" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukRadios({
+          idPrefix: "nameChange",
+          name: "nameChange",
+          fieldset: {
+          legend: {
+            text: "Have you updated your name on the DQT?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+        }
+        },
+          items: [
+            {
+              value: "existingMentor",
+              text: "Yes, i've updated my name",
+              checked: checked("nameChange", "existingMentor")
+            },
+            {
+              value: "newMentor",
+              text: "No, I have not updated my name",
+              checked: checked("nameChange", "newMentor")
+            },
+            {
+              value: "Mentor",
+              text: "Not sure",
+              checked: checked("nameChange", "Mentor")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
