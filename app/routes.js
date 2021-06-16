@@ -51,8 +51,12 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolFIP') {
     res.redirect('/school-signed-in/fip/fip-choose-cohort')
-  } else {
+  } else if (journeyMode === 'schoolCIP') {
     res.redirect('/school-signed-in/cip/cip-choose-cohort')
+  } else if (journeyMode === 'schoolDYO') {
+  res.redirect('/school-signed-in/dyo/dyo-choose-cohort')
+} else if (journeyMode === 'schoolNOECT') {
+    res.redirect('/school-signed-in/dyo/dyo-choose-cohort-noect')
   }
 })
 
