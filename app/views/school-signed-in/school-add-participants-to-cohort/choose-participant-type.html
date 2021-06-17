@@ -19,7 +19,18 @@
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ title }}</h1>
 
       <p class="govuk-body">You need to add details of the early career teachers and mentors in this cohort.</p>
-      <p class="govuk-body govuk-!-margin-bottom-8">This is so we can verify them before their induction starts.</p>
+
+
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+      Why do I need to do this?
+      </span>
+      </summary>
+      <div class="govuk-details__text">
+      We need to make sure they have Qualified Teacher Status and are eligible to complete an induction or act as a mentor.
+      </div>
+      </details>
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/choose-participant-type" method="post" class="govuk-!-margin-bottom-8">
 
@@ -36,13 +47,21 @@
           items: [
             {
               value: "ect",
-              text: "Early Career Teacher",
+              text: "Early career teacher",
               checked: checked("participantType", "ect")
             },
             {
               value: "mentor",
               text: "Mentor",
               checked: checked("participantType", "mentor")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "sitmentor",
+              text: "Myself as a mentor",
+              checked: checked("participantType", "sitmentor")
             }
           ]
         }) }}

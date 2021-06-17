@@ -67,6 +67,8 @@ router.post('/school-signed-in/school-add-participants-to-cohort/choose-particip
     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
   } else if (participantType === 'mentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor')
+  } else if (participantType === 'sitmentor') {
+    res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-sitmentor')
   }
 })
 
