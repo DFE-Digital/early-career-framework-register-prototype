@@ -4,18 +4,14 @@
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
-  {% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
-    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">Back</a>
-  {% else %}
-    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
-  {% endif %}
+  <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">{{ title }}</h1>
-  
+
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
