@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set title = 'Do you expect to have any early career teachers at [school name] this year?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p class="govuk-body">Your induction lead or tutor will use our online service to manage your school’s statutory induction programme and receive any notifications.</p>
+
+      <p class="govuk-body">You are choosing an option for <strong>[school name].</strong> If you are from another school, <a href="">send your school a link</a></p>
+
+      <form class="form" action="/school-nominate-school-lead/nominate-school-lead-options" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukRadios({
+          idPrefix: "sit-nqts",
+          name: "sit-nqts",
+          items: [
+            {
+              value: "nqtYes",
+              text: "Yes, (nominate someone to set up your induction programme for 2021/22)",
+              checked: checked("sit-nqts", "nqtYes")
+            },
+            {
+              value: "nqtNo",
+              text: "No, (opt out of updates about this service until the next academic year)",
+              checked: checked("sit-nqts", "nqtNo")
+            },
+            {
+              value: "nqtMaybe",
+              text: "I don’t know, (nominate someone to receive updates)",
+              checked: checked("sit-nqts", "nqtMaybe")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
