@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Which training materials do you want this cohort to use?' %}
+{% set title = 'Which DfE accredited materials do you want to use for 2021/22?' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
 {% block pageNavigation %}
@@ -14,6 +14,10 @@
 
       <span class="govuk-caption-l">2021 cohort</span>
       <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p class="govuk-body">
+        <a class="govuk-link" href="/cip-course-guidance">Check our guidance on materials</a>. if you’re not sure.
+      </p>
+
 
       <form class="form" action="/school-signed-in/cip/cip-course-confirmed" method="post" class="govuk-!-margin-bottom-8">
 
