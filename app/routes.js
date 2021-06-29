@@ -144,10 +144,17 @@ router.post('/school-signed-in/school-add-participants-to-cohort/confirm-partici
   const participantType = req.session.data.participantType
   if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'ect') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect')
-  } else {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
-  }
+  } else if (schoolParticipantOptions === 'canAddParticipants' && participantType === 'ect') {
+      res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
+  } else if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'mentor') {
+    res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort')
+  } else if (schoolParticipantOptions === 'canAddParticipants' && participantType === 'mentor') {
+      res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
+    }
 })
+
+
+
 
 // Lazy branching as not sure how to do this one properly - it conflicts with other branching above
 router.post('/school-signed-in/school-add-participants-to-cohort/confirm-ect-details', function (req, res) {
