@@ -12,8 +12,11 @@
     <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">Back</a>
   {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'mentor') %}
     <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
-    {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'sitmentor') %}
-      <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
+  {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">Back</a>
+  {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'sitmentor') %}
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
+
 
   {% endif %}
 {% endblock %}
@@ -108,7 +111,20 @@
             </a>
           </dd>
         </div>
-        {% else %}
+        {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Early career teachers
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['chooseEct'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">
+              Change<span class="govuk-visually-hidden"> ect</span>
+            </a>
+          </dd>
+        </div>
 
         {% endif %}
       </dl>

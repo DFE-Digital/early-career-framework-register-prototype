@@ -9,7 +9,6 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
-const cookieParser = require('cookie-parser')
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -25,7 +24,6 @@ const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
-const addNunjucksFiltersWithAppContext = require('./app/utils/filters-with-app-context')
 
 // Variables for v6 backwards compatibility
 // Set false by default, then turn on if we find /app/v6/routes.js
@@ -45,12 +43,6 @@ if (useV6) {
   console.log('/app/v6/routes.js detected - using v6 compatibility mode')
   v6App = express()
 }
-
-// Set cookies for use in cookie banner.
-app.use(cookieParser())
-documentationApp.use(cookieParser())
-app.use(utils.handleCookies(app))
-documentationApp.use(utils.handleCookies(documentationApp))
 
 // Set up configuration variables
 var releaseVersion = packageJson.version
@@ -104,16 +96,13 @@ var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
-// Add Nunjucks filters with access to app, req and res
-addNunjucksFiltersWithAppContext(nunjucksAppEnv, app)
-
 // Set views engine
 app.set('view engine', 'html')
 
 // Middleware to serve static assets
 app.use('/public', express.static(path.join(__dirname, '/public')))
 
-// Serve govuk-frontend in from node_modules (so not to break pre-extenstions prototype kits)
+// Serve govuk-frontend in from node_modules (so not to break pre-extensions prototype kits)
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
 
 // Set up documentation app
@@ -166,7 +155,6 @@ if (useV6) {
 app.locals.asset_path = '/public/'
 app.locals.useAutoStoreData = (useAutoStoreData === 'true')
 app.locals.useCookieSessionStore = (useCookieSessionStore === 'true')
-app.locals.cookieText = config.cookieText
 app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
@@ -219,8 +207,6 @@ app.post('/prototype-admin/clear-data', function (req, res) {
 // Redirect root to /docs when in promo mode.
 if (promoMode === 'true') {
   console.log('Prototype Kit running in promo mode')
-
-  app.locals.cookieText = 'GOV.UK uses cookies to make the site simpler. <a href="/docs/cookies">Find out more about cookies</a>'
 
   app.get('/', function (req, res) {
     res.redirect('/docs')
