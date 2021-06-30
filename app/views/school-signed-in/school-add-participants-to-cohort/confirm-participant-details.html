@@ -16,8 +16,6 @@
     <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">Back</a>
   {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'sitmentor') %}
     <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
-
-
   {% endif %}
 {% endblock %}
 
@@ -53,11 +51,15 @@
             <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">
               Change<span class="govuk-visually-hidden"> personal details</span>
             </a>
+            {% elseif (data['participantType'] === 'mentor' and data['neworexistingmentor'] === 'existingMentor') %}
+            <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/mentor-from-existing-cohort">
+              Change<span class="govuk-visually-hidden"> personal details</span>
+            </a>
             {% elseif (data['participantType'] === 'mentor') %}
-
             <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">
               Change<span class="govuk-visually-hidden"> personal details</span>
             </a>
+
             {% elseif (data['participantType'] === 'sitmentor') %}
 
             {% endif %}
