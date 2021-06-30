@@ -9,9 +9,11 @@
   {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'ect') %}
     <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
   {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
-      <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">Back</a>
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">Back</a>
   {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'mentor') %}
-        <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
+    <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
+    {% elif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['participantType'] === 'sitmentor') %}
+      <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
 
   {% endif %}
 {% endblock %}
@@ -28,15 +30,34 @@
             Details
           </dt>
           <dd class="govuk-summary-list__value">
+            {% if (data['participantType'] === 'ect') %}
             {{ data['participant-fullname'] }} {{ data['choose-existing-mentor'] }}<br />
             {{ data['participant-email-address'] }}
 
+            {% elseif (data['participantType'] === 'mentor') %}
+
+            {{ data['participant-fullname'] }} {{ data['choose-existing-mentor'] }}<br />
+            {{ data['participant-email-address'] }}
+
+            {% elseif (data['participantType'] === 'sitmentor') %}
+              School induction tutor name <br>
+              schoolinduction@email.com
+            {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
+            {% if (data['participantType'] === 'ect') %}
             <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">
               Change<span class="govuk-visually-hidden"> personal details</span>
             </a>
+            {% elseif (data['participantType'] === 'mentor') %}
+
+            <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/enter-personal-details">
+              Change<span class="govuk-visually-hidden"> personal details</span>
+            </a>
+            {% elseif (data['participantType'] === 'sitmentor') %}
+
+            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -48,6 +69,8 @@
               Early Career Teacher
             {% elseif (data['participantType'] === 'mentor') %}
               Mentor
+              {% elseif (data['participantType'] === 'sitmentor') %}
+                Mentor
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -77,10 +100,10 @@
             Early career teachers
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['choose-ect-from-cohort'] }}
+            {{ data['chooseEct'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-mentor">
+            <a class="govuk-link" href="/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">
               Change<span class="govuk-visually-hidden"> ect</span>
             </a>
           </dd>

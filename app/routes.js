@@ -80,13 +80,13 @@ router.post('/school-signed-in/school-add-participants-to-cohort/choose-particip
   } else if (participantType === 'mentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor')
   } else if (participantType === 'sitmentor') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-sitmentor')
+    res.redirect('/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor')
   }
 })
 
 // Branching on type of mentor being added (new or existing)
 router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor', function (req, res) {
-  const mentorType = req.session.data['new-or-existing-mentor']
+  const mentorType = req.session.data['neworexistingmentor']
   if (mentorType === 'newMentor') {
     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
   } else if (mentorType === 'existingMentor') {
@@ -150,7 +150,11 @@ router.post('/school-signed-in/school-add-participants-to-cohort/confirm-partici
     res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort')
   } else if (schoolParticipantOptions === 'canAddParticipants' && participantType === 'mentor') {
       res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
-    }
+  } else if (schoolParticipantOptions === 'hasAddedMentors' && participantType === 'sitmentor') {
+      res.redirect('/school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort')
+  } else if (schoolParticipantOptions === 'canAddParticipants' && participantType === 'sitmentor') {
+        res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
+        }
 })
 
 

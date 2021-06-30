@@ -15,18 +15,18 @@
 
       <form class="form" action="/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor" method="post" class="govuk-!-margin-bottom-8">
         {{ govukRadios({
-          idPrefix: "new-or-existing-mentor",
-          name: "new-or-existing-mentor",
+          idPrefix: "neworexistingmentor",
+          name: "neworexistingmentor",
           items: [
             {
               value: "existingMentor",
               text: "Yes, I want to add a mentor from another cohort",
-              checked: checked("new-or-existing-mentor", "existingMentor")
+              checked: checked("neworexistingmentor", "existingMentor")
             },
             {
               value: "newMentor",
               text: "No, I want to add a new one",
-              checked: checked("new-or-existing-mentor", "newMentor")
+              checked: checked("neworexistingmentor", "newMentor")
             }
           ]
         }) }}
