@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set title = 'That email address is already in use' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/change-participant-email">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ title }}</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">Check the address entered and try again</p>
+
+      <form class="form" action="/school-signed-in/school-add-participants-to-cohort/change-participant-email" method="post" class="govuk-!-margin-bottom-8">
+
+
+        {{ govukButton({
+          text: "Try again"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

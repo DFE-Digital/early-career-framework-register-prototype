@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set title = 'Change participants email address' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="/school-signed-in/school-add-participants-to-cohort/participant-status-not-started">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ title }}</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">By changing the participants email address lorem ipsum.</p>
+
+      <form class="form" action="/school-signed-in/school-add-participants-to-cohort/participant-email-change" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-input--width-20",
+          id: "participant-email-address-change",
+          name: "participant-email-address-change",
+          value: data['participant-email-address-change'],
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+  <div style="margin-top:100px">
+  <a style="" href="/school-signed-in/school-add-participants-to-cohort/change-participant-email-error">error</a>
+  </div>
+{% endblock %}
