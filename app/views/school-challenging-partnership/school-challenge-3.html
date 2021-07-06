@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
-{% set title = 'Your repoeat has been submitted' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Your report has been submitted" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-!-margin-bottom-8">
       {{ govukPanel({
-        titleText: title
+        titleText: pageHeading
       }) }}
       </div>
 
