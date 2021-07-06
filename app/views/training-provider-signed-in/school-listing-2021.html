@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  Your schools: 2021 cohort
-{% endblock %}
+{% set pageHeading = "Your schools" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
 {% set page = 'schools' %}
@@ -13,8 +13,9 @@
 
   <div class="govuk-grid-row govuk-!-margin-bottom-5">
     <div class="govuk-grid-column-one-half">
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-        Your schools
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
       </h1>
     </div>
     <div class="govuk-grid-column-one-half">
