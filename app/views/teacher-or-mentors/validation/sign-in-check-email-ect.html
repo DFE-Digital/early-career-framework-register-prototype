@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
-{% set title = 'Check your email' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Check your email" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
       <p class="govuk-body">If you have an account, we have sent you a link to sign in.</p>
       <h2 class="govuk-heading-m">If you don’t get an email to sign in</h2>
       <ul class="govuk-list govuk-list--bullet">

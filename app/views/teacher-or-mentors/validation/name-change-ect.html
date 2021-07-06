@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Name changes' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Name changes" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/teacher-or-mentors/validation/trn-ect">Back</a>
 {% endblock %}
@@ -8,8 +11,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
-
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body"><p>Your name must match the same held in the Database of Qualified Teachers (DQT) to confirm eligible for training and support.</p>
       <p>If it doesn't match, you cannot continue with your training and support.</p>
 

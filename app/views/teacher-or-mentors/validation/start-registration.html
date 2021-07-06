@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Register for your Early Career training and support' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Register for your Early Career training and support" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
@@ -10,7 +12,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">This service is for early career teachers and mentors who are about to begin their training.</p>
 
       <h3 class="govuk-heading-m">Before you start</h3>

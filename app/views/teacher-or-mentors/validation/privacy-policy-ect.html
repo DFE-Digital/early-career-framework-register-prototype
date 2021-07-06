@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
+
 {% set schoolSignedIn = true %}
-{% set title = 'Privacy policy' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Privacy policy" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
   <p>Before you continue, please check our privacy policy</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 

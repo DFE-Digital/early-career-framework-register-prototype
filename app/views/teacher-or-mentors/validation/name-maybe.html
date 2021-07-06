@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'I dont know if I updated my name' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "I dont know if I updated my name" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {{ govukBackLink({
@@ -12,7 +14,10 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      
       <p class="govuk-body">If you are unsure whether you have updated your name on DQT, you can request a reminder.</p>
 
       <h2 class="govuk-heading-m">Request a TRN reminder by email</h2>
