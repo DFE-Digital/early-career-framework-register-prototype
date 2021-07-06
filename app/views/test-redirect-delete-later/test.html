@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
-{% block pageTitle %}Sign in{% endblock %}
+
+{% set pageHeading = "Brian Test" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {{ govukBackLink({
@@ -12,8 +15,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <h1 class="govuk-heading-xl">Testing redirect</h1>
-
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <!-- Redirect works on the value by adding redirect(URL) this will then override the action value -->
       <form class="form" action="4" method="post">

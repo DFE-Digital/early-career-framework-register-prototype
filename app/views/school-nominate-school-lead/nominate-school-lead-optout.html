@@ -1,13 +1,16 @@
 {% extends "layout.html" %}
-{% set title = 'Your choice has been saved for 2021' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Your choice has been saved for 2021" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-!-margin-bottom-8">
       {{ govukPanel({
-        titleText: title
+        titleText: pageHeading
       }) }}
       </div>
 

@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Do you know how you want to run your 2021/22 induction for early career teachers?' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Do you know how you want to run your 2021/22 induction for early career teachers?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">You are choosing how you want to run your programme over 2 years.</p>
       <p class="govuk-body">If you want to change your decision, you may need to contact the Department for Education (DfE).</p>
 

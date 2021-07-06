@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Cohorts' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Cohorts" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {% include 'training-provider-signed-in/_training-provider-nav.html' %}
@@ -14,10 +16,10 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-        {{ title }}
-      </h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+      
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">

@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'How to get an account for this service' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "How to get an account for this service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {{ govukBackLink({
@@ -12,7 +14,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <h2 class="govuk-heading-m">Schools</h2>
       <p class="govuk-body">Your school has been sent an email to nominate someone who manages statutory inductions at your school.</p>
       <p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>

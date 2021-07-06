@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Your early career teachers (ECTs) and mentors' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
+{% set pageSection = "2021 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {% if (data['journey-mode'] === 'schoolFIP') %}
@@ -15,8 +17,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <a class="govuk-button govuk-!-margin-bottom-8" href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add a new ECT or mentor</a>
 

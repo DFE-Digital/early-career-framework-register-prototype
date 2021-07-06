@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Confirm your details' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Confirm your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-2">Back</a>
@@ -10,7 +12,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">We will send a link to your school’s email address on our register, Get Information about Schools (GIAS).</p>
       <p class="govuk-body">It will be an administration email, for example, office@, admin@ or head@</p>
       <p class="govuk-body govuk-!-margin-bottom-7">If you’re not sure,<a href="https://interactions.signin.education.gov.uk//668af363-eb4a-4be7-8fea-bf7450f00c3b/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb"> sign in to DfE </a> and check that your GIAS email address is up to date.</p>

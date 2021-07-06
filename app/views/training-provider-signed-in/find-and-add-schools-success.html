@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
-{% block pageTitle %}Partnerships have been added{% endblock %}
+
+{% set pageHeading = "Partnerships have been added" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
 {% set page = 'schools' %}

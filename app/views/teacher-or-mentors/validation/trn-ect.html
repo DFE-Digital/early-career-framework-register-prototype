@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Teacher reference number' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Teacher reference number" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/teacher-or-mentors/validation/privacy-policy-ect">Back</a>
 {% endblock %}
@@ -8,7 +11,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">Your teacher reference number (TRN) is used to check you're eligible for training and support.</p>
 
       <details class="govuk-details" data-module="govuk-details">

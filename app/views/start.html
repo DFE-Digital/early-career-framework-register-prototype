@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Manage training for early career teachers' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Manage training for early career teachers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
@@ -10,7 +12,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">This service is for induction tutors who have been nominated by their school.</p>
 
       <p>Use this service to manage your school’s statutory induction programme for early career teachers.</p>

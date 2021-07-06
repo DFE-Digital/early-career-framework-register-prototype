@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Name not updated' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Name not updated" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/teacher-or-mentors/validation/update-name">Back</a>
 {% endblock %}
@@ -8,7 +11,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class="govuk-body"><p>If your name has not been updated and does not match the DQT, you have two options:</p>
       <ul class="govuk-list govuk-list--bullet">

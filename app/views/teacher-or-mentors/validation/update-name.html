@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Updated name' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Updated name" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/teacher-or-mentors/validation/name-change-ect">Back</a>
 {% endblock %}
@@ -8,7 +11,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class="govuk-body">If you've changed your name and want to use it for work, and any training  certificates gained, it must also be changed on the Database of Qualified Teachers (DQT).</p>
 

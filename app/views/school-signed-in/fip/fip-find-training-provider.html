@@ -1,7 +1,14 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Sign up with a training provider' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% if (data['FIPStatus'] == "inPartnership") %}
+  {% set pageHeading = "Sign up with a training provider" %}
+{% else %}
+  {% set pageHeading = "Signing up with a training provider" %}
+{% endif %}
+{% set pageSection = "2021 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/fip/fip-cohort-detail">Back</a>
@@ -12,12 +19,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       {% if (data['FIPStatus'] == "inPartnership") %}
 
-      <span class="govuk-caption-l">2021 cohort</span>
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
-
+    
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
 
         {{ govukSummaryList({
@@ -46,9 +52,6 @@
 
 
       {% else %}
-
-      <span class="govuk-caption-l">2021/22 cohort</span>
-      <h1 class="govuk-heading-xl">Signing up with a training provider</h1>
 
       <p class="govuk-body">You sign up with a training provider directly.</p>
       <p class="govuk-body">They will confirm this with the DfE and you will be notified. (You do not need to confirm this here.)</p>

@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  ECF Register and Partner prototype
-{% endblock %}
+{% set pageHeading = "Prototype admin" %}
+{% set pageSection = "ECF Register and Partner" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-l">ECF Register and Partner</span>
-      <h1 class="govuk-heading-xl">
-        Prototype admin
-      </h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
     </div>
   </div>
 

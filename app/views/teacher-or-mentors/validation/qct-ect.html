@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Qualified teacher check' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Qualified teacher check" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
   {{ govukBackLink({
     text: "Back",
@@ -11,7 +14,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    
     <p class="govuk-body">We need to check your teacher details on the Database of Qualified Teachers (DQT) to ensure you qualify to study for a National Professional Qualification (NPQ).</p>
 
     <form class="form" action="/teacher-or-mentors/validation/finish-ect" method="post">
