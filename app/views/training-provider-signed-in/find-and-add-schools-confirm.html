@@ -1,5 +1,16 @@
 {% extends "layout.html" %}
-{% block pageTitle %}Confirm partnerships{% endblock %}
+
+{% set selectedCount = data['selected-count']  %}
+
+{% if data['selected-count'] %}
+    {% set pageHeading = "Add partnerships with these " + selectedCount + " schools" %}
+{% else %}
+    {% set pageHeading = "Add partnerships with these schools" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{# {% block pageTitle %}Confirm partnerships{% endblock %} #}
 
 {% block pageNavigation %}
 {% set page = 'schools' %}
@@ -13,9 +24,9 @@
 {% block content %}
   <div class="govuk-grid-row govuk-!-margin-bottom-5">
     <div class="govuk-grid-column-three-quarters">
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
-        Add partnerships with these {{ data['selected-count'] }} schools
-      </h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
     </div>
   </div>
 

@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
-{% set title = 'Lorem Ipsum Education Ltd.' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Lorem Ipsum Education Ltd." %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 {% block pageNavigation %}
   {% set page = 'overview' %}
@@ -10,10 +13,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        {{ title }}
-      </h1>
 
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <div class="index-group">
         <h2 class="govuk-heading-m"><a href="/training-provider-signed-in/find-and-add-schools" class="govuk-link--no-visited-state">Find and add schools</a></h2>
         <p class="govuk-body">Search for schools you want to recruit and add schools you have partnered with.</p>
