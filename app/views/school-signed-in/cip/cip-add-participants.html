@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Add early career teachers and mentors' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Add early career teachers and mentors" %}
+{% set pageSection = "2021 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/cip/cip-cohort-detail">Back</a>
@@ -11,10 +13,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-l">2021 cohort</span>
-        {{ title }}
-      </h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class="govuk-body">From <strong>July</strong>, you can confirm which early career teachers and mentors are starting a programme this year.</p>
       <p class="govuk-body">We will let you know when you can get started.</p>

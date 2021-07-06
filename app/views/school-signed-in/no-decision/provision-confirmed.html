@@ -1,14 +1,16 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Induction programme confirmed' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Induction programme confirmed" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-!-margin-bottom-8">
       {{ govukPanel({
-        titleText: title,
+        titleText: pageHeading,
         html: ""
       }) }}
       </div>

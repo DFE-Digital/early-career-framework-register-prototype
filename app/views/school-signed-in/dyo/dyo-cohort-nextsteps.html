@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
-{% set title = 'Choose your induction programme' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Choose your induction programme" %}
+{% set pageSection = "2021/22 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-signed-in/dyo/dyo-choose-cohort">Back</a>
@@ -11,8 +14,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <span class="govuk-caption-l">2021/22 cohort</span>
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class="govuk-body-l">
       You have chosen to: design and deliver your own programme based on the early career framework (ECF)
