@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Induction training and support for new teachers' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Induction training and support for new teachers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {{ govukBreadcrumbs({
@@ -19,9 +21,8 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        {{ title }}
-      </h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class='govuk-body'>From September 2021, new teachers in England must complete a 2-year induction after they have done their initial teacher training (ITT).</p>
       <p class='govuk-body'>The induction must be based on the early career framework (ECF) developed by the Department for Education (DfE), teachers, school leaders, academics and experts.</p>

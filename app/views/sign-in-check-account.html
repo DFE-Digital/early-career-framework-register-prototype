@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'How to get an account for this service' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "How to get an account for this service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   {{ govukBackLink({
@@ -12,7 +14,10 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      
       <h2 class="govuk-heading-m">Schools</h2>
       <p class="govuk-body">We have sent schools a link to nominate someone.</p>
       <p class="govuk-body">These emails were sent to the school’s email address on our register, Get Information about Schools (GIAS).</p>
