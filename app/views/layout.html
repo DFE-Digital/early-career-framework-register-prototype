@@ -29,6 +29,11 @@
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
 
+{% import "macros/defaults.njk" as defaults %}
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
