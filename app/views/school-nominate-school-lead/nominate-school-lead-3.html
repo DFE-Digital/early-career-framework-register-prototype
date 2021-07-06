@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
-{% set title = 'Enter details to nominate your induction tutor' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Enter details to nominate your induction tutor" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/school-nominate-school-lead/nominate-school-lead-2">Back</a>
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <div class="govuk-!-margin-bottom-9">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>

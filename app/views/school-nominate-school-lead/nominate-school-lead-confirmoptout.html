@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
-{% set title = 'Confirm your choice' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Confirm your choice" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/school-nominate-school-lead/nominate-school-lead-options">Back</a>
 {% endblock %}
@@ -8,7 +12,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
       <p class="govuk-body">You have chosen to:</p>
 
 

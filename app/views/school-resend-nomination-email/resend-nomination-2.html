@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
-{% set title = 'Find your school' %}
-{% block pageTitle %}{{ title }}{% endblock %}
+
+{% set pageHeading = "Find your school" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
   <a class="govuk-back-link" href="/school-resend-nomination-email/resend-nomination-1">Back</a>
@@ -15,8 +17,8 @@
         <div class="govuk-form-group">
             {{ govukInput({
             label: {
-              text: title,
-              classes: "govuk-label--l"
+              text: pageHeading,
+              classes: "govuk-label--xl"
             },
             hint: {
               text: "Enter school name"
