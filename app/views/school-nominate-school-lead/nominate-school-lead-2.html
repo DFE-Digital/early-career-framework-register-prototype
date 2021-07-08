@@ -1,9 +1,5 @@
 {% extends "layout.html" %}
-
-{% set pageHeading = "Nominate an induction lead or tutor for [school name]" %}
-{% set pageSection = "" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
+{% set pageHeading = "Nominate an induction tutor for [school name]" %}
 
 {% block pageNavigation %}
 <a class="govuk-back-link" href="/school-nominate-school-lead/nominate-school-lead-options">Back</a>
@@ -12,9 +8,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
+
       <p class="govuk-body">Your induction tutor will use our service to:</p>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -23,9 +19,23 @@
         <li>receive any further updates</li>
       </ul>
 
-<p>An induction tutor is someone at your school who usually manages statutory inductions for early career teachers.</p>
-<p>They coordinate the training, support and assessment these new teachers receive.</p>
-<p>If you think this is your role, you can nominate yourself.</p>
+      <h3 class="govuk-heading-m">Who you can nominate</h3>
+
+<p>Schools need to choose the best person to do these tasks.</p>
+<p>For example, you can nominate someone who:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>coordinates the training, support and assessment that early career teachers receive at your school</li>
+  </ul>
+  <p>Or</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>can confirm details for your programme, such as study materials or training providers and information about your ECTs and mentors</li>
+    </ul>
+    <p>Or</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>wants to manage a number of schools, for example, if you’re supported by a MAT (multi-academy trust) or federation</li>
+      </ul>
+
+      <p>If you think this is your role, you can nominate yourself.</p>
 
       <form class="form" action="/school-nominate-school-lead/nominate-school-lead-3" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({

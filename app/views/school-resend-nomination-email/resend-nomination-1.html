@@ -12,40 +12,25 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-      <p>Your induction tutor is someone at your school who manages statutory inductions for early career teachers.</p>
-      <p>They coordinate the training, support and assessment these new teachers receive.</p>
-      <p>Induction tutors will use our online service to:</p>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <p>You need to nominate an ‘induction tutor’ to set up your induction programme for early career teachers.</p>
+      <p>This is someone who can:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>choose how your school wants to run their induction for early career teachers</li>
-        <li>complete some steps to set up a programme</li>
+        <li>confirm details about your induction programme</li>
+        <li>add information about your early career teachers and mentors</li>
       </ul>
+      <p>Schools are sent a unique link to nominate someone but you can send a new link if this has expired or if the email is lost.</p>
 
-      <h2 class="govuk-heading-m">How to nominate your induction tutor</h2>
+      <h2 class="govuk-heading-m">How does this work?</h2>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
-        <li>enter a few details to find your school</li>
+        <li>you enter a few details to find your school</li>
         <li>we will send a nomination link to your school's email address on our register, Get Information about Schools (GIAS)</li>
         <li>it will be an administration email, for example, office@, admin@ or head@</li>
-        <li>if you’re not sure, <a href="https://interactions.signin.education.gov.uk//b02185d5-b6c8-4292-9155-446a44fb67c1/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb">sign in to DfE</a>and check that your GIAS email address is up to date </li>
+        <li>if you’re not sure, <a href="https://interactions.signin.education.gov.uk//b02185d5-b6c8-4292-9155-446a44fb67c1/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb">sign in to DfE</a> and check that your GIAS email address is up to date </li>
       </ul>
 
-      <form class="form" action="/school-resend-nomination-email/resend-nomination-2" method="post" class="govuk-!-margin-bottom-8">
-        <div class="govuk-form-group">
-            {{ govukInput({
-            label: {
-              text: "What is your school's local authority?",
-              classes: "govuk-label--m"
-            },
-            hint: {
-              html: "<span>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a></span>"
-            },
-            classes: "govuk-input--width-20",
-            id: "school-location",
-            name: "school-location"
-          }) }}
-        </div>
+      <form class="form" action="/school-resend-nomination-email/resend-nomination-2-1" method="post" class="govuk-!-margin-bottom-8">
+
 
         {{ govukButton({
           text: "Continue"

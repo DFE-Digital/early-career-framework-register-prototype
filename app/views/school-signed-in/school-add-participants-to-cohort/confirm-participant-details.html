@@ -25,7 +25,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       <p class="govuk-body">We will send this person an email to sign in and add any further details.</p>
@@ -76,7 +76,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data['participantType'] === 'ect') %}
-              Early Career Teacher
+              Early career teacher
             {% elseif (data['participantType'] === 'mentor') %}
               Mentor
               {% elseif (data['participantType'] === 'sitmentor') %}

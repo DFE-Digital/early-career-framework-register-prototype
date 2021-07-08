@@ -6,7 +6,7 @@
 {% else %}
   {% set pageHeading = "Signing up with a training provider" %}
 {% endif %}
-{% set pageSection = "2021 cohort" %}
+{% set pageSection = "2021/22 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -23,7 +23,7 @@
 
       {% if (data['FIPStatus'] == "inPartnership") %}
 
-    
+
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
 
         {{ govukSummaryList({

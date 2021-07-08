@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "2021 cohort" %}
+{% set pageHeading = "2021/22 cohort: use DfE accredited materials" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,8 +16,8 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
-      <p class="govuk-body-l govuk-!-margin-bottom-8">Use DfE accredited materials</p>
+
+
 
       <ol class="app-task-list">
         <li>
@@ -41,7 +41,7 @@
               {% if (data['cip-course-choice'] === undefined) %}
                 <span class="app-task-list__task-name">
                   <a class="govuk-link--no-visited-state" href="/school-signed-in/cip/cip-which-course" aria-describedby="eligibility-status">
-                    Choose your training materials
+                    Choose your DfE accredited materials
                   </a>
                 </span>
                 <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
