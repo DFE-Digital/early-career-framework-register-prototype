@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Page listings - Manage training for early career teachers - Department for Education - GOV.UK
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">{{ serviceName }}</span>
+                Page by page listings
+            </h1>
+
+            {{ govukInsetText({
+                text: "Note: This page is still been finalised and pages added to on a daily basis. Last updated 12 July 2021."
+            }) }}
+
+            <p><a href="data">Data been stored as part of current session</a></p>
+
+            <h2 class="govuk-heading-l">Header</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="#" target="_blank">Page name</a></li>                
+            </ul>
+            
+    </div>
+</div>
+
+{% endblock %}
