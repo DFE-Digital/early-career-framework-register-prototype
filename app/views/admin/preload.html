@@ -9,9 +9,8 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        
-        <p>Last updated: 12 July 2021.</p>
-        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use the default details such as user name of {{ defaults.userFullName() }}.</p>        
+                
+        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>        
                                         
         <form class="form" action="/admin/preload" method="post" class="">
             
@@ -37,8 +36,8 @@
                 },
                 items: [
                     { value: "schoolNoDecision", text: "Not in partnership or not chosen provision yet", checked: checked("journey-mode", "schoolNoDecision"), hint: { text: "Includes privacy policy prompt" } },
-                    { value: "schoolFIP", text: "Using an approved training provider", conditional: { html: partnershipHtml}, checked: checked("journey-mode", "schoolFIP"), hint: { text: "ie. chosen FIP" } },
-                    { value: "schoolCIP", text: "Using the DfE accredited materials", checked: checked("journey-mode", "schoolCIP"), hint: { text: "ie. chosen CIP" } }                          
+                    { value: "schoolFIP", text: "Using an approved training provider (FIP)", conditional: { html: partnershipHtml}, checked: checked("journey-mode", "schoolFIP") },
+                    { value: "schoolCIP", text: "Using the DfE accredited materials (CIP)", checked: checked("journey-mode", "schoolCIP") }                          
                 ]
             }) }}                        
             
@@ -49,14 +48,14 @@
                     legend: { text: "Partipants", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [
-                    { value: "cannotAddParticipants", text: "Cannot add yet", checked: checked("schoolParticipantOptions", "cannotAddParticipants") },
-                    { value: "canAddParticipants", text: "Can start adding to this cohort", checked: checked("schoolParticipantOptions", "canAddParticipants")},
-                    { value: "hasAddedMentors", text: "Already added some mentors to this cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
+                    { value: "cannotAddParticipants", text: "Cannot yet add", checked: checked("schoolParticipantOptions", "cannotAddParticipants") },
+                    { value: "canAddParticipants", text: "Can add to cohort", checked: checked("schoolParticipantOptions", "canAddParticipants")},
+                    { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
                 ]
             }) }}                                     
 
             {{ govukButton({
-                text: "Load data and continue"
+                text: "Continue"
             }) }}
         
         </form>
