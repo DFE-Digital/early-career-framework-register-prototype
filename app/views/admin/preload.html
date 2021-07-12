@@ -13,7 +13,7 @@
         <p>Last updated: 12 July 2021.</p>
         <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use the default details such as user name of {{ defaults.userFullName() }}.</p>        
                                         
-        <form class="form" action="/start-testing" method="post" class="">
+        <form class="form" action="/admin/preload" method="post" class="">
             
             {% set partnershipHtml %}
                 {{ govukCheckboxes({

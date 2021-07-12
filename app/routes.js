@@ -4,7 +4,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 // Branching for sign in
-router.post('/start-testing', function (req, res) {
+router.post('/admin/preload', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolNoDecision') {
     res.redirect('/school-nominate-school-lead/nominate-school-lead-1')
@@ -16,6 +16,8 @@ router.post('/start-testing', function (req, res) {
     res.redirect('/start')
   }
 })
+
+
 
 // Branching for sign in
 /*

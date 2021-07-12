@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "ECF Register and Partner" %}
-{% set pageSection = "" %}
+{% set pageSection = "Prototype work" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -17,19 +17,18 @@
         </ul>
         
 		<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>    		
-        
-        <form method="post" action="admin/preload" >
-            <input type="hidden" name="baseline" value="No" id="baseline" />
-            {{ govukButton({
-                text: "Continue"            
-            }) }}           
+            
+		{{ govukButton({
+			text: "Continue",
+			href: "admin/preload"
+		}) }}           
 
-            {{ govukButton({
-                text: "Page by page listings",
-                href: "admin/listings",
-                classes: "govuk-button--secondary govuk-!-margin-right-1"
-            }) }}
-        </form>
+		{{ govukButton({
+			text: "Page by page listings and scenarios",
+			href: "admin/listings",
+			classes: "govuk-button--secondary govuk-!-margin-left-1"
+		}) }}
+        
 
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
         
@@ -101,7 +100,7 @@
       
 
       
-        <h2 class="govuk-heading-l">Public / all users</h2>
+        <!-- <h2 class="govuk-heading-l">Public / all users</h2>
         <dl class='govuk-list app-list--definition'>
           <dt><a href='/start' class="govuk-link--no-visited-state">Start page</a></dt>
           <dd>Front door to the service, probably hosted on GOVUK</dd>
@@ -111,49 +110,10 @@
           <dd></dd>
           <dt><a href='/cip-course-guidance' class="govuk-link--no-visited-state">Guidance: Choose study materials for your early career teachers</a></dt>
           <dd></dd>
-        </dl>
+        </dl> -->
       
 
-      <div class="index-group">
-        <h2 class="govuk-heading-l">School induction tutors / leads</h2>
-        <dl class='govuk-list app-list--definition'>
-          <h2 class="govuk-heading-m">Nominations</h2>
-          <dt><a href='school-nominate-school-lead/nominate-school-lead-1' class="govuk-link--no-visited-state">Nominating an Induction Tutor</a>.</dt>
-          <dd>School admin staff (or those monitoring the "main GIAS email address") recieve an email and are asked to nominate their Induction Tutors. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354086350072&cot=14">User journey on Miro</a></span></dd>
-          <dt><a href='school-resend-nomination-email/resend-nomination-1' class="govuk-link--no-visited-state">Resend the Induction Tutor nomination email</a></dt>
-          <dd>Users trigger the resending of the nomination email, because either the original email has been lost / deleted or the link in it has expired. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355253267755&cot=14">User journey on Miro</a></span></dd>
-          <dt><a href='school-lead-notification-and-sign-in/notification-of-school-lead' class="govuk-link--no-visited-state">Notification of Induction Tutor and sign in</a></dt>
-          <dd>Induction Tutor is notified via email that they have been nominated, and follows instructions to sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></dd>
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-6">Signed in: choose programme and next steps</h2>
-          <dt><a href='/school-signed-in/no-decision/pre-choose-provision' class="govuk-link--no-visited-state">Dashboard: School not in partnership or not chosen programme yet</a></dt>
-          <dd>What a school sees after first sign in, or if they haven't chosen a programme yet. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355290069818&cot=14">User journey on Miro</a></span></dd>
-          <dt><a href='/school-signed-in/fip/fip-choose-cohort' class="govuk-link--no-visited-state">Dashboard: School preparing to do a FIP</a></dt>
-          <dd>What a school sees after sign in, if they have chosen the FIP programme or if they have entered into a partnership. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355306758748&cot=14">User journey on Miro</a></span></dd>
-          <dt><a href='/school-signed-in/cip/cip-choose-cohort' class="govuk-link--no-visited-state">Dashboard: School preparing to do a CIP</a></dt>
-          <dd>What a school sees after sign in, if they have chosen the CIP programme. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355308879313&cot=14">User journey on Miro</a></span></dd>
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-6">Partnerships</h2>
-          <dt><a href='/school-challenging-partnership/school-challenge-1' class="govuk-link--no-visited-state">Notify an induction tutor that they've been recruited by a provider, and report if it's incorrect</a></dt>
-          <dd>The nominated induction tutor is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></dd>
-          <dt><a href='/school-challenging-partnership/school-challenge-gias' class="govuk-link--no-visited-state">Notify a school that they've been recruited by a provider, and report if it's incorrect</a></dt>
-          <dd>The GIAS email address for a school is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></dd>
-
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-6">Onboarding participants</h2>
-          <dt><a href="/school-signed-in/school-add-participants-to-cohort/choose-participant-type">School induction tutor adding participants to a cohort</a></dt>
-          <dd>How a school induction tutor adds both ECTs and Mentors to a cohort. This covers creating new participants, and also adding Mentors who exist in other cohorts (ie. have been previously validated). <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457356227023262&cot=14">User journey on Miro</a></span></dd>
-
-
-        </dl>
-
-        <h2 class="govuk-heading-l">Early carrer teacher / mentor</h2>
-        <dl class='govuk-list app-list--definition'>
-          <h2 class="govuk-heading-m">Participant validation</h2>
-          <dt><a href="/teacher-or-mentors/validation/particpant-email">Participants entering their data to be validated</a></dt>
-          <dd>The nominated ECT or mentor is notified via email of a registration action in order to sign in to access materials. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457359058552030&cot=14">User journey on Miro</a></span></dd>
-
-      </div>
+      
 
       <!--
       <div class="index-group">
