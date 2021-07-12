@@ -5,51 +5,47 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Start",
-        href: "/start"
-      },
-      {
-        text: title
-      }
-    ]
-  }) }}
+	{{ govukBreadcrumbs({
+    	items: [
+      		{ text: "Start", href: "/start" },
+      		{ text: "title" }
+    	]
+  	}) }}
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class='govuk-body'>From September 2021, new teachers in England must complete a 2-year induction after they have done their initial teacher training (ITT).</p>
-      <p class='govuk-body'>The induction must be based on the early career framework (ECF) developed by the Department for Education (DfE), teachers, school leaders, academics and experts.</p>
-      <p class='govuk-body'>It will help teachers develop the knowledge, practices and working habits that set them up for a successful teaching career. They will work closely with a mentor throughout their induction.</p>
-      <p class='govuk-body'>A range of free online induction materials are available, and the DfE will fund cover for:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-        <li>10% of time teachers and mentors spend away from the classroom in the first year of induction</li>
-        <li>5% in the second year</li>
-      </ul>
+			<p>From September 2021, new teachers in England must complete a 2-year induction after they have done their initial teacher training (ITT).</p>
+			<p>The induction must be based on the early career framework (ECF) developed by the Department for Education (DfE), teachers, school leaders, academics and experts.</p>
+			<p>It will help teachers develop the knowledge, practices and working habits that set them up for a successful teaching career. They will work closely with a mentor throughout their induction.</p>
+			<p>A range of free online induction materials are available, and the DfE will fund cover for:</p>
+      		<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+        		<li>10% of time teachers and mentors spend away from the classroom in the first year of induction</li>
+        		<li>5% in the second year</li>
+      		</ul>
 
-      <p class='govuk-body'>Teachers will study 8 areas during their induction:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-        <li>setting high expectations</li>
-        <li>helping pupils progress</li>
-        <li>demonstrating good subject and curriculum knowledge</li>
-        <li>planning and teaching well-structured lessons</li>
-        <li>adapting to the different needs of pupils</li>
-        <li>making accurate and productive use of assessments</li>
-        <li>managing behaviour in the classroom</li>
-        <li>developing professional skills such as building relationships and communicating effective</li>
-      </ul>
+			<p>Teachers will study 8 areas during their induction:</p>
+      		<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+				<li>setting high expectations</li>
+				<li>helping pupils progress</li>
+				<li>demonstrating good subject and curriculum knowledge</li>
+				<li>planning and teaching well-structured lessons</li>
+				<li>adapting to the different needs of pupils</li>
+				<li>making accurate and productive use of assessments</li>
+				<li>managing behaviour in the classroom</li>
+				<li>developing professional skills such as building relationships and communicating effective</li>
+			</ul>
 
-      <h2 class="govuk-heading-l">How schools can run their induction programmes</h2>
-      <p class='govuk-body'>Schools are entitled to DfE-funded training for their induction teachers and mentors.</p>
-      <p class='govuk-body'>[Find a training provider] </p>
-      <p class='govuk-body'>[Free online materials] designed by education experts are also available. </p>
-      <p class='govuk-body'>Alternatively, schools can design and deliver their own induction programme based on the ECF.</p>
-    </div>
-  </div>
+      		<h2 class="govuk-heading-m">How schools can run their induction programmes</h2>
+			<p>Schools are entitled to DfE-funded training for their induction teachers and mentors.</p>
+			<p>[Find a training provider] </p>
+			<p>[Free online materials] designed by education experts are also available. </p>
+			<p>Alternatively, schools can design and deliver their own induction programme based on the ECF.</p>
+    
+		</div>
+  	</div>
 {% endblock %}

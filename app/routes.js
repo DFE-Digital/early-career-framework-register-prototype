@@ -33,18 +33,20 @@ router.post('/sign-in-check-email', function (req, res) {
 }) */
 
 // Branching for access to dashboard (/sign-in-continue-to-account)
-router.post('/dashboard', function (req, res) {
-  const journeyMode = req.session.data['journey-mode']
-  if (journeyMode === 'schoolNoDecision') {
-    res.redirect('/school-signed-in/no-decision/privacy-policy')
-  } else if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-choose-cohort')
-  } else if (journeyMode === 'schoolCIP') {
-    res.redirect('/school-signed-in/cip/cip-choose-cohort')
-  } else {
-    res.redirect('/start-testing')
-  }
-})
+
+// BC - Have added this directly into the page //
+// router.post('/dashboard', function (req, res) {
+//   const journeyMode = req.session.data['journey-mode']
+//   if (journeyMode === 'schoolNoDecision') {
+//     res.redirect('/school-signed-in/no-decision/privacy-policy')
+//   } else if (journeyMode === 'schoolFIP') {
+//     res.redirect('/school-signed-in/fip/fip-choose-cohort')
+//   } else if (journeyMode === 'schoolCIP') {
+//     res.redirect('/school-signed-in/cip/cip-choose-cohort')
+//   } else {
+//     res.redirect('/start-testing')
+//   }
+// })
 
 
 
