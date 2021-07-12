@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Preload user data" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        
+        <p>Last updated: 12 July 2021.</p>
+        <p>Preload the prototype with user data otherwise it will use the default details such as user name of {{ defaults.userFullName() }}.</p>        
+        
+        <p>Options to follow</p>
+        
+        <form method="post" action="" >
+        
+            {{ govukButton({
+                text: "Load any preloaded data and continue"
+            }) }}
+
+        </form>
+    
+    </div>
+</div>
+
+{% endblock %}
