@@ -13,10 +13,11 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body"><p>If your name has not been updated and does not match the DQT, you have two options:</p>
+      <p class="govuk-body"><p>If your name has not been updated and does not match the Teaching Regulation Agency records, you have three options:</p>
       <ul class="govuk-list govuk-list--bullet">
-      <li>use your old name to register with the service</li>
-      <li>change your name on the DQT</li>
+      <li>use your previous name to register with the service</li>
+      <li>use your previous name to register, and then change it on the Teaching Regulation Agency records at a later date</li>
+      <li>change your name on the Teaching Regulation Agency records first and then return to register for training and support</li>
       </ul>
 
       <form class="form" action="/teacher-or-mentors/validation/name-not-updated" method="post" class="govuk-!-margin-bottom-8">
@@ -34,12 +35,12 @@
           items: [
             {
               value: "existingMentor",
-              text: "Change my name on the DQT",
+              text: "Change my name on the Teaching Regulation Agency records",
               checked: checked("dqt-change", "existingMentor")
             },
             {
               value: "newMentor",
-              text: "Register with my old name",
+              text: "Register with my previous name",
               checked: checked("dqt-change", "newMentor")
             }
 
