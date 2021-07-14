@@ -5,7 +5,7 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-  {% include 'training-provider-signed-in/_training-provider-nav.html' %}
+  {% include "includes/_training-provider-nav.html" %}
 
   {{ govukBackLink({
     text: "Back",
