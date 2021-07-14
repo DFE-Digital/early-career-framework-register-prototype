@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% set pageHeading = "Nominate an induction tutor for [school name]" %}
 
-{% block pageNavigation %}
-<a class="govuk-back-link" href="nominate-school-lead-options">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">

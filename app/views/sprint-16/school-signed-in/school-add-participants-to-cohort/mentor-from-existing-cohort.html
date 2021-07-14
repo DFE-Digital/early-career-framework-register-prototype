@@ -5,9 +5,8 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 

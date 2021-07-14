@@ -3,8 +3,8 @@
 {% set title = 'Who is the mentor for ' + data['participant-fullname'] + '?' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="enter-personal-details">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}
