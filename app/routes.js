@@ -123,16 +123,16 @@ router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing
 // })
 
 // Branching on TRN status of mentor/ect update name
-router.post('/teacher-or-mentors/validation/update-name', function (req, res) {
-  const nameExplain = req.session.data['nameChange']
-  if (nameExplain === 'newMentor') {
-    res.redirect('/teacher-or-mentors/validation/name-not-updated')
-  } else if (nameExplain === 'existingMentor') {
-    res.redirect('/teacher-or-mentors/validation/qct-ect')
-  } else if (nameExplain === 'Mentor') {
-    res.redirect('/teacher-or-mentors/validation/name-maybe')
-  }
-})
+// router.post('/teacher-or-mentors/validation/update-name', function (req, res) {
+//   const nameExplain = req.session.data['nameChange']
+//   if (nameExplain === 'newMentor') {
+//     res.redirect('/teacher-or-mentors/validation/name-not-updated')
+//   } else if (nameExplain === 'existingMentor') {
+//     res.redirect('/teacher-or-mentors/validation/qct-ect')
+//   } else if (nameExplain === 'Mentor') {
+//     res.redirect('/teacher-or-mentors/validation/name-maybe')
+//   }
+// })
 
 // Branching on mentor/ect DQT name change
 // router.post('/teacher-or-mentors/validation/name-not-updated', function (req, res) {
