@@ -16,17 +16,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    
-    <p class="govuk-body">We need to check your teacher details on the Database of Qualified Teachers (DQT) to ensure you qualify to study for a National Professional Qualification (NPQ).</p>
 
-    <form class="form" action="/teacher-or-mentors/validation/finish-ect" method="post">
+    <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records to ensure you qualify for training and support.</p>
+
+    <form class="form" action="/teacher-or-mentors/validation/confirm-qtc-details" method="post">
 
         <div class="govuk-form-group">
         <label class="govuk-label govuk-!-width-three-quarters bold-label" for="trnd">
         Teacher reference number (TRN)
         </label>
         <span id="email-hint" class="govuk-hint">
-        Your TRN is 7-10 characters long. It may include  “/” or “RP”.
+        Your TRN is 7-10 characters long. It may begin with "RP"
         </span>
         <input class="govuk-input govuk-input--width-10" id="trnd" name="trnd" type="text" aria-describedby="trnd">
         </div>
@@ -36,7 +36,7 @@
         Full name
         </label>
         <span id="email-hint" class="govuk-hint">
-        Your first name exactly as it appears on the DQT
+        Your full name exactly as it appears on the Teaching Regulation Agency records
         </span>
         <input class="govuk-input govuk-!-width-three-quarters" id="fullName" name="fullName" type="text" aria-describedby="Full Name">
         </div>
@@ -80,6 +80,9 @@
       <label class="govuk-label bold-label govuk-!-width-three-quarters" for="NI">
       National Insurance Number (optional)
       </label>
+      <span id="nin-hint" class="govuk-hint">
+      This will help us match your details
+      </span>
 
       <input class="govuk-input govuk-!-width-three-quarters" id="NI" name="NI" type="text" aria-describedby="NI">
       </div>
