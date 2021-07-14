@@ -7,16 +7,16 @@
 
 {% block pageNavigation %}
 {% set page = 'schools' %}
-{% include "includes/_training-provider-nav.html" %}
+  {% include "includes/_training-provider-nav.html" %}
 {{ govukBreadcrumbs({
   items: [
     {
       text: "Schools",
-      href: "/training-provider-signed-in/school-listing-2021"
+      href: "school-listing-2021"
     },
     {
       text: "2021 cohort",
-      href: "/training-provider-signed-in/school-listing-2021"
+      href: "school-listing-2021"
     }
   ]
 }) }}

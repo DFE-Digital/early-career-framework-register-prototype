@@ -7,7 +7,7 @@
 
 
 {% block pageNavigation %}
-  <a class="govuk-back-link" href="school-signed-in/cip/cip-choose-cohort">Back</a>
+  <a class="govuk-back-link" href="cip-choose-cohort">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="school-signed-in/cip/cip-choose-provision">
+                <a class="govuk-link--no-visited-state" href="cip-choose-provision">
                   Choose your induction programme
                 </a>
               </span>
@@ -40,7 +40,7 @@
             <li class="app-task-list__item">
               {% if (data['cip-course-choice'] === undefined) %}
                 <span class="app-task-list__task-name">
-                  <a class="govuk-link--no-visited-state" href="school-signed-in/cip/cip-which-course" aria-describedby="eligibility-status">
+                  <a class="govuk-link--no-visited-state" href="cip-which-course" aria-describedby="eligibility-status">
                     Choose your DfE accredited materials
                   </a>
                 </span>
@@ -49,7 +49,7 @@
                 </strong>
               {% else %}
               <span class="app-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="school-signed-in/cip/cip-course-decision" aria-describedby="eligibility-status">
+                <a class="govuk-link--no-visited-state" href="cip-course-decision" aria-describedby="eligibility-status">
                   Choose your training materials
                 </a>
               </span>
@@ -63,7 +63,7 @@
             {% if (data['schoolParticipantOptions'] === "hasAddedMentors") %}
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                    <a class="govuk-link--no-visited-state" href="school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Add early career teachers and mentors</a>
+                    <a class="govuk-link--no-visited-state" href="../school-add-participants-to-cohort/cohort-participant-listing">Add early career teachers and mentors</a>
                 </span>
                 <strong class="govuk-tag app-task-list__tag govuk-tag--blue">
                   In progress
@@ -72,7 +72,7 @@
               {% elseif (data['schoolParticipantOptions'] === "canAddParticipants") %}
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
-                      <a class="govuk-link--no-visited-state" href="school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add early career teachers and mentors</a>
+                      <a class="govuk-link--no-visited-state" href="../school-add-participants-to-cohort/choose-participant-type">Add early career teachers and mentors</a>
                   </span>
                   <strong class="govuk-tag app-task-list__tag govuk-tag--yellow">
                     TO DO
@@ -81,7 +81,7 @@
             {% elseif (data['schoolParticipantOptions'] === "cannotAddParticipants") %}
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                    <a class="govuk-link--no-visited-state" href="school-signed-in/cip/cip-add-participants">Add early career teachers and mentors</a>
+                    <a class="govuk-link--no-visited-state" href="cip-add-participants">Add early career teachers and mentors</a>
                 </span>
                 <strong class="govuk-tag app-task-list__tag govuk-tag--grey">
                   Cannot start yet
@@ -98,7 +98,7 @@
       {% if (data['cip-course-choice'] === undefined) %}
       <p class="govuk-body"></p>
       {% else %}
-      <p class="govuk-body">There are a series of <a href="sprint-16/cip-course-guidance"> documents to help Induction tutors prepare for the [Course selected] course.</a></p>
+      <p class="govuk-body">There are a series of <a href="user-research/cip-course-guidance"> documents to help Induction tutors prepare for the [Course selected] course.</a></p>
       {% endif %}
 
     </div>

@@ -79,26 +79,26 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
 // })
 
 // Branching on type of participant being added
-router.post('/school-signed-in/school-add-participants-to-cohort/choose-participant-type', function (req, res) {
-  const participantType = req.session.data.participantType
-  if (participantType === 'ect') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
-  } else if (participantType === 'mentor') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor')
-  } else if (participantType === 'sitmentor') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor')
-  }
-})
+// router.post('/school-signed-in/school-add-participants-to-cohort/choose-participant-type', function (req, res) {
+//   const participantType = req.session.data.participantType
+//   if (participantType === 'ect') {
+//     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
+//   } else if (participantType === 'mentor') {
+//     res.redirect('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor')
+//   } else if (participantType === 'sitmentor') {
+//     res.redirect('/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor')
+//   }
+// })
 
 // Branching on type of mentor being added (new or existing)
-router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor', function (req, res) {
-  const mentorType = req.session.data['neworexistingmentor']
-  if (mentorType === 'newMentor') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
-  } else if (mentorType === 'existingMentor') {
-    res.redirect('/school-signed-in/school-add-participants-to-cohort/mentor-from-existing-cohort')
-  }
-})
+// router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor', function (req, res) {
+//   const mentorType = req.session.data['neworexistingmentor']
+//   if (mentorType === 'newMentor') {
+//     res.redirect('/school-signed-in/school-add-participants-to-cohort/enter-personal-details')
+//   } else if (mentorType === 'existingMentor') {
+//     res.redirect('/school-signed-in/school-add-participants-to-cohort/mentor-from-existing-cohort')
+//   }
+// })
 
 // Branching on TRN status of mentor/ect
 // router.post('/teacher-or-mentors/validation/trn-ect', function (req, res) {

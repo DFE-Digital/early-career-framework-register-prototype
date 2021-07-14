@@ -4,27 +4,24 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
-{% endblock %}
 
 {% block content %}
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
+		
       		<p>This service is for induction tutors who have been nominated by their school.</p>
 			<p>Use this service to manage your school’s statutory induction programme for early career teachers.</p>
       		
-			<h2 class="govuk-heading-m">When does this need to be completed?</h2>
-      		<p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme.</p>
-      		<p>For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
+			<!-- <h2 class="govuk-heading-m">When does this need to be completed?</h2> -->
+      		<p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme. For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
 			
 			<form method="post" action="sign-in" >
       			
+				<!-- Put this in just in case we ever need to highlight that the user has STARTED -->
 				<input type="hidden" name="start-service" id="start-service" value="yes" />
+				
 				{{ govukButton({
         			text: "Start now",        	
         			isStartButton: true
@@ -33,8 +30,21 @@
 			</form>
 
       		<h2 class="govuk-heading-m">Do you have an account?</h2>
-      		<p>You must be nominated or sent sign in details to access this service.</p>
-			<p><a class="govuk-link" href="nominations/choose-location">Find out how to get an account</a></p>
-    	</div>    
+      		<p>You must be nominated or sent sign in details to access this service. <a class="govuk-link govuk-link--no-visited-state" href="sign-in-check-account">Find out how to get an account</a></p>
+
+    	</div> 
+		
+		<div class="govuk-grid-column-one-third">			
+			<aside class="app-related-items" role="complementary">
+				<h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
+				<nav role="navigation" aria-labelledby="subsection-title">
+					<ul class="govuk-list govuk-!-font-size-16">
+						<li><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">Guidance on the ECF and choosing programmes</a></li>
+						<li><a class="govuk-link" href="cip-course-guidance">Choose accredited study materials for your early career teachers</a></li>					
+				  	</ul>
+				</nav>
+			</aside>
+		</div>
+
   	</div>
 {% endblock %}

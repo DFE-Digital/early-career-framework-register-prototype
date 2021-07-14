@@ -7,7 +7,7 @@
 {% block pageNavigation %}
   {{ govukBackLink({
     text: "Back",
-    href: "/teacher-or-mentors/validation/start-registration"
+    href: "/start-registration"
   }) }}
 {% endblock %}
 
@@ -18,7 +18,7 @@
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
       
 
-      <form class="form" action="teacher-or-mentors/validation/sign-in-check-email-ect" method="post">
+      <form class="form" action="sign-in-check-email-ect" method="post">
         {{ govukInput({
           label: {
             text: "Email address"
@@ -35,8 +35,8 @@
 
       <h2 class="govuk-heading-m">How you can access this service</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link" href="teacher-or-mentors/validation/sign-in-check-account-ect">Check if you have an account</a></li>
-        <li>Contact us: <a class="govuk-link" href="teacher-or-mentors/validation/sign-in-check-account-ect">ecf-support@digital.education.gov.uk</a></li>
+        <li><a class="govuk-link" href="sign-in-check-account-ect">Check if you have an account</a></li>
+        <li>Contact us: <a class="govuk-link" href="sign-in-check-account-ect">ecf-support@digital.education.gov.uk</a></li>
       </ul>
     </div>
   </div>
