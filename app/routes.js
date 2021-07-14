@@ -66,17 +66,17 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
   }
 })
 
-// Branching on SIT nomination
-router.post('/school-nominate-school-lead/nominate-school-lead-options', function (req, res) {
-  const nqtType = req.session.data['sit-nqts']
-  if (nqtType === 'nqtYes') {
-    res.redirect('/school-nominate-school-lead/nominate-school-lead-2')
-  } else if (nqtType === 'nqtNo') {
-    res.redirect('/school-nominate-school-lead/nominate-school-lead-confirmoptout')
-  } else if (nqtType === 'nqtMaybe') {
-    res.redirect('/school-nominate-school-lead/nominate-school-lead-2')
-  }
-})
+// // Branching on SIT nomination
+// router.post('/school-nominate-school-lead/nominate-school-lead-options', function (req, res) {
+//   const nqtType = req.session.data['sit-nqts']
+//   if (nqtType === 'nqtYes') {
+//     res.redirect('/school-nominate-school-lead/nominate-school-lead-2')
+//   } else if (nqtType === 'nqtNo') {
+//     res.redirect('/school-nominate-school-lead/nominate-school-lead-confirmoptout')
+//   } else if (nqtType === 'nqtMaybe') {
+//     res.redirect('/school-nominate-school-lead/nominate-school-lead-2')
+//   }
+// })
 
 // Branching on type of participant being added
 router.post('/school-signed-in/school-add-participants-to-cohort/choose-participant-type', function (req, res) {
