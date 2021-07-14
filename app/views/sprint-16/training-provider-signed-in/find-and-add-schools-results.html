@@ -5,8 +5,8 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-{% set page = 'schools' %}
-{% include "includes/_training-provider-nav.html" %}
+  {% set page = 'schools' %}
+  {% include "includes/_training-provider-nav.html" %}
 {{ govukBackLink({
   text: "Back",
   href: "find-and-add-schools"
@@ -401,7 +401,7 @@
     </div>
 
     <div class="govuk-grid-column-three-quarters">
-      <form class="form" action="training-provider-signed-in/find-and-add-schools-confirm" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="find-and-add-schools-confirm" method="post" class="govuk-!-margin-bottom-8">
         <button type="submit" class="govuk-button" id="name-search-submit" name="SearchType" value="Text">Add partnerships with 12 schools</button>
         <div class="govuk-button govuk-button--secondary" id="remove-button" data-module="govuk-button">Remove all 10 schools</div>
         <input type="hidden" id="selected-count" name="selected-count">
