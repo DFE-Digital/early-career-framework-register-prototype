@@ -5,7 +5,7 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-<a class="govuk-back-link" href="/sprint-16/teacher-or-mentors/validation/update-name">Back</a>
+<a class="govuk-back-link" href="teacher-or-mentors/validation/update-name">Back</a>
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
@@ -20,7 +20,7 @@
       <li>change your name on the Teaching Regulation Agency records first and then return to register for training and support</li>
       </ul>
 
-      <form class="form" action="/sprint-16/teacher-or-mentors/validation/name-not-updated" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="teacher-or-mentors/validation/name-not-updated" method="post" class="govuk-!-margin-bottom-8">
 
         {{ govukRadios({
           idPrefix: "dqt-change",

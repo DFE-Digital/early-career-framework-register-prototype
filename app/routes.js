@@ -7,11 +7,11 @@ const router = express.Router()
 router.post('/admin/preload', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolNoDecision') {
-    res.redirect('/school-nominate-school-lead/nominate-school-lead-1')
+    res.redirect('/sprint-16/school-nominate-school-lead/nominate-school-lead-1')
   } else if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-choose-cohort')
+    res.redirect('/sprint-16/school-signed-in/fip/fip-choose-cohort')
   } else if (journeyMode === 'schoolCIP') {
-    res.redirect('/school-signed-in/cip/cip-choose-cohort')
+    res.redirect('/sprint-16/school-signed-in/cip/cip-choose-cohort')
   } else {
     res.redirect('/sprint-16/start')
   }

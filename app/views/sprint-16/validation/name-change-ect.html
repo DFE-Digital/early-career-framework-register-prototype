@@ -5,7 +5,7 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-<a class="govuk-back-link" href="/sprint-16/teacher-or-mentors/validation/trn-ect">Back</a>
+<a class="govuk-back-link" href="teacher-or-mentors/validation/trn-ect">Back</a>
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
@@ -17,7 +17,7 @@
       <p>If it doesn't match, you cannot continue with your training and support.</p>
 
 
-      <form class="form" action="/sprint-16/teacher-or-mentors/validation/name-change-ect" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="teacher-or-mentors/validation/name-change-ect" method="post" class="govuk-!-margin-bottom-8">
 
         {{ govukRadios({
           idPrefix: "name-change",
