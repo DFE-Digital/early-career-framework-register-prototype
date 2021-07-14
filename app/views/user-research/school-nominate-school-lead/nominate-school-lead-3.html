@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Enter details to nominate your induction tutor" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+<a class="govuk-back-link" href="school-nominate-school-lead/nominate-school-lead-2">Back</a>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <div class="govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Acorn Primary School"
+            }
+          },
+          {
+            key: {
+              text: "URN"
+            },
+            value: {
+              text: "9348523"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU"
+            }
+          }
+        ]
+      }) }}
+      </div>
+
+      <form class="form" action="school-nominate-school-lead/nominate-school-lead-4" method="post" class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-m">Who do you want to nominate?
+          <div id="nominate-hint" class="govuk-hint">If you think this is your role, you can nominate yourself.</div></h2>
+
+
+          {{ govukInput({
+            label: {
+              text: "Full name"
+            },
+            classes: "govuk-input--width-20",
+            id: "full-name",
+            name: "full-name",
+            autocomplete: "name",
+            spellcheck: false
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Work email address"
+            },
+            hint: {
+              text: "They will sign in with this email and get future notifications about this service"
+            },
+            classes: "govuk-input--width-20",
+            id: "nominee-email-address",
+            name: "nominee-email-address",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false
+          }) }}
+        </div>
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

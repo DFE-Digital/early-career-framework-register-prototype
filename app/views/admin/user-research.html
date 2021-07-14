@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "User research" %}
+{% set pageSection = "Prototype work" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}        
+        <p>Last updated: 14 July 2021</p>        
+        <p>Information relating to the user research taking place.</p>        
+
+        <form action="/user-research/start" method="post" >            
+            {{ govukButton({
+                text: "Start user research"            
+            }) }}
+        </form>     
+        
+        <p>Additional information relating to the user research taking place.</p>        
+        
+        <form action="/user-research/start" method="post" >        
+            
+            <input type="hidden" name="journey-mode" id="journey-mode" value="schoolCIP" />
+            <input type="hidden" name="schoolParticipantOptions" id="schoolParticipantOptions" value="canAddParticipants" />
+
+
+            {{ govukButton({
+                text: "Start alternative user research"            
+            }) }}
+        </form>     
+
+    </div>
+</div>
+
+{% endblock %}

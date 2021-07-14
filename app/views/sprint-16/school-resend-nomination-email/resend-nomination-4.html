@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Your school has been sent a link" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-!-margin-bottom-8">
+
+      {{ govukPanel({
+        titleText: pageHeading
+      }) }}
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>we have sent a link to your school’s email address on our register, Get information about schools (GIAS)</li>
+      <li>it will be an administration email, for example, office@, admin@ or head@</li>
+      <li>if you don’t receive an email, <a href="https://interactions.signin.education.gov.uk//6a7c391c-b14e-41d0-bf1a-a720f6b387f5/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb">sign in to DfE </a>and make sure that your GIAS email address is up to date. When this has been updated, you can <a href="sprint-16/school-resend-nomination-email/resend-nomination-1"> send a new link</a></li>
+
+    </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

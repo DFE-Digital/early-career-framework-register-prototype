@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
+{% set pageSection = "2021/2022 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+  {% if (data['journey-mode'] === 'schoolFIP') %}
+    <a class="govuk-back-link" href="school-signed-in/fip/fip-cohort-detail">Back</a>
+  {% elseif (data['journey-mode'] === 'schoolCIP') %}
+    <a class="govuk-back-link" href="school-signed-in/cip/cip-cohort-detail">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <a class="govuk-button govuk-!-margin-bottom-8" href="school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add a new ECT or mentor</a>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+      {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"> Full name </th>
+            <th class="govuk-table__header" scope="col"> Type </th>
+            <th class="govuk-table__header" scope="col"> Mentor </th>
+            <th class="govuk-table__header" scope="col"> Status </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-not-started" class="govuk-link govuk-link--no-visited-state">Donato di Niccolò di Betto Bardi</a>
+            </td>
+            <td class="govuk-table__cell">
+              Early career teacher
+            </td>
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/change-mentor-for-ect" class="govuk-link govuk-link--no-visited-state">Assign mentor</a>
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "NOT STARTED",
+                classes: "govuk-tag--grey"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-waiting-on-dqt-update" class="govuk-link govuk-link--no-visited-state" class="govuk-link govuk-link--no-visited-state">Mary Cassatt</a>
+            </td>
+            <td class="govuk-table__cell">
+              Early career teacher
+            </td>
+            <td class="govuk-table__cell">
+              Henry Purcell
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "PENDING",
+                classes: "govuk-tag--yellow"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-waiting-to-be-added-to-dqt" class="govuk-link govuk-link--no-visited-state">George Handel</a>
+            </td>
+            <td class="govuk-table__cell">
+              Early career teacher
+            </td>
+            <td class="govuk-table__cell">
+              Lilla Perry
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "PENDING",
+                classes: "govuk-tag--yellow"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-waiting-on-qts-status" class="govuk-link govuk-link--no-visited-state">Lilla Perry</a>
+            </td>
+            <td class="govuk-table__cell">
+              Early career teacher
+            </td>
+            <td class="govuk-table__cell">
+              Donato di Niccolò di Betto Bardi
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "PENDING",
+                classes: "govuk-tag--yellow"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-investigate" class="govuk-link govuk-link--no-visited-state">Jean-Philippe Rameau</a>
+            </td>
+            <td class="govuk-table__cell">
+              Early career teacher
+            </td>
+            <td class="govuk-table__cell">
+              Lilla Perry
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "REJECTED",
+                classes: "govuk-tag--red"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-approved" class="govuk-link govuk-link--no-visited-state">Henry Purcell</a>
+            </td>
+            <td class="govuk-table__cell">
+              Mentor
+            </td>
+            <td class="govuk-table__cell">
+              Lilla Perry
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "APPROVED",
+                classes: "govuk-tag--green"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-approved" class="govuk-link govuk-link--no-visited-state">Berthe Morisot</a>
+            </td>
+            <td class="govuk-table__cell">
+              Mentor
+            </td>
+            <td class="govuk-table__cell">
+              Lilla Perry
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-approved" class="govuk-link govuk-link--no-visited-state">Marie Bracquemond</a>
+            </td>
+            <td class="govuk-table__cell">
+              Mentor
+            </td>
+            <td class="govuk-table__cell">
+              Lilla Perry
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

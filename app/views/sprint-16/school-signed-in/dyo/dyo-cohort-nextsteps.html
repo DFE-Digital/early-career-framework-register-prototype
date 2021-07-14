@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Choose your induction programme" %}
+{% set pageSection = "2021/22 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="school-signed-in/dyo/dyo-choose-cohort">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body-l">
+      You have chosen to: design and deliver your own programme based on the early career framework (ECF)
+      </p>
+
+      <h2 class="govuk-heading-m">What you can do now</h2>
+      <p class="govuk-body">The <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">early career framework (ECF)</a> covers 8 standards. For every standard there are statements for early career teachers to “learn that” and “learn how to”.</p>
+        <p class="govuk-body">You need to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>design training that covers all of these statements</li>
+        <li>ask your appropriate body what evidence you will need to demonstrate that your programme meets the statutory requirements</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">What you need to do before your induction starts</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>make sure your early career teacher has enough time off in their timetable to complete training</li>
+        <li>make sure that your induction tutor and mentor have the time to carry out their roles</li>
+      </ul>
+      <p class="govuk-body"><a href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england">See our guidance for details on time off, roles and responsibilities</a></p>
+
+      <h2 class="govuk-heading-m">How to change your programme</h2>
+      <p class="govuk-body">If your school decides to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use a training provider, funded by the DfE (full induction programme)</li>
+        </ul>
+        <p class="govuk-body">Or</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>deliver your own programme using DfE accredited materials (core induction programme)</li>
+      </ul>
+      <p class="govuk-body">Contact: <a href="<a href="mailto:continuing-professional-development@digital.education.gov.uk?subject=feedback>continuing-professional-development@digital.education.gov.uk</a></p>
+    </div>
+  </div>
+{% endblock %}

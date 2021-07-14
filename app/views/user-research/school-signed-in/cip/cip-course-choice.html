@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Which DfE accredited materials do you want to use for 2021/22?" %}
+{% set pageSection = "2021 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="school-signed-in/cip/cip-which-course">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="cip-course-guidance">Check our guidance on materials</a>. if you’re not sure.
+      </p>
+
+
+      <form class="form" action="school-signed-in/cip/cip-course-confirmed" method="post" class="govuk-!-margin-bottom-8">
+
+        {{ govukRadios({
+          idPrefix: "cip-course-choice",
+          name: "cip-course-choice",
+
+          items: [
+            {
+              value: "Ambition Institute",
+              text: "Ambition Institute",
+              checked: checked("cip-course-choice", "ambition")
+            },
+            {
+              value: "Education Development Trust",
+              text: "Education Development Trust",
+              checked: checked("cip-course-choice", "EDT")
+            },
+            {
+              value: "Teach First",
+              text: "Teach First",
+              checked: checked("cip-course-choice", "TeachFirst")
+            },
+            {
+              value: "UCL Early Career Teacher Consortium",
+              text: "UCL Early Career Teacher Consortium",
+              checked: checked("cip-course-choice", "UCL")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Confirm your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="school-resend-nomination-email/resend-nomination-2">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      <p class="govuk-body">We will send a link to your school’s email address on our register, Get Information about Schools (GIAS).</p>
+      <p class="govuk-body">It will be an administration email, for example, office@, admin@ or head@</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">If you’re not sure, <a href="https://interactions.signin.education.gov.uk//668af363-eb4a-4be7-8fea-bf7450f00c3b/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb"> sign in to DfE</a> and check that your GIAS email address is up to date.</p>
+
+
+      <div class="govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['school-lookup']
+            }
+          },
+          {
+            key: {
+              text: "URN"
+            },
+            value: {
+              text: "9348523"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU"
+            }
+          }
+        ]
+      }) }}
+      <p class="govuk-body"><a class="govuk-link--no-visited-state" href="school-resend-nomination-email/resend-nomination-1">Change school</a></p>
+      </div>
+
+      <form class="form" action="school-resend-nomination-email/resend-nomination-4" method="post" class="govuk-!-margin-bottom-8">
+
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

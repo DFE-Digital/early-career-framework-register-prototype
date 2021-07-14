@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Change participants email address" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-not-started">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      
+      <form class="form" action="school-signed-in/school-add-participants-to-cohort/participant-email-change" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-input--width-20",
+          id: "participant-email-address-change",
+          name: "participant-email-address-change",
+          value: data['participant-email-address-change'],
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+  <div style="margin-top:100px">
+  <a style="" href="school-signed-in/school-add-participants-to-cohort/change-participant-email-error">error</a>
+  </div>
+{% endblock %}

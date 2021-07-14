@@ -4,18 +4,20 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 // Branching for sign in
-router.post('/start-testing', function (req, res) {
+router.post('/admin/preload', function (req, res) {
   const journeyMode = req.session.data['journey-mode']
   if (journeyMode === 'schoolNoDecision') {
-    res.redirect('/school-nominate-school-lead/nominate-school-lead-1')
+    res.redirect('/sprint-16/school-nominate-school-lead/nominate-school-lead-1')
   } else if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-choose-cohort')
+    res.redirect('/sprint-16/school-signed-in/fip/fip-choose-cohort')
   } else if (journeyMode === 'schoolCIP') {
-    res.redirect('/school-signed-in/cip/cip-choose-cohort')
+    res.redirect('/sprint-16/school-signed-in/cip/cip-choose-cohort')
   } else {
-    res.redirect('/start')
+    res.redirect('/sprint-16/start')
   }
 })
+
+
 
 // Branching for sign in
 /*
@@ -33,18 +35,20 @@ router.post('/sign-in-check-email', function (req, res) {
 }) */
 
 // Branching for access to dashboard (/sign-in-continue-to-account)
-router.post('/dashboard', function (req, res) {
-  const journeyMode = req.session.data['journey-mode']
-  if (journeyMode === 'schoolNoDecision') {
-    res.redirect('/school-signed-in/no-decision/privacy-policy')
-  } else if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-choose-cohort')
-  } else if (journeyMode === 'schoolCIP') {
-    res.redirect('/school-signed-in/cip/cip-choose-cohort')
-  } else {
-    res.redirect('/start-testing')
-  }
-})
+
+// BC - Have added this directly into the page //
+// router.post('/dashboard', function (req, res) {
+//   const journeyMode = req.session.data['journey-mode']
+//   if (journeyMode === 'schoolNoDecision') {
+//     res.redirect('/school-signed-in/no-decision/privacy-policy')
+//   } else if (journeyMode === 'schoolFIP') {
+//     res.redirect('/school-signed-in/fip/fip-choose-cohort')
+//   } else if (journeyMode === 'schoolCIP') {
+//     res.redirect('/school-signed-in/cip/cip-choose-cohort')
+//   } else {
+//     res.redirect('/start-testing')
+//   }
+// })
 
 
 

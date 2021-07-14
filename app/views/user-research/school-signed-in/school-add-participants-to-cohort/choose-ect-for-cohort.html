@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set title = 'What early career teachers would' +' ' + data['participant-fullname'] +' ' + 'look after in this cohort?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block pageNavigation %}
+{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
+  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
+{% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
+  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+      <form class="form" action="school-signed-in/school-add-participants-to-cohort/confirm-ect-details" method="post" class="govuk-!-margin-bottom-8">
+
+        {{ govukCheckboxes({
+          idPrefix: "chooseEct",
+          name: "chooseEct",
+          items: [
+            {
+              value: "Henry Purcell",
+              text: "Henry Purcell",
+              checked: checked("chooseEct", "Henry Purcell")
+            },
+            {
+              value: "Berthe Morisot",
+              text: "Berthe Morisot",
+              checked: checked("chooseEct", "Berthe Morisot")
+            },
+            {
+              value: "Giotto di Bondone",
+              text: "Giotto di Bondone",
+              checked: checked("chooseEct", "Giotto di Bondone")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Assign later",
+              text: "Assign later",
+              behaviour: "exclusive",
+              checked: checked("chooseEct", "Assign mentor later")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
