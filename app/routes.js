@@ -101,16 +101,16 @@ router.post('/school-signed-in/school-add-participants-to-cohort/new-or-existing
 })
 
 // Branching on TRN status of mentor/ect
-router.post('/teacher-or-mentors/validation/trn-ect', function (req, res) {
-  const trnType = req.session.data['trn-look']
-  if (trnType === 'newMentor') {
-    res.redirect('/teacher-or-mentors/validation/trn-info')
-  } else if (trnType === 'existingMentor') {
-    res.redirect('/teacher-or-mentors/validation/name-change-ect')
-  } else if (trnType === 'Mentor') {
-    res.redirect('/teacher-or-mentors/validation/trn-get')
-  }
-})
+// router.post('/teacher-or-mentors/validation/trn-ect', function (req, res) {
+//   const trnType = req.session.data['trn-look']
+//   if (trnType === 'newMentor') {
+//     res.redirect('/teacher-or-mentors/validation/trn-info')
+//   } else if (trnType === 'existingMentor') {
+//     res.redirect('/teacher-or-mentors/validation/name-change-ect')
+//   } else if (trnType === 'Mentor') {
+//     res.redirect('/teacher-or-mentors/validation/trn-get')
+//   }
+// })
 
 // Branching on mentor/ect name change
 // router.post('/teacher-or-mentors/validation/name-change-ect', function (req, res) {
