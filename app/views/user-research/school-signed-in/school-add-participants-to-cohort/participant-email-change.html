@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% block pageTitle %}Donato di Niccolò di Betto Bardi – Not started{% endblock %}
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      The participants email address has been updated.
+    </h3>
+
+  </div>
+</div>
+
+      <span class="govuk-caption-l">2021 cohort</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        Donato di Niccolò di Betto Bardi
+        {{govukTag({
+          text: "NOT STARTED",
+          classes: "govuk-tag--grey"
+        })}}
+      </h1>
+
+      <div class="govuk-inset-text">
+        This person has not signed in and added their details yet. We will send them more notifications to add their details but you may also want to remind them.
+      </div>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Donato di Niccolò di Betto Bardi
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/change-participant-name">
+              Change<span class="govuk-visually-hidden"> personal details</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            donatelo@geocities.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/change-participant-email">
+              Change<span class="govuk-visually-hidden"> personal details</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+              Early Career Teacher
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="">
+              <span class="govuk-visually-hidden"></span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Mentor
+          </dt>
+          <dd class="govuk-summary-list__value">
+              <a class="govuk-link govuk-link--no-visited-state" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/participant-status-approved">Henry Purcell</a>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/change-mentor-for-ect">
+              Change<span class="govuk-visually-hidden"> participant type</span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Your schools" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+<!-- Will look to put the cohort back in -->
+{# {% block pageTitle %}Your schools: 2022 cohort{% endblock %} #}
+
+{% block pageNavigation %}
+{% set page = 'schools' %}
+{% include 'training-provider-signed-in/_training-provider-nav.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-one-half">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+    </div>
+  </div>
+
+  <nav class="hmcts-sub-navigation" aria-label="Sub navigation">
+    <ul class="hmcts-sub-navigation__list">
+      <li class="hmcts-sub-navigation__item">
+        <a class="hmcts-sub-navigation__link govuk-link--no-visited-state" href="/sprint-16/training-provider-signed-in/school-listing-2021">
+          2021 cohort
+        </a>
+      </li>
+      <li class="hmcts-sub-navigation__item">
+        <a class="hmcts-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="/sprint-16/training-provider-signed-in/school-listing-2022">
+          2022 cohort
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--
+  <div class="govuk-grid-row govuk-!-margin-bottom-3">
+    <div class="govuk-grid-column-full">
+      <h3 class="govuk-heading-l">
+        2022 cohort
+      </h3>
+    </div>
+  </div>
+  -->
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-3">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">You cannot recruit in this cohort yet</p>
+    </div>
+  </div>
+{% endblock %}

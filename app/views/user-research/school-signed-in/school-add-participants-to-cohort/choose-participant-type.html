@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Add your early career teachers and mentors" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+  {% if (data['schoolParticipantOptions'] === 'hasAddedMentors') %}
+    <a class="govuk-back-link" href="/sprint-16/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Back</a>
+  {% elseif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['journey-mode'] === 'schoolFIP') %}
+    <a class="govuk-back-link" href="/sprint-16/school-signed-in/fip/fip-cohort-detail">Back</a>
+  {% elseif (data['schoolParticipantOptions'] === 'canAddParticipants' and data['journey-mode'] === 'schoolCIP') %}
+      <a class="govuk-back-link" href="/sprint-16/school-signed-in/cip/cip-cohort-detail">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body">We need to verify that your early career teachers (ECTs and mentors:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have Qualified Teacher Status (QTS)</li>
+        <li>are eligible to complete an induction or act as a mentor</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-8">If your programme is being delivered by a training provider, this also ensures that they receive funding from the Department for Education (DfE).</p>
+
+
+      <form class="form" action="/sprint-16/school-signed-in/school-add-participants-to-cohort/choose-participant-type" method="post" class="govuk-!-margin-bottom-8">
+
+        {{ govukRadios({
+          idPrefix: "participantType",
+          name: "participantType",
+          fieldset: {
+            legend: {
+              text: "Do you want to add an early career teacher (ECT) or a mentor?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "ect",
+              text: "Early career teacher",
+              checked: checked("participantType", "ect")
+            },
+            {
+              value: "mentor",
+              text: "Mentor",
+              checked: checked("participantType", "mentor")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "sitmentor",
+              text: "Myself as a mentor",
+              checked: checked("participantType", "sitmentor")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
