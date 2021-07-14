@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Registration complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-margin-bottom-8">
+      {{ govukPanel({
+        titleText: "Registration complete"
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <p class="govuk-body">We have sent you an email to confirm and sign in to the service.</p>
+
+
+
+      <p class="govuk-body skip-to">Skip to: <a href="/sprint-16/sprint-16/teacher-or-mentors/validation/email-sign-in-ect-mentor">email that the ECT/Mentor receives</a></p>
+    </div>
+  </div>
+{% endblock %}

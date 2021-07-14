@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set title = 'What is your school’s local authority?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block pageNavigation %}
+  <a class="govuk-back-link" href="/sprint-16/school-resend-nomination-email/resend-nomination-1">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/sprint-16/school-resend-nomination-email/resend-nomination-2" method="post" class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+            {{ govukInput({
+            label: {
+              text: "What is your school's local authority?",
+              classes: "govuk-label--xl"
+            },
+            hint: {
+              html: "<span>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a></span>"
+            },
+            classes: "govuk-input--width-20",
+            id: "school-location",
+            name: "school-location"
+          }) }}
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

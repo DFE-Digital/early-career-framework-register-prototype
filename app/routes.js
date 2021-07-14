@@ -13,7 +13,7 @@ router.post('/admin/preload', function (req, res) {
   } else if (journeyMode === 'schoolCIP') {
     res.redirect('/school-signed-in/cip/cip-choose-cohort')
   } else {
-    res.redirect('/start')
+    res.redirect('/sprint-16/start')
   }
 })
 

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Manage training for early career teachers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      		<p>This service is for induction tutors who have been nominated by their school.</p>
+			<p>Use this service to manage your school’s statutory induction programme for early career teachers.</p>
+      		
+			<h2 class="govuk-heading-m">When does this need to be completed?</h2>
+      		<p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme.</p>
+      		<p>For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
+			
+			<form method="post" action="/sprint-16/sign-in" >
+      			
+				<input type="hidden" name="start-service" id="start-service" value="yes" />
+				{{ govukButton({
+        			text: "Start now",        	
+        			isStartButton: true
+      			}) }}
+
+			</form>
+
+      		<h2 class="govuk-heading-m">Do you have an account?</h2>
+      		<p>You must be nominated or sent sign in details to access this service.</p>
+			<p><a class="govuk-link" href="/sprint-16/nominations/choose-location">Find out how to get an account</a></p>
+    	</div>    
+  	</div>
+{% endblock %}

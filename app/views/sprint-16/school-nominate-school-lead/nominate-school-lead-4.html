@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Induction tutor nominated" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-margin-bottom-8">
+      {{ govukPanel({
+        titleText: pageHeading
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the person you nominated will be notified</li>
+        <li>they can sign in and manage your statutory induction programme</li>
+        <li>they will receive any future notifications about the service</li>
+      </ul>
+
+      <p class="govuk-body skip-to">Skip to: <a href="/sprint-16/sprint-16/school-lead-notification-and-sign-in/notification-of-school-lead">email that the Induction Tutor receives</a></p>
+    </div>
+  </div>
+{% endblock %}
