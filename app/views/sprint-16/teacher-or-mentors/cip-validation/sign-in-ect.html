@@ -1,12 +1,9 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
 {% set pageHeading = "Sign in" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
-{% block beforeContent %}
-  {% include "includes/back.html" %}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">

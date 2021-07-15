@@ -1,13 +1,11 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Choose your induction programme" %}
 {% set pageSection = "2021/22 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-  {% include "includes/back.html" %}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
