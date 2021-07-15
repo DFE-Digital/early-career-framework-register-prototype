@@ -1,17 +1,12 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
 {% set pageHeading = "Cohorts" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
-  {% include "includes/_training-provider-nav.html" %}
-  
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "dashboard-training-provider"
-  }) }}
+  {% include "includes/_training-provider-nav.html" %}  
 {% endblock %}
 
 {% block content %}

@@ -1,13 +1,12 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
 {% set pageSection = "2021/2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-  {% include "includes/back.html" %}
-{% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
