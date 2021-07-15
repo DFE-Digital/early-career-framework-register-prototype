@@ -5,8 +5,11 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-  {% include "includes/back.html" %}
+
+{% block pageNavigation %}
+
+    <a class="govuk-back-link" href="qct-ect">Back</a>
+
 {% endblock %}
 
 {% block content %}

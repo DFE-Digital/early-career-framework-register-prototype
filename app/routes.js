@@ -101,46 +101,46 @@ router.post('/school-signed-in/no-decision/provision-confirmed', function (req, 
 // })
 
 // Branching on TRN status of mentor/ect
-// router.post('/teacher-or-mentors/validation/trn-ect', function (req, res) {
+// router.post('/teacher-or-mentors/cip-validation/trn-ect', function (req, res) {
 //   const trnType = req.session.data['trn-look']
 //   if (trnType === 'newMentor') {
-//     res.redirect('/teacher-or-mentors/validation/trn-info')
+//     res.redirect('/teacher-or-mentors/cip-validation/trn-info')
 //   } else if (trnType === 'existingMentor') {
-//     res.redirect('/teacher-or-mentors/validation/name-change-ect')
+//     res.redirect('/teacher-or-mentors/cip-validation/name-change-ect')
 //   } else if (trnType === 'Mentor') {
-//     res.redirect('/teacher-or-mentors/validation/trn-get')
+//     res.redirect('/teacher-or-mentors/cip-validation/trn-get')
 //   }
 // })
 
 // Branching on mentor/ect name change
-// router.post('/teacher-or-mentors/validation/name-change-ect', function (req, res) {
+// router.post('/teacher-or-mentors/cip-validation/name-change-ect', function (req, res) {
 //   const nameType = req.session.data['name-change']
 //   if (nameType === 'newMentor') {
-//     res.redirect('/teacher-or-mentors/validation/qct-ect')
+//     res.redirect('/teacher-or-mentors/cip-validation/qct-ect')
 //   } else if (nameType === 'existingMentor') {
-//     res.redirect('/teacher-or-mentors/validation/update-name')
+//     res.redirect('/teacher-or-mentors/cip-validation/update-name')
 //   }
 // })
 
 // Branching on TRN status of mentor/ect update name
-// router.post('/teacher-or-mentors/validation/update-name', function (req, res) {
+// router.post('/teacher-or-mentors/cip-validation/update-name', function (req, res) {
 //   const nameExplain = req.session.data['nameChange']
 //   if (nameExplain === 'newMentor') {
-//     res.redirect('/teacher-or-mentors/validation/name-not-updated')
+//     res.redirect('/teacher-or-mentors/cip-validation/name-not-updated')
 //   } else if (nameExplain === 'existingMentor') {
-//     res.redirect('/teacher-or-mentors/validation/qct-ect')
+//     res.redirect('/teacher-or-mentors/cip-validation/qct-ect')
 //   } else if (nameExplain === 'Mentor') {
-//     res.redirect('/teacher-or-mentors/validation/name-maybe')
+//     res.redirect('/teacher-or-mentors/cip-validation/name-maybe')
 //   }
 // })
 
 // Branching on mentor/ect DQT name change
-// router.post('/teacher-or-mentors/validation/name-not-updated', function (req, res) {
+// router.post('/teacher-or-mentors/cip-validation/name-not-updated', function (req, res) {
 //   const dqtName = req.session.data['dqt-change']
 //   if (dqtName === 'newMentor') {
-//     res.redirect('/teacher-or-mentors/validation/qct-ect')
+//     res.redirect('/teacher-or-mentors/cip-validation/qct-ect')
 //   } else if (dqtName === 'existingMentor') {
-//     res.redirect('/teacher-or-mentors/validation/dqt-contact')
+//     res.redirect('/teacher-or-mentors/cip-validation/dqt-contact')
 //   }
 // })
 

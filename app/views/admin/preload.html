@@ -9,18 +9,18 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-                
-        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>        
-                                        
+
+        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>
+
         <form class="form" action="/{{ defaults.sprintNo() }}/start" method="post" class="">
-            
+
             {% set partnershipHtml %}
                 {{ govukCheckboxes({
                     idPrefix: "FIPStatus",
                     name: "FIPStatus",
                     fieldset: {
                         legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },                        
+                    },
                     items: [
                         { value: "inPartnership", text: "In partnership" }
                     ]
@@ -37,10 +37,10 @@
                 items: [
                     { value: "schoolNoDecision", text: "Not in partnership or not chosen provision yet", checked: checked("journey-mode", "schoolNoDecision"), hint: { text: "Includes privacy policy prompt" } },
                     { value: "schoolFIP", text: "Using an approved training provider (FIP)", conditional: { html: partnershipHtml}, checked: checked("journey-mode", "schoolFIP") },
-                    { value: "schoolCIP", text: "Using the DfE accredited materials (CIP)", checked: checked("journey-mode", "schoolCIP") }                          
+                    { value: "schoolCIP", text: "Using the DfE accredited materials (CIP)", checked: checked("journey-mode", "schoolCIP") }
                 ]
-            }) }}                        
-            
+            }) }}
+
             {{ govukRadios({
                 idPrefix: "schoolParticipantOptions",
                 name: "schoolParticipantOptions",
@@ -52,14 +52,27 @@
                     { value: "canAddParticipants", text: "Can add to cohort", checked: checked("schoolParticipantOptions", "canAddParticipants")},
                     { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
                 ]
-            }) }}                                     
+            }) }}
+
+            {{ govukRadios({
+                idPrefix: "ParticipantOptions",
+                name: "ParticipantOptions",
+                fieldset: {
+                    legend: { text: "Partipant validation", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "participantCIP", text: "CIP participant", checked: checked("ParticipantOptions", "participantCIP") },
+                    { value: "participantFIP", text: "FIP participant", checked: checked("ParticipantOptions", "participantFIP")},
+                    { value: "participantMentor", text: "SIT as mentor CIP participant", checked: checked("ParticipantOptions", "participantMentor")}
+                ]
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
-        
+
         </form>
-                
+
     </div>
 </div>
 {% endblock %}
