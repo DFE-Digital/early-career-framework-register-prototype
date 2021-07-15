@@ -38,13 +38,24 @@
 
         </form>
 
-        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/sign-in-ect" method="post" >
 
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />
             <input type="hidden" name="schoolParticipantOptions" id="schoolParticipantOptions" value="hasAddedMentors" />
 
             {{ govukButton({
-                text: "Start CIP - SIT as mentor validation"
+                text: "Validation with School Induction Tutor"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/school-signed-in/cip/cip-choose-cohort" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />
+            <input type="hidden" name="schoolParticipantOptions" id="schoolParticipantOptions" value="hasAddedMentors" />
+
+            {{ govukButton({
+                text: "Dashboard"
             }) }}
 
         </form>
