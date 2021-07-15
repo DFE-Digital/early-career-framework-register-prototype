@@ -6,8 +6,8 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="fip-cohort-detail">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

@@ -5,13 +5,8 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block pageNavigation %}
-  {% if (data['participantType'] === 'ect') %}
-    <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/choose-participant-type">Back</a>
-  {% elseif (data['participantType'] === 'mentor') %}
-    <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Back</a>
-  {% else %}
-  {% endif %}
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

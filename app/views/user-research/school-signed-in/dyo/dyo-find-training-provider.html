@@ -9,9 +9,8 @@
 {% set pageSection = "2021/22 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="../fip/fip-cohort-detail">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}
@@ -46,7 +45,7 @@
           ]
         }) }}
 
-        <p class="govuk-body">If this doesn’t look right, <a href="/user-research/school-challenging-partnership/school-challenge-2">report that your school has been signed up incorrectly</a>.</p>
+        <p class="govuk-body">If this doesn’t look right, <a href="/sprint-16/school-challenging-partnership/school-challenge-2">report that your school has been signed up incorrectly</a>.</p>
         </div>
 
 

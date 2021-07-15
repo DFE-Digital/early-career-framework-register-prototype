@@ -5,9 +5,8 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="cip-choose-cohort">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}
@@ -98,7 +97,7 @@
       {% if (data['cip-course-choice'] === undefined) %}
       <p class="govuk-body"></p>
       {% else %}
-      <p class="govuk-body">There are a series of <a href="user-research/cip-course-guidance"> documents to help Induction tutors prepare for the [Course selected] course.</a></p>
+      <p class="govuk-body">There are a series of <a href="sprint-16/cip-course-guidance"> documents to help Induction tutors prepare for the [Course selected] course.</a></p>
       {% endif %}
 
     </div>

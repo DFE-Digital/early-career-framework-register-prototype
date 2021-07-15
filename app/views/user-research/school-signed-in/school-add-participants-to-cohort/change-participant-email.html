@@ -5,9 +5,8 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="participant-status-not-started">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %} 
 {% endblock %}
 
 {% block content %}

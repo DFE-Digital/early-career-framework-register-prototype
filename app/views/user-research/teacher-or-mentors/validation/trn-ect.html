@@ -4,9 +4,10 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block pageNavigation %}
-<a class="govuk-back-link" href="privacy-policy-ect">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">

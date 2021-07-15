@@ -7,10 +7,7 @@
 {% block pageNavigation %}
   {% set page = 'schools' %}
   {% include "includes/_training-provider-nav.html" %}
-{{ govukBackLink({
-  text: "Back",
-  href: "find-and-add-schools"
-}) }}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

@@ -5,9 +5,8 @@
 {% set pageSection = "2021 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="cip-cohort-detail">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +17,7 @@
 
       <p class="govuk-body">You will be choosing materials for any new early career teachers. They will access these materials on our service and complete a programme over 2 years.</p>
 
-      <p class="govuk-body">Not sure? <a href="/user-research/cip-course-guidance"> Check our guidance on materials</a>.</p>
+      <p class="govuk-body">Not sure? <a href="/sprint-16/cip-course-guidance"> Check our guidance on materials</a>.</p>
 
       <a class="govuk-button" href="cip-course-choice">Continue</a>
     </div>
