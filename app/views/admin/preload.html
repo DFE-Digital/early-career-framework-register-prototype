@@ -45,7 +45,7 @@
                 idPrefix: "schoolParticipantOptions",
                 name: "schoolParticipantOptions",
                 fieldset: {
-                    legend: { text: "Partipants", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                    legend: { text: "Participants", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [
                     { value: "cannotAddParticipants", text: "Cannot yet add", checked: checked("schoolParticipantOptions", "cannotAddParticipants") },
@@ -55,15 +55,15 @@
             }) }}
 
             {{ govukRadios({
-                idPrefix: "ParticipantOptions",
-                name: "ParticipantOptions",
+                idPrefix: "participantOptions",
+                name: "participantOptions",
                 fieldset: {
                     legend: { text: "Partipant validation", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [
-                    { value: "participantCIP", text: "CIP participant", checked: checked("ParticipantOptions", "participantCIP") },
-                    { value: "participantFIP", text: "FIP participant", checked: checked("ParticipantOptions", "participantFIP")},
-                    { value: "participantMentor", text: "SIT as mentor CIP participant", checked: checked("ParticipantOptions", "participantMentor")}
+                    { value: "participantCIP", text: "CIP participant", checked: checked("participantOptions", "participantCIP") },
+                    { value: "participantFIP", text: "FIP participant", checked: checked("participantOptions", "participantFIP")},
+                    { value: "participantSIT", text: "SIT as mentor CIP participant", checked: checked("ParticipantOptions", "participantSIT")}
                 ]
             }) }}
 

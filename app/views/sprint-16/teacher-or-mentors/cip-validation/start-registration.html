@@ -13,9 +13,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
+
       <p class="govuk-body">This service is for early career teachers and mentors who are about to begin their training.</p>
 
       <h3 class="govuk-heading-m">Before you start</h3>
@@ -27,11 +27,13 @@
       </ul>
 
 
+  <form action="/sprint-16/teacher-or-mentors/cip-validation/sign-in-ect" method="post" >
       {{ govukButton({
-        text: "Start now",
-        href: "sign-in-ect",
-        isStartButton: true
+        text: "Continue"
+
       }) }}
+  </form>
+  
 
 
     <div class="govuk-grid-column-one-third">

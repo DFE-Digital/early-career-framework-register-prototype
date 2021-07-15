@@ -3,19 +3,15 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// Branching for sign in
-// router.post('/admin/preload', function (req, res) {
-//   const journeyMode = req.session.data['journey-mode']
-//   if (journeyMode === 'schoolNoDecision') {
-//     res.redirect('/sprint-16/school-nominate-school-lead/nominate-school-lead-1')
-//   } else if (journeyMode === 'schoolFIP') {
-//     res.redirect('/sprint-16/school-signed-in/fip/fip-choose-cohort')
-//   } else if (journeyMode === 'schoolCIP') {
-//     res.redirect('/sprint-16/school-signed-in/cip/cip-choose-cohort')
-//   } else {
-//     res.redirect('/sprint-16/start')
-//   }
-// })
+// Branching for pre load in
+router.post('/admin/preload', function (req, res) {
+  const participantOptions = req.session.data['participantOptions']
+  if (participantOptions === 'participantCIP') {
+    res.redirect('/sprint-16/teacher-or-mentors/cip-validation/particpant-email')
+  } else {
+    res.redirect('/sprint-16/teacher-or-mentors/kip-validation/particpant-email')
+  }
+})
 
 
 

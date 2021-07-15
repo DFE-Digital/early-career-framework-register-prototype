@@ -16,8 +16,8 @@
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
         {{ govukRadios({
-          idPrefix: "nameChange",
-          name: "nameChange",
+          idPrefix: "updated-name",
+          name: "updated-name",
           fieldset: {
           legend: {
             text: "Have you updated your name on the Teaching Regulation Agency records?",
@@ -27,17 +27,17 @@
         },
           items: [
             {
-              value: "existingMentor",
+              value: "yes",
               text: "Yes, i've updated my name",
               checked: checked("nameChange", "existingMentor")
             },
             {
-              value: "newMentor, redirect(name-not-updated)",
+              value: "no, redirect(name-not-updated)",
               text: "No, I have not updated my name",
               checked: checked("nameChange", "newMentor")
             },
             {
-              value: "Mentor, redirect(name-maybe)",
+              value: "notsure, redirect(name-maybe)",
               text: "Not sure",
               checked: checked("nameChange", "Mentor")
             }
