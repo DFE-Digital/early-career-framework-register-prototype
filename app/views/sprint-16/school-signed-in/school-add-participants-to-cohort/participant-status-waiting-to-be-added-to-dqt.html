@@ -2,8 +2,8 @@
 {% set schoolSignedIn = true %}
 {% block pageTitle %}George Handel – Waiting to be added to DQT{% endblock %}
 
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

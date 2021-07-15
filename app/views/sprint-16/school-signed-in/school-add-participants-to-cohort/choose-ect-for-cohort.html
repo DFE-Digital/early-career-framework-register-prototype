@@ -3,13 +3,8 @@
 {% set title = 'What early career teachers would' +' ' + data['participant-fullname'] +' ' + 'look after in this cohort?' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageNavigation %}
-{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
-  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/enter-personal-details">Back</a>
-{% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
-  <a class="govuk-back-link" href="school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Back</a>
-{% endif %}
-
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

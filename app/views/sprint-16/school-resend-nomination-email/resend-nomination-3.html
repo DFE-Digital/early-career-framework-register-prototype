@@ -4,8 +4,8 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="resend-nomination-2">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}

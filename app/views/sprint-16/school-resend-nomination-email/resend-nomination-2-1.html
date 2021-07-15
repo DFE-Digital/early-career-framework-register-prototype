@@ -2,8 +2,8 @@
 {% set title = 'What is your school’s local authority?' %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
-{% block pageNavigation %}
-  <a class="govuk-back-link" href="resend-nomination-1">Back</a>
+{% block beforeContent %}
+  {% include "includes/back.html" %}
 {% endblock %}
 
 {% block content %}
