@@ -11,3 +11,5 @@ public
 node_modules/*
 .tmuxp.*
 package-lock.json
+app/views/DoNotNeed/index-old.html
+app/views/DoNotNeed/index-old.html

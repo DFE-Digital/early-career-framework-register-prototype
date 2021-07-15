@@ -4,7 +4,9 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+{% block pageNavigation %}
 
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -29,23 +31,23 @@
         </div>
       </details>
 
-      <form class="form" action="trn-info" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="trn-ect" method="post" class="govuk-!-margin-bottom-8">
         {{ govukRadios({
           idPrefix: "trn-look",
           name: "trn-look",
           items: [
             {
-              value: "existingMentor, redirect(name-change-ect)",
+              value: "yes, redirect(name-change-ect)",
               text: "Yes, I know my TRN",
               checked: checked("trn-look", "existingMentor")
             },
             {
-              value: "newMentor",
+              value: "no, redirect(trn-info)",
               text: "No, I don't know my TRN",
               checked: checked("trn-look", "newMentor")
             },
             {
-              value: "Mentor, redirect(trn-get)",
+              value: "notrn, redirect(trn-get)",
               text: "I don't have a TRN",
               checked: checked("trn-look", "Mentor")
             }
@@ -60,5 +62,3 @@
     </div>
   </div>
 {% endblock %}
-
-

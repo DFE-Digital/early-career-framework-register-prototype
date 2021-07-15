@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "This email has two roles assigned to it" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body"><p>Your email has Mentor and School induction tutor roles assigned. You will need to complete your mentor validation lorem ipsum.</p>
+
+
+      <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
+      
+
+        {{ govukRadios({
+          idPrefix: "role-change",
+          name: "role-change",
+          fieldset: {
+          legend: {
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+        }
+        },
+          items: [
+            {
+              value: "mentor, redirect(/sprint-16/teacher-or-mentors/cip-validation/sign-in-check-email-ect)",
+              text: "Complete participant validation (Mentor)",
+              checked: checked("role-change", "rolementor")
+            },
+            {
+              value: "sit, redirect(/sprint-16/school-signed-in/cip/cip-choose-cohort)",
+              text: "Manage schools cohort (School induction tutor)",
+              checked: checked("role-change", "rolesit")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
