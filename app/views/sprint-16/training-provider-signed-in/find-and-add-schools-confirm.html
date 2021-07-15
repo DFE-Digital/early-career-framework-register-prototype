@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
 {% set selectedCount = data['selected-count']  %}
 
@@ -15,7 +16,7 @@
 {% block pageNavigation %}
   {% set page = 'schools' %}
   {% include "includes/_training-provider-nav.html" %}
-  {% include "includes/back.html" %}
+
 {% endblock %}
 
 {% block content %}
