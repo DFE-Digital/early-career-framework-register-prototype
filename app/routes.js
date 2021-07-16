@@ -4,14 +4,14 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 // Branching for pre load in
-router.post('/admin/preload', function (req, res) {
-  const participantOptions = req.session.data['participantOptions']
-  if (participantOptions === 'participantCIP') {
-    res.redirect('/sprint-16/teacher-or-mentors/cip-validation/particpant-email')
-  } else {
-    res.redirect('/sprint-16/teacher-or-mentors/kip-validation/particpant-email')
-  }
-})
+// router.post('/admin/preload', function (req, res) {
+//   const participantOptions = req.session.data['participantOptions']
+//   if (participantOptions === 'participantCIP') {
+//     res.redirect('/sprint-16/teacher-or-mentors/cip-validation/particpant-email')
+//   } else {
+//     res.redirect('/sprint-16/teacher-or-mentors/kip-validation/particpant-email')
+//   }
+// })
 
 
 

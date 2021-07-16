@@ -18,22 +18,121 @@
             }) }}
         </form> -->
 
-        
+
 
         <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
 
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
             {{ govukButton({
-                text: "Start CIP validation"
+                text: "CIP - ECT"
             }) }}
 
         </form>
 
         <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
 
-            <input type="hidden" name="participantOptions" id="participantOptions" value="participantKIP" />
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
+
             {{ govukButton({
-                text: "Start FIP validation"
+                text: "CIP - ECT (Skip validating)"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="participantType" id="participantType" value="participantMentor" />
+            {{ govukButton({
+                text: "CIP - Mentor"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantMentor" />
+            {{ govukButton({
+                text: "CIP - Mentor (Skip validating)"
+            }) }}
+
+        </form>
+
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
+            {{ govukButton({
+                text: "CIP - SIT as mentor"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
+            {{ govukButton({
+                text: "CIP - SIT as mentor (Skip validating)"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
+            {{ govukButton({
+                text: "FIP - ECT/Mentor"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
+            {{ govukButton({
+                text: "FIP - ECT/Mentor (Skip validating)"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
+            {{ govukButton({
+                text: "FIP - SIT as mentor"
+            }) }}
+
+        </form>
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
+            {{ govukButton({
+                text: "FIP - SIT as mentor (Skip validating)"
+            }) }}
+
+        </form>
+
+
+        <form action="/sprint-16/teacher-or-mentors/cip-validation/particpant-email" method="post" >
+
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            {{ govukButton({
+                text: "FIP validation"
             }) }}
 
         </form>

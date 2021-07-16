@@ -21,6 +21,9 @@
   <p><strong>Subject: </strong>Important: Sign in to register </p>
 </div>
 <div class="pseudo-email-template">
+
+{% if data['participantOptions'] == "participantCIP" %}
+
 <p>Hello,</p>
 
 <p>You are due to start your induction at {school name} in September 2021.</p>
@@ -28,11 +31,23 @@
 <p>Before your training can begin, you need to register with us and provide some further details so as not to delay the start of your training:</p>
 
 
+{% elif data['participantOptions'] == "participantSIT" %}
+
+<p>Hello,</p>
+
+<p>You are due to start your induction at {school name} in September 2021.</p>
+
+<p>Before your training can begin, you need to register with us and provide some further details so as not to delay the start of your training:</p>
+
+{% endif %}
+
 <p><a class="govuk-link--no-visited-state" href="start-registration">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
 
 
 <p>Teacher Continuing Professional Development<br />
 <span style="color:#888888;">Department for Education</span></p>
+
+
 
 </div>
 {% endblock %}

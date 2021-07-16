@@ -13,7 +13,11 @@
 
     <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records to ensure you qualify for training and support.</p>
 
+    {% if data['skipValidation'] == "notvalidating" %}
+    <form class="form" action="trn-error" method="post">
+    {% else %}
     <form class="form" action="confirm-qtc-details" method="post">
+    {% endif %}
 
         <div class="govuk-form-group">
         <label class="govuk-label govuk-!-width-three-quarters bold-label" for="trnd">
@@ -87,9 +91,6 @@
 
       </form>
 
-      <div style="margin-top:300px">
-      <a style="" href="trn-error">error</a>
-      </div>
 
     </div>
   </div>
