@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+{% set schoolSignedIn = true %}
+
+
 {% if data['dashboard-variation'] == "New" %}
-  {% set pageHeading = "Enter their details" %}
+  {% set pageHeading = 'Enter the details for this ' + data['persontypeAction'] + ' ' %}
+  {% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
   {% set pageHeading = "Enter their details" %}
+  {% set pageSection = "" %}
 {% endif %}
-{% set pageSection = "" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 

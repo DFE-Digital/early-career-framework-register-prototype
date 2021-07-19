@@ -3,13 +3,13 @@
 
 
 {% if data['dashboard-variation'] == "New" %}            
-
-
-	{% set pageHeading = "Confirm you want to add the following " %}
+	{% set pageHeading = 'Confirm you want to add the following ' + data['persontypeAction'] + ' ' %}	
+	{% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
 	{% set pageHeading = "Confirm these details" %}
+	{% set pageSection = "" %}
 {% endif %}
-{% set pageSection = "" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -25,51 +25,19 @@
       	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 	        <div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Name</dt>
-          		<dd class="govuk-summary-list__value">
-            		{% if (data['participantType'] === 'ect') %}
-            			{{ data['participant-fullname'] }} {{ data['choose-existing-mentor'] }}						
-            		{% elseif (data['participantType'] === 'mentor') %}
-            			{{ data['participant-fullname'] }} {{ data['choose-existing-mentor'] }}						
-            		{% elseif (data['participantType'] === 'sitmentor') %}
-              			School induction tutor name						
-            		{% endif %}
+          		<dd class="govuk-summary-list__value">            	            		
+            		{{ data['participant-fullname'] }}            		
           		</dd>
-          		<dd class="govuk-summary-list__actions">
-            		{% if (data['participantType'] === 'ect') %}
-            			<a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> personal details</span></a>
-            		{% elseif (data['participantType'] === 'mentor' and data['neworexistingmentor'] === 'existingMentor') %}
-            			<a class="govuk-link" href="mentor-from-existing-cohort">Change<span class="govuk-visually-hidden"> personal details</span></a>
-            		{% elseif (data['participantType'] === 'mentor') %}
-            			<a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> personal details</span></a>
-            		{% elseif (data['participantType'] === 'sitmentor') %}
-
-            		{% endif %}
+          		<dd class="govuk-summary-list__actions">            		
+            		<a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a>            		
           		</dd>
         	</div>
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key"> Email address</dt>
-				<dd class="govuk-summary-list__value">
-				  {% if (data['participantType'] === 'ect') %}					  
-					  {{ data['participant-email-address'] }}
-				  {% elseif (data['participantType'] === 'mentor') %}					  
-					  {{ data['participant-email-address'] }}
-				  {% elseif (data['participantType'] === 'sitmentor') %}						
-					  	schoolinduction@email.com
-				  {% endif %}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-				  {% if (data['participantType'] === 'ect') %}
-					  <a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> personal details</span></a>
-				  {% elseif (data['participantType'] === 'mentor' and data['neworexistingmentor'] === 'existingMentor') %}
-					  <a class="govuk-link" href="mentor-from-existing-cohort">Change<span class="govuk-visually-hidden"> personal details</span></a>
-				  {% elseif (data['participantType'] === 'mentor') %}
-					  <a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> personal details</span></a>
-				  {% elseif (data['participantType'] === 'sitmentor') %}
-
-				  {% endif %}
-				</dd>
-		  </div>        				
+				<dd class="govuk-summary-list__value">{{ data['participant-email-address'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+		  	</div>        				
 
 				{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
 				<div class="govuk-summary-list__row">
