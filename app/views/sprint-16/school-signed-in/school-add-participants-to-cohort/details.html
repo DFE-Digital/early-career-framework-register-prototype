@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Full Name" %}
+{% set pageSection = "Cohort 2021 to 2022" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+			
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
+
+			{% if data['approval-status'] == "investigate" %}
+			<!-- Needs investigation -->
+
+				<div class="govuk-inset-text">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Investigate</p>
+					<p>This person cannot be verified for statutory induction. You need to contact them directly.</p>
+				</div>
+
+			{% elif data['approval-status'] == "pending" %}
+
+				<div class="govuk-inset-text">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+					<p>We are checking their Qualified Teacher Status (QTS). This is usually updated in a month. You don’t need to do anything.</p>
+				</div>
+
+				<div class="govuk-inset-text">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+					<p>This person is being added to the teaching database. We will notify them when this is complete.</p>
+				</div>
+
+				<div class="govuk-inset-text">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+					<p>We have asked this person to update their details on the Teacher Self Service.</p>
+				</div>
+
+			{% elif data['approval-status'] == "not started" %}
+
+				<div class="govuk-inset-text">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Not started</p>
+					<p>This person has not signed in and added their details yet. We will send them more notifications to add their details but you may also want to remind them.</p>
+				</div>
+
+			{% else %}
+			<!-- Approved so no message to show -->
+
+			{% endif %}
+
+
+			
+
+			{{ govukSummaryList({
+				rows: [
+				  {
+					key: { text: "Name" },
+					value: { text: "Full name" },
+					actions: {
+					  items: [
+						{ href: "#", text: "Change", visuallyHiddenText: "name" }
+					  ]
+					}
+				  },
+				  {
+					key: { text: "Email address" },
+					value: { text: "email@domain.com" },
+					actions: {
+					  items: [
+						{ href: "#", text: "Change", visuallyHiddenText: "email address" }
+					  ]
+					}
+				  },
+				  {
+					key: { text: "Mentor" },
+					value: { html: "Not yet assigned" },
+					actions: {
+					  items: [
+						{ href: "#", text: "Change", visuallyHiddenText: "mentor" }
+					  ]
+					}
+				  },
+				  {
+					key: { text: "Type" },
+					value: { html: "Mentor/Early Career Teacher" },
+					actions: {
+					  items: [
+						{ href: "#", text: "Change", visuallyHiddenText: "type" }
+					  ]
+					}
+				  }
+				]
+			  }) }}
+            
+      		
+    </div>
+  </div>
+{% endblock %}
