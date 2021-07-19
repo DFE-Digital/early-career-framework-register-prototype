@@ -1,8 +1,17 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Enter their details" %}
-{% set pageSection = "" %}
+{% set schoolSignedIn = true %}
+
+
+{% if data['dashboard-variation'] == "New" %}
+  {% set pageHeading = 'Enter the details for this ' + data['persontypeAction'] + ' ' %}
+  {% set pageSection = "Cohort 2021 to 2022" %}  
+{% else %}
+  {% set pageHeading = "Enter their details" %}
+  {% set pageSection = "" %}
+{% endif %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -13,7 +22,9 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+      {% if data['dashboard-variation'] != "New" %}
       <p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
+      {% endif %}
 
       <form class="form" action="confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">
         {{ govukInput({
