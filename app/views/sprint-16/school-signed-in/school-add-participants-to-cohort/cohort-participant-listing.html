@@ -20,10 +20,11 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
 		</div>
-		<div class="govuk-grid-column-full">
+		
       
       		{% if data['dashboard-variation'] == "New" %}			  
-
+			
+			  <div class="govuk-grid-column-two-thirds">
 				<ul class="govuk-list govuk-!-margin-bottom-5">
 					<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add an early careers teacher</a></li>
 					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a mentor</a></li>				
@@ -75,12 +76,7 @@
 					</thead>
 					<tbody class="govuk-table__body">
 	
-						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Donato di Niccolò di Betto Bardi</td>
-							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell"></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participant-status-not-started" class="govuk-link govuk-link--no-visited-state">Details</a></td>
-						</tr>
+						
 	
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell">Mary Cassatt</td>
@@ -102,7 +98,16 @@
 							<td class="govuk-table__cell">Donato di Niccolò di Betto Bardi
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participant-status-waiting-on-qts-status" class="govuk-link govuk-link--no-visited-state">Details</a></td>
 						</tr>
-	
+						
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Donato di Niccolò di Betto Bardi</td>
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric">								
+								<a href="change-mentor-for-ect" class="govuk-link govuk-link--no-visited-state">Add mentor</a>
+								<br><a href="participant-status-not-started" class="govuk-link govuk-link--no-visited-state">Details</a> 
+							</td>
+						</tr>
 	
 					
 					</tbody>
@@ -135,7 +140,7 @@
 
       		{% else %}
 
-
+			  <div class="govuk-grid-column-full">
       		<a class="govuk-button govuk-!-margin-bottom-8" href="choose-participant-type">Add a new ECT or mentor</a>
 
 
