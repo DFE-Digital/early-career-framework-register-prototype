@@ -12,21 +12,20 @@
         <p>Last updated: 19 July 2021</p>        
         <p>Research for testing the dashboard variations, including the status of participants.</p>
 
-        <form action="/sprint-16/school-signed-in/cip/cip-choose-cohort" method="post" >
+        <form action="/sprint-16/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
+            
+            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="" />
 
-            <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />
-            <input type="hidden" name="schoolParticipantOptions" id="schoolParticipantOptions" value="hasAddedMentors" />
-
+            
             {{ govukButton({
                 text: "Continue test on status tags"
             }) }}
 
         </form>
 
-        <form action="/sprint-16/school-signed-in/cip/cip-choose-cohort" method="post" >
+        <form action="/sprint-16/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
 
-            <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />
-            <input type="hidden" name="schoolParticipantOptions" id="schoolParticipantOptions" value="hasAddedMentors" />
+            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="New" />
 
             {{ govukButton({
                 text: "Continue variation 2"
