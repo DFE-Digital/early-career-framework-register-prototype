@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "What would you like to do?" %}
+{% set pageHeading = "Do you want to add information about yourself as a mentor?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body"><p>You’re registered as an induction tutor and a mentor, so we need to check what you want to sign in and do today.</p>
+      <p class="govuk-body"><p>We need to check your details on the Teaching Regulation Agency records to make sure you qualify for mentor training and support.</p>
 
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
@@ -30,12 +30,12 @@
           items: [
             {
               value: "mentor, redirect(/sprint-16/teacher-or-mentors/cip-validation/sign-in-check-email-ect)",
-              text: "I want to add information about myself as a mentor",
+              text: "Yes, I want to add information now",
               checked: checked("role-change", "rolementor")
             },
             {
               value: "sit, redirect(/sprint-16/school-signed-in/cip/cip-choose-cohort)",
-              text: "I want to manage induction for my school",
+              text: "No, I’ll do it later",
               checked: checked("role-change", "rolesit")
             }
 
