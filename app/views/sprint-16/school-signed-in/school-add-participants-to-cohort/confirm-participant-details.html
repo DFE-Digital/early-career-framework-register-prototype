@@ -3,7 +3,7 @@
 
 
 {% if data['dashboard-variation'] == "New" %}            
-	{% set pageHeading = 'Confirm you want to add this ' + data['persontypeAction'] + ' ' %}	
+	{% set pageHeading = "Check your answers" %}	
 	{% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
 	{% set pageHeading = "Confirm these details" %}
@@ -36,7 +36,7 @@
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key"> Email address</dt>
 				<dd class="govuk-summary-list__value">{{ data['participant-email-address'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
 		  	</div>        				
 
 				{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
@@ -87,7 +87,7 @@
       
 	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
-          text: "Confirm"
+          text: "Confirm and add"
         }) }}
       </form>
 
@@ -202,6 +202,7 @@
         {% endif %}
       </dl>
 
+	  
 	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
           text: "Continue"
