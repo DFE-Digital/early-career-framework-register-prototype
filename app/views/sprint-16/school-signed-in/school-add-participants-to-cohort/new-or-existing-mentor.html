@@ -16,6 +16,11 @@
       <p>Mentors can work across cohorts. You don’t need to add their details every time.</p>
 
       <form class="form" action="mentor-from-existing-cohort" method="post" class="govuk-!-margin-bottom-8">
+
+        <input type="hidden" name="participant-fullname" id="participant-fullname" value="" />
+        <input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
+
+
         {{ govukRadios({
           idPrefix: "neworexistingmentor",
           name: "neworexistingmentor",
