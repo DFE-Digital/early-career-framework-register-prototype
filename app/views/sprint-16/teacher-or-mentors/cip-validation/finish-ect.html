@@ -68,6 +68,20 @@
           <p class="govuk-body">Your training provider will contact you soon.</p>
           <p class="govuk-body"><a href="email-sign-in-ect-mentor">Manage induction for your school</a></p>
 
+
+          <!-- FIP ECT -->
+
+          {% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "participantECT")) %}
+          <div class="govuk-!-margin-bottom-8">
+          {{ govukPanel({
+            titleText: "Registration complete"
+          }) }}
+          </div>
+          <h3 class="govuk-heading-m">What happens next</h3>
+              <p class="govuk-body">Your training provider will contact you soon.</p>
+          
+
+
       <!-- FIP ECT/Mentor SKIP Validation -->
 
       {% elif ((data['participantOptions'] == "participantFIP") and (data['skipValidation'] == "notvalidating")) %}
