@@ -25,15 +25,15 @@ $govuk-assets-path: '/govuk/assets/';
   border-left-color: #f47738;
 }
 
-// .pending-status {
-//   border-left: 10px solid #f47738;
-//   padding-left: 15px;
-// }
+.pending-status {
+  border-left: 10px solid #f47738;
+  padding-left: 15px;
+}
 
-// .rejected-status {
-//   border-left: 10px solid #d4351c;
-//   padding-left: 15px;
-// }
+.rejected-status {
+  border-left: 10px solid #d4351c;
+  padding-left: 15px;
+}
 
 .app-list--definition {
   dt {
