@@ -2,10 +2,18 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['dashboard-variation'] == "New" %}			  
-	{% set title = '' + data['participant-fullname'] +  ' has been added to the 2021 to 2022 cohort' %}
+{% if data['dashboard-variation'] == "New" %}		
+	{% if data['neworexistingmentor'] == "existingMentor"  %}	  
+		{% set title = '' + data['choose-existing-mentor'] +  ' has been added to the 2021 to 2022 cohort' %}
+	{% else %}
+		{% set title = '' + data['participant-fullname'] +  ' has been added to the 2021 to 2022 cohort' %}
+	{% endif %}
 {% else %}
-	{% set title = 'You have added ' + data['participant-fullname'] +  ' to the 2021 cohort' %}
+	{% if data['neworexistingmentor'] == "existingMentor"  %}	  
+		{% set title = 'You have added ' + data['choose-existing-mentor'] +  ' to the 2021 cohort' %}
+	{% else %}
+		{% set title = 'You have added ' + data['participant-fullname'] +  ' to the 2021 cohort' %}
+	{% endif %}
 {% endif %}
 {% block pageTitle %}{{ title }}{% endblock %}
 
