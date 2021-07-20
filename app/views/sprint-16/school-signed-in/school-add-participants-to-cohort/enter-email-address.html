@@ -4,7 +4,7 @@
 {% set schoolSignedIn = true %}
 
 
-{% if data['dashboard-variation'] == "New" %}
+{% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}
   {% set pageHeading = 'What is ' + data['participant-fullname'] + '’s email address? ' %}
   {% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
@@ -23,7 +23,9 @@
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       {% if data['dashboard-variation'] != "New" %}
+        {% if data['dashboard-variation'] != "New-2" %}
       <p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
+      {% endif %}
       {% endif %}
 
       <form class="form" action="confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">        
