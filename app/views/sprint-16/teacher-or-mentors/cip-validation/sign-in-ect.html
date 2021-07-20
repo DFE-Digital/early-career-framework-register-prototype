@@ -11,11 +11,9 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% if data['participantType'] == "participantSIT" %}
-        <form class="form" action="/sprint-16/teacher-or-mentors/cip-validation/two-roles" method="post">
-          {% else %}
+
             <form class="form" action="/sprint-16/teacher-or-mentors/cip-validation/sign-in-check-email-ect" method="post">
-          {% endif %}
+
 
         {{ govukInput({
           label: {
