@@ -8,10 +8,15 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      
+      {% if data['participantType'] == "participantSIT" %}
+        <form class="form" action="/sprint-16/teacher-or-mentors/cip-validation/two-roles" method="post">
+          {% else %}
+            <form class="form" action="/sprint-16/teacher-or-mentors/cip-validation/privacy-policy-ect" method="post">
+          {% endif %}
+
       <form class="form" action="privacy-policy-ect" method="post">
         {{ govukButton({
           text: "Continue"
