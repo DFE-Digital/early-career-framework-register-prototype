@@ -3,7 +3,7 @@
 
 
 {% if data['dashboard-variation'] == "New" %}            
-	{% set pageHeading = 'Confirm you want to add the following ' + data['persontypeAction'] + ' ' %}	
+	{% set pageHeading = "Check your answers" %}	
 	{% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
 	{% set pageHeading = "Confirm these details" %}
@@ -25,19 +25,28 @@
       	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 	        <div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Name</dt>
-          		<dd class="govuk-summary-list__value">            	            		
-            		{{ data['participant-fullname'] }}            		
+          		<dd class="govuk-summary-list__value">            	       
+					  
+					{% if data['neworexistingmentor'] == "existingMentor"  %}
+						{{ data['choose-existing-mentor'] }}
+					{% else %}
+            			{{ data['participant-fullname'] }}            		
+					{% endif %}
           		</dd>
           		<dd class="govuk-summary-list__actions">            		
             		<a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a>            		
           		</dd>
         	</div>
-
+			
+			{% if not data['neworexistingmentor'] == "existingMentor"  %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key"> Email address</dt>
-				<dd class="govuk-summary-list__value">{{ data['participant-email-address'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+				<dd class="govuk-summary-list__value">
+					{{ data['participant-email-address'] }}					
+				</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
 		  	</div>        				
+			{% endif %}
 
 				{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
 				<div class="govuk-summary-list__row">
@@ -87,7 +96,7 @@
       
 	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
-          text: "Confirm"
+          text: "Confirm and add"
         }) }}
       </form>
 
@@ -202,6 +211,7 @@
         {% endif %}
       </dl>
 
+	  
 	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
           text: "Continue"
