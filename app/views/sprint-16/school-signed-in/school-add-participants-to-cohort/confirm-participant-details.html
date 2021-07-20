@@ -2,12 +2,12 @@
 {% set schoolSignedIn = true %}
 
 
-{% if data['dashboard-variation'] == "New" %}            
-	{% set pageHeading = "Check your answers" %}	
-	{% set pageSection = "Cohort 2021 to 2022" %}  
+{% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}
+  {% set pageHeading = "Check your answers" %}	
+  {% set pageSection = "Cohort 2021 to 2022" %}  
 {% else %}
-	{% set pageHeading = "Confirm these details" %}
-	{% set pageSection = "" %}
+  {% set pageHeading = "Confirm these details" %}
+  {% set pageSection = "" %}
 {% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,86 +15,82 @@
 
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% if data['dashboard-variation'] == "New" %}            
+      		{% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}        
       
-      	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-	        <div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">Name</dt>
-          		<dd class="govuk-summary-list__value">            	       
-					  
-					{% if data['neworexistingmentor'] == "existingMentor"  %}
-						{{ data['choose-existing-mentor'] }}
-					{% else %}
-            			{{ data['participant-fullname'] }}            		
-					{% endif %}
-          		</dd>
-          		<dd class="govuk-summary-list__actions">            		
-            		<a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a>            		
-          		</dd>
-        	</div>
-			
-			{% if not data['neworexistingmentor'] == "existingMentor"  %}
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key"> Email address</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['participant-email-address'] }}					
-				</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
-		  	</div>        				
-			{% endif %}
+        	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          		<div class="govuk-summary-list__row">
+              		<dt class="govuk-summary-list__key">Name</dt>
+					<dd class="govuk-summary-list__value">            	       
+		
+						{% if data['neworexistingmentor'] == "existingMentor"  %}
+							{{ data['choose-existing-mentor'] }}
+						{% else %}
+							{{ data['participant-fullname'] }}            		
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+          		</div>
+      
+      			{% if data['neworexistingmentor'] != "existingMentor"  %}			
+      			<div class="govuk-summary-list__row">
+        			<dt class="govuk-summary-list__key"> Email address</dt>
+        			<dd class="govuk-summary-list__value">{{ data['participant-email-address'] }}</dd>
+        			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+        		</div>        				
+      			{% endif %}
 
-				{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
-				<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">
-					Mentor
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['choose-mentor-from-cohort'] }}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="choose-mentor-for-ect">
-					Change<span class="govuk-visually-hidden"> mentor</span>
-					</a>
-				</dd>
-				</div>
-				{% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
-				<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">
-					Early career teachers
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['chooseEct'] }}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="choose-ect-for-cohort">
-					Change<span class="govuk-visually-hidden"> ect</span>
-					</a>
-				</dd>
-				</div>
-				{% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
-				<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">
-					Early career teachers
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['chooseEct'] }}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="choose-ect-for-cohort">
-					Change<span class="govuk-visually-hidden"> ect</span>
-					</a>
-				</dd>
-				</div>
+        {% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mentor
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['choose-mentor-from-cohort'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="choose-mentor-for-ect">
+          Change<span class="govuk-visually-hidden"> mentor</span>
+          </a>
+        </dd>
+        </div>
+        {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Early career teachers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['chooseEct'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="choose-ect-for-cohort">
+          Change<span class="govuk-visually-hidden"> ect</span>
+          </a>
+        </dd>
+        </div>
+        {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Early career teachers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['chooseEct'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="choose-ect-for-cohort">
+          Change<span class="govuk-visually-hidden"> ect</span>
+          </a>
+        </dd>
+        </div>
 
         {% endif %}
       </dl>
       
-	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
+    <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
           text: "Confirm and add"
         }) }}
@@ -211,8 +207,8 @@
         {% endif %}
       </dl>
 
-	  
-	  <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
+    
+    <form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
         {{ govukButton({
           text: "Continue"
         }) }}

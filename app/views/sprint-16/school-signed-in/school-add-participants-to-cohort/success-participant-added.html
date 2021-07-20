@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['dashboard-variation'] == "New" %}		
+{% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}
 	{% if data['neworexistingmentor'] == "existingMentor"  %}	  
 		{% set title = '' + data['choose-existing-mentor'] +  ' has been added to the 2021 to 2022 cohort' %}
 	{% else %}
@@ -21,7 +21,7 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-      		{% if data['dashboard-variation'] == "New" %}			  
+			{% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}		  
 
 				<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
 					<h1 class="govuk-panel__title">{{ title }}</h1>
