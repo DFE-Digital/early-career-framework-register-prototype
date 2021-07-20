@@ -18,16 +18,16 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-		
+
 		</div>
-		
-      
-      		{% if data['dashboard-variation'] == "New" %}			  
-			
+
+
+      		{% if data['dashboard-variation'] == "New" %}
+
 			  <div class="govuk-grid-column-full">
 				<ul class="govuk-list govuk-!-margin-bottom-7">
 					<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add an early careers teacher</a></li>
-					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a mentor</a></li>				
+					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a mentor</a></li>
 				</ul>
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Approved</h2>
@@ -36,11 +36,11 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>							
-							<th class="govuk-table__header " scope="col"></th>							
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>
+							<th class="govuk-table__header " scope="col"></th>
 						</tr>
 					</thead>
-					<tbody class="govuk-table__body">					
+					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell">Henry Purcell</a></td>
 							<td class="govuk-table__cell">Mentor</td>
@@ -58,7 +58,7 @@
 							<td class="govuk-table__cell">Mentor</td>
 							<td class="govuk-table__cell"></td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">Change</a></td>
-						</tr>					
+						</tr>
 					</tbody>
 				</table>
 
@@ -70,46 +70,46 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>							
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>
 							<th class="govuk-table__header" scope="col"></th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
-	
-						
-	
+
+
+
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">Mary Cassatt</td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">Henry Purcell</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?approval-status=pending-checking" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
-	
+
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">George Handel</td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">Berthe Morisot</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?approval-status=pending-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
-	
+
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">Lilla Perry</a></td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">Marie Bracquemond
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?approval-status=pending-checking" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
-						
+
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">Donato di Niccolò di Betto Bardi</td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell"><!--<a href="change-mentor-for-ect" class="govuk-link govuk-link--no-visited-state">Add mentor</a>--></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric">								
-								
-								<a href="details?approval-status=pending" class="govuk-link govuk-link--no-visited-state">View details</a> 
+							<td class="govuk-table__cell govuk-table__cell--numeric">
+
+								<a href="details?approval-status=pending" class="govuk-link govuk-link--no-visited-state">View details</a>
 							</td>
 						</tr>
-	
-					
+
+
 					</tbody>
 				</table>
 
@@ -122,19 +122,19 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>							
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>
 							<th class="govuk-table__header" scope="col"></th>
 						</tr>
 					</thead>
-					<tbody class="govuk-table__body">											
-	
+					<tbody class="govuk-table__body">
+
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell rejected-status">Jean-Philippe Rameau</td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">Marie Bracquemond</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?approval-status=investigate" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr>						
-					
+						</tr>
+
 					</tbody>
 				</table>
 
@@ -252,7 +252,7 @@
 							})}}
 						</td>
 					</tr>
-				
+
 				</tbody>
 			</table>
 
