@@ -16,31 +16,35 @@
 			{% if data['approval-status'] == "investigate" %}
 			<!-- Needs investigation -->
 
-				<div class="govuk-inset-text">
+				<div class="govuk-inset-text investigate">
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Investigate</p>
 					<p>This person cannot be verified for statutory induction. You need to contact them directly.</p>
 				</div>
 
-			{% elif data['approval-status'] == "pending" %}
-
-				<div class="govuk-inset-text">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+			{% elif data['approval-status'] == "pending-checking" %}
+				
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending approval</p>
 					<p>We are checking their Qualified Teacher Status (QTS). This is usually updated in a month. You don’t need to do anything.</p>
 				</div>
 
-				<div class="govuk-inset-text">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+			{% elif data['approval-status'] == "pending-database" %}
+
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending approval</p>
 					<p>This person is being added to the teaching database. We will notify them when this is complete.</p>
 				</div>
 
-				<div class="govuk-inset-text">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending</p>
+			{% elif data['approval-status'] == "pending" %}
+				
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Pending approval</p>
 					<p>We have asked this person to update their details on the Teacher Self Service.</p>
 				</div>
 
 			{% elif data['approval-status'] == "not started" %}
 
-				<div class="govuk-inset-text">
+				<div class="govuk-inset-text ">
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Not started</p>
 					<p>This person has not signed in and added their details yet. We will send them more notifications to add their details but you may also want to remind them.</p>
 				</div>
@@ -50,51 +54,30 @@
 
 			{% endif %}
 
-
 			
-
-			{{ govukSummaryList({
-				rows: [
-				  {
-					key: { text: "Name" },
-					value: { text: "Full name" },
-					actions: {
-					  items: [
-						{ href: "#", text: "Change", visuallyHiddenText: "name" }
-					  ]
-					}
-				  },
-				  {
-					key: { text: "Email address" },
-					value: { text: "email@domain.com" },
-					actions: {
-					  items: [
-						{ href: "#", text: "Change", visuallyHiddenText: "email address" }
-					  ]
-					}
-				  },
-				  {
-					key: { text: "Mentor" },
-					value: { html: "Not yet assigned" },
-					actions: {
-					  items: [
-						{ href: "#", text: "Change", visuallyHiddenText: "mentor" }
-					  ]
-					}
-				  },
-				  {
-					key: { text: "Type" },
-					value: { html: "Mentor/Early Career Teacher" },
-					actions: {
-					  items: [
-						{ href: "#", text: "Change", visuallyHiddenText: "type" }
-					  ]
-					}
-				  }
-				]
-			  }) }}
-            
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Name</dt>
+				  	<dd class="govuk-summary-list__value">Full name</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Email address</dt>
+				  	<dd class="govuk-summary-list__value">email@domain.com</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Mentor</dt>
+				  	<dd class="govuk-summary-list__value">Not yet assigned</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Type</dt>
+				  	<dd class="govuk-summary-list__value">Mentor/Early Career Teacher</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>				
+			</dl>			            
       		
-    </div>
-  </div>
+    	</div>
+  	</div>
 {% endblock %}

@@ -16,7 +16,16 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/related-items";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.investigate {
+  border-left-color: #d4351c;
+}
+
+.pending {
+  border-left-color: #f47738;
+}
+
+
 
 .app-list--definition {
   dt {
