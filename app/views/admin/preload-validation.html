@@ -30,6 +30,8 @@
                 }) }}
             {% endset -%}
 
+
+
             {{ govukRadios({
                 idPrefix: "participantOptions",
                 name: "participantOptions",
@@ -42,6 +44,21 @@
                 ]
             }) }}
 
+
+            {% set betamentorhtml %}
+                {{ govukCheckboxes({
+                    idPrefix: "betaMentor",
+                    name: "betaMentor",
+                    fieldset: {
+                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "beta", text: "In beta programme" }
+                    ]
+                }) }}
+            {% endset -%}
+
+
             {{ govukRadios({
                 idPrefix: "participantType",
                 name: "participantType",
@@ -50,8 +67,19 @@
                 },
                 items: [
                     { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
-                    { value: "participantMentor", text: "Mentor", checked: checked("ParticipantType", "participantMentor")},
+                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("ParticipantType", "participantMentor")},
                     { value: "participantSIT", text: "SIT as mentor", checked: checked("ParticipantType", "participantSIT")}
+                ]
+            }) }}
+
+            {{ govukRadios({
+                idPrefix: "flagType",
+                name: "flagType",
+                fieldset: {
+                    legend: { text: "Flag type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "redFlag", text: "User has FLAG on database", checked: checked("flagType", "redFlag")}
                 ]
             }) }}
 

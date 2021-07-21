@@ -11,7 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body"><p>We need to check your details on the Teaching Regulation Agency records to make sure you qualify for mentor training and support.</p>
+      <p class="govuk-body"><p>We need to check your details on the Teaching Regulation Agency records. This is to make sure you qualify for this programme.</p>
 
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
@@ -29,12 +29,12 @@
         },
           items: [
             {
-              value: "mentor, redirect(/sprint-16/teacher-or-mentors/cip-validation/trn-ect)",
+              value: "mentor, redirect(/sprint-17/teacher-or-mentors/cip-validation/trn-ect)",
               text: "Yes, I want to add information now",
               checked: checked("role-change", "rolementor")
             },
             {
-              value: "sit, redirect(/sprint-16/school-signed-in/cip/cip-choose-cohort)",
+              value: "sit, redirect(/sprint-17/school-signed-in/cip/cip-choose-cohort)",
               text: "No, I’ll do it later",
               checked: checked("role-change", "rolesit")
             }
