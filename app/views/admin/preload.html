@@ -55,43 +55,7 @@
                 ]
             }) }}
 
-            {% set skipvalidationhtml %}
-                {{ govukCheckboxes({
-                    idPrefix: "skipValidation",
-                    name: "skipValidation",
-                    fieldset: {
-                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "notvalidating", text: "Continue without Validating" }
-                    ]
-                }) }}
-            {% endset -%}
-
-            {{ govukRadios({
-                idPrefix: "participantOptions",
-                name: "participantOptions",
-                fieldset: {
-                    legend: { text: "Partipant validation", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
-                    { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
-                ]
-            }) }}
-
-            {{ govukRadios({
-                idPrefix: "participantType",
-                name: "participantType",
-                fieldset: {
-                    legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "participantECT", text: "ECT participant", checked: checked("participantType", "participantECT")},
-                    { value: "participantMentor", text: "Mentor participant", checked: checked("ParticipantType", "participantMentor")},
-                    { value: "participantSIT", text: "SIT as mentor participant", checked: checked("ParticipantType", "participantSIT")}
-                ]
-            }) }}
+    
 
             {{ govukButton({
                 text: "Continue"

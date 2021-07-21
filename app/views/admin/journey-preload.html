@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "User journey data" %}
+{% set pageSection = "Prototype work" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+        <p>Last updated: 21 July 2021</p>
+
+
+        <h2 class="govuk-heading-m">Dashboard data</h2>
+        <p>Select programme, partnership and if they can add participants to a cohort.</p>
+
+        {{ govukButton({
+            text: "Continue",
+            href: "preload"
+        }) }}
+
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">Participant validation data</h2>
+        <p>Select programme, participant type and validation journey.</p>
+
+        {{ govukButton({
+            text: "Continue",
+            href: "preload-validation"
+        }) }}
+
+
+
+    </div>
+</div>
+
+{% endblock %}
