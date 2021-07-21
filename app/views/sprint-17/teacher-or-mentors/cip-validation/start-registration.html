@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Register for your Early Career training and support" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body">This service is for early career teachers and mentors who are about to begin their induction training.</p>
+      <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records to make sure you qualify for this training and support.</p>
+
+
+      <p class="govuk-body">You must only use this service if:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the induction tutor at your school asked you to</li>
+        <li>you’re a teacher working (or due to start work) in England</li>
+      </ul>
+
+
+  <form action="/sprint-16/teacher-or-mentors/cip-validation/sign-in-ect" method="post" >
+      {{ govukButton({
+        text: "Continue"
+
+      }) }}
+  </form>
+
+
+
+    <div class="govuk-grid-column-one-third">
+      <!--
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="sprint-16/guidance_1">
+                Induction training and support for new teachers
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      -->
+    </div>
+  </div>
+{% endblock %}

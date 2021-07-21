@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You have been added to the 2021/22 cohort" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
+        <h1 class="govuk-panel__title">
+          {{ pageHeading }}
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+        <li>We will contact you if we need anymore details and update you on your status</li>
+      </ul>
+
+      <a class="govuk-button" href="choose-participant-type">Add a new ECT or mentor</a>
+
+      <p><a href="cohort-participant-listing" class="govuk-link govuk-link--no-visited-state">View your ECTs and mentors</a></p>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Updated name" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body">If you've changed your name and want to use it for work, and any training certificates gained, it must also be changed on the Teaching Regulation Agency records.</p>
+
+
+      <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukRadios({
+          idPrefix: "updated-name",
+          name: "updated-name",
+          fieldset: {
+          legend: {
+            text: "Have you updated your name on the Teaching Regulation Agency records?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+        }
+        },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, i've updated my name",
+              checked: checked("nameChange", "existingMentor")
+            },
+            {
+              value: "no, redirect(name-not-updated)",
+              text: "No, I have not updated my name",
+              checked: checked("nameChange", "newMentor")
+            },
+            {
+              value: "notsure, redirect(name-maybe)",
+              text: "Not sure",
+              checked: checked("nameChange", "Mentor")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

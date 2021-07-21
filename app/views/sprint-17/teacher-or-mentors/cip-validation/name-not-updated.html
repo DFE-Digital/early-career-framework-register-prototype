@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Name not updated" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p class="govuk-body"><p>If your name has not been updated and does not match the Teaching Regulation Agency records, you have three options:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>use your previous name to register with the service</li>
+      <li>use your previous name to register, and then change it on the Teaching Regulation Agency records at a later date</li>
+      <li>change your name on the Teaching Regulation Agency records first and then return to register for training and support</li>
+      </ul>
+
+      <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
+
+        {{ govukRadios({
+          idPrefix: "dqt-change",
+          name: "dqt-change",
+          fieldset: {
+          legend: {
+            text: "I want to:",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+        }
+        },
+          items: [
+            {
+              value: "existingMentor, redirect(dqt-contact)",
+              text: "Change my name on the Teaching Regulation Agency records",
+              checked: checked("dqt-change", "existingMentor")
+            },
+            {
+              value: "newMentor",
+              text: "Register with my previous name",
+              checked: checked("dqt-change", "newMentor")
+            }
+
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
