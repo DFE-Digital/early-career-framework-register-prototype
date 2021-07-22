@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Preload type of user data" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>
+
+        <form class="form" action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" class="">
+
+
+
+            {% set skipvalidationhtml %}
+                {{ govukCheckboxes({
+                    idPrefix: "skipValidation",
+                    name: "skipValidation",
+                    fieldset: {
+                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "notvalidating", text: "Continue without Validating" }
+                    ]
+                }) }}
+            {% endset -%}
+
+
+
+            {{ govukRadios({
+                idPrefix: "participantOptions",
+                name: "participantOptions",
+                fieldset: {
+                    legend: { text: "Programme", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
+                    { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
+                ]
+            }) }}
+
+
+            {% set betamentorhtml %}
+                {{ govukCheckboxes({
+                    idPrefix: "betaMentor",
+                    name: "betaMentor",
+                    fieldset: {
+                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "beta", text: "In beta programme" }
+                    ]
+                }) }}
+            {% endset -%}
+
+
+            {{ govukRadios({
+                idPrefix: "participantType",
+                name: "participantType",
+                fieldset: {
+                    legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
+                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("ParticipantType", "participantMentor")},
+                    { value: "participantSIT", text: "SIT as mentor", checked: checked("ParticipantType", "participantSIT")}
+                ]
+            }) }}
+
+            {{ govukRadios({
+                idPrefix: "flagType",
+                name: "flagType",
+                fieldset: {
+                    legend: { text: "Flag type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "redFlag", text: "User has FLAG on database", checked: checked("flagType", "redFlag")}
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

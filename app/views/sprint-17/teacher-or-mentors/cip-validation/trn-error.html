@@ -17,17 +17,17 @@
 
 <form class="form" action="qct-ect" method="post">
 
-      <p class="govuk-body">We cannot find a match with the details you have provided.</p>
       <p class="govuk-body">This could be because:</p>
 
       <ul class="govuk-list govuk-list--bullet">
-      <li>you have abbreviated your first name e.g. Rob/Robert</li>
-      <li>your surname is different to the name held on the Teaching Regulation Agency records</li>
-      <li>you've entered an incorrect TRN</li>
-      <li>you've have entered an incorrect date of birth</li>
+      <li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’</li>
+      <li>your last name is different to the version held by the Teaching Regulation Agency </li>
+      <li>you mistyped or entered some incorrect information</li>
       </ul>
 
-      <p class="govuk-body">Try again to enter your details - entering your National Insurance number will help us match your details.</p>
+      <p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
+
+
 
       {{ govukButton({
         text: "Try again"
@@ -35,8 +35,8 @@
 </form>
 
     <form class="form" action="confirm-qtc-details" method="post">
-      <h2 class="govuk-heading-m">Still can't match your details?</h2>
-      <p class="govuk-body">You can still continue to register - our support team will contact you on to confirm your details before you start your course.</p>
+      <h2 class="govuk-heading-m">If we still cannot find your details</h2>
+      <p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
 
 
       {{ govukButton({

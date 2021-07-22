@@ -10,6 +10,10 @@
     <div class="govuk-grid-column-two-thirds">
 
 
+
+
+
+
       <!-- // CIP ECT SKIP VALIDATION -->
 
       {% if ((data['participantOptions'] == "participantCIP") and (data['skipValidation'] == "notvalidating") and (data['participantType'] == "participantECT")) %}
@@ -22,6 +26,31 @@
           <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
           <p class="govuk-body">Your training materials will be available in August. We’ll email you with a link to access them.</p>
 
+          <!-- CIP SIT mentor Redflag -->
+
+          {% elif ((data['flagType'] == "redFlag") and (data['participantType'] == "participantSIT")) %}
+          <div class="govuk-!-margin-bottom-8">
+          {{ govukPanel({
+              titleText: "We’re checking your details"
+          }) }}
+          </div>
+          <h3 class="govuk-heading-m">What happens next</h3>
+          <p class="govuk-body">We’ll email you with more information as soon as possible. </p>
+          <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+
+      <!-- CIP ECT/Mentor Redflag -->
+
+      {% elif ((data['flagType'] == "redFlag") and (data['participantType'] == "participantECT") or (data['participantType'] == "participantMentor")) %}
+      <div class="govuk-!-margin-bottom-8">
+      {{ govukPanel({
+          titleText: "We’re checking your details"
+      }) }}
+      </div>
+      <h3 class="govuk-heading-m">What happens next</h3>
+            <p class="govuk-body">We’ll email you with more information as soon as possible. </p>
+
+
       <!-- // CIP ECT -->
 
       {% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantECT")) %}
@@ -31,7 +60,7 @@
       }) }}
       </div>
       <h3 class="govuk-heading-m">What happens next</h3>
-        <p class="govuk-body">Your training materials will be available in August. We’ll email you with a link to access them.</p>
+        <p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
 
       <!-- CIP Mentor -->
 
@@ -42,7 +71,7 @@
       }) }}
       </div>
       <h3 class="govuk-heading-m">What happens next</h3>
-        <p class="govuk-body">We’ll send you an email in the next 48 hours with a link to access training materials.</p>
+        <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
 
       <!-- FIP ECT -->
 
@@ -53,7 +82,7 @@
       }) }}
       </div>
       <h3 class="govuk-heading-m">What happens next</h3>
-        <p class="govuk-body">Your training provider will contact you soon.</p>
+        <p class="govuk-body">You will not need to use this service again during your training.</p>
 
 
       <!-- CIP SIT as Mentor -->
@@ -65,7 +94,7 @@
       }) }}
       </div>
       <h3 class="govuk-heading-m">What happens next</h3>
-        <p class="govuk-body">We’ll send you an email in the next 48 hours with a link to access training materials.</p>
+        <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
         <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
       <!-- FIP SIT as mentor -->
@@ -77,7 +106,6 @@
       }) }}
       </div>
       <h3 class="govuk-heading-m">What happens next</h3>
-          <p class="govuk-body">Your training provider will contact you soon.</p>
           <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
 
@@ -107,8 +135,10 @@
           <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
 
+
+
       {% else %}
-        <form class="form" action="/admin/preload" method="post">
+        <form class="form" action="/admin/preload-validation" method="post">
       {% endif %}
 
 
