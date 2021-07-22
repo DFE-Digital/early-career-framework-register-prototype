@@ -14,20 +14,13 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body">Your teacher reference number (TRN) is used to check you're eligible for training and support.</p>
-
       <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            What is a teacher reference number?
-          </span>
-        </summary>
 
         <div class="govuk-details__text">
-          <p>A teacher reference number (TRN) is a unique ID that allows us to check you are a teacher.</p>
-          <p>If you don’t know what your teacher reference number (TRN) is, this can usually be found on your payslip, teachers’ pension documentation or teacher training records.</p>
-          <p>The TRN has previously been known as a QTS, GTC, DfE, DfES or DCSF number.</p>
-          <p>You may not have a TRN if you qualified outside England or overseas.</p>
+          <p>A teacher reference number (TRN) is a unique ID that helps us to check you’re a teacher.</p>
+          <p>If you do not know your teacher reference number (TRN), you can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
+          <p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p>
+          <p>You may not have a TRN if you qualified outside England.</p>
         </div>
       </details>
 
@@ -43,12 +36,12 @@
             },
             {
               value: "no, redirect(trn-info)",
-              text: "No, I don't know my TRN",
+              text: "No, I do not know my TRN",
               checked: checked("trn-look", "newMentor")
             },
             {
               value: "notrn, redirect(trn-get)",
-              text: "I don't have a TRN",
+              text: "I do not have a TRN",
               checked: checked("trn-look", "Mentor")
             }
 
