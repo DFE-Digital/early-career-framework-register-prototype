@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Qualified teacher check" %}
+{% set pageHeading = "Tell us your details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records to ensure you qualify for training and support.</p>
+    <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p>
 
     {% if data['skipValidation'] == "notvalidating" %}
     <form class="form" action="trn-error" method="post">
@@ -24,7 +24,7 @@
         Teacher reference number (TRN)
         </label>
         <span id="email-hint" class="govuk-hint">
-        Your TRN is 7-10 characters long. It may begin with "RP"
+        Your TRN is between 6 and 7 characters long. Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol.
         </span>
         <input class="govuk-input govuk-input--width-10" id="trnd" name="trnd" type="text" aria-describedby="trnd">
         </div>
@@ -34,7 +34,7 @@
         Full name
         </label>
         <span id="email-hint" class="govuk-hint">
-        Your full name exactly as it appears on the Teaching Regulation Agency records
+        Your full name exactly as it appears on the Teaching Regulation Agency records.
         </span>
         <input class="govuk-input govuk-!-width-three-quarters" id="fullName" name="fullName" type="text" aria-describedby="Full Name">
         </div>
@@ -76,10 +76,10 @@
 
       <div class="govuk-form-group">
       <label class="govuk-label bold-label govuk-!-width-three-quarters" for="NI">
-      National Insurance Number (optional)
+      National Insurance number (optional)
       </label>
       <span id="nin-hint" class="govuk-hint">
-      This will help us match your details
+      This will help us match your details.
       </span>
 
       <input class="govuk-input govuk-!-width-three-quarters" id="NI" name="NI" type="text" aria-describedby="NI">
