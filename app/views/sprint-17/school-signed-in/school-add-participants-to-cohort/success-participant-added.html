@@ -4,9 +4,9 @@
 
 {% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}
 	{% if data['neworexistingmentor'] == "existingMentor"  %}	  
-		{% set title = '' + data['choose-existing-mentor'] +  ' has been added to the 2021 to 2022 cohort' %}
+		{% set title = '' + data['choose-existing-mentor'] +  ' has been added' %}
 	{% else %}
-		{% set title = '' + data['participant-fullname'] +  ' has been added to the 2021 to 2022 cohort' %}
+		{% set title = '' + data['participant-fullname'] +  ' has been added' %}
 	{% endif %}
 {% else %}
 	{% if data['neworexistingmentor'] == "existingMentor"  %}	  
@@ -29,12 +29,21 @@
 			 
 				<p>We have sent an email to {{ data['participant-fullname'] }} asking them to sign in and add any further details we need.</p>
 				
+
+				<h2 class="govuk-heading-m">What happens next</h2>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>in a few weeks we will send your ECTs and mentors an email to add more details such as their TRN (teacher reference number)</li>
+					<li>if everything is correct and they are eligible, they’ll be approved instantly/automatically</li>
+					<li>if anything needs to be checked or updated, we will notify you/them</li>
+				</ul>
+
+
 				
-				<h2 class="govuk-heading-m">What you could do next</h2>
+				<h2 class="govuk-heading-m">What you can do now</h2>
 			 	<ul class="govuk-list govuk-!-margin-bottom-5">
-        			<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add an early careers teacher</a></li>
-					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a mentor</a></li>				
-					<li><a class="govuk-link" href="cohort-participant-listing">View your early career teachers (ECT) and mentors</a></li>
+        			<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add a new early career teacher</a></li>
+					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a new mentor</a></li>				
+					<li><a class="govuk-link" href="cohort-participant-listing">Check your early career teachers (ECT) and mentors</a></li>
       			</ul>
 
 
