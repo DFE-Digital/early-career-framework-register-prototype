@@ -4,7 +4,9 @@
 
 
 {% if ((data['dashboard-variation'] == "New") or (data['dashboard-variation'] == "New-2")) %}
-	{% set pageHeading = "Your early career teachers (ECTs) and their mentors" %}
+	
+	<!-- {% set pageHeading = "Your training, early career teachers (ECTs) and their mentors" %} -->
+	{% set pageHeading = "Mange your training" %}
 	{% set pageSection = "Cohort 2021 to 2022" %}
 {% else %}
   {% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
@@ -224,12 +226,114 @@ You need to add information about yourself as a mentor.
 
 			  <div class="govuk-grid-column-full">
 
-				<p>You need to add your early career teachers and mentors so they can start their programme. </p>
-				<ul class="govuk-list govuk-!-margin-bottom-7">
-					<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add a new early careers teacher</a></li>
-					<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a new mentor</a></li>
-				</ul>
+				<div class="govuk-grid-row">
+					<div class="govuk-grid-column-three-quarters">
 
+						<div class="govuk-inset-text ">
+							<dl class="govuk-summary-list">
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">Cohort year</dt>					
+									  <dd class="govuk-summary-list__value">2021</dd>
+									  <dd class="govuk-summary-list__actions"></dd>
+								</div>
+								
+								<!-- Using DfE accredited materials -->
+								{% if data['programme'] == "cip" %}
+									<div class="govuk-summary-list__row">
+										<dt class="govuk-summary-list__key">Programme</dt>					
+										<dd class="govuk-summary-list__value">DfE accredited materials</dd>
+										<dd class="govuk-summary-list__actions"><a class="govuk-link" href="cip/cip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+									</div>
+									<div class="govuk-summary-list__row">
+										<dt class="govuk-summary-list__key">Materials</dt>
+										<dd class="govuk-summary-list__value">
+											{% if data['cip-course-choice'] %} 
+												{{ data['cip-course-choice'] }}
+											{% endif %}
+										</dd>
+										<dd class="govuk-summary-list__actions">
+											{% if data['cip-course-choice'] %}  
+												<a class="govuk-link" href="cip/cip-course-decision">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+											{% else %}
+												<a class="govuk-link" href="cip/cip-which-course">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
+											{% endif %}
+										</dd>						
+									</div>	
+								</dl>
+				
+									{% if data['cip-course-choice'] %}						
+									<p class="govuk-!-padding-top-3">There are a series of <a href="../cip-course-guidance"> documents to help Induction tutors prepare for the {{ data['cip-course-choice'] }} course.</a></p>
+									{% endif %}
+				
+								
+								<!-- Using an approved training provider -->
+								{% elif data['programme'] == "fip" %}
+												
+									<div class="govuk-summary-list__row">
+										<dt class="govuk-summary-list__key">Programme</dt>					
+										<dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
+										<dd class="govuk-summary-list__actions"><a class="govuk-link" href="fip/fip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+									</div>
+									<div class="govuk-summary-list__row">
+										<dt class="govuk-summary-list__key">Training provider</dt>
+										<dd class="govuk-summary-list__value"></dd>
+										<dd class="govuk-summary-list__actions">
+											{% if data['cip-course-choice'] %}  
+												<a class="govuk-link" href="fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
+											{% else %}
+												<a class="govuk-link" href="fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
+											{% endif %}
+										</dd>
+									</div>	
+								</dl>
+				
+								<!-- Do your own programme -->
+								{% elif data['programme'] == "dyo" %}
+				
+									<!-- This part needs checking what sits around it to decide what is added here of the 2 options -->
+									{% if data['sit-nqts'] == "nqtNo" %}
+										<!-- DYO -->
+										<div class="govuk-summary-list__row">
+											<dt class="govuk-summary-list__key">Programme</dt>					
+											<dd class="govuk-summary-list__value">Expecting no early career teachers</dd>
+											<dd class="govuk-summary-list__actions"><a class="govuk-link" href="dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+										</div>
+									{% else %}
+										<!-- DYO No ECT -->
+										<div class="govuk-summary-list__row">
+											<dt class="govuk-summary-list__key">Programme</dt>					
+											<dd class="govuk-summary-list__value">Deliver your own</dd>
+											<dd class="govuk-summary-list__actions"><a class="govuk-link" href="dyo/dyo-cohort-nextsteps">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+										</div>
+									{% endif %}
+									
+								</dl>
+				
+								{% endif %}
+							</div>
+							
+							<!-- <p><br><br></p>
+				
+							<p>Temp links just for testing </p> -->
+							<!-- <ul class="govuk-list">
+								<li><a href="cohort-participant-listing?programme=cip">CIP</a>
+								| <a href="cohort-participant-listing?programme=fip">FIP</a>
+								| <a href="cohort-participant-listing?programme=dyo">DYO</a></li>
+							</ul> -->
+						</div>
+					</div>					
+							
+							<h2 class="govuk-heading-l govuk-!-margin-top-7">Early career teachers (ECTs) and their mentors</h2>
+							<ul class="govuk-list govuk-!-margin-bottom-7">
+								<li><a class="govuk-link" href="enter-personal-details?persontypeAction=early careers teacher">Add a new early careers teacher</a></li>
+								<li><a class="govuk-link" href="new-or-existing-mentor?persontypeAction=mentor">Add a new mentor</a></li>
+							</ul>
+			
+
+						
+					
+					<!-- <p>You need to add your early career teachers and mentors so they can start their programme. </p> -->
+				
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Approved</h2>
 				<p>These ECTs or mentors have been approved and can start their programme.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
