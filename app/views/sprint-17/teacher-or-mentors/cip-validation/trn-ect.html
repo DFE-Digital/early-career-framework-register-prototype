@@ -38,6 +38,13 @@
         {{ govukRadios({
           idPrefix: "trn-look",
           name: "trn-look",
+          fieldset: {
+          legend: {
+            text: "Do you know your teacher reference number (TRN)?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+          },
           items: [
             {
               value: "yes, redirect(name-change-ect)",
