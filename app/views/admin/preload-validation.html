@@ -13,6 +13,10 @@
 
         <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>
 
+        <div class="govuk-inset-text">
+          <p>There are <a href="https://docs.google.com/document/d/108aUddTCbHanZk8Q2l6WhzuD9iAL8dUn/edit">three status for validation</a>. Status two and three will show the same confirmation screens with the changes applied within the backend.
+        </div>
+
         <form class="form" action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" class="">
 
 
@@ -25,7 +29,7 @@
                         legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "notvalidating", text: "Continue without Validating" }
+                        { value: "notvalidating", text: "Not able to match journey" }
                     ]
                 }) }}
             {% endset -%}
@@ -50,10 +54,10 @@
                     idPrefix: "betaMentor",
                     name: "betaMentor",
                     fieldset: {
-                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "beta", text: "In beta programme" }
+                        { value: "beta", text: "In beta programme (CIP only)" }
                     ]
                 }) }}
             {% endset -%}
@@ -67,19 +71,19 @@
                 },
                 items: [
                     { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
-                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("ParticipantType", "participantMentor")},
-                    { value: "participantSIT", text: "SIT as mentor", checked: checked("ParticipantType", "participantSIT")}
+                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("participantType", "participantMentor")},
+                    { value: "participantSIT", text: "SIT as mentor", checked: checked("participantType", "participantSIT")}
                 ]
             }) }}
 
-            {{ govukRadios({
-                idPrefix: "flagType",
-                name: "flagType",
+            {{ govukCheckboxes({
+                idPrefix: "providerType",
+                name: "providerType",
                 fieldset: {
-                    legend: { text: "Flag type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                    legend: { text: "Provider is known (FIP only)", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [
-                    { value: "redFlag", text: "User has FLAG on database", checked: checked("flagType", "redFlag")}
+                    { value: "providerKnown", text: "Yes provider is known", checked: checked("providerType", "providerKnown")}
                 ]
             }) }}
 
