@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "That email address is already in use" %}
+{% set pageHeading = "This email address has already been added" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,7 +15,9 @@
       
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body govuk-!-margin-bottom-6">Check the address entered and try again.</p>
+      <p class="govuk-body govuk-!-margin-bottom-6">This email address has already been used to add an early career teacher (ECT) or mentor</p>
+      <p class="govuk-body govuk-!-margin-bottom-6">Use a different email address</p>
+      <p class="govuk-body govuk-!-margin-bottom-6">View your ECTs and mentors</p>
 
       <form class="form" action="change-participant-email" method="post" class="govuk-!-margin-bottom-8">
 
