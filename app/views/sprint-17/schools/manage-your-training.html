@@ -15,7 +15,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p><a class="govuk-link govuk-link--no-visited-state" href="school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">Your early career teachers and mentors</a></p>
+			<p><a class="govuk-link govuk-link--no-visited-state" href="../school-signed-in/school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">Your early career teachers and mentors</a></p>
       	
       		<!-- <h2 class="govuk-heading-m">2021 cohort</h2> -->
 			<dl class="govuk-summary-list">
@@ -31,7 +31,7 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
 						<dd class="govuk-summary-list__value">DfE accredited materials</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="cip/cip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/cip/cip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Materials</dt>
@@ -42,9 +42,9 @@
 						</dd>
 						<dd class="govuk-summary-list__actions">
 							{% if data['cip-course-choice'] %}  
-								<a class="govuk-link" href="cip/cip-course-decision">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+								<a class="govuk-link" href="../school-signed-in/cip/cip-course-decision">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
 							{% else %}
-								<a class="govuk-link" href="cip/cip-which-course">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
+								<a class="govuk-link" href="../school-signed-in/cip/cip-which-course">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
 							{% endif %}
 						</dd>						
 					</div>										
@@ -55,16 +55,16 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
 						<dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="fip/fip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/fip/fip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value"></dd>
 						<dd class="govuk-summary-list__actions">
 							{% if data['cip-course-choice'] %}  
-								<a class="govuk-link" href="fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
+								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
 							{% else %}
-								<a class="govuk-link" href="fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
+								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
 							{% endif %}
 						</dd>
 					</div>					
@@ -78,14 +78,14 @@
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">Programme</dt>					
 							<dd class="govuk-summary-list__value">Expecting no early career teachers</dd>
-							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 						</div>
 					{% else %}
 						<!-- DYO No ECT -->
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">Programme</dt>					
 							<dd class="govuk-summary-list__value">Deliver your own</dd>
-							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="dyo/dyo-cohort-nextsteps">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 						</div>
 					{% endif %}									
 
