@@ -14,8 +14,9 @@
 
       		<p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
             
-      		<form class="form" action="enter-email-address" method="post">
-			
+      		<form class="form" action="email-address" method="post">
+				<input type="hidden" value="" name="participant-email-address" id="participant-email-address" />
+				
 				{{ govukInput({
 					label: {
 						html: 'Full name',

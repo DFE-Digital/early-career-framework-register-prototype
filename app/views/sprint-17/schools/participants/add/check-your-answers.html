@@ -23,24 +23,26 @@
 							{{ data['participant-fullname'] }}            		
 						{% endif %}
 					</dd>
-					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-personal-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
           		</div>
       
       			{% if data['neworexistingmentor'] != "existingMentor"  %}			
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key"> Email address</dt>
         			<dd class="govuk-summary-list__value">{{ data['participant-email-address'] }}</dd>
-        			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="enter-email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+        			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
         		</div>        				
       			{% endif %}
 
-				{% if data['choose-mentor-from-cohort'] %}
+				<!-- If usertype is not mentor then show next group -->
+				{% if data['persontypeAction'] != "mentor" %}
 				  <div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key">Mentor</dt>
         			<dd class="govuk-summary-list__value">{{ data['choose-mentor-from-cohort'] }}</dd>
         			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
         		</div>        				
 				{% endif %}
+				<!-- // -->
 
 				  
 
@@ -75,7 +77,7 @@
 
       		<p class="govuk-!-margin-bottom-7">We will verify that they are a qualified teacher and are eligible for induction.</p>
       
-			<form class="form" action="success-participant-added" method="post" class="govuk-!-margin-bottom-8">
+			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		
 				{{ govukButton({
           			text: "Confirm and add"

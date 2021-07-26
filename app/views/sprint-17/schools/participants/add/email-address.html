@@ -15,8 +15,12 @@
       		<!-- <p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p> -->
 
       		<!-- <form class="form" action="confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">         -->
-
+			
+			{% if data['persontypeAction'] == "mentor" %}
+			<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
+			{% else %}
 			<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
+			{% endif %}
 
 				{{ govukInput({
 					label: {
