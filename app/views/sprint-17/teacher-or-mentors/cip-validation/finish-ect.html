@@ -50,6 +50,36 @@
         <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
 
 
+        <!-- FIP ECT/Mentor SKIP Validation -->
+
+        {% elif ((data['skipValidation'] == "notvalidating") and (data['participantOptions'] == "participantFIP")) %}
+
+        {% if (data['providerType'] == "providerKnown") %}
+
+        <div class="govuk-!-margin-bottom-8">
+        {{ govukPanel({
+          titleText: "We’re checking your details"
+        }) }}
+        </div>
+        <h3 class="govuk-heading-m">What happens next</h3>
+          <p class="govuk-body">You will not need to use this service again during your training.</p>
+          <p class="govuk-body">((school_name)) has chosen ((delivery_partner_name)) and ((lead_provider_name)) to deliver your training programme. These organisations will contact you directly with more information.</p>
+
+
+          {% else %}
+
+          <div class="govuk-!-margin-bottom-8">
+          {{ govukPanel({
+            titleText: "We’re checking your details"
+          }) }}
+          </div>
+          <h3 class="govuk-heading-m">What happens next</h3>
+            <p class="govuk-body">You will not need to use this service again during your training.</p>
+            <p class="govuk-body">((school_name)) has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+
+
+      {% endif %}
+
 
       <!-- FIP ECT/Mentor -->
 
@@ -82,9 +112,21 @@
             {% endif %}
 
 
-      <!-- CIP SIT as Mentor -->
+      <!-- CIP SIT as Mentor + not validated -->
 
       {% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantSIT")) %}
+        {% if (data['skipValidation'] == "notvalidating") %}
+        <div class="govuk-!-margin-bottom-8">
+        {{ govukPanel({
+          titleText: "We're checking your details"
+        }) }}
+        </div>
+        <h3 class="govuk-heading-m">What happens next</h3>
+          <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+          <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+        {% else %}
+
       <div class="govuk-!-margin-bottom-8">
       {{ govukPanel({
         titleText: "Registration complete"
@@ -93,6 +135,8 @@
       <h3 class="govuk-heading-m">What happens next</h3>
         <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
         <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+        {% endif %}
 
 
 
@@ -128,35 +172,7 @@
 
 
 
-      <!-- FIP ECT/Mentor SKIP Validation -->
 
-      {% elif ((data['participantOptions'] == "participantFIP") and (data['skipValidation'] == "notvalidating")) %}
-
-      {% if (data['providerType'] == "providerKnown") %}
-
-      <div class="govuk-!-margin-bottom-8">
-      {{ govukPanel({
-        titleText: "We’re checking your details"
-      }) }}
-      </div>
-      <h3 class="govuk-heading-m">What happens next</h3>
-        <p class="govuk-body">You will not need to use this service again during your training.</p>
-        <p class="govuk-body">((school_name)) has chosen ((delivery_partner_name)) and ((lead_provider_name)) to deliver your training programme. These organisations will contact you directly with more information.</p>
-
-
-        {% else %}
-
-        <div class="govuk-!-margin-bottom-8">
-        {{ govukPanel({
-          titleText: "We’re checking your details"
-        }) }}
-        </div>
-        <h3 class="govuk-heading-m">What happens next</h3>
-          <p class="govuk-body">You will not need to use this service again during your training.</p>
-          <p class="govuk-body">((school_name)) has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-
-
-    {% endif %}
 
 
       <!-- FIP SIT as Mentor SKIP Validation -->
