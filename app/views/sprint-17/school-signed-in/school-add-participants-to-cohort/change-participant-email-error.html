@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set showBackLink = false %}
+
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "This email address has already been added" %}
@@ -15,16 +15,17 @@
       
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body govuk-!-margin-bottom-6">This email address has already been used to add an early career teacher (ECT) or mentor</p>
-      <p class="govuk-body govuk-!-margin-bottom-6">Use a different email address</p>
-      <p class="govuk-body govuk-!-margin-bottom-6">View your ECTs and mentors</p>
+      <p class="govuk-body">This email address has already been used to add an early career teacher (ECT) or mentor.</p>
+      <ul class="govuk-list"
+      <li class="govuk-body"><a href="change-participant-email">Use a different email address</a></li>
+      <li class="govuk-body"><a href="cohort-participant-listing">View your ECTs and mentors</a></li>
 
       <form class="form" action="change-participant-email" method="post" class="govuk-!-margin-bottom-8">
 
 
-        {{ govukButton({
+        <!-- {{ govukButton({
           text: "Try again"
-        }) }}
+        }) }} -->
       </form>
     </div>
   </div>
