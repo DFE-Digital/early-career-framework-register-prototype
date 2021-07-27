@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Name not updated" %}
+{% set pageHeading = "What do you want to do now?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,12 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body"><p>If your name has not been updated and does not match the Teaching Regulation Agency records, you have three options:</p>
-      <ul class="govuk-list govuk-list--bullet">
-      <li>use your previous name to register with the service</li>
-      <li>use your previous name to register, and then change it on the Teaching Regulation Agency records at a later date</li>
-      <li>change your name on the Teaching Regulation Agency records first and then return to register for training and support</li>
-      </ul>
+      <p class="govuk-body">We cannot check your eligibility if your name is different to the one listed in Teaching Regulation Agency records.</p>
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
 
@@ -25,21 +20,21 @@
           name: "dqt-change",
           fieldset: {
           legend: {
-            text: "I want to:",
+            text: "Choose an option to continue your registration:",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
         }
         },
           items: [
             {
-              value: "existingMentor, redirect(dqt-contact)",
-              text: "Change my name on the Teaching Regulation Agency records",
-              checked: checked("dqt-change", "existingMentor")
+              value: "newMentor",
+              text: "Register for this programme using your previous name (you can update this later)",
+              checked: checked("dqt-change", "newMentor")
             },
             {
-              value: "newMentor",
-              text: "Register with my previous name",
-              checked: checked("dqt-change", "newMentor")
+              value: "existingMentor, redirect(dqt-contact)",
+              text: "Update your name with the Teaching Regulation Agency",
+              checked: checked("dqt-change", "existingMentor")
             }
 
           ]

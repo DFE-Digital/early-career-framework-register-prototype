@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Name changes" %}
+{% set pageHeading = "Have you changed your name since you started your initial teacher training (ITT)?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,8 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body"><p>Your name must match the name held in the Teaching Regulation Agency records to confirm you are eligible for training and support.</p>
-      <p>If it doesn't match, you cannot continue with your training and support.</p>
+      <p class="govuk-body">Your name must match the Teaching Regulation Agency records. We use these to check you’re eligible for this training and support.</p>
 
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
@@ -22,7 +21,7 @@
           name: "name-change",
           fieldset: {
           legend: {
-            text: "Has your name changed since you became a qualified teacher?",
+            text: "Have you changed your name?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
         }
@@ -30,7 +29,7 @@
           items: [
             {
               value: "yes, redirect(update-name)",
-              text: "Yes, I have changed my name",
+              text: "Yes, I changed my name",
               checked: checked("name-change", "existingMentor")
             },
             {

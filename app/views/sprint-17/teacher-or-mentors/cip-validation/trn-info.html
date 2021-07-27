@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Teacher reference number" %}
+{% set pageHeading = "Find your teacher reference number" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,11 +11,17 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body">If you don’t know what your teacher reference number (TRN) is, you can find this on your payslip, teachers’ pensions documentation or teacher training records.</p>
-      <p class="govuk-body">The TRN is typically seven digits long, but previously has been known as a QTS, GTC, DfE, DfES or DCSF number and therefore may include the letters RP and the forward slash symbol ‘/’. For example: 4567814 or 95/78674</p>
+      <p class="govuk-body">If you do not know your teacher reference number (TRN), you can usually find it on your payslip, teachers' pension documents, or teacher training records.</p>
+      <p class="govuk-body">QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p>
 
-      <h2 class="govuk-heading-m">Request a TRN reminder by email</h2>
-      <p class="govuk-body">Send an email to <a class="govuk-link" href="mailto:qts.enquiries@education.gov.uk">qts.enquiries@education.gov.uk</a> which includes your:</p>
+      <p class="govuk-body">Your number:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>is usually 7 digits, for example '4567814'</li>
+      <li>may include the letters 'RP' or a slash '/'' symbol, for example 'RP99/12345'</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Request a TRN reminder email</h2>
+      <p class="govuk-body">Email <a class="govuk-link" href="mailto:qts.enquiries@education.gov.uk">qts.enquiries@education.gov.uk</a>. You must include your:</p>
       <ul class="govuk-list govuk-list--bullet">
       <li>full name</li>
       <li>date of birth</li>
@@ -24,7 +30,7 @@
       <h2 class="govuk-heading-m">Request a TRN reminder by phone</h2>
       <p class="govuk-body">Call the Teaching Regulation Agency on 020 7593 5394.</p>
       <p class="govuk-body">Make sure you have your National Insurance number ready before you call.</p>
-      <p class="govuk-body">Phone lines are open 9 AM – 5PM Monday – Thursday and 9AM – 4:30 PM on Friday. Lines are closed on bank holidays.</p>
+      <p class="govuk-body">Phone lines are open 9 AM to 5PM Monday to Thursday, and 9AM to 4:30 PM on Friday. Lines are closed on bank holidays.</p>
       
 
     </div>

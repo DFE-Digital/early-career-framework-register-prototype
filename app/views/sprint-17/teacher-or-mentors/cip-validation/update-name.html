@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Updated name" %}
+{% set pageHeading = "Confirm if you’ve updated your record" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body">If you've changed your name and want to use it for work, and any training certificates gained, it must also be changed on the Teaching Regulation Agency records.</p>
+      <p class="govuk-body">If you want to be known by a different name at work and on training certificates, you must update your record with the Teaching Regulation Agency.</p>
 
 
       <form class="form" action="qct-ect" method="post" class="govuk-!-margin-bottom-8">
@@ -20,7 +20,7 @@
           name: "updated-name",
           fieldset: {
           legend: {
-            text: "Have you updated your name on the Teaching Regulation Agency records?",
+            text: "Have you updated your name with the Teaching Regulation Agency?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
         }
@@ -28,17 +28,17 @@
           items: [
             {
               value: "yes",
-              text: "Yes, i've updated my name",
+              text: "Yes, my name has been updated",
               checked: checked("nameChange", "existingMentor")
             },
             {
               value: "no, redirect(name-not-updated)",
-              text: "No, I have not updated my name",
+              text: "No, I need to update my name",
               checked: checked("nameChange", "newMentor")
             },
             {
               value: "notsure, redirect(name-maybe)",
-              text: "Not sure",
+              text: "I’m not sure",
               checked: checked("nameChange", "Mentor")
             }
 
