@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
+
 {% set pageHeading = "The link has expired" %}
 
 {% block content %}
@@ -8,15 +10,25 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body">You need to resend the email with a new link</p>      		
-
-      		<form class="form" action="../emails/induction-nomination" method="post" class="govuk-!-margin-bottom-8">								
+			{% if data['sign-in-link'] == "expired" %}
+				<p class="govuk-body">You need to sign in again to get a new link.</p>
+				<form class="form" action="../sign-in" method="post" >												
+					{{ govukButton({
+						  text: "Sign in"
+					}) }}
+				</form>
+			{% else %}
+      			<p class="govuk-body">You need to resend the email with a new link</p>      		
 				
-				{{ govukButton({
-          			text: "Resend email"
-        		}) }}
+				  <form class="form" action="../emails/induction-nomination" method="post" >												
+					{{ govukButton({
+						  text: "Resend email"
+					}) }}
+				</form>
 
-      		</form>
+			{% endif %}
+
+      		
     	</div>
   	</div>
 
