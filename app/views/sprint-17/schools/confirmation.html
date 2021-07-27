@@ -6,22 +6,25 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-!-margin-bottom-8">
-      {{ govukPanel({
-        titleText: pageHeading
-      }) }}
-      </div>
+	
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      		
+			
+      		{{ govukPanel({
+        		titleText: pageHeading
+      		}) }}
+      
+			<h2 class="govuk-heading-m">What happens next</h2>
+      		<ul class="govuk-list govuk-list--bullet">
+        		<li>the person you nominated will be notified</li>
+        		<li>they can sign in and manage your statutory induction programme</li>
+        		<li>they will receive any future notifications about the service</li>
+      		</ul>
 
-      <h3 class="govuk-heading-m">What happens next</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the person you nominated will be notified</li>
-        <li>they can sign in and manage your statutory induction programme</li>
-        <li>they will receive any future notifications about the service</li>
-      </ul>
+      		<p class="govuk-body govuk-!-font-size-14 skip-to">Skip to: <a href="../emails/induction-nomination">email that the Induction Tutor receives</a></p>
+    	
+		</div>
+  	</div>
 
-      <p class="govuk-body skip-to">Skip to: <a href="/sprint-16/school-lead-notification-and-sign-in/induction-nomination">email that the Induction Tutor receives</a></p>
-    </div>
-  </div>
 {% endblock %}
