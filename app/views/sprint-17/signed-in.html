@@ -11,11 +11,11 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
-				{% if data['journey-mode'] == "schoolNoDecision" %}
+				{% if data['induction-programme'] == "schoolNoDecision" %}
 					<form class="form" action="privacy-policy" method="post">
-				{% elif data['journey-mode'] == "schoolFIP" %}
+				{% elif data['induction-programme'] == "schoolFIP" %}
 					<form class="form" action="school-signed-in/fip/fip-choose-cohort" method="post">
-				{% elif data['journey-mode'] == "schoolCIP" %}
+				{% elif data['induction-programme'] == "schoolCIP" %}
 					<form class="form" action="school-signed-in/cip/cip-choose-cohort" method="post">
 				<!-- {% else %}
 					<form class="form" action="/admin/preload" method="post"> -->

@@ -238,7 +238,7 @@ You need to add information about yourself as a mentor.
 								</div>
 								
 								<!-- Using DfE accredited materials -->
-								{% if data['programme'] == "cip" %}
+								{% if data['programme'] == "schoolCIP" %}
 									<div class="govuk-summary-list__row">
 										<dt class="govuk-summary-list__key">Programme</dt>					
 										<dd class="govuk-summary-list__value">DfE accredited materials</dd>
@@ -267,7 +267,7 @@ You need to add information about yourself as a mentor.
 				
 								
 								<!-- Using an approved training provider -->
-								{% elif data['programme'] == "fip" %}
+								{% elif data['programme'] == "schoolFIP" %}
 												
 									<div class="govuk-summary-list__row">
 										<dt class="govuk-summary-list__key">Programme</dt>					
@@ -288,7 +288,7 @@ You need to add information about yourself as a mentor.
 								</dl>
 				
 								<!-- Do your own programme -->
-								{% elif data['programme'] == "dyo" %}
+								{% elif data['programme'] == "schoolDYO" %}
 				
 									<!-- This part needs checking what sits around it to decide what is added here of the 2 options -->
 									{% if data['school-ect'] == "no" %}

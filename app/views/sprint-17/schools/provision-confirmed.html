@@ -17,7 +17,7 @@
       		}) }}
       
 
-      		{% if (data['journey-mode'] === "schoolDYO") %}
+      		{% if (data['induction-programme'] === "schoolDYO") %}
       			
 				<h3 class="govuk-heading-m">What happens next</h3>
       			<ul class="govuk-list govuk-list--bullet">
@@ -43,17 +43,17 @@
 
       			<p><a class="govuk-link" href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england"> See our statutory guidance</a> for details on time off, roles and responsibilities.</p>      			
 
-      		{% elif (data['journey-mode'] === "schoolNOECT") %}
+      		{% elif (data['induction-programme'] === "schoolNOECT") %}
 
 				<h3 class="govuk-heading-m">What happens next</h3>
       			<p>We will contact [school name] in the next academic year.</p>
       			<p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="/sprint-16/school-nominate-school-lead/nominate-induction-tutor">nominate someone to set up your programme.</a></p>      			
 
-      		{% elif (data['journey-mode'] === "schoolFIP") %}
+      		{% elif (data['induction-programme'] === "schoolFIP") %}
 
       			<p>You can now view the next steps for your programme.</p>      			
 
-      		{% elif (data['journey-mode'] === "schoolCIP") %}
+      		{% elif (data['induction-programme'] === "schoolCIP") %}
 
       			<p>You can now view the next steps for your programme.</p>
 

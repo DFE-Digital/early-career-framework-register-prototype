@@ -27,7 +27,7 @@
 				</div>				
 				
 				<!-- Using DfE accredited materials -->
-				{% if data['programme'] == "cip" %}
+				{% if data['induction-programme'] == "schoolCIP" %}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
 						<dd class="govuk-summary-list__value">DfE accredited materials</dd>
@@ -50,7 +50,7 @@
 					</div>										
 				
 				<!-- Using an approved training provider -->
-				{% elif data['programme'] == "fip" %}
+				{% elif data['induction-programme'] == "schoolFIP" %}
 								
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
@@ -70,26 +70,25 @@
 					</div>					
 
 				<!-- Do your own programme -->
-				{% elif data['programme'] == "dyo" %}
+				{% elif data['induction-programme'] == "schoolDYO" %}					
 
-					<!-- This part needs checking what sits around it to decide what is added here of the 2 options -->
-					{% if data['school-ect'] == "no" %}
-						<!-- DYO -->
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">Programme</dt>					
-							<dd class="govuk-summary-list__value">Expecting no early career teachers</dd>
-							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
-						</div>
-					{% else %}
-						<!-- DYO No ECT -->
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">Programme</dt>					
 							<dd class="govuk-summary-list__value">Deliver your own</dd>
 							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
-						</div>
-					{% endif %}									
+						</div>					
+				
+				{% elif data['induction-programme'] == "schoolNOECT" %}
+														
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">Programme</dt>					
+							<dd class="govuk-summary-list__value">Expecting no early career teachers</dd>
+							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+						</div>					
 
 				{% endif %}
+
+
 					
 					<!-- Show amount of ECT and mentors -->
 					<!-- <div class="govuk-summary-list__row">
