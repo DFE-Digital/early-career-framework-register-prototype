@@ -46,7 +46,19 @@
             <h2 class="govuk-heading-l">Induction tutor sign up</h2>            
             <p>Induction Tutor is notified via email that they have been nominated. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet">                
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/induction-nomination" >Nominated to be school induction tutor (email)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/induction-nomination" >Nominated to be school induction tutor (email)</a></li>                
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <p>Resending as original email has been lost, deleted or link expired. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355253267755&cot=14">User journey on Miro</a></span></p>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/resend-email" >Send your school a link to nominate an induction tutor</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/local-authority" >What is your school's local authority?</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/find-school" >Find your school</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/confirm" >Confirm your details</a></li>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/already-nominated" >An induction tutor has already been nominated</a></li>    
+                    </ul>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/nominations/confirmation" >Your school has been sent a link</a></li>
+                </ul>
+
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/" >Manage training for early career teachers</a></li>
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/how-to-get-an-account" >How to get an account for this service</a></li>
@@ -59,7 +71,7 @@
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expired-link?sign-in-link=expired" >Expired link (email)</a></li>
                 </ul>
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/signed-in" >You are now signed in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/privacy-policy?journey-mode=schoolNoDecision" >Privacy policy</a></li>        
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/privacy-policy?journey-mode=schoolNoDecision" >Privacy policy</a></li>      
             </ul>
 
             <!-- ////////////////////////////////// -->
@@ -74,7 +86,7 @@
             </ul>
 
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            <p>End of initial sign up journey for school and choice of induction programme.</p>
+            <p>// End of sign up journey for schools and choice of induction programme. //</p>
             <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
     
             <!-- ////////////////////////////////// -->
@@ -83,7 +95,7 @@
             <p>All schools on sign in land at the Manage your training page, which has different functionality depending on induction programme chosen below.</p>
             <h3 class="govuk-heading-m">Core induction programme (CIP)</h3>
             <p>When a school is delivering their own using DfE accredited materials. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355308879313&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolCIP" >Manage your training</a></li>
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/which-accredited-materials?induction-programme=schoolCIP" >Do you know which accredited materials you want to use?</a></li>
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/course-choice?induction-programme=schoolCIP" >Which training materials do you want this cohort to use?</a></li>
@@ -100,32 +112,29 @@
 
             <h3 class="govuk-heading-m">Full induction programme (FIP)</h3>
             <p>When a school is using a training provider funded by DfE. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355306758748&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolFIP" >Manage your training</a></li>                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-find-training-provider" >Signing up with a training provider</a></li>
                 <ul class="govuk-list govuk-list--bullet">
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=schoolFIP" >Choose your induction programme</a></li>
                 </ul>                
-                <p>Notified via email of a new partnership. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>
-                
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/provider-confirmed" >Provider confirmed (email)</a></li>
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-incorrect-signup" >Report that your school has been signed up incorrectly</a></li>
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-submitted" >Your report has been submitted</a></li>
-                
+                <p>Notified via email of a new partnership. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>                
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/provider-confirmed?induction-programme=schoolFIP" >Provider confirmed (email)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-incorrect-signup?induction-programme=schoolFIP" >Report that your school has been signed up incorrectly</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-submitted?induction-programme=schoolFIP" >Your report has been submitted</a></li>                
             </ul>
 
             <h3 class="govuk-heading-m">Deliver your own (DYO)</h3>
             <p>When a school designs and deliver their own programme based on the Early Career Framework (ECF).</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolDYO" >Manage your training</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-add-participants" >Add early career teachers and mentors</a></li>                
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-choose-cohort" >Manage your training</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-cohort-nextsteps-noect" >You are not expecting any early career teachers this year</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-cohort-nextsteps" >Choose your induction programme</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-find-training-provider" >Have you signed up with a training provider?</a></li>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolDYO" >Manage your training</a></li>                
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=schoolDYO" >Choose your induction programme</a></li>
+                <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-find-training-provider" >Have you signed up with a training provider?</a></li> -->
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-cohort-nextsteps-noect?induction-programme=schoolDYO" >You are not expecting any early career teachers this year</a></li>
             </ul>
 
-            
+                        
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
             <h3 class="govuk-heading-m">Add early career teacher or mentor</h3>
@@ -205,28 +214,9 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/pseudo-email-sign-in-ect" >Link to sign in</a></li>
             </ul>
 
- 
 
             <h2 class="govuk-heading-l">School challenging partnership</h2>
-            <p>The GIAS email address for a school is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-gias" >Provider confirmed: Challenge GIAS</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-2" >Report that your school has been signed up incorrectly</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-3" >Your report has been submitted</a></li>
-            </ul>
-
- 
-
-
-            <h2 class="govuk-heading-l">School challenging partnership</h2>
-            <p>Users trigger the resending of the nomination email, because either the original email has been lost / deleted or the link in it has expired. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355253267755&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-resend-nomination-email/resend-nomination-1" >Send your school a link to nominate an induction tutor</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-resend-nomination-email/resend-nomination-2-1" >What is your school's local authority?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-resend-nomination-email/resend-nomination-2" >Find your school</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-resend-nomination-email/resend-nomination-3" >Confirm your details</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-resend-nomination-email/resend-nomination-4" >Your school has been sent a link</a></li>
-            </ul>
+           
 
 
             <h2 class="govuk-heading-l">Training provider signed in</h2>
