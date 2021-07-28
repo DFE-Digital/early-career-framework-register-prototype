@@ -47,20 +47,15 @@
 
 				<h3 class="govuk-heading-m">What happens next</h3>
       			<p>We will contact [school name] in the next academic year.</p>
-      			<p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="/sprint-16/school-nominate-school-lead/nominate-induction-tutor">nominate someone to set up your programme.</a></p>      			
+      			<p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="../nominations/resend-email">nominate someone to set up your programme.</a></p>      			
 
-      		{% elif (data['induction-programme'] === "schoolFIP") %}
+      		{% elif ((data['induction-programme'] == "schoolFIP") or (data['induction-programme'] == "schoolCIP")) %}
 
-      			<p>You can now view the next steps for your programme.</p>      			
-
-      		{% elif (data['induction-programme'] === "schoolCIP") %}
-
-      			<p>You can now view the next steps for your programme.</p>
-
-      			
+      			<p>You can now view the next steps for your programme.</p>      			      			
       		
 			{% endif %}
-
+			
+			{% if (data['induction-programme'] != "schoolNOECT") %}
 			<form class="form" action="manage-your-training" method="post" class="govuk-!-margin-bottom-8">
         		
 				{{ govukButton({
@@ -68,6 +63,7 @@
 				}) }}
 
 			</form>
+			{% endif %}
 
     	</div>
   	</div>
