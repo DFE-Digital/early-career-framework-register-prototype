@@ -11,7 +11,26 @@
 {% block content %}
 	
 	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">								
+    	<div class="govuk-grid-column-two-thirds">		
+			
+			{% if data['induction-programme'] == "schoolFIP" %}
+			
+				{% if (data['estimated-ects'] === undefined) %}
+				
+				{% else %}
+					{% set html %}
+						<h3 class="govuk-notification-banner__heading">Estimated number of participants has been updated</h3>
+					{% endset %}
+
+					{{ govukNotificationBanner({
+						html: html,
+						type: 'success'
+					}) }}
+				{% endif %}
+			{% endif %}
+
+
+
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -55,16 +74,22 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
 						<dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/fip/fip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Training provider</dt>
-						<dd class="govuk-summary-list__value"></dd>
-						<dd class="govuk-summary-list__actions">
-							{% if data['course-choice'] %}  
-								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
+						<dd class="govuk-summary-list__value">
+							{% if data['FIPStatus'] == "inPartnership" %}
+								Educational Development Trust
 							{% else %}
-								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							
+							{% if data['FIPStatus'] == "inPartnership" %}
+								<a class="govuk-link" href="partnerships">Change<span class="govuk-visually-hidden"> training provider</span></a>	
+							{% else %}
+								<a class="govuk-link" href="partnerships">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
 							{% endif %}
 						</dd>
 					</div>					
