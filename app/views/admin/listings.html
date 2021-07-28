@@ -70,28 +70,7 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/provision-confirmed" >Your choice has been saved for 2021/22</a></li>
             </ul>
 
-            <h2 class="govuk-heading-l">Teacher or mentor validation</h2>
-            <p>The nominated ECT or mentor is notified via email of a registration action in order to sign in to access materials. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457359058552030&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" >Important: Sign in to register</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/dqt-contact" >Change your details on the Database of Qualified Teachers (DQT)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/finish-ect" >Registration complete</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-change-ect" >Name changes</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-maybe" >I dont know if I updated my name</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-not-updated" >Name not updated</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/privacy-policy-ect" >Privacy policy</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/qct-ect" >Qualified teacher check</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-account-ect" >How to get an account for this service</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-email-ect" >Check your email</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-continue-to-account-ect" >You are now signed in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-ect" >Sign in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/start-registration" >Register for your Early Career training and support</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-ect" >Teacher reference number</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-error" >We cannot find your details</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-get" >Get a Teacher Reference Number (TRN)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-info" >Teacher reference number</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/update-name" >Updated name</a></li>
-            </ul>
+    
 
 
             <h2 class="govuk-heading-l">School signed in</h2>                                    
@@ -109,16 +88,23 @@
                 <!-- No longer needed -->
                 <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/add-participants" >Add early career teachers and mentors</a></li> -->
                 <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/cip/cip-cohort-detail" >2021/22 cohort: use DfE accredited materials</a></li> -->
+                <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-cohort-detail" >2021/2022 cohort: use a training provider</a></li> -->
             </ul>            
 
             <h3 class="govuk-heading-m">Full induction programme (FIP)</h3>
             <p>What a school sees when they are using a training provider funded by DfE. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355306758748&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolFIP" >Manage your training</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-add-participants" >Add early career teachers and mentors</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-choose-provision" >Choose your induction programme</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-cohort-detail" >2021/2022 cohort: use a training provider</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=schoolFIP" >Manage your training</a></li>                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-find-training-provider" >Signing up with a training provider</a></li>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=schoolFIP" >Choose your induction programme</a></li>
+                </ul>                
+                <p>The nominated induction tutor is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in.<span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>
+                
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/provider-confirmed" >Provider confirmed (email)</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-incorrect-signup" >Report that your school has been signed up incorrectly</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/report-submitted" >Your report has been submitted</a></li>
+                
             </ul>
 
             <h3 class="govuk-heading-m">Deliver your own (DYO)</h3>
@@ -179,6 +165,30 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/success-participant-added">You have added undefined to the 2021 cohort</a></li>
             </ul>
 
+            <h2 class="govuk-heading-l">Teacher or mentor validation</h2>
+            <p>The nominated ECT or mentor is notified via email of a registration action in order to sign in to access materials. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457359058552030&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" >Important: Sign in to register</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/dqt-contact" >Change your details on the Database of Qualified Teachers (DQT)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/finish-ect" >Registration complete</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-change-ect" >Name changes</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-maybe" >I dont know if I updated my name</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-not-updated" >Name not updated</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/privacy-policy-ect" >Privacy policy</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/qct-ect" >Qualified teacher check</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-account-ect" >How to get an account for this service</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-email-ect" >Check your email</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-continue-to-account-ect" >You are now signed in</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-ect" >Sign in</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/start-registration" >Register for your Early Career training and support</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-ect" >Teacher reference number</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-error" >We cannot find your details</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-get" >Get a Teacher Reference Number (TRN)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-info" >Teacher reference number</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/update-name" >Updated name</a></li>
+            </ul>
+
+
             <h2 class="govuk-heading-l">Others (still to check)</h2>
             <ul class="govuk-list govuk-list--bullet">                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/guidance_1" >Guidance: Induction training and support for new teachers</a></li>                                
@@ -188,13 +198,7 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/pseudo-email-sign-in-ect" >Link to sign in</a></li>
             </ul>
 
-            <h2 class="govuk-heading-l">New partnership</h2>
-            <p>The nominated induction tutor is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-1" >Provider confirmed: school</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-2" >Report that your school has been signed up incorrectly</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-3" >Your report has been submitted</a></li>
-            </ul>
+ 
 
             <h2 class="govuk-heading-l">School challenging partnership</h2>
             <p>The GIAS email address for a school is notified via email of a new partnership and can challenge / reporting mistake a with a partnership, or sign in. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>
