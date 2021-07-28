@@ -5,24 +5,24 @@
 {% set pageSection = "2021 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
       
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p class="govuk-body-l"><strong>Your choice: </strong>{{ data['course-choice'] }}</p>
+      		<p class="govuk-body-l"><span class="govuk-!-font-weight-bold">Your choice: </span>{{ data['course-choice'] }}</p>
 
-      <h2 class="govuk-heading-m">Changing your materials</h2>
-      <p>Each set of accredited materials is different. Before you change your materials:</p>
-      <ul class='govuk-list govuk-list--bullet'>
-        <li>make sure the materials you want to change to are right for your school</li>
-        <li>if your early career teachers and mentors have started their programme, they will lose any progress on the service</li>
-      </ul>
+      		<h2 class="govuk-heading-m">Changing your materials</h2>
+      		<p>Each set of accredited materials is different. Before you change your materials:</p>
+      		<ul class='govuk-list govuk-list--bullet'>
+        		<li>make sure the materials you want to change to are right for your school</li>
+        		<li>if your early career teachers and mentors have started their programme, they will lose any progress on the service</li>
+      		</ul>
 
-      <p class="govuk-body">If you want to change the materials you are using, contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
-      </p>
-    </div>
-  </div>
+      		<p class="govuk-body">If you want to change the materials you are using, contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+    	
+		</div>
+  	</div>
+
 {% endblock %}
