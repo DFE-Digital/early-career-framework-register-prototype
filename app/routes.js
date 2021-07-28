@@ -49,18 +49,18 @@ router.post('/sign-in-check-email', function (req, res) {
 
 
 // Branching on choosing provision
-router.post('/school-signed-in/no-decision/provision-confirmed', function (req, res) {
-  const journeyMode = req.session.data['journey-mode']
-  if (journeyMode === 'schoolFIP') {
-    res.redirect('/school-signed-in/fip/fip-choose-cohort')
-  } else if (journeyMode === 'schoolCIP') {
-    res.redirect('/school-signed-in/cip/cip-choose-cohort')
-  } else if (journeyMode === 'schoolDYO') {
-  res.redirect('/school-signed-in/dyo/dyo-choose-cohort')
-} else if (journeyMode === 'schoolNOECT') {
-    res.redirect('/school-signed-in/dyo/dyo-choose-cohort-noect')
-  }
-})
+// router.post('/school-signed-in/no-decision/provision-confirmed', function (req, res) {
+//   const journeyMode = req.session.data['journey-mode']
+//   if (journeyMode === 'schoolFIP') {
+//     res.redirect('/school-signed-in/fip/fip-choose-cohort')
+//   } else if (journeyMode === 'schoolCIP') {
+//     res.redirect('/school-signed-in/cip/cip-choose-cohort')
+//   } else if (journeyMode === 'schoolDYO') {
+//   res.redirect('/school-signed-in/dyo/dyo-choose-cohort')
+// } else if (journeyMode === 'schoolNOECT') {
+//     res.redirect('/school-signed-in/dyo/dyo-choose-cohort-noect')
+//   }
+// })
 
 // // Branching on SIT nomination
 // router.post('/school-nominate-school-lead/nominate-school-lead-options', function (req, res) {

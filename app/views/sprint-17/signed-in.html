@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "You are now signed in" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+			
+				{% if data['induction-programme'] == "schoolNoDecision" %}
+					<form class="form" action="privacy-policy" method="post">
+				{% elif data['induction-programme'] == "schoolFIP" %}
+					<form class="form" action="school-signed-in/fip/fip-choose-cohort" method="post">
+				{% elif data['induction-programme'] == "schoolCIP" %}
+					<form class="form" action="school-signed-in/cip/cip-choose-cohort" method="post">
+				<!-- {% else %}
+					<form class="form" action="/admin/preload" method="post"> -->
+				{% endif %}
+        		
+				{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      		
+			</form>
+
+    	</div>
+  	</div>
+{% endblock %}

@@ -15,35 +15,79 @@
             </h1>
 
             <p class="govuk-body-s">Last updated 19 July 2021</p>
-
             <p><a href="data">Data been stored as part of current session</a></p>
 
-            <h2 class="govuk-heading-l">Initial notification</h2>
-            <p>School admin staff (or those monitoring the "main GIAS email address") receive this notification.</p>
+            <!-- ////////////////////////////////// -->
+
+            <h2 class="govuk-heading-l">Confirm if school has ECT and nominate Induction Tutor</h2>
+            <p>School admin staff (or those monitoring the "main GIAS email address") receive this email notification and are asked to confirm ECT and nominate Induction Tutor.</p>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/tell-us-if-you-have-nqt" >Tell us if you have NQTs joining in 2021</a></li>                
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/tell-us-if-you-have-nqt" >Tell us if you have NQTs joining in 2021 (email)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expect-early-career-teachers" >Do you expect to have any early career teachers at [school name] this year?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-school-lead-confirmoptout" >Confirm your choice</a></li>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor" >Nominate an induction tutor for [school name]*</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expired-link?sign-in-link=" >The link has expired</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-tutor-already-nominated" >An induction tutor has already been nominated for [school name]</a></li>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/who-do-you-want-to-nominate" >Enter details to nominate your induction tutor</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirmation?school-status=" >Induction tutor nominated</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirmation?school-status=not-required" >Your choice has been saved for [Year]</a></li>
             </ul>
 
+
+            <!-- ////////////////////////////////// -->
+        
+            <h2 class="govuk-heading-l">Induction tutor sign up</h2>            
             <p>Induction Tutor is notified via email that they have been nominated. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></p>
-
             <ul class="govuk-list govuk-list--bullet">                
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-lead-notification-and-sign-in/notification-of-school-lead" >Nominated to be school induction tutor</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/induction-nomination" >Nominated to be school induction tutor (email)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/" >Manage training for early career teachers</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/how-to-get-an-account" >How to get an account for this service</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/choose-study-materials" >Choose accredited study materials for your early career teachers</a></li>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-in" >Sign in</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/check-your-email" >Check your email</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/link-to-sign-in" >Link to sign in (email)</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expired-link?sign-in-link=expired" >Expired link (email)</a></li>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/signed-in" >You are now signed in</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/privacy-policy?journey-mode=schoolNoDecision" >Privacy policy</a></li>        
             </ul>
+
+            <!-- ////////////////////////////////// -->
+
+            <h3 class="govuk-heading-m">Choose induction programme</h3>
+            <p>What an induction tutor sees after first sign in, or if they haven't chosen a programme yet. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355290069818&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-programme-info" >Do you know how you want to run your 2021/22 induction for early career teachers?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/choose-induction-programme" >How do you want to run your 2021/22 induction for early career teachers?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirm-induction-programme" >Confirm your induction programme</a></li>                                            
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/provision-confirmed" >Your choice has been saved for 2021/22</a></li>
+            </ul>
+
+
+
+
 
             <h2 class="govuk-heading-l">Guidance and start</h2>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/start" >Start page</a></li>
+                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/guidance_1" >Guidance: Induction training and support for new teachers</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/cip-course-guidance" >Guidance: Choose study materials for your early career teachers</a></li>
+                
             </ul>
 
             <h2 class="govuk-heading-l">Sign in/out</h2>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-in" >Sign in</a></li>
+                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-out" >Sign out</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-in-continue-to-account" >You are now signed in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-in-check-account" >How to get an account for this service</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/sign-in-check-email" >Check your email</a></li>
+                
+                
+                
             </ul>
 
             
@@ -51,7 +95,7 @@
 
             <h3 class="govuk-heading-m">Other</h3>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/pseudo-email-sign-in" >Email sign in</a></li>
+                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/pseudo-email-training-provider-invite" >Training provider invite</a></li>
 
 
@@ -76,17 +120,7 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-challenging-partnership/school-challenge-3" >Your report has been submitted</a></li>
             </ul>
 
-            <h2 class="govuk-heading-l">School challenging partnership</h2>
-            <p>School admin staff (or those monitoring the "main GIAS email address") recieve an email and are asked to nominate their Induction Tutors. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354086350072&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-2" >Nominate an induction tutor for [school name]</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-3" >Enter details to nominate your induction tutor</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-4" >Induction tutor nominated</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-confirmoptout" >Confirm your choice</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-options" >Do you expect to have any early career teachers at [school name] this year?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-nominate-school-lead/nominate-school-lead-optout" >Your choice has been saved for [Year]</a></li>
-            </ul>
+ 
 
 
             <h2 class="govuk-heading-l">School challenging partnership</h2>
@@ -139,7 +173,11 @@
             </ul>
 
 
-            <h2 class="govuk-heading-l">School signed in</h2>
+            <h2 class="govuk-heading-l">School landing page</h2>
+            <p>What a school sees after sign in.</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training" >Manage your training*</a></li>                
+            </ul>
             <h3 class="govuk-heading-m">CIP</h3>
             <p>What a school sees after sign in, if they have chosen the CIP programme. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355308879313&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet">
@@ -173,22 +211,26 @@
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/fip/fip-find-training-provider" >Signing up with a training provider</a></li>
             </ul>
 
-            <h3 class="govuk-heading-m">No decision</h3>
-            <p>What a school sees after first sign in, or if they haven't chosen a programme yet. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355290069818&cot=14">User journey on Miro</a></span></p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/pre-choose-provision" >Do you know how you want to run your 2021/22 induction for early career teachers?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/confirm-decision" >Confirm your induction programme</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/privacy-policy" >Privacy policy</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/prompt-choose-provision" >How do you want to run your 2021/22 induction for early career teachers?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/provision-confirmed-ecf" >Your choice has been saved for 2021/22 (ECF)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/no-decision/provision-confirmed" >Your choice has been saved for 2021/22</a></li>
-            </ul>
+            
 
 
-            <h3 class="govuk-heading-m">Add participants</h3>
-            <p>How a school induction tutor adds both ECTs and Mentors to a cohort. This covers creating new participants, and also adding Mentors who exist in other cohorts (ie. have been previously validated). <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457356227023262&cot=14">User journey on Miro</a></span></p>
+            <h3 class="govuk-heading-m">Add early career teacher or mentor</h3>
+            <p>How a school induction tutor adds both ECTs and Mentors to a cohort.<br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457356227023262&cot=14">User journey on Miro</a></span></p>
 
             <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants" >Your early career teachers (ECTs) and mentors*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/existing-mentor" >Do you want to add a mentor from another cohort?*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/which-mentor" >Which mentor do you want to add to the 2021 cohort?*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/name" >What is the name of this [early career teacher/mentor]?*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/email-address" >What is [name]’s email address?*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/choose-mentor" >Who is the mentor for [name]?*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/check-your-answers" >Check your answers*</a></li>         
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/add/confirmation" >[Name] has been added*</a></li>         
+                
+                <li><a class="govuk-link" href="#"></a></li>         
+
+
+
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add your early career teachers and mentors</a></li>
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Are you sure you want to add yourself as a mentor?</a></li>
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/change-mentor-for-ect" >Who is the mentor for [ECT name]</a></li>
