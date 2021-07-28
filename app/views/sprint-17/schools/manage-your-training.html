@@ -31,20 +31,20 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
 						<dd class="govuk-summary-list__value">DfE accredited materials</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/cip/cip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Materials</dt>
 						<dd class="govuk-summary-list__value">
-							{% if data['cip-course-choice'] %} 
-								{{ data['cip-course-choice'] }}
+							{% if data['course-choice'] %} 
+								{{ data['course-choice'] }}
 							{% endif %}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							{% if data['cip-course-choice'] %}  
-								<a class="govuk-link" href="../school-signed-in/cip/cip-course-decision">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+							{% if data['course-choice'] %}  
+								<a class="govuk-link" href="materials">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
 							{% else %}
-								<a class="govuk-link" href="../school-signed-in/cip/cip-which-course">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
+								<a class="govuk-link" href="which-accredited-materials">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
 							{% endif %}
 						</dd>						
 					</div>										
@@ -61,7 +61,7 @@
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value"></dd>
 						<dd class="govuk-summary-list__actions">
-							{% if data['cip-course-choice'] %}  
+							{% if data['course-choice'] %}  
 								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
 							{% else %}
 								<a class="govuk-link" href="../school-signed-in/fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
@@ -98,19 +98,9 @@
 					</div> -->
 				</dl>
 
-				{% if data['cip-course-choice'] %}						
-				<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['cip-course-choice'] }}</a> induction programme.</p>
+				{% if ((data['course-choice']) and (data['induction-programme'] == "schoolCIP")) %}						
+				<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['course-choice'] }}</a> induction programme.</p>
 				{% endif %}
-
-<!-- 
-			<p><br><br></p>
-
-			<p>Temp links just for testing </p>
-			<ul class="govuk-list">
-				<li><a href="manage-your-training?programme=cip">CIP</a>
-				| <a href="manage-your-training?programme=fip">FIP</a>
-				| <a href="manage-your-training?programme=dyo">DYO</a></li>
-			</ul> -->
 				
 	
 		</div>

@@ -242,27 +242,27 @@ You need to add information about yourself as a mentor.
 									<div class="govuk-summary-list__row">
 										<dt class="govuk-summary-list__key">Programme</dt>					
 										<dd class="govuk-summary-list__value">DfE accredited materials</dd>
-										<dd class="govuk-summary-list__actions"><a class="govuk-link" href="cip/cip-choose-provision">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+										<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../../schools/programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 									</div>
 									<div class="govuk-summary-list__row">
 										<dt class="govuk-summary-list__key">Materials</dt>
 										<dd class="govuk-summary-list__value">
-											{% if data['cip-course-choice'] %} 
-												{{ data['cip-course-choice'] }}
+											{% if data['course-choice'] %} 
+												{{ data['course-choice'] }}
 											{% endif %}
 										</dd>
 										<dd class="govuk-summary-list__actions">
-											{% if data['cip-course-choice'] %}  
-												<a class="govuk-link" href="cip/cip-course-decision">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+											{% if data['course-choice'] %}  
+												<a class="govuk-link" href="cip/materials">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
 											{% else %}
-												<a class="govuk-link" href="cip/cip-which-course">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
+												<a class="govuk-link" href="../../schools/which-accredited-materials">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
 											{% endif %}
 										</dd>						
 									</div>	
 								</dl>
 				
-									{% if data['cip-course-choice'] %}						
-									<p class="govuk-!-padding-top-3">There are a series of <a href="../choose-study-materials"> documents to help Induction tutors prepare for the {{ data['cip-course-choice'] }} course.</a></p>
+									{% if data['course-choice'] %}						
+									<p class="govuk-!-padding-top-3">There are a series of <a href="../choose-study-materials"> documents to help Induction tutors prepare for the {{ data['course-choice'] }} course.</a></p>
 									{% endif %}
 				
 								
@@ -278,7 +278,7 @@ You need to add information about yourself as a mentor.
 										<dt class="govuk-summary-list__key">Training provider</dt>
 										<dd class="govuk-summary-list__value"></dd>
 										<dd class="govuk-summary-list__actions">
-											{% if data['cip-course-choice'] %}  
+											{% if data['course-choice'] %}  
 												<a class="govuk-link" href="fip/fip-find-training-provider">Change<span class="govuk-visually-hidden"> training provider</span></a>	
 											{% else %}
 												<a class="govuk-link" href="fip/fip-find-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							

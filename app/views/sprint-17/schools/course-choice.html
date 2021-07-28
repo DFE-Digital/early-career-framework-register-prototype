@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Which training materials do you want this cohort to use?" %}
+{% set pageSection = "2021 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      		<form class="form" action="course-confirmed" method="post" class="govuk-!-margin-bottom-8">
+
+				{{ govukRadios({
+					idPrefix: "course-choice",
+					name: "course-choice",
+					items: [
+						{ value: "Ambition Institute", text: "Ambition Institute", checked: checked("course-choice", "ambition") },
+						{ value: "Education Development Trust", text: "Education Development Trust", checked: checked("course-choice", "EDT") },
+						{ value: "Teach First", text: "Teach First", checked: checked("course-choice", "TeachFirst") },
+						{ value: "UCL Institute of Education", text: "UCL Institute of Education", checked: checked("course-choice", "UCL") }
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      	
+			</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}

@@ -26,7 +26,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="cip-choose-provision">
+                <a class="govuk-link--no-visited-state" href="../../schools/programme-choice">
                   Choose your induction programme
                 </a>
               </span>
@@ -36,9 +36,9 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['cip-course-choice'] === undefined) %}
+              {% if (data['course-choice'] === undefined) %}
                 <span class="app-task-list__task-name">
-                  <a class="govuk-link--no-visited-state" href="cip-which-course" aria-describedby="eligibility-status">
+                  <a class="govuk-link--no-visited-state" href="../../schools/which-accredited-materials" aria-describedby="eligibility-status">
                     Choose your DfE accredited materials
                   </a>
                 </span>
@@ -47,7 +47,7 @@
                 </strong>
               {% else %}
               <span class="app-task-list__task-name">
-                <a class="govuk-link--no-visited-state" href="cip-course-decision" aria-describedby="eligibility-status">
+                <a class="govuk-link--no-visited-state" href="../../schools/materials" aria-describedby="eligibility-status">
                   Choose your training materials
                 </a>
               </span>
@@ -93,7 +93,7 @@
         </li>
       </ol>
 
-      {% if (data['cip-course-choice'] === undefined) %}
+      {% if (data['course-choice'] === undefined) %}
       <p class="govuk-body"></p>
       {% else %}
       <p class="govuk-body">There are a series of <a href="sprint-16/choose-study-materials"> documents to help Induction tutors prepare for the [Course selected] course.</a></p>
