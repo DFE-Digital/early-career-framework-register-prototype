@@ -18,6 +18,11 @@
 				<h1 class="govuk-panel__title">{{ title }}</h1>
 			</div>						
 			
+			{% if data[sitmentor] %}
+				<p>We will contact you if we need anymore details and update you on your status</p>
+			{% endif }
+
+
 			<p>We will send {{ data['participant-fullname'] }} an email to add more details such as their TRN (teacher reference number).</p>
 			<h2 class="govuk-heading-m">What happens next</h2>
 			
@@ -31,7 +36,7 @@
 			<h2 class="govuk-heading-m">What you can do now</h2>
 			<ul class="govuk-list govuk-!-margin-bottom-5">
 				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=early careers teacher">Add a new early career teacher</a></li>
-				<li><a class="govuk-link govuk-link--no-visited-state" href="existing-mentor?persontypeAction=mentor">Add a new mentor</a></li>				
+				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>				
 				<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants?participant-fullname=">Your early career teachers (ECT) and mentors</a></li>
 			</ul>
 

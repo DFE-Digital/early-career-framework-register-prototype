@@ -9,6 +9,21 @@
 {% block content %}
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
+
+
+			
+			<!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+				<div class="govuk-notification-banner__header">
+					<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+			  	</div>
+			  	<div class="govuk-notification-banner__content">					
+					<h3 class="govuk-notification-banner__heading">You have updated the mentor for this early career teacher.</h3>			
+					<h3 class="govuk-notification-banner__heading">The participants name has been updated.</h3>
+					<h3 class="govuk-notification-banner__heading">The participants email address has been updated.</h3>
+			  	</div>
+			</div> -->
+
+			
 			
 
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
@@ -43,7 +58,7 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Name</dt>
 				  	<dd class="govuk-summary-list__value">Full name</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
@@ -58,7 +73,7 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
 				  	<dd class="govuk-summary-list__value">Not yet assigned</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>									
 			</dl>			            
       		

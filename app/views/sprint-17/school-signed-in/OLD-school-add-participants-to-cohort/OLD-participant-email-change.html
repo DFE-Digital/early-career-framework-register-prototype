@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 {% block pageTitle %}Donato di Niccolò di Betto Bardi – Not started{% endblock %}
 
@@ -16,7 +17,7 @@
   </div>
   <div class="govuk-notification-banner__content">
     <h3 class="govuk-notification-banner__heading">
-      The participants name has been updated.
+      The participants email address has been updated.
     </h3>
 
   </div>
@@ -85,7 +86,7 @@
               <a class="govuk-link govuk-link--no-visited-state" href="participant-status-approved">Henry Purcell</a>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="change-mentor-for-ect">
+            <a class="govuk-link" href="../../schools/participants/add/choose-mentor?linkaction=change">
               Change<span class="govuk-visually-hidden"> participant type</span>
           </dd>
         </div>

@@ -13,29 +13,59 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
-      		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+			{% if data['linkaction'] == "change-mentor" %} 
+      			<form class="form" action="../details" method="post" >
+			{% else %}
+				<form class="form" action="check-your-answers" method="post" >
+			{% endif %}
         		
-				{{ govukRadios({
-          			idPrefix: "choose-mentor-from-cohort",
-          			name: "choose-mentor-from-cohort",
-					hint: {
-						text: "If you don't know, or haven't added them yet you can do this later."
-					},
-          			items: [
-            			{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("choose-mentor-from-cohort", "Henry Purcell") },
-            			{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("choose-mentor-from-cohort", "Berthe Morisot") },
-            			{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("choose-mentor-from-cohort", "Giotto di Bondone") },
-            			{ divider: "or" },
-            			{ value: "Assign mentor later", text: "Assign mentor later", checked: checked("choose-mentor-from-cohort", "Assign mentor later") }
-          			]
-        		}) }}
+			{% if data['linkaction'] == "change-mentor" %}
 
-        		{{ govukButton({
-          			text: "Continue"
-        		}) }}
+					{{ govukRadios({
+						idPrefix: "who-is-mentor",
+						name: "who-is-mentor",
+						hint: {
+							text: "If you don't know, or haven't added them yet you can do this later."
+						},
+						items: [
+							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
+							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
+							{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("who-is-mentor", "Giotto di Bondone") }						
+						]
+					}) }}
+					
+					{{ govukButton({
+						text: "Continue"
+					}) }}
 
-      		</form>
-    	
+			{% else %}
+
+					{{ govukRadios({
+						idPrefix: "who-is-mentor",
+						name: "who-is-mentor",
+						hint: {
+							text: "If you don't know, or haven't added them yet you can do this later."
+						},
+						items: [
+							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
+							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
+							{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("who-is-mentor", "Giotto di Bondone") },
+							{ divider: "or" },
+							{ value: "Assign mentor later", text: "Assign mentor later", checked: checked("who-is-mentor", "Assign mentor later") }
+						]
+					}) }}
+
+					{{ govukButton({
+						text: "Continue"
+					}) }}
+
+			{% endif %}
+
+					
+
+      			</form>
+
 		</div>
-  </div>
+	</div>
+
 {% endblock %}

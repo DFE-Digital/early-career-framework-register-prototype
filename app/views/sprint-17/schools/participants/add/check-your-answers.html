@@ -38,7 +38,7 @@
 				{% if data['persontypeAction'] != "mentor" %}
 				  <div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key">Mentor</dt>
-        			<dd class="govuk-summary-list__value">{{ data['choose-mentor-from-cohort'] }}</dd>
+        			<dd class="govuk-summary-list__value">{{ data['who-is-mentor'] }}</dd>
         			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
         		</div>        				
 				{% endif %}
@@ -51,7 +51,7 @@
 					
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
-						<dd class="govuk-summary-list__value">{{ data['choose-mentor-from-cohort'] }}</dd>
+						<dd class="govuk-summary-list__value">{{ data['who-is-mentor'] }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor-for-ect">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
 					</div>
         		
@@ -75,7 +75,7 @@
       		
 			</dl>
 
-      		<p class="govuk-!-margin-bottom-7">We will verify that they are a qualified teacher and are eligible for induction.</p>
+      		<p class="govuk-!-margin-bottom-7">We will verify that they have Qualified Teacher Status (QTS) and are eligible for induction.</p>
       
 			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		
