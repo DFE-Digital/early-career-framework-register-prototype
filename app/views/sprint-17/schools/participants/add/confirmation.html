@@ -18,6 +18,11 @@
 				<h1 class="govuk-panel__title">{{ title }}</h1>
 			</div>						
 			
+			{% if data[sitmentor] %}
+				<p>We will contact you if we need anymore details and update you on your status</p>
+			{% endif }
+
+
 			<p>We will send {{ data['participant-fullname'] }} an email to add more details such as their TRN (teacher reference number).</p>
 			<h2 class="govuk-heading-m">What happens next</h2>
 			

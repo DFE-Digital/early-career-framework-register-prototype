@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 {% block pageTitle %}Donato di Niccolò di Betto Bardi – Not started{% endblock %}
 
@@ -8,6 +7,20 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      The participants name has been updated.
+    </h3>
+
+  </div>
+</div>
 
       <span class="govuk-caption-l">2021 cohort</span>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
@@ -33,7 +46,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="change-participant-name">
-              Change<span class="govuk-visually-hidden"> change name</span>
+              Change<span class="govuk-visually-hidden"> personal details</span>
             </a>
           </dd>
         </div>
@@ -46,7 +59,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="change-participant-email">
-              Change<span class="govuk-visually-hidden"> change email</span>
+              Change<span class="govuk-visually-hidden"> personal details</span>
             </a>
           </dd>
         </div>
@@ -72,8 +85,8 @@
               <a class="govuk-link govuk-link--no-visited-state" href="participant-status-approved">Henry Purcell</a>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="change-mentor-for-ect">
-              Change<span class="govuk-visually-hidden"> mentor</span>
+            <a class="govuk-link" href="../../schools/participants/add/choose-mentor?linkaction=change">
+              Change<span class="govuk-visually-hidden"> participant type</span>
           </dd>
         </div>
       </dl>

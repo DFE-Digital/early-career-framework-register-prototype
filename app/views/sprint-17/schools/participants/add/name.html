@@ -12,11 +12,31 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
+      		
             
-      		<form class="form" action="email-address" method="post">
+
+			{% if data['linkaction'] == "change-name" %} 
+				<form class="form" action="../details" method="post">
+			{% else %}
+				<p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
+      			<form class="form" action="email-address" method="post">			
 				<input type="hidden" value="" name="participant-email-address" id="participant-email-address" />
+			{% endif %}
 				
+			{% if data['linkaction'] == "change-name" %} 
+				
+				{{ govukInput({
+					label: {
+						html: 'Full name',
+						classes: "govuk-visually-hidden"
+					},
+					value: data['participant-fullname-change'],
+					classes: "govuk-!-width-two-thirds",
+					id: "participant-fullname-change",
+					name: "participant-fullname-change"
+				}) }}
+
+			{% else %}
 				{{ govukInput({
 					label: {
 						html: 'Full name',
@@ -27,6 +47,8 @@
 					id: "participant-fullname",
 					name: "participant-fullname"
 				}) }}
+			
+			{% endif %}
 					
 				{{ govukButton({
 					text: "Continue"
