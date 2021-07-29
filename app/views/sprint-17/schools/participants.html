@@ -10,22 +10,24 @@
 {% block content %}
 
 	<div class="govuk-grid-row">
-    	
+
+		{% if data['participantType'] == "participantSIT" %}
+			<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+				<div class="govuk-notification-banner__header">
+					<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
+				</div>
+				<div class="govuk-notification-banner__content">
+					<p class="govuk-notification-banner__heading">You need to add information about yourself as a mentor.<a class="govuk-notification-banner__link" href="/sprint-16/teacher-or-mentors/cip-validation/trn-ect">Update now</a></p>
+				</div>
+			</div>
+		{% endif %}
+
 		<div class="govuk-grid-column-two-thirds">
 
-			{% if data['participantType'] == "participantSIT" %}
-				<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
-					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">You need to add information about yourself as a mentor.<a class="govuk-notification-banner__link" href="/sprint-16/teacher-or-mentors/cip-validation/trn-ect">Update now</a></p>
-					</div>
-				</div>
-			{% endif %}
+
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-		
+
 			<p>Add early career teachers and mentors so they can start their programme.</p>
 			<!-- {% if data['participants-added'] == "No" %} -->
 				<p>You need to add your early career teachers and mentors so they can start their programme.</p>
@@ -37,9 +39,9 @@
 					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=mentor">Add a new mentor</a></li>
 				</ul>
 			</div>
-		
+
 		</div>
-		
+
 		<div class="govuk-grid-column-full">
 
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">ECT or mentor to add details</h2>
@@ -63,7 +65,7 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Rejected</h2>
 			<p class="govuk-!-margin-bottom-3">These ECTs or mentors cannot be approved for statutory induction. Please contact them.</p>
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -125,7 +127,7 @@
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=teaching-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
-				</table>				
+				</table>
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Approved</h2>
 				<p>These ECTs or mentors have been approved and can start their programme.</p>
@@ -166,13 +168,13 @@
 					</tbody>
 				</table>
 
-				
-
-				
 
 
-				
-				
+
+
+
+
+
 
     	</div>
   	</div>
