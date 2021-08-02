@@ -10,7 +10,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
         <p>Last updated: 2 August 2021</p>
-        <p>Research for testing the validation journeys.</p>
+        <p>Research for testing the various participant validation journeys, including the not matched option.</p>
 
 
 
@@ -84,54 +84,46 @@
 
         </form> -->
 
+        <h2 class="govuk-heading-m">Participant validation</h2>
+        
         <form action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="participantType" id="participantType" value="participantECT" />
             <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
-
             {{ govukButton({
-                text: "FIP - ECT"
+                text: "FIP - Early career teacher"
             }) }}
-
         </form>
-
         <form action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-
-            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
-            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
-            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
-            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
-
-            {{ govukButton({
-                text: "FIP - ECT (Unable to match)"
-            }) }}
-
-        </form>
-
-        <form action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="participantType" id="participantType" value="participantMentor" />
             <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
-
             {{ govukButton({
                 text: "FIP - Mentor"
             }) }}
-
         </form>
+        
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+        
+        <h2 class="govuk-heading-m">Participants not matched</h2>        
         <form action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
+            <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
+            <input type="hidden" name="participantType" id="participantType" value="participantECT" />
+            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
+            {{ govukButton({
+                text: "FIP - Early career teacher"
+            }) }}
+        </form>
+        <form action="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email" method="post" >
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
             <input type="hidden" name="participantType" id="participantType" value="participantMentor" />
-            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
-            
+            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />            
             {{ govukButton({
-                text: "FIP - Mentor (Unable to match)"
+                text: "FIP - Mentor"
             }) }}
-
         </form>
 
 
