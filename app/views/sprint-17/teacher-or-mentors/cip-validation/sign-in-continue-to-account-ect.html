@@ -6,22 +6,24 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% if data['participantType'] == "participantSIT" %}
-        <form class="form" action="/sprint-17/teacher-or-mentors/cip-validation/two-roles" method="post">
-          {% else %}
-            <form class="form" action="/sprint-17/teacher-or-mentors/cip-validation/privacy-policy-ect" method="post">
-          {% endif %}
+      		{% if data['participantType'] == "participantSIT" %}
+        		<form class="form" action="two-roles" method="post">
+          	{% else %}
+            	<form class="form" action="privacy-policy-ect" method="post">
+          	{% endif %}
 
-      <form class="form" action="privacy-policy-ect" method="post">
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      </form>
-    </div>
-  </div>
+      		<form class="form" action="privacy-policy-ect" method="post">
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      		</form>
+    	
+		</div>
+  	</div>
+
 {% endblock %}
