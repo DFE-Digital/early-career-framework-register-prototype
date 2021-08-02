@@ -31,8 +31,8 @@
   			
 			<div class="pseudo-email-template">
 
-  				<p>Hello, [First name]</p>
-  				<p>[school_name] has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
+  				<p>Hello, {{ defaults.userFirstName() }}</p>
+  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
   				<p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
 
   				<p><strong>What you need to do now</strong></p>
@@ -60,8 +60,8 @@
   			</div>
   			<div class="pseudo-email-template">
   				
-				<p>Hello, [First name]</p>
-  				<p>((school_name)) has nominated you to mentor early career teachers (also known as NQTs).</p>
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
   				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify for mentor training and support.</p>
 
   				<p><strong>What you need to do now</strong></p>
@@ -93,8 +93,8 @@
 			</div>
 			<div class="pseudo-email-template">
 				
-				<p>Hello, [First name]</p>
-				<p>[school_name] has nominated you to mentor early career teachers (also known as NQTs).</p>
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
 				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify as a mentor, so that we can give you access to training materials.</p>
 
 				<p><strong>What you need to do now</strong></p>
@@ -126,8 +126,8 @@
 
 			<div class="pseudo-email-template">
 
-				<p>Hello, [First name]</p>
-				<p>((school_name)) has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+				<p>{{ defaults.schoolName() }} has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
 				<p><strong>About your training programme</strong></p>
 					<p>All early career teachers now complete a 2-year induction programme. This includes structured training and support to help you get your teaching career off to the best possible start.</p>
 					<p>You can contact your school for more information about your training.</p>
