@@ -129,7 +129,12 @@
 			<h3 class="govuk-heading-m">Keeping our privacy policy up to date</h3>
 			<p class="govuk-body">We reserve the right to update this privacy notice at any time, and we will provide you with a new privacy notice when we make any substantial updates. We will also notify you in other ways from time to time about the processing of your personal information.</p>
 
-			<form method="post" action="schools/induction-programme-info" >
+
+			{% if data['teacher-registering'] == "Yes" %}
+				<form method="post" action="schools/participants/register/do-you-have-a-teacher-reference-number" >
+			{% else %}
+				<form method="post" action="schools/induction-programme-info" >
+			{% endif %}
 				
 				<input type="hidden" id="induction-programme" name="induction-programme" value="" />
 				{{ govukButton({
