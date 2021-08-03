@@ -16,7 +16,24 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body">Check the following details are correct before continuing.</p>
+			{% if data['skipValidation'] == "notvalidating" %}
+
+			<h2 class="govuk-heading-m">We cannot find your details</h2>
+
+			<p class="govuk-body">This could be because:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+				<li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’</li>
+				<li>your last name is different to the version held by the Teaching Regulation Agency</li>
+				<li>you mistyped or entered some incorrect information</li>
+			</ul>
+		  
+		  {% if not data['NI'] %} 
+			<p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
+		  {% endif %}
+
+			{% endif %}
+
+      		<!-- <p class="govuk-body">Check the following details are correct before continuing.</p> -->
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
         		<div class="govuk-summary-list__row">
