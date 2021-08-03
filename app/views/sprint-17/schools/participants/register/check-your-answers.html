@@ -16,6 +16,8 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+			{% if not data['linkaction']%}  
+
 			{% if data['skipValidation'] == "notvalidating" %}
 
 			<h2 class="govuk-heading-m">We cannot find your details</h2>
@@ -33,37 +35,45 @@
 
 			{% endif %}
 
+			{% endif %}
+
       		<!-- <p class="govuk-body">Check the following details are correct before continuing.</p> -->
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key">Full name</dt>
           			<dd class="govuk-summary-list__value">{{ data['fullName'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key">TRN</dt>
           			<dd class="govuk-summary-list__value">{{ data['trnd'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key">Date of birth</dt>
           			<dd class="govuk-summary-list__value">{{ data['dob-day'] }} {{ data['dob-month'] }} {{ data['dob-year'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key">National Insurance number</dt>
           			<dd class="govuk-summary-list__value">{{ data['NI'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 			</dl>
 
+			{% if not data['linkaction']%}  
+			{% if data['skipValidation'] == "notvalidating" %}
+				<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
+			{% endif %}
+			{% endif %}
+
       		<form class="form" action="confirmation" method="post" >
         		{{ govukButton({
-          			text: "Confirm and send"
+          			text: "Confirm and register"
         		}) }}
       		</form>
     	
