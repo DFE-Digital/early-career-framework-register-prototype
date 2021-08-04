@@ -80,19 +80,22 @@
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value">
 							{% if data['FIPStatus'] == "inPartnership" %}
-								Educational Development Trust
-							{% else %}
+								Educational Development Trust							
 							{% endif %}
 						</dd>
-						<dd class="govuk-summary-list__actions">
-							
-							{% if data['FIPStatus'] == "inPartnership" %}
-								<a class="govuk-link" href="partnerships">Change<span class="govuk-visually-hidden"> training provider</span></a>	
-							{% else %}
+						<dd class="govuk-summary-list__actions">							
+							{% if data['FIPStatus'] != "inPartnership" %}															
 								<a class="govuk-link" href="partnerships">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
 							{% endif %}
 						</dd>
-					</div>					
+					</div>	
+					{% if data['FIPStatus'] == "inPartnership" %}				
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Delivery partner</dt>
+						<dd class="govuk-summary-list__value">Mega Delivery Partner</dd>
+						<dd class="govuk-summary-list__actions"></dd>
+					</div>
+					{% endif %}
 
 				<!-- Do your own programme -->
 				{% elif data['induction-programme'] == "schoolDYO" %}					
@@ -122,6 +125,11 @@
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">View<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div> -->
 				</dl>
+
+				{% if ((data['induction-programme'] == "schoolFIP") and (data['FIPStatus'] == "inPartnership")) %}								
+				<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
+				<p>This link will expire on [date].</p>
+				{% endif %}
 
 				{% if ((data['course-choice']) and (data['induction-programme'] == "schoolCIP")) %}						
 				<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['course-choice'] }}</a> induction programme.</p>
