@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Your choice has been saved for 2021/22" %}
+{% set pageHeading = "Induction programme confirmed" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +13,7 @@
       					
       		{{ govukPanel({
         		titleText: pageHeading,
-        		html: ""
+        		html: "Induction programme confirmed"
       		}) }}
       
 
@@ -51,7 +51,7 @@
 
       		{% elif ((data['induction-programme'] == "schoolFIP") or (data['induction-programme'] == "schoolCIP")) %}
 
-      			<p>You can now view the next steps for your programme.</p>      			      			
+      			<!-- <p>You can now view the next steps for your programme.</p>      			      			 -->
       		
 			{% endif %}
 			

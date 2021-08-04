@@ -19,11 +19,13 @@
           			{ key: { text: "Address"}, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
         		]
       		}) }}
-
+			
+			<h2 class="govuk-heading-m">Who do you want to nominate?</h2>
+			<p>If you think this is your role, you can nominate yourself.</p>
+			
       		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		<div class="govuk-form-group">
-          			<h2 class="govuk-heading-m">Who do you want to nominate?
-          			<div id="nominate-hint" class="govuk-hint">If you think this is your role, you can nominate yourself.</div></h2>
+          			
 
 					{{ govukInput({
 						label: { text: "Full name" },
