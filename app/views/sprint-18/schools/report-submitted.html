@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Your report has been submitted" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-margin-bottom-8">
+      {{ govukPanel({
+        titleText: pageHeading
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the training provider will be notified</li>
+        <li>they may also contact you to discuss any issues</li>
+        <li>if you do not hear from a training provider, we will update you directly</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

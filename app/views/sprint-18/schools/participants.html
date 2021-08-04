@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
+{% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+
+		{% if data['participantType'] == "participantSIT" %}
+			<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+				<div class="govuk-notification-banner__header">
+					<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
+				</div>
+				<div class="govuk-notification-banner__content">
+					<p class="govuk-notification-banner__heading">You need to add information about yourself as a mentor.<a class="govuk-notification-banner__link" href="/sprint-16/teacher-or-mentors/cip-validation/trn-ect">Update now</a></p>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="govuk-grid-column-two-thirds">
+
+
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<p>Add early career teachers and mentors so they can start their programme.</p>
+			<!-- {% if data['participants-added'] == "No" %} -->
+				<p>You need to add your early career teachers and mentors so they can start their programme.</p>
+			<!-- {% endif %} -->
+			<!-- <p>We will verify your ECTs and mentors. Here you can check their status or select a name for more details.</p> -->
+			<div class="govuk-inset-text govuk-!-margin-bottom-7">
+				<ul class="govuk-list">
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=early career teacher">Add a new early careers teacher</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=mentor">Add a new mentor</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="govuk-grid-column-full">
+
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">ECT or mentor to add details</h2>
+			<p class="govuk-!-margin-bottom-3">We have asked these ECTs or mentors to add their details.</p>
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
+						<th class="govuk-table__header " scope="col">Type</th>
+						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>						
+						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell ">Michael Smailes</td>
+						<td class="govuk-table__cell">ECT</td>
+						<td class="govuk-table__cell">We have asked this person to update their details on the Teacher Self Service.</td>						
+						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Rejected</h2>
+			<p class="govuk-!-margin-bottom-3">These ECTs or mentors cannot be approved for statutory induction. Please contact them.</p>
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
+						<th class="govuk-table__header" scope="col">Type</th>
+						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>						
+						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell rejected-status">Jean-Philippe Rameau</td>						
+						<td class="govuk-table__cell">ECT</td>
+						<td class="govuk-table__cell">Cannot be verified for statutory induction</td>						
+						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=rejected" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Details being checked</h2>
+				<p class="govuk-!-margin-bottom-3">These ECTs or mentors need to update their details on the Teacher Self Service, or we are checking their Qualified Teacher Status (QTS).</p>
+				<table class="govuk-table govuk-!-margin-bottom-9">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
+							<th class="govuk-table__header " scope="col">Type</th>
+							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>							
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<!-- <tr class="govuk-table__row">
+							<td class="govuk-table__cell">Mary Cassatt</td>
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Henry Purcell</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">George Handel</td>
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Berthe Morisot</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=pending-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr> -->
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell pending-status">Lilla Perry</a></td>														
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Checking Qualified Teacher Status (QTS)</td>							
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell pending-status">Donato di Niccolò di Betto Bardi</td>																				
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Details been added to the teaching database. We will notify them when this is complete.</td>							
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=teaching-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Approved</h2>
+				<p>These ECTs or mentors have been approved and can start their programme.</p>
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
+							<th class="govuk-table__header " scope="col">Mentor</th>
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Henry Purcell</a></td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Berthe Morisot</a></td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Mary Cassatt</a></td>
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Henry Purcell</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Marie Bracquemond</a></td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+
+
+
+
+
+
+
+    	</div>
+  	</div>
+
+{% endblock %}
