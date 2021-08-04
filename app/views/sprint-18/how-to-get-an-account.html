@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "How to get an account for this service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<h2 class="govuk-heading-m">Schools</h2>
+      		<p class="govuk-body">Your school has been sent an email to nominate someone who manages statutory inductions at your school.</p>
+      		<p class="govuk-body">We cannot disclose the email address. It will be an administration email, for example, office@, admin@ or head@</p>
+      		<p><a class="govuk-link" href="nominations/resend-email">Resend email</a></p>
+      		
+			<h2 class="govuk-heading-m">New teachers or mentors</h2>
+      		<p class="govuk-body">You only need to sign in if you’re using our accredited training materials. We will send you sign in details before you start your programme.</p>
+      		
+			<h2 class="govuk-heading-m">Training providers</h2>
+      		<p class="govuk-body">The Department for Education creates your account.<br>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+      		
+			
+			  <!-- <h2 class="govuk-heading-m">Schools</h2>
+      		<p>We have sent schools a link to nominate someone.</p>
+      		<p>These emails were sent to the school’s email address on our register, <a class="govuk-link govuk-link--no-visited-state" href="https://www.get-information-schools.service.gov.uk/">Get Information about Schools (GIAS)</a> .</p>
+      		<p>It will be an administration email, for example, office@, admin@ or head@.</p>
+      		<p>If your school has not received the email:</p>
+      		<ul class="govuk-list govuk-list--bullet">
+        		<li><a class="govuk-link govuk-link--no-visited-state" href="https://interactions.signin.education.gov.uk//07a67b92-4f1d-423b-9477-4ddd675887de/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb">sign in to DfE</a> and check that your GIAS email address is up to date</li>
+        		<li><a class="govuk-link govuk-link--no-visited-state" href="nominations/resend-email">send a new email link</a></li>
+      		</ul>
+
+      		<h2 class="govuk-heading-m">New teachers or mentors</h2>
+      		<p>You only need to sign in to our service if your school is delivering your programme using DfE accredited materials.</p>
+      		<p>We will send you sign in details before you start your programme.</p>
+      		
+			<h2 class="govuk-heading-m">Training providers</h2>
+      		<p>The Department for Education creates your account.</p>
+			<p>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+			 -->
+    	</div>
+  	</div>
+{% endblock %}

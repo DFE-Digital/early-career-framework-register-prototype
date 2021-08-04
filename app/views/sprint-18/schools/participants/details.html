@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Full Name" %}
+{% set pageSection = "Cohort 2021 to 2022" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+
+			
+			<!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+				<div class="govuk-notification-banner__header">
+					<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+			  	</div>
+			  	<div class="govuk-notification-banner__content">					
+					<h3 class="govuk-notification-banner__heading">You have updated the mentor for this early career teacher.</h3>			
+					<h3 class="govuk-notification-banner__heading">The participants name has been updated.</h3>
+					<h3 class="govuk-notification-banner__heading">The participants email address has been updated.</h3>
+			  	</div>
+			</div> -->
+
+			
+			
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
+
+			{% if data['approval-status'] == "rejected" %}
+				<div class="govuk-inset-text investigate">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Rejected</p>
+					<p>This person cannot be verified for statutory induction. You need to contact them directly.</p>
+				</div>
+			{% elif data['approval-status'] == "details-checked" %}				
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+					<p>We are checking their Qualified Teacher Status (QTS). This is usually updated in a month. You don’t need to do anything.</p>
+				</div>
+			{% elif data['approval-status'] == "teaching-database" %}
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+					<p>This person is being added to the teaching database. We will notify them when this is complete.</p>
+				</div>
+			{% elif data['approval-status'] == "add-details" %}				
+				<div class="govuk-inset-text pending">
+					<p><span class="govuk-!-font-weight-bold">Status:</span> ECT or mentor to add details</p>
+					<p>We have asked this person to update their details on the Teacher Self Service. We will send them more notifications to add their details but you may also want to remind them.</p>
+				</div>			
+			{% else %}
+			<!-- Approved so no message to show -->
+
+			{% endif %}
+
+			
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Name</dt>
+				  	<dd class="govuk-summary-list__value">Full name</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Email address</dt>
+				  	<dd class="govuk-summary-list__value">email@domain.com</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Type</dt>
+				  	<dd class="govuk-summary-list__value">Mentor/Early Career Teacher</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>				
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Mentor</dt>
+				  	<dd class="govuk-summary-list__value">Not yet assigned</dd>
+				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				</div>									
+			</dl>			            
+      		
+    	</div>
+  	</div>
+{% endblock %}
