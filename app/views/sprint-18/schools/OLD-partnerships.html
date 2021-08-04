@@ -17,7 +17,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		{% if (data['FIPStatus'] == "inPartnership") %}
+      		<!-- {% if (data['FIPStatus'] == "inPartnership") %}
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
 				{{ govukSummaryList({
@@ -28,7 +28,7 @@
 				}) }}
         		<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
 				<p>This link will expire on [date].</p>
-      		{% else %}
+      		{% else %} -->
 
 				<p class="govuk-body">You sign up with a training provider directly.</p>
 				<p class="govuk-body">They will confirm this with the DfE and you will be notified. (You do not need to confirm this here.)</p>
@@ -50,7 +50,7 @@
 				
 
 				<p class="govuk-body-s govuk-!-margin-top-9"><a href="manage-your-training?FIPStatus=inPartnership">Partnership created</a></p>
-      		{% endif %}
+      		<!-- {% endif %} -->
 
     </div>
   </div>
