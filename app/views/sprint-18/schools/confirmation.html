@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['school-status'] == "not-required" %}
+{% if data['school-ect'] == "no" %}
 	{% set pageHeading = "Your choice has been saved for 2021" %}
 {% else %}
 	{% set pageHeading = "Induction tutor nominated" %}
