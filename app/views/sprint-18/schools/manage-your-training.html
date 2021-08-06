@@ -11,6 +11,9 @@
 {% block content %}
 	
 	<div class="govuk-grid-row">
+
+		
+
     	<div class="govuk-grid-column-two-thirds">		
 			
 			{% if data['induction-programme'] == "schoolFIP" %}
@@ -29,20 +32,32 @@
 				{% endif %}
 			{% endif %}
 
-
-
-
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		</div>
+	</div>
 
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">		
+			
+			{% if (data['induction-programme'] != "schoolDYO") %}
 			<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
-      	
-      		<!-- <h2 class="govuk-heading-m">2021 cohort</h2> -->
+			{% endif %}
+			
+			<!-- <h2 class="govuk-heading-m">2021 cohort</h2> -->
+			
+			<!-- <div class="govuk-inset-text"> -->
+				<!-- <h2 class="govuk-heading-m">Materials for your 2020 cohort</h2>
+				<p class="govuk-!-margin-bottom-7">This year, you can also access DfE accredited materials for teachers who have had their induction disrupted. You should have recieved an email, if not you can <a href="#">request one to be sent to you</a>.</p> -->
+			<!-- </div> -->
+			
 			<dl class="govuk-summary-list">
 				
+
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Cohort year</dt>					
-				  	<dd class="govuk-summary-list__value">2021</dd>
-				  	<dd class="govuk-summary-list__actions"></dd>
+					<dd class="govuk-summary-list__value">2021</dd>
+					<dd class="govuk-summary-list__actions"></dd>
 				</div>				
 				
 				<!-- Using DfE accredited materials -->
@@ -70,6 +85,9 @@
 				
 				<!-- Using an approved training provider -->
 				{% elif data['induction-programme'] == "schoolFIP" %}
+
+				
+
 								
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Programme</dt>					
@@ -124,18 +142,23 @@
 						<dd class="govuk-summary-list__value">12</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">View<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div> -->
-				</dl>
+			</dl>
 
-				{% if ((data['induction-programme'] == "schoolFIP") and (data['FIPStatus'] == "inPartnership")) %}								
-				<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
-				<p>This link will expire on [date].</p>
-				{% endif %}
+			{% if ((data['induction-programme'] == "schoolFIP") and (data['FIPStatus'] == "inPartnership")) %}								
+			<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
+			<p>This link will expire on [date].</p>
+			{% endif %}
 
-				{% if ((data['course-choice']) and (data['induction-programme'] == "schoolCIP")) %}						
-				<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['course-choice'] }}</a> induction programme.</p>
-				{% endif %}
+			{% if ((data['course-choice']) and (data['induction-programme'] == "schoolCIP")) %}						
+			<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['course-choice'] }}</a> induction programme.</p>
+			{% endif %}
 				
 	
 		</div>
+		
+		<div class="govuk-grid-coloumn-one-third ">
+				
+				
+		</div>		
   	</div>
 {% endblock %}
