@@ -36,8 +36,11 @@
 			<h2 class="govuk-heading-m">What you can do now</h2>
 			<ul class="govuk-list govuk-!-margin-bottom-5">
 				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=early careers teacher">Add a new early career teacher</a></li>
-				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>				
+				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>		
 				<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants?participant-fullname=">Your early career teachers (ECT) and mentors</a></li>
+				{% if not data['induction-tutor-as-mentor'] %}		
+				<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=mentor">Add yourself as a mentor</a></li>
+				{% endif %}
 			</ul>
 
 		</div>

@@ -51,6 +51,8 @@
 			</ul>
 			
 			<form method="post" action="participants" >
+				<input type="hidden" name="roles" id="roles" value="seen" />
+				
 				{{ govukButton({
 					text: "Continue"
 				  }) }}	
