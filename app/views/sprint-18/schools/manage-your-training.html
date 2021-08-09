@@ -41,7 +41,11 @@
 		<div class="govuk-grid-column-two-thirds">		
 			
 			{% if (data['induction-programme'] != "schoolDYO") %}
-			<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
+				{% if data['existing-ect-mentor-details']%}
+					<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
+				{% else %}
+					<p><a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does">Add your early career teacher and mentor details</a></p>
+				{% endif %}
 			{% endif %}
 			
 			<!-- <h2 class="govuk-heading-m">2021 cohort</h2> -->
