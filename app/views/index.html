@@ -22,16 +22,21 @@
         <h2 class="govuk-heading-m">Sprint 18</h2>
 		    <p>This sprint will be focusing on further dashboard work along with validation MVP journey including new content and screens.</p>
 
-		{{ govukButton({
-			text: "Start journey",
-			href: "admin/journey-preload"
-		}) }}
+		    {{ govukButton({
+			    text: "Journey from first email contact about NQT",
+			    href: "/sprint-18/emails/tell-us-if-you-have-nqt"
+		    }) }}
 
-		{{ govukButton({
-			text: "Page by page listings and scenarios",
-			href: "admin/listings",
-			classes: "govuk-button--secondary govuk-!-margin-left-1"
-		}) }}
+        {{ govukButton({
+			    text: "Journey using preloaded options",
+			    href: "/admin/journey-preload"
+		    }) }}
+
+		    {{ govukButton({
+			    text: "Page by page listings and scenarios",
+			    href: "admin/listings",
+			    classes: "govuk-button--secondary govuk-!-margin-left-5"
+		    }) }}
 
 
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
