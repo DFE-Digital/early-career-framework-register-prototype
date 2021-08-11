@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Your early career teachers (ECTs) and mentors" %}
+{% set pageHeading = "Your ECTs and mentors" %}
 {% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -28,14 +28,17 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>Add early career teachers and mentors so they can start their programme.</p>
+			<p>Add early career teachers (ECTs) and mentors so they can start their programme.</p>
 			<!-- {% if data['participants-added'] == "No" %} -->
-				<p>You need to add your early career teachers and mentors so they can start their programme.</p>
+				<p>You need to add your early career teachers (ECTs) and mentors so they can start their programme.</p>
 			<!-- {% endif %} -->
 			<!-- <p>We will verify your ECTs and mentors. Here you can check their status or select a name for more details.</p> -->
+
+				<p><a class="govuk-link" href="what-each-person-does">Check what each role does</a></p>
+
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">
 				<ul class="govuk-list">
-					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=early career teacher">Add a new early careers teacher</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=early career teacher">Add a new ECT</a></li>
 					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=mentor">Add a new mentor</a></li>
 					{% if not data['induction-tutor-as-mentor'] %}
 					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=mentor">Add yourself as a mentor</a></li>
@@ -47,14 +50,14 @@
 
 		<div class="govuk-grid-column-full">
 
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">ECT or mentor to add details</h2>
-			<p class="govuk-!-margin-bottom-3">We have asked these ECTs or mentors to add their details.</p>
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Contacted for information</h2>
+			<p class="govuk-!-margin-bottom-3">We need to check these people are eligible for this programme before they can start.</p>
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
-						<th class="govuk-table__header " scope="col">Type</th>
-						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>						
+						<th class="govuk-table__header " scope="col">Role</th>
+						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
 						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 					</tr>
 				</thead>
@@ -62,20 +65,20 @@
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell ">Michael Smailes</td>
 						<td class="govuk-table__cell">ECT</td>
-						<td class="govuk-table__cell">We have asked this person to update their details on the Teacher Self Service.</td>						
+						<td class="govuk-table__cell">We've asked for information to check their eligibility.</td>						
 						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 					</tr>
 				</tbody>
 			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Rejected</h2>
-			<p class="govuk-!-margin-bottom-3">These ECTs or mentors cannot be approved for statutory induction. Please contact them.</p>
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible</h2>
+			<p class="govuk-!-margin-bottom-3">We've checked these people's details and found they're not eligible for this programme. We've let them know.</p>
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
-						<th class="govuk-table__header" scope="col">Type</th>
-						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>						
+						<th class="govuk-table__header" scope="col">Role</th>
+						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
 						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 					</tr>
 				</thead>
@@ -83,20 +86,20 @@
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell rejected-status">Jean-Philippe Rameau</td>						
 						<td class="govuk-table__cell">ECT</td>
-						<td class="govuk-table__cell">Cannot be verified for statutory induction</td>						
+						<td class="govuk-table__cell">Not eligible</td>						
 						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=rejected" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 					</tr>
 				</tbody>
 			</table>
 
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Details being checked</h2>
-				<p class="govuk-!-margin-bottom-3">These ECTs or mentors need to update their details on the Teacher Self Service, or we are checking their Qualified Teacher Status (QTS).</p>
+				<p class="govuk-!-margin-bottom-3">We're checking these people's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
-							<th class="govuk-table__header " scope="col">Type</th>
-							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Reason</th>							
+							<th class="govuk-table__header " scope="col">Role</th>
+							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>							
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 						</tr>
 					</thead>
@@ -116,25 +119,25 @@
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">Lilla Perry</a></td>														
 							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Checking Qualified Teacher Status (QTS)</td>							
+							<td class="govuk-table__cell">Checking eligibility</td>							
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell pending-status">Donato di Niccolò di Betto Bardi</td>																				
 							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Details been added to the teaching database. We will notify them when this is complete.</td>							
+							<td class="govuk-table__cell">Checking eligibility</td>							
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=teaching-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
 				</table>
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Approved</h2>
-				<p>These ECTs or mentors have been approved and can start their programme.</p>
+				<p>These people are eligible to start this programme. Your training provider will contact them directly.</p>
 				<table class="govuk-table">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Type</th>
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
 							<th class="govuk-table__header " scope="col">Mentor</th>
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 						</tr>
