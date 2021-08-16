@@ -15,6 +15,7 @@
 
         <form class="form" action="/{{ defaults.sprintNo() }}/" method="post" class="">
 
+            <!-- Programme choice -->
             {% set partnershipHtml %}
                 {{ govukCheckboxes({
                     idPrefix: "FIPStatus",
@@ -42,13 +43,9 @@
                     { value: "schoolCIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "schoolCIP") }
                 ]
             }) }}
+            <!-- /////////////////////////////////////// -->
 
-
-
-
-
-
-
+            <!-- Programme participant type -->
             {{ govukRadios({
                 idPrefix: "participantOptions",
                 name: "participantOptions",
@@ -59,8 +56,11 @@
                     { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
                     { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
                 ]
-            }) }}
+            }) }}            
+            <!-- /////////////////////////////////////// -->
 
+
+            <!-- Induction tutor can add to cohort -->
             {{ govukRadios({
                 idPrefix: "schoolParticipantOptions",
                 name: "schoolParticipantOptions",
@@ -73,8 +73,54 @@
                     { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
                 ]
             }) }}
+            <!-- /////////////////////////////////////// -->
 
-    
+
+            <!-- Know who provider is -->
+            {{ govukCheckboxes({
+                idPrefix: "providerType",
+                name: "providerType",
+                fieldset: {
+                    legend: { text: "Provider is known (FIP only)", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "providerKnown", text: "Yes provider is known", checked: checked("providerType", "providerKnown")}
+                ]
+            }) }}
+            <!-- /////////////////////////////////////// -->
+
+
+            <!-- Type of participant -->
+            {% set betamentorhtml %}
+            {{ govukCheckboxes({
+                idPrefix: "betaMentor",
+                name: "betaMentor",
+                fieldset: {
+                    legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" }
+                },
+                items: [
+                    { value: "beta", text: "In beta programme (CIP only)" }
+                ]
+            }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+            idPrefix: "participantType",
+            name: "participantType",
+            fieldset: {
+                legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+            },
+            items: [
+                { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
+                { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("participantType", "participantMentor")},
+                { value: "participantSIT", text: "SIT as mentor", checked: checked("participantType", "participantSIT")}
+            ]
+        }) }}
+            <!-- /////////////////////////////////////// -->
+
+
+
 
             {{ govukButton({
                 text: "Continue"
@@ -110,56 +156,12 @@
 
 
 
-            {{ govukRadios({
-                idPrefix: "participantOptions",
-                name: "participantOptions",
-                fieldset: {
-                    legend: { text: "Programme", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
-                    { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
-                ]
-            }) }}
+         
 
 
-            {% set betamentorhtml %}
-                {{ govukCheckboxes({
-                    idPrefix: "betaMentor",
-                    name: "betaMentor",
-                    fieldset: {
-                        legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "beta", text: "In beta programme (CIP only)" }
-                    ]
-                }) }}
-            {% endset -%}
+           
 
-
-            {{ govukRadios({
-                idPrefix: "participantType",
-                name: "participantType",
-                fieldset: {
-                    legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
-                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("participantType", "participantMentor")},
-                    { value: "participantSIT", text: "SIT as mentor", checked: checked("participantType", "participantSIT")}
-                ]
-            }) }}
-
-            {{ govukCheckboxes({
-                idPrefix: "providerType",
-                name: "providerType",
-                fieldset: {
-                    legend: { text: "Provider is known (FIP only)", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "providerKnown", text: "Yes provider is known", checked: checked("providerType", "providerKnown")}
-                ]
-            }) }}
+            
 
             {{ govukButton({
                 text: "Continue"
