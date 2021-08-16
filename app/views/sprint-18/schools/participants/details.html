@@ -30,23 +30,24 @@
 
 			{% if data['approval-status'] == "rejected" %}
 				<div class="govuk-inset-text investigate">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Rejected</p>
-					<p>This person cannot be verified for statutory induction. You need to contact them directly.</p>
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Not eligible</p>
+					<p>This may be because they've already started their induction training. We've let them know they're not eligible to begin this programme in the 2021 to 2022 academic year.</p>
 				</div>
 			{% elif data['approval-status'] == "details-checked" %}				
 				<div class="govuk-inset-text pending">
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
-					<p>We are checking their Qualified Teacher Status (QTS). This is usually updated in a month. You don’t need to do anything.</p>
+					<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
 				</div>
 			{% elif data['approval-status'] == "teaching-database" %}
 				<div class="govuk-inset-text pending">
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
-					<p>This person is being added to the teaching database. We will notify them when this is complete.</p>
+					<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
 				</div>
 			{% elif data['approval-status'] == "add-details" %}				
 				<div class="govuk-inset-text pending">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> ECT or mentor to add details</p>
-					<p>We have asked this person to update their details on the Teacher Self Service. We will send them more notifications to add their details but you may also want to remind them.</p>
+					<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
+					<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
+				    <p>We suggest you remind them to provide this.</p>
 				</div>			
 			{% else %}
 			<!-- Approved so no message to show -->
@@ -66,13 +67,13 @@
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>	
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Type</dt>
-				  	<dd class="govuk-summary-list__value">Mentor/Early Career Teacher</dd>
+					<dt class="govuk-summary-list__key">Role</dt>
+				  	<dd class="govuk-summary-list__value">Mentor/ECT</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>				
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
-				  	<dd class="govuk-summary-list__value">Not yet assigned</dd>
+				  	<dd class="govuk-summary-list__value">Not assigned yet</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>									
 			</dl>			            

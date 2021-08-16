@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What is the name of this  ' + data['persontypeAction'] + '?' %}
+{% set pageHeading = 'What’s the full name of this  ' + data['persontypeAction'] + '?' %}
 {% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}  
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,8 +17,7 @@
 
 			{% if data['linkaction'] == "change-name" %} 
 				<form class="form" action="../details" method="post">
-			{% else %}
-				<p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p>
+			{% else %}				
       			<form class="form" action="email-address" method="post">			
 				<input type="hidden" value="" name="participant-email-address" id="participant-email-address" />
 			{% endif %}

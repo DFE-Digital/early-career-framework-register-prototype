@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Who is the mentor for ' + data['participant-fullname'] + '?' %}
+{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
 {% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}  
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -13,6 +13,10 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
+
+			<p>You can tell us this later if you're not sure.</p>
+
+			
 			{% if data['linkaction'] == "change-mentor" %} 
       			<form class="form" action="../details" method="post" >
 			{% else %}
@@ -23,10 +27,7 @@
 
 					{{ govukRadios({
 						idPrefix: "who-is-mentor",
-						name: "who-is-mentor",
-						hint: {
-							text: "If you don't know, or haven't added them yet you can do this later."
-						},
+						name: "who-is-mentor",						
 						items: [
 							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
 							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
@@ -42,16 +43,12 @@
 
 					{{ govukRadios({
 						idPrefix: "who-is-mentor",
-						name: "who-is-mentor",
-						hint: {
-							text: "If you don't know, or haven't added them yet you can do this later."
-						},
+						name: "who-is-mentor",						
 						items: [
 							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
 							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
 							{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("who-is-mentor", "Giotto di Bondone") },
-							{ divider: "or" },
-							{ value: "Assign mentor later", text: "Assign mentor later", checked: checked("who-is-mentor", "Assign mentor later") }
+							{ value: "I'll assign a mentor later", text: "I'll assign a mentor later", checked: checked("who-is-mentor", "I'll assign a mentor later") }
 						]
 					}) }}
 
