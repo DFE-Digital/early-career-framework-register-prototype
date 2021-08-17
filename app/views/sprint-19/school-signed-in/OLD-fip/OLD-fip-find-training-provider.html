@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if (data['FIPStatus'] == "inPartnership") %}
+  {% set pageHeading = "Sign up with a training provider" %}
+{% else %}
+  {% set pageHeading = "Signing up with a training provider" %}
+{% endif %}
+{% set pageSection = "2021/22 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      {% if (data['FIPStatus'] == "inPartnership") %}
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Delivery partner"
+              },
+              value: {
+                text: "XYZ Education LTD."
+              }
+            },
+            {
+              key: {
+                text: "Lead provider"
+              },
+              value: {
+                text: "Educational Development Trust"
+              }
+            }
+          ]
+        }) }}
+
+        <p class="govuk-body">If this doesn’t look right, <a href="../schools/report-incorrect-signup">report that your school has been signed up incorrectly</a>.</p>
+        </div>
+
+
+      {% else %}
+
+      <p class="govuk-body">You sign up with a training provider directly.</p>
+      <p class="govuk-body">They will confirm this with the DfE and you will be notified. (You do not need to confirm this here.)</p>
+
+      <h2 class="govuk-heading-l">How you can sign up with a training provider</h2>
+      <p class="govuk-body">There are a few ways you can sign up with a training provider:</p>
+      <p class="govuk-body">The easiest way to sign up with a training provider is to contact your local Teaching School Hub (TSH). They can talk you through how to access this support for your early career teachers and mentors. Not sure? <a href="https://www.gov.uk/guidance/teaching-school-hubs#find-a-teaching-school-hub">Find your nearest hub</a></p>
+
+      <p class="govuk-body">You can also explore what our 6 providers have to offer and contact them directly:</p>
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="https://www2.ambition.org.uk/l/330231/2021-02-24/4mvx6">Ambition Institute</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="https://bestpracticenet.co.uk/early-career-framework">Best Practice Network (home of Outstanding Leaders Partnership)</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="https://www.capita.com/expertise/supporting-teachers-in-early-career">Capita with lead academic partner the University of Birmingham</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="https://www.educationdevelopmenttrust.com/ecf">Education Development Trust</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="https://www.teachfirst.org.uk/early-career-framework">Teach First</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="https://www.ucl.ac.uk/ioe-early-career-framework">UCL Institute of Education</a>
+        </li>
+      </ul>
+      <p class="govuk-body">These training providers and their local partners will also be recruiting schools in the next few months, so you may hear from them.</p>
+
+
+
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

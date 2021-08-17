@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "ECF Register and Partner" %}
+{% set pageSection = "Archived prototype work" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
+
+      	<ul class="govuk-list govuk-body-s">
+            <li>Last updated: 17 August 2021</li>
+            <li>Prototype version: {{releaseVersion}}</li>
+        </ul>
+
+
+        <h2 class="govuk-heading-m">Sprint 18</h2>
+		    <p>This sprint focused on further dashboard work along with validation MVP journey including new content and screens. As well as initial journey for deleting particpant.</p>
+
+      
+
+        {{ govukButton({
+          text: "Page by page listings and scenarios",
+          href: "listings-18"          
+        }) }}
+
+
+        <p><a class="govuk-link govuk-link--no-visited-state" href="../index">Return to main service page</a></p>
+        
+    </div>
+  </div>
+{% endblock %}
