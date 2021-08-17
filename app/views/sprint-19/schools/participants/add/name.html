@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s the full name of this  ' + data['persontypeAction'] + '?' %}
+{% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}  
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      		
+            
+
+			{% if data['linkaction'] == "change-name" %} 
+				<form class="form" action="../details" method="post">
+			{% else %}				
+      			<form class="form" action="email-address" method="post">			
+				<input type="hidden" value="" name="participant-email-address" id="participant-email-address" />
+			{% endif %}
+				
+			{% if data['linkaction'] == "change-name" %} 
+				
+				{{ govukInput({
+					label: {
+						html: 'Full name',
+						classes: "govuk-visually-hidden"
+					},
+					value: data['participant-fullname-change'],
+					classes: "govuk-!-width-two-thirds",
+					id: "participant-fullname-change",
+					name: "participant-fullname-change"
+				}) }}
+
+			{% else %}
+				{{ govukInput({
+					label: {
+						html: 'Full name',
+						classes: "govuk-visually-hidden"
+					},
+					value: data['participant-fullname'],
+					classes: "govuk-!-width-two-thirds",
+					id: "participant-fullname",
+					name: "participant-fullname"
+				}) }}
+			
+			{% endif %}
+					
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      		
+			</form>
+    	</div>
+  	</div>
+{% endblock %}

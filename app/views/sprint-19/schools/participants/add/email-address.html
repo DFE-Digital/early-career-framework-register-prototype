@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s ' + data['participant-fullname'] + '’s email address? ' %}
+{% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}  
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		
+      		<!-- <p class="govuk-body govuk-!-margin-bottom-6">We will send them an email to sign in and add any further details.</p> -->
+
+      		<!-- <form class="form" action="confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">         -->
+			
+			<p>We'll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
+
+			{% if data['persontypeAction'] == "mentor" %}
+			<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
+			{% else %}
+			<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
+			{% endif %}
+
+				{{ govukInput({
+					label: {
+						text: "Email address",
+						classes: "govuk-visually-hidden"
+					},
+					hint: {
+						text: "You can enter their personal or school email address."
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "participant-email-address",
+					name: "participant-email-address",
+					value: data['participant-email-address'],
+					type: "email",
+					autocomplete: "email",
+					spellcheck: false
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      		
+			</form>
+    	</div>
+  </div>
+{% endblock %}
