@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm you want to delete [NAME]" %}
+{% set pageHeading = "Confirm you want to remove [ Full name ]" %}
 {% set pageSection = "Cohort 2021 to 2022" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,22 +13,19 @@
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
 
 			
-			<p>This means that you will:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li> remove their information from our service</li>
-				<li> have to re enter their information....</li>
-			</ul>   </p>
+			<p>This means that:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+				<li>their information will be removed from this service</li>
+				<li>they will not be able to access the training programme</li>
+			</ul>   
 				            
 			<form method="post" action="confirmation" >
 			{{ govukButton({
-				text: "Confirm and delete"
+				text: "Confirm and remove"
 			}) }}
 			</form>
 			  
-			<p><a href="details">Cancel and go back to details page</a></p>
-
-			
-
+			<p><a href="details">Cancel and go back to your ECTs and mentors</a></p>
 
     	</div>
   	</div>
