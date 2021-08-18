@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if (data['FIPStatus'] == "inPartnership") %}
+{% if (data['InPartnership'] == "Yes") %}
   {% set pageHeading = "Sign up with a training provider" %}
 {% else %}
   {% set pageHeading = "Signing up with a training provider" %}
@@ -17,7 +17,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<!-- {% if (data['FIPStatus'] == "inPartnership") %}
+      		<!-- {% if (data['InPartnership'] == "Yes") %}
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>
 				{{ govukSummaryList({
@@ -49,7 +49,7 @@
       			<p class="govuk-body">These training providers and their local partners will also be recruiting schools in the next few months, so you may hear from them.</p>
 				
 
-				<p class="govuk-body-s govuk-!-margin-top-9"><a href="manage-your-training?FIPStatus=inPartnership">Partnership created</a></p>
+				<p class="govuk-body-s govuk-!-margin-top-9"><a href="manage-your-training?InPartnership=Yes">Partnership created</a></p>
       		<!-- {% endif %} -->
 
     </div>

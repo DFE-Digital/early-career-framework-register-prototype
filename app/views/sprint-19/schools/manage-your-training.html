@@ -105,17 +105,17 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value">
-							{% if data['FIPStatus'] == "inPartnership" %}
+							{% if data['InPartnership'] == "Yes" %}
 								Educational Development Trust							
 							{% endif %}
 						</dd>
 						<dd class="govuk-summary-list__actions">							
-							{% if data['FIPStatus'] != "inPartnership" %}															
+							{% if data['InPartnership'] != "Yes" %}															
 								<a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>							
 							{% endif %}
 						</dd>
 					</div>	
-					{% if data['FIPStatus'] == "inPartnership" %}				
+					{% if data['InPartnership'] == "Yes" %}				
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
 						<dd class="govuk-summary-list__value">Mega Delivery Partner</dd>
@@ -152,7 +152,7 @@
 					</div> -->
 			</dl>
 
-			{% if ((data['induction-programme'] == "FIP") and (data['FIPStatus'] == "inPartnership")) %}								
+			{% if ((data['induction-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}								
 			<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
 			<p>This link will expire on [date].</p>
 			{% endif %}

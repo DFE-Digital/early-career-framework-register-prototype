@@ -18,13 +18,13 @@
             <!-- Programme choice -->
             {% set partnershipHtml %}
                 {{ govukCheckboxes({
-                    idPrefix: "FIPStatus",
-                    name: "FIPStatus",
+                    idPrefix: "InPartnership",
+                    name: "InPartnership",
                     fieldset: {
                         legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "inPartnership", text: "In partnership" }
+                        { value: "Yes", text: "In partnership" }
                     ]
                 }) }}
             {% endset -%}
