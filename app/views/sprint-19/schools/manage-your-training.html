@@ -16,7 +16,7 @@
 
     	<div class="govuk-grid-column-two-thirds">		
 			
-			{% if data['induction-programme'] == "schoolFIP" %}
+			{% if data['induction-programme'] == "FIP" %}
 			
 				{% if (data['estimated-ects'] === undefined) %}
 				
@@ -92,7 +92,7 @@
 					</div>										
 				
 				<!-- Using an approved training provider -->
-				{% elif data['induction-programme'] == "schoolFIP" %}
+				{% elif data['induction-programme'] == "FIP" %}
 
 				
 
@@ -152,7 +152,7 @@
 					</div> -->
 			</dl>
 
-			{% if ((data['induction-programme'] == "schoolFIP") and (data['FIPStatus'] == "inPartnership")) %}								
+			{% if ((data['induction-programme'] == "FIP") and (data['FIPStatus'] == "inPartnership")) %}								
 			<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
 			<p>This link will expire on [date].</p>
 			{% endif %}

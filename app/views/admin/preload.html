@@ -34,12 +34,12 @@
                 classes: "govuk-!-padding-bottom-3",
                 name: "induction-programme",
                 fieldset: {
-                    legend: { text: "Induction programme choice", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
+                    legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [                    
-                    { value: "schoolFIP", text: "FIP - training provider, funded by the DfE", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "schoolFIP") },
+                    { value: "FIP", text: "FIP - training provider, funded by the DfE", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "FIP") },
                     { value: "schoolCIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "schoolCIP") },
-                    { value: "schoolDYO", text: "DYO - Design and deliver own based on the Early Career Framework", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "schoolDYO") },                    
+                    { value: "schoolDYO", text: "DYO - Design and deliver own based ECF", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "schoolDYO") },                    
                     { value: "schoolNoDecision", text: "Not chosen provision yet", checked: checked("induction-programme", "schoolNoDecision") }
                 ]
             }) }}
@@ -125,7 +125,7 @@
             idPrefix: "participantType",
             name: "participantType",
             fieldset: {
-                legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                legend: { text: "Participant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
             },
             items: [
                 { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
