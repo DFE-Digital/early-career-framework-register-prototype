@@ -15,20 +15,7 @@
 
         <form class="form" action="/{{ defaults.sprintNo() }}/" method="post" class="">
             
-            <!-- Programme choice -->
-            {% set partnershipHtml %}
-                {{ govukCheckboxes({
-                    idPrefix: "InPartnership",
-                    name: "InPartnership",
-                    fieldset: {
-                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "Yes", text: "In partnership" }
-                    ]
-                }) }}
-            {% endset -%}
-
+            <!-- Programme choice -->            
             {{ govukRadios({
                 idPrefix: "induction-programme",
                 classes: "govuk-!-padding-bottom-3",
@@ -37,10 +24,21 @@
                     legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [                    
-                    { value: "FIP", text: "FIP - training provider, funded by the DfE", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "FIP") },
+                    { value: "FIP", text: "FIP - training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
                     { value: "CIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
-                    { value: "DYO", text: "DYO - Design and deliver own based ECF", conditional: { html: partnershipHtml}, checked: checked("induction-programme", "DYO") },                    
+                    { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") },                    
                     { value: "NoDecision", text: "Not chosen provision yet", checked: checked("induction-programme", "NoDecision") }
+                ]
+            }) }}
+            
+            {{ govukCheckboxes({
+                idPrefix: "InPartnership",
+                name: "InPartnership",
+                fieldset: {
+                    legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "Yes", text: "Yes" }
                 ]
             }) }}
             <!-- /////////////////////////////////////// -->
