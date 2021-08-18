@@ -43,7 +43,7 @@
 
       			<p><a class="govuk-link" href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england"> See our statutory guidance</a> for details on time off, roles and responsibilities.</p>      			
 
-      		{% elif (data['induction-programme'] === "schoolNOECT") %}
+      		{% elif (data['induction-programme'] === "noECT") %}
 
 				<h3 class="govuk-heading-m">What happens next</h3>
       			<p>We will contact [school name] in the next academic year.</p>
@@ -55,7 +55,7 @@
       		
 			{% endif %}
 			
-			{% if (data['induction-programme'] != "schoolNOECT") %}
+			{% if (data['induction-programme'] != "noECT") %}
 			<form class="form" action="manage-your-training" method="post" class="govuk-!-margin-bottom-8">
         		
 				{{ govukButton({
