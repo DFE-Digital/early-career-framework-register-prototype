@@ -34,13 +34,17 @@
             {{ govukCheckboxes({
                 idPrefix: "InPartnership",
                 name: "InPartnership",
-                fieldset: {
-                    legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "Yes", text: "In partnership" }
-                ]
+                fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "In partnership" } ]
             }) }}
+            
+            {{ govukCheckboxes({
+                idPrefix: "providerKnown",
+                name: "providerKnown",
+                fieldset: { legend: { text: "Provider is known (FIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "Yes provider is known", checked: checked("providerKnown", "Yes")} ]
+            }) }}
+            
             <!-- /////////////////////////////////////// -->
 
             <!-- Programme participant type -->
@@ -86,18 +90,7 @@
             <!-- /////////////////////////////////////// -->
 
 
-            <!-- Know who provider is -->
-            {{ govukCheckboxes({
-                idPrefix: "providerType",
-                name: "providerType",
-                fieldset: {
-                    legend: { text: "Provider is known (FIP only)", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "providerKnown", text: "Yes provider is known", checked: checked("providerType", "providerKnown")}
-                ]
-            }) }}
-            <!-- /////////////////////////////////////// -->
+            
 
 
             <div class="govuk-inset-text">
