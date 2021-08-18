@@ -15,82 +15,97 @@
 
         <form class="form" action="/{{ defaults.sprintNo() }}/" method="post" class="">
             
-            <!-- Programme choice -->            
+            <!-- Programme choice -->      
+            <h2 class="govuk-heading-m">Induction programme</h2>
             {{ govukRadios({
                 idPrefix: "induction-programme",
                 classes: "govuk-!-padding-bottom-3",
                 name: "induction-programme",
                 fieldset: {
-                    legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
+                    legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
                 },
-                items: [                    
+                items: [
                     { value: "FIP", text: "FIP - training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
                     { value: "CIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
-                    { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") },                    
-                    { value: "NoDecision", text: "Not chosen provision yet", checked: checked("induction-programme", "NoDecision") }
+                    { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") }                    
                 ]
             }) }}
-            
+            <!-- Partnership -->
             {{ govukCheckboxes({
                 idPrefix: "InPartnership",
                 name: "InPartnership",
                 fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "In partnership" } ]
+                items: [ { value: "Yes", text: "School in partnership" } ]
             }) }}
-            
+            <!-- Provider known -->
             {{ govukCheckboxes({
                 idPrefix: "providerKnown",
                 name: "providerKnown",
                 fieldset: { legend: { text: "Provider is known (FIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "Yes provider is known", checked: checked("providerKnown", "Yes")} ]
-            }) }}
+                items: [ { value: "Yes", text: "Training provider known", checked: checked("providerKnown", "Yes")} ]
+            }) }}            
+            <!-- ///////////////  End of programme choice options ///////////////////// -->
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
             
+            <!-- Options for school -->
+            <!-- <h2 class="govuk-heading-m">School options</h2>
+            {{ govukRadios({
+                idPrefix: "schoolParticipantOptions",
+                name: "schoolParticipantOptions",
+                fieldset: {
+                    legend: { text: "School options", isPageHeading: false, classes: "govuk-visually-hidden" }
+                },
+                items: [                                        
+                    { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
+                ]
+            }) }} -->
             <!-- /////////////////////////////////////// -->
 
-            <!-- Programme participant type -->
-            {% set skipvalidationhtml %}
-                {{ govukCheckboxes({
-                    idPrefix: "skipValidation",
-                    name: "skipValidation",
-                    fieldset: {
-                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "notvalidating", text: "Not able to match journey" }
-                    ]
-                }) }}
-            {% endset -%}
+            <!-- Programme participant type -->       
+            <h2 class="govuk-heading-m">Participant options</h2>
             {{ govukRadios({
+                idPrefix: "participantType",
+                name: "participantType",
+                fieldset: {
+                    legend: { text: "Participant type", isPageHeading: false, classes: "govuk-visually-hidden" }
+                },
+                items: [
+                    { value: "ECT", text: "Early career teacher", checked: checked("participantType", "ECT")},
+                    { value: "mentor", text: "Mentor", checked: checked("participantType", "mentor")},
+                    { value: "sitMentor", text: "SIT as mentor", checked: checked("participantType", "sitMentor")}
+                ]
+            }) }}                        
+            
+            {{ govukCheckboxes({
+                idPrefix: "betaProgramme",
+                name: "betaProgramme",
+                fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
+            }) }}
+            {{ govukCheckboxes({
+                idPrefix: "validated",
+                name: "validated",
+                fieldset: { legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "notvalidating", text: "Not able to validate" } ]
+            }) }}
+            <!-- /////////////////////////////////////// -->
+
+            <!-- {{ govukRadios({
                 idPrefix: "participantOptions",
                 name: "participantOptions",
                 fieldset: {
                     legend: { text: "Programme", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
                 },
                 items: [
-                    { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
-                    { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
+                    { value: "participantCIP", text: "CIP participant", checked: checked("participantOptions", "participantCIP") },
+                    { value: "participantFIP", text: "FIP participant", checked: checked("participantOptions", "participantFIP")}
                 ]
-            }) }}            
-            <!-- /////////////////////////////////////// -->
-
-
-            <!-- Induction tutor can add to cohort -->
-            {{ govukRadios({
-                idPrefix: "schoolParticipantOptions",
-                name: "schoolParticipantOptions",
-                fieldset: {
-                    legend: { text: "Participants", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "cannotAddParticipants", text: "Cannot yet add", checked: checked("schoolParticipantOptions", "cannotAddParticipants") },
-                    { value: "canAddParticipants", text: "Can add to cohort", checked: checked("schoolParticipantOptions", "canAddParticipants")},
-                    { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
-                ]
-            }) }}
-            <!-- /////////////////////////////////////// -->
-
-
+            }) }}             -->
             
+            <!-- /////////////////////////////////////// -->
 
 
             <div class="govuk-inset-text">
@@ -98,36 +113,7 @@
               </div>
       
             <!-- Type of participant -->
-            {% set betamentorhtml %}
-            {{ govukCheckboxes({
-                idPrefix: "betaMentor",
-                name: "betaMentor",
-                fieldset: {
-                    legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "beta", text: "In beta programme (CIP only)" }
-                ]
-            }) }}
-        {% endset -%}
-
-
-        {{ govukRadios({
-            idPrefix: "participantType",
-            name: "participantType",
-            fieldset: {
-                legend: { text: "Participant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-            },
-            items: [
-                { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
-                { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("participantType", "participantMentor")},
-                { value: "participantSIT", text: "SIT as mentor", checked: checked("participantType", "participantSIT")}
-            ]
-        }) }}
-            <!-- /////////////////////////////////////// -->
-
-
-
+            
 
             {{ govukButton({
                 text: "Continue"
