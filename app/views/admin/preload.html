@@ -88,23 +88,9 @@
             {{ govukCheckboxes({
                 idPrefix: "validated",
                 name: "validated",
-                fieldset: { legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "notvalidating", text: "Not able to validate" } ]
-            }) }}
-            <!-- /////////////////////////////////////// -->
-
-            <!-- {{ govukRadios({
-                idPrefix: "participantOptions",
-                name: "participantOptions",
-                fieldset: {
-                    legend: { text: "Programme", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "participantCIP", text: "CIP participant", checked: checked("participantOptions", "participantCIP") },
-                    { value: "participantFIP", text: "FIP participant", checked: checked("participantOptions", "participantFIP")}
-                ]
-            }) }}             -->
-            
+                fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "No", text: "Not able to validate participant" } ]
+            }) }}            
             <!-- /////////////////////////////////////// -->
 
 

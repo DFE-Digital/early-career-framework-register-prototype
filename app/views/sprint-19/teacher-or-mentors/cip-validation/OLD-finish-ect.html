@@ -10,7 +10,7 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		<!-- // CIP ECT SKIP VALIDATION -->
-      		{% if ((data['participantOptions'] == "participantCIP") and (data['validated'] == "notvalidating") and (data['participantType'] == "ECT")) %}
+      		{% if ((data['induction-programme'] == "CIP") and (data['validated'] == "No") and (data['participantType'] == "ECT")) %}
       		
 				{{ govukPanel({
 					titleText: "We’re checking your details"
@@ -21,7 +21,7 @@
 				<p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
 
       		<!-- // CIP ECT -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "ECT")) %}
+      		{% elif ((data['induction-programme'] == "CIP") and (data['participantType'] == "ECT")) %}
       		
 				{{ govukPanel({
 					titleText: "Registration complete"
@@ -30,7 +30,7 @@
 				<p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
 
       		<!-- CIP Mentor -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "mentor")) %}      
+      		{% elif ((data['induction-programme'] == "CIP") and (data['participantType'] == "mentor")) %}      
       		
 				{{ govukPanel({
         			titleText: "Registration complete"
@@ -41,7 +41,7 @@
 
 
         	<!-- FIP ECT/Mentor SKIP Validation -->
-        	{% elif ((data['validated'] == "notvalidating") and (data['participantOptions'] == "participantFIP")) %}
+        	{% elif ((data['validated'] == "No") and (data['induction-programme'] == "FIP")) %}
 
         			{% if (data['providerKnown'] == "Yes") %}
         				
@@ -66,7 +66,7 @@
 
 
       		<!-- FIP ECT/Mentor -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "ECT") or (data['participantType'] == "mentor") ) %}
+      		{% elif ((data['induction-programme'] == "FIP") and (data['participantType'] == "ECT") or (data['participantType'] == "mentor") ) %}
 
               	{% if (data['providerKnown'] == "Yes") %}
               	
@@ -91,9 +91,9 @@
 
 
       		<!-- CIP SIT as Mentor + not validated -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "CIP") and (data['participantType'] == sitMentor")) %}
         		
-				{% if (data['validated'] == "notvalidating") %}
+				{% if (data['validated'] == "No") %}
         	
         			{{ govukPanel({
           				titleText: "We're checking your details"
@@ -116,7 +116,7 @@
 				{% endif %}
 
       		<!-- FIP SIT as mentor -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "FIP") and (data['participantType'] == sitMentor")) %}
 
         		{% if (data['providerKnown'] == "Yes") %}
         
@@ -140,7 +140,7 @@
 				{% endif %}
 
       		<!-- FIP SIT as Mentor SKIP Validation -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['validated'] == "notvalidating") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "FIP") and (data['validated'] == "No") and (data['participantType'] == sitMentor")) %}
       			
 				{% if (data['providerKnown'] == "Yes") %}
       
