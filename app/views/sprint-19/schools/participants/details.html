@@ -78,9 +78,25 @@
 				</div>									
 			</dl>			            
       		
-			<p><a href="confirm-delete">Delete [Full name] from this cohort</a></p>
 
-			<p>You cannot delete this [ECT/Mentor] as they have started their validation, you will need to contact your provider.</p>
+			<!-- ECT -->
+			
+				<!-- FIP -->
+				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+				<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>
+				<!-- CIP -->
+				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+				<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>
+
+			<!-- Mentor -->
+
+				<!-- FIP -->
+				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+				<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.</p>
+				<!-- CIP -->
+				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+				<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+				
 
 
     	</div>
