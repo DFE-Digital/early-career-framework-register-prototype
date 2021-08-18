@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Enter details to nominate your induction tutor" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		
+      		<h2 class="govuk-heading-m">Your school</h2>
+
+      		{{ govukSummaryList({
+        		rows: [
+          			{ key: { text: "Name"}, value: { text: "Acorn Primary School" } },
+          			{ key: { text: "URN"}, value: { text: "9348523" } },
+          			{ key: { text: "Address"}, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
+        		]
+      		}) }}
+			
+			<h2 class="govuk-heading-m">Who do you want to nominate?</h2>
+			<p>If you think this is your role, you can nominate yourself.</p>
+			
+      		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+        		<div class="govuk-form-group">
+          			
+
+					{{ govukInput({
+						label: { text: "Full name" },
+						classes: "govuk-!-width-two-thirds",
+						id: "induction-tutor-name",
+						name: "induction-tutor-name",
+						autocomplete: "name",
+						spellcheck: false,
+						value: data['induction-tutor-name'] 
+					}) }}
+          			
+					{{ govukInput({
+            			label: { text: "Work email address" },
+            			hint: {
+              				text: "They will sign in with this email and get future notifications about this service"
+            			},
+						classes: "govuk-!-width-two-thirds",
+						id: "induction-tutor-email",
+						name: "induction-tutor-email",
+						type: "email",
+						autocomplete: "email",
+						spellcheck: false,
+						value: data['induction-tutor-email']
+          			}) }}
+        		</div>
+
+				
+				<input type="hidden" name="school-status" id="school-status" value="Signed up" />
+				<input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="Yes" />
+        		{{ govukButton({
+          			text: "Confirm"
+        		}) }}
+      	
+			</form>
+
+		</div>
+  </div>
+
+  {% endblock %}
