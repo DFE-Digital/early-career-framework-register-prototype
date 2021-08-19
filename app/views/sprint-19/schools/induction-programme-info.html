@@ -16,8 +16,13 @@
 			<p class="govuk-body">You are choosing how you want to run your programme over 2 years.</p>
 			<p class="govuk-body">If you want to change your decision, you may need to contact the Department for Education (DfE).</p>
 
+			{% if data['eligible-funding'] == "No" %}
+			<h2 class="govuk-heading-m">The 2 approaches you can choose from</h2>
+			{% else %}
 			<h2 class="govuk-heading-m">The 3 approaches you can choose from</h2>
 			<p class="govuk-body">Use a training provider, funded by the DfE (sometimes referred to as a ‘full induction programme’).</p>
+			{% endif %}
+			
 			<p class="govuk-body">Deliver your own programme using the DfE accredited materials (sometimes referred to as a ‘core induction programme’).</p>
 			<p class="govuk-body">Design and deliver your own programmed based on the Early Career Framework (ECF).</p>
 
@@ -25,8 +30,13 @@
 			<p>We have published guidance on:</p>
 			<ul class="govuk-list govuk-list--bullet">
 				<li>the changes to statutory induction</li>
+				{% if data['eligible-funding'] == "No" %}
+				<li>the 2 approaches schools can take to run their induction</li>
+				{% else %}
 				<li>the 3 approaches schools can take to run their induction</li>
 				<li>how programmes are funded and more</li>
+				{% endif %}
+				
 			</ul>
 			
 			<p class="govuk-body">See our guidance on <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">induction programmes for early career teachers.</a></p>

@@ -16,17 +16,33 @@
 
       		<form class="form" action="confirm-induction-programme" method="post" class="govuk-!-margin-bottom-8">
 				
-				{{ govukRadios({
-					idPrefix: "induction-programme",
-					name: "induction-programme",
-					items: [
-						{ value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)", checked: checked("induction-programme", "FIP") },
-						{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "CIP") },
-						{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
-						{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021", checked: checked("induction-programme", "noECT") }
-					]
-				}) }}
-				
+				{% if data['eligible-funding'] == "No" %}
+
+					{{ govukRadios({
+						idPrefix: "induction-programme",
+						name: "induction-programme",
+						items: [
+							
+							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "CIP") },
+							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
+							{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021", checked: checked("induction-programme", "noECT") }
+						]
+					}) }}
+
+				{% else %}
+
+					{{ govukRadios({
+						idPrefix: "induction-programme",
+						name: "induction-programme",
+						items: [
+							{ value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)", checked: checked("induction-programme", "FIP") },
+							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "CIP") },
+							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
+							{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021", checked: checked("induction-programme", "noECT") }
+						]
+					}) }}
+
+				{% endif %}				
 
 				{{ govukButton({
 					text: "Continue"

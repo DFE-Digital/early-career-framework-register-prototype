@@ -49,6 +49,14 @@
                         fieldset: { legend: { text: "Accredited materials chosen(CIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Ambition Institute", text: "Materials chosen (CIP)", checked: checked("course-choice", "Ambition Institute")} ]
                     }) }}  
+
+                    <!-- Not eligible for funding -->
+                    {{ govukCheckboxes({                        
+                        idPrefix: "eligible-funding",
+                        name: "eligible-funding",
+                        fieldset: { legend: { text: "Not eligigle for DfE funding(FIP)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "No", text: "Not eligible for DfE funding", checked: checked("eligible-funding", "No")} ]
+                    }) }}  
                 </div>
             </div>
             <!-- // Grid row -->
