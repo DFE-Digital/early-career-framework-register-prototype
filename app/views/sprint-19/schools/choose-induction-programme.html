@@ -20,12 +20,13 @@
 					idPrefix: "induction-programme",
 					name: "induction-programme",
 					items: [
-						{ value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)"},
-						{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)"},
-						{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)"},
-						{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021" }
+						{ value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)", checked: checked("induction-programme", "FIP") },
+						{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "CIP") },
+						{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
+						{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021", checked: checked("induction-programme", "noECT") }
 					]
 				}) }}
+				
 
 				{{ govukButton({
 					text: "Continue"

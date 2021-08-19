@@ -17,11 +17,11 @@
 				{% elif data['induction-programme'] == "CIP" %}
 					<form class="form" action="school-signed-in/cip/cip-choose-cohort" method="post">
 				{% else %}
-					{% if data['participantType'] == sitMentor" %}
+					{% if data['participantType'] == "sitMentor" %}
         				<form class="form" action="two-roles" method="post">
           			{% else %}						
             			<form class="form" action="privacy-policy" method="post">
-						<input type="hidden" name="teacher-registering" id="teacher-registering" value="Yes" />	
+						<!-- <input type="hidden" name="teacher-registering" id="teacher-registering" value="Yes" />	 -->
           			{% endif %}
 				{% endif %}
         		
