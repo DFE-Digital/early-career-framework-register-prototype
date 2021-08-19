@@ -13,7 +13,7 @@
 
     		<p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p>
 
-    		{% if data['skipValidation'] == "notvalidating" %}
+    		{% if data['validated'] == "No" %}
     			<form class="form" action="check-your-answers" method="post">
     		{% else %}
     			<form class="form" action="check-your-answers" method="post">

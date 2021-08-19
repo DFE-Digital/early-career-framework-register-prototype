@@ -23,7 +23,7 @@
 
   			
 			<!-- CIP mentor (in beta programme) -->
-  			{% if ((data['participantType'] == "participantMentor") and (data['participantOptions'] == "participantCIP") and (data['betaMentor'] == "beta")) %}
+  			{% if ((data['participantType'] == "mentor") and (data['induction-programme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
 
 				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
   				<p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
@@ -53,7 +53,7 @@
 
 
   			<!-- FIP mentor -->
-  			{% elif ((data['participantOptions'] == "participantFIP") or (data['participantType'] == "participantSIT") and (data['participantType'] == "participantMentor") ) %}
+  			{% elif ((data['induction-programme'] == "FIP") or (data['participantType'] == "sitMentor") and (data['participantType'] == "mentor") ) %}
 
   				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
   				<p><strong>Subject: </strong>Add your details to start your mentor training</p>
@@ -86,7 +86,7 @@
   				<span style="color:#888888;">Department for Education</span></p>
 
 			<!-- CIP mentor (not in beta programme) registration email -->
-			{% elif ((data['participantType'] == "participantMentor") or (data['participantType'] == "participantSIT") and (data['participantOptions'] == "participantCIP")) %}
+			{% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor") and (data['induction-programme'] == "CIP")) %}
 
 				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
 				<p><strong>Subject: </strong>Add your details to access your mentor training materials </p>

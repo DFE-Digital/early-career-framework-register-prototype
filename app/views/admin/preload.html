@@ -7,61 +7,123 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
         <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>
 
         <form class="form" action="/{{ defaults.sprintNo() }}/" method="post" class="">
+            
+            <h2 class="govuk-heading-m">Induction programme</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">                    
+                    {{ govukRadios({                        
+                        idPrefix: "induction-programme",
+                        name: "induction-programme",
+                        fieldset: {
+                            legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "FIP", text: "FIP - training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
+                            { value: "CIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
+                            { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") },           
+                            { value: "noECT", text: "Not expecting to have any early career teachers", checked: checked("induction-programme", "noECT") }                    
+                        ]
+                    }) }}
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <!-- Partnership -->
+                    {{ govukCheckboxes({                        
+                        idPrefix: "InPartnership",
+                        name: "InPartnership",
+                        fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "School in partnership (FIP)" } ]
+                    }) }}
+                        
+                    <!-- Materials chosen -->
+                    {{ govukCheckboxes({
+                        
+                        idPrefix: "course-choice",
+                        name: "course-choice",
+                        fieldset: { legend: { text: "Accredited materials chosen(CIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Ambition Institute", text: "Materials chosen (CIP)", checked: checked("course-choice", "Ambition Institute")} ]
+                    }) }}  
+                </div>
+            </div>
+            <!-- // Grid row -->
 
-            {% set partnershipHtml %}
-                {{ govukCheckboxes({
-                    idPrefix: "FIPStatus",
-                    name: "FIPStatus",
-                    fieldset: {
-                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "inPartnership", text: "In partnership" }
-                    ]
-                }) }}
-            {% endset -%}
-
-            {{ govukRadios({
-                idPrefix: "journey-mode",
-                classes: "govuk-!-padding-bottom-3",
-                name: "journey-mode",
-                fieldset: {
-                    legend: { text: "Programme and partnership options", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
-                },
-                items: [
-                    { value: "schoolNoDecision", text: "Not in partnership or not chosen provision yet", checked: checked("journey-mode", "schoolNoDecision"), hint: { text: "Includes privacy policy prompt" } },
-                    { value: "schoolFIP", text: "Using an approved training provider (FIP)", conditional: { html: partnershipHtml}, checked: checked("journey-mode", "schoolFIP") },
-                    { value: "schoolCIP", text: "Using the DfE accredited materials (CIP)", checked: checked("journey-mode", "schoolCIP") }
-                ]
+            <!-- <hr class="govuk-section-break govuk-section-break--m govuk-sectio-break--visible"> -->
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
+            
+            <h2 class="govuk-heading-m">Participant options</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">                    
+                    {{ govukRadios({                        
+                        idPrefix: "participantType",
+                        name: "participantType",
+                        fieldset: {
+                            legend: { text: "Participant type", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "ECT", text: "Early career teacher", checked: checked("participantType", "ECT")},
+                            { value: "mentor", text: "Mentor", checked: checked("participantType", "mentor")},
+                            { value: "sitMentor", text: "SIT as mentor", checked: checked("participantType", "sitMentor")}
+                        ]
+                    }) }}  
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    
+                    {{ govukCheckboxes({                        
+                        idPrefix: "validated",
+                        name: "validated",
+                        fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "No", text: "Not able to validate" } ]
+                    }) }} 
+                    <p>If using not validated you must choose induction programme to see correct content and additionally in partnership if you want to see additional content.</p>
+                </div>
+            </div>
+            {{ govukCheckboxes({                        
+                idPrefix: "betaProgramme",
+                name: "betaProgramme",
+                fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
             }) }}
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
 
-            {{ govukRadios({
-                idPrefix: "schoolParticipantOptions",
-                name: "schoolParticipantOptions",
+            <!-- <div class="govuk-inset-text">
+                <p>There are <a href="https://docs.google.com/document/d/108aUddTCbHanZk8Q2l6WhzuD9iAL8dUn/edit">three status for validation</a>. Status <a href="https://docs.google.com/document/d/1vDlmDbz6BaUlGiC7wpusUV6B04mZ9ofubQNO0n2xK3Y/edit?ts=60fe8eb3#bookmark=id.1myxpp5aoqa">two and three </a> will show the same confirmation messaging with the changes applied within the backend.
+            </div> -->
+            
+
+
+            <h2 class="govuk-heading-m">Entry url</h2>
+            <p>If no selection will default to NQT email to schools asking about ECT for this year.</p>
+            {{ govukRadios({                
+                idPrefix: "siteEntry",
+                name: "siteEntry",
                 fieldset: {
-                    legend: { text: "Participants", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                    legend: { text: "Site entry url", isPageHeading: false, classes: "govuk-visually-hidden" }
                 },
-                items: [
-                    { value: "cannotAddParticipants", text: "Cannot yet add", checked: checked("schoolParticipantOptions", "cannotAddParticipants") },
-                    { value: "canAddParticipants", text: "Can add to cohort", checked: checked("schoolParticipantOptions", "canAddParticipants")},
-                    { value: "hasAddedMentors", text: "Mentors already added to cohort", checked: checked("schoolParticipantOptions", "hasAddedMentors")}
+                items: [                                        
+                    { value: "choose-induction, redirect(/sprint-19/schools/induction-programme-info)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
+                    { value: "manage-training, redirect(/sprint-19/schools/manage-your-training)", text: "Manage training for cohort", checked: checked("siteEntry", "manage-training")},
+                    { value: "validation, redirect(/sprint-19/schools/participants/register/do-you-have-a-teacher-reference-number)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
                 ]
-            }) }}
+            }) }}    
 
-    
+            
 
             {{ govukButton({
-                text: "Continue"
+                text: "Add preloaded information and continue"
             }) }}
 
         </form>
+
+
+
+        <!-- <form class="form" action="/{{ defaults.sprintNo() }}/emails/particpant-email" method="post" class="">
+        </form> -->
 
     </div>
 </div>

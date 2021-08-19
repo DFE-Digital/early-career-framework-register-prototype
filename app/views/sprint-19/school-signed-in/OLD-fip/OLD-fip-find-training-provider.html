@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if (data['FIPStatus'] == "inPartnership") %}
+{% if (data['InPartnership'] == "Yes") %}
   {% set pageHeading = "Sign up with a training provider" %}
 {% else %}
   {% set pageHeading = "Signing up with a training provider" %}
@@ -17,7 +17,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% if (data['FIPStatus'] == "inPartnership") %}
+      {% if (data['InPartnership'] == "Yes") %}
 
 
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your provider details</h2>

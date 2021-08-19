@@ -18,16 +18,11 @@
 <form method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        Clear data?
-      </h1>
-      {{ govukWarningText({
-        text: "This will clear all of the data entered in this session",
-        iconFallbackText: "Warning"
-      }) }}
+      <h1 class="govuk-heading-xl">Confirm you want to clear the session data</h1>
+      <p>This will clear all of the data entered in this session.</p>
 
       {{ govukButton({
-        text: "Clear the data"
+        text: "Confirm and clear"
       }) }}
     </div>
   </div>
