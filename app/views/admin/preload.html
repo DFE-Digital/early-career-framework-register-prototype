@@ -73,21 +73,22 @@
                     }) }}  
                 </div>
                 <div class="govuk-grid-column-one-half">
-                    {{ govukCheckboxes({                        
-                        idPrefix: "betaProgramme",
-                        name: "betaProgramme",
-                        fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
-                    }) }}
+                    
                     {{ govukCheckboxes({                        
                         idPrefix: "validated",
                         name: "validated",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "No", text: "Not able to validate" } ]
                     }) }} 
+                    <p>If using not validated you must choose induction programme to see correct content and additionally in partnership if you want to see additional content.</p>
                 </div>
             </div>
-
+            {{ govukCheckboxes({                        
+                idPrefix: "betaProgramme",
+                name: "betaProgramme",
+                fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
+            }) }}
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
 
             <!-- <div class="govuk-inset-text">
@@ -107,7 +108,7 @@
                 items: [                                        
                     { value: "choose-induction, redirect(/sprint-19/schools/induction-programme-info)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
                     { value: "manage-training, redirect(/sprint-19/schools/manage-your-training)", text: "Manage training for cohort", checked: checked("siteEntry", "manage-training")},
-                    { value: "validation, redirect(/sprint-19/schools/manage-your-training)", text: "Validate participant", checked: checked("siteEntry", "manage-training")}
+                    { value: "validation, redirect(/sprint-19/schools/participants/register/do-you-have-a-teacher-reference-number)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
                 ]
             }) }}    
 
