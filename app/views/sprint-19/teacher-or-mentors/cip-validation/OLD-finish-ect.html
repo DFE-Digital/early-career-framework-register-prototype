@@ -91,7 +91,7 @@
 
 
       		<!-- CIP SIT as Mentor + not validated -->
-      		{% elif ((data['induction-programme'] == "CIP") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "CIP") and (data['participantType'] == "sitMentor")) %}
         		
 				{% if (data['validated'] == "No") %}
         	
@@ -116,7 +116,7 @@
 				{% endif %}
 
       		<!-- FIP SIT as mentor -->
-      		{% elif ((data['induction-programme'] == "FIP") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "FIP") and (data['participantType'] == "sitMentor")) %}
 
         		{% if (data['providerKnown'] == "Yes") %}
         
@@ -140,7 +140,7 @@
 				{% endif %}
 
       		<!-- FIP SIT as Mentor SKIP Validation -->
-      		{% elif ((data['induction-programme'] == "FIP") and (data['validated'] == "No") and (data['participantType'] == sitMentor")) %}
+      		{% elif ((data['induction-programme'] == "FIP") and (data['validated'] == "No") and (data['participantType'] == "sitMentor")) %}
       			
 				{% if (data['providerKnown'] == "Yes") %}
       
