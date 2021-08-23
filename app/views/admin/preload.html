@@ -16,35 +16,37 @@
         <form class="form" action="/{{ defaults.sprintNo() }}/" method="post" class="">
             
             <!-- Programme choice -->      
-            <h2 class="govuk-heading-m">Induction programme</h2>
-            {{ govukRadios({
-                idPrefix: "induction-programme",
-                classes: "govuk-!-padding-bottom-3",
-                name: "induction-programme",
-                fieldset: {
-                    legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "FIP", text: "FIP - training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
-                    { value: "CIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
-                    { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") },           
-                    { value: "noECT", text: "Not expecting to have any early career teachers", checked: checked("induction-programme", "DYO") }                    
-                ]
-            }) }}
-            <!-- Partnership -->
-            {{ govukCheckboxes({
-                idPrefix: "InPartnership",
-                name: "InPartnership",
-                fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "School in partnership" } ]
-            }) }}
-            <!-- Provider known -->
-            {{ govukCheckboxes({
-                idPrefix: "providerKnown",
-                name: "providerKnown",
-                fieldset: { legend: { text: "Provider is known (FIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "Training provider known", checked: checked("providerKnown", "Yes")} ]
-            }) }}            
+            
+                <h2 class="govuk-heading-m">Induction programme</h2>
+                {{ govukRadios({
+                    idPrefix: "induction-programme",
+                    classes: "govuk-!-padding-bottom-3",
+                    name: "induction-programme",
+                    fieldset: {
+                        legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "FIP", text: "FIP - training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
+                        { value: "CIP", text: "CIP - Deliver own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
+                        { value: "DYO", text: "DYO - Design and deliver own based ECF", checked: checked("induction-programme", "DYO") },           
+                        { value: "noECT", text: "Not expecting to have any early career teachers", checked: checked("induction-programme", "DYO") }                    
+                    ]
+                }) }}
+                <!-- Partnership -->
+                {{ govukCheckboxes({
+                    idPrefix: "InPartnership",
+                    name: "InPartnership",
+                    fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "Yes", text: "School in partnership" } ]
+                }) }}
+                <!-- Provider known -->
+                {{ govukCheckboxes({
+                    idPrefix: "providerKnown",
+                    name: "providerKnown",
+                    fieldset: { legend: { text: "Provider is known (FIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "Yes", text: "Training provider known", checked: checked("providerKnown", "Yes")} ]
+                }) }}
+
             <!-- ///////////////  End of programme choice options ///////////////////// -->
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
@@ -66,32 +68,36 @@
             <!-- /////////////////////////////////////// -->
 
             <!-- Programme participant type -->       
-            <h2 class="govuk-heading-m">Participant options</h2>
-            {{ govukRadios({
-                idPrefix: "participantType",
-                name: "participantType",
-                fieldset: {
-                    legend: { text: "Participant type", isPageHeading: false, classes: "govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "ECT", text: "Early career teacher", checked: checked("participantType", "ECT")},
-                    { value: "mentor", text: "Mentor", checked: checked("participantType", "mentor")},
-                    { value: "sitMentor", text: "SIT as mentor", checked: checked("participantType", "sitMentor")}
-                ]
-            }) }}                        
             
-            {{ govukCheckboxes({
-                idPrefix: "betaProgramme",
-                name: "betaProgramme",
-                fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
-            }) }}
-            {{ govukCheckboxes({
-                idPrefix: "validated",
-                name: "validated",
-                fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "No", text: "Not able to validate participant" } ]
-            }) }}            
+            <h2 class="govuk-heading-m">Participant options</h2>
+                <!-- Type of participant -->
+                {{ govukRadios({
+                    idPrefix: "participantType",
+                    name: "participantType",
+                    fieldset: {
+                        legend: { text: "Participant type", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "ECT", text: "Early career teacher", checked: checked("participantType", "ECT")},
+                        { value: "mentor", text: "Mentor", checked: checked("participantType", "mentor")},
+                        { value: "sitMentor", text: "SIT as mentor", checked: checked("participantType", "sitMentor")}
+                    ]
+                }) }}                        
+                <!-- Beta Programme -->
+                {{ govukCheckboxes({
+                    idPrefix: "betaProgramme",
+                    name: "betaProgramme",
+                    fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
+                }) }}
+                <!-- Not validating -->
+                {{ govukCheckboxes({
+                    idPrefix: "validated",
+                    name: "validated",
+                    fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "No", text: "Cannot validate participant" } ]
+                }) }}  
+
             <!-- /////////////////////////////////////// -->
 
 
