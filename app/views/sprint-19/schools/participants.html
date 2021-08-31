@@ -45,7 +45,7 @@
 			<!-- USER RESEARCH STARTS WITH BLANK ENTRIES -->
 			{% if data['user-research'] == "Yes" %}
 
-				{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes")) %}
+				{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
 				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
