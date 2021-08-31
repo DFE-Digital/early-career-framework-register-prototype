@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm your induction programme" %}
+{% set pageHeading = "Confirm your training programme" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,18 +12,19 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p class="govuk-body">You have chosen to:</p>
-			<ul class="govuk-list govuk-list--bullet">
+			<p class="govuk-body">You have chosen to
+			
 				{% if (data['induction-programme'] === "FIP") %}
-					<li>use a training provider, funded by the DfE</li>
+					use a training provider, funded by the DfE (full induction programme).
 				{% elseif (data['induction-programme'] === "CIP") %}
-					<li>deliver your own programme using DfE accredited materials</li>
+					deliver your own programme using DfE accredited materials (core induction programme).
 				{% elseif (data['induction-programme'] === "DYO") %}
-					<li>design and deliver your own programme based on the Early Career Framework (ECF)</li>
+					design and deliver your own programme based on the Early Career Framework (ECF).
 				{% elseif (data['induction-programme'] === "noECT") %}
-					<li>opt out of notifications because you don’t expect to have any early career teachers starting in 2021</li>
+					opt out of notifications because you don’t expect to have any early career teachers starting in 2021.
 				{% endif %}
-			</ul>
+			</p>
+			
       		
 			<form method="post" action="provision-confirmed" >
 								
