@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "[Full name] has been removed from this cohort" %}
+{% if data['deletelink'] == "ect" %}  
+	{% set pageHeading = '' + data['participant-fullname'] + ' has been removed from this cohort' %}	
+{% elif data['deletelink'] == "mentor" %}  
+	{% set pageHeading = '' + data['participant-fullname-mentor'] + ' has been removed from this cohort' %}								
+{% elif data['deletelink'] == "sitMentor" %}  
+	{% set pageHeading = ' Safiya Balu has been removed from this cohort' %}								
+{% else %}
+	{% set pageHeading = " Full Name has been removed from this cohort" %}
+{% endif %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

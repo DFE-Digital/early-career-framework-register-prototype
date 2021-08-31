@@ -1,8 +1,16 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm you want to remove [ Full name ]" %}
-{% set pageSection = "Cohort 2021 to 2022" %}
+{% if data['deletelink'] == "ect" %}  
+	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname'] + '' %}	
+{% elif data['deletelink'] == "mentor" %}  
+	{% set pageHeading = 'Confirm you want to remove' + data['participant-fullname-mentor'] + '' %}								
+{% elif data['deletelink'] == "sitMentor" %}  
+	{% set pageHeading = 'Confirm you want to remove Safiya Balu' %}								
+{% else %}
+	{% set pageHeading = "Confirm you want to remove Full Name" %}
+{% endif %}
+{% set pageSection = "Crosshill Special School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -20,6 +28,24 @@
 			</ul>   
 				            
 			<form method="post" action="confirmation" >
+
+				{% if data['user-research'] == "Yes" %}
+
+					{% if data['deletelink'] == "ect" %}  
+						<input type="hidden" name="added-ect" id="added-ect" value="" />
+					{% elif data['deletelink'] == "mentor" %}  
+						<input type="hidden" name="added-mentor" id="added-mentor" value="" />
+					{% elif data['deletelink'] == "sitMentor" %}  
+						<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
+					{% else %}
+						
+					{% endif %}
+
+				{% else %}
+
+
+				{% endif %}
+
 			{{ govukButton({
 				text: "Confirm and remove"
 			}) }}

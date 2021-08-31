@@ -10,7 +10,7 @@
 {% else %}
 	{% set pageHeading = "Full Name" %}
 {% endif %}
-{% set pageSection = "Cohort 2021 to 2022" %}
+{% set pageSection = "Crosshill Special School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -131,9 +131,23 @@
 			</dl>			            
 
       		
+			{% if data['user-research'] == "Yes" %}
+
+				{% if data['user-details'] == "ect" %}  
+					<p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }} from this cohort</a></p>			
+				{% elif data['user-details'] == "mentor" %}  
+					<p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }} from this cohort</a></p>			
+				{% elif data['user-details'] == "sitMentor" %}  
+					<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+				{% else %}						
+					<p><a href="confirm-delete">Remove FULL NAME from this cohort</a></p>			
+				{% endif %}
+
+			{% else %}
 
 			<!-- ECT -->
 
+			
 				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
 				<!-- FIP -->				
 				<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>
@@ -147,7 +161,7 @@
 				<!-- CIP -->				
 				<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
 				
-
+			{% endif %}
 
     	</div>
   	</div>
