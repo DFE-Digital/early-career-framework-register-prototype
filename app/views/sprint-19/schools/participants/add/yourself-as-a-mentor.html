@@ -5,7 +5,7 @@
 
 
 {% set pageHeading = "Are you sure you want to add yourself as a mentor?" %}
-{% set pageSection = "{Name of school}" %}
+{% set pageSection = "Crosshill Special School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
-			<p>The induction tutor and mentor roles are separate. <a href="../../what-each-person-does" >Check what each role needs to do</a>.</p>
+			<p>The induction tutor and mentor roles are separate. <a href="../../what-each-person-does?link-role=view" >Check what each role needs to do</a>.</p>
 			<p>You should only assign yourself as a mentor in exceptional circumstances. If your school needs you to do this, you should:</p> 
 			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
 				<li>make sure you can take on the full responsibilities of both roles</li>
@@ -26,6 +26,9 @@
 			
 			<form method="post" action="confirmation" >
 				<input type="hidden" value="Yes" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" />
+
+				<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="Yes" />
+
 				{{ govukButton({
 					text: "Confirm"
 				  }) }}	

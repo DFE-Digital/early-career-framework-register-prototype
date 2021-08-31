@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Dashboard" %}
+{% set pageSection = "User research" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+        <p>Last updated: 20 July 2021</p>        
+        <p>Research for testing the dashboard variations, including the status of participants.</p>
+
+        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
+            
+            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="" />
+
+            
+            {{ govukButton({
+                text: "Continue test on status tags"
+            }) }}
+
+        </form>
+
+        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
+
+            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="New" />
+
+            {{ govukButton({
+                text: "Continue variation 2"
+            }) }}
+
+        </form>
+
+
+        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
+
+            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="New-2" />
+
+            {{ govukButton({
+                text: "Continue variation 3"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

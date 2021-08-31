@@ -115,12 +115,11 @@
                 },
                 items: [                                        
                     { value: "choose-induction, redirect(/sprint-19/schools/induction-programme-info)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
+                    { value: "manage-training-email, redirect(/sprint-19/emails/link-to-sign-in)", text: "Manage training for cohort from sign in email", checked: checked("siteEntry", "manage-training-email")},
                     { value: "manage-training, redirect(/sprint-19/schools/manage-your-training)", text: "Manage training for cohort", checked: checked("siteEntry", "manage-training")},
                     { value: "validation, redirect(/sprint-19/schools/participants/register/do-you-have-a-teacher-reference-number)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
                 ]
             }) }}    
-
-            
 
             {{ govukButton({
                 text: "Add preloaded information and continue"

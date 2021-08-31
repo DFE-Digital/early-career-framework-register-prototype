@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "Report that your school has been signed up incorrectly" %}
-{% set pageSection = "" %}
+{% set pageSection = "Crosshill Special School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
       
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body govuk-!-margin-bottom-7">[School name] has received a confirmation from [Delivery partner] with [Training provider], but you believe this is incorrect.</p>
+      		<p class="govuk-body govuk-!-margin-bottom-7">{{ defaults.schoolName() }} has received a confirmation from {{ defaults.deliveryPartner() }} with {{ defaults.leadProvider() }}, but you believe this is incorrect.</p>
 
       		<form class="form" action="report-submitted" method="post" >
         		

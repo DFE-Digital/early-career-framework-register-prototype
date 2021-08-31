@@ -9,39 +9,21 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 20 July 2021</p>        
-        <p>Research for testing the dashboard variations, including the status of participants.</p>
+        <p>Last updated: 31 August 2021</p>        
+        
+        <p>Research for testing the dashboard journeys, as well as delete and add functionality.</p>
 
-        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
+
+        <form action="/{{ defaults.sprintNo() }}/emails/link-to-sign-in" method="post" >            
+            <input type="hidden" name="InPartnership" id="InPartnership" value="Yes" />
+            <input type="hidden" name="induction-programme" id="induction-programme" value="FIP" />
+            <input type="hidden" name="user-research" id="user-research" value="Yes" />
+            <input type="hidden" name="has-mentors" id="has-mentors" value="No" />
+
             
-            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="" />
-
-            
             {{ govukButton({
-                text: "Continue test on status tags"
+                text: "Start user research"
             }) }}
-
-        </form>
-
-        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
-
-            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="New" />
-
-            {{ govukButton({
-                text: "Continue variation 2"
-            }) }}
-
-        </form>
-
-
-        <form action="/{{ defaults.sprintNo() }}/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
-
-            <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="New-2" />
-
-            {{ govukButton({
-                text: "Continue variation 3"
-            }) }}
-
         </form>
 
     </div>

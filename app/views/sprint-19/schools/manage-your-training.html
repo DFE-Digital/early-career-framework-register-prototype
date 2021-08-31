@@ -5,7 +5,7 @@
 
 
 {% set pageHeading = "Manage your training" %}
-{% set pageSection = "{Name of school}" %}
+{% set pageSection = "Crosshill Special School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -108,8 +108,12 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value">
-							{% if data['InPartnership'] == "Yes" %}
-								Educational Development Trust							
+							{% if data['user-research'] == "Yes" %}
+								{{ defaults.leadProvider() }}
+							{% else %}
+								{% if data['InPartnership'] == "Yes" %}
+									Educational Development Trust							
+								{% endif %}
 							{% endif %}
 						</dd>
 						<dd class="govuk-summary-list__actions">							
@@ -121,7 +125,13 @@
 					{% if data['InPartnership'] == "Yes" %}				
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
-						<dd class="govuk-summary-list__value">Mega Delivery Partner</dd>
+						<dd class="govuk-summary-list__value">
+							{% if data['user-research'] == "Yes" %}
+								{{ defaults.deliveryPartner() }}
+							{% else %}
+								Mega Delivery Partner
+							{% endif %}
+							</dd>
 						<dd class="govuk-summary-list__actions"></dd>
 					</div>
 					{% endif %}
@@ -157,7 +167,7 @@
 
 			{% if ((data['induction-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}								
 			<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
-			<p>This link will expire on [date].</p>
+			<p>This link will expire on {{ defaults.linkExpire() }}.</p>
 			{% endif %}
 
 			{% if ((data['course-choice']) and (data['induction-programme'] == "CIP")) %}						

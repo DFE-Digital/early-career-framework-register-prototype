@@ -3,8 +3,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Your ECTs and mentors" %}
-{% set pageSection = "{Name of school - 2021 to 2022 cohort}" %}
-
+{% set pageSection = "Crosshill Special School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -24,18 +23,17 @@
 
 		<div class="govuk-grid-column-two-thirds">
 
-	
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			<p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
-			<p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does">explain their role</a> and what they need to do next.</p>			
+			<p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-role=view">explain their role</a> and what they need to do next.</p>			
 
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">
 				<ul class="govuk-list">
 					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=ECT">Add a new ECT</a></li>
 					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=mentor">Add a new mentor</a></li>
 					{% if not data['induction-tutor-as-mentor'] %}
-					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=mentor">Add yourself as a mentor</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
 				</ul>
 			</div>
@@ -44,133 +42,178 @@
 
 		<div class="govuk-grid-column-full">
 
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
-			<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
-			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
-						<th class="govuk-table__header " scope="col">Role</th>
-						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
-						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell ">Michael Smailes</td>
-						<td class="govuk-table__cell">ECT</td>
-						<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
-						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-					</tr>
-				</tbody>
-			</table>
+			<!-- USER RESEARCH STARTS WITH BLANK ENTRIES -->
+			{% if data['user-research'] == "Yes" %}
 
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible</h2>
-			<p class="govuk-!-margin-bottom-3">We’ve checked these people’s details and found they’re not eligible for this programme. We've let them know.</p>
-			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
-						<th class="govuk-table__header" scope="col">Role</th>
-						<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
-						<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell rejected-status">Jean-Philippe Rameau</td>						
-						<td class="govuk-table__cell">ECT</td>
-						<td class="govuk-table__cell">Not eligible</td>						
-						<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=rejected" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Details being checked</h2>
-				<p class="govuk-!-margin-bottom-3">We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+				{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes")) %}
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
+				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
-							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
 							<th class="govuk-table__header " scope="col">Role</th>
-							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>							
+							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
-						<!-- <tr class="govuk-table__row">
-							<td class="govuk-table__cell">Mary Cassatt</td>
-							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Henry Purcell</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr>
+						{% if data['added-ect'] == "Yes" %}
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">George Handel</td>
+							<td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
 							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Berthe Morisot</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=pending-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr> -->
-						<tr class="govuk-table__row">
-							<td class="govuk-table__cell pending-status">Lilla Perry</a></td>														
-							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Checking eligibility</td>							
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
+						{% endif %}
+
+						{% if data['added-mentor'] == "Yes" %}
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell pending-status">Donato di Niccolò di Betto Bardi</td>																				
-							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Checking eligibility</td>							
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=teaching-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
+						{% endif %}
+
+						{% if data['added-sitMentor'] == "Yes" %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						{% endif %}
+
+
 					</tbody>
 				</table>
+				{% endif %}
 
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Eligible to start</h2>
-				<p>These people are eligible to start this programme. Your training provider will contact them directly.</p>
-				<table class="govuk-table">
+			{% else %}
+
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
+				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
+				<table class="govuk-table govuk-!-margin-bottom-9">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
-							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-							<th class="govuk-table__header " scope="col">Mentor</th>
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
+							<th class="govuk-table__header " scope="col">Role</th>
+							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Henry Purcell</a></td>
-							<td class="govuk-table__cell">Mentor</td>
-							<td class="govuk-table__cell"></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Berthe Morisot</a></td>
-							<td class="govuk-table__cell">Mentor</td>
-							<td class="govuk-table__cell"></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Mary Cassatt</a></td>
+							<td class="govuk-table__cell ">Michael Smailes</td>
 							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Henry Purcell</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Marie Bracquemond</a></td>
-							<td class="govuk-table__cell">Mentor</td>
-							<td class="govuk-table__cell"></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
 				</table>
 
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible</h2>
+				<p class="govuk-!-margin-bottom-3">We’ve checked these people’s details and found they’re not eligible for this programme. We've let them know.</p>
+				<table class="govuk-table govuk-!-margin-bottom-9">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
+							<th class="govuk-table__header" scope="col">Role</th>
+							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell rejected-status">Jean-Philippe Rameau</td>						
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">Not eligible</td>						
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=rejected" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+					</tbody>
+				</table>
 
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Details being checked</h2>
+					<p class="govuk-!-margin-bottom-3">We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+					<table class="govuk-table govuk-!-margin-bottom-9">
+						<thead class="govuk-table__head">
+							<tr class="govuk-table__row">
+								<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
+								<th class="govuk-table__header " scope="col">Role</th>
+								<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>							
+								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							<!-- <tr class="govuk-table__row">
+								<td class="govuk-table__cell">Mary Cassatt</td>
+								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Henry Purcell</td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell">George Handel</td>
+								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Berthe Morisot</td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=pending-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr> -->
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell pending-status">Lilla Perry</a></td>														
+								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Checking eligibility</td>							
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=details-checked" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell pending-status">Donato di Niccolò di Betto Bardi</td>																				
+								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Checking eligibility</td>							
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=teaching-database" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+						</tbody>
+					</table>
 
+					<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Eligible to start</h2>
+					<p>These people are eligible to start this programme. Your training provider will contact them directly.</p>
+					<table class="govuk-table">
+						<thead class="govuk-table__head">
+							<tr class="govuk-table__row">
+								<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
+								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+								<th class="govuk-table__header " scope="col">Mentor</th>
+								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell">Henry Purcell</a></td>
+								<td class="govuk-table__cell">Mentor</td>
+								<td class="govuk-table__cell"></td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell">Berthe Morisot</a></td>
+								<td class="govuk-table__cell">Mentor</td>
+								<td class="govuk-table__cell"></td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell">Mary Cassatt</a></td>
+								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Henry Purcell</td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+							<tr class="govuk-table__row">
+								<td class="govuk-table__cell">Marie Bracquemond</a></td>
+								<td class="govuk-table__cell">Mentor</td>
+								<td class="govuk-table__cell"></td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=approved" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							</tr>
+						</tbody>
+					</table>
 
-
-
-
-
+				{% endif %}
 
     	</div>
   	</div>
