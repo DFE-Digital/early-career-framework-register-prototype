@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Full Name" %}
+{% if data['user-details'] == "ect" %}  
+	{% set pageHeading = '' + data['participant-fullname'] + '' %}	
+{% elif data['user-details'] == "mentor" %}  
+	{% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}								
+{% elif data['user-details'] == "sitMentor" %}  
+	{% set pageHeading = 'Safiya Balu' %}								
+{% else %}
+	{% set pageHeading = "Full Name" %}
+{% endif %}
 {% set pageSection = "Cohort 2021 to 2022" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -26,31 +34,42 @@
 			
 			
 
-			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      	
+			
+			{% if data['user-research'] == "Yes" %}
 
-			{% if data['approval-status'] == "rejected" %}
-				<div class="govuk-inset-text investigate">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Not eligible</p>
-					<p>This may be because they've already started their induction training. We've let them know they're not eligible to begin this programme in the 2021 to 2022 academic year.</p>
-				</div>
-			{% elif data['approval-status'] == "details-checked" %}				
 				<div class="govuk-inset-text pending">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
-					<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
+					<p><span class="govuk-!-font-weight-bold">Status:</span> We’ve contacted these people for information</p>
+					<p>We’ve asked for information to check their eligibility. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
 				</div>
-			{% elif data['approval-status'] == "teaching-database" %}
-				<div class="govuk-inset-text pending">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
-					<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
-				</div>
-			{% elif data['approval-status'] == "add-details" %}				
-				<div class="govuk-inset-text pending">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
-					<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
-				    <p>We suggest you remind them to provide this.</p>
-				</div>			
+
 			{% else %}
-			<!-- Approved so no message to show -->
+
+				{% if data['approval-status'] == "rejected" %}
+					<div class="govuk-inset-text investigate">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Not eligible</p>
+						<p>This may be because they've already started their induction training. We've let them know they're not eligible to begin this programme in the 2021 to 2022 academic year.</p>
+					</div>
+				{% elif data['approval-status'] == "details-checked" %}				
+					<div class="govuk-inset-text pending">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+						<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
+					</div>
+				{% elif data['approval-status'] == "teaching-database" %}
+					<div class="govuk-inset-text pending">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+						<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
+					</div>
+				{% elif data['approval-status'] == "add-details" %}				
+					<div class="govuk-inset-text pending">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
+						<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
+						<p>We suggest you remind them to provide this.</p>
+					</div>			
+				{% else %}
+				<!-- Approved so no message to show -->
+
+				{% endif %}
 
 			{% endif %}
 
@@ -58,25 +77,59 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Name</dt>
-				  	<dd class="govuk-summary-list__value">Full name</dd>
+				  	<dd class="govuk-summary-list__value">
+						{% if data['user-details'] == "ect" %}  
+							{{ data['participant-fullname'] }}
+						{% elif data['user-details'] == "mentor" %}  
+							{{ data['participant-fullname-mentor'] }}
+						{% elif data['user-details'] == "sitMentor" %}  
+							{{ defaults.userFullName() }}
+						{% else %}						
+							Full name
+						{% endif %}
+					</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
-				  	<dd class="govuk-summary-list__value">email@domain.com</dd>
+				  	<dd class="govuk-summary-list__value">
+						{% if data['user-details'] == "ect" %}  
+							{{ data['participant-email-address'] }}
+						{% elif data['user-details'] == "mentor" %}  
+							{{ data['participant-email-address-mentor'] }}
+						{% elif data['user-details'] == "sitMentor" %}  
+							{{ defaults.userEmailAddress() }}
+						{% else %}						
+							email@domain.com
+						{% endif %}  						
+						</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Role</dt>
-				  	<dd class="govuk-summary-list__value">Mentor/ECT</dd>
+				  	<dd class="govuk-summary-list__value">
+						{% if data['user-details'] == "ect" %}  
+							ECT
+						{% elif data['user-details'] == "mentor" %}  
+							Mentor
+						{% elif data['user-details'] == "sitMentor" %}  
+							Mentor
+						{% else %}  
+						Mentor/ECT
+						{% endif %}
+					</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>				
+
+				{% if data['user-details'] == "ect" %}  							
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
 				  	<dd class="govuk-summary-list__value">Not assigned yet</dd>
 				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>									
+				{% endif %}
 			</dl>			            
+
       		
 
 			<!-- ECT -->
