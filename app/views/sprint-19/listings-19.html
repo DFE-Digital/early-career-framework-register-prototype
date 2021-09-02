@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% block page_title %}
+    Page listings - Manage training for early career teachers - Department for Education - GOV.UK
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">Prototype work</span>
+                Page by page listings
+            </h1>
+
+            <p class="govuk-body-s">Last updated 24 August 2021</p>
+            <p><a href="data">Data been stored as part of current session</a></p>
+
+            <!-- ////////////////////////////////// -->        
+
+            <h2 class="govuk-heading-l">Confirm if school has ECTs and nominate an induction tutor</h2>
+            <p>School admin staff (or those monitoring the "main GIAS email address") receive this email notification.</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="how-to-set-up-your-programme" >Set up your school’s early career teacher training programme: step by step</a></li>
+                <li><a class="govuk-link" href="emails/tell-us-if-you-have-nqt" >Tell us if you have NQTs joining in 2021 (email)</a></li>
+            </ul>
+            <p>Email links them to service to confirm ECTs and nominate induction tutor.</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="schools/expect-early-career-teachers" >Do you expect to have any early career teachers at [school name] this year?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="schools/nominate-school-lead-confirmoptout" >Confirm your choice</a></li>
+                </ul>
+                <li><a class="govuk-link" href="schools/nominate-induction-tutor" >Nominate an induction tutor for [school name]*</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="schools/expired-link?sign-in-link=" >The link has expired</a></li>
+                    <li><a class="govuk-link" href="schools/email-already-in-use" >That email address is already associated with another school</a></li>
+                    
+                    <li><a class="govuk-link" href="schools/induction-tutor-already-nominated" >An induction tutor has already been nominated for [school name]</a></li>
+                </ul>
+                <li><a class="govuk-link" href="schools/who-do-you-want-to-nominate" >Enter details to nominate your induction tutor</a></li>
+                <li><a class="govuk-link" href="schools/confirmation?school-status=" >Induction tutor nominated</a></li>
+                <li><a class="govuk-link" href="schools/confirmation?school-status=not-required" >Your choice has been saved for [Year]</a></li>
+            </ul>
+
+
+            <!-- ////////////////////////////////// -->
+        
+            <h2 class="govuk-heading-l">Induction tutor sign up</h2>            
+            <p>Induction Tutor is notified via email that they have been nominated. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet">                
+                <li><a class="govuk-link" href="emails/induction-nomination" >Nominated to be school induction tutor (email)</a></li>                
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <p>Resending as original email has been lost, deleted or link expired. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355253267755&cot=14">User journey on Miro</a></span></p>
+                    <li><a class="govuk-link" href="nominations/resend-email" >Send your school a link to use this service</a></li>
+                    <li><a class="govuk-link" href="nominations/local-authority" >What is your school's local authority?</a></li>
+                    <li><a class="govuk-link" href="nominations/find-school" >Find your school</a></li>
+                    <li><a class="govuk-link" href="nominations/confirm" >Confirm your details</a></li>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link" href="nominations/already-nominated" >An induction tutor has already been nominated</a></li>    
+                    </ul>
+                    <li><a class="govuk-link" href="nominations/confirmation" >Your school has been sent a link</a></li>
+                </ul>
+
+                <li><a class="govuk-link" href="" >Manage training for early career teachers</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="how-to-get-an-account" >How to get an account for this service</a></li>
+                    <li><a class="govuk-link" href="choose-study-materials" >Choose accredited study materials for your early career teachers</a></li>
+                </ul>
+                <li><a class="govuk-link" href="sign-in" >Sign in</a></li>
+                <li><a class="govuk-link" href="check-your-email" >Check your email</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="emails/link-to-sign-in" >Link to sign in (email)</a></li>
+                    <li><a class="govuk-link" href="schools/expired-link?sign-in-link=expired" >Expired link (email)</a></li>
+                </ul>
+                <li><a class="govuk-link" href="signed-in" >You are now signed in</a></li>
+                <li><a class="govuk-link" href="privacy-policy?journey-mode=NoDecision" >Privacy policy</a></li>      
+                <li><a class="govuk-link" href="cannot-use-this-service" >You do not have access to this service</a></li>         
+            </ul>
+
+            <!-- ////////////////////////////////// -->
+
+            <h3 class="govuk-heading-m">Choose programme</h3>
+            <p>What an induction tutor sees after first sign in, or if they have not yet chosen an induction programme. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355290069818&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="schools/induction-programme-info" >Do you know how you want to run your 2021/22 induction for early career teachers?</a></li>
+                <li><a class="govuk-link" href="schools/induction-programme-info?eligible-funding=No" >Do you know how you want to run your 2021/22 induction for early career teachers? (Not eligible for funding)</a></li>
+                <li><a class="govuk-link" href="schools/choose-induction-programme" >How do you want to run your training in 2021 to 2022?</a></li>
+                <li><a class="govuk-link" href="schools/choose-induction-programme?eligible-funding=No" >How do you want to run your training in 2021 to 2022?</a></li>
+                <li><a class="govuk-link" href="schools/confirm-induction-programme" >Confirm your induction programme</a></li>                                            
+                <li><a class="govuk-link" href="schools/provision-confirmed" >Your choice has been saved for 2021/22</a></li>
+            </ul>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <p>// End of sign up journey for schools and choice of induction programme. //</p>
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    
+            <!-- ////////////////////////////////// -->
+
+            <h2 class="govuk-heading-l">Induction tutor/school management </h2>                
+            <p>All schools on sign in land at the Manage your training page, which has different functionality depending on induction programme chosen below.</p>
+            <h3 class="govuk-heading-m">Core induction programme (CIP)</h3>
+            <p>When a school is delivering their own using DfE accredited materials. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355308879313&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li><a class="govuk-link" href="schools/manage-your-training?induction-programme=CIP" >Manage your training</a></li>
+                <li><a class="govuk-link" href="schools/which-accredited-materials?induction-programme=CIP" >Do you know which accredited materials you want to use?</a></li>
+                <li><a class="govuk-link" href="schools/course-choice?induction-programme=CIP" >Which training materials do you want this cohort to use?</a></li>
+                <li><a class="govuk-link" href="schools/course-confirmed?induction-programme=CIP" >Study materials saved</a></li>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a class="govuk-link" href="schools/programme-choice?induction-programme=CIP" >Choose your induction programme</a></li>
+                    <li><a class="govuk-link" href="schools/materials?induction-programme=CIP" >Your accredited materials</a></li>
+                </ul>                
+                <!-- No longer needed -->
+                <!-- <li><a class="govuk-link" href="schools/add-participants" >Add early career teachers and mentors</a></li> -->
+                <!-- <li><a class="govuk-link" href="school-signed-in/cip/cip-cohort-detail" >2021/22 cohort: use DfE accredited materials</a></li> -->
+                <!-- <li><a class="govuk-link" href="school-signed-in/fip/fip-cohort-detail" >2021/2022 cohort: use a training provider</a></li> -->
+            </ul>            
+
+            <h3 class="govuk-heading-m">Full induction programme (FIP)</h3>
+            <p>When a school is using a training provider funded by DfE. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355306758748&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li><a class="govuk-link" href="schools/manage-your-training?induction-programme=FIP" >Manage your training</a></li>                
+                <li><a class="govuk-link" href="schools/sign-up-to-training-provider" >Signing up with a training provider</a></li>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a class="govuk-link" href="schools/programme-choice?induction-programme=FIP" >Choose your induction programme</a></li>
+                </ul>                
+                <p>Notified via email of a new partnership. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457354439630103&cot=14">User journey on Miro</a></span></p>                
+                <li><a class="govuk-link" href="emails/provider-confirmed?induction-programme=FIP" >Provider confirmed (email)</a></li>
+                <li><a class="govuk-link" href="schools/report-incorrect-signup?induction-programme=FIP" >Report that your school has been signed up incorrectly</a></li>
+                <li><a class="govuk-link" href="schools/report-submitted?induction-programme=FIP" >Your report has been submitted</a></li>                
+            </ul>
+
+            <h3 class="govuk-heading-m">Deliver your own (DYO)</h3>
+            <p>When a school designs and deliver their own programme based on the Early Career Framework (ECF).</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+                <li><a class="govuk-link" href="schools/manage-your-training?induction-programme=DYO" >Manage your training</a></li>                
+                <li><a class="govuk-link" href="schools/programme-choice?induction-programme=DYO" >Choose your induction programme</a></li>
+                <!-- <li><a class="govuk-link" href="school-signed-in/dyo/dyo-find-training-provider" >Have you signed up with a training provider?</a></li> -->
+                <li><a class="govuk-link" href="school-signed-in/dyo/dyo-cohort-nextsteps-noect?induction-programme=DYO" >You are not expecting any early career teachers this year</a></li>
+            </ul>
+
+                        
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+            <h3 class="govuk-heading-m">Add and manage early career teacher or mentor</h3>
+            <p>How a school induction tutor adds ECTs and Mentors to a cohort. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457356227023262&cot=14">User journey on Miro</a></span></p>
+
+            <ul class="govuk-list govuk-list--bullet">                                
+                <li><a class="govuk-link" href="schools/what-each-person-does" >Check what each person needs to do in the early career teacher training programme</a></li>         
+                <li><a class="govuk-link" href="schools/participants" >Your early career teachers (ECTs) and mentors*</a></li>         
+                <li><a class="govuk-link" href="schools/participants/details" >[Name of ECT/Mentor]</a></li>         
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="schools/participants/add/existing-mentor" >Do you want to add a mentor from another cohort? (Not in use)</a></li>         
+                    <li><a class="govuk-link" href="schools/participants/add/which-mentor" >Which mentor do you want to add to the 2021 cohort? (Not in use)</a></li>         
+                </ul>
+                <li><a class="govuk-link" href="schools/participants/add/name" >What is the name of this [early career teacher/mentor]?*</a></li>         
+                <li><a class="govuk-link" href="schools/participants/add/email-address" >What is [name]’s email address?*</a></li>         
+                <li><a class="govuk-link" href="schools/participants/add/choose-mentor" >Who is the mentor for [name]?*</a></li>         
+                <li><a class="govuk-link" href="schools/participants/add/check-your-answers" >Check your answers*</a></li>         
+                <li><a class="govuk-link" href="schools/participants/add/confirmation" >[Name] has been added*</a></li>         
+            </ul>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="schools/participants/confirm-delete" >Confirm you want to remove [ Full name ]</a></li>    
+                <li><a class="govuk-link" href="schools/participants/confirmation" >[Full name] has been removed from this cohort</a></li>    
+                <!-- <li><a class="govuk-link" href="#"></a></li>         
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/choose-participant-type">Add your early career teachers and mentors</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/are-you-sure-sitmentor">Are you sure you want to add yourself as a mentor?</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/change-mentor-for-ect" >Who is the mentor for [ECT name]</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/change-participant-email-error">That email address is already in use</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/change-participant-email">Change participants email address</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/change-participant-name">Change participants name</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/choose-ect-for-cohort">What early career teachers would undefined look after in this cohort?</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/choose-mentor-for-ect">Who is the mentor for undefined?</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/cohort-participant-listing">Your early career teachers (ECTs) and mentors</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/confirm-participant-details">Confirm these details</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/confirm-participant-sitmentor">Confirm your details</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/enter-personal-details">Enter their details</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/mentor-from-existing-cohort">Which mentor do you want to add to the 2021 cohort?</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/new-or-existing-mentor">Do you want to add a mentor from another cohort?</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-email-change">[Username] - email address updated</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-mentor-change">[Username] - mentor updated</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-approved">[Username] - approved</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-investigate">[Username] - needs investigation</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-not-started">[Username] - not started</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-waiting-on-dqt-update">[Username] - waiting on updated details</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-waiting-on-qts-status">[Username] - checking their QTS status</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/participant-status-waiting-to-be-added-to-dqt">[Username] - waiting to be added</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/success-mentor-added">You have added [username] to the 2021 cohort</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/success-participant-added-sit">You have been added to the 2021/22 cohort</a></li>
+                <li><a class="govuk-link" href="school-signed-in/school-add-participants-to-cohort/success-participant-added">You have added undefined to the 2021 cohort</a></li> -->
+            </ul>
+
+            <h2 class="govuk-heading-l">Teacher or mentor validation</h2>
+            <p>The nominated ECT or mentor is notified via email of a registration action in order to sign in to access materials. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457359058552030&cot=14">User journey on Miro</a></span></p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/particpant-email?participantType=ECT" >Important: Sign in to register (ECT is default)</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/dqt-contact" >Change your details on the Database of Qualified Teachers (DQT)</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/finish-ect" >Registration complete</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/name-change-ect" >Name changes</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/name-maybe" >I dont know if I updated my name</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/name-not-updated" >Name not updated</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/privacy-policy-ect" >Privacy policy</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/qct-ect" >Qualified teacher check</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/sign-in-check-account-ect" >How to get an account for this service</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/sign-in-check-email-ect" >Check your email</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/sign-in-continue-to-account-ect" >You are now signed in</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/sign-in-ect" >Sign in</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/start-registration" >Register for your Early Career training and support</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/trn-ect" >Teacher reference number</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/trn-error" >We cannot find your details</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/trn-get" >Get a Teacher Reference Number (TRN)</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/trn-info" >Teacher reference number</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/update-name" >Updated name</a></li>
+            </ul>
+
+
+            <h2 class="govuk-heading-l">Others (still to check)</h2>
+            <ul class="govuk-list govuk-list--bullet">                
+                <li><a class="govuk-link" href="guidance_1" >Guidance: Induction training and support for new teachers</a></li>                                
+                <li><a class="govuk-link" href="sign-out" >Sign out</a></li>                                
+                <li><a class="govuk-link" href="pseudo-email-training-provider-invite" >Training provider invite</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/email-sign-in-ect-mentor" >Link to sign in ECT start</a></li>
+                <li><a class="govuk-link" href="teacher-or-mentors/cip-validation/pseudo-email-sign-in-ect" >Link to sign in</a></li>
+            </ul>
+
+            <h2 class="govuk-heading-l">Training provider signed in</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="training-provider-signed-in/cohort-listing" >Cohorts</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/dashboard-training-provider" >Lorem Ipsum Education Ltd.</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/find-and-add-schools-confirm" >Add partnerships with these schools</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/find-and-add-schools-results" >Search results</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/find-and-add-schools-success" >You have added partnerships with schools</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/find-and-add-schools" >Find and add schools</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/school-detail-zero" >Vale Valley Primary School</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/school-detail" >Abacus Primary School</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/school-listing-2021" >Your schools (2021)</a></li>
+                <li><a class="govuk-link" href="training-provider-signed-in/school-listing-2022" >Your schools (2022)</a></li>
+            </ul>
+    </div>
+</div>
+
+{% endblock %}
