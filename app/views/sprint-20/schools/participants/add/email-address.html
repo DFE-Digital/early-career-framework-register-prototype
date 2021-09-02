@@ -23,10 +23,20 @@
 
 			{% if data['linkaction'] == "change-email" %} 
 				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
-			{% elif ((data['persontypeAction'] == "mentor") or (data['has-mentors'] == "No"))  %}
-				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
+			
 			{% else %}
-				<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
+				
+				{% if data['persontypeAction'] == "mentor" %}
+					<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        				
+				{% elif data['persontypeAction'] == "ECT" %}
+
+						{% if data['added-mentor'] == "Yes" %}
+							<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
+						{% else %}
+							<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
+						{% endif %}
+				{% endif %}
+											
 			{% endif %}
 
 				{% if data['persontypeAction'] == "mentor" %}	
