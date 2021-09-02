@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set title = 'Who is the mentor for ' + data['participant-fullname'] + '?' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+      <form class="form" action="confirm-ect-details" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukRadios({
+          idPrefix: "who-is-mentor",
+          name: "who-is-mentor",
+          items: [
+            {
+              value: "Henry Purcell",
+              text: "Henry Purcell",
+              checked: checked("who-is-mentor", "Henry Purcell")
+            },
+            {
+              value: "Berthe Morisot",
+              text: "Berthe Morisot",
+              checked: checked("who-is-mentor", "Berthe Morisot")
+            },
+            {
+              value: "Giotto di Bondone",
+              text: "Giotto di Bondone",
+              checked: checked("who-is-mentor", "Giotto di Bondone")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Assign later",
+              text: "Assign later",
+              checked: checked("who-is-mentor", "Assign mentor later")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "We cannot find your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      		<p class="govuk-body">This could be because:</p>
+      		<ul class="govuk-list govuk-list--bullet">
+      			<li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’</li>
+      			<li>your last name is different to the version held by the Teaching Regulation Agency</li>
+      			<li>you mistyped or entered some incorrect information</li>
+      		</ul>
+			
+			{% if not data['NI'] %} 
+      		<p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
+			{% endif %}
+
+			<p><a href="your-details">Check the details you entered are correct</a></p>
+	  		<!-- <form class="form" action="qct-ect" method="post">
+
+      			{{ govukButton({
+        			text: "Try again"
+      			}) }}
+			</form> -->
+
+    		
+      		<!-- <h2 class="govuk-heading-m">If we still cannot find your details</h2> -->
+      		<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
+
+			<form class="form" action="check-your-answers" method="post">
+
+      			{{ govukButton({
+        			text: "Continue registration",
+        			classes: "govuk-button--secondary"
+      			}) }}
+  			
+			</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}

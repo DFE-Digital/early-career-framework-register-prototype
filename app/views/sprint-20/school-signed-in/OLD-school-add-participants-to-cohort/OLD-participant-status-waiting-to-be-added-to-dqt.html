@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+{% block pageTitle %}George Handel – Waiting to be added to DQT{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">2021 cohort</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        George Handel
+        {{ govukTag({
+          text: "PENDING",
+          classes: "govuk-tag--yellow"
+        }) }}
+      </h1>
+
+      <div class="govuk-inset-text">
+        This person is being added to the teaching database. We will notify them when this is complete.
+      </div>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            George Handel
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="">
+              Change<span class="govuk-visually-hidden"> change name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            email@domain.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="">
+              Change<span class="govuk-visually-hidden"> change email</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+              Early Career Teacher
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Mentor
+          </dt>
+          <dd class="govuk-summary-list__value">
+              Not yet assigned
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">
+              Change<span class="govuk-visually-hidden"> mentor</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

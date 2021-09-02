@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "You are now signed in" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+			
+				
+				{%if data['user-research'] == "Yes" %}
+
+					<form class="form" action="schools/manage-your-training" method="post">
+
+				{% else %}
+
+					{% if data['induction-programme'] == "FIP" %}
+						<form class="form" action="schools/manage-your-training" method="post">
+					{% elif data['induction-programme'] == "CIP" %}
+						<form class="form" action="schools/manage-your-training" method="post">
+					{% else %}
+						{% if data['participantType'] == "sitMentor" %}
+							<form class="form" action="two-roles" method="post">
+						{% else %}						
+							<form class="form" action="privacy-policy" method="post">
+							<!-- <input type="hidden" name="teacher-registering" id="teacher-registering" value="Yes" />	 -->
+						{% endif %}
+					{% endif %}
+
+				{% endif %}
+        		
+				{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      		
+			</form>
+
+    	</div>
+  	</div>
+{% endblock %}
