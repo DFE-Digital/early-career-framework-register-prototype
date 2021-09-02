@@ -53,7 +53,8 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>						
 							<th class="govuk-table__header " scope="col">Role</th>
-							<th class="govuk-table__header govuk-!-width-one-half" scope="col">Status</th>						
+							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Status</th>						
+							<th class="govuk-table__header " scope="col">Mentor</th>
 							<th class="govuk-table__header " scope="col"></th>
 						</tr>
 					</thead>
@@ -63,6 +64,11 @@
 							<td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell">
+								{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
+									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+								{% endif %}
+							</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?user-details=ect" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
@@ -72,6 +78,7 @@
 							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
 							<td class="govuk-table__cell">Mentor</td>
 							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell"></td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?user-details=mentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
@@ -81,6 +88,7 @@
 							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
 							<td class="govuk-table__cell">Mentor</td>
 							<td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						
+							<td class="govuk-table__cell"></td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?user-details=sitMentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
@@ -214,7 +222,8 @@
 					</table>
 
 				{% endif %}
-
+				
+				<p><a href="manage-your-training">Return to manage your training</a></p>
     	</div>
   	</div>
 

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['added-mentor'] != "Yes" %} 
+{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
 	{% set pageHeading = 'You cannot assign a mentor to this ECT' %}	
 {% else %}
 	{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
@@ -17,7 +17,7 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
 
-			{% if data['added-mentor'] != "Yes" %} 
+			{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
 
 				<p>You do not have any mentors in your cohort.</p>
 				<p><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></p>
@@ -37,10 +37,20 @@
 						<fieldset class="govuk-fieldset">
 				  			<legend class="govuk-fieldset__legend govuk-visually-hidden">	Who’s {{data['participant-fullname'] }}’s mentor?</legend>
 				  			<div class="govuk-radios">
+								{% if data['added-mentor'] == "Yes" %}
 								<div class="govuk-radios__item">
 					  				<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ data['participant-fullname-mentor'] }}">
 					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ data['participant-fullname-mentor'] }}</label>
 								</div>
+								{% endif %}
+
+								{% if data['added-sitMentor'] == "Yes" %}
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ defaults.userFullName() }}">
+									<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ defaults.userFullName() }}</label>
+							  	</div>
+								{% endif %}
+
 								{% if not ((data['linkaction'] == "change-mentor") or (data['linkaction'] == "change-mentor-details")) %}
 								<div class="govuk-radios__item">
 					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="I’ll assign a mentor later">
