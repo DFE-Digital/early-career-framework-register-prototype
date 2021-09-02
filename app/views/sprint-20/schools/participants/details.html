@@ -124,8 +124,14 @@
 				{% if data['user-details'] == "ect" %}  							
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
-				  	<dd class="govuk-summary-list__value">Not assigned yet</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__value">
+						{% if data['added-mentor'] %}  						
+							{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+						{% else %}
+							No mentors in your cohort
+						{% endif %}
+						</dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>									
 				{% endif %}
 			</dl>			            
