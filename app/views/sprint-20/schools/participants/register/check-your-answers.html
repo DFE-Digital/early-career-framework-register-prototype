@@ -18,26 +18,24 @@
 
 			{% if not data['linkaction']%}  
 
-			{% if data['validated'] == "No" %}
+				{% if data['validated'] == "No" %}
 
-			<h2 class="govuk-heading-m">We cannot find your details</h2>
+					<h2 class="govuk-heading-m">We cannot find your details</h2>
 
-			<p class="govuk-body">This could be because:</p>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
-				<li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’</li>
-				<li>your last name is different to the version held by the Teaching Regulation Agency</li>
-				<li>you mistyped or entered some incorrect information</li>
-			</ul>
+					<p class="govuk-body">This could be because:</p>
+					<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+						<li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’</li>
+						<li>your last name is different to the version held by the Teaching Regulation Agency</li>
+						<li>you mistyped or entered some incorrect information</li>
+					</ul>
 		  
-		  {% if not data['NI'] %} 
-			<p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
-		  {% endif %}
+		  			{% if not data['NI'] %} 
+						<p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
+		  			{% endif %}
 
-			{% endif %}
+				{% endif %}
 
-			{% endif %}
-
-      		<!-- <p class="govuk-body">Check the following details are correct before continuing.</p> -->
+			{% endif %}      		
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
         		<div class="govuk-summary-list__row">
@@ -68,9 +66,9 @@
 			</dl>
 
 			{% if not data['linkaction']%}  
-			{% if data['validated'] == "No" %}
-				<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
-			{% endif %}
+				{% if data['validated'] == "No" %}
+					<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
+				{% endif %}
 			{% endif %}
 
       		<form class="form" action="confirmation" method="post" >
