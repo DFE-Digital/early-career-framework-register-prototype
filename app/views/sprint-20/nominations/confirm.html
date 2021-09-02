@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Confirm your details" %}
+{% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -9,15 +9,15 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
       
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-			
-      		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		      		
 
       		{{ govukSummaryList({
         		rows: [
-          			{ key: { text: "Name" }, value: { text: data['school-lookup'] } },
+					{ key: { text: "Local Authority" }, value: { text: data['local-authority'] } },
+					{ key: { text: "School" }, value: { text: data['school-lookup'] }, classes: "govuk-!-width-one-half" },
           			{ key: { text: "URN" }, value: { text: "9348523" } },
           			{ key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
+					
         		]
       		}) }}
       		

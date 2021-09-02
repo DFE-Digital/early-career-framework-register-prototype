@@ -11,23 +11,24 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			{% if data['sign-in-link'] == "expired" %}
+
 				<p class="govuk-body">You need to sign in again to get a new link.</p>
-				<form class="form" action="../sign-in" method="post" >												
+				<form class="form" action="../sign-in" method="post" >
 					{{ govukButton({
 						  text: "Sign in"
 					}) }}
 				</form>
+
 			{% else %}
-      			<p class="govuk-body">You need to resend the email with a new link</p>      		
-				
-				  <form class="form" action="../emails/induction-nomination" method="post" >												
+      			
+				<p class="govuk-body">You need to resend the email with a new link</p>
+				<form class="form" action="../emails/induction-nomination" method="post" >
 					{{ govukButton({
 						  text: "Resend email"
 					}) }}
 				</form>
 
 			{% endif %}
-
       		
     	</div>
   	</div>
