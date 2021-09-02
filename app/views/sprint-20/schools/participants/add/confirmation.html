@@ -2,10 +2,17 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['neworexistingmentor'] == "existingMentor"  %}	  
-	{% set title = '' + data['choose-existing-mentor'] +  ' has been added' %}
-{% else %}
+{% set sitMentorName = 'defaults.userFullName()' %}
+
+{% if data['persontypeAction'] == "mentor"  %}	  
+	{% set title = '' + data['participant-fullname-mentor'] +  ' has been added' %}
+{% elif data['persontypeAction'] == "ECT" %}
 	{% set title = '' + data['participant-fullname'] +  ' has been added' %}
+{% elif data['persontypeAction'] == "sitMentor" %}
+	{% set title = 'Anna Green has been added' %}
+{% else %}
+	{% set title = 'Full Name has been added' %}
+
 {% endif %}
 
 {% block pageTitle %}{{ title }}{% endblock %}
@@ -44,10 +51,10 @@
 						
 			<h2 class="govuk-heading-m">What you can do now</h2>
 			<ul class="govuk-list govuk-!-margin-bottom-5">
-				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=early careers teacher">Add a new early career teacher</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new early career teacher</a></li>
 				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						
 				{% if not data['induction-tutor-as-mentor'] %}		
-				<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
 				{% endif %}
 				<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Your ECTs and mentors</a></li>
 			</ul>

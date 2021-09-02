@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['neworexistingmentor'] == "existingMentor"  %}	  
-	{% set title = '' + data['choose-existing-mentor'] +  ' has been added' %}
+{% if data['persontypeAction'] == "mentor"  %}	  
+	{% set title = '' + data['participant-fullname-mentor'] +  ' has been added' %}
 {% else %}
 	{% set title = '' + data['participant-fullname'] +  ' has been added' %}
 {% endif %}
