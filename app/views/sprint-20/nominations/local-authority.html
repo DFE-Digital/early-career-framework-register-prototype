@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "What is your school’s local authority?" %}
+{% set pageHeading = "What's your school’s local authority?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,12 +15,12 @@
         						
             	{{ govukInput({
             		label: {            
-              			text: "What is your school’s local authority?",
+              			text: "What's your school’s local authority?",
 						isPageHeading: "false",
               			classes: "govuk-visually-hidden"
             		},
             		hint: {
-              			html: "<span>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a></span>"
+              			html: "<span>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register.</a></span>"
             		},
             		classes: "govuk-!-width-two-thirds",
             		id: "school-location",
