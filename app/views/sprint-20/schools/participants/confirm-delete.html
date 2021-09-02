@@ -6,11 +6,11 @@
 {% elif data['deletelink'] == "mentor" %}  
 	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname-mentor'] + '' %}								
 {% elif data['deletelink'] == "sitMentor" %}  
-	{% set pageHeading = 'Confirm you want to remove Ben Norton' %}								
+	{% set pageHeading = 'Confirm you want to remove Ruth Stead' %}								
 {% else %}
 	{% set pageHeading = "Confirm you want to remove Full Name" %}
 {% endif %}
-{% set pageSection = "St Hilda's Church of England High School - 2021 to 2022 cohort" %}
+{% set pageSection = "Netherhall School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
