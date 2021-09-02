@@ -41,25 +41,27 @@
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
         		<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key">Full name</dt>
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">TRN</dt>
+					<dd class="govuk-summary-list__value">{{ data['trnd'] }}</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="what-is-your-teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+			  	</div>
+
+				<div class="govuk-summary-list__row">
+          			<dt class="govuk-summary-list__key govuk-!-width-one-half">Name</dt>
           			<dd class="govuk-summary-list__value">{{ data['fullName'] }}</dd>
           			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 
-        		<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key">TRN</dt>
-          			<dd class="govuk-summary-list__value">{{ data['trnd'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="what-is-your-teacher-reference-number?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
-        		</div>
+        		
 
         		<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key">Date of birth</dt>
+          			<dt class="govuk-summary-list__key govuk-!-width-one-half">Date of birth</dt>
           			<dd class="govuk-summary-list__value">{{ data['dob-day'] }} {{ data['dob-month'] }} {{ data['dob-year'] }}</dd>
           			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
 
         		<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key">National Insurance number</dt>
+          			<dt class="govuk-summary-list__key govuk-!-width-one-half">National Insurance number</dt>
           			<dd class="govuk-summary-list__value">{{ data['NI'] }}</dd>
           			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
@@ -73,7 +75,7 @@
 
       		<form class="form" action="confirmation" method="post" >
         		{{ govukButton({
-          			text: "Confirm and register"
+          			text: "Confirm and send"
         		}) }}
       		</form>
     	
