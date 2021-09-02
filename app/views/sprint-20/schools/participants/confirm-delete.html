@@ -33,10 +33,15 @@
 
 					{% if data['deletelink'] == "ect" %}  
 						<input type="hidden" name="added-ect" id="added-ect" value="" />
+						<input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
 					{% elif data['deletelink'] == "mentor" %}  
 						<input type="hidden" name="added-mentor" id="added-mentor" value="" />
+						<input type="hidden" name="participant-email-address-mentor" id="participant-email-address-mentor" value="" />
 					{% elif data['deletelink'] == "sitMentor" %}  
 						<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
+						<input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="" />
+						
+
 					{% else %}
 						
 					{% endif %}
