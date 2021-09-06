@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Check your answers" %}	
-{% set pageSection = "St Hilda's Church of England High School - 2021 to 2022 cohort" %}
+{% set pageSection = "Copenhagen Primary School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -42,8 +42,9 @@
       			{% endif %}
 
 				<!-- If usertype is not mentor then show next group -->
-				{% if data['has-mentors'] != "No" %}
-					{% if data['persontypeAction'] != "mentor" %}
+				
+				{% if not ((data['persontypeAction'] == "mentor") or (data['persontypeAction'] == "sitMentor")) %}
+					{% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
 						<dd class="govuk-summary-list__value">{{ data['who-is-mentor'] }}</dd>
@@ -51,6 +52,7 @@
 					</div>        				
 					{% endif %}
 				{% endif %}
+				
 				<!-- // -->
 
 				  

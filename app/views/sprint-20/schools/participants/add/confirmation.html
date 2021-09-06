@@ -9,7 +9,7 @@
 {% elif data['persontypeAction'] == "ECT" %}
 	{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
 {% elif data['persontypeAction'] == "sitMentor" %}
-	{% set title = 'Ben Norton has been added as a mentor' %}
+	{% set title = 'Matthew Akinnayajo has been added as a mentor' %}
 {% else %}
 	{% set title = 'Full Name has been added' %}
 
@@ -49,15 +49,15 @@
 				<li>if any mentors and ECTs are not eligible for this programme</li>
 			</ul>
 						
-			<!-- <h2 class="govuk-heading-m">What you can do now</h2>
+			<h2 class="govuk-heading-m">What you can do now</h2>
 			<ul class="govuk-list govuk-!-margin-bottom-5">
-				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new early career teacher</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new ECT</a></li>
 				<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						
 				{% if not data['induction-tutor-as-mentor'] %}		
 				<li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
-				{% endif %} -->
-				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></p>
-			<!-- </ul> -->
+				{% endif %}
+				<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></li>
+			</ul>
 
 		</div>
   	</div>

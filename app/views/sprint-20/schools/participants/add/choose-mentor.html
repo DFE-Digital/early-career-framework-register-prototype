@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
-{% set pageSection = "St Hilda's Church of England High School - 2021 to 2022 cohort" %}
+{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
+	{% set pageHeading = 'You cannot assign a mentor to this ECT' %}	
+{% else %}
+	{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
+{% endif %}
+{% set pageSection = "Copenhagen Primary School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -13,53 +17,55 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
 
-			<p>You can tell us this later if you're not sure.</p>
+			{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
 
+				<p>You do not have any mentors in your cohort.</p>
+				<p><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></p>
+
+			{% else %}
+			<p>You can tell us this later if you're not sure.</p>
 			
-			{% if data['linkaction'] == "change-mentor" %} 
+			{% if data['linkaction'] == "change-mentor-details" %} 
+				<form class="form" action="../details" method="post" >
+			{% elif data['linkaction'] == "change-mentor" %} 
       			<form class="form" action="../details" method="post" >
 			{% else %}
 				<form class="form" action="check-your-answers" method="post" >
 			{% endif %}
-        		
-			{% if data['linkaction'] == "change-mentor" %}
+        							
+					<div class="govuk-form-group">
+						<fieldset class="govuk-fieldset">
+				  			<legend class="govuk-fieldset__legend govuk-visually-hidden">	Who’s {{data['participant-fullname'] }}’s mentor?</legend>
+				  			<div class="govuk-radios">
+								{% if data['added-mentor'] == "Yes" %}
+								<div class="govuk-radios__item">
+					  				<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ data['participant-fullname-mentor'] }}">
+					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ data['participant-fullname-mentor'] }}</label>
+								</div>
+								{% endif %}
 
-					{{ govukRadios({
-						idPrefix: "who-is-mentor",
-						name: "who-is-mentor",						
-						items: [
-							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
-							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
-							{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("who-is-mentor", "Giotto di Bondone") }						
-						]
-					}) }}
-					
+								{% if data['added-sitMentor'] == "Yes" %}
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ defaults.userFullName() }}">
+									<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ defaults.userFullName() }}</label>
+							  	</div>
+								{% endif %}
+
+								{% if not ((data['linkaction'] == "change-mentor") or (data['linkaction'] == "change-mentor-details")) %}
+								<div class="govuk-radios__item">
+					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="I’ll assign a mentor later">
+					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor-2">I’ll asign a mentor later</label>
+								</div>	
+								{% endif %}				
+				  			</div>			  
+						</fieldset>
+			  		</div>
+				
 					{{ govukButton({
 						text: "Continue"
 					}) }}
-
-			{% else %}
-
-					{{ govukRadios({
-						idPrefix: "who-is-mentor",
-						name: "who-is-mentor",						
-						items: [
-							{ value: "Henry Purcell", text: "Henry Purcell", checked: checked("who-is-mentor", "Henry Purcell") },
-							{ value: "Berthe Morisot", text: "Berthe Morisot", checked: checked("who-is-mentor", "Berthe Morisot") },
-							{ value: "Giotto di Bondone", text: "Giotto di Bondone", checked: checked("who-is-mentor", "Giotto di Bondone") },
-							{ value: "I'll assign a mentor later", text: "I'll assign a mentor later", checked: checked("who-is-mentor", "I'll assign a mentor later") }
-						]
-					}) }}
-
-					{{ govukButton({
-						text: "Continue"
-					}) }}
-
-			{% endif %}
-
-					
-
       			</form>
+			{% endif %}
 
 		</div>
 	</div>

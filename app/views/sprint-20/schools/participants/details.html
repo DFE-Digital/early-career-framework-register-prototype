@@ -6,11 +6,11 @@
 {% elif data['user-details'] == "mentor" %}  
 	{% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}								
 {% elif data['user-details'] == "sitMentor" %}  
-	{% set pageHeading = 'Ben Norton' %}								
+	{% set pageHeading = 'Matthew Akinnayajo' %}								
 {% else %}
 	{% set pageHeading = "Full Name" %}
 {% endif %}
-{% set pageSection = "St Hilda's Church of England High School - 2021 to 2022 cohort" %}
+{% set pageSection = "Copenhagen Primary School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -74,7 +74,7 @@
 			{% endif %}
 
 			
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<dl class="govuk-summary-list govuk-!-margin-bottom-5">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Name</dt>
 				  	<dd class="govuk-summary-list__value">
@@ -124,8 +124,14 @@
 				{% if data['user-details'] == "ect" %}  							
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
-				  	<dd class="govuk-summary-list__value">Not assigned yet</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__value">
+						{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
+							{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+						{% else %}
+							No mentors in your cohort
+						{% endif %}
+						</dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/choose-mentor?linkaction=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				</div>									
 				{% endif %}
 			</dl>			            
@@ -162,7 +168,9 @@
 				<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
 				
 			{% endif %}
+			
 
+			<p class="govuk-!-margin-top-9"><a href="../participants">Return to your ECTs and mentors</a></p>
     	</div>
   	</div>
 {% endblock %}

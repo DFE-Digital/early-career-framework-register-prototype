@@ -14,67 +14,40 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			  <p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p> 
-			  <!-- <p>This is a unique ID that:</p> -->
-					
-					<!-- <ul class="govuk-list govuk-list--bullet">
-						<li>is usually 7 digits, for example ’4567814’</li>
-						<li>may include the letters 'RP’ or a slash '/’ symbol, for example 'RP99/12345’</li>					
-					</ul> -->
-					<!-- <p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p> -->
-					<!-- <p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p> -->
-					<!-- <p>You may not have a TRN if you qualified outside England.</p> -->
-
-					<form class="form" action="changed-your-name" method="post" class="govuk-!-margin-bottom-8">
-					{{ govukInput({
-						label: {
-						  text: "What is the name of the event?",
-						  classes: "govuk-visually-hidden",
-						  isPageHeading: false
-						},
-						hint: {
-						  text: "Your TRN is between 6 and 7 characters long. Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol."
-						},
-						classes: "govuk-!-width-three-quarters",
-						id: "trnd",
-						name: "trnd",
-						value: data['trnd']
-					  }) }}
-
-
-					<!-- <div class="govuk-form-group">
-						<label class="govuk-label govuk-!-width-three-quarters bold-label" for="trnd">Teacher reference number (TRN)</label>
-						<span id="email-hint" class="govuk-hint">Your TRN is between 6 and 7 characters long. Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol.</span>
-						<input class="govuk-input govuk-input--width-10" id="trnd" name="trnd" type="text" aria-describedby="trnd" value="{{ data['trnd'] }}">
-					</div> -->
-
-
-      		<!-- <details class="govuk-details" data-module="govuk-details">
-        		<summary class="govuk-details__summary">
-          			<span class="govuk-details__summary-text">What’s a teacher reference number?</span>
-        		</summary>
-
-				<div class="govuk-details__text">
-					<p>A teacher reference number (TRN) is a unique ID that helps us to check you’re a teacher.</p>
-					<p class="govuk-body">Your number:</p>
-					<ul class="govuk-list govuk-list--bullet">
-						<li>is usually 7 digits, for example '4567814'</li>
-						<li>may include the letters 'RP' or a slash '/'' symbol, for example 'RP99/12345'</li>
-					</ul>
-					<p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
-					<p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p>
-					<p>.</p>
-				</div>
-      		</details> -->
-
-
-			  <!-- hint: {
-				text: "You may not have a TRN if you qualified outside England."
-			  }, -->
-      		
-        		
+			<p>This is a unique ID that:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>is usually 7 digits, for example ’4567814’</li>
+				<li>may include the letters 'RP’ or a slash '/’ symbol, for example 'RP99/12345’</li>					
+				<li>is the same as QTS, GTC, DfE, DfES or DCSF numbers</li>
+			</ul>
+			
+			<p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>			
+			<!-- <p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p> -->
+			<!-- <p>You may not have a TRN if you qualified outside England.</p> -->
+			
+			{% if data['linkaction'] == "change-trn" %}
+				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+				<input type="hidden" name="linkaction" id="changeaction" value="" />	
+			{% else %}
+				<form class="form" action="changed-your-name" method="post" class="govuk-!-margin-bottom-8">
+			{% endif %}
 				
-				<p><a href="get-teacher-reference-number">I don’t have a TRN number</a></p>
+				{{ govukInput({
+					label: {
+						text: "What is the name of the event?",
+						classes: "govuk-visually-hidden",
+						isPageHeading: false
+					},
+					hint: {
+						text: "Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol."
+					},
+					classes: "govuk-!-width-three-quarters",
+					id: "trnd",
+					name: "trnd",
+					value: data['trnd']
+				}) }}        		
+				
+				<p><a href="get-teacher-reference-number">I do not have a TRN number</a></p>
 				
         		{{ govukButton({
         			text: "Continue"

@@ -5,7 +5,7 @@
 
 
 {% set pageHeading = "Manage your training" %}
-{% set pageSection = "Netherthorpe School" %}
+{% set pageSection = "Copenhagen Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -43,7 +43,7 @@
 		
 
 
-			{% if (data['induction-programme'] != "DYO") %}
+			{% if not ((data['induction-programme'] == "DYO") or (data['induction-programme'] == "temphold")) %}
 				{% if data['existing-ect-mentor-details']%}
 					<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
 				{% else %}
@@ -67,7 +67,7 @@
 
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Cohort year</dt>					
-					<dd class="govuk-summary-list__value">2021</dd>
+					<dd class="govuk-summary-list__value">2021 to 2022</dd>
 					<dd class="govuk-summary-list__actions"></dd>
 				</div>				
 				
@@ -152,6 +152,14 @@
 							<dd class="govuk-summary-list__value">Expecting no early career teachers</dd>
 							<dd class="govuk-summary-list__actions"><a class="govuk-link" href="../school-signed-in/dyo/dyo-cohort-nextsteps-noect">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
 						</div>					
+				
+				{% elif (data['induction-programme'] === "temphold") %}
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Programme</dt>					
+					<dd class="govuk-summary-list__value">You have chosen to use a training provider funded by your school.</dd>
+					<dd class="govuk-summary-list__actions"></dd>
+				</div>	
 
 				{% endif %}
 
@@ -164,6 +172,12 @@
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">View<span class="govuk-visually-hidden"> programme</span></a></dd>
 					</div> -->
 			</dl>
+
+			{% if (data['induction-programme'] === "temphold") %}
+				<p>if you change your mind about how you want to run your training, contact: <a class="govuk-link" href="continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+			{% endif %}
+
 
 			{% if ((data['induction-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}								
 			<p class="govuk-body">If this doesn’t look right, <a href="report-incorrect-signup">report that your school has been confirmed incorrectly</a>.</p>
