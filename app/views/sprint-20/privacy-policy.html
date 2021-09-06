@@ -17,11 +17,6 @@
   			<h2 class="govuk-heading-l">How we look after your personal data</h2>
 			<h3 class="govuk-heading-m">Department for Education (DfE)</h3>
 
-			
-
-
-
-
 			<p class="govuk-body">Mentions of “us” and “we” mean DfE and “you” means anyone using this service.</p>
 			<p class="govuk-body">This work is being carried out by Teacher Continuing Professional Development, which is a part of the Department for Education (DfE).</p>
 			<p class="govuk-body">Any information we collect when you use our services will be used and looked after by:</p>
@@ -134,13 +129,14 @@
 			<p class="govuk-body">We reserve the right to update this privacy notice at any time, and we will provide you with a new privacy notice when we make any substantial updates. We will also notify you in other ways from time to time about the processing of your personal information.</p>
 
 
-			{% if data['teacher-registering'] == "Yes" %}
+			{% if data['registering'] == "Yes" %}
 				<form method="post" action="schools/participants/register/do-you-have-a-teacher-reference-number" >
 			{% else %}
 				<form method="post" action="schools/choose-induction-programme" >
+				<input type="hidden" id="induction-programme" name="induction-programme" value="" />
 			{% endif %}
 				
-				<input type="hidden" id="induction-programme" name="induction-programme" value="" />
+				
 				{{ govukButton({
 					text: "Continue"
 			  	}) }}

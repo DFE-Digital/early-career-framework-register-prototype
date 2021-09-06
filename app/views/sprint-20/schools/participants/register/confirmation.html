@@ -108,6 +108,8 @@
 			<!-- noECT -->
 			{% elif data['induction-programme'] == "noECT" %}
 				<p>No content yet.</p>
+			{% elif not data['induction-programme'] %}
+			  <p>You will not see content as you have not chosen an induction programme on the preload.</p>
 			{% endif %}
 			
 
