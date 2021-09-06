@@ -1,23 +1,40 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Get a teacher reference number (TRN)" %}
+{% set pageHeading = "How to request or get a new teacher reference number (TRN)" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+      		<h2 class="govuk-heading-l">Request a TRN</h2>
 
-      <h2 class="govuk-heading-m">Request a TRN by email</h2>
-      <p class="govuk-body">If you've never been given a TRN, then email the Teaching Regulation Agency at <a class="govuk-link" href="mailto:qts.enquiries@education.gov.uk">qts.enquiries@education.gov.uk</a>. They aim to reply within 5 working days.</p>
-      <p class="govuk-body">You'll need to provide some information and proof of ID to get a TRN.</p>
-      <p class="govuk-body">Use the free Galaxkey secure email platform to make sure your identification documents are protected.</p>
+			<h3 class="govuk-heading-s">Email</h3>
+			<p class="govuk-body">Email <a class="govuk-link" href="mailto:qts.enquiries@education.gov.uk">qts.enquiries@education.gov.uk</a>. You must include your:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>full name</li>
+				<li>date of birth</li>
+				<li>National Insurance number</li>
+			</ul>
+			
+			<h3 class="govuk-heading-s">By phone</h3>
+			<p class="govuk-body">Call the Teaching Regulation Agency on 020 7593 5394.</p>
+			<p class="govuk-body">Make sure you have your National Insurance number ready before you call.</p>
+			<p class="govuk-body">Phone lines are open 9 AM to 5PM Monday to Thursday, and 9AM to 4:30 PM on Friday. Lines are closed on bank holidays.</p>
+      
+			<!-- ////////////////// -->
 
-      <h2 class="govuk-heading-m">Register to send a secure email</h2>
+      		<h2 class="govuk-heading-l">Get a new TRN number</h2>
+      		<h3 class="govuk-heading-s">Request a TRN by email</h3>
+      		<p class="govuk-body">If you've never been given a TRN, then email the Teaching Regulation Agency at <a class="govuk-link" href="mailto:qts.enquiries@education.gov.uk">qts.enquiries@education.gov.uk</a>. They aim to reply within 5 working days.</p>
+      		<p class="govuk-body">You'll need to provide some information and proof of ID to get a TRN.</p>
+      		<p class="govuk-body">Use the free Galaxkey secure email platform to make sure your identification documents are protected.</p>
+
+      		<h2 class="govuk-heading-m">Register to send a secure email</h2>
       <p class="govuk-body">To send a secure email to the department, go to the Galaxkey site: <a class="govuk-link" href="https://manager.galaxkey.com/services/registerme">https://manager.galaxkey.com/services/registerme</a></p>
       <p class="govuk-body">Enter the email address that you want to sign up with, and complete the registration process.</p>
       <p class="govuk-body">You'll get an email to activate your account once you complete this step. You can then send secure emails to the Teaching Regulation Agency using Galaxkey.</p>
@@ -53,6 +70,10 @@
       <p class="govuk-body">The Teaching Regulation Agency will use the information you send to create a permanent record and your TRN.</p>
       <p class="govuk-body">Your ID documents will be deleted once your request is processed.</p>
 
+
+
+
+      
     </div>
   </div>
 {% endblock %}

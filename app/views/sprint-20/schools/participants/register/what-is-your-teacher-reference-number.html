@@ -24,7 +24,9 @@
 			<p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>			
 			<!-- <p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p> -->
 			<!-- <p>You may not have a TRN if you qualified outside England.</p> -->
-			
+			<!-- hint: {
+				text: "Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol."
+			}, -->
 			{% if data['linkaction'] == "change-trn" %}
 				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
 				<input type="hidden" name="linkaction" id="changeaction" value="" />	
@@ -44,7 +46,7 @@
 					value: data['trnd']
 				}) }}        		
 				
-				<p><a href="get-teacher-reference-number">I do not have a TRN number</a></p>
+				<p><a href="get-teacher-reference-number">I do not have a TRN number </a></p>
 				
         		{{ govukButton({
         			text: "Continue"

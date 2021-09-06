@@ -16,8 +16,11 @@
 					<form class="form" action="schools/manage-your-training" method="post">
 
 				{% else %}
+					{% if data['registering'] == "Yes"%}
 
-					{% if ((data['induction-programme'] == "FIP") or ( data['induction-programme'] == "CIP" )) %}
+						<form class="form" action="privacy-policy" method="post">							
+
+					{% elif ((data['induction-programme'] == "FIP") or ( data['induction-programme'] == "CIP" )) %}
 						<form class="form" action="schools/manage-your-training" method="post">					
 					{% else %}
 						{% if data['participantType'] == "sitMentor" %}

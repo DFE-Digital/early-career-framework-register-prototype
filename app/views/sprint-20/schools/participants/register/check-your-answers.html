@@ -38,17 +38,20 @@
 			{% endif %}      		
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        		<div class="govuk-summary-list__row">
+        		
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">Name</dt>
+					<dd class="govuk-summary-list__value">{{ defaults.userFullName() }}</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+			  	</div>
+
+				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key govuk-!-width-one-half">TRN</dt>
 					<dd class="govuk-summary-list__value">{{ data['trnd'] }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="what-is-your-teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
 			  	</div>
 
-				<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key govuk-!-width-one-half">Name</dt>
-          			<dd class="govuk-summary-list__value">{{ data['fullName'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
-        		</div>
+				
 
         		
 
