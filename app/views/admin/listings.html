@@ -83,10 +83,13 @@
             <h3 class="govuk-heading-m">Choose programme</h3>
             <p>What an induction tutor sees after first sign in, or if they have not yet chosen an induction programme. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355290069818&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-programme-info" >Do you know how you want to run your 2021/22 induction for early career teachers?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-programme-info?eligible-funding=No" >Do you know how you want to run your 2021/22 induction for early career teachers? (Not eligible for funding)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/choose-induction-programme" >How do you want to run your training in 2021 to 2022?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/choose-induction-programme?eligible-funding=No" >How do you want to run your training in 2021 to 2022?</a></li>
+                <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-programme-info" >Do you know how you want to run your 2021/22 induction for early career teachers?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-programme-info?eligible-funding=No" >Do you know how you want to run your 2021/22 induction for early career teachers? (Not eligible for funding)</a></li> -->
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/choose-induction-programme?eligible-funding=" >How do you want to run your training in 2021 to 2022?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/choose-induction-programme?eligible-funding=No" >How do you want to run your training in 2021 to 2022? (No funding)</a></li>
+                </ul>
+                
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirm-induction-programme" >Confirm your induction programme</a></li>                                            
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/provision-confirmed" >Your choice has been saved for 2021/22</a></li>
             </ul>
@@ -194,24 +197,29 @@
             <h2 class="govuk-heading-l">Teacher or mentor validation</h2>
             <p>The nominated ECT or mentor is notified via email of a registration action in order to sign in to access materials. <br /><span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457359058552030&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/particpant-email?participantType=ECT" >Important: Sign in to register (ECT is default)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/dqt-contact" >Change your details on the Database of Qualified Teachers (DQT)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/finish-ect" >Registration complete</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-change-ect" >Name changes</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-maybe" >I dont know if I updated my name</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/name-not-updated" >Name not updated</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/privacy-policy-ect" >Privacy policy</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/qct-ect" >Qualified teacher check</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-account-ect" >How to get an account for this service</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-check-email-ect" >Check your email</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-continue-to-account-ect" >You are now signed in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/sign-in-ect" >Sign in</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/start-registration" >Register for your Early Career training and support</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-ect" >Teacher reference number</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-error" >We cannot find your details</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-get" >Get a Teacher Reference Number (TRN)</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/trn-info" >Teacher reference number</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/teacher-or-mentors/cip-validation/update-name" >Updated name</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/emails/particpant-email?participantType=ECT" >Important: Sign in to register (ECT is default)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/">Register for your Early Career training and support</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/privacy-policy" >Privacy policy</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/do-you-have-a-teacher-reference-number" >Do you have a teacher reference number (TRN)?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/get-teacher-reference-number" >Get a teacher reference number (TRN)</a></li>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/teacher-reference-number" >Do you know your teacher reference number (TRN)?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/find-your-teacher-reference-number" >Request a TRN reminder</a></li>
+                </ul>                
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/changed-your-name" >Have you changed your name since you started your initial teacher training (ITT)?</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/update-record" >Have you updated your name with the Teaching Regulation Agency?</a></li>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/name-not-updated" >What do you want to do now?</a></li>
+                        <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/change-details" >Change your details on the Database of Qualified Teachers (DQT)</a></li>
+                    </ul>
+                </ul>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/your-details" >Tell us your details</a></li>                
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/check-your-answers?validated=" >Check your answers</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/check-your-answers?validated=No" >Check your answers (not validated)</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/participants/register/confirmation" >Information submitted</a></li>
             </ul>
 
 
