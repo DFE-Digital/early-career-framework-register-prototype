@@ -31,7 +31,7 @@
 				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
 				<input type="hidden" name="linkaction" id="changeaction" value="" />	
 			{% else %}
-				<form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
+				<form class="form" action="changed-your-name" method="post" class="govuk-!-margin-bottom-8">
 			{% endif %}
 				
 				{{ govukInput({
@@ -47,7 +47,7 @@
 					value: data['trnd']
 				}) }}        		
 				
-				<p><a href="get-teacher-reference-number">I do not have a TRN number or cannot find it</a></p>
+				<p><a href="get-teacher-reference-number">I do not have a TRN number </a></p>
 				
         		{{ govukButton({
         			text: "Continue"
