@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Find your school" %}
+{% set pageHeading = "What’s the name of your school?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,11 +19,9 @@
 						isPageHeading: "false",
               			classes: "govuk-visually-hidden"
             		},
-            		hint: {
-              			text: "Enter school name"
-            		},
             		classes: "govuk-!-width-two-thirds",
             		id: "school-lookup",
+					value: data['school-lookup'],
             		name: "school-lookup"
           		}) }}    
 

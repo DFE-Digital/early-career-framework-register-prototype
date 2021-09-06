@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "You are now signed in" %}
+{% set pageHeading = "You’re now signed in" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -9,8 +9,7 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-			
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}			
 				
 				{%if data['user-research'] == "Yes" %}
 
@@ -18,16 +17,13 @@
 
 				{% else %}
 
-					{% if data['induction-programme'] == "FIP" %}
-						<form class="form" action="schools/manage-your-training" method="post">
-					{% elif data['induction-programme'] == "CIP" %}
-						<form class="form" action="schools/manage-your-training" method="post">
+					{% if ((data['induction-programme'] == "FIP") or ( data['induction-programme'] == "CIP" )) %}
+						<form class="form" action="schools/manage-your-training" method="post">					
 					{% else %}
 						{% if data['participantType'] == "sitMentor" %}
 							<form class="form" action="two-roles" method="post">
 						{% else %}						
-							<form class="form" action="privacy-policy" method="post">
-							<!-- <input type="hidden" name="teacher-registering" id="teacher-registering" value="Yes" />	 -->
+							<form class="form" action="privacy-policy" method="post">							
 						{% endif %}
 					{% endif %}
 

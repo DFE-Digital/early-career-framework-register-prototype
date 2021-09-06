@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Confirm your details" %}
+{% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -9,19 +9,15 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
       
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
-      		<p class="govuk-body">We will send a link to the email address your school has listed on our register, Get Information about Schools.</p>
-      		<p class="govuk-body">It will be an administration email, for example, office@, admin@ or head@</p>
-      		<p class="govuk-body govuk-!-margin-bottom-7">If you’re not sure, <a href="https://interactions.signin.education.gov.uk//668af363-eb4a-4be7-8fea-bf7450f00c3b/usernamepassword?clientid=services&redirect_uri=https://services.signin.education.gov.uk:443/auth/cb"> sign in to DfE</a> and check that your GIAS email is up to date.</p>
-			
-      		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Your school</h2>
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		      		
 
       		{{ govukSummaryList({
         		rows: [
-          			{ key: { text: "Name" }, value: { text: data['school-lookup'] } },
+					{ key: { text: "Local Authority" }, value: { text: data['local-authority'] } },
+					{ key: { text: "School" }, value: { text: data['school-lookup'] }, classes: "govuk-!-width-one-half" },
           			{ key: { text: "URN" }, value: { text: "9348523" } },
           			{ key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
+					
         		]
       		}) }}
       		
@@ -30,7 +26,7 @@
       		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
 
         		{{ govukButton({
-          			text: "Confirm"
+          			text: "Confirm and send"
         		}) }}
       	
 			</form>

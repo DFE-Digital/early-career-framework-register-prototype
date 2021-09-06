@@ -12,38 +12,28 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
-			<p>Use this service to set up a 2 year training programme for your early career teachers (ECTs). You will need to tell us:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>how you want to run your training</li>
-				<li>which accredited materials or training provider you will use</li>
-				<li>which ECTs and mentors will be on the programme</li>
-			</ul>
-			
-
-      		<!-- <p>This service is for induction tutors who have been nominated by their school.</p>
-			<p>Use this service to manage your school’s statutory induction programme for early career teachers.</p> -->
+			<p>Use this service to set up a 2-year training programme for your early career teachers (ECTs).</p> 
 			
 			<div class="govuk-inset-text">
-				<p>You can use our <a href="how-to-set-up-your-programme" class="govuk-link" rel="noreferrer noopener" target="_blank">step by step guide (opens in new tab)</a> to help you complete these steps.</p>
+				<p><a href="how-to-set-up-your-programme" class="govuk-link" rel="noreferrer noopener" target="_blank">Read our step-by-step guidance (opens in new tab)</a> to find out what’s changed this year, and what you need to do.</p>
 			</div>
-			
-			<!-- <h2 class="govuk-heading-m">When does this need to be completed</h2> -->
-			<p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme. </p>
- 			<p class="govuk-!-margin-bottom-7">For example, if your ECTs are starting in September, you need to complete these steps before then.</p>
 
-      		<!-- <p>Your school must complete these steps before your early career teachers (ECTs) start their statutory induction programme. For example, if your ECTs are starting in September, you need to complete these steps before then.</p> -->
+			<p>Sign in to this service to tell us:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>how you want to run your training</li>
+				<li>which accredited materials or training provider you'll use</li>
+				<li>which ECTs and mentors will be on the programme</li>
+			</ul>
+						
+			<p>Your school must complete these steps before your ECTs can start their statutory induction programme. </p>      		
 			
-			<form method="post" action="sign-in" >      			
-				<!-- Put this in just in case we ever need to highlight that the user has STARTED -->
+			<form method="post" action="sign-in" >      							
 				<input type="hidden" name="start-service" id="start-service" value="yes" />				
 				{{ govukButton({
         			text: "Start now",        	
         			isStartButton: true
       			}) }}
 			</form>
-
-      		<h2 class="govuk-heading-m">Do you have an account?</h2>
-      		<p>You must be nominated or sent sign in details to access this service. <a class="govuk-link govuk-link--no-visited-state" href="how-to-get-an-account">Find out how to get an account</a></p>
 
     	</div> 
 		
