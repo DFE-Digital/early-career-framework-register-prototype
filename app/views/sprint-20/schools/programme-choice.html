@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Choose an induction programme" %}
+{% set pageHeading = "View details about your induction programme" %}
 {% set pageSection = "2021 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,19 +12,16 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body-l"><span class="govuk-!-font-weight-bold">You have chosen to:</span> 
-				
-				
-
-				<!-- CIP -->
-				{% if data['induction-programme'] == "CIP" %}
-					deliver your own programme using the DfE accredited materials</p>				
-				{% elif data['induction-programme'] == "FIP" %}				
-					use a training provider, funded by the DfE
-				{% elif data['induction-programme'] == "DYO" %}		
-					design and deliver your own programe based on the Early Career Framework (ECF)
-				{% endif %}
-
+      		<dl class="govuk-summary-list">
+  				<div class="govuk-summary-list__row">
+    				<dt class="govuk-summary-list__key">
+     				 Programme
+    				</dt>
+    				<dd class="govuk-summary-list__value">
+     				 Design and deliver your own programe based on the Early Career Framework (ECF)
+    				</dd>
+  				</div>
+				</dl>	
 			
 
 			{% if data['induction-programme'] == "CIP" %}
@@ -70,32 +67,29 @@
 
 
 			{% elif data['induction-programme'] == "DYO" %}				
-				
-				<h2 class="govuk-heading-m">What you can do now</h2>
-				<p class="govuk-body">The <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">early career framework (ECF)</a> covers 8 standards. For every standard there are statements for early career teachers to “learn that” and “learn how to”.</p>
-				<p class="govuk-body">You need to:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>design training that covers all of these statements</li>
-					<li>ask your appropriate body what evidence you will need to demonstrate that your programme meets the statutory requirements</li>
-				</ul>
 			
-				<h2 class="govuk-heading-m">What you need to do before your induction starts</h2>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>make sure your early career teacher has enough time off in their timetable to complete training</li>
-					<li>make sure that your induction tutor and mentor have the time to carry out their roles</li>
-				</ul>
-				<p class="govuk-body"><a href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england">See our guidance for details on time off, roles and responsibilities</a></p>
-			
-				<h2 class="govuk-heading-m">How to change your programme</h2>
-				<p class="govuk-body">If your school decides to:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>use a training provider, funded by the DfE (full induction programme)</li>
-				</ul>
-				<p class="govuk-body">Or</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>deliver your own programme using DfE accredited materials (core induction programme)</li>
-				</ul>
-				<p class="govuk-body">Contact: <a href="mailto:continuing-professional-development@digital.education.gov.uk?subject=feedback">continuing-professional-development@digital.education.gov.uk</a></p>
+			<h2 class="govuk-heading-m">How to run this programme</h2>
+		
+				<p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
+
+				 <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction"> See our statutory guidance</a> for information about funding, time off, and roles.</p> 
+
+			  <h2 class="govuk-heading-m">Your ECTs and mentors</h2>	
+
+      			<p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>	 
+
+			<h2 class="govuk-heading-m">Your appropriate body</h2>	
+
+      			<p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
+      			<ul class="govuk-list govuk-list--bullet">
+        			<li>is based on the ECF</li>
+        			<li>meets the statutory requirements</li>
+      			</ul>
+ 
+      			
+      		<h2 class="govuk-heading-m">Change how you run your programme</h2>
+
+      			<p class="govuk-body"><a class="govuk-link" href="/schools/choose-induction-programme">Check the options available</a> for your school.</p>
 
 			{% endif %}
 
