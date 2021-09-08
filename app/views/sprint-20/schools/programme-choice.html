@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "View details about your induction programme" %}
+{% set pageHeading = "About your training programme" %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -87,8 +87,8 @@
 					]
 				}) }} -->
 			
-				<h2 class="govuk-heading-m">Programme</h2>		
-				<p>Design and deliver your own programe based on the Early Career Framework (ECF)</p>
+				<h2 class="govuk-heading-m">Programme choice</h2>		
+				<p>Your school has chosen to design and deliver your own programe based on the Early Career Framework (ECF).</p>
 				
 				<h2 class="govuk-heading-m">How to run this programme</h2>		
 				<p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
@@ -106,6 +106,16 @@
        			
       			<h2 class="govuk-heading-m">Change how you run your programme</h2>
       			<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>
+
+      	{% elif data['induction-programme'] == "noECT" %}	
+
+
+      			<h2 class="govuk-heading-m">Programme choice</h2>	
+      			<p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2021 to 2022 academic year.</p>
+			
+       			
+      			<h2 class="govuk-heading-m">Tell us if you do expect ECTs to join you in this academic year</h2>
+      			<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Update your information</a> and follow the steps to set up your training programme.</p>
 
 			{% endif %}
 

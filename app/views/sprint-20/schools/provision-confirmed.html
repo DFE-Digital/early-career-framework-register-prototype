@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Induction programme confirmed" %}
+{% set pageHeading = "Training programme confirmed" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,35 +18,28 @@
 
       		{% if (data['induction-programme'] === "DYO") %}
       			
-				<h3 class="govuk-heading-m">What happens next</h3>
-      			<ul class="govuk-list govuk-list--bullet">
-        			<li>we will send you any relevant updates</li>
-					<li>you do not need to sign in to the service to set up your programme</li>
-					<li>if you change your mind about how you want to run your induction, contact: <a class="govuk-link" href="continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></li>
-      			</ul>
+				<h2 class="govuk-heading-m">What happens next</h2>     
+        <p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
+        <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction"> See our statutory guidance</a> for information about funding, time off, and roles.</p> 
 
-      			<h3 class="govuk-heading-m">What you can do now</h3>
-      			<p>The <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a> covers 8 standards. For every standard there are statements for early career teachers to “learn that” and “learn how to”.</p>
-      			<p class="govuk-body">You need to design training that covers all of these statements.</p>
-      			<p class="govuk-body">You must also ask your appropriate body what evidence you need to demonstrate that your programme is:</p>
-      			<ul class="govuk-list govuk-list--bullet">
-        			<li>based on the ECF</li>
-        			<li>meets the statutory requirements</li>
-      			</ul>
+          <h2 class="govuk-heading-m">Your ECTs and mentors</h2>  
+            <p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>  
 
-      			<h3 class="govuk-heading-m">What you need to do before your induction starts</h3>
-      			<ul class="govuk-list govuk-list--bullet">
-        			<li>make sure your early career teacher has enough time off in their timetable to complete training</li>
-        			<li>make sure that your induction tutor and mentor have the time to carry out their roles</li>
-      			</ul>
-
-      			<p><a class="govuk-link" href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england"> See our statutory guidance</a> for details on time off, roles and responsibilities.</p>      			
+        <h2 class="govuk-heading-m">Your appropriate body</h2>  
+            <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>is based on the ECF</li>
+              <li>meets the statutory requirements</li>
+            </ul>
+            
+            <h2 class="govuk-heading-m">Change how you run your programme</h2>
+            <p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>    			
 
       		{% elif (data['induction-programme'] === "noECT") %}
 
 				<h3 class="govuk-heading-m">What happens next</h3>
-      			<p>We will contact [school name] in the next academic year.</p>
-      			<p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="../nominations/resend-email">nominate someone to set up your programme.</a></p>      			
+      			<p>Your school will not receive any more messages about statutory inductions for early career teachers (ECTs) until the next academic year.</p>
+      			<p>If any ECTs do join your school this year, you need to use this service to let us know.</a></p>      			
 
       		{% elif ((data['induction-programme'] == "FIP") or (data['induction-programme'] == "CIP")) %}
 
@@ -59,7 +52,6 @@
 			  <li>if you change your mind about how you want to run your training, contact: <a class="govuk-link" href="continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></li>
 			</ul>
 
-			
 
 			{% endif %}
 			
