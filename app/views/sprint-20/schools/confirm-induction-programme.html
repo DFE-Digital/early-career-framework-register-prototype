@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm your training programme" %}
+{% if data['change-programme'] == "Yes" %}
+	{% set pageHeading = "New heading needed for change programme confirm" %}
+{% else %}
+	{% set pageHeading = "Confirm your training programme" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,6 +15,13 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+			{% if data['change-programme'] == "Yes" %}
+
+			<p>Placeholder for the new content for when the user has changed their induction programme.</p>
+
+			{% else %}
 
 			<p class="govuk-body">You have chosen to
 			
@@ -27,8 +38,12 @@
 				{% endif %}
 			</p>
 			
+			{% endif %}
       		
 			<form method="post" action="provision-confirmed" >
+				{% if data['change-programme'] == "Yes" %}
+				<input type="hidden" name="change-programme" id="change-programme" value="" />
+				{% endif %}			
 								
 				{{ govukButton({
 					text: "Confirm"

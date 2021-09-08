@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "How do you want to run your training in 2021 to 2022?" %}
-{% set pageSection = "{School name}" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -59,7 +59,35 @@
 
       		<form class="form" action="confirm-induction-programme" method="post" class="govuk-!-margin-bottom-8">
 				
-				{% if data['eligible-funding'] == "No" %}
+				
+				{% if data['change-programme'] == "Yes" %}
+				
+
+					{% if data['induction-programme'] == "DYO" %}
+
+						{{ govukRadios({
+							idPrefix: "induction-programme",
+							name: "induction-programme",
+							items: [
+								{ value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)", checked: checked("induction-programme", "FIP") },
+								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials (core induction programme)", checked: checked("induction-programme", "CIP") },							
+								{ value: "noECT", text: "We don’t expect to have any early career teachers starting in 2021", checked: checked("induction-programme", "noECT") }
+							]
+						}) }}
+
+					{% elif data['induction-programme'] == "NOECT" %}
+						<!-- No work on this as yet -->
+					{% elif data['induction-programme'] == "CIP" %}
+						<!-- No work on this as yet -->
+					{% elif data['induction-programme'] == "FIP" %}
+						
+						<p>You have not selected an induction programme</p>
+
+					{% endif %}
+
+
+				
+				{% elif data['eligible-funding'] == "No" %}
 
 					{{ govukRadios({
 						idPrefix: "induction-programme",
