@@ -137,9 +137,16 @@
             <p>When a school designs and deliver their own programme based on the Early Career Framework (ECF).</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=DYO" >Manage your training</a></li>                
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=DYO" >Choose your induction programme</a></li>
-                <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-find-training-provider" >Have you signed up with a training provider?</a></li> -->
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/dyo/dyo-cohort-nextsteps-noect?induction-programme=DYO" >You are not expecting any early career teachers this year</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=DYO" >Choose your induction programme</a></li>
+                </ul>                
+            </ul>
+
+
+            <h3 class="govuk-heading-m">Not expecting any ECT (noECT)</h3>
+            <p>When a school is not expecting to have any ECTs but has an induction tutor.</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=noECT" >Manage your training</a></li>                                
             </ul>
 
                         
