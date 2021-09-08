@@ -11,18 +11,19 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
+										
 
-			{{ govukSummaryList({
-				classes: 'govuk-summary-list--no-border',
-				rows: [
-					{
-						key: { text: "Programme" },
-						value: { text: "Design and deliver your own programe based on the Early Career Framework (ECF)" }
-					}
-				]
-				}) }}							
+				{% if data['induction-programme'] == "CIP" %}
 
-			{% if data['induction-programme'] == "CIP" %}
+				<!-- 	{{ govukSummaryList({
+						classes: 'govuk-summary-list--no-border govuk-!-margin-bottom-7',
+						rows: [
+							{
+								key: { text: "Programme" },
+								value: { text: "Using a training provider, funded by the DfE" }
+							}
+						]
+					}) }} -->
 			
 				<h2 class="govuk-heading-m">Changing your programme</h2>
 				<p class="govuk-body">If your school wants to use a training provider, funded by the DfE, you should:</p>
@@ -45,6 +46,16 @@
 				</div>
 
 			{% elif data['induction-programme'] == "FIP" %}
+
+				<!-- {{ govukSummaryList({
+					classes: 'govuk-summary-list--no-border govuk-!-margin-bottom-7',
+					rows: [
+						{
+							key: { text: "Programme" },
+							value: { text: "Deliver your own programme using the DfE accredited materials" }
+						}
+					]
+				}) }} -->
 				
 				<h2 class="govuk-heading-m">Changing your programme</h2>
 				<p class="govuk-body">If your school has decided to:</p>
@@ -64,7 +75,17 @@
 
 
 
-			{% elif data['induction-programme'] == "DYO" %}				
+			{% elif data['induction-programme'] == "DYO" %}			
+			
+				{{ govukSummaryList({
+					classes: 'govuk-summary-list--no-border govuk-!-margin-bottom-7',
+					rows: [
+						{
+							key: { text: "Programme" },
+							value: { text: "Design and deliver your own programe based on the Early Career Framework (ECF)" }
+						}
+					]
+				}) }}
 			
 				<h2 class="govuk-heading-m">How to run this programme</h2>		
 				<p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
