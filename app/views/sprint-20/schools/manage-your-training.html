@@ -43,7 +43,7 @@
 		
 
 
-			{% if not ((data['induction-programme'] == "DYO") or (data['induction-programme'] == "temphold")) %}
+			{% if not ((data['induction-programme'] == "DYO") or (data['induction-programme'] == "temphold") or (data['induction-programme'] == "noECT")) %}
 				{% if data['existing-ect-mentor-details']%}
 					<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
 				{% else %}
