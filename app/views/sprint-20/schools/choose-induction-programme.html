@@ -75,13 +75,23 @@
 							]
 						}) }}
 
-					{% elif data['induction-programme'] == "NOECT" %}
-						<!-- No work on this as yet -->
+					{% elif data['induction-programme'] == "noECT" %}
+
+						{{ govukRadios({
+							idPrefix: "induction-programme",
+							name: "induction-programme",
+							items: [
+								{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
+								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },							
+								{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") }
+							]
+						}) }}
+
 					{% elif data['induction-programme'] == "CIP" %}
 						<!-- No work on this as yet -->
 					{% elif data['induction-programme'] == "FIP" %}
-						
-						<p>You have not selected how to run your training programme.</p>
+						<!-- No work on this as yet -->
+						<p>You have not selected how to run your training programme in the preload.</p>
 
 					{% endif %}
 
