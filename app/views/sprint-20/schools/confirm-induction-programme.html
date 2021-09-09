@@ -21,21 +21,33 @@
 
 				{% if (data['induction-programme'] === "FIP") %}
 
-					<p>You’ll need to follow the steps to choose a training provider and add your ECTs and mentors.</p>
+					<p>You have chosen to use a training provider, funded by the DfE.</p>
+					<p>You’ll need to follow the steps to:
+						<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+							<li>choose a training provider </li>
+							<li>add your ECTs and mentors.</li>
+						</ul>
 
 				{% elseif (data['induction-programme'] === "CIP") %}
-
-					<p>You’ll need to follow the steps to choose your training materials and add your ECTs and mentors.</p>
+					
+					<p>You have chosen to deliver your own programme using DfE accredited materials.</p>
+					<p>You’ll need to follow the steps to:
+					<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+						<li>choose your training materials</li>
+						<li>add your ECTs and mentors</li>
+					</ul>					
 				
 				{% elseif (data['induction-programme'] === "DYO") %}
 
 					<!-- noECT to DIY  -->
+					<p>You are choosing to design and deliver your own programme based on the Early Career Framework (ECF).</p>
 					<p class="govuk-body">You’ll need to design a 2-year programme of support and training that covers every ’learn that’ and ’learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
 					<p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction"> See our statutory guidance</a> for information about funding, time off, and roles.</p> 
 				
 				{% elseif (data['induction-programme'] === "noECT") %}
 					
 					<!-- DIY to noECT -->
+					<p>You are not expecting any early career teachers to join.</p>
 					<p>Your school will not receive any more messages about statutory inductions for early career teachers (ECTs) until the next academic year.</p>
 					<p>If any ECTs do join your school this year, you need to use this service to let us know.</p>				
 			
