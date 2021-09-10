@@ -72,6 +72,8 @@
 							<td class="govuk-table__cell">
 								{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
 									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+								{% else %}
+									No mentor assigned
 								{% endif %}
 							</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?user-details=ect" class="govuk-link govuk-link--no-visited-state">View details</a></td>

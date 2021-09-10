@@ -24,10 +24,8 @@
 
 			{% else %}
 			<p>You can tell us this later if you're not sure.</p>
-			
-			{% if data['linkaction'] == "change-mentor-details" %} 
-				<form class="form" action="confirmation" method="post" >
-			{% elif data['linkaction'] == "change-mentor" %} 
+						
+			{% if data['linkaction'] == "change-mentor" %} 
       			<form class="form" action="../details" method="post" >
 			{% else %}
 				<form class="form" action="check-your-answers" method="post" >
@@ -51,10 +49,10 @@
 							  	</div>
 								{% endif %}
 
-								{% if not ((data['linkaction'] == "change-mentor") or (data['linkaction'] == "change-mentor-details")) %}
+								{% if not data['linkaction'] == "change-mentor" %}
 								<div class="govuk-radios__item">
-					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="I’ll assign a mentor later">
-					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor-2">I’ll asign a mentor later</label>
+					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="No mentor assigned">
+					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor-2">Asign a mentor later</label>
 								</div>	
 								{% endif %}				
 				  			</div>			  
