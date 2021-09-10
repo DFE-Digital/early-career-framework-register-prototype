@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+
+{% if((data['induction-programme'] == "DYO") or ( data['induction-programme'] == "noECT" )) %}
 {% set pageHeading = "About your training programme" %}
+{% else %}
+{% set pageHeading = "Choose an induction programme" %}
+{% endif %}
+
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

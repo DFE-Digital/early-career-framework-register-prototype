@@ -12,12 +12,20 @@
     	<div class="govuk-grid-column-two-thirds">
       					
       		{{ govukPanel({
-        		titleText: pageHeading        		
+        		titleText: pageHeading,
+				classes: "govuk-!-margin-bottom-7"	
       		}) }}
 			  
 
 				{% if ((data['induction-programme'] == "FIP") or (data['induction-programme'] == "CIP")) %}
 
+			  		<p><a href="manage-your-training">Complete the steps to set up your training programme</a></p>
+					<!-- <p>You need to follow the steps to:
+						<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+							<li>choose a training provider </li>
+							<li>add your ECTs and mentors.</li>
+						</ul> -->
+					<!-- <p>Continue to manage your training programme</a>.</p> -->
       			
 			  	{% elif (data['induction-programme'] === "DYO") %}
       			
@@ -55,12 +63,12 @@
 			
 				{% if (data['induction-programme'] != "noECT") %}
 				
-					<form class="form" action="manage-your-training" method="post" class="govuk-!-margin-bottom-8">
+					<!-- <form class="form" action="manage-your-training" method="post" class="govuk-!-margin-bottom-8">
         		
 					{{ govukButton({
 						text: "Continue"
 					}) }}
-					</form>
+					</form> -->
 				
 				{% endif %}
 
