@@ -3,7 +3,7 @@
 
 
 {% if((data['induction-programme'] == "DYO") or ( data['induction-programme'] == "noECT" )) %}
-{% set pageHeading = "About your training programme" %}
+{% set pageHeading = "Change how you run your programme" %}
 {% else %}
 {% set pageHeading = "Choose an induction programme" %}
 {% endif %}
@@ -82,33 +82,11 @@
 
 
 			{% elif data['induction-programme'] == "DYO" %}						
-			
-				<h2 class="govuk-heading-m">Programme choice</h2>		
-				<p>Your school has chosen to design and deliver your own programme based on the Early Career Framework (ECF).</p>
-				
-				<h2 class="govuk-heading-m">How to run this programme</h2>		
-				<p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
-				<p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction"> See our statutory guidance</a> for information about funding, time off, and roles.</p> 
-
-			  	<h2 class="govuk-heading-m">Your ECTs and mentors</h2>	
-      			<p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>	 
-
-				<h2 class="govuk-heading-m">Your appropriate body</h2>	
-      			<p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
-      			<ul class="govuk-list govuk-list--bullet">
-        			<li>is based on the ECF</li>
-        			<li>meets the statutory requirements</li>
-      			</ul>
-       			
-      			<h2 class="govuk-heading-m">Change how you run your programme</h2>
+							       		      			
       			<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>
 
       		{% elif data['induction-programme'] == "noECT" %}	
-
-      			<h2 class="govuk-heading-m">Programme choice</h2>	
-      			<p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2021 to 2022 academic year.</p>
-			
-				<h2 class="govuk-heading-m">Change how you run your programme</h2>
+      						
 				<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>
       		
 			{% endif %}
