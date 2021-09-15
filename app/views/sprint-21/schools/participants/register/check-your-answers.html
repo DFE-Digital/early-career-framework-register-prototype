@@ -16,7 +16,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			{% if not data['linkaction']%}  
+			
 
 				{% if data['validated'] == "No" %}
 
@@ -35,7 +35,7 @@
 
 				{% endif %}
 
-			{% endif %}      		
+			
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
         		
@@ -49,11 +49,7 @@
 					<dt class="govuk-summary-list__key govuk-!-width-one-half">TRN</dt>
 					<dd class="govuk-summary-list__value">{{ data['trnd'] }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="what-is-your-teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
-			  	</div>
-
-				
-
-        		
+			  	</div>        		
 
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key govuk-!-width-one-half">Date of birth</dt>
@@ -70,13 +66,13 @@
 
 			
 		
-			{% if not data['linkaction']%}  
+			
 				{% if data['validated'] == "No" %}
 				<div class="govuk-inset-text">
 					<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
 				</div>
 				{% endif %}
-			{% endif %}
+			
 
       		<form class="form" action="confirmation" method="post" >
         		{{ govukButton({
