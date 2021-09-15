@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "What’s the name of your school?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      		<form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
+        	
+            	{{ govukInput({
+            		label: {
+              			text: pageHeading,
+						isPageHeading: "false",
+              			classes: "govuk-visually-hidden"
+            		},
+            		classes: "govuk-!-width-two-thirds",
+            		id: "school-lookup",
+					value: data['school-lookup'],
+            		name: "school-lookup"
+          		}) }}    
+
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      		</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}
