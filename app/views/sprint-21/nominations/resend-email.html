@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+<!-- {% set pageHeading = "Send your school a link to nominate an induction tutor" %} -->
+{% set pageHeading = "Send your school a link to use this service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      					
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<p>We need some information to help us find your school in the Get Information about Schools (GIAS) register.</p>        	
+        	<p>We’ll then send a link to the email address held in the register.</p>
+      		<p>You can <a href="https://services.signin.education.gov.uk/">sign in to the DfE</a> to check that your school's email address is up to date before you start.</p>      				
+
+      		<form class="form" action="local-authority" method="post">
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      		</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}

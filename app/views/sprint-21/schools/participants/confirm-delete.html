@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['deletelink'] == "ect" %}  
+	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname'] + '' %}	
+{% elif data['deletelink'] == "mentor" %}  
+	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname-mentor'] + '' %}								
+{% elif data['deletelink'] == "sitMentor" %}  
+	{% set pageHeading = 'Confirm you want to remove Hugo Furst' %}								
+{% else %}
+	{% set pageHeading = "Confirm you want to remove Full Name" %}
+{% endif %}
+{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
+
+			
+			<p>This means that:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+				<li>their information will be removed from this service</li>
+				<li>they will not be able to access the training programme</li>
+			</ul>   
+				            
+			<form method="post" action="confirmation" >
+
+				{% if data['user-research'] == "Yes" %}
+
+					{% if data['deletelink'] == "ect" %}  
+						<input type="hidden" name="added-ect" id="added-ect" value="" />
+						<input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
+					{% elif data['deletelink'] == "mentor" %}  
+						<input type="hidden" name="added-mentor" id="added-mentor" value="" />
+						<input type="hidden" name="participant-email-address-mentor" id="participant-email-address-mentor" value="" />
+					{% elif data['deletelink'] == "sitMentor" %}  
+						<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
+						<input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="" />
+						
+
+					{% else %}
+						
+					{% endif %}
+
+				{% else %}
+
+
+				{% endif %}
+
+			{{ govukButton({
+				text: "Confirm and remove"
+			}) }}
+			</form>
+			  
+			<p><a href="details">Cancel and go back to your ECTs and mentors</a></p>
+
+    	</div>
+  	</div>
+{% endblock %}

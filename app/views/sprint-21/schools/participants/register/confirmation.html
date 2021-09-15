@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Information submitted" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+			{{ govukPanel({
+				titleText: "Information submitted"
+		  	}) }}        
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
+			
+			<!-- FIP -->
+			{% if data['induction-programme'] == "FIP" %}
+				<!-- Participant type ECT or Mentor -->
+				{% if ((data['participantType'] == "ECT") or (data['participantType'] == "mentor")) %}
+			  		<!-- Fail validation -->
+					{% if data['validated'] == "No" %}
+						<!-- In Partnership -->
+						{% if (data['InPartnership'] == "Yes") %}
+							<p class="govuk-body">We will check your details, you should then be registered to mentor your early career teachers.</p>
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>					
+						{% else %}
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+						{% endif %}
+					<!-- Not failed validation -->
+					{% else %}
+			  			<!-- In Partnership -->
+						{% if (data['InPartnership'] == "Yes") %}																		
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+						{% else %}                												
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+						{% endif %}
+					{% endif %}				
+			  	<!-- Participant type School Induction Tutor and Mentor -->
+				{% elif data['participantType'] == "sitMentor" %}
+			  		<!-- Fail validation -->
+					{% if data['validated'] == "No" %}
+			  			<!-- In Partnership -->
+						{% if (data['InPartnership'] == "Yes") %}														
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+							<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+						{% else %}        	        												
+							<p class="govuk-body">You will not need to use this service again during your training.</p>
+							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+							<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+						{% endif %}
+					<!-- Not failed validation -->
+					{% else %}
+			  			<!-- In Partnership -->
+						{% if (data['InPartnership'] == "Yes") %}													
+							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+							<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+						{% else %}                  															
+							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+							<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>						
+						{% endif %}
+					{% endif %}
+				{% endif %}
+
+			<!-- CIP -->
+			{% elif data['induction-programme'] == "CIP" %}
+			  	<!-- Participant ECT -->
+				{% if data['participantType'] == "ECT" %}
+					<!-- Validation failed -->
+					{% if data['validated'] == "No" %}
+						<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+						<p class="govuk-body">We'll email you a link to access your materials within the next 24 hours.</p>						
+					<!-- Not failed validation -->
+					{% else %}
+						<p class="govuk-body">We'll email you a link to access your materials within the next 24 hours.</p>
+					{% endif %}
+			  	<!-- Participant Mentor -->
+				{% elif data['participantType'] == "mentor" %}
+			  		<!-- Validation failed -->
+					{% if data['validated'] == "No" %}
+						<p>No content yet.</p>
+					<!-- Not failed validation -->
+					{% else %}
+						<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>					
+					{% endif %}
+			  	<!-- Participant type School Induction Tutor and Mentor -->
+				{% elif data['participantType'] == "sitMentor" %}
+			  		<!-- Validation failed -->
+					{% if data['validated'] == "No" %}			  
+						<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+						<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+					<!-- Not failed validation -->
+					{% else %}
+						<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+        				<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+					{% endif %}
+				{% endif %}
+
+			<!-- DYO -->
+			{% elif data['induction-programme'] == "DYO" %}
+			  	<p>No content yet.</p>
+			<!-- noECT -->
+			{% elif data['induction-programme'] == "noECT" %}
+				<p>No content yet.</p>
+			{% elif not data['induction-programme'] %}
+			  <p>You will not see content as you have not chosen an induction programme on the preload.</p>
+			{% endif %}
+			
+
+      		
+    	</div>
+  	</div>
+{% endblock %}

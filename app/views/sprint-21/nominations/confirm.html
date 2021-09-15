@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		      		
+
+      		{{ govukSummaryList({
+        		rows: [
+					{ key: { text: "Local Authority" }, value: { text: data['local-authority'] } },
+					{ key: { text: "School" }, value: { text: data['school-lookup'] }, classes: "govuk-!-width-one-half" },
+          			{ key: { text: "URN" }, value: { text: "9348523" } },
+          			{ key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
+					
+        		]
+      		}) }}
+      		
+			<p class="govuk-body"><a class="govuk-link--no-visited-state" href="local-authority">Change school</a></p>      	
+
+      		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+
+        		{{ govukButton({
+          			text: "Confirm and send"
+        		}) }}
+      	
+			</form>
+
+    	</div>
+  	</div>
+
+{% endblock %}

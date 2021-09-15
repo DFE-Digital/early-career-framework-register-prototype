@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
+	{% set pageHeading = 'You cannot assign a mentor to this ECT' %}	
+{% else %}
+	{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
+{% endif %}
+{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+			
+
+			{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
+
+				<p>You do not have any mentors in your cohort.</p>
+				<p><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></p>
+
+			{% else %}
+			<p>You can tell us this later if you're not sure.</p>
+						
+			{% if data['linkaction'] == "change-mentor" %} 
+      			<form class="form" action="../details" method="post" >
+			{% else %}
+				<form class="form" action="check-your-answers" method="post" >
+			{% endif %}
+        							
+					<div class="govuk-form-group">
+						<fieldset class="govuk-fieldset">
+				  			<legend class="govuk-fieldset__legend govuk-visually-hidden">	Who’s {{data['participant-fullname'] }}’s mentor?</legend>
+				  			<div class="govuk-radios">
+								{% if data['added-mentor'] == "Yes" %}
+								<div class="govuk-radios__item">
+					  				<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ data['participant-fullname-mentor'] }}">
+					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ data['participant-fullname-mentor'] }}</label>
+								</div>
+								{% endif %}
+
+								{% if data['added-sitMentor'] == "Yes" %}
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ defaults.userFullName() }}">
+									<label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ defaults.userFullName() }}</label>
+							  	</div>
+								{% endif %}
+
+								{% if not data['linkaction'] == "change-mentor" %}
+								<div class="govuk-radios__item">
+					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="No mentor assigned">
+					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor-2">Asign a mentor later</label>
+								</div>	
+								{% endif %}				
+				  			</div>			  
+						</fieldset>
+			  		</div>
+				
+					{{ govukButton({
+						text: "Continue"
+					}) }}
+      			</form>
+			{% endif %}
+
+		</div>
+	</div>
+
+{% endblock %}

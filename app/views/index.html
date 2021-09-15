@@ -12,24 +12,23 @@
       	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
 		<ul class="govuk-list govuk-body-s">
-        	<li>Last updated: 10 September 2021</li>
+        	<li>Last updated: 14 September 2021</li>
             <li>Prototype version: {{releaseVersion}}</li>
         </ul>
         <p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
 
-        <h2 class="govuk-heading-m">Sprint 20</h2>
+        <h2 class="govuk-heading-m">Sprint 21</h2>
         <!-- <p class="govuk-body-s">1 September to 14 September</p> -->
 		<p>This sprint will be focusing on:</p>
         <ul class="govuk-list govuk-list--bullet">
-        	<li>iterations to the ECT and mentor validation journey</li>
-          	<li>updating content and interaction on the sign in and get an account flows</li>
-          	<li>further iterations to the participants dashboard</li>
-          	<li>new flows for the ability to opt back in to a programme for those that have opted out previously</li>
+        	<li>iterations to the validation journey</li>
+          	<li>updating content and interaction on the school journey flows</li>
+          	<li>final iterations to the participants dashboard</li>          	
         </ul> 		  
         
         {{ govukButton({
 			text: "Journey from first contact",
-			href: "/sprint-19/emails/tell-us-if-you-have-nqt"
+			href: "/sprint-21/emails/tell-us-if-you-have-nqt"
 		}) }}
 
 		{{ govukButton({
@@ -87,11 +86,20 @@
             </thead>
             <tbody class="govuk-table__body">
 
-              
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/sprint-20/landing">Sprint 20</a></td>
+                <td class="govuk-table__cell"><p>This sprint focused on:</p>
+					<ul class="govuk-list govuk-list--bullet">
+						<li>iterations to the ECT and mentor validation journey</li>
+						  <li>updating content and interaction on the sign in and get an account flows</li>
+						  <li>further iterations to the participants dashboard</li>
+						  <li>new flows for the ability to opt back in to a programme for those that have opted out previously</li>
+					</ul> </td>
+            </tr>    
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a href="/sprint-19/landing">Sprint 19</a></td>
-                <td class="govuk-table__cell">This sprint will be focusing on further work on delete participant journey, the not eligible for FIP journey as well as more work with the various dashboards.</td>
-              </tr>  
+                <td class="govuk-table__cell">This sprint focused on further work on delete participant journey, the not eligible for FIP journey as well as more work with the various dashboards.</td>
+            </tr>  
             <tr class="govuk-table__row">
               <td class="govuk-table__cell"><a href="/sprint-18/landing">Sprint 18</a></td>
               <td class="govuk-table__cell">This sprint focused on further dashboard work along with validation MVP journey including new content and screens. As well as initial journey for deleting particpant.</td>
