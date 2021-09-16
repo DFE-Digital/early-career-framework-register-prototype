@@ -38,37 +38,29 @@
 			{% else %}
 
 				{% if data[sitmentor] %}
-					<p>We’ll send you an email that explains what informtion we need from you.</p>
+					<p>We’ll send you an email in the next few days that explains what informtion we need from you.</p>
 				{% endif %}
 
 
-				<p>We’ll send them an email soon. We’ll ask them to use our service to tell us their:</p>
+				<h2 class="govuk-heading-m">What happens next</h2>
+		
+				<p>We’ll send them an email in the next few days. We’ll ask them to use our service to tell us their:</p>
 				<ul class="govuk-list govuk-list--bullet">				
 					<li>full name</li>
 					<li>teacher reference number (TRN)</li>
 					<li>date of birth</li>
 					<li>National Insurance number (optional)</li>
 				</ul>
-				<h2 class="govuk-heading-m">What happens next</h2>
-				
-				
-				<p>As soon as they tell us this information, we’ll check their eligibility with the Teaching Regulation Agency.</p>
-				<p>You can use this service to track:</p>
-				<ul class="govuk-list govuk-list--bullet">				
-					<li>who has provided their information</li>
-					<li>whose details we’ve checked successfully</li>
-					<li>whose details we’re still checking</li>
-					<li>if any mentors and ECTs are not eligible for this programme</li>
-				</ul>
 							
 				<h2 class="govuk-heading-m">What you can do now</h2>
 				<ul class="govuk-list govuk-!-margin-bottom-5">
+					<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">View your ECTs and mentors</a></li>
 					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new ECT</a></li>
 					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						
 					{% if not data['induction-tutor-as-mentor'] %}		
 					<li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
-					<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></li>
+
 				</ul>
 
 			{% endif %}

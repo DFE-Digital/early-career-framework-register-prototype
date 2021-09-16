@@ -31,7 +31,6 @@
 						]
 					}) }} -->
 			
-				<h2 class="govuk-heading-m">Changing your programme</h2>
 				<p class="govuk-body">If your school wants to use a training provider, funded by the DfE, you should:</p>
 				<ul class="govuk-list govuk-list--bullet">
 					<li>contact your local Teaching School Hub</li>
@@ -63,7 +62,6 @@
 					]
 				}) }} -->
 				
-				<h2 class="govuk-heading-m">Changing your programme</h2>
 				<p class="govuk-body">If your school has decided to:</p>
 				<ul class="govuk-list govuk-list--bullet">
 				  <li>deliver your own programme using the DfE accredited materials</li>
@@ -75,19 +73,24 @@
 		
 				<p class="govuk-body">You need to:</p>		  
 				<ol class="govuk-list govuk-list--number">
-				  <li>Speak to your training provider (if you have signed up with one).</li>
+				  <li>Speak to your training provider, if you've signed up with one.</li>
 				  <li>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></li>
 				</ol>
 
 
 
-			{% elif data['induction-programme'] == "DYO" %}						
-							       		      			
-      			<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>
+
+
+			{% elif data['induction-programme'] == "DYO" %}							
+				<p>Your school has chosen to design and deliver your own programme based on the Early Career Framework (ECF).</p>
+				
+      			<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the other options available</a> for your school.</p>
 
       		{% elif data['induction-programme'] == "noECT" %}	
-      						
-				<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school.</p>
+	
+      			<p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2021 to 2022 academic year.</p>
+			
+				<p class="govuk-body"><a class="govuk-link" href="choose-induction-programme?change-programme=Yes">Check the options available</a> for your school if this changes.</p>
       		
 			{% endif %}
 
