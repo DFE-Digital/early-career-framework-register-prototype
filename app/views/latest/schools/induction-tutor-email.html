@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "What’s the full name of your induction tutor?" %}
+{% set pageHeading = "What’s your induction tutor's email address?" %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -9,23 +9,24 @@
     	<div class="govuk-grid-column-two-thirds">
       
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      					
+      		
+			
       		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		<div class="govuk-form-group">
-          			
 
 					{{ govukInput({
-						label: {
-							html: 'Full name',
-							classes: "govuk-visually-hidden"
-						},
+            			label: { text: "" },
+            			hint: {
+              				text: "We'll use this address to contact them with more information."
+            			},
 						classes: "govuk-!-width-two-thirds",
-						id: "induction-tutor-name",
-						name: "induction-tutor-name",
-						autocomplete: "name",
+						id: "induction-tutor-email",
+						name: "induction-tutor-email",
+						type: "email",
+						autocomplete: "email",
 						spellcheck: false,
-						value: data['induction-tutor-name'] 
-					}) }}
+						value: data['induction-tutor-email']
+          			}) }}
           								
         		</div>
 				
