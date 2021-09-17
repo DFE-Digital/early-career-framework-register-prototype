@@ -27,20 +27,23 @@
             </ul>
             <p>Email links them to service to confirm ECTs and nominate induction tutor.</p>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expect-early-career-teachers" >Do you expect to have any early career teachers at [school name] this year?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expect-early-career-teachers" >Do you expect any early career teachers to join your school this academic year?</a></li>
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-school-lead-confirmoptout" >Confirm your choice</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirmation?school-status=not-required" >Your choice has been saved for this academic year</a></li>
                 </ul>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor" >Nominate an induction tutor for [school name]*</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor" >Nominate an induction tutor for your school</a></li>
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/expired-link?sign-in-link=" >The link has expired</a></li>
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/email-already-in-use" >That email address is already associated with another school</a></li>
                     
                     <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/induction-tutor-already-nominated" >An induction tutor has already been nominated for [school name]</a></li>
                 </ul>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/who-do-you-want-to-nominate" >Enter details to nominate your induction tutor</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirmation?school-status=" >Induction tutor nominated</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/confirmation?school-status=not-required" >Your choice has been saved for [Year]</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor/full-name" >What’s the full name of your induction tutor?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor/email-address" >What’s your induction tutor’s email address?</a></li>
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor/check-your-answers" >Check your answers</a></li>
+
+                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/nominate-induction-tutor/confirmation" >Induction tutor nominated</a></li>
+                
             </ul>
 
 
