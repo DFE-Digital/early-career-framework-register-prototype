@@ -9,23 +9,20 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
                 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-      		<!-- <p class="govuk-body">Your induction lead or tutor will use our online service to manage your school’s statutory induction programme and receive any notifications.</p>
-      		<p class="govuk-body">You are choosing an option for <span class="govuk-!-font-weight-bold">[school name].</span> If you are from another school, <a href="#">send your school a link</a></p> -->
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
 
       		<form class="form" action="nominate-induction-tutor" method="post" class="govuk-!-margin-bottom-8">
         		
 				{{ govukRadios({
-          			idPrefix: "school-ect",
-          			name: "school-ect",
+          			idPrefix: "school-expects-ect",
+          			name: "school-expects-ect",
 					hint: {
 						text: "These are teachers who have finished their initial teacher training. It does not include teachers who started or completed their statutory induction before 1 September 2021."
           			},  
           			items: [
-            			{ value: "yes", text: "Yes", checked: checked("school-ect", "yes") },
-            			{ value: "no, redirect(confirmation)", text: "No", checked: checked("school-ect", "no") },
-            			{ value: "not-sure", text: "We do not know yet", checked: checked("school-ect", "not-sure") }
+            			{ value: "yes", text: "Yes", checked: checked("school-expects-ect", "yes") },
+            			{ value: "no, redirect(confirmation)", text: "No", checked: checked("school-expects-ect", "no") },
+            			{ value: "not-sure", text: "We do not know yet", checked: checked("school-expects-ect", "not-sure") }
 					]
         		}) }}
 

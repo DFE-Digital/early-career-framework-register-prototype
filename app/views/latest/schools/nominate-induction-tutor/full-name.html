@@ -9,8 +9,13 @@
     	<div class="govuk-grid-column-two-thirds">
       
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      					
-      		<form class="form" action="induction-tutor-email" method="post" class="govuk-!-margin-bottom-8">
+
+			  
+			{% if data['linkaction'] == "change-induction-name" %}  
+      		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+			{% else %}
+			<form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">
+			{% endif %}
         		<div class="govuk-form-group">
           			
 

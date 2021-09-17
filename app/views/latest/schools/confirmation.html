@@ -1,12 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['school-ect'] == "no" %}
-	{% set pageHeading = "Your choice has been saved for 2021" %}
-{% else %}
-	{% set pageHeading = "Induction tutor nominated" %}
-{% endif %}
-
+{% set pageHeading = "Your choice has been saved for 2021" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,31 +12,14 @@
       		
 			
       		{{ govukPanel({
-        		titleText: pageHeading
-      		}) }}
-			  
-			{% if data['school-ect'] == "no" %}			
+        		titleText: pageHeading,
+				classes: "govuk-!-margin-bottom-7"
+      		}) }}			  			
 			
-				<h3 class="govuk-heading-m">What happens next</h3>
-			  	<p>We will contact [school name] in the next academic year.</p>
-			  	<p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="../nominations/resend-email">nominate someone to set up your programme.</a></p>
-			
-			{% else %}		
-			
-				<h2 class="govuk-heading-m">What happens next</h2>
-				<p>We'll email this person and let them know you nominated them.</p>
-
-			    <p>This person is now our contact for ECT training at your school. They can use this service to:</p>
-      			<ul class="govuk-list govuk-list--bullet">
-        			<li>choose how your school wants to run your ECT training programme</li>
-        			<li>complete the steps needed to set up your programme</li>
-            		<li>tell us if things change at your school, for example if ECTs join or not</li>
-      			</ul>
-
-
-      			<p class="govuk-body govuk-!-font-size-14 skip-to">Skip to: <a href="../emails/induction-nomination">email that the Induction Tutor receives</a></p>
-			
-			{% endif %}
+			<h3 class="govuk-heading-m">What happens next</h3>
+			<p>We will contact {{ defaults.schoolName() }} in the next academic year.</p>
+			<p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+						
 		</div>
   	</div>
 

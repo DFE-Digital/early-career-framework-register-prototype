@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "What’s your induction tutor's email address?" %}
+{% if data['induction-tutor-name'] %}	
+	{% set pageHeading = 'What’s ' + data['induction-tutor-name'] + '’s email address? ' %}
+{% else %}
+	{% set pageHeading = "What’s your induction tutor’s email address?" %}
+{% endif %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,14 +14,17 @@
       
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
       		
-			
-      		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+			{% if data['linkaction'] == "change-induction-name" %}  
+				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8"></form>
+			{% else %}
+      			<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+			{% endif %}
         		<div class="govuk-form-group">
 
 					{{ govukInput({
             			label: { text: "" },
             			hint: {
-              				text: "We'll use this address to contact them with more information."
+              				text: "We’ll use this address to contact them with more information."
             			},
 						classes: "govuk-!-width-two-thirds",
 						id: "induction-tutor-email",
