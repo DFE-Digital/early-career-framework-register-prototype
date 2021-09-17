@@ -13,8 +13,6 @@
 			
       		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		<div class="govuk-form-group">
-          			
-
 
 					{{ govukInput({
             			label: { text: "" },
@@ -29,14 +27,13 @@
 						spellcheck: false,
 						value: data['induction-tutor-email']
           			}) }}
-          			
-					
+          								
         		</div>
-
 				
 				<input type="hidden" name="school-status" id="school-status" value="Signed up" />
 				<input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="Yes" />
-        		{{ govukButton({
+
+				{{ govukButton({
           			text: "Continue"
         		}) }}
       	

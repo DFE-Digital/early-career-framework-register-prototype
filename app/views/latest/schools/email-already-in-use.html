@@ -9,20 +9,15 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      			<p class="govuk-body">We need a different email address for each school.</p>  
-
-      			<p class="govuk-body">Enter a different email address.</p>      		
-				
-				  <form class="form" action="who-do-you-want-to-nominate" method="post" >												
-					{{ govukButton({
-						  text: "Change email address"
-					}) }}
-				</form>
-
-
-
-      		
-    	</div>
+      		<p class="govuk-body">We need a different email address for each school.</p>  
+      		<p class="govuk-body">Enter a different email address.</p>      						
+			
+			<form class="form" action="who-do-you-want-to-nominate" method="post" >												
+				{{ govukButton({
+						text: "Change email address"
+				}) }}
+			</form>      		
+    	
+		</div>
   	</div>
-
 {% endblock %}
