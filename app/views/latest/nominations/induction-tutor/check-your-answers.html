@@ -16,7 +16,7 @@
           		
 				<div class="govuk-summary-list__row">
               		<dt class="govuk-summary-list__key">Name</dt>
-					<dd class="govuk-summary-list__value">{{ data['induction-tutor-name'] }}</dd>
+					<dd class="govuk-summary-list__value">{{ data['induction-tutor-fullname'] }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="full-name?linkaction=change-induction-name">Change<span class="govuk-visually-hidden"> name of induction tutor</span></a></dd>
           		</div>				
 				<div class="govuk-summary-list__row">
@@ -28,7 +28,9 @@
       
 			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		
-				<input type="hidden" name="linkaction" id="linkaction" value="" />							
+				<input type="hidden" name="linkaction" id="linkaction" value="" />		
+				<input type="hidden" name="nominate-induction-tutor" id="nominate-induction-tutor" value=""  />
+
 				{{ govukButton({
           			text: "Confirm and nominate"
         		}) }}

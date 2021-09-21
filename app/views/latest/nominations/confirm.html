@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "Confirm this is your school" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,17 +13,33 @@
 
       		{{ govukSummaryList({
         		rows: [
-					{ key: { text: "Local Authority" }, value: { text: data['local-authority'] } },
-					{ key: { text: "School" }, value: { text: data['school-lookup'] }, classes: "govuk-!-width-one-half" },
+					{ key: { text: "Local Authority" }, value: { text: data['schools-local-authority'] }, actions: {
+						items: [
+						  {
+							href: "schools-local-authority",
+							text: "Change",
+							visuallyHiddenText: "authority"
+						  }
+						]
+					  }  },
+					{ key: { text: "School" }, value: { text: data['school-name'] }, classes: "govuk-!-width-one-half", actions: {
+						items: [
+						  {
+							href: "schools-local-authority",
+							text: "Change",
+							visuallyHiddenText: "school"
+						  }
+						]
+					  } },
           			{ key: { text: "URN" }, value: { text: "9348523" } },
           			{ key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
 					
         		]
       		}) }}
       		
-			<p class="govuk-body"><a class="govuk-link--no-visited-state" href="local-authority">Change school</a></p>      	
+			<!-- <p class="govuk-body"><a class="govuk-link--no-visited-state" href="schools-local-authority">Change school</a></p>      	 -->
 
-      		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+      		<form class="form" action="success" method="post" class="govuk-!-margin-bottom-8">
 
         		{{ govukButton({
           			text: "Confirm and send"

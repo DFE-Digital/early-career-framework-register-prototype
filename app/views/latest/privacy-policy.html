@@ -32,7 +32,7 @@
 			<p>We will be providing services to you that are covered by legislation; this means that we are able to process your data without your consent or permission.</p>
 			<p>The lawful basis for processing is as follows:</p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li><strong>Public task.</strong> The processing of your personal data may be necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in us <strong>(Article 6(1)(e) of GDPR).</strong></li>
+				<li><span class="govuk-body govuk-!-font-weight-bold">Public task</span>. The processing of your personal data may be necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in us <span class="govuk-body govuk-!-font-weight-bold">(Article 6(1)(e) of GDPR).</span></li>
 			</ul>
 
 			<h3 class="govuk-heading-m">What personal data we collect</h3>
@@ -119,8 +119,7 @@
 			<p class="govuk-body">You can find out more about how we handle personal data in our <a class="govuk-link govuk-link" href="https://www.gov.uk/government/organisations/department-for-education/about/personal-information-charter">personal information charter.</a></p>
 
 			<h3 class="govuk-heading-m">Getting help and raising a concern</h3>
-			<p class="govuk-body">If you want to ask us to remove your data or get access to the data we have about you, you can email us on:</p>
-			<p><a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+			<p class="govuk-body">If you want to ask us to remove your data or get access to the data we have about you, you can email us on: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
 			<p class="govuk-body">You can also use our contact form to <a class="govuk-link govuk-link" href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f1453496-7d8a-463f-9f33-1da2ac47ed76/AF-Stage-1e64d4cc-25fb-499a-a8d7-74e98203ac00/definition.json&amp;redirectlink=%2Fen&amp;cancelRedirectLink=%2Fen">get in touch with our Data Protection Officer.</a></p>
 			<p class="govuk-body">Once an early career teacher has enrolled with a teacher training provider, we will not be able to ask them to remove personal data from their systems. Please contact the provider separately.</p>
 			<p class="govuk-body">For further information or to raise a concern, visit the <a class="govuk-link" href="https://ico.org.uk/">Information Commissioner&#39;s Office</a> (ICO).</p>
@@ -133,7 +132,8 @@
 				<form method="post" action="schools/participants/register/what-is-your-teacher-reference-number" >
 			{% else %}
 				<form method="post" action="schools/choose-induction-programme" >
-				<input type="hidden" id="induction-programme" name="induction-programme" value="" />
+					<input type="hidden" id="induction-programme" name="induction-programme" value="" />
+					<input type="hidden" id="induction-tutor-seen-privacy-policy" name="induction-tutor-seen-privacy-policy" value="Yes" />
 			{% endif %}
 				
 				
