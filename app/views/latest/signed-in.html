@@ -20,7 +20,7 @@
 
 						<form class="form" action="privacy-policy" method="post">							
 
-					{% elif ((data['induction-programme'] == "FIP") or ( data['induction-programme'] == "CIP" )) %}
+					{% elif ((data['training-programme'] == "FIP") or ( data['training-programme'] == "CIP" )) %}
 						<form class="form" action="schools/manage-your-training" method="post">					
 					{% else %}
 						{% if data['participantType'] == "sitMentor" %}

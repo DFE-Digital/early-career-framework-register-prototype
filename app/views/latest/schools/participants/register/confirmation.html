@@ -16,7 +16,7 @@
 			<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
 			
 			<!-- FIP -->
-			{% if data['induction-programme'] == "FIP" %}
+			{% if data['training-programme'] == "FIP" %}
 				<!-- Participant type ECT or Mentor -->
 				{% if ((data['participantType'] == "ECT") or (data['participantType'] == "mentor")) %}
 			  		<!-- Fail validation -->
@@ -69,7 +69,7 @@
 				{% endif %}
 
 			<!-- CIP -->
-			{% elif data['induction-programme'] == "CIP" %}
+			{% elif data['training-programme'] == "CIP" %}
 			  	<!-- Participant ECT -->
 				{% if data['participantType'] == "ECT" %}
 					<!-- Validation failed -->
@@ -103,12 +103,12 @@
 				{% endif %}
 
 			<!-- DYO -->
-			{% elif data['induction-programme'] == "DYO" %}
+			{% elif data['training-programme'] == "DYO" %}
 			  	<p>No content yet.</p>
 			<!-- noECT -->
-			{% elif data['induction-programme'] == "noECT" %}
+			{% elif data['training-programme'] == "noECT" %}
 				<p>No content yet.</p>
-			{% elif not data['induction-programme'] %}
+			{% elif not data['training-programme'] %}
 			  <p>You will not see content as you have not chosen an induction programme on the preload.</p>
 			{% endif %}
 			
