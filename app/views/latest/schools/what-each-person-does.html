@@ -41,9 +41,9 @@
 			  	<li>carrying out assessments and regular progress reviews</li>
 			</ul>
 			
-			{{ govukInsetText({
-				text: "An induction tutor should only assign themself as a mentor in exceptional circumstances. "
-			  }) }}
+			<!-- {{ govukInsetText({
+				text: " "
+			  }) }} -->
 
 
 			<!-- <div class="govuk-warning-text">
@@ -53,15 +53,20 @@
     			An induction tutor should only assign themself as a mentor in exceptional circumstances. 
   				</strong>
 			</div>  -->
+
+			<div class="govuk-inset-text">
+
+			<p>An induction tutor should only assign themself as a mentor in exceptional circumstances.</p>
 			<p>If your school needs you to do this, you should: </p>
 			<ul class="govuk-list govuk-list--bullet">
 				<li>make sure you can take on the full responsibilities of both roles</li>
 			  	<li>put safeguards in place so that your role as an ECT’s mentor is kept separate from your role in their assessment</li>
 			</ul>
+		</div>
 
 			<h2 class="govuk-heading-m">Early career teacher (ECT)</h2>
 			<p>The ECT’s responsibilities include:</p>
-			<ul class="govuk-list govuk-list--bullet">
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
 				<li>providing evidence that they have QTS and are eligible to start induction</li>
 			  	<li>meeting with their induction tutor to discuss, agree and review priorities for their induction programme </li>
 			</ul>
@@ -70,7 +75,7 @@
 
 
 			<form method="post" action="participants/" >
-				<input type="hidden" name="roles" id="roles" value="seen" />
+				<input type="hidden" name="roles-seen" id="roles" value="Yes" />
 				
 				{{ govukButton({
 					text: "Continue"
