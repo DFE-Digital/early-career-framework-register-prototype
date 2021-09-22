@@ -8,12 +8,11 @@
 
 {% block content %}
 
-
-
-
 	<div class="govuk-grid-row">
-
-		{% if data['participantType'] == "sitMentor" %}
+		<div class="govuk-grid-column-two-thirds">
+			
+			<!-- Not sure what we are doing with this bit of code -->
+			<!-- {% if data['participantType'] == "sitMentor" %}
 			<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
 				<div class="govuk-notification-banner__header">
 					<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
@@ -22,9 +21,8 @@
 					<p class="govuk-notification-banner__heading">You need to add information about yourself as a mentor.<a class="govuk-notification-banner__link" href="/sprint-16/teacher-or-mentors/cip-validation/trn-ect">Update now</a></p>
 				</div>
 			</div>
-		{% endif %}
-
-		<div class="govuk-grid-column-two-thirds">
+			{% endif %} -->
+			<!-- /////// -->
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -33,10 +31,10 @@
 
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">
 				<ul class="govuk-list">
-					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?persontypeAction=ECT">Add a new ECT</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?persontypeAction=mentor">Add a new mentor</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=mentor">Add a new mentor</a></li>
 					{% if not data['induction-tutor-as-mentor'] %}
-					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
 				</ul>
 			</div>
@@ -45,7 +43,10 @@
 
 		<div class="govuk-grid-column-full">
 
-			{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}
+
+			
+			{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}<!-- If we have any ECT or Mentors added then show -->
+			
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
 				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
@@ -80,7 +81,7 @@
 							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
 							<td class="govuk-table__cell">Mentor</td>
 							<!-- <td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						 -->
-							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell">Not applicable</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=mentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
@@ -90,7 +91,7 @@
 							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
 							<td class="govuk-table__cell">Mentor</td>
 							<!-- <td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						 -->
-							<td class="govuk-table__cell"></td>
+							<td class="govuk-table__cell">Not applicable</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}

@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s the full name of this  ' + data['persontypeAction'] + '?' %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageHeading = 'What’s the full name of this  ' + data['participantType'] + '?' %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
 			{% endif %}
 				
 			
-				{% if data['persontypeAction'] == "mentor" %}
+				{% if data['participantType'] == "mentor" %}
 
 				{{ govukInput({
 					label: {

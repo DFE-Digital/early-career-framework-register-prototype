@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['persontypeAction'] == "mentor" %}	
+{% if data['participantType'] == "mentor" %}	
 	{% set pageHeading = 'What’s ' + data['participant-fullname-mentor'] + '’s email address? ' %}
 {% else %}
 	{% set pageHeading = 'What’s ' + data['participant-fullname'] + '’s email address? ' %}
 {% endif %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -26,9 +26,9 @@
 			
 			{% else %}
 				
-				{% if data['persontypeAction'] == "mentor" %}
+				{% if data['participantType'] == "mentor" %}
 					<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        				
-				{% elif data['persontypeAction'] == "ECT" %}
+				{% elif data['participantType'] == "ECT" %}
 
 						{% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
 							<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
@@ -39,7 +39,7 @@
 											
 			{% endif %}
 
-				{% if data['persontypeAction'] == "mentor" %}	
+				{% if data['participantType'] == "mentor" %}	
 
 				{{ govukInput({
 					label: {

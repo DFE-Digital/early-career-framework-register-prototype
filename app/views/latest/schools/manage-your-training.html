@@ -33,7 +33,7 @@
 					<p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Your early career teachers and mentors</a></p>
 				{% else %}					
 					{% if not data['roles-seen'] %}<!-- Basically if its first time in then we show them the ROLES guidance page first -->
-						<p><a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does">Add your early career teacher and mentor details</a></p>					
+						<p><a class="govuk-link govuk-link--no-visited-state" href="participants/what-each-person-does">Add your early career teacher and mentor details</a></p>					
 					{% else %}<!-- Otherwise we take them to the page directly -->
 						<p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Add your early career teacher and mentor details</a></p>
 					{% endif %}
