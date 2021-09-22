@@ -42,12 +42,12 @@
 
 			{% if not ((data['training-programme'] == "DYO") or (data['training-programme'] == "temphold") or (data['training-programme'] == "noECT")) %}
 				{% if data['existing-ect-mentor-details']%}
-					<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Your early career teachers and mentors</a></p>
+					<p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Your early career teachers and mentors</a></p>
 				{% else %}
 					{% if not data['roles'] %}
 					<p><a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does">Add your early career teacher and mentor details</a></p>
 					{% else %}
-					<p><a class="govuk-link govuk-link--no-visited-state" href="participants">Add your early career teacher and mentor details</a></p>
+					<p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Add your early career teacher and mentor details</a></p>
 					{% endif %}
 				{% endif %}
 			{% endif %}
