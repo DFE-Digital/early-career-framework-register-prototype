@@ -28,19 +28,15 @@
 				<h1 class="govuk-panel__title">{{ title }}</h1>
 			</div>						
 			
-			{% if data['linkaction'] == "change-mentor-details"%}
-
+			{% if data['linkaction'] == "change-mentor-details"%}				
 				
-				
-					<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></p>
-				
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></p>				
 
 			{% else %}
 
 				{% if data[sitmentor] %}
 					<p>We’ll send you an email in the next few days that explains what informtion we need from you.</p>
 				{% endif %}
-
 
 				<h2 class="govuk-heading-m">What happens next</h2>
 		
@@ -51,17 +47,17 @@
 					<li>date of birth</li>
 					<li>National Insurance number (optional)</li>
 				</ul>
-							
-				<h2 class="govuk-heading-m">What you can do now</h2>
-				<ul class="govuk-list govuk-!-margin-bottom-5">
-					<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">View your ECTs and mentors</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new ECT</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants">View your ECTs and mentors</a></p>	
+				<!-- <h2 class="govuk-heading-m">What you can do now</h2> -->
+				<!-- <ul class="govuk-list govuk-!-margin-bottom-5"> -->
+					<!-- <li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Go back to view your ECTs and mentors</a></li> -->
+					<!-- <li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new ECT</a></li> -->
+					<!-- <li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						 -->
 					{% if not data['induction-tutor-as-mentor'] %}		
-					<li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
+					<!-- <li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li> -->
 					{% endif %}
 
-				</ul>
+				<!-- </ul> -->
 
 			{% endif %}
 
