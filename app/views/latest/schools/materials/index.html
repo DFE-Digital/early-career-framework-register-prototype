@@ -2,9 +2,8 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Do you know which accredited materials you want to use?" %}
-{% set pageSection = "2021 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
 
 {% block content %}
 	<div class="govuk-grid-row">
@@ -15,7 +14,7 @@
       		<p class="govuk-body">You will be choosing materials for any new early career teachers. They will access these materials on our service and complete a programme over 2 years.</p>
       		<p class="govuk-body">Not sure? <a href="../choose-study-materials"> Check our guidance on materials</a>.</p>
       		
-			<form method="post" action="course-choice" > 
+			<form method="post" action="which" > 
 				
 				{{ govukButton({
 					text: "Continue"

@@ -108,12 +108,14 @@
             <p>When a school is delivering their own using DfE accredited materials. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355308879313&cot=14">User journey on Miro</a></span></p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/manage-your-training?induction-programme=CIP" >Manage your training</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/which-accredited-materials?induction-programme=CIP" >Do you know which accredited materials you want to use?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/course-choice?induction-programme=CIP" >Which training materials do you want this cohort to use?</a></li>
-                <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/course-confirmed?induction-programme=CIP" >Study materials saved</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/materials/?induction-programme=CIP" >Do you know which accredited materials you want to use?</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/materials/which?induction-programme=CIP" >Which training materials do you want this cohort to use?</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/materials/confirmation?induction-programme=CIP" >Training materials confirmed</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/materials/your-accredited-materials?induction-programme=CIP" >Your accredited materials</a></li>
+                </ul>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=CIP" >Choose your induction programme</a></li>
-                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/materials?induction-programme=CIP" >Your accredited materials</a></li>
+                    <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/schools/programme-choice?induction-programme=CIP" >Choose your induction programme</a></li>                    
                 </ul>                
                 <!-- No longer needed -->            
                 <!-- <li><a class="govuk-link" href="/{{ defaults.sprintNo() }}/school-signed-in/cip/cip-cohort-detail" >2021/22 cohort: use DfE accredited materials</a></li> -->

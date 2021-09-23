@@ -58,15 +58,15 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Materials</dt>
 						<dd class="govuk-summary-list__value">
-							{% if data['course-choice'] %} 
-								{{ data['course-choice'] }}
+							{% if data['accredited-materials'] %} 
+								{{ data['accredited-materials'] }}
 							{% endif %}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							{% if data['course-choice'] %}  
-								<a class="govuk-link" href="materials">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+							{% if data['accredited-materials'] %}  
+								<a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
 							{% else %}
-								<a class="govuk-link" href="which-accredited-materials">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
+								<a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>								
 							{% endif %}
 						</dd>						
 					</div>										
@@ -141,8 +141,8 @@
 			<p>This link will expire on {{ defaults.linkExpire() }}.</p>
 			{% endif %}
 
-			{% if ((data['course-choice']) and (data['training-programme'] == "CIP")) %}						
-			<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['course-choice'] }}</a> induction programme.</p>
+			{% if ((data['accredited-materials']) and (data['training-programme'] == "CIP")) %}						
+			<p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>
 			{% endif %}				
 	
 		</div>				
