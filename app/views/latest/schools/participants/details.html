@@ -64,14 +64,10 @@
 						<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
 						<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
 						<p>We suggest you remind them to provide this.</p>
-					</div>			
-				{% else %}
-				<!-- Approved so no message to show -->
-
+					</div>											
 				{% endif %}
 
 			{% endif %}
-
 			
 			<dl class="govuk-summary-list govuk-!-margin-bottom-5">
 				<div class="govuk-summary-list__row">
@@ -89,7 +85,13 @@
 							Full name
 						{% endif %}
 					</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions">
+						{% if data['user-details'] == "ect-2" %}      
+							<a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% else %}
+							<a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% endif %}
+					</dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
@@ -106,7 +108,13 @@
 							email@domain.com
 						{% endif %}  						
 						</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions">
+						{% if data['user-details'] == "ect-2" %}    
+							<a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% else %}
+							<a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% endif %}
+					</dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Role</dt>
@@ -136,11 +144,16 @@
 							No mentors in your cohort
 						{% endif %}
 						</dd>
-				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="mentor?linkaction=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  		<dd class="govuk-summary-list__actions">
+							{% if data['user-details'] == "ect-2" %}  
+								<a class="govuk-link" href="mentor?details-change-action=change-mentor-details-2">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% else %}
+								<a class="govuk-link" href="mentor?details-change-action=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% endif %}
+						</dd>
 				</div>									
 				{% endif %}
-			</dl>			            
-			
+			</dl>			            			
 
 			{% if data['user-details'] == "ect-2" %}  
 				<p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }} from this cohort</a></p>			
