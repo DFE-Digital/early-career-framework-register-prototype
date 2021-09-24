@@ -11,40 +11,26 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			{% if data['linkaction'] == "change-name" %} 
+			<!-- This is just for the check your answers so it sends back to the CYA --> 
+			{% if data['cya-action'] == "change-name" %}
 				<form class="form" action="check-your-answers" method="post">
+				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 			{% else %}				
       			<form class="form" action="email-address" method="post">							
-			{% endif %}
+			{% endif %}				
 				
-			
-				{% if data['participantType'] == "mentor" %}
-
-				{{ govukInput({
-					label: {
-						html: 'Full name',
-						classes: "govuk-visually-hidden"
-					},
-					value: data['participant-fullname-mentor'],
-					classes: "govuk-!-width-two-thirds",
-					id: "participant-fullname-mentor",
-					name: "participant-fullname-mentor"
-				}) }}
-
-				{% else %}
-
-				{{ govukInput({
-					label: {
-						html: 'Full name',
-						classes: "govuk-visually-hidden"
-					},
-					value: data['participant-fullname'],
-					classes: "govuk-!-width-two-thirds",
-					id: "participant-fullname",
-					name: "participant-fullname"
-				}) }}
-			
-				{% endif %}
+				<div class="govuk-form-group">
+					<label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
+					{% if data['participantType'] == "mentor" %}
+						<input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-mentor" name="participant-fullname-mentor" type="text" value="{{ data['participant-fullname-mentor'] }}" >
+					{% else %}
+						{% if data['added-ect'] %}
+						<input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-2" name="participant-fullname-2" type="text" value="{{ data['participant-fullname-2'] }}" >
+						{% else %}
+						<input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname" name="participant-fullname" type="text" value="{{ data['participant-fullname'] }}" >
+						{% endif %}
+					{% endif %}
+			  	</div>				
 					
 				{{ govukButton({
 					text: "Continue"
