@@ -40,12 +40,10 @@
 			</div>
 
 		</div>
-
-		<div class="govuk-grid-column-full">
-
-
+		
+		<div class="govuk-grid-column-full"><!-- Using full width to make most of the space -->
 			
-			{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}<!-- If we have any ECT or Mentors added then show -->
+			{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}<!-- If we have any ECT or Mentors added then show the participant dashboard -->
 			
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
 				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
@@ -99,7 +97,7 @@
 
 					</tbody>
 				</table>
-				{% endif %}
+			{% endif %}
 
 
 

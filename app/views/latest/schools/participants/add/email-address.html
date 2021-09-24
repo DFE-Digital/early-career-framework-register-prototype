@@ -21,68 +21,34 @@
 			<p>We’ll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
 			
 
-			{% if data['linkaction'] == "change-email" %} 
-				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
-			
-			{% else %}
-				
+			{% if data['cya-action'] == "change-email" %} 
+				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        			
+				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
+			{% else %}				
 				{% if data['participantType'] == "mentor" %}
 					<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        				
 				{% elif data['participantType'] == "ECT" %}
-
 						{% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
 							<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">        
 						{% else %}
 							<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">        
 						{% endif %}
-				{% endif %}
-											
+				{% endif %}											
 			{% endif %}
-
-				{% if data['participantType'] == "mentor" %}	
-
-				{{ govukInput({
-					label: {
-						text: "Email address",
-						classes: "govuk-visually-hidden"
-					},
-					hint: {
-						text: "You can enter their personal or school email address."
-					},
-					classes: "govuk-!-width-two-thirds",
-					id: "participant-email-address-mentor",
-					name: "participant-email-address-mentor",
-					value: data['participant-email-address-mentor'],
-					type: "email",
-					autocomplete: "email",
-					spellcheck: false
-				}) }}
-
-				{% else %}
-
-				{{ govukInput({
-					label: {
-						text: "Email address",
-						classes: "govuk-visually-hidden"
-					},
-					hint: {
-						text: "You can enter their personal or school email address."
-					},
-					classes: "govuk-!-width-two-thirds",
-					id: "participant-email-address",
-					name: "participant-email-address",
-					value: data['participant-email-address'],
-					type: "email",
-					autocomplete: "email",
-					spellcheck: false
-				}) }}
-
-				{% endif %}
+				<div class="govuk-form-group">
+					<label class="govuk-label govuk-visually-hidden" for="event-name">Email address</label>
+					<div id="event-name-hint" class="govuk-hint">You can enter their personal or school email address.</div>
+					{% if data['participantType'] == "mentor" %}
+						<input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-mentor" name="participant-email-address-mentor" type="email" value="{{ data['participant-email-address-mentor'] }}" spellcheck="false" autocomplete="email" >
+					{% else %}
+						<input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address" name="participant-email-address" type="email" value="{{ data['participant-email-address'] }}" spellcheck="false" autocomplete="email">
+					{% endif %}
+				</div>					
 
 				{{ govukButton({
 					text: "Continue"
 				}) }}
-      		
+
 			</form>
     	</div>
   </div>
