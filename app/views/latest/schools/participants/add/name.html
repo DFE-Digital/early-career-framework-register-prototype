@@ -12,7 +12,11 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			<!-- This is just for the check your answers so it sends back to the CYA --> 
-			{% if data['cya-action'] == "change-name" %}
+			{% if ((data['details-change-action'] == "change-name" ) or (data['details-change-action'] == "change-name-2")) %}
+				<form class="form" action="../details" method="post">
+				<input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
+				<input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+			{% elif data['cya-action'] == "change-name" %}
 				<form class="form" action="check-your-answers" method="post">
 				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 			{% else %}				
