@@ -10,7 +10,11 @@
 	{% if data['participantType'] == "mentor"  %}	  
 		{% set title = '' + data['participant-fullname-mentor'] +  ' has been added as a mentor' %}
 	{% elif data['participantType'] == "ECT" %}
-		{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
+		{% if data['added-ect'] %}
+			{% set title = '' + data['participant-fullname-2'] +  ' has been added as an ECT' %}
+		{% else %}
+			{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
+		{% endif %}
 	{% elif data['participantType'] == "sitMentor" %}
 		{% set title = 'Hugo Furst has been added as a mentor' %}
 	{% else %}
@@ -46,6 +50,7 @@
 				</ul>
 
 				{% endif %}
+				
 				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">View your ECTs and mentors</a></p>
 
 			{% endif %}

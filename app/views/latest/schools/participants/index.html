@@ -31,7 +31,13 @@
 
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">
 				<ul class="govuk-list">
+
+					<!-- Allow for more than 1 ECT to be added -->
+					{% if data['added-ect'] %}
 					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
+					{% else %}
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
+					{% endif %}
 					<li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=mentor">Add a new mentor</a></li>
 					{% if not data['induction-tutor-as-mentor'] %}
 					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
@@ -58,6 +64,21 @@
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
+						{% if data['added-ect-2'] == "Yes" %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell ">{{ data['participant-fullname-2'] }}</td>
+							<td class="govuk-table__cell">ECT</td>
+							<!-- <td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						 -->
+							<td class="govuk-table__cell">
+								{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
+									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+								{% else %}
+									No mentor assigned
+								{% endif %}
+							</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect-2" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						{% endif %}
 						{% if data['added-ect'] == "Yes" %}
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>

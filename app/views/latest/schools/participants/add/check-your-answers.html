@@ -22,7 +22,11 @@
 						{% elif data['participantType'] == "mentor" %}	
 							{{ data['participant-fullname-mentor'] }}            					
 						{% elif data['participantType'] == "ECT" %}
-							{{ data['participant-fullname'] }}            		
+							{% if data['added-ect'] %}
+								{{ data['participant-fullname-2'] }}
+							{% else %}
+								{{ data['participant-fullname'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?cya-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
@@ -35,7 +39,11 @@
 						{% if data['participantType'] == "mentor" %}	
 							{{ data['participant-email-address-mentor'] }}
 						{% elif data['participantType'] == "ECT" %}
-							{{ data['participant-email-address'] }}
+							{% if data['added-ect'] %}
+								{{ data['participant-email-address-2'] }}
+							{% else %}
+								{{ data['participant-email-address'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
         			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?cya-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
@@ -92,7 +100,11 @@
         		<input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just a double check to remove and link actions -->
 				
 				{% if data['participantType'] == "ECT" %}
-					<input type="hidden" name="added-ect" id="added-ect" value="Yes" />
+					{% if data['added-ect'] %}
+						<input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" />
+					{% else %}
+						<input type="hidden" name="added-ect" id="added-ect" value="Yes" />
+					{% endif %}
 				{% elif data['participantType'] == "mentor" %}
 					<input type="hidden" name="added-mentor" id="added-mentor" value="Yes" />
 				{% elif data['participantType'] == "sitMentor" %}
