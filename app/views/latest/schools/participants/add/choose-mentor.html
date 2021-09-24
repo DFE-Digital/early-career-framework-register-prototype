@@ -6,7 +6,7 @@
 {% else %}
 	{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
 {% endif %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -20,10 +20,10 @@
 			{% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
 
 				<p>You do not have any mentors in your cohort.</p>
-				<p><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></p>
+				<p><a class="govuk-link govuk-link--no-visited-state" href="name?participantType=mentor">Add a new mentor</a></p>
 
 			{% else %}
-			<p>You can tell us this later if you're not sure.</p>
+			<p>You can tell us this later if you’re not sure.</p>
 						
 			{% if data['linkaction'] == "change-mentor" %} 
       			<form class="form" action="../details" method="post" >

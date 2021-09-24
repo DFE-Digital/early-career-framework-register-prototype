@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Check your answers" %}	
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
           		<div class="govuk-summary-list__row">
               		<dt class="govuk-summary-list__key">Name</dt>
 					<dd class="govuk-summary-list__value">       
-						{% if data['persontypeAction'] == "mentor" %}	
+						{% if data['participantType'] == "mentor" %}	
 							{{ data['participant-fullname-mentor'] }}            		
 						{% elif data['neworexistingmentor'] == "existingMentor"  %}
 							{{ data['choose-existing-mentor'] }}
@@ -31,7 +31,7 @@
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key"> Email address</dt>
         			<dd class="govuk-summary-list__value">
-						{% if data['persontypeAction'] == "mentor" %}	
+						{% if data['participantType'] == "mentor" %}	
 							{{ data['participant-email-address-mentor'] }}
 						{% else %}
 							{{ data['participant-email-address'] }}
@@ -43,7 +43,7 @@
 
 				<!-- If usertype is not mentor then show next group -->
 				
-				{% if not ((data['persontypeAction'] == "mentor") or (data['persontypeAction'] == "sitMentor")) %}
+				{% if not ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
 					{% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
@@ -86,16 +86,16 @@
       		
 			</dl>
 
-      		<p class="govuk-!-margin-bottom-7">We’ll contact this person for information needed to check they're eligible for this training programme.</p>
+      		<p class="govuk-!-margin-bottom-7">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
       
 			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
         		<input type="hidden" name="linkaction" id="linkaction" value="" />
 				
-				{% if data['persontypeAction'] == "ECT" %}
+				{% if data['participantType'] == "ECT" %}
 					<input type="hidden" name="added-ect" id="added-ect" value="Yes" />
-				{% elif data['persontypeAction'] == "mentor" %}
+				{% elif data['participantType'] == "mentor" %}
 					<input type="hidden" name="added-mentor" id="added-mentor" value="Yes" />
-				{% elif data['persontypeAction'] == "sitMentor" %}
+				{% elif data['participantType'] == "sitMentor" %}
 					<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="Yes" />
 				{% endif %}
 

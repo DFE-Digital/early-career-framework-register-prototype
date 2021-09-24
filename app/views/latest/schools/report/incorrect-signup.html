@@ -12,7 +12,7 @@
 
       		<p class="govuk-body govuk-!-margin-bottom-7">{{ defaults.schoolName() }} has received a confirmation from {{ defaults.deliveryPartner() }} with {{ defaults.leadProvider() }}, but you believe this is incorrect.</p>
 
-      		<form class="form" action="report-submitted" method="post" >
+      		<form class="form" action="submitted" method="post" >
         		
         		{{ govukRadios({
           			idPrefix: "school-challenge-reason",

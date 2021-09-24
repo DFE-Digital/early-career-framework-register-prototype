@@ -44,10 +44,10 @@
                     <!-- Materials chosen -->
                     {{ govukCheckboxes({
                         
-                        idPrefix: "course-choice",
-                        name: "course-choice",
+                        idPrefix: "accredited-materials",
+                        name: "accredited-materials",
                         fieldset: { legend: { text: "Accredited materials chosen(CIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Ambition Institute", text: "Materials chosen (CIP)", checked: checked("course-choice", "Ambition Institute")} ]
+                        items: [ { value: "Ambition Institute", text: "Materials chosen (CIP)", checked: checked("accredited-materials", "Ambition Institute")} ]
                     }) }}  
 
                     <!-- Not eligible for funding -->
@@ -114,7 +114,7 @@
                     legend: { text: "Site entry url", isPageHeading: false, classes: "govuk-visually-hidden" }
                 },
                 items: [                                        
-                    { value: "choose-induction, redirect(/latest/schools/choose-induction-programme)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
+                    { value: "choose-induction, redirect(/latest/schools/training-programme/)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
                     { value: "manage-training-email, redirect(/latest/emails/link-to-sign-in)", text: "Manage training for cohort from sign in email", checked: checked("siteEntry", "manage-training-email")},
                     { value: "manage-training, redirect(/latest/schools/manage-your-training)", text: "Manage training for cohort", checked: checked("siteEntry", "manage-training")},
                     { value: "validation, redirect(/latest/schools/participants/register/)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
