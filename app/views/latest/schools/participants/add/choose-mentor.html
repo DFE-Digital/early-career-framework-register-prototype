@@ -4,7 +4,13 @@
 {% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %} 
 	{% set pageHeading = 'You cannot assign a mentor to this ECT' %}	
 {% else %}
-	{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
+	{% if data['added-ect'] %}
+		{% set pageHeading = 'Who’s ' + data['participant-fullname-2'] + '’s mentor?' %}
+	{% else %}
+		{% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
+	{% endif %}
+
+	
 {% endif %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -49,7 +55,7 @@
 							  	</div>
 								{% endif %}
 
-								{% if not data['linkaction'] == "change-mentor" %}
+								{% if data['linkaction'] != "change-mentor" %}
 								<div class="govuk-radios__item">
 					  				<input class="govuk-radios__input" id="who-is-mentor-2" name="who-is-mentor" type="radio" value="No mentor assigned">
 					  				<label class="govuk-label govuk-radios__label" for="who-is-mentor-2">Asign a mentor later</label>

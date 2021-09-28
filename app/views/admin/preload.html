@@ -99,10 +99,44 @@
             }) }}
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
 
-            <!-- <div class="govuk-inset-text">
-                <p>There are <a href="https://docs.google.com/document/d/108aUddTCbHanZk8Q2l6WhzuD9iAL8dUn/edit">three status for validation</a>. Status <a href="https://docs.google.com/document/d/1vDlmDbz6BaUlGiC7wpusUV6B04mZ9ofubQNO0n2xK3Y/edit?ts=60fe8eb3#bookmark=id.1myxpp5aoqa">two and three </a> will show the same confirmation messaging with the changes applied within the backend.
-            </div> -->
             
+             <h2 class="govuk-heading-m">Participant validation options</h2>
+             <div class="govuk-grid-row">
+                 
+                 <div class="govuk-grid-column-one-third">
+                     
+                     {{ govukCheckboxes({                        
+                         idPrefix: "show-participant-not-eligible",
+                         name: "show-participant-not-eligible",
+                         fieldset: { legend: { text: "Not eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                         items: [ { value: "Yes", text: "Not eligible", checked: checked("show-participant-not-eligible", "Yes") } ]
+                     }) }} 
+                     <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+                 </div>
+                 <div class="govuk-grid-column-one-third">
+                     
+                    {{ govukCheckboxes({                        
+                        idPrefix: "show-participant-status-checking",
+                        name: "show-participant-status-checking",
+                        fieldset: { legend: { text: "Checking details", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Checking details", checked: checked("show-participant-status-checking", "Yes") } ]
+                    }) }} 
+                    <p>We’re checking these people’s details with the Teaching Regulation Agency.</p>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                     
+                    {{ govukCheckboxes({                        
+                        idPrefix: "show-participant-status-eligible",
+                        name: "show-participant-status-eligible",
+                        fieldset: { legend: { text: "Eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Eligible to start", checked: checked("show-participant-status-eligible", "Yes") } ]
+                    }) }} 
+                    <p>These people are eligible to start this programme.</p>
+                </div>
+             </div>
+             
+             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
+
 
 
             <h2 class="govuk-heading-m">Entry url</h2>
