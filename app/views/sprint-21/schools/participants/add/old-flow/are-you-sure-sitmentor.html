@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Are you sure you want to add yourself as a mentor?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      <p class="govuk-body govuk-!-margin-bottom-6">The mentor and the induction tutor are two discrete roles with differing responsibilities and it is expected that these roles should be held by different individuals.</p>
+
+
+      <form class="form" action="confirm-participant-details" method="post" class="govuk-!-margin-bottom-8">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
