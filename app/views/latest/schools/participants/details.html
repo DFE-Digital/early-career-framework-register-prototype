@@ -139,7 +139,7 @@
 					<dt class="govuk-summary-list__key">Mentor</dt>
 				  	<dd class="govuk-summary-list__value">
 						{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
-							{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+							{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}No mentor assigned{% endif %}
 						{% else %}
 							No mentors in your cohort
 						{% endif %}

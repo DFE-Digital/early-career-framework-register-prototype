@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['linkaction'] == "change-mentor-details"%}
+{% if data['details-change-action'] == "change-mentor-details"%}
 	{% set pageHeading = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
+{% elif data['details-change-action-2'] == "change-mentor-details-2"%}
+	{% set pageHeading = 'The mentor for ' + data['participant-fullname-2'] +  ' has been updated' %}
+{% endif %}
 {% else %}
 	{% if data['deletelink'] == "ect" %}  
 		{% set pageHeading = '' + data['participant-fullname'] + ' has been removed from this cohort' %}	
@@ -29,7 +32,7 @@
 				classes: "govuk-!-margin-bottom-7"
       		}) }}
 
-			{% if data['linkaction'] == "change-mentor-details"%}
+			{% if data['details-change-action'] == "change-mentor-details"%}
 				
 			  <p><a class="govuk-link govuk-link--no-visited-state" href="../participants?linkaction=">Return to your ECTs and mentors</a></p>		  
 
