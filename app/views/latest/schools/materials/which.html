@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Which training materials do you want this cohort to use?" %}
+{% set pageSection = "Acme Primary School" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      		<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+
+				{{ govukRadios({
+					idPrefix: "accredited-materials",
+					name: "accredited-materials",
+					items: [
+						{ value: "Ambition Institute", text: "Ambition Institute", checked: checked("accredited-materials", "Ambition Institute") },
+						{ value: "Education Development Trust", text: "Education Development Trust", checked: checked("accredited-materials", "Education Development Trust") },
+						{ value: "Teach First", text: "Teach First", checked: checked("accredited-materials", "Teach First") },
+						{ value: "UCL Institute of Education", text: "UCL Institute of Education", checked: checked("accredited-materials", "UCL Institute of Education") }
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      	
+			</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}

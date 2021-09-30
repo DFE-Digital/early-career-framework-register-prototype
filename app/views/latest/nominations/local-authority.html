@@ -11,7 +11,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register.</a></p>
+			<p>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a>.</p>
 
       		<form class="form" action="find-school" method="post">
         						
@@ -22,9 +22,9 @@
               			classes: "govuk-visually-hidden"
             		},            
             		classes: "govuk-!-width-two-thirds",
-            		id: "local-authority",
-					value: data['local-authority'],
-            		name: "local-authority"				
+            		id: "schools-local-authority",
+					value: data['schools-local-authority'],
+            		name: "schools-local-authority"				
           		}) }}        	
 
         		{{ govukButton({

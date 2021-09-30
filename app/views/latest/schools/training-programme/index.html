@@ -54,42 +54,42 @@
 			  <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p>
 			  <!-- <p class="govuk-body">If you are part of a MAT (multi academy trust), you may also want to consult them.</p> -->
 
-			  <!-- { value: "FIP", text: "Use a DfE-approved training provider (without DfE funding)", checked: checked("induction-programme", "FIP") }, -->
+			  <!-- { value: "FIP", text: "Use a DfE-approved training provider (without DfE funding)", checked: checked("training-programme", "FIP") }, -->
       		<!-- <p class="govuk-hint">Not sure? <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview">Check our guidance</a>, contact your <a href="https://www.gov.uk/guidance/teaching-school-hubs#find-a-teaching-school-hub">local Teaching School Hub</a> or appropriate body.</p> -->
 
-      		<form class="form" action="confirm-induction-programme" method="post" class="govuk-!-margin-bottom-8">
+      		<form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 				
 				
 				{% if data['change-programme'] == "Yes" %}
 				
 
-					{% if data['induction-programme'] == "DYO" %}
+					{% if data['training-programme'] == "DYO" %}
 
 						{{ govukRadios({
-							idPrefix: "induction-programme",
-							name: "induction-programme",
+							idPrefix: "training-programme",
+							name: "training-programme",
 							items: [
-								{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
-								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },							
-								{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("induction-programme", "noECT") }
+								{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("training-programme", "FIP") },
+								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("training-programme", "CIP") },							
+								{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("training-programme", "noECT") }
 							]
 						}) }}
 
-					{% elif data['induction-programme'] == "noECT" %}
+					{% elif data['training-programme'] == "noECT" %}
 
 						{{ govukRadios({
-							idPrefix: "induction-programme",
-							name: "induction-programme",
+							idPrefix: "training-programme",
+							name: "training-programme",
 							items: [
-								{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
-								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },							
-								{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") }
+								{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("training-programme", "FIP") },
+								{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("training-programme", "CIP") },							
+								{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("training-programme", "DYO") }
 							]
 						}) }}
 
-					{% elif data['induction-programme'] == "CIP" %}
+					{% elif data['training-programme'] == "CIP" %}
 						<!-- No work on this as yet -->
-					{% elif data['induction-programme'] == "FIP" %}
+					{% elif data['training-programme'] == "FIP" %}
 						<!-- No work on this as yet -->
 						<p>You have not selected how to run your training programme in the preload.</p>
 
@@ -100,27 +100,27 @@
 				{% elif data['eligible-funding'] == "No" %}
 
 					{{ govukRadios({
-						idPrefix: "induction-programme",
-						name: "induction-programme",
+						idPrefix: "training-programme",
+						name: "training-programme",
 						items: [
 							
-							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
-							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
-							{ value: "temphold", text: "Use a training provider funded by your school ", checked: checked("induction-programme", "temphold") },
-							{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("induction-programme", "noECT") }
+							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("training-programme", "CIP") },
+							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("training-programme", "DYO") },
+							{ value: "temphold", text: "Use a training provider funded by your school ", checked: checked("training-programme", "temphold") },
+							{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("training-programme", "noECT") }
 						]
 					}) }}
 
 				{% else %}
 
 					{{ govukRadios({
-						idPrefix: "induction-programme",
-						name: "induction-programme",
+						idPrefix: "training-programme",
+						name: "training-programme",
 						items: [
-							{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("induction-programme", "FIP") },
-							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("induction-programme", "CIP") },
-							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("induction-programme", "DYO") },
-							{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("induction-programme", "noECT") }
+							{ value: "FIP", text: "Use a training provider, funded by the DfE", checked: checked("training-programme", "FIP") },
+							{ value: "CIP", text: "Deliver your own programme using DfE accredited materials", checked: checked("training-programme", "CIP") },
+							{ value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)", checked: checked("training-programme", "DYO") },
+							{ value: "noECT", text: "We do not expect any early career teachers to join", checked: checked("training-programme", "noECT") }
 						]
 					}) }}
 

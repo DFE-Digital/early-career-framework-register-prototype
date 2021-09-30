@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['user-details'] == "ect" %}  
+{% if data['user-details'] == "ect-2" %}  
+	{% set pageHeading = '' + data['participant-fullname-2'] + '' %}	
+{% elif data['user-details'] == "ect" %}  
 	{% set pageHeading = '' + data['participant-fullname'] + '' %}	
 {% elif data['user-details'] == "mentor" %}  
 	{% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}								
@@ -10,7 +12,7 @@
 {% else %}
 	{% set pageHeading = "Full Name" %}
 {% endif %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -30,9 +32,6 @@
 					<h3 class="govuk-notification-banner__heading">The participants email address has been updated.</h3>
 			  	</div>
 			</div> -->
-
-			
-			
 
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      	
 			
@@ -65,20 +64,18 @@
 						<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
 						<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
 						<p>We suggest you remind them to provide this.</p>
-					</div>			
-				{% else %}
-				<!-- Approved so no message to show -->
-
+					</div>											
 				{% endif %}
 
 			{% endif %}
-
 			
 			<dl class="govuk-summary-list govuk-!-margin-bottom-5">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Name</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect" %}  
+						{% if data['user-details'] == "ect-2" %}  
+							{{ data['participant-fullname-2'] }}
+						{% elif data['user-details'] == "ect" %}  														
 							{{ data['participant-fullname'] }}
 						{% elif data['user-details'] == "mentor" %}  
 							{{ data['participant-fullname-mentor'] }}
@@ -88,12 +85,20 @@
 							Full name
 						{% endif %}
 					</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="add/name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions">
+						{% if data['user-details'] == "ect-2" %}      
+							<a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% else %}
+							<a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% endif %}
+					</dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect" %}  
+						{% if data['user-details'] == "ect-2" %}  
+							{{ data['participant-email-address-2'] }}
+						{% elif data['user-details'] == "ect" %}  
 							{{ data['participant-email-address'] }}
 						{% elif data['user-details'] == "mentor" %}  
 							{{ data['participant-email-address-mentor'] }}
@@ -103,12 +108,20 @@
 							email@domain.com
 						{% endif %}  						
 						</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions">
+						{% if data['user-details'] == "ect-2" %}    
+							<a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% else %}
+							<a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> name</span></a>
+						{% endif %}
+					</dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Role</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect" %}  
+						{% if data['user-details'] == "ect-2" %} 
+							ECT
+						{% elif data['user-details'] == "ect" %}  
 							ECT
 						{% elif data['user-details'] == "mentor" %}  
 							Mentor
@@ -118,10 +131,10 @@
 						Mentor/ECT
 						{% endif %}
 					</dd>
-				  	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	<dd class="govuk-summary-list__actions"></dd>
 				</div>				
 
-				{% if data['user-details'] == "ect" %}  							
+				{% if ((data['user-details'] == "ect" ) or (data['user-details'] == "ect-2" )) %}  							
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
 				  	<dd class="govuk-summary-list__value">
@@ -131,46 +144,36 @@
 							No mentors in your cohort
 						{% endif %}
 						</dd>
-				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="mentor?linkaction=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  		<dd class="govuk-summary-list__actions">
+							{% if data['user-details'] == "ect-2" %}  
+								<a class="govuk-link" href="mentor?details-change-action=change-mentor-details-2">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% else %}
+								<a class="govuk-link" href="mentor?details-change-action=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% endif %}
+						</dd>
 				</div>									
 				{% endif %}
-			</dl>			            
+			</dl>			            			
 
-      		
-			{% if data['user-research'] == "Yes" %}
-
-				{% if data['user-details'] == "ect" %}  
-					<p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }} from this cohort</a></p>			
-				{% elif data['user-details'] == "mentor" %}  
-					<p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }} from this cohort</a></p>			
-				{% elif data['user-details'] == "sitMentor" %}  
-					<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
-				{% else %}						
-					<p><a href="confirm-delete">Remove FULL NAME from this cohort</a></p>			
-				{% endif %}
-
-			{% else %}
-
-			<!-- ECT -->
-
-			
-				<p><a href="confirm-delete">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
-				<!-- FIP -->				
-				<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>
-				<!-- CIP -->				
-				<!-- <p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p> -->
-
-			<!-- Mentor -->
-
-				<!-- FIP -->				
-				<!-- <p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.</p> -->
-				<!-- CIP -->				
-				<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
-				
+			{% if data['user-details'] == "ect-2" %}  
+				<p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }} from this cohort</a></p>			
+			{% elif data['user-details'] == "ect" %}  
+				<p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }} from this cohort</a></p>			
+			{% elif data['user-details'] == "mentor" %}  
+				<p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }} from this cohort</a></p>			
+			{% elif data['user-details'] == "sitMentor" %}  
+				<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+			{% else %}						
+				<p><a href="confirm-delete">Remove FULL NAME from this cohort</a></p>			
 			{% endif %}
-			
 
-			<p class="govuk-!-margin-top-9"><a href="../participants">Return to your ECTs and mentors</a></p>
+						
+			<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>			
+			<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+
+			<p class="govuk-!-margin-top-9"><a href="../participants/">Return to your ECTs and mentors</a></p>
+
+
     	</div>
   	</div>
 {% endblock %}

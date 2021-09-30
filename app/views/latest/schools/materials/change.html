@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Your accredited materials" %}
-{% set pageSection = "2021 cohort" %}
+{% set pageHeading = "Changing your accredited materials" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -11,9 +11,7 @@
       
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<p class="govuk-body-l"><span class="govuk-!-font-weight-bold">Your choice: </span>{{ data['course-choice'] }}</p>
-
-      		<h2 class="govuk-heading-m">Changing your materials</h2>
+      		<!-- <p class="govuk-body-l"><span class="govuk-!-font-weight-bold">Your choice: </span>{{ data['accredited-materials'] }}</p> -->
       		<p>Each set of accredited materials is different. Before you change your materials:</p>
       		<ul class='govuk-list govuk-list--bullet'>
         		<li>make sure the materials you want to change to are right for your school</li>

@@ -7,11 +7,15 @@
 {% if data['linkaction'] == "change-mentor-details"%}
 	{% set title = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
 {% else %}
-	{% if data['persontypeAction'] == "mentor"  %}	  
+	{% if data['participantType'] == "mentor"  %}	  
 		{% set title = '' + data['participant-fullname-mentor'] +  ' has been added as a mentor' %}
-	{% elif data['persontypeAction'] == "ECT" %}
-		{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
-	{% elif data['persontypeAction'] == "sitMentor" %}
+	{% elif data['participantType'] == "ECT" %}	
+		{% if data['added-ect-2'] %}
+			{% set title = '' + data['participant-fullname-2'] +  ' has been added as an ECT' %}	
+		{% elif data['added-ect'] %}
+			{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}						
+		{% endif %}
+	{% elif data['participantType'] == "sitMentor" %}
 		{% set title = 'Hugo Furst has been added as a mentor' %}
 	{% else %}
 		{% set title = 'Full Name has been added' %}
@@ -28,40 +32,26 @@
 				<h1 class="govuk-panel__title">{{ title }}</h1>
 			</div>						
 			
-			{% if data['linkaction'] == "change-mentor-details"%}
-
-				
-				
-					<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants">Return to your ECTs and mentors</a></p>
-				
-
+			{% if data['linkaction'] == "change-mentor-details"%}<!-- If using page for change mentor confirmation -->
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
 			{% else %}
 
-				{% if data[sitmentor] %}
-					<p>We’ll send you an email in the next few days that explains what informtion we need from you.</p>
-				{% endif %}
-
+				{% if data['added-sitMentor'] == "Yes" %}
+					<p>We’ll send you an email in the next few days that explains what information we need from you.</p>
+				{% else %}
 
 				<h2 class="govuk-heading-m">What happens next</h2>
-		
 				<p>We’ll send them an email in the next few days. We’ll ask them to use our service to tell us their:</p>
-				<ul class="govuk-list govuk-list--bullet">				
+				<ul class="govuk-list govuk-list--bullet">
 					<li>full name</li>
 					<li>teacher reference number (TRN)</li>
 					<li>date of birth</li>
 					<li>National Insurance number (optional)</li>
 				</ul>
-							
-				<h2 class="govuk-heading-m">What you can do now</h2>
-				<ul class="govuk-list govuk-!-margin-bottom-5">
-					<li><a class="govuk-link govuk-link--no-visited-state" href="../../participants">View your ECTs and mentors</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=ECT">Add a new ECT</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="name?persontypeAction=mentor">Add a new mentor</a></li>						
-					{% if not data['induction-tutor-as-mentor'] %}		
-					<li><a class="govuk-link govuk-link--no-visited-state" href="yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
-					{% endif %}
 
-				</ul>
+				{% endif %}
+				
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">View your ECTs and mentors</a></p>
 
 			{% endif %}
 

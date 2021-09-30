@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Check your answers" %}	
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -12,43 +12,51 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
       
+
         	<dl class="govuk-summary-list govuk-!-margin-bottom-7">
           		<div class="govuk-summary-list__row">
               		<dt class="govuk-summary-list__key">Name</dt>
 					<dd class="govuk-summary-list__value">       
-						{% if data['persontypeAction'] == "mentor" %}	
-							{{ data['participant-fullname-mentor'] }}            		
-						{% elif data['neworexistingmentor'] == "existingMentor"  %}
+						{% if data['neworexistingmentor'] == "existingMentor"  %}
 							{{ data['choose-existing-mentor'] }}
-						{% else %}
-							{{ data['participant-fullname'] }}            		
+						{% elif data['participantType'] == "mentor" %}	
+							{{ data['participant-fullname-mentor'] }}            					
+						{% elif data['participantType'] == "ECT" %}
+							{% if data['added-ect'] %}
+								{{ data['participant-fullname-2'] }}
+							{% else %}
+								{{ data['participant-fullname'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
-					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?linkaction=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?cya-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
           		</div>
       
-      			{% if data['neworexistingmentor'] != "existingMentor"  %}			
+      			<!-- {% if data['neworexistingmentor'] != "existingMentor"  %}			 -->
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key"> Email address</dt>
         			<dd class="govuk-summary-list__value">
-						{% if data['persontypeAction'] == "mentor" %}	
+						{% if data['participantType'] == "mentor" %}	
 							{{ data['participant-email-address-mentor'] }}
-						{% else %}
-							{{ data['participant-email-address'] }}
+						{% elif data['participantType'] == "ECT" %}
+							{% if data['added-ect'] %}
+								{{ data['participant-email-address-2'] }}
+							{% else %}
+								{{ data['participant-email-address'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
-        			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?linkaction=change-email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+        			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?cya-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
         		</div>        				
-      			{% endif %}
+      			<!-- {% endif %} -->
 
-				<!-- If usertype is not mentor then show next group -->
-				
-				{% if not ((data['persontypeAction'] == "mentor") or (data['persontypeAction'] == "sitMentor")) %}
+				<!-- If usertype is not mentor then show next group -->				
+				{% if not ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
 					{% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
 						<dd class="govuk-summary-list__value">{{ data['who-is-mentor'] }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?linkaction=change-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?cya-action=change-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
 					</div>        				
 					{% endif %}
 				{% endif %}
@@ -58,7 +66,7 @@
 				  
 
 
-        		{% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
+        		<!-- {% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
 					
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
@@ -82,20 +90,24 @@
         				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-ect-for-cohort">Change<span class="govuk-visually-hidden"> ect</span></a></dd>
         			</div>
 
-        		{% endif %}
+        		{% endif %} -->
       		
 			</dl>
 
-      		<p class="govuk-!-margin-bottom-7">We’ll contact this person for information needed to check they're eligible for this training programme.</p>
+      		<p class="govuk-!-margin-bottom-7">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
       
 			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
-        		<input type="hidden" name="linkaction" id="linkaction" value="" />
+        		<input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just a double check to remove and link actions -->
 				
-				{% if data['persontypeAction'] == "ECT" %}
-					<input type="hidden" name="added-ect" id="added-ect" value="Yes" />
-				{% elif data['persontypeAction'] == "mentor" %}
+				{% if data['participantType'] == "ECT" %}
+					{% if data['added-ect'] %}
+						<input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" />
+					{% else %}
+						<input type="hidden" name="added-ect" id="added-ect" value="Yes" />
+					{% endif %}
+				{% elif data['participantType'] == "mentor" %}
 					<input type="hidden" name="added-mentor" id="added-mentor" value="Yes" />
-				{% elif data['persontypeAction'] == "sitMentor" %}
+				{% elif data['participantType'] == "sitMentor" %}
 					<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="Yes" />
 				{% endif %}
 

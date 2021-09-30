@@ -3,10 +3,8 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Your ECTs and mentors" %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
-
 
 {% block content %}
 
@@ -35,10 +33,10 @@
 
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">
 				<ul class="govuk-list">
-					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=ECT">Add a new ECT</a></li>
-					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?persontypeAction=mentor">Add a new mentor</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?participantType=ECT">Add a new ECT</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/name?participantType=mentor">Add a new mentor</a></li>
 					{% if not data['induction-tutor-as-mentor'] %}
-					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?persontypeAction=sitMentor">Add yourself as a mentor</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="participants/add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
 				</ul>
 			</div>
@@ -47,10 +45,7 @@
 
 		<div class="govuk-grid-column-full">
 
-			<!-- USER RESEARCH STARTS WITH BLANK ENTRIES -->
-			{% if data['user-research'] == "Yes" %}
-
-				{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}
+			{% if ((data['added-ect'] == "Yes") or (data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
 				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
@@ -105,10 +100,16 @@
 				</table>
 				{% endif %}
 
+
+
+			{% if data['user-research'] == "Yes" %}
+
+				
+
 			{% else %}
 
 
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
+				<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-0">We’ve contacted these people for information</h2>
 				<p class="govuk-!-margin-bottom-3">We need to check they’re eligible for this programme before they can start.</p>
 				<table class="govuk-table govuk-!-margin-bottom-9">
 					<thead class="govuk-table__head">
@@ -127,7 +128,7 @@
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="participants/details?approval-status=add-details" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
-				</table>
+				</table> -->
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible</h2>
 				<p class="govuk-!-margin-bottom-3">We’ve checked these people’s details and found they’re not eligible for this programme. We've let them know.</p>
