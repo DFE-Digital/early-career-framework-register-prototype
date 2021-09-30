@@ -2,165 +2,42 @@
 {% set showBackLink = false %}
 
 {% set pageHeading = "ECF Register and Partner" %}
-{% set pageSection = "Prototype work" %}
+{% set pageSection = "Development prototype work" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-      	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
-		<ul class="govuk-list govuk-body-s">
-        	<li>Last updated: 29 September 2021</li>
-            <li>Prototype version: {{releaseVersion}}</li>
-        </ul>
-        <p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
+			<ul class="govuk-list govuk-body-s">
+          		<li>Last updated: 29 September 2021</li>
+            	<li>Prototype version: {{releaseVersion}}</li>
+        	</ul>
+        	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
+        	
+			<p>Latest additions include:</p>
+        	<ul class="govuk-list govuk-list--bullet">
+				<li>updating content and interaction on the school journey flows</li>
+				<li>final iterations to the participants dashboard</li>
+				<li>multiple cohort and how we navigate between them</li>
+				<li>review of school journey</li>
+        	</ul> 		  					
 
-        <h2 class="govuk-heading-m">Current sprint</h2>        
-		<p>This sprint will be focusing on:</p>		
-        <ul class="govuk-list govuk-list--bullet">
-        	<!-- <li>long term iterations to the validation journey</li> -->
-          	<li>validating teachers flow without them knowing their TRN</li>
-			<li>start looking at multiple cohorts, dashboard and flows</li>
-          	<li>change of programme for school funded FIP</li>     
-			<li>review nominate SIT journey (quick check)</li>     	
-			<li>review school journey (quick check)</li>     	
-			<li>allow SIT to change who is the SIT</li>
-        </ul> 		  
+			{{ govukButton({
+				text: "Preloaded options",
+				href: "/admin/preload"
+			}) }}
         
-        {{ govukButton({
-			text: "Journey from first contact",
-			href: "/latest/emails/tell-us-if-you-have-nqt"
-		}) }}
+			{{ govukButton({
+				text: "Page by page listings and scenarios",
+				href: "admin/listings",
+				classes: "govuk-button--secondary"
+			}) }}
 
-		{{ govukButton({
-			text: "Page by page listings and scenarios",
-			href: "admin/listings",
-			classes: "govuk-button--secondary"
-		}) }}
-
-        {{ govukButton({
-			text: "Preloaded options",
-			href: "/admin/preload"
-		}) }}
-
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">        
-
-		<h2 class="govuk-heading-m">Development baseline</h2>
-        <p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
-
-        <form method="post" action="/index" >
-            
-            {{ govukButton({
-                text: "Continue",
-                href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
-            }) }}
-
-        </form>
-
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <h2 class="govuk-heading-m">User research</h2>
-        <p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
-        {{ govukButton({
-            text: "Continue",
-            href: "admin/user-research"
-        }) }}
-
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-        <h2 class="govuk-heading-m">Previous sprint iterations</h2>
-        <p>Previous sprint work and iterations of the service at a given point in time (Still working on implementation).</p>
-
-        <table class="govuk-table">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col" width="25%">Iteration</th>
-                    <th class="govuk-table__header" scope="col">Description</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="/sprint-21/landing">Sprint 21</a></td>
-					<td class="govuk-table__cell"><p>This sprint focused on:</p>
-						<ul class="govuk-list govuk-list--bullet">
-							<li>updating content and interaction on the school journey flows</li>
-          					<li>final iterations to the participants dashboard</li>     
-							<li>multiple cohort and how we navigate between them</li>     	
-							<li>review of school journey</li>
-						</ul> 
-					</td>
-				</tr>    
-				<tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="/sprint-20/landing">Sprint 20</a></td>
-                <td class="govuk-table__cell"><p>This sprint focused on:</p>
-					<ul class="govuk-list govuk-list--bullet">
-						<li>iterations to the ECT and mentor validation journey</li>
-						  <li>updating content and interaction on the sign in and get an account flows</li>
-						  <li>further iterations to the participants dashboard</li>
-						  <li>new flows for the ability to opt back in to a programme for those that have opted out previously</li>
-					</ul> 
-				</td>
-            </tr>    
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="/sprint-19/landing">Sprint 19</a></td>
-                <td class="govuk-table__cell">This sprint focused on further work on delete participant journey, the not eligible for FIP journey as well as more work with the various dashboards.</td>
-            </tr>  
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="/sprint-18/landing">Sprint 18</a></td>
-              <td class="govuk-table__cell">This sprint focused on further dashboard work along with validation MVP journey including new content and screens. As well as initial journey for deleting particpant.</td>
-            </tr>  
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="/sprint-17/landing">Sprint 17</a></td>
-              <td class="govuk-table__cell">This sprint focused on further dashboard work for the cohorts and participants listings. Along with validation MVP journey including new content and screens.</td>
-            </tr>  
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"><a href="/sprint-16/start">Sprint 16</a></td>
-                    <td class="govuk-table__cell">Team spent time working on validation flow and raising some new ideas for the various dashboards.</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-
-        <!-- <h2 class="govuk-heading-l">Prototype setup</h2>
-        <dl class='govuk-list app-list--definition'>
-          <dt><a href='/start-testing' class="govuk-link--no-visited-state">Choose your user testing scenario</a></dt>
-          <dd>Link to share with user testing participants</dd>
-        </dl> -->
-
-
-
-        <!-- <h2 class="govuk-heading-l">Public / all users</h2>
-        <dl class='govuk-list app-list--definition'>
-          <dt><a href='/start' class="govuk-link--no-visited-state">Start page</a></dt>
-          <dd>Front door to the service, probably hosted on GOVUK</dd>
-          <dt><a href='/sign-in' class="govuk-link--no-visited-state">Sign in</a></dt>
-          <dd>Sign in page for all users of the service</dd>
-          <dt><a href='/guidance_1' class="govuk-link--no-visited-state">Guidance: Induction training and support for new teachers</a></dt>
-          <dd></dd>
-          <dt><a href='/cip-course-guidance' class="govuk-link--no-visited-state">Guidance: Choose study materials for your early career teachers</a></dt>
-          <dd></dd>
-        </dl> -->
-
-
-
-
-      <!--
-      <div class="index-group">
-        <h2 class="govuk-heading-m">Training Providers (LPs / DPs)</h2>
-        <dl class='govuk-list app-list--definition'>
-          <dt><a href='/pseudo-email-training-provider-invite' class="govuk-link--no-visited-state">Training provider invite email</a></dt>
-          <dd>Email sent to the training provider, regarding access to the platform</dd>
-          <dt><a href='/training-provider-signed-in/dashboard-training-provider' class="govuk-link--no-visited-state">Dashboard (overview)</a></dt>
-          <dd>The first screen users see when they complete sign in</dd>
-          <dt><a href='/training-provider-signed-in/school-listing-2021' class="govuk-link--no-visited-state">Your schools</a></dt>
-          <dd>Where they can view schools who they have partnered with</dd>
-        </dl>
-      </div>
-      -->
-    </div>
-  </div>
+        	
+        
+    	</div>
+	</div>
 {% endblock %}
