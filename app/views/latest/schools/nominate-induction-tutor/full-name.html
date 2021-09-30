@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "What’s the full name of your induction tutor?" %}
+{% set pageSection = "Acme Primary School" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			  
+			{% if data['linkaction'] == "change-induction-name" %}  
+      		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+			{% else %}
+			<form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">
+			{% endif %}
+        		<div class="govuk-form-group">
+          			
+
+					{{ govukInput({
+						label: {
+							html: 'Full name',
+							classes: "govuk-visually-hidden"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "induction-tutor-name",
+						name: "induction-tutor-name",
+						autocomplete: "name",
+						spellcheck: false,
+						value: data['induction-tutor-name'] 
+					}) }}
+          								
+        		</div>
+				
+				<input type="hidden" name="school-status" id="school-status" value="Signed up" />
+				<input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="Yes" />
+
+				{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      	
+			</form>
+
+		</div>
+  </div>
+
+  {% endblock %}
