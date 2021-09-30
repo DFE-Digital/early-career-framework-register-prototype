@@ -58,7 +58,7 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>							
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
 							<th class="govuk-table__header" scope="col"></th>
 						</tr>
 					</thead>
@@ -69,11 +69,13 @@
 							<td class="govuk-table__cell">ECT</td>
 							<!-- <td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						 -->
 							<td class="govuk-table__cell">
-								{% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
-									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}{% endif %}
+								Remind them
+								
+								<!-- {% if ((data['added-mentor']) or ( data['added-sitMentor'])) %}  						
+									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}Assign mentor{% endif %}
 								{% else %}
-									No mentor assigned
-								{% endif %}
+									Assign mentor
+								{% endif %} -->
 							</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect-2" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
@@ -85,9 +87,9 @@
 							<!-- <td class="govuk-table__cell">We’ve asked for information to check their eligibility.</td>						 -->
 							<td class="govuk-table__cell">
 								{% if (( data['added-mentor'] ) or ( data['added-sitMentor'] )) %}  						
-									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}No mentor assigned{% endif %}
+									{% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}Assign mentor{% endif %}
 								{% else %}
-									No mentor assigned
+								Assign mentor
 								{% endif %}
 							</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect" class="govuk-link govuk-link--no-visited-state">View details</a></td>
@@ -127,7 +129,7 @@
 						<tr class="govuk-table__row">
 							<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>						
 							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>						
+							<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>						
 							<th class="govuk-table__header" scope="col"></th>
 						</tr>
 					</thead>
@@ -135,7 +137,7 @@
 						<tr class="govuk-table__row">
 							<td class="govuk-table__cell">Alex Nolan</td>						
 							<td class="govuk-table__cell">ECT</td>
-							<td class="govuk-table__cell">Hugo Furst</td>						
+							<td class="govuk-table__cell">None</td>						
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
@@ -150,7 +152,7 @@
 							<tr class="govuk-table__row">
 								<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
 								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>							
+								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>							
 								<th class="govuk-table__header" scope="col"></th>
 							</tr>
 						</thead>
@@ -159,7 +161,7 @@
 							<tr class="govuk-table__row">
 								<td class="govuk-table__cell">Erica Porter</a></td>														
 								<td class="govuk-table__cell">ECT</td>
-								<td class="govuk-table__cell">Brian Coult</td>							
+								<td class="govuk-table__cell">None</td>							
 								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>							
 						</tbody>
@@ -187,7 +189,7 @@
 							<tr class="govuk-table__row">
 								<th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>														
 								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Mentor</th>							
+								<th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>							
 								<th class="govuk-table__header" scope="col"></th>
 							</tr>
 						</thead>
@@ -195,13 +197,23 @@
 							<tr class="govuk-table__row">
 								<td class="govuk-table__cell">Tom Hall</a></td>
 								<td class="govuk-table__cell">ECT</td>
-								<td class="govuk-table__cell">Not applicable</td>
+								<td class="govuk-table__cell">Assign mentor</td>
 								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>	
 							<tr class="govuk-table__row">
 								<td class="govuk-table__cell">Ethan Mills</a></td>
 								<td class="govuk-table__cell">ECT</td>
-								<td class="govuk-table__cell">Hugo Furst</td>
+								<td class="govuk-table__cell">
+									{% if data['training-programme'] == "FIP" %}
+										{% if data['InPartnership'] == "Yes" %}
+											Assign mentor
+										{% else %}
+											Confirm provider
+										{% endif %}
+									{% elif data['training-programme'] == "CIP" %}
+										Hugo Furst
+									{% endif %}
+								</td>
 								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>							
 						</tbody>
