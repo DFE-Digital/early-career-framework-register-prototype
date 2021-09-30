@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "That email address is already associated with another school" %}
+{% set pageHeading = "That email address is being used by another school" %}
 
 {% block content %}
 	
@@ -9,18 +9,15 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      			<p class="govuk-body">You need to use a different email address.</p>      		
-				
-				  <form class="form" action="who-do-you-want-to-nominate" method="post" >												
-					{{ govukButton({
-						  text: "Change email address"
-					}) }}
-				</form>
-
-
-
-      		
-    	</div>
+      		<p class="govuk-body">We need a different email address for each school.</p>  
+      		<p class="govuk-body">Enter a different email address.</p>      						
+			
+			<form class="form" action="who-do-you-want-to-nominate" method="post" >												
+				{{ govukButton({
+						text: "Change email address"
+				}) }}
+			</form>      		
+    	
+		</div>
   	</div>
-
 {% endblock %}

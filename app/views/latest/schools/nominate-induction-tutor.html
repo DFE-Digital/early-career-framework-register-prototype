@@ -1,41 +1,37 @@
 {% extends "layout.html" %}
-{% set pageHeading = "Nominate an induction tutor for [school name]" %}
+{% set pageHeading = "Nominate an induction tutor for your school" %}
+{% set pageSection = "Acme Primary School" %}
 
 {% block content %}
 	
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
-
+          
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       		<p class="govuk-body">Your induction tutor will use our online service to:</p>
-
       		<ul class="govuk-list govuk-list--bullet">
-        		<li>choose how your school wants to run an induction</li>
-        		<li>complete some steps to set up a programme</li>
-        		<li>receive any further updates</li>
+        		<li>choose how your school wants to run your early career teacher (ECT) training programme</li>
+        		<li>complete the steps needed to set up your programme</li>
+            	<li>tell us if things change at your school, for example if ECTs join or not</li>
+        		<li>be our point of contact for your ECT training</li>
       		</ul>
 
-      		<h3 class="govuk-heading-m">Who you can nominate</h3>
-			<p>Schools need to choose the best person to do these tasks.</p>
-			<p>For example, you can nominate someone who:</p>
+      		<h3 class="govuk-heading-m">Who you can nominate</h3>          
+			<p>You should choose the best person to complete these tasks for your school:</p>
 			<ul class="govuk-list govuk-list--bullet">
-  				<li>coordinates the training, support and assessment that early career teachers receive at your school</li>
-  			</ul>
-  			<p>Or</p>
-  			<ul class="govuk-list govuk-list--bullet">
-    			<li>can confirm details for your programme, such as study materials or training providers and information about your ECTs and mentors</li>
+    			<li>choose the right training provider or study materials</li> 
+				<li>provide contact information for your ECTs and their mentors</li>
+          		<li>coordinate training, support and assessment for ECTs</li>
     		</ul>
-    		<p>Or</p>
-    		<ul class="govuk-list govuk-list--bullet">
-      			<li>wants to manage a number of schools, for example, if you’re supported by a MAT (multi-academy trust) or federation</li>
-      		</ul>
-			<p>If you think this is your role, you can nominate yourself.</p>
 
-      		<form class="form" action="who-do-you-want-to-nominate" method="post" class="govuk-!-margin-bottom-8">								
+           	<p><a href="../../what-each-person-does?link-role=view" >Read more about the induction tutor role in our guidance</a>.</p>    		
+      		<p>If you’re supported by a MAT (multi-academy trust) or federation, you can choose someone who manages training for a number of schools.</p>
+
+      		<form class="form" action="nominate-induction-tutor/full-name" method="post" class="govuk-!-margin-bottom-8">								
 				
 				{{ govukButton({
-          			text: "Start"
+          			text: "Continue"
         		}) }}
 
       		</form>

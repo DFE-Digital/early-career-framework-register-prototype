@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "That link has expired" %}
+{% set pageHeading = "This link has expired" %}
 
 {% block content %}
 	
@@ -21,10 +21,10 @@
 
 			{% else %}
       			
-				<p class="govuk-body">You need to resend the email with a new link</p>
+				<p class="govuk-body">You need to request another email with a new link.</p>
 				<form class="form" action="../emails/induction-nomination" method="post" >
 					{{ govukButton({
-						  text: "Resend email"
+						  text: "Send new email"
 					}) }}
 				</form>
 
