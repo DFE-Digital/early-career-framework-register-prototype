@@ -11,9 +11,15 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<!-- This is just for the check your answers so it sends back to the CYA --> 
-			
-      			<form class="form" action="email-address" method="post">																	
+				<!-- This is just for the check your answers so it sends back to the CYA --> 			
+
+				{% if data['register-full-validation'] == "No" %}
+				  	<form class="form" action="cannot-find-your-details" method="post">    	
+						<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
+			  	{% elif data['register-validated'] == "No" %}
+			 	 	<form class="form" action="confirmation" method="post">
+					
+				{% endif %}									        			
 				
 				  {{ govukInput({
 					label: {
@@ -23,7 +29,8 @@
 					},
 					classes: " govuk-!-width-two-thirds",
 					id: "register-full-name",
-					name: "register-full-name"
+					name: "register-full-name",
+					value: data['register-full-name']
 				  }) }}
 
 

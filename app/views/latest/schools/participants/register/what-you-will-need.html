@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-
 {% set pageHeading = "What we need to know" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,15 +18,17 @@
       		<p class="govuk-body">We need to check your details on the Teaching Regulation Agency records. This is to make sure you qualify for this programme.</p>
       		<p class="govuk-body">You will need to tell us:</p>
       		<ul class="govuk-list govuk-list--bullet">
-        		<li>your teacher reference number (TRN)</li>				
+        		<li>your teacher reference number (TRN)</li>					
 				<li>your National Insurance number</li>
         		<li>your date of birth</li>
       		</ul>
 
-			<form action="what-is-your-teacher-reference-number" method="post" >      			
+			<form action="teacher-reference-number" method="post" >   			   			
+
 				{{ govukButton({
         			text: "Continue"
       			}) }}
+
   			</form>
   		</div>
 	</div>

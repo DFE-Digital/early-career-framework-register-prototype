@@ -83,12 +83,21 @@
                 <div class="govuk-grid-column-one-half">
                     
                     {{ govukCheckboxes({                        
-                        idPrefix: "validated",
-                        name: "validated",
+                        idPrefix: "register-validated",
+                        name: "register-validated",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Not able to validate" } ]
+                        items: [ { value: "No", text: "Not able to validate initial info" } ]
+                    }) }} 
+
+                    {{ govukCheckboxes({                        
+                        idPrefix: "register-full-validation",
+                        name: "register-full-validation",
+                        fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "No", text: "Not able to validate at all" } ]
                     }) }} 
                     <p>If using not validated you must choose induction programme to see correct content and additionally in partnership if you want to see additional content.</p>
+
+                                        
                 </div>
             </div>
             {{ govukCheckboxes({                        

@@ -11,10 +11,22 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     		    
-			  {% if data['validation-check'] == "Yes" %}
-			  	<form class="form" action="confirmation" method="post">    		
+			  <!-- Check if we are adding extra layers to validate -->
+			{% if data['register-main-route'] == "trn" %}
+
+			  	{% if data['register-full-validation'] == "No" %}
+				  	
+				  		<form class="form" action="confirm-name" method="post">    	
+						<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
+			  	{% elif data['register-validated'] == "No" %}
+			 	 	<form class="form" action="confirmation" method="post">
+					
+				{% endif %}									  
+					
 			  {% else %}
-    			<form class="form" action="date-of-birth" method="post">    		
+    		
+			  	<form class="form" action="date-of-birth" method="post">    
+					<input type="hidden" id="register-main-route" name="register-main-route" value="ni" />		
 				{% endif %}
 				
 				
@@ -24,7 +36,8 @@
 						classes: "govuk-!-width-two-thirds",
 						id: "register-national-insurance-number",
 						name: "register-national-insurance-number",
-						spellcheck: false
+						spellcheck: false,
+						value: data['register-national-insurance-number']
 					}) }}
 
 					{{ govukButton({

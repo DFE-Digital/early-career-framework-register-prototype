@@ -13,23 +13,12 @@
 
     		<!-- <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p> -->
 
-    		{% if data['validated'] == "No" %}
-    			<form class="form" action="check-your-answers" method="post">
+    		{% if data['register-validated'] == "No" %}
+				<!-- User cannot be validated based on NI and DOB and Name we have -->
+    			<form class="form" action="cannot-find-your-details" method="post">
     		{% else %}
     			<form class="form" action="confirmation" method="post">
     		{% endif %}
-
-				<!-- <div class="govuk-form-group">
-					<label class="govuk-label govuk-!-width-three-quarters bold-label" for="register-teacher-reference-number">Teacher reference number (TRN)</label>
-					<span id="email-hint" class="govuk-hint">Your TRN is between 6 and 7 characters long. Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol.</span>
-					<input class="govuk-input govuk-input--width-10" id="register-teacher-reference-number" name="register-teacher-reference-number" type="text" aria-describedby="register-teacher-reference-number" value="{{ data['register-teacher-reference-number'] }}">
-				</div> -->
-
-				<!-- <div class="govuk-form-group">
-					<label class="govuk-label govuk-!-width-three-quarters bold-label" for="fullName">Full name</label>
-					<span id="email-hint" class="govuk-hint">Your full name exactly as it appears on the Teaching Regulation Agency records.</span>
-					<input class="govuk-input govuk-!-width-three-quarters" id="fullName" name="fullName" type="text" aria-describedby="Full Name" value="{{ data['fullName'] }}">
-				</div> -->
 
 				<div class="govuk-form-group">
 					<label class="govuk-label govuk-visually-hidden govuk-!-width-three-quarters" for="dobNumb">What is your date of birth?</label>        
@@ -55,15 +44,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="govuk-form-group">
-					<label class="govuk-label bold-label govuk-!-width-three-quarters" for="NI">National Insurance number (optional)</label>
-					<div id="national-insurance-number-hint" class="govuk-hint">
-						It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
-					  </div>
-					
-					<input class="govuk-input govuk-!-width-three-quarters" id="NI" name="NI" type="text" aria-describedby="NI" value="{{ data['NI'] }}">
-				</div> -->
 
 				{{ govukButton({
 					text: "Continue"

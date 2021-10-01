@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "We cannot find your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<p class="govuk-body">This could be because you mistyped or entered some incorrect information.</p>				  			
+
+      		<dl class="govuk-summary-list govuk-!-margin-bottom-9">        										
+				
+				{% if data['register-teacher-reference-number'] %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">TRN</dt>
+					<dd class="govuk-summary-list__value">{{ data['register-teacher-reference-number'] }}</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+			  	</div>        						
+				{% endif %}
+				{% if data['register-national-insurance-number'] %}
+        		<div class="govuk-summary-list__row">
+          			<dt class="govuk-summary-list__key govuk-!-width-one-half">National Insurance number</dt>
+          			<dd class="govuk-summary-list__value">{{ data['register-national-insurance-number'] }}</dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+        		</div>
+				{% endif %}
+        		<div class="govuk-summary-list__row">
+          			<dt class="govuk-summary-list__key govuk-!-width-one-half">Date of birth</dt>
+          			<dd class="govuk-summary-list__value">{{ data['register-dob-day'] }} {{ data['register-dob-month'] | toMonth }} {{ data['register-dob-year'] }}</dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+        		</div>
+				{% if data['register-full-name'] %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">Name</dt>
+					<dd class="govuk-summary-list__value">{{ data['register-full-name'] }}</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+			  	</div>
+				  {% endif %}
+			</dl>										
+
+			
+			{% if data['register-cant-validate'] == "Yes" %}
+
+				<div class="govuk-inset-text">
+					<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
+				</div>
+
+				<form class="form" action="confirmation" method="post" >        		
+					{{ govukButton({
+						text: "Confirm and send",
+						classes: "govuk-button--secondary"
+				  }) }}
+				</form>
+
+			{% else %}
+			
+				{% if data['register-main-route'] == "trn" %}	
+					
+					<div class="govuk-inset-text">
+						<p class="govuk-body">Telling us your National Insurance number may help us to find your details.</p>
+					</div>
+
+					<!-- Lets try adding the NI number -->
+					<form class="form" action="national-insurance-number" method="post" >					
+						<!-- <input type="hidden" name="validation-check" id="validation-check" value="Yes" /> -->
+						<!-- <input type="hidden" name="validated" id="validated" value="" /> -->
+						{{ govukButton({
+							text: "Add your National Insurance number"					  
+						}) }}
+					</form>
+
+				{% elif data['register-main-route'] == "ni"  %}
+					
+					<div class="govuk-inset-text">
+						<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
+					</div>			
+					<form class="form" action="confirm-name" method="post" >        		
+						{{ govukButton({
+							text: "Continue to confirm your name"					  
+						}) }}
+					</form>
+
+				{% endif %}
+
+			{% endif %}
+      		
+    	
+		</div>
+  	</div>
+{% endblock %}
