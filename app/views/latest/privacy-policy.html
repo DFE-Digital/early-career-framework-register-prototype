@@ -129,13 +129,12 @@
 
 
 			{% if data['registering'] == "Yes" %}
-				<form method="post" action="schools/participants/register/what-is-your-teacher-reference-number" >
+				<form method="post" action="schools/participants/register/what-you-will-need" >
 			{% else %}
 				<form method="post" action="schools/training-programme/" >
 					<input type="hidden" id="training-programme" name="training-programme" value="" />
 					<input type="hidden" id="induction-tutor-seen-privacy-policy" name="induction-tutor-seen-privacy-policy" value="Yes" />
-			{% endif %}
-				
+			{% endif %}				
 				
 				{{ govukButton({
 					text: "Continue"

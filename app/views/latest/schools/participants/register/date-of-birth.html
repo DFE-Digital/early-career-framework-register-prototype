@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "What is your date of birth?" %}
+{% set pageHeading = "What’s your date of birth?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,13 +16,13 @@
     		{% if data['validated'] == "No" %}
     			<form class="form" action="check-your-answers" method="post">
     		{% else %}
-    			<form class="form" action="check-your-answers" method="post">
+    			<form class="form" action="confirmation" method="post">
     		{% endif %}
 
 				<!-- <div class="govuk-form-group">
-					<label class="govuk-label govuk-!-width-three-quarters bold-label" for="trnd">Teacher reference number (TRN)</label>
+					<label class="govuk-label govuk-!-width-three-quarters bold-label" for="register-teacher-reference-number">Teacher reference number (TRN)</label>
 					<span id="email-hint" class="govuk-hint">Your TRN is between 6 and 7 characters long. Enter your TRN without ‘RP’ letters or a slash ‘/’ symbol.</span>
-					<input class="govuk-input govuk-input--width-10" id="trnd" name="trnd" type="text" aria-describedby="trnd" value="{{ data['trnd'] }}">
+					<input class="govuk-input govuk-input--width-10" id="register-teacher-reference-number" name="register-teacher-reference-number" type="text" aria-describedby="register-teacher-reference-number" value="{{ data['register-teacher-reference-number'] }}">
 				</div> -->
 
 				<!-- <div class="govuk-form-group">
@@ -37,20 +37,20 @@
 					<div class="govuk-date-input" id="dob">
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="dob">Day</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-day'] }}">
+								<label class="govuk-label govuk-date-input__label" for="register-dob">Day</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-day" name="register-dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-day'] }}">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="dob-month">Month</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-month'] }}">
+								<label class="govuk-label govuk-date-input__label" for="register-dob-month">Month</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-month" name="register-dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-month'] }}">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="dob-year">Year</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-year'] }}">
+								<label class="govuk-label govuk-date-input__label" for="register-dob-year">Year</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="register-dob-year" name="register-dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-year'] }}">
 							</div>
 						</div>
 					</div>
