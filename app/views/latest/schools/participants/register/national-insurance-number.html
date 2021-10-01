@@ -10,8 +10,13 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    		    		
+    		    
+			  {% if data['validation-check'] == "Yes" %}
+			  	<form class="form" action="confirmation" method="post">    		
+			  {% else %}
     			<form class="form" action="date-of-birth" method="post">    		
+				{% endif %}
+				
 				
 					{{ govukInput({
 						label: { text: "National Insurance number", classes: "govuk-visually-hidden" },

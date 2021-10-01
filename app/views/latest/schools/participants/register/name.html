@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "What’s your full name?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<!-- This is just for the check your answers so it sends back to the CYA --> 
+			
+      			<form class="form" action="email-address" method="post">																	
+				
+				  {{ govukInput({
+					label: {
+					  text: "What’s your full name?",
+					  classes: "govuk-visually-hidden",
+					  isPageHeading: false
+					},
+					classes: " govuk-!-width-two-thirds",
+					id: "register-full-name",
+					name: "register-full-name"
+				  }) }}
+
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      		
+			</form>
+    	</div>
+  	</div>
+{% endblock %}
