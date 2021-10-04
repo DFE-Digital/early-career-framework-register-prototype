@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Is this the name you used when registering with the Teacher Regulation Agency?" %}
+{% set pageHeading = "Is this the name you used when you started your initial teacher training (ITT)?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,7 +20,7 @@
 				<p><span class="govuk-!-font-weight-bold" >Name:</span> {{ defaults.userFullName() }}</p>
 			</div>
 
-			<p>You may have used a different version of your first name, for example ‘Rob’ or ‘Robert’ when registering. This includes changing your last name or spelling your name differently.<!--with the Teaching Regulation Agency.--></p>
+			<p>Answer 'no' if your last name has changed, or you used a different version of your first name.<!--with the Teaching Regulation Agency.--></p>
 
 				{% if data['validated'] == "No" %}
 

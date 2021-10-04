@@ -16,7 +16,7 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p class="govuk-body">This could be because you mistyped or entered some incorrect information.</p>				  			
+			<p class="govuk-body">Check the information you entered is correct.</p>				  			
 
       		<dl class="govuk-summary-list govuk-!-margin-bottom-9">        										
 				
@@ -52,13 +52,13 @@
 			{% if data['register-cant-validate'] == "Yes" %}
 
 				<div class="govuk-inset-text">
-					<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
+					<p class="govuk-body">Our support team may contact you for more information to help us complete our checks.</p>
 				</div>
 
 				<form class="form" action="confirmation" method="post" >        		
 					{{ govukButton({
-						text: "Confirm and send",
-						classes: "govuk-button--secondary"
+						text: "Continue",
+						classes: "govuk-button"
 				  }) }}
 				</form>
 
@@ -67,7 +67,7 @@
 				{% if data['register-main-route'] == "trn" %}	
 					
 					<div class="govuk-inset-text">
-						<p class="govuk-body">Telling us your National Insurance number may help us to find your details.</p>
+						<p class="govuk-body">Tell us your National Insurance number to help us to find your details.</p>
 					</div>
 
 					<!-- Lets try adding the NI number -->
