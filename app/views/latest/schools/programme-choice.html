@@ -2,12 +2,7 @@
 {% set schoolSignedIn = true %}
 
 
-{% if((data['training-programme'] == "DYO") or ( data['training-programme'] == "noECT" )) %}
 {% set pageHeading = "Change how you run your programme" %}
-{% else %}
-{% set pageHeading = "Choose an induction programme" %}
-{% endif %}
-
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -31,24 +26,10 @@
 						]
 					}) }} -->
 			
-				<p class="govuk-body">If your school wants to use a training provider, funded by the DfE, you should:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>contact your local Teaching School Hub</li>
-				</ul>
-				<p class="govuk-body">They will talk you through how to access this support for your early career teachers and mentors. Not sure? <a class="govuk-link" href="https://www.gov.uk/guidance/teaching-school-hubs#find-a-teaching-school-hub">Find your local Teaching School Hub</a>.</p>
-				<p class="govuk-body">If your school has decided to design and deliver your own programme based on the early career framework (ECF), you need to:</p>
-				
-				<ul class="govuk-list govuk-list--bullet">
-					<li>contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></li>
-				</ul>
-				
-				<div class="govuk-warning-text">
-					<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-					<strong class="govuk-warning-text__text">
-						<span class="govuk-warning-text__assistive">Warning</span>
-						If you change your programme, your early career teachers and mentors will lose their progress on the service.
-					</strong>
-				</div>
+				<p class="govuk-body">Your school has chosen to deliver your own programme using DfE-accredited materials.</p>
+
+				<p class="govuk-body">Email the DfE if you want to make a change: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.
+				</p>
 
 			{% elif data['training-programme'] == "FIP" %}
 
@@ -62,19 +43,12 @@
 					]
 				}) }} -->
 				
-				<p class="govuk-body">If your school has decided to:</p>
-				<ul class="govuk-list govuk-list--bullet">
-				  <li>deliver your own programme using the DfE accredited materials</li>
-				</ul>
-				<p class="govuk-body">Or</p>
-				<ul class="govuk-list govuk-list--bullet">
-				  <li>design your own programme based on the early career framework (ECF)</li>
-				</ul>
+				<p class="govuk-body">Your school has chosen to use a training provider, funded by the DfE.</p>
 		
-				<p class="govuk-body">You need to:</p>		  
+				<p class="govuk-body">Follow these steps to change how you run your programme.</p>		  
 				<ol class="govuk-list govuk-list--number">
-				  <li>Speak to your training provider, if you've signed up with one.</li>
-				  <li>Contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></li>
+				  <li>Contact your training provider, if you've signed up with one.</li>
+				  <li>Email the DfE to let us know that you want to make a change: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
 				</ol>
 
 
