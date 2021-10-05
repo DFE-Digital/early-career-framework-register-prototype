@@ -37,10 +37,65 @@
 			
 			{% if data['user-research'] == "Yes" %}
 
-				<div class="govuk-inset-text pending">
-					<p><span class="govuk-!-font-weight-bold">Status:</span> We’ve contacted these people for information</p>
-					<p>We’ve asked for information to check their eligibility. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
-				</div>
+				
+
+					{% if data['status'] == "Remind" %}
+
+						<div class="govuk-inset-text">
+							<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>					
+							<p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
+							<p>We suggest you remind them to provide this.</p>
+						</div>
+			
+					{% elif data['status'] == "Email" %}
+
+						<div class="govuk-inset-text">
+							<p><span class="govuk-!-font-weight-bold">Status:</span> Check email address</p>					
+							<p>We could not send an email to this address. Please check it's correct.</p>
+						</div>
+
+					{% elif data['status'] == "Start" %}
+						
+						<div class="govuk-inset-text">
+						{% if data['training-programme'] == "FIP" %}
+													
+							{% if data['InPartnership'] == "Yes" %}
+								<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
+								<p>We've confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
+							{% else %}
+								<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
+								<p>We've confirmed this person is eligible for this programme. Once you choose a training provider, they'll contact this person directly.</p>
+							{% endif %}																		
+						
+						{% elif data['training-programme'] == "CIP" %}
+							<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
+							<p>We've confirmed this person is eligible for this programme. They have access to their materials.</p>
+						{% endif %}
+						</div>
+
+					{% else %}
+									
+						<p>No action required.</p>
+					<!-- <div class="govuk-inset-text">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+						<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
+					</div>
+				
+
+					<div class="govuk-inset-text">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Details being checked</p>
+						<p>We're checking this person's details with the Teaching Regulation Agency. We'll confirm if they're eligible for this programme soon. You do not need to do anything.</p>
+					</div>
+				
+					<div class="govuk-inset-text">
+						<p><span class="govuk-!-font-weight-bold">Status:</span> Contacted for information</p>
+						<p>We've asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p> 
+						<p>We suggest you remind them to provide this.</p>
+					</div>											 -->
+				
+					{% endif %}
+			
+				
 
 			{% else %}
 
@@ -168,10 +223,10 @@
 			{% endif %}
 
 						
-			<p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>			
-			<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+			<!-- <p>If {{ defaults.userFullName() }} should not be in this cohort, contact your training provider to remove them.</p>			
+			<p>If {{ defaults.userFullName() }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them. -->
 
-			<p class="govuk-!-margin-top-9"><a href="../participants/">Return to your ECTs and mentors</a></p>
+			<!-- <p class="govuk-!-margin-top-9"><a href="../participants/">Return to your ECTs and mentors</a></p> -->
 
 
     	</div>
