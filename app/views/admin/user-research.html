@@ -9,7 +9,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 17 September 2021</p>
+        <p>Last updated: 5 October 2021</p>
         
                     
         <!-- <h2 class="govuk-heading-m">Dashboard</h2>
@@ -23,7 +23,23 @@
             
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
-        <p>Nothing currently ready for research.</p>
+        <h2 class="govuk-heading-m">Dashboard</h2>
+        <p>ECT and mentor pages showing eligibility options.</p>        
+        <form action="/{{ defaults.sprintNo() }}/schools/participants/" method="post" >            
+            <input type="hidden" name="show-participant-not-eligible" id="show-participant-not-eligible" value="Yes" />
+            <input type="hidden" name="show-participant-status-checking" id="show-participant-status-checking" value="Yes" />
+            <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />
+            <input type="hidden" name="training-programme" id="training-programme" value="FIP" />
+            <input type="hidden" name="roles-seen" id="roles-seen" value="Yes" />            
+            <input type="hidden" name="user-research" id="user-research" value="Yes" />
+            
+            {{ govukButton({
+                text: "Start user research"
+            }) }}
+        </form>
+
+
+        <!-- <p>Nothing currently ready for research.</p> -->
         
         
         <!-- <h2 class="govuk-heading-m">Step by step</h2>
@@ -36,23 +52,10 @@
             {{ govukButton({
                 text: "Start user research"
             }) }}
-        </form>
-        
-
-        <h2 class="govuk-heading-m">Dashboards</h2>
-        <p>Research for testing the dashboard journeys, as well as delete and add functionality for ECT, Mentor and SIT Mentor.</p>
-        
-        <form action="/{{ defaults.sprintNo() }}/emails/link-to-sign-in" method="post" >            
-            <input type="hidden" name="InPartnership" id="InPartnership" value="Yes" />
-            <input type="hidden" name="induction-programme" id="induction-programme" value="FIP" />
-            <input type="hidden" name="user-research" id="user-research" value="Yes" />
-            <input type="hidden" name="has-mentors" id="has-mentors" value="No" />
-
-            
-            {{ govukButton({
-                text: "Start user research"
-            }) }}
         </form> -->
+        
+
+        
         
 
     </div>
