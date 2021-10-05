@@ -131,16 +131,14 @@
 						</tr>
 						{% endif %}
 
-						<!-- {% if data['added-mentor'] == "Yes" %}
+						{% if data['added-sitMentor'] == "Yes" %}
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
+							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
 							<td class="govuk-table__cell">Mentor</td>							
-							<td class="govuk-table__cell"></td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=mentor&status=" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell">Remind them	</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=Remind" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
-
-					-->
 
 
 					</tbody>
@@ -222,14 +220,20 @@
 								<td class="govuk-table__cell">None</td>
 								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=AlreadyFunded&ParticipantType=Mentor&user-details=Random&random-name=Stanislaw Klajn&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>
-							{% if data['added-sitMentor'] == "Yes" %}
+
+							 {% if data['added-mentor'] == "Yes" %}
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
+							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
 							<td class="govuk-table__cell">Mentor</td>							
 							<td class="govuk-table__cell">None</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=mentor&status=" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 						{% endif %}
+
+					
+
+
+							
 							
 						</tbody>
 					</table>
