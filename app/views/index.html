@@ -2,14 +2,14 @@
 {% set showBackLink = false %}
 
 {% set pageHeading = "ECF Register and Partner" %}
-{% set pageSection = "Development prototype work" %}
+{% set pageSection = "Prototype work" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
 		<ul class="govuk-list govuk-body-s">
         	<li>Last updated: 29 September 2021</li>
@@ -29,16 +29,59 @@
 			<li>allow SIT to change who is the SIT</li>
         </ul> 		  
         
-			{{ govukButton({
-				text: "Page by page listings and scenarios",
-				href: "admin/listings",
-				classes: "govuk-button--secondary"
-			}) }}
+        {{ govukButton({
+			text: "Journey from first contact",
+			href: "/latest/emails/tell-us-if-you-have-nqt"
+		}) }}
 
-        	
-        
-    	</div>
-	</div>
+		{{ govukButton({
+			text: "Page by page listings and scenarios",
+			href: "admin/listings",
+			classes: "govuk-button--secondary"
+		}) }}
+
+        {{ govukButton({
+			text: "Preloaded options",
+			href: "/admin/preload"
+		}) }}
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">        
+
+		<h2 class="govuk-heading-m">Development baseline</h2>
+        <p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
+
+        <form method="post" action="/index" >
+            
+            {{ govukButton({
+                text: "Continue",
+                href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
+            }) }}
+
+        </form>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">User research</h2>
+        <p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+        {{ govukButton({
+            text: "Continue",
+            href: "admin/user-research"
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">Previous sprint iterations</h2>
+        <p>Previous sprint work and iterations of the service at a given point in time (Still working on implementation).</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col" width="25%">Iteration</th>
+                    <th class="govuk-table__header" scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="/sprint-21/landing">Sprint 21</a></td>
 					<td class="govuk-table__cell"><p>This sprint focused on:</p>
