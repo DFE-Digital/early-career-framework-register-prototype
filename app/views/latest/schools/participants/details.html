@@ -48,7 +48,7 @@
 
 				<div class="govuk-inset-text">
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Check email address</p>					
-					<p>We could not send an email to this address. Please check it's correct.</p>
+					<p>We could not send an email to this address. Please check it’s correct.</p>
 				</div>
 
 			{% elif data['status'] == "Checking" %}
@@ -76,15 +76,15 @@
 											
 					{% if data['InPartnership'] == "Yes" %}
 						<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
-						<p>We've confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
+						<p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
 					{% else %}
 						<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
-						<p>We've confirmed this person is eligible for this programme. Once you choose a training provider, they'll contact this person directly.</p>
+						<p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
 					{% endif %}																		
 				
 				{% elif data['training-programme'] == "CIP" %}
 					<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>					
-					<p>We've confirmed this person is eligible for this programme. They have access to their materials.</p>
+					<p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
 				{% endif %}
 				</div>
 
@@ -99,7 +99,7 @@
 						<!-- Mentor -->
 						<div class="govuk-inset-text">							
 							<p><span class="govuk-!-font-weight-bold">Status:</span> Already received funded mentor training </p>					
-							<p>Our checks show this person has already received mentor training as part of the early roll-out of the early career framework (ECF) reforms. They're ready to mentor ECTs.</p>							
+							<p>Our checks show this person has already received mentor training as part of the early roll-out of the early career framework (ECF) reforms. They’re ready to mentor ECTs.</p>							
 						</div>
 
 						{% elif data['noteligible-status'] == "NotEligible" %}
@@ -151,7 +151,7 @@
 				
 					<div class="govuk-inset-text">							
 						<p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>													
-						<p>We've confirmed this person is eligible for this programme. They have access to their training materials.</p>						
+						<p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p>						
 					</div>
 
 				{% endif %}
@@ -200,7 +200,7 @@
 						{% elif data['user-details'] == "sitMentor" %}  
 							{{ defaults.userEmailAddress() }}
 						{% else %}						
-							email@domain.com
+						{{ data['random-name'] }}@test.dfe.gov.uk
 						{% endif %}  						
 						</dd>
 				  	<dd class="govuk-summary-list__actions">
@@ -223,7 +223,7 @@
 						{% elif data['user-details'] == "sitMentor" %}  
 							Mentor
 						{% else %}  
-						Mentor/ECT
+							{{ data['random-type'] }}
 						{% endif %}
 					</dd>
 				  	<dd class="govuk-summary-list__actions"></dd>
@@ -259,7 +259,7 @@
 			{% elif data['user-details'] == "sitMentor" %}  
 				<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
 			{% else %}						
-				<p><a href="confirm-delete">Remove FULL NAME from this cohort</a></p>			
+				<p><a href="confirm-delete">Remove {{ data['random-name'] }} from this cohort</a></p>			
 			{% endif %}
 
 						

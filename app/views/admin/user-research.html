@@ -25,13 +25,16 @@
 
         <h2 class="govuk-heading-m">Dashboard</h2>
         <p>ECT and mentor pages showing eligibility options.</p>        
-        <form action="/{{ defaults.sprintNo() }}/schools/participants/" method="post" >            
+        <form action="/{{ defaults.sprintNo() }}/schools/manage-your-training" method="post" >            
             <input type="hidden" name="show-participant-not-eligible" id="show-participant-not-eligible" value="Yes" />
             <input type="hidden" name="show-participant-status-checking" id="show-participant-status-checking" value="Yes" />
             <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />
             <input type="hidden" name="training-programme" id="training-programme" value="FIP" />
             <input type="hidden" name="roles-seen" id="roles-seen" value="Yes" />            
             <input type="hidden" name="user-research" id="user-research" value="Yes" />
+            <input type="hidden" name="InPartnership" id="InPartnership" value="Yes" />
+
+            
 
             <!-- ECT 1 -->
             <input type="hidden" name="participant-fullname" id="participant-fullname" value="Kate Lloyd" />
