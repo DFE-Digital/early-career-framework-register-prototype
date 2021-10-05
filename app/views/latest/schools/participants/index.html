@@ -128,7 +128,7 @@
 							<td class="govuk-table__cell">Alex Nolan</td>						
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">None</td>						
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=InductionStarted" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
 					<tbody class="govuk-table__body">
@@ -136,7 +136,19 @@
 							<td class="govuk-table__cell">Shani Rogers</td>						
 							<td class="govuk-table__cell">ECT</td>
 							<td class="govuk-table__cell">None</td>						
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=Checking" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Stanislaw Klajn</a></td>
+							<td class="govuk-table__cell">Mentor</td>
+							<td class="govuk-table__cell">None</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=AlreadyFunded&ParticipantType=Mentor" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Tony Headford</a></td>
+							<td class="govuk-table__cell">ECT</td>
+							<td class="govuk-table__cell">None</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=NotEligible&ParticipantType=" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -157,15 +169,15 @@
 						<tbody class="govuk-table__body">							
 							<tr class="govuk-table__row">
 								<td class="govuk-table__cell">Erica Porter</a></td>														
-								<td class="govuk-table__cell">ECT</td>
+								<td class="govuk-table__cell">Mentor</td>
 								<td class="govuk-table__cell">None</td>							
-								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Checking" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>
 							<tr class="govuk-table__row">
-								<td class="govuk-table__cell">Erica Porter</a></td>														
+								<td class="govuk-table__cell">Luke Richards</a></td>														
 								<td class="govuk-table__cell">ECT</td>
 								<td class="govuk-table__cell">Assign mentor</td>							
-								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
+								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Checking" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>							
 						</tbody>
 					</table>
@@ -209,28 +221,7 @@
 								<td class="govuk-table__cell">None</td>
 								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start" class="govuk-link govuk-link--no-visited-state">View details</a></td>
 							</tr>
-							<tr class="govuk-table__row">
-								<td class="govuk-table__cell">Stanislaw Klajn</a></td>
-								<td class="govuk-table__cell">Mentor</td>
-								<td class="govuk-table__cell">None</td>
-								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-							</tr>
-							<tr class="govuk-table__row">
-								<td class="govuk-table__cell">Tony Headford</a></td>
-								<td class="govuk-table__cell">ECT</td>
-								<td class="govuk-table__cell">
-									{% if data['training-programme'] == "FIP" %}
-										{% if data['InPartnership'] == "Yes" %}
-											Assign mentor
-										{% else %}
-											None
-										{% endif %}
-									{% elif data['training-programme'] == "CIP" %}
-										
-									{% endif %}
-								</td>
-								<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">View details</a></td>
-							</tr>
+							
 						</tbody>
 					</table>
 				{% endif %}
