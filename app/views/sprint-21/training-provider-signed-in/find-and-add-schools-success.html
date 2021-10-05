@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "sign-up-to-training-provider" have been added" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+{% set page = 'schools' %}
+  {% include "includes/_training-provider-nav.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row govuk-!-margin-bottom-5">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          You have added partnerships with {{ data["selected-count"]}} schools
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+        <li>we will notify the schools and remind them to add their early career teachers and mentors</li>
+        <li>you can check your schools to make sure they have done this and follow up if need be. This will ensure you are paid in time for your participants</li>
+      </ul>
+
+      {{ govukButton({
+        text: 'Add more schools',
+        href: 'find-and-add-schools'
+      }) }}
+
+      <div>
+      {{ govukButton({
+        text: 'Check your schools',
+        href: 'school-listing-2021',
+        classes: 'govuk-button--secondary'
+      }) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

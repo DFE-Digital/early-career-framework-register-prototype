@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "Your choice has been saved for 2021" %}
+{% set pageHeading = "Your report has been submitted" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
 
 
 {% block content %}
@@ -16,10 +17,11 @@
       </div>
 
       <h3 class="govuk-heading-m">What happens next</h3>
-      <p>We will contact [school name] in the next academic year.</p>
-      <p>If you do employ early career teachers later this year, you can <a class="govuk-link" href="nominate-induction-tutor">nominate someone to set up your programme.</a></p>
-
-
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the training provider will be notified</li>
+        <li>they may also contact you to discuss any issues</li>
+        <li>if you do not hear from a training provider, your issue will be resolved directly</li>
+      </ul>
     </div>
   </div>
 {% endblock %}
