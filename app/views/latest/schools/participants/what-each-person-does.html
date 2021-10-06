@@ -70,7 +70,10 @@
 			  	<li>meeting with their induction tutor to discuss, agree and review priorities for their induction programme </li>
 			</ul>
 			
-			{% if not data['link-role'] %}<!-- There should be no continue button if you are just looking at this  -->
+			<!-- There should be no continue button if you are just looking at this  -->
+			{% if not data['userstatus'] %}
+			
+			{% if not data['link-role'] %}
 				<form method="post" action="../participants/" >
 					<input type="hidden" name="roles-seen" id="roles" value="Yes" />
 				
@@ -79,6 +82,7 @@
 				  	}) }}	
 
 				</form>
+			{% endif %}
 			{% endif %}
 				
 		</div>		
