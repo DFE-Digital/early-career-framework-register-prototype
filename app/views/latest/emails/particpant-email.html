@@ -18,12 +18,51 @@
 	<div class="pseudo-bg"></div>
 		<div class="email-metadata">
 
-			<!-- ECT registration email (CIP and FIP) -->
 			
+			
+			{% if ((data['participantType'] == "sitMentor") and ((data['training-programme'] == "CIP") or (data['training-programme'] == "FIP"))) %}
+
+			<!-- <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  				<p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
+  			</div>
+  			
+			<div class="pseudo-email-template">
+
+  				<p>Hello, {{ defaults.userFirstName() }}</p>
+  				<p>You’ve nominated yourself as a mentor for early career teachers (ECTs) at {{ defaults.schoolName() }}.</p>
+				<p>An induction tutor should only assign themself as a mentor in exceptional circumstances. Read our guidance to make sure you can take on the full responsibilities of both roles: ((role_guidance))</p>
+  				<p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
+
+  				<p><strong>What you need to do now</strong></p>
+  				<p>We need to check your details in the Teaching Regulation Agency records. This is to confirm you have the qualifications needed to be a mentor.</p>
+
+  				<p>To do this, we need to ask you for:</p>
+  				<ul class="govuk-list govuk-list--bullet">
+					<li>full name</li>
+  					<li><a href="https://www.gov.uk/guidance/request-a-reminder-for-a-teacher-reference-number-trn">teacher reference number</a> (TRN).</li>
+  					<li>date of birth</li>
+  					<li>National Insurance number (optional)</li>
+  				</ul>
+
+				<p><strong>Choose how to provide your information</strong></p>
+
+				<p>We’re inviting some teachers to use our service during an online meeting with our research team. We’ll ask for feedback to help us to improve the service for other teachers and schools. </p>
+				<p>You can ask our team questions about the process, and we offer an incentive to thank you for your time.</p>
+				<p>Find out about research sessions: ((UR_sign_up_url))</p>
+
+				
+
+
+
+				<p>Sign in to our service to tell us this information as soon as possible:</p>
+  				<p><a class="govuk-link--no-visited-state" href="../schools/participants/register/">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
+  				<p>If you have any questions, reply to this email.<br />
+  				<p>Teacher Continuing Professional Development<br />
+  				<span style="color:#888888;">Department for Education</span></p> -->
 
   			
 			<!-- CIP mentor (in beta programme) -->
-  			{% if ((data['participantType'] == "mentor") and (data['training-programme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
+  			{% elif ((data['participantType'] == "mentor") and (data['training-programme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
 
 				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
   				<p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
