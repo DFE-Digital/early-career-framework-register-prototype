@@ -83,6 +83,13 @@
                 <div class="govuk-grid-column-one-half">
                     
                     {{ govukCheckboxes({                        
+                        idPrefix: "no-delete",
+                        name: "no-delete",
+                        fieldset: { legend: { text: "Validated so can no longer delete", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Validated so can no longer delete participant" } ]
+                    }) }} 
+
+                    {{ govukCheckboxes({                        
                         idPrefix: "validated",
                         name: "validated",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
