@@ -12,8 +12,7 @@
 
     		<!-- <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p> -->
 
-    		{% if data['register-validated'] == "No" %}
-				<!-- User cannot be validated based on NI and DOB and Name we have -->
+    		{% if data['register-validate'] == "No" %}
     			<form class="form" action="cannot-find-your-details" method="post">
     		{% else %}
     			<form class="form" action="confirmation" method="post">

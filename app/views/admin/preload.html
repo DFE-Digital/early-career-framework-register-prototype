@@ -64,7 +64,7 @@
             <!-- <hr class="govuk-section-break govuk-section-break--m govuk-sectio-break--visible"> -->
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
             
-            <h2 class="govuk-heading-m">Participant options</h2>
+            <h2 class="govuk-heading-m">Participant</h2>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">                    
                     {{ govukRadios({                        
@@ -83,10 +83,10 @@
                 <div class="govuk-grid-column-one-half">
                     
                     {{ govukCheckboxes({                        
-                        idPrefix: "register-validated",
-                        name: "register-validated",
+                        idPrefix: "register-validate",
+                        name: "register-validate",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Not able to validate initial info" } ]
+                        items: [ { value: "No", text: "Cannot validate initial info", checked: checked("register-validate", "No") } ]
                     }) }} 
 
                     {{ govukCheckboxes({                        
@@ -109,7 +109,7 @@
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
 
             
-             <h2 class="govuk-heading-m">Participant validation options</h2>
+             <h2 class="govuk-heading-m">Participant dashboard eligibility options</h2>
              <div class="govuk-grid-row">
                  
                  <div class="govuk-grid-column-one-third">

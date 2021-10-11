@@ -11,12 +11,12 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     		    
 			  <!-- Check if we are adding extra layers to validate -->
-			{% if data['register-main-route'] == "trn" %}
+			{% if data['register-main-route'] == "tr-number" %}
 
 			  	{% if data['register-full-validation'] == "No" %}				  	
 				<form class="form" action="cannot-find-your-details" method="post">    	
 					<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
-			  	{% elif data['register-validated'] == "No" %}
+			  	{% elif data['register-validate'] == "No" %}
 			 	<form class="form" action="confirmation" method="post">					
 				{% endif %}									  
 					

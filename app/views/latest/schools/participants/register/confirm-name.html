@@ -20,14 +20,12 @@
 				<p><span class="govuk-!-font-weight-bold">Name:</span> {{ defaults.userFullName() }}</p>
 			</div>
 				
-
-				<form class="form" action="cannot-find-your-details" method="post" >
-				
+			<form class="form" action="cannot-find-your-details" method="post" >				
       		
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
-					idPrefix: "name-changed",
-					name: "name-changed",
+					idPrefix: "register-name-correct",
+					name: "register-name-correct",
 					hint: {
 						text: "Answer ‘no’ if your last name has changed, or you used a different version of your first name."
 					},
@@ -39,8 +37,8 @@
 					  }
 					},					
 					items: [									
-						{ value: "yes", text: "Yes", checked: checked("name-change", "yes") },
-					  	{ value: "no, redirect(name)", text: "No", checked: checked("name-change", "no") }
+						{ value: "Yes", text: "Yes", checked: checked("register-name-correct", "yes") },
+					  	{ value: "No, redirect(name)", text: "No", checked: checked("register-name-correct", "No") }
 					]
 				}) }}
 				
@@ -48,7 +46,8 @@
         		{{ govukButton({
           			text: "Continue"					  
         		}) }}
-      			</form>
+      		
+			</form>
     	
 		</div>
   	</div>

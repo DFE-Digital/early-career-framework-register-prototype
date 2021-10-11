@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['register-cant-validate'] == "Yes" %}
+{% if data['register-name-correct'] == "Yes" %}
 	{% set pageHeading = "We still cannot find your details" %}
 {% else %}
 	{% set pageHeading = "We cannot find your details" %}
@@ -43,10 +43,16 @@
           			<dd class="govuk-summary-list__value">{{ data['register-dob-day'] }} {{ data['register-dob-month'] | toMonth }} {{ data['register-dob-year'] }}</dd>
           			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
         		</div>
-				{% if data['register-full-name'] %}
+				{% if ((data['register-full-name'] ) or ( data['register-name-correct'] == "Yes" )) %}
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key govuk-!-width-one-half">Name</dt>
-					<dd class="govuk-summary-list__value">{{ data['register-full-name'] }}</dd>
+					<dd class="govuk-summary-list__value">
+						{% if data['register-name-correct'] == "Yes" %}
+							{{ defaults.userFullName() }}
+						{% else %}
+							{{ data['register-full-name'] }}
+						{% endif %}
+					</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
 			  	</div>
 				  {% endif %}
@@ -55,7 +61,7 @@
 			
 			{% if data['register-cant-validate'] == "Yes" %}
 
-				<div class="govuk-inset-text">
+				<!-- <div class="govuk-inset-text">
 					<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
 				</div>			
 				<form class="form" action="confirm-name" method="post" >        		
@@ -73,35 +79,44 @@
 						text: "Continue",
 						classes: "govuk-button"
 				  }) }}
-				</form>
+				</form> -->
 
 			{% else %}
-			
-				{% if data['register-main-route'] == "trn" %}	
-					
-					<div class="govuk-inset-text">
-						<p class="govuk-body">Tell us your National Insurance number to help us to find your details.</p>
-					</div>
 
-					<!-- Lets try adding the NI number -->
-					<form class="form" action="national-insurance-number" method="post" >					
-						<!-- <input type="hidden" name="validation-check" id="validation-check" value="Yes" /> -->
-						<!-- <input type="hidden" name="validated" id="validated" value="" /> -->
-						{{ govukButton({
-							text: "Add your National Insurance number"					  
-						}) }}
-					</form>
+				<!-- If we have checked the name then it superseeds the intial validation -->
+				{% if data['register-name-correct'] == "Yes" %}
 
-				{% elif data['register-main-route'] == "ni"  %}
-					
-					<div class="govuk-inset-text">
-						<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
-					</div>			
-					<form class="form" action="confirm-name" method="post" >        		
+					<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
+					<form class="form" action="confirmation" method="post" >        		
 						{{ govukButton({
-							text: "Continue to confirm your name"					  
-						}) }}
-					</form>
+							text: "Continue",
+							classes: "govuk-button"
+					}) }}
+					</form>	
+
+				{% else %}
+					
+					<!-- If main route is using TRN -->
+					{% if data['register-main-route'] == "tr-number" %}	
+						
+						<div class="govuk-inset-text">Tell us your National Insurance number to help us to find your details.</div>
+						<form class="form" action="national-insurance-number" method="post" >						
+							{{ govukButton({
+								text: "Add your National Insurance number"					  
+							}) }}
+						</form>
+					
+					<!-- If main route is using NI Number -->
+					{% elif data['register-main-route'] == "ni-number"  %}
+						
+						<div class="govuk-inset-text">Confirming the full name we have for you may help us find your details.</div>			
+						<form class="form" action="confirm-name" method="post" >        		
+							{{ govukButton({
+								text: "Continue to confirm your name"					  
+							}) }}
+						</form>
+
+					{% endif %}
 
 				{% endif %}
 
