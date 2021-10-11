@@ -4,7 +4,6 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
 {% block content %}
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
@@ -14,22 +13,19 @@
 			  <!-- Check if we are adding extra layers to validate -->
 			{% if data['register-main-route'] == "trn" %}
 
-			  	{% if data['register-full-validation'] == "No" %}
-				  	
-				  		<form class="form" action="confirm-name" method="post">    	
-						<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
+			  	{% if data['register-full-validation'] == "No" %}				  	
+				<form class="form" action="cannot-find-your-details" method="post">    	
+					<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
 			  	{% elif data['register-validated'] == "No" %}
-			 	 	<form class="form" action="confirmation" method="post">
-					
+			 	<form class="form" action="confirmation" method="post">					
 				{% endif %}									  
 					
 			  {% else %}
     		
 			  	<form class="form" action="date-of-birth" method="post">    
-					<input type="hidden" id="register-main-route" name="register-main-route" value="ni" />		
+					<input type="hidden" id="register-main-route" name="register-main-route" value="ni-number" />		
 				{% endif %}
-				
-				
+								
 					{{ govukInput({
 						label: { text: "National Insurance number", classes: "govuk-visually-hidden" },
 						hint: { text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’." },

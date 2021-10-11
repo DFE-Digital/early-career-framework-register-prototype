@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "We cannot find your details" %}
+{% if data['register-cant-validate'] == "Yes" %}
+	{% set pageHeading = "We still cannot find your details" %}
+{% else %}
+	{% set pageHeading = "We cannot find your details" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -50,6 +54,15 @@
 
 			
 			{% if data['register-cant-validate'] == "Yes" %}
+
+				<div class="govuk-inset-text">
+					<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
+				</div>			
+				<form class="form" action="confirm-name" method="post" >        		
+					{{ govukButton({
+						text: "Continue to confirm your name"					  
+					}) }}
+				</form>
 
 				<div class="govuk-inset-text">
 					<p class="govuk-body">Our support team may contact you for more information to help us complete our checks.</p>

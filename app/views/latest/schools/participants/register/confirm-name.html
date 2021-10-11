@@ -17,36 +17,20 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			<div class="govuk-inset-text">
-				<p><span class="govuk-!-font-weight-bold" >Name:</span> {{ defaults.userFullName() }}</p>
+				<p><span class="govuk-!-font-weight-bold">Name:</span> {{ defaults.userFullName() }}</p>
 			</div>
-
-			<p>Answer 'no' if your last name has changed, or you used a different version of your first name.<!--with the Teaching Regulation Agency.--></p>
-
-				{% if data['validated'] == "No" %}
-
-					<!-- <h2 class="govuk-heading-m">We cannot find your details</h2> -->
-
-					<!-- <p class="govuk-body">Your induction tutor:</p>
-					<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
-						<li>you mistyped or entered some incorrect information</li>
-						<li>you used a different version of your first name, for example ‘Rob’ or ‘Robert’ when registering with the Teaching Regulation Agency</li>											
-					</ul> -->
-		  
-		  			<!-- {% if not data['NI'] %} 
-						<p class="govuk-body">Entering your National Insurance number will help us to find your details.</p>
-		  			{% endif %} -->
-
-				{% endif %}
-				
 				
 
-				<form class="form" action="name" method="post" >
+				<form class="form" action="cannot-find-your-details" method="post" >
 				
       		
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
-					idPrefix: "register-correct-name",
-					name: "register-correct-name",
+					idPrefix: "name-changed",
+					name: "name-changed",
+					hint: {
+						text: "Answer ‘no’ if your last name has changed, or you used a different version of your first name."
+					},
 					fieldset: {
 					  legend: {
 						text: "Have you changed your name?",
@@ -54,21 +38,11 @@
 						classes: "govuk-visually-hidden"
 					  }
 					},					
-					items: [
-						{ value: "yes", text: "Yes" },
-					  	{ value: "no", text: "No" }
+					items: [									
+						{ value: "yes", text: "Yes", checked: checked("name-change", "yes") },
+					  	{ value: "no, redirect(name)", text: "No", checked: checked("name-change", "no") }
 					]
 				}) }}
-			
-		
-			
-				<!-- {% if data['validated'] == "No" %}
-				<div class="govuk-inset-text">
-					<p class="govuk-body">You can continue to register. Our support team may contact you for more information before you start your induction training.</p>
-				</div>
-				{% endif %} -->
-			
-
 				
 
         		{{ govukButton({
