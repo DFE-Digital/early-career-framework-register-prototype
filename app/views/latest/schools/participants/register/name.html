@@ -13,10 +13,10 @@
 
 				<!-- This is just for the check your answers so it sends back to the CYA --> 			
 
-				{% if data['register-full-validation'] == "No" %}
+				{% if data['register-cannot-validate'] == "Yes" %}
 				  	<form class="form" action="cannot-find-your-details" method="post">    	
-						<input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" />
-			  	{% elif data['register-validated'] == "No" %}
+						<!-- <input type="hidden" id="register-cant-validate" name="register-cant-validate"	value="Yes" /> -->
+			  	{% elif data['register-validate'] == "No" %}
 			 	 	<form class="form" action="confirmation" method="post">
 					
 				{% endif %}									        			

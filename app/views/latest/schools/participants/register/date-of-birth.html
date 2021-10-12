@@ -12,7 +12,7 @@
 
     		<!-- <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p> -->
 
-    		{% if data['register-validate'] == "No" %}
+    		{% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
     			<form class="form" action="cannot-find-your-details" method="post">
     		{% else %}
     			<form class="form" action="confirmation" method="post">

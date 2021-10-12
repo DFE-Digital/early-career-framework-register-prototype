@@ -90,10 +90,10 @@
                     }) }} 
 
                     {{ govukCheckboxes({                        
-                        idPrefix: "register-full-validation",
-                        name: "register-full-validation",
+                        idPrefix: "register-cannot-validate",
+                        name: "register-cannot-validate",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Not able to validate at all" } ]
+                        items: [ { value: "Yes", text: "Not able to validate at all", checked: checked("register-cannot-validate", "Yes") } ]
                     }) }} 
                     <p>If using not validated you must choose induction programme to see correct content and additionally in partnership if you want to see additional content.</p>
 

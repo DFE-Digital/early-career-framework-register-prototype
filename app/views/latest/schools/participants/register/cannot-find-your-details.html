@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['register-name-correct'] == "Yes" %}
+{% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
 	{% set pageHeading = "We still cannot find your details" %}
 {% else %}
 	{% set pageHeading = "We cannot find your details" %}
@@ -59,40 +59,29 @@
 			</dl>										
 
 			
-			{% if data['register-cant-validate'] == "Yes" %}
+			<!-- If we have checked the name then it superseeds the intial validation -->
+			{% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
 
-				<!-- <div class="govuk-inset-text">
-					<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
-				</div>			
-				<form class="form" action="confirm-name" method="post" >        		
-					{{ govukButton({
-						text: "Continue to confirm your name"					  
-					}) }}
-				</form>
-
-				<div class="govuk-inset-text">
-					<p class="govuk-body">Our support team may contact you for more information to help us complete our checks.</p>
-				</div>
-
-				<form class="form" action="confirmation" method="post" >        		
-					{{ govukButton({
-						text: "Continue",
-						classes: "govuk-button"
-				  }) }}
-				</form> -->
+			<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
+			<form class="form" action="confirmation" method="post" >        		
+				{{ govukButton({
+					text: "Continue",
+					classes: "govuk-button"
+			}) }}
+			</form>	
 
 			{% else %}
 
-				<!-- If we have checked the name then it superseeds the intial validation -->
-				{% if data['register-name-correct'] == "Yes" %}
+				{% if data['register-cannot-validate'] == "Yes" %}
 
-					<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
-					<form class="form" action="confirmation" method="post" >        		
+					<div class="govuk-inset-text">
+						<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
+					</div>			
+					<form class="form" action="confirm-name" method="post" >        		
 						{{ govukButton({
-							text: "Continue",
-							classes: "govuk-button"
-					}) }}
-					</form>	
+							text: "Continue to confirm your name"					  
+						}) }}
+					</form>										
 
 				{% else %}
 					
