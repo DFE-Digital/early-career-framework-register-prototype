@@ -62,52 +62,54 @@
 			<!-- If we have checked the name then it superseeds the intial validation -->
 			{% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
 
-			<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
-			<form class="form" action="confirmation" method="post" >        		
-				{{ govukButton({
-					text: "Continue",
-					classes: "govuk-button"
-			}) }}
-			</form>	
+				<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
+				<form class="form" action="confirmation" method="post" >        		
+					{{ govukButton({
+						text: "Continue",
+						classes: "govuk-button"
+				}) }}
+				</form>	
 
 			{% else %}
+								
+				<!-- If main route is using TRN -->
+				{% if data['register-main-route'] == "tr-number" %}	
 
-				{% if data['register-cannot-validate'] == "Yes" %}
+					{% if data['register-national-insurance-number'] %}					
 
-					<div class="govuk-inset-text">
-						<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
-					</div>			
-					<form class="form" action="confirm-name" method="post" >        		
-						{{ govukButton({
-							text: "Continue to confirm your name"					  
-						}) }}
-					</form>										
-
-				{% else %}
-					
-					<!-- If main route is using TRN -->
-					{% if data['register-main-route'] == "tr-number" %}	
-						
-						<div class="govuk-inset-text">Tell us your National Insurance number to help us to find your details.</div>
-						<form class="form" action="national-insurance-number" method="post" >						
-							{{ govukButton({
-								text: "Add your National Insurance number"					  
-							}) }}
-						</form>
-					
-					<!-- If main route is using NI Number -->
-					{% elif data['register-main-route'] == "ni-number"  %}
-						
-						<div class="govuk-inset-text">Confirming the full name we have for you may help us find your details.</div>			
+						<div class="govuk-inset-text">
+							<p class="govuk-body">Confirming the full name we have for you may help us find your details.</p>
+						</div>			
 						<form class="form" action="confirm-name" method="post" >        		
 							{{ govukButton({
 								text: "Continue to confirm your name"					  
 							}) }}
-						</form>
+						</form>										
+					
+					{% else %}
+					
+					<div class="govuk-inset-text">Tell us your National Insurance number to help us to find your details.</div>
+					<form class="form" action="national-insurance-number" method="post" >						
+						{{ govukButton({
+							text: "Add your National Insurance number"					  
+						}) }}
+					</form>
 
 					{% endif %}
+				
+				<!-- If main route is using NI Number -->
+				{% elif data['register-main-route'] == "ni-number"  %}
+					
+					<div class="govuk-inset-text">Confirming the full name we have for you may help us find your details.</div>			
+					<form class="form" action="confirm-name" method="post" >        		
+						{{ govukButton({
+							text: "Continue to confirm your name"					  
+						}) }}
+					</form>
 
 				{% endif %}
+
+				
 
 			{% endif %}
       		
