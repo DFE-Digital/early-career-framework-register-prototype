@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Have you updated your name with the Teaching Regulation Agency?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      		<p class="govuk-body">You must update your record if you want to be known by a different name at work and on training certificates.</p>
+			<p class="govuk-body"><a href="https://teacherservices.education.gov.uk/SelfService/Login" class="govuk-link" rel="noreferrer noopener" target="_blank">Check your record using the Teacher Self-Service Portal (opens in new tab)</a></p>
+
+      		<form class="form" action="your-details" method="post" class="govuk-!-margin-bottom-8">
+        		
+				{{ govukRadios({
+          			idPrefix: "updated-name",
+          			name: "updated-name",
+          			fieldset: {
+          				legend: {
+            				text: "Have you updated your name with the Teaching Regulation Agency?",
+            				isPageHeading: false,
+            				classes: "govuk-visually-hidden"
+        				}
+        			},
+          			items: [
+            			{ value: "yes",text: "Yes, my name has been updated",checked: checked("updated-name", "yes") },
+            			{ value: "no, redirect(name-not-updated)",text: "No, I need to update my name",checked: checked("updated-name", "no") }            			
+          			]
+        		}) }}
+
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+      		
+			</form>
+    	
+		</div>
+  	</div>
+
+{% endblock %}
