@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Do you have a teacher reference number (TRN)?" %}
+{% set pageHeading = "Do you know your teacher reference number (TRN)?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,13 +14,13 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			  <p>This is a unique ID that:</p>
+			  <p>TRN is a unique ID that helps us to check you are a teacher and:</p>
 					
 					<ul class="govuk-list govuk-list--bullet">
-						<li>is usually 7 digits, for example ’4567814’</li>
-						<li>may include the letters 'RP’ or a slash '/’ symbol, for example 'RP99/12345’</li>					
+						<li>is usually 7 digits, for example '4567814'</li>
+						<li>may include the letters 'RP' or a slash '/'' symbol, for example 'RP99/12345'</li>
 					</ul>
-					<!-- <p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p> -->
+					<p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
 					<p>QTS, GTC, DfE, DfES or DCSF numbers are the same as TRNs.</p>
 					<!-- <p>You may not have a TRN if you qualified outside England.</p> -->
 
@@ -44,17 +44,15 @@
 				</div>
       		</details> -->
 
-
-			  <!-- hint: {
-				text: "You may not have a TRN if you qualified outside England."
-			  }, -->
-      		<form class="form" action="teacher-reference-number" method="post" class="govuk-!-margin-bottom-8">
+      		<form class="form" action="changed-your-name" method="post" class="govuk-!-margin-bottom-8">
         		
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
-          			idPrefix: "register-have-trn",
-          			name: "register-have-trn",
-					  
+          			idPrefix: "trn-look",
+          			name: "trn-look",
+					  hint: {
+						text: "You may not have a TRN if you qualified outside England."
+					  },
           			fieldset: {
           				legend: {
             				text: "Do you know your teacher reference number (TRN)?", 
@@ -63,8 +61,8 @@
 	          			}
           			},
           			items: [
-            			{ value: "Yes", text: "Yes", checked: checked("register-have-trn", "Yes") },
-            			{ value: "No, redirect(get-teacher-reference-number)", text: "No", checked: checked("register-have-trn", "No") }
+            			{ value: "yes", text: "Yes", checked: checked("trn-look", "yes") },
+            			{ value: "no, redirect(find-your-teacher-reference-number)", text: "No", checked: checked("trn-look", "no") }
             			
 
           			]
@@ -75,7 +73,7 @@
         			text: "Continue"
         		}) }}
 
-			
+				<p><a href="get-teacher-reference-number">I do not have a TRN</a></p>
       		
 			</form>
     	

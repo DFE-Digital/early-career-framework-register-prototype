@@ -69,7 +69,7 @@
             <!-- <hr class="govuk-section-break govuk-section-break--m govuk-sectio-break--visible"> -->
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
             
-            <h2 class="govuk-heading-m">Participant options</h2>
+            <h2 class="govuk-heading-m">Participant</h2>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">                    
                     {{ govukRadios({                        
@@ -88,19 +88,21 @@
                 <div class="govuk-grid-column-one-half">
                     
                     {{ govukCheckboxes({                        
-                        idPrefix: "no-delete",
-                        name: "no-delete",
-                        fieldset: { legend: { text: "Validated so can no longer delete", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Validated so can no longer delete participant" } ]
+                        idPrefix: "register-validate",
+                        name: "register-validate",
+                        fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "No", text: "Cannot validate initial info", checked: checked("register-validate", "No") } ]
                     }) }} 
 
                     {{ govukCheckboxes({                        
-                        idPrefix: "validated",
-                        name: "validated",
+                        idPrefix: "register-cannot-validate",
+                        name: "register-cannot-validate",
                         fieldset: { legend: { text: "Validation", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Not able to validate" } ]
+                        items: [ { value: "Yes", text: "Not able to validate at all", checked: checked("register-cannot-validate", "Yes") } ]
                     }) }} 
                     <p>If using not validated you must choose induction programme to see correct content and additionally in partnership if you want to see additional content.</p>
+
+                                        
                 </div>
             </div>
             {{ govukCheckboxes({                        
@@ -112,7 +114,7 @@
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">                    
 
             
-             <h2 class="govuk-heading-m">Participant validation options</h2>
+             <h2 class="govuk-heading-m">Participant dashboard eligibility options</h2>
              <div class="govuk-grid-row">
                  
                  <div class="govuk-grid-column-one-third">
@@ -163,7 +165,7 @@
                     { value: "choose-induction, redirect(/latest/schools/training-programme/)", text: "Choose induction programme", checked: checked("siteEntry", "choose-induction")},
                     { value: "manage-training-email, redirect(/latest/emails/link-to-sign-in)", text: "Manage training for cohort from sign in email", checked: checked("siteEntry", "manage-training-email")},
                     { value: "manage-training, redirect(/latest/schools/manage-your-training)", text: "Manage training for cohort", checked: checked("siteEntry", "manage-training")},
-                    { value: "validation, redirect(/latest/schools/participants/register/)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
+                    { value: "validation, redirect(/latest/schools/participants/register/teacher-reference-number)", text: "Validate a participant", checked: checked("siteEntry", "validation")}
                 ]
             }) }}    
 
