@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Sign in" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      	<form class="form" action="check-your-email" method="post">
+			
+			{{ govukInput({
+				label: {
+					text: "Email address"
+				},
+				classes: "govuk-!-width-two-thirds",
+				id: "sign-in-email-address",
+				name: "sign-in-email-address"
+			}) }}
+
+			{{ govukButton({
+				text: "Sign in"
+			}) }}
+    	
+		</form>
+
+      	<h2 class="govuk-heading-m">How to access this service</h2>
+      		<p>Enter your registered email address (the one we send emails to).</p>
+      		<p>Do not use your DfE Sign-in details.</p>
+        	<p>If you’re not registered or need to nominate an induction tutor for your school, <a class="govuk-link" href="how-to-get-an-account">find out how to get access</a>.</p>
+      	</ol>
+    
+	</div>
+  </div>
+{% endblock %}

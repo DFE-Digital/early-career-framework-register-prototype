@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% if data['details-change-action'] == "change-mentor-details"%}
+	{% set pageHeading = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
+{% elif data['details-change-action-2'] == "change-mentor-details-2"%}
+	{% set pageHeading = 'The mentor for ' + data['participant-fullname-2'] +  ' has been updated' %}
+{% endif %}
+{% else %}
+	{% if data['deletelink'] == "ect" %}  
+		{% set pageHeading = '' + data['participant-fullname'] + ' has been removed from this cohort' %}	
+	{% elif data['deletelink'] == "mentor" %}  
+		{% set pageHeading = '' + data['participant-fullname-mentor'] + ' has been removed from this cohort' %}								
+	{% elif data['deletelink'] == "sitMentor" %}  
+		{% set pageHeading = ' Hugo Furst has been removed from this cohort' %}								
+	{% else %}
+		{% set pageHeading = " Full Name has been removed from this cohort" %}
+	{% endif %}
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+      		
+			
+      		{{ govukPanel({
+        		titleText: pageHeading,
+				classes: "govuk-!-margin-bottom-7"
+      		}) }}
+
+			{% if data['details-change-action'] == "change-mentor-details"%}
+				
+			  <p><a class="govuk-link govuk-link--no-visited-state" href="../participants?linkaction=">Return to your ECTs and mentors</a></p>		  
+
+	  		{% else %}
+			  										
+				<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>you’ll no longer see their details in this service</li>								
+					<li>we’ll let them know that they do not need to provide us with any information</li>
+				</ul>      						
+
+				<!-- Mentor only add logic once checked in with Kate -->
+				<p>Remember to assign this person’s ECT(s) to another mentor.</p>			
+				<!-- // -->
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../participants/">Return to your ECTs and mentors</a></p>
+
+			{% endif %}
+				  
+		</div>
+  	</div>
+
+{% endblock %}
+
+
+
+
+
