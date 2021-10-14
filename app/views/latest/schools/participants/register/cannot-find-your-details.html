@@ -28,20 +28,20 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key govuk-!-width-one-half">TRN</dt>
 					<dd class="govuk-summary-list__value">{{ data['register-teacher-reference-number'] }}</dd>
-					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
 			  	</div>        						
 				{% endif %}
 				{% if data['register-national-insurance-number'] %}
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key govuk-!-width-one-half">National Insurance number</dt>
           			<dd class="govuk-summary-list__value">{{ data['register-national-insurance-number'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="national-insurance-number?linkaction=change-ni">Change<span class="govuk-visually-hidden"> National Insurance number</span></a></dd>
         		</div>
 				{% endif %}
         		<div class="govuk-summary-list__row">
           			<dt class="govuk-summary-list__key govuk-!-width-one-half">Date of birth</dt>
           			<dd class="govuk-summary-list__value">{{ data['register-dob-day'] }} {{ data['register-dob-month'] | toMonth }} {{ data['register-dob-year'] }}</dd>
-          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+          			<dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?linkaction=change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
         		</div>
 				{% if ((data['register-full-name'] ) or ( data['register-name-correct'] == "Yes" )) %}
 				<div class="govuk-summary-list__row">
@@ -53,7 +53,7 @@
 							{{ data['register-full-name'] }}
 						{% endif %}
 					</dd>
-					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="your-details?linkaction=hide">Change<span class="govuk-visually-hidden"> personal details</span></a></dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?linkaction=change-name">Change<span class="govuk-visually-hidden"> full name</span></a></dd>
 			  	</div>
 				  {% endif %}
 			</dl>										
@@ -63,7 +63,8 @@
 			{% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
 
 				<div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
-				<form class="form" action="confirmation" method="post" >        		
+				<form class="form" action="confirmation" method="post" > 
+					<input type="hidden" name="register-cannot-validate" id="register-cannot-validate" value="Yes" />      		
 					{{ govukButton({
 						text: "Continue",
 						classes: "govuk-button"
