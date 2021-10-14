@@ -23,10 +23,12 @@
 			<p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>						
 
 			{% if data['linkaction'] == "change-trn" %}
+			<!-- If using change link -->
 			<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
 				<input type="hidden" name="linkaction" id="changeaction" value="" />	
 			
 			{% else %}
+
 			<form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
 				<input type="hidden" id="register-main-route" name="register-main-route" value="tr-number" />
 			
