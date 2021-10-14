@@ -10,13 +10,20 @@
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    		<!-- <p class="govuk-body">We need to check your details on the Teaching Regulation Agency records.</p> -->
+			<!-- If using change link -->
+			{% if data['linkaction'] == "change-dob" %}			
+			<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+				<input type="hidden" name="linkaction" id="changeaction" value="" />	
+			
+			{% else %}
 
-    		{% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
-    			<form class="form" action="cannot-find-your-details" method="post">
-    		{% else %}
-    			<form class="form" action="confirmation" method="post">
-    		{% endif %}
+				{% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
+					<form class="form" action="cannot-find-your-details" method="post">
+				{% else %}
+					<form class="form" action="confirmation" method="post">
+				{% endif %}
+
+			{% endif %}
 
 				<div class="govuk-form-group">
 					<label class="govuk-label govuk-visually-hidden govuk-!-width-three-quarters" for="dobNumb">What is your date of birth?</label>        
