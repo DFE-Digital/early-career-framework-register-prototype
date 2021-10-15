@@ -257,7 +257,7 @@
 						{% if data['status'] == "Remind" %}
 
 						
-							<p>Contacted for information</p>					
+							<!-- <p>Contacted for information</p>					 -->
 							<p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
 							<p>We suggest you remind them to provide this.</p>
 						
@@ -265,7 +265,7 @@
 					{% elif data['status'] == "Email" %}
 		
 						
-							<p>Check email address</p>					
+							<!-- <p>Check email address</p>					 -->
 							<p>We could not send an email to this address. Please check it’s correct.</p>
 					
 		
@@ -275,10 +275,10 @@
 							{% if data['training-programme'] == "FIP" %}
 														
 								{% if data['InPartnership'] == "Yes" %}
-									<p>DfE checking eligibility</p>					
+									<!-- <p>DfE checking eligibility</p>					 -->
 									<p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
 								{% else %}
-									<p>DfE checking eligibility</p>					
+									<!-- <p>DfE checking eligibility</p>					 -->
 									<p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
 								{% endif %}																		
 							
@@ -293,15 +293,15 @@
 						{% if data['training-programme'] == "FIP" %}
 													
 							{% if data['InPartnership'] == "Yes" %}
-								<p>Eligible to start</p>					
+								<!-- <p>Eligible to start</p>					 -->
 								<p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
 							{% else %}
-								<p>Eligible to start</p>					
+								<!-- <p>Eligible to start</p>					 -->
 								<p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
 							{% endif %}																		
 						
 						{% elif data['training-programme'] == "CIP" %}
-							<p>Eligible to start</p>					
+							<!-- <p>Eligible to start</p>					 -->
 							<p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
 						{% endif %}
 						
@@ -316,19 +316,19 @@
 								{% if data['noteligible-status'] == "AlreadyFunded" %}
 								<!-- Mentor -->
 															
-									<p>Already received funded mentor training </p>					
+									<!-- <p>Already received funded mentor training </p>					 -->
 									<p>Our checks show this person has already received mentor training as part of the early roll-out of the early career framework (ECF) reforms. They’re ready to mentor ECTs.</p>							
 								
 		
 								{% elif data['noteligible-status'] == "NotEligible" %}
 															
-									<p>Not eligible</p>					
+									<!-- <p>Not eligible</p>					 -->
 									<p>This person is not eligible for this programme.</p>							
 							
 		
 								{% elif data['noteligible-status'] == "Checking" %}
 															
-									<p>Checking qualified teacher status </p>					
+									<!-- <p>Checking qualified teacher status </p>					 -->
 									<p>Our checks show this person does not have qualified teacher status (QTS).</p>	
 									<p>They can begin mentoring, but they will not receive funded training if they do not have QTS or QTLS.</p>						
 								
@@ -338,19 +338,19 @@
 		
 								{% if data['noteligible-status'] == "InductionStarted" %}
 															
-									<p>Not eligible: induction already started </p>					
+									<!-- <p>Not eligible: induction already started </p>					 -->
 									<p>This is because they started or completed their statutory induction before 1 September 2021.</p>							
 								
 		
 								{% elif data['noteligible-status'] == "NotEligible" %}
 															
-									<p>Not eligible</p>					
+									<!-- <p>Not eligible</p>					 -->
 									<p>This person is not eligible for this programme.</p>							
 								
 		
 								{% elif data['noteligible-status'] == "Checking" %}
 															
-									<p>Checking qualified teacher status </p>					
+									<!-- <p>Checking qualified teacher status </p>					 -->
 									<p>Our checks show this person does not have qualified teacher status (QTS). Their status should be up to date if they completed their ITT in 2021.</p>
 									<p>If this person has not completed their ITT, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a>.</p>
 														
@@ -363,12 +363,12 @@
 						{% elif data['training-programme'] == "CIP" %}
 		
 														
-								<p>Not eligible</p>													
+								<!-- <p>Not eligible</p>													 -->
 								<p>This person is not eligible for this programme.</p>						
 							
 						
 														
-								<p>Eligible to start</p>													
+								<!-- <p>Eligible to start</p>													 -->
 								<p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p>						
 							
 		
