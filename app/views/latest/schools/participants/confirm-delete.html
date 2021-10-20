@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['deletelink'] == "ect" %}  
+{% if data['user-details'] == "ect-2" %}  
+	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-2'] + '?' %}							
+{% elif data['deletelink'] == "ect" %}  
 	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname'] + '?' %}	
 {% elif data['deletelink'] == "mentor" %}  
 	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-mentor'] + '?' %}								
@@ -10,7 +12,7 @@
 {% else %}
 	{% set pageHeading = "Are you sure you want to remove Full Name?" %}
 {% endif %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
@@ -19,16 +21,16 @@
     	<div class="govuk-grid-column-two-thirds">
 
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
-
 			
 			<p>Their information will be deleted from this service.</p>
 
 			<!-- Add logic to show for ppts who have yet to validate -->
+			{% if data['participant-status'] != "Validated" %}
 			<p>They will not be able to take part in the training programme.</p>
-			<!-- // -->  
+			{% endif %}
  
 				            
-			<form method="post" action="confirmation" >
+			<form method="post" action="confirmation" class="govuk-!-margin-top-7" >
 
 				{% if data['user-research'] == "Yes" %}
 
