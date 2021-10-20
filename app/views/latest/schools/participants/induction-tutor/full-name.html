@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['change-induction-tutor'] == "Yes" %}
-	{% set pageHeading = "What’s the full name of your new induction tutor?" %}
-{% else %}
-	{% set pageHeading = "What’s the full name of your induction tutor?" %}
-{% endif %}
+{% set pageHeading = "What’s the full name of your new induction tutor?" %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,11 +11,11 @@
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			  
-			{% if data['linkaction'] == "change-induction-name" %}  
+			<!-- {% if data['linkaction'] == "change-induction-name" %}  
       		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-			{% else %}
+			{% else %} -->
 			<form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">
-			{% endif %}
+			<!-- {% endif %} -->
 
 				{{ govukInput({
 					label: {
@@ -27,11 +23,11 @@
 						classes: "govuk-visually-hidden"
 					},
 					classes: "govuk-!-width-two-thirds",
-					id: "induction-tutor-fullname",
-					name: "induction-tutor-fullname",
+					id: "replace-induction-tutor-fullname",
+					name: "replace-induction-tutor-fullname",
 					autocomplete: "name",
 					spellcheck: false,
-					value: data['induction-tutor-fullname'] 
+					value: data['replace-induction-tutor-fullname'] 
 				}) }}
 
 				{{ govukButton({

@@ -1,16 +1,23 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['user-details'] == "ect-2" %}  
-	{% set pageHeading = '' + data['participant-fullname-2'] + '' %}	
-{% elif data['user-details'] == "ect" %}  
-	{% set pageHeading = '' + data['participant-fullname'] + '' %}	
-{% elif data['user-details'] == "mentor" %}  
-	{% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}								
-{% elif data['user-details'] == "sitMentor" %}  
-	{% set pageHeading = 'Hugo Furst' %}								
+{% if data['induction-tutor'] == "Yes" %}
+
+	{% set pageHeading = 'Hugo Furst' %}
+
 {% else %}
-	{% set pageHeading = '' + data['random-name'] + '' %}
+
+	{% if data['user-details'] == "ect-2" %}  
+		{% set pageHeading = '' + data['participant-fullname-2'] + '' %}	
+	{% elif data['user-details'] == "ect" %}  
+		{% set pageHeading = '' + data['participant-fullname'] + '' %}	
+	{% elif data['user-details'] == "mentor" %}  
+		{% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}								
+	{% elif data['user-details'] == "sitMentor" %}  
+		{% set pageHeading = 'Hugo Furst' %}								
+	{% else %}
+		{% set pageHeading = '' + data['random-name'] + '' %}
+	{% endif %}
 {% endif %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -168,16 +175,24 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Name</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect-2" %}  
-							{{ data['participant-fullname-2'] }}
-						{% elif data['user-details'] == "ect" %}  														
-							{{ data['participant-fullname'] }}
-						{% elif data['user-details'] == "mentor" %}  
-							{{ data['participant-fullname-mentor'] }}
-						{% elif data['user-details'] == "sitMentor" %}  
+
+						{% if data['induction-tutor'] == "Yes" %}
+
 							{{ defaults.userFullName() }}
-						{% elif data['user-details'] == "Random" %}						
-							{{ data['random-name'] }}
+
+						{% else %}
+
+							{% if data['user-details'] == "ect-2" %}  
+								{{ data['participant-fullname-2'] }}
+							{% elif data['user-details'] == "ect" %}  														
+								{{ data['participant-fullname'] }}
+							{% elif data['user-details'] == "mentor" %}  
+								{{ data['participant-fullname-mentor'] }}
+							{% elif data['user-details'] == "sitMentor" %}  
+								{{ defaults.userFullName() }}
+							{% elif data['user-details'] == "Random" %}						
+								{{ data['random-name'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
 				  	<dd class="govuk-summary-list__actions">
@@ -191,17 +206,24 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect-2" %}  
-							{{ data['participant-email-address-2'] }}
-						{% elif data['user-details'] == "ect" %}  
-							{{ data['participant-email-address'] }}
-						{% elif data['user-details'] == "mentor" %}  
-							{{ data['participant-email-address-mentor'] }}
-						{% elif data['user-details'] == "sitMentor" %}  
+
+						{% if data['induction-tutor'] == "Yes" %}
+
 							{{ defaults.userEmailAddress() }}
-						{% else %}						
-						{{ data['random-name'] }}@test.dfe.gov.uk
-						{% endif %}  						
+
+						{% else %}
+							{% if data['user-details'] == "ect-2" %}  
+								{{ data['participant-email-address-2'] }}
+							{% elif data['user-details'] == "ect" %}  
+								{{ data['participant-email-address'] }}
+							{% elif data['user-details'] == "mentor" %}  
+								{{ data['participant-email-address-mentor'] }}
+							{% elif data['user-details'] == "sitMentor" %}  
+								{{ defaults.userEmailAddress() }}
+							{% else %}						
+							{{ data['random-name'] }}@test.dfe.gov.uk
+							{% endif %}  						
+						{% endif %}
 						</dd>
 				  	<dd class="govuk-summary-list__actions">
 						{% if data['user-details'] == "ect-2" %}    
@@ -214,21 +236,27 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Role</dt>
 				  	<dd class="govuk-summary-list__value">
-						{% if data['user-details'] == "ect-2" %} 
-							ECT
-						{% elif data['user-details'] == "ect" %}  
-							ECT
-						{% elif data['user-details'] == "mentor" %}  
-							Mentor
-						{% elif data['user-details'] == "sitMentor" %}  
-							Mentor
-						{% else %}  
-							{{ data['random-type'] }}
+
+						{% if data['induction-tutor'] == "Yes" %}
+							School Induction Tutor
+						{% else %}
+							{% if data['user-details'] == "ect-2" %} 
+								ECT
+							{% elif data['user-details'] == "ect" %}  
+								ECT
+							{% elif data['user-details'] == "mentor" %}  
+								Mentor
+							{% elif data['user-details'] == "sitMentor" %}  
+								Mentor
+							{% else %}  
+								{{ data['random-type'] }}
+							{% endif %}
 						{% endif %}
 					</dd>
 				  	<dd class="govuk-summary-list__actions"></dd>
 				</div>				
 
+				{% if not data['induction-tutor'] == "Yes" %}
 				{% if ((data['user-details'] == "ect" ) or (data['user-details'] == "ect-2" ) or (data['random-type'] == "ECT" )) %}  							
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Mentor</dt>
@@ -248,8 +276,9 @@
 						</dd>
 				</div>									
 				{% endif %}
+				{% endif %}
 
-
+				{% if not data['induction-tutor'] == "Yes" %}
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Status</dt>
 				  	<dd class="govuk-summary-list__value">
@@ -390,11 +419,18 @@
 					</dd>
 				  	<dd class="govuk-summary-list__actions"></dd>
 				</div>	
+				{% endif %}
 
 
 
 
 			</dl>			   
+
+			{% if data['induction-tutor'] == "Yes" %}
+
+			<p><a href="induction-tutor/full-name">Replace this school induction tutor</a></p>
+
+			{% else %}
 						
 			{% if data['no-delete'] == "Yes" %}
 
@@ -443,7 +479,8 @@
 				{% endif %}
 
 			{% endif %}
-						
+			
+			{% endif %}
 			
 
 			<!-- <p class="govuk-!-margin-top-9"><a href="../participants/">Return to your ECTs and mentors</a></p> -->

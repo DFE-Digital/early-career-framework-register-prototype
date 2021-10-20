@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Confirm you want to replace your school induction tutor" %}
+{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	
+	<div class="govuk-grid-row">	
+    	<div class="govuk-grid-column-two-thirds">		
+			
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+			
+			<p>This will remove {{ defaults.userFullName() }} as the school induction tutor and sign them out of the service.</p>
+			<!-- <ul class="govuk-list govuk-list--bullet">  
+				<li>remove {{ defaults.userFullName() }} as the school induction tutor</li>
+				<li>sign {{ defaults.userFullName() }} out of the service</li>				
+			</ul> -->
+
+			<p>They will no longer have access to:</p>
+			<ul class="govuk-list govuk-list--bullet">  
+				<li>choose how your school wants to run your ECT training programme</li>
+				<li>complete the steps needed to set up your programme</li>
+				<li>tell us if things change at your school, for example if ECTs join or not</li>
+			</ul>
+
+
+			<p>They will no longer be the person we contact for ECT training at your school.</p>
+			
+				
+			
+			<form method="post" action="confirmation" >
+
+				<!-- <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
+				<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="Yes" /> -->
+
+				{{ govukButton({
+					text: "Confirm"
+				}) }}	
+
+			</form>
+				
+		</div>		
+  	</div>
+{% endblock %}
