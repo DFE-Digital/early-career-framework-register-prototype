@@ -2,13 +2,13 @@
 {% set schoolSignedIn = true %}
 
 {% if data['deletelink'] == "ect" %}  
-	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname'] + '' %}	
+	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname'] + '?' %}	
 {% elif data['deletelink'] == "mentor" %}  
-	{% set pageHeading = 'Confirm you want to remove ' + data['participant-fullname-mentor'] + '' %}								
+	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-mentor'] + '?' %}								
 {% elif data['deletelink'] == "sitMentor" %}  
-	{% set pageHeading = 'Confirm you want to remove Hugo Furst' %}								
+	{% set pageHeading = 'Are you sure you want to remove Hugo Furst?' %}								
 {% else %}
-	{% set pageHeading = "Confirm you want to remove Full Name" %}
+	{% set pageHeading = "Are you sure you want to remove Full Name?" %}
 {% endif %}
 {% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -21,11 +21,12 @@
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
 
 			
-			<p>This means that:</p>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-				<li>their information will be removed from this service</li>
-				<li>they will not be able to access the training programme</li>
-			</ul>   
+			<p>Their information will be deleted from this service.</p>
+
+			<!-- Add logic to show for ppts who have yet to validate -->
+			<p>They will not be able to take part in the training programme.</p>
+			<!-- // -->  
+ 
 				            
 			<form method="post" action="confirmation" >
 

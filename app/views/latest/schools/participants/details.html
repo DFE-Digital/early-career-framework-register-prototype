@@ -317,7 +317,7 @@
 								<!-- Mentor -->
 															
 									<!-- <p>Already received funded mentor training </p>					 -->
-									<p>Our checks show this person has already received mentor training as part of the early roll-out of the early career framework (ECF) reforms. They’re ready to mentor ECTs.</p>							
+									<p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>							
 								
 		
 								{% elif data['noteligible-status'] == "NotEligible" %}
@@ -431,15 +431,15 @@
 			{% else %}
 			
 				{% if data['user-details'] == "ect-2" %}  
-					<p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }} from this cohort</a></p>			
+					<p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }} from this programme</a></p>			
 				{% elif data['user-details'] == "ect" %}  
-					<p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }} from this cohort</a></p>			
+					<p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }} from this programme</a></p>			
 				{% elif data['user-details'] == "mentor" %}  
-					<p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }} from this cohort</a></p>			
+					<p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }} from this programme</a></p>			
 				{% elif data['user-details'] == "sitMentor" %}  
-					<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this cohort</a></p>			
+					<p><a href="confirm-delete?deletelink=sitMentor">Remove {{ defaults.userFullName() }} from this programme</a></p>			
 				{% else %}						
-					<p><a href="confirm-delete">Remove {{ data['random-name'] }} from this cohort</a></p>			
+					<p><a href="confirm-delete">Remove {{ data['random-name'] }} from this programme</a></p>			
 				{% endif %}
 
 			{% endif %}
