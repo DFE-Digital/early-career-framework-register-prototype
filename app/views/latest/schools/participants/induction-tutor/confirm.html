@@ -13,31 +13,22 @@
 			
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			
-			<p>This will remove {{ defaults.userFullName() }} as the school induction tutor and sign them out of the service.</p>
-			<!-- <ul class="govuk-list govuk-list--bullet">  
-				<li>remove {{ defaults.userFullName() }} as the school induction tutor</li>
-				<li>sign {{ defaults.userFullName() }} out of the service</li>				
-			</ul> -->
+			
+			<p>This will remove {{ defaults.userFullName() }} as the school induction tutor and sign them out of the service. They will no longer be the person we contact for ECT training at your school.</p>			
 
-			<p>They will no longer have access to:</p>
-			<ul class="govuk-list govuk-list--bullet">  
+			<p>They will not have access to:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">  
 				<li>choose how your school wants to run your ECT training programme</li>
 				<li>complete the steps needed to set up your programme</li>
 				<li>tell us if things change at your school, for example if ECTs join or not</li>
-			</ul>
-
-
-			<p>They will no longer be the person we contact for ECT training at your school.</p>
-			
-				
+			</ul>				
 			
 			<form method="post" action="confirmation" >
-
-				<!-- <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
-				<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="Yes" /> -->
-
+				<input type="hidden" id="newSit" name="newSIT" value="Yes" />
+				<input type="hidden" id="signedOut" name="signedOut" value="Yes" />
+				
 				{{ govukButton({
-					text: "Confirm"
+					text: "Confirm and replace"
 				}) }}	
 
 			</form>
