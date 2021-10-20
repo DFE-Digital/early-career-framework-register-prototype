@@ -1,11 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['change-induction-tutor'] == "Yes" %}
-	{% set pageHeading = "New induction tutor nominated" %}
-{% else %}
-	{% set pageHeading = "Induction tutor nominated" %}
-{% endif %}
+{% set pageHeading = "Induction tutor nominated" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -22,18 +18,7 @@
 			
 			<h2 class="govuk-heading-m">What happens next</h2>
 			<p>We’ll email this person and let them know you nominated them.</p>
-			
-			{% if data['change-induction-tutor'] == "Yes" %}
-			<p>This person is now our contact for ECT training at your school. They can use this service to:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>choose how your school wants to run your ECT training programme</li>
-				<li>complete the steps needed to set up your programme</li>
-				<li>tell us if things change at your school, for example if ECTs join or not</li>
-			</ul>
-
-			
-			<p class="govuk-body govuk-!-font-size-14 skip-to">Skip to: <a href="../../emails/induction-nomination">email that the Induction Tutor receives</a></p>
-			{% else %}
+						
 			<p>This person is now our contact for ECT training at your school. They can use this service to:</p>
 			<ul class="govuk-list govuk-list--bullet">
 				<li>choose how your school wants to run your ECT training programme</li>
@@ -42,7 +27,7 @@
 			</ul>
 
 			<p class="govuk-body govuk-!-font-size-14 skip-to">Skip to: <a href="../../emails/induction-nomination">email that the Induction Tutor receives</a></p>
-			{% endif %}	
+
 		</div>
   	</div>
 

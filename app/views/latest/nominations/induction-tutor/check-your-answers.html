@@ -30,21 +30,10 @@
         		
 				<input type="hidden" name="linkaction" id="linkaction" value="" />		
 				<input type="hidden" name="nominate-induction-tutor" id="nominate-induction-tutor" value=""  />
-
-
-				{% if data['change-induction-tutor'] == "Yes" %}
-
-					{{ govukButton({
-						text: "Confirm and nominate new induction tutor"
-			  		}) }}
-
-
-				{% else %}
-
-					{{ govukButton({
-          				text: "Confirm and nominate"
-        			}) }}
-				{% endif %}
+		
+				{{ govukButton({
+					text: "Confirm and nominate"
+				}) }}			
 
 			</form>     
     	

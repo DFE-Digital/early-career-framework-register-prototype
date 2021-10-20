@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['change-induction-tutor'] == "Yes" %}
-	{% set pageHeading = "What’s the full name of your new induction tutor?" %}
-{% else %}
-	{% set pageHeading = "What’s the full name of your induction tutor?" %}
-{% endif %}
+{% set pageHeading = "What’s the full name of your induction tutor?" %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
