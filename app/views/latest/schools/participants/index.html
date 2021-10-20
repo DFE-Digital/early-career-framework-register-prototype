@@ -70,12 +70,13 @@
 						</tr>
 					</tbody>
 					<tbody class="govuk-table__body">
-						<tr class="govuk-table__row">
+						<!-- This option is no longer valid -->
+						<!-- <tr class="govuk-table__row">
 							<td class="govuk-table__cell">Shani Rogers</td>						
 							<td class="govuk-table__cell">Mentor</td>
 							<td class="govuk-table__cell">Delete</td>						
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=Checking&user-details=Random&random-name=Shani Rogers&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Check</a></td>
-						</tr>
+						</tr> -->
 						<!-- <tr class="govuk-table__row">
 							<td class="govuk-table__cell">Stanislaw Klajn</a></td>
 							<td class="govuk-table__cell">Mentor</td>
@@ -128,6 +129,15 @@
 							<td class="govuk-table__cell">ECT</td>							
 							<td class="govuk-table__cell">Check email address</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect&status=Email" class="govuk-link govuk-link--no-visited-state">Check</a></td>
+						</tr>
+						{% endif %}
+
+						{% if data['added-ect'] == "Yes" %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
+							<td class="govuk-table__cell">ECT</td>							
+							<td class="govuk-table__cell">None</td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect&status=EmailNotSent" class="govuk-link govuk-link--no-visited-state">Details</a></td>
 						</tr>
 						{% endif %}
 
@@ -226,7 +236,7 @@
 							<td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
 							<td class="govuk-table__cell">Mentor</td>							
 							<td class="govuk-table__cell">None</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=mentor&status=" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=mentor&status=Start" class="govuk-link govuk-link--no-visited-state">Details</a></td>
 						</tr>
 						{% endif %}
 
