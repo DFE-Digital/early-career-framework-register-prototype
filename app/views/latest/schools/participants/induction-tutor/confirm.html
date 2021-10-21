@@ -3,7 +3,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Are you sure you want to replace the induction tutor for your school?" %}
-{% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
+{% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -30,7 +30,7 @@
   				<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   				<strong class="govuk-warning-text__text">
    				 <span class="govuk-warning-text__assistive">Warning</span>
-    			 You'll be signed out of this service. You will not be able to sign in as [BRIAN TO ADD CODE TO PULL IN SIT EMAIL ADDRESS] again.
+    			 You’ll be signed out of this service. You will not be able to sign in as {{ defaults.userEmailAddress() }} again.
   				</strong>
 			</div>
 			
