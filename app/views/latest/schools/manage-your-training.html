@@ -49,14 +49,21 @@
 					<dt class="govuk-summary-list__key">Cohort year</dt>					
 					<dd class="govuk-summary-list__value">2021 to 2022</dd>
 					<dd class="govuk-summary-list__actions"></dd>
-				</div>				
-
+				</div>		
+				
 				<!-- Show amount of ECT and mentors could be an option for later down the line -->
 				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Induction tutor</dt>					
+					<dd class="govuk-summary-list__value">{{ defaults.userFullName() }}</dd>
+					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/details?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+				</div>
+
+				<!-- Show amount of ECT and mentors could be an option for later down the line -->
+				<!-- <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">ECTs and mentors</dt>					
 					<dd class="govuk-summary-list__value">12</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="school-add-participants-to-cohort/cohort-participant-listing?dashboard-variation=New">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
-				</div>
+				</div> -->
 				
 				<!-- Using DfE accredited materials -->
 				{% if data['training-programme'] == "CIP" %}
@@ -140,12 +147,7 @@
 				{% endif %}			
 				
 				
-				<!-- Show amount of ECT and mentors could be an option for later down the line -->
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Induction tutor</dt>					
-					<dd class="govuk-summary-list__value">{{ defaults.userFullName() }}</dd>
-					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/details?">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
-				</div>
+				
 				
 			</dl>			
 

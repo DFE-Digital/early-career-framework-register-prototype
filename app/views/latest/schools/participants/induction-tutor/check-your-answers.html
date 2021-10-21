@@ -16,24 +16,24 @@
           		
 				<div class="govuk-summary-list__row">
               		<dt class="govuk-summary-list__key">Name</dt>
-					<dd class="govuk-summary-list__value">{{ data['induction-tutor-fullname'] }}</dd>
+					<dd class="govuk-summary-list__value">{{ data['replace-induction-tutor-fullname'] }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="full-name?linkaction=change-induction-name">Change<span class="govuk-visually-hidden"> name of induction tutor</span></a></dd>
           		</div>				
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
-					<dd class="govuk-summary-list__value">{{ data['induction-tutor-email'] }}</dd>
+					<dd class="govuk-summary-list__value">{{ data['replace-induction-tutor-email'] }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?linkaction=change-induction-email">Change<span class="govuk-visually-hidden"> email address of induction tutor</span></a></dd>
 				</div>        											      		
 			</dl>      		
       
-			<form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+			<form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
         		
-				<input type="hidden" name="linkaction" id="linkaction" value="" />		
-				<input type="hidden" name="nominate-induction-tutor" id="nominate-induction-tutor" value=""  />
-		
-				{{ govukButton({
-					text: "Confirm and nominate"
-				}) }}			
+				<!-- <input type="hidden" name="linkaction" id="linkaction" value="" />		
+				<input type="hidden" name="nominate-induction-tutor" id="nominate-induction-tutor" value=""  /> -->
+
+					{{ govukButton({
+          				text: "Accept and continue"
+        			}) }}				
 
 			</form>     
     	
