@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm you want to replace your school induction tutor" %}
+{% set pageHeading = "Are you sure you want to replace the induction tutor for your school?" %}
 {% set pageSection = "Acme Primary School - 2021 to 2022 cohort" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,16 +12,27 @@
     	<div class="govuk-grid-column-two-thirds">		
 			
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-			
-			
-			<p>This will remove {{ defaults.userFullName() }} as the school induction tutor and sign them out of the service. They will no longer be the person we contact for ECT training at your school.</p>			
 
-			<p>They will not have access to:</p>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">  
-				<li>choose how your school wants to run your ECT training programme</li>
-				<li>complete the steps needed to set up your programme</li>
+      		<p>You can only assign one induction tutor to use this service for your school.</p>
+
+			
+			<p>{{ defaults.userFullName() }} will no longer be able to:</p>
+
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+				<li>sign in to this service</li>  
+				<li>manage how your school runs your ECT training programme</li>
+				<li>add information about ECTs and mentors</li>
 				<li>tell us if things change at your school, for example if ECTs join or not</li>
-			</ul>				
+				<li>get notifications about the training programme and this service</li>
+			</ul>	
+
+			<div class="govuk-warning-text">
+  				<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  				<strong class="govuk-warning-text__text">
+   				 <span class="govuk-warning-text__assistive">Warning</span>
+    			 You'll be signed out of this service. You will not be able to sign in as [BRIAN TO ADD CODE TO PULL IN SIT EMAIL ADDRESS] again.
+  				</strong>
+			</div>
 			
 			<form method="post" action="confirmation" >
 				<input type="hidden" id="newSit" name="newSIT" value="Yes" />

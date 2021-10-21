@@ -3,7 +3,7 @@
 {% if data['replace-induction-tutor-fullname'] %}	
 	{% set pageHeading = 'What’s ' + data['replace-induction-tutor-fullname'] + '’s email address? ' %}
 {% else %}
-	{% set pageHeading = "What’s your induction tutor’s email address?" %}
+	{% set pageHeading = "What’s the new induction tutor’s email address?" %}
 {% endif %}
 {% set pageSection = "Acme Primary School" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
