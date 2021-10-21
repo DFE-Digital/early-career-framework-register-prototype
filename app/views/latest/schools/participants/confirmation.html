@@ -5,16 +5,17 @@
 	{% set pageHeading = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
 {% elif data['details-change-action-2'] == "change-mentor-details-2"%}
 	{% set pageHeading = 'The mentor for ' + data['participant-fullname-2'] +  ' has been updated' %}
-{% endif %}
 {% else %}
-	{% if data['deletelink'] == "ect" %}  
-		{% set pageHeading = '' + data['participant-fullname'] + ' has been removed from this cohort' %}	
+	{% if data['deletelink'] == "ect-2" %}  	
+		{% set pageHeading = '' + data['participant-fullname-2'] + ' has been removed' %}	
+	{% elif data['deletelink'] == "ect" %}  
+		{% set pageHeading = '' + data['participant-fullname'] + ' has been removed' %}	
 	{% elif data['deletelink'] == "mentor" %}  
-		{% set pageHeading = '' + data['participant-fullname-mentor'] + ' has been removed from this cohort' %}								
+		{% set pageHeading = '' + data['participant-fullname-mentor'] + ' has been removed' %}								
 	{% elif data['deletelink'] == "sitMentor" %}  
-		{% set pageHeading = ' Hugo Furst has been removed from this cohort' %}								
+		{% set pageHeading = ' Hugo Furst has been removed' %}								
 	{% else %}
-		{% set pageHeading = " Full Name has been removed from this cohort" %}
+		{% set pageHeading = " Full Name has been removed" %}
 	{% endif %}
 {% endif %}
 
@@ -39,13 +40,18 @@
 	  		{% else %}
 			  										
 				<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>you’ll no longer see their details in this service</li>								
-					<li>we’ll let them know that they do not need to provide us with any information</li>
-				</ul>      						
+				
+				<p>You’ll no longer see their details in this service.</p>								
+			    <!-- Add logic to show for ppts who have yet to validate -->
+				{% if data['participant-status'] != "Validated" %}
+			    <p>We’ll let them know that they do not need to provide us with any information to check their eligibility.</p>
+				{% endif %}
+
 
 				<!-- Mentor only add logic once checked in with Kate -->
-				<p>Remember to assign this person’s ECT(s) to another mentor.</p>			
+				{% if data['participantType'] == "mentor" %}
+				<p>If you’d assigned this person one or more ECTs, you need to select a different mentor for them.</p>			
+				{% endif %}
 				<!-- // -->
 				<p><a class="govuk-link govuk-link--no-visited-state" href="../participants/">Return to your ECTs and mentors</a></p>
 
