@@ -196,16 +196,26 @@
 						{% endif %}
 					</dd>
 				  	<dd class="govuk-summary-list__actions">
-						{% if data['user-details'] == "ect-2" %}      
-							<a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
+
+						{% if data['induction-tutor'] == "Yes" %}
+
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+
 						{% else %}
-							<a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+
+							{% if data['user-details'] == "ect-2" %}      
+								<a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% else %}
+								<a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+							{% endif %}
 						{% endif %}
 					</dd>
 				</div>	
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
 				  	<dd class="govuk-summary-list__value">
+
+
 
 						{% if data['induction-tutor'] == "Yes" %}
 
@@ -226,10 +236,18 @@
 						{% endif %}
 						</dd>
 				  	<dd class="govuk-summary-list__actions">
-						{% if data['user-details'] == "ect-2" %}    
-							<a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> name</span></a>
+
+						{% if data['induction-tutor'] == "Yes" %}
+
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email address</span></a>
+
 						{% else %}
-							<a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> name</span></a>
+							
+							{% if data['user-details'] == "ect-2" %}    
+								<a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> email address</span></a>
+							{% else %}
+								<a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a>
+							{% endif %}
 						{% endif %}
 					</dd>
 				</div>	
