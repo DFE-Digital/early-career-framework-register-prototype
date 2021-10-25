@@ -9,7 +9,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 13 October 2021</p>
+        <p>Last updated: 25 October 2021</p>
         
                     
         <!-- <h2 class="govuk-heading-m">Dashboard</h2>
@@ -19,8 +19,22 @@
             text: "Continue",
             href: "user-research/dashboard"
         }) }}        
+    -->    
+        
+        <h2 class="govuk-heading-m">Change school induction tutor</h2>
+        <p>To enable a school to change out who is the school induction tutor and details such as email.</p>    
+        
+        <form action="/{{ defaults.sprintNo() }}/emails/link-to-sign-in" method="post" >            
             
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+            <input type="hidden" name="training-programme" id="training-programme" value="FIP" />
+            <input type="hidden" name="siteEntry" id="siteEntry" value="manage-training-email" />                    
+            
+             {{ govukButton({
+                text: "Start user research"
+            }) }}
+        </form>    
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
         <h2 class="govuk-heading-m">Dashboard</h2>
         <p>ECT and mentor pages showing eligibility options.</p>        

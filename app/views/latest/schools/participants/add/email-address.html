@@ -5,7 +5,9 @@
 {% if data['participantType'] == "mentor" %}	
 	{% set pageHeading = 'What’s ' + data['participant-fullname-mentor'] + '’s email address? ' %}
 {% else %}
-	{% if data['added-ect'] %}
+	{% if data['induction-tutor'] == "Yes" %}
+		{% set pageHeading = 'What’s ' + data['participant-fullname-2'] + '’s email address? ' %}
+	{% elif data['added-ect'] %}
 		{% set pageHeading = 'What’s ' + data['participant-fullname-2'] + '’s email address? ' %}
 	{% else %}
 		{% set pageHeading = 'What’s ' + data['participant-fullname'] + '’s email address? ' %}
@@ -19,9 +21,10 @@
     	<div class="govuk-grid-column-two-thirds">
 
       		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      		      	
-			<p>We’ll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
 			
+			{% if data['induction-tutor'] != "Yes" %}
+				<p>We’ll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
+			{% endif %}
 			<!-- If coming from the participant details page -->
 			{% if ((data['details-change-action'] == "change-email" ) or (data['details-change-action'] == "change-email-2")) %}
 				<form class="form" action="../details" method="post">
