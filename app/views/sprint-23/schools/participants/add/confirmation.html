@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set sitMentorName = 'defaults.userFullName()' %}
+
+{% if data['linkaction'] == "change-mentor-details"%}
+	{% set title = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
+{% else %}
+	{% if data['participantType'] == "mentor"  %}	  
+		{% set title = '' + data['participant-fullname-mentor'] +  ' has been added as a mentor' %}
+	{% elif data['participantType'] == "ECT" %}	
+		{% if data['added-ect-2'] %}
+			{% set title = '' + data['participant-fullname-2'] +  ' has been added as an ECT' %}	
+		{% elif data['added-ect'] %}
+			{% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}						
+		{% endif %}
+	{% elif data['participantType'] == "sitMentor" %}
+		{% set title = 'You’ve been added as a mentor' %}
+	{% else %}
+		{% set title = 'Full Name has been added' %}
+	{% endif %}
+{% endif %}
+
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">			
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7">
+				<h1 class="govuk-panel__title">{{ title }}</h1>
+			</div>						
+			
+			{% if data['linkaction'] == "change-mentor-details"%}<!-- If using page for change mentor confirmation -->
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
+			{% else %}
+
+				{% if data['added-sitMentor'] == "Yes" %}
+					<p>We’ll send you an email in the next few days that explains what information we need from you.</p>
+				{% else %}
+
+				<h2 class="govuk-heading-m">What happens next</h2>
+				<p>We’ll send them an email in the next few days. We’ll ask them to use our service to tell us their:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>full name</li>
+					<li>teacher reference number (TRN)</li>
+					<li>date of birth</li>
+					<li>National Insurance number (optional)</li>
+				</ul>
+
+				{% endif %}
+				
+				<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">View your ECTs and mentors</a></p>
+
+			{% endif %}
+
+		</div>
+  	</div>
+{% endblock %}

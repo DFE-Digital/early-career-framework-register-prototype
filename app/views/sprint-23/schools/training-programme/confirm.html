@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['change-programme'] == "Yes" %}
+	{% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
+{% else %}
+	{% set pageHeading = "Confirm your training programme" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<!-- if changing programme -->
+			{% if data['change-programme'] == "Yes" %}				
+
+				{% if (data['training-programme'] === "FIP") %}
+
+					<p>You've chosen to use a training provider, funded by the DfE.</p>
+					<p>You’ll need to:
+						<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+							<li>choose a training provider </li>
+							<li>add your ECTs and mentors</li>
+						</ul>
+
+				{% elseif (data['training-programme'] === "CIP") %}
+					
+					<p>You've chosen to deliver your own programme using DfE accredited materials.</p>
+					<p>You’ll need to:
+					<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+						<li>choose your training materials</li>
+						<li>add your ECTs and mentors</li>
+					</ul>					
+				
+				{% elseif (data['training-programme'] === "DYO") %}
+
+					<!-- noECT to DIY  -->
+					<p>You're choosing to design and deliver your own programme based on the Early Career Framework (ECF).</p>
+					<p class="govuk-body">You’ll need to design a 2-year programme of support and training that covers every ’learn that’ and ’learn how to’ statement in the <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">Early Career Framework (ECF)</a>.</p>
+					<p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction"> See our statutory guidance</a> for information about funding, time off, and roles.</p> 
+				
+				{% elseif (data['training-programme'] === "noECT") %}
+					
+					<!-- DIY to noECT -->
+					<p>You've told us that you're not expecting any early career teachers (ECTs) to join this year.</p>
+					<p>Your school will not receive any more messages about statutory inductions for ECTs until the next academic year.</p>
+					<p>If any ECTs do join your school this year, you need to use this service to let us know.</p>				
+			
+				{% endif %}			
+
+				<!-- <p>[[If changing from FIP or CIP to no ECTs]] - content tbc</p>	
+				<p>[[If changing from FIP or CIP to DIY]] - content tbc</p>
+				<p>[[If changing from FIP to CIP]] - content tbc</p>
+				<p>[[If changing from CIP to FIP]] - content tbc</p> -->
+
+			{% else %}
+				
+				<p class="govuk-body">You’ve chosen to
+				
+					{% if (data['training-programme'] === "FIP") %}
+						use a training provider, funded by the DfE.
+					{% elseif (data['training-programme'] === "CIP") %}
+						deliver your own programme using DfE accredited materials.
+					{% elseif (data['training-programme'] === "DYO") %}
+						design and deliver your own programme based on the Early Career Framework (ECF).
+					{% elseif (data['training-programme'] === "noECT") %}
+						opt out of notifications, because you do not expect any early career teachers to join this academic year.
+					{% elseif (data['training-programme'] === "temphold") %}
+						use a training provider funded by your school.
+					{% endif %}
+				</p>
+			
+			{% endif %}
+      		
+			<form method="post" action="success" >
+				{% if data['change-programme'] == "Yes" %}
+					<!-- This removes the change-programme value so we are out of that loop -->
+					<!-- <input type="hidden" name="change-programme" id="change-programme" value="" /> -->
+				{% endif %}
+								
+				{{ govukButton({
+					text: "Confirm"
+				}) }}
+			</form>		
+
+    	</div>
+	</div>
+{% endblock %}
