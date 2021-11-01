@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Is this the name you used when you started your initial teacher training (ITT)?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<div class="govuk-inset-text">
+				<p><span class="govuk-!-font-weight-bold">Name:</span> {{ defaults.userFullName() }}</p>
+			</div>
+				
+			<form class="form" action="cannot-find-your-details" method="post" >				
+      		
+				{{ govukRadios({
+					classes: "govuk-radios--inline",
+					idPrefix: "register-name-correct",
+					name: "register-name-correct",
+					hint: {
+						text: "Answer ‘no’ if your last name has changed, or you used a different version of your first name."
+					},
+					fieldset: {
+					  legend: {
+						text: "Have you changed your name?",
+						isPageHeading: true,
+						classes: "govuk-visually-hidden"
+					  }
+					},					
+					items: [									
+						{ value: "Yes", text: "Yes", checked: checked("register-name-correct", "yes") },
+					  	{ value: "No, redirect(name)", text: "No", checked: checked("register-name-correct", "No") }
+					]
+				}) }}
+				
+
+        		{{ govukButton({
+          			text: "Continue"					  
+        		}) }}
+      		
+			</form>
+    	
+		</div>
+  	</div>
+{% endblock %}

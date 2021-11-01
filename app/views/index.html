@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "ECF Register and Partner" %}
+{% set pageHeading = "Schools and Teachers" %}
 {% set pageSection = "Prototype work" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +12,7 @@
       	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
 		<ul class="govuk-list govuk-body-s">
-        	<li>Last updated: 18 October 2021</li>
+        	<li>Last updated: 1 November 2021</li>
             <li>Prototype version: {{releaseVersion}}</li>
         </ul>
         <p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
@@ -80,6 +80,18 @@
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/sprint-23/landing">Sprint 23</a></td>
+                <td class="govuk-table__cell">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>futher work on validating teachers flow without them knowing their TRN</li>			
+			<li>start looking at multiple cohorts, dashboard and flows</li>          	
+			<li>allow SIT to change who is the SIT</li>
+			<li>allow school funded FIP to change their induction type</li>
+			<li>option to clean up any futher page from a GDS/Pattern point of view</li> 				
+                  </ul> 
+                </td>
+              </tr>  
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a href="/sprint-22/landing">Sprint 22</a></td>
                 <td class="govuk-table__cell">

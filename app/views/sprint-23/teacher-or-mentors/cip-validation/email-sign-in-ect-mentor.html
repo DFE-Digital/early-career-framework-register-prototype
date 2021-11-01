@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set showPhaseBanner = false %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+  <!--[if lte IE 8]><link href="/public/stylesheets/unbranded-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if gt IE 8]><!--><link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="pseudo-bg"></div>
+<div class="email-metadata">
+  <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  <p><strong>Subject: </strong>Link to sign in ECT start</p>
+</div>
+<div class="pseudo-email-template">
+<p>Hello [full name],</p>
+
+<p>Your school has created a GOV.UK account for you to access self-study materials for the training and support programme you’ll be doing during your first 2 years of teaching.</p>
+<p>To sign in to your account, go to the <a href="https://ecf-engage-and-learn-mentor.herokuapp.com/dev/start">Support for early career teachers</a>
+  service on GOV.UK.</p>
+
+<p>You will need the email address your school used when they created your account. This will probably be your work email.</p>
+
+<p>Teacher Continuing Professional Development<br />
+<span style="color:#888888;">Department for Education</span></p>
+</div>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
