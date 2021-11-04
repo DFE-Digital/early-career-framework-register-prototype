@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = 'What’s the full name of this  ' + data['participantType'] + '?' %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

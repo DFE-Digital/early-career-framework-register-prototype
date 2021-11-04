@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "Do you expect any early career teachers to join your school this academic year?" %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

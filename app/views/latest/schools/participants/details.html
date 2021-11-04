@@ -19,7 +19,7 @@
 		{% set pageHeading = '' + data['random-name'] + '' %}
 	{% endif %}
 {% endif %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
