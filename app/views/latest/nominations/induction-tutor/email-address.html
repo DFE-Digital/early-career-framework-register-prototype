@@ -5,7 +5,7 @@
 {% else %}
 	{% set pageHeading = "What’s your induction tutor’s email address?" %}
 {% endif %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

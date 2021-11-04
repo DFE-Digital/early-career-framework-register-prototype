@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "Report that your school has been signed up incorrectly" %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

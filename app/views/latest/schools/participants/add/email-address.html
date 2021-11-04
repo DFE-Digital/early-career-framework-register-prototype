@@ -13,7 +13,7 @@
 		{% set pageHeading = 'What’s ' + data['participant-fullname'] + '’s email address? ' %}
 	{% endif %}
 {% endif %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

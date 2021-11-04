@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "What’s the full name of the new induction tutor?" %}
-{% set pageSection = "Acme Primary School" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
