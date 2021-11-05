@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% set showPhaseBanner = false %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+  
+  <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+	<div class="pseudo-bg"></div>
+		<div class="email-metadata">
+
+			<!-- ECT registration email (CIP and FIP) -->
+			
+
+  			
+			<!-- CIP mentor (in beta programme) -->
+  			{% if ((data['participantType'] == "participantMentor") and (data['participantOptions'] == "participantCIP") and (data['betaMentor'] == "beta")) %}
+
+				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  				<p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
+  			</div>
+  			
+			<div class="pseudo-email-template">
+
+  				<p>Hello, {{ defaults.userFirstName() }}</p>
+  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
+  				<p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
+
+  				<p><strong>What you need to do now</strong></p>
+  				<p>We need to check your details in the Teaching Regulation Agency records.</p>
+
+  				<p>To do this, we need to ask you for:</p>
+  				<ul class="govuk-list govuk-list--bullet">
+  					<li>your <a href="https://www.gov.uk/guidance/request-a-reminder-for-a-teacher-reference-number-trn">teacher reference number (TRN)</a>.</li>
+  					<li>date of birth</li>
+  					<li>National Insurance number (optional)</li>
+  				</ul>
+
+				<p>Sign in to our service to tell us this information as soon as possible:</p>
+  				<p><a class="govuk-link--no-visited-state" href="start-registration">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
+  				<p>If you have any questions, reply to this email.<br />
+  				<p>Teacher Continuing Professional Development<br />
+  				<span style="color:#888888;">Department for Education</span></p>
+
+
+  			<!-- FIP mentor -->
+  			{% elif ((data['participantOptions'] == "participantFIP") or (data['participantType'] == "participantSIT") and (data['participantType'] == "participantMentor") ) %}
+
+  				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  				<p><strong>Subject: </strong>Add your details to start your mentor training</p>
+  			</div>
+  			<div class="pseudo-email-template">
+  				
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
+  				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify for mentor training and support.</p>
+
+  				<p><strong>What you need to do now</strong></p>
+  				<p>We need to check your details in the Teaching Regulation Agency records.</p>
+				<p>To do this, we need to ask you for:</p>
+  				<ul class="govuk-list govuk-list--bullet">
+  					<li>your <a href="https://www.gov.uk/guidance/request-a-reminder-for-a-teacher-reference-number-trn">teacher reference number (TRN)</a>.</li>
+  					<li>date of birth</li>
+  					<li>National Insurance number (optional)</li>
+  				</ul>
+
+  				<p>Sign in to our service to tell us this information as soon as possible:</p>
+  				<p><a class="govuk-link--no-visited-state" href="start-registration">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
+
+  				<p><strong>What’s a mentor?</strong></p>
+  				<p>Early career teachers (ECTs) now do a 2-year induction including a programme of coaching and mentoring based on the early career framework.</p>
+  				<p>You’ll play a really important part in this, helping support early career teachers develop the skills they need to thrive.</p>
+  				<p>Contact your school for more information about your training. Or, read this guidance: <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">https://www.gov.uk/government/publications/early-career-framework</a></p>
+
+				<p>If you have any questions, reply to this email.<br />
+  				<p>Teacher Continuing Professional Development<br />
+  				<span style="color:#888888;">Department for Education</span></p>
+
+			<!-- CIP mentor (not in beta programme) registration email -->
+			{% elif ((data['participantType'] == "participantMentor") or (data['participantType'] == "participantSIT") and (data['participantOptions'] == "participantCIP")) %}
+
+				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+				<p><strong>Subject: </strong>Add your details to access your mentor training materials </p>
+			</div>
+			<div class="pseudo-email-template">
+				
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
+				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify as a mentor, so that we can give you access to training materials.</p>
+
+				<p><strong>What you need to do now</strong></p>
+				<p>We need to check your details in the Teaching Regulation Agency records.</p>
+
+				<p>To do this, we need to ask you for:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>your <a href="https://www.gov.uk/guidance/request-a-reminder-for-a-teacher-reference-number-trn">teacher reference number (TRN)</a>.</li>
+					<li>date of birth</li>
+					<li>National Insurance number (optional)</li>
+				</ul>
+				<p>Sign in to our service to tell us this information as soon as possible:</p>
+				<p><a class="govuk-link--no-visited-state" href="start-registration">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
+				
+				<p><strong>What’s a mentor?</strong></p>
+				<p>Early career teachers (ECTs) now do a 2-year induction including a programme of coaching and mentoring based on the early career framework.</p>
+				<p>You’ll play a really important part in this, helping support early career teachers develop the skills they need to thrive.</p>
+				<p>Contact your school for more information about your training. Or, read this guidance: <a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework">https://www.gov.uk/government/publications/early-career-framework</a></p>
+
+				<p>If you have any questions, reply to this email.<br />
+				<p>Teacher Continuing Professional Development<br />
+				<span style="color:#888888;">Department for Education</span></p>
+			
+			{% else %}
+					
+				<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+				<p><strong>Subject: </strong>Add your details ready for your early career teacher training programme</p>
+			</div>
+
+			<div class="pseudo-email-template">
+
+				<p>Hello, {{ defaults.userFirstName() }}</p>
+				<p>{{ defaults.schoolName() }} has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
+				<p><strong>About your training programme</strong></p>
+					<p>All early career teachers now complete a 2-year induction programme. This includes structured training and support to help you get your teaching career off to the best possible start.</p>
+					<p>You can contact your school for more information about your training.</p>
+
+					<p><strong>Register to start your programme</strong></p>
+					<p>Before you can start, we need to check your details in the Teaching Regulation Agency records. This is to make sure you qualify for this training and support.</p>
+
+					<p>We need to ask you for:</p>
+					<ul class="govuk-list govuk-list--bullet">
+					<li>your <a href="https://www.gov.uk/guidance/request-a-reminder-for-a-teacher-reference-number-trn">teacher reference number (TRN)</a>.</li>
+					<li>date of birth</li>
+					<li>National Insurance number (optional)</li>
+					</ul>
+
+					<p>You need to tell us this as soon as possible so you’re ready to start your programme.</p>
+					<p>Use your email address to sign in to our service to register: <a class="govuk-link--no-visited-state" href="start-registration">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt.</a></p>
+					<p>If you have any questions, reply to this email.<br />
+					<p>Teacher Continuing Professional Development<br />
+					<span style="color:#888888;">Department for Education</span></p>
+
+			{% endif %}
+
+		</div>
+
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
