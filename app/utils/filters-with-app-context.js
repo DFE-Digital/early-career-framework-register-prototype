@@ -12,12 +12,12 @@ module.exports = (nunjucksAppEnv, app) => {
     // } | decorateFormAttributes(['some', 'section'])) }}
     nunjucksAppEnv.addFilter('decorateFormAttributes', (obj, sections) => {
       sections = Array.isArray(sections) ? sections : [sections]
-      var storedValue = helpers.getDataValue(req.session.data, sections)
+      const storedValue = helpers.getDataValue(req.session.data, sections)
 
       if (obj.items !== undefined) {
         obj.items = obj.items.map(item => {
-          var checked = storedValue ? '' : item.checked
-          var selected = storedValue ? '' : item.selected
+          let checked = storedValue ? '' : item.checked
+          let selected = storedValue ? '' : item.selected
           if (typeof item.value === 'undefined') {
             item.value = item.text
           }
