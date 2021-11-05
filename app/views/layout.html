@@ -29,7 +29,6 @@
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
 
-{% import "macros/defaults.njk" as defaults %}
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
 
@@ -64,14 +63,14 @@
 {% endblock %}
 
 {% block beforeContent %}
-  
+
 {% if showPhaseBanner != false %}
     {{ govukPhaseBanner({
       tag: { text: "Prototype" },
       html: "This is a prototype. It is not a real service."
     }) }}
   {% endif %}
-  
+
   {% if showBackLink != false %}
     {{ govukBackLink({
       text: "Back",
