@@ -20,6 +20,13 @@ Example usage:
 module.exports = {
 
   // Insert values here
-  schoolName: "Acme Primary School"
-
+  schoolName: "Acme Primary School",
+  userFullName: "Hugo Furst",
+  userFirstName: "Hugo",
+  leadProvider: "Ambition Institute",
+  deliveryPartner: "Central London Teaching School Hub",
+  userEmailAddress: "hugo.furst@dfe.test.gov.uk",
+  linkExpire: "19 October 2021",
+  expiryTime: "1pm",
+  sprintNo: "latest"
 }
