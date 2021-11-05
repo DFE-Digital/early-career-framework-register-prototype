@@ -1,7 +1,7 @@
 const helpers = require('./helpers')
 
 function originalQuery (req) {
-  var originalQueryString = req.originalUrl.split('?')[1]
+  const originalQueryString = req.originalUrl.split('?')[1]
   return originalQueryString ? `?${originalQueryString}` : ''
 }
 

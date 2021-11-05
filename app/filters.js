@@ -5,7 +5,7 @@ module.exports = function (env) {
    * gov.uk core filters by creating filter methods of the same name.
    * @type {Object}
    */
-  var filters = {}
+  const filters = {}
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
@@ -41,13 +41,13 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
-  
-  let separateThousandsWithComma = input => {
+
+  const separateThousandsWithComma = input => {
     let amount = Math.round(Number(input) * 100) / 100
     if (amount % 1 !== 0) {
       amount = amount.toFixed(2)
     }
-    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
   filters.currency = (number, prefix) => {
@@ -66,18 +66,17 @@ module.exports = function (env) {
   }
 
   filters.titleCase = str => {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()})
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })
   }
 
-
-  filters.toMonth = function(month) {
-  if (!isNaN(month)) {
-    var month = month - 1;
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    // Return month name
-    return months[month];
+  filters.toMonth = function (month) {
+    if (!isNaN(month)) {
+      const monthIndex = month - 1
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      // Return month name
+      return months[monthIndex]
+    }
   }
-}
- 
+
   return filters
 }
