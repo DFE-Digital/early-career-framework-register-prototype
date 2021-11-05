@@ -28,8 +28,8 @@
   			
 			<div class="pseudo-email-template">
 
-  				<p>Hello, {{ defaults.userFirstName() }}</p>
-  				<p>You’ve nominated yourself as a mentor for early career teachers (ECTs) at {{ defaults.schoolName() }}.</p>
+  				<p>Hello, {{ data.userFirstName }}</p>
+  				<p>You’ve nominated yourself as a mentor for early career teachers (ECTs) at {{ data.schoolName }}.</p>
 				<p>An induction tutor should only assign themself as a mentor in exceptional circumstances. Read our guidance to make sure you can take on the full responsibilities of both roles: ((role_guidance))</p>
   				<p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
 
@@ -70,8 +70,8 @@
   			
 			<div class="pseudo-email-template">
 
-  				<p>Hello, {{ defaults.userFirstName() }}</p>
-  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
+  				<p>Hello, {{ data.userFirstName }}</p>
+  				<p>{{ data.schoolName }} has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
   				<p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
 
   				<p><strong>What you need to do now</strong></p>
@@ -99,8 +99,8 @@
   			</div>
   			<div class="pseudo-email-template">
   				
-				<p>Hello, {{ defaults.userFirstName() }}</p>
-  				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
+				<p>Hello, {{ data.userFirstName }}</p>
+  				<p>{{ data.schoolName }} has nominated you to mentor early career teachers (also known as NQTs).</p>
   				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify for mentor training and support.</p>
 
   				<p><strong>What you need to do now</strong></p>
@@ -132,8 +132,8 @@
 			</div>
 			<div class="pseudo-email-template">
 				
-				<p>Hello, {{ defaults.userFirstName() }}</p>
-				<p>{{ defaults.schoolName() }} has nominated you to mentor early career teachers (also known as NQTs).</p>
+				<p>Hello, {{ data.userFirstName }}</p>
+				<p>{{ data.schoolName }} has nominated you to mentor early career teachers (also known as NQTs).</p>
 				<p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify as a mentor, so that we can give you access to training materials.</p>
 
 				<p><strong>What you need to do now</strong></p>
@@ -165,8 +165,8 @@
 
 			<div class="pseudo-email-template">
 
-				<p>Hello, {{ defaults.userFirstName() }}</p>
-				<p>{{ defaults.schoolName() }} has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
+				<p>Hello, {{ data.userFirstName }}</p>
+				<p>{{ data.schoolName }} has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
 				<p><strong>About your training programme</strong></p>
 					<p>All early career teachers now complete a 2-year induction programme. This includes structured training and support to help you get your teaching career off to the best possible start.</p>
 					<p>You can contact your school for more information about your training.</p>

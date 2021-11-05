@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block head %}
-  
+
   <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
 
 	{% for stylesheetUrl in extensionConfig.stylesheets %}
@@ -17,20 +17,20 @@
 {% block content %}
 
 	<div class="pseudo-bg"></div>
-		<div class="email-metadata">  		
+		<div class="email-metadata">
 			<p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
-  			<p><strong>Subject: </strong>Link to sign in</p>		
+  			<p><strong>Subject: </strong>Link to sign in</p>
 		</div>
 		<div class="pseudo-email-template">
-			
-			<p>Hello {{ defaults.userFullName() }}</p>
+
+			<p>Hello {{ data.userFullName }}</p>
 			<p>Use this link to sign in to the service:</p>
 			<p><a href="../signed-in">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt</a></p>
-			<p>(This link will expire at {{ defaults.expiryTime() }})</p>
+			<p>(This link will expire at {{ data.expiryTime }})</p>
 
 			<p>Teacher Continuing Professional Development<br />
 			Department for Education</p>
-		
+
 		</div>
 
 {% endblock %}

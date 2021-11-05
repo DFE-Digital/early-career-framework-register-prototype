@@ -50,7 +50,7 @@
         				}) }}
         				<h3 class="govuk-heading-m">What happens next</h3>
           				<p class="govuk-body">You will not need to use this service again during your training.</p>
-          				<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+          				<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
           			
 					{% else %}
           
@@ -60,7 +60,7 @@
           				
 						<h3 class="govuk-heading-m">What happens next</h3>
             			<p class="govuk-body">You will not need to use this service again during your training.</p>
-            			<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+            			<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 
       				{% endif %}
 
@@ -75,7 +75,7 @@
               		}) }}              
               		<h3 class="govuk-heading-m">What happens next</h3>
                 	<p class="govuk-body">You will not need to use this service again during your training.</p>
-                	<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+                	<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
 
                 {% else %}
 
@@ -85,7 +85,7 @@
                 	
 					<h3 class="govuk-heading-m">What happens next</h3>
                   	<p class="govuk-body">You will not need to use this service again during your training.</p>
-                  	<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+                  	<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 
             	{% endif %}
 
@@ -124,7 +124,7 @@
           				titleText: "Registration complete"
         			}) }}        
         			<h3 class="govuk-heading-m">What happens next</h3>
-        			<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+        			<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
           			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
           		{% else %}
@@ -134,7 +134,7 @@
           			}) }}
           			
 					<h3 class="govuk-heading-m">What happens next</h3>
-            		<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+            		<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
             		<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
       			
 				{% endif %}
@@ -150,7 +150,7 @@
       
       				<h3 class="govuk-heading-m">What happens next</h3>
         			<p class="govuk-body">You will not need to use this service again during your training.</p>
-        			<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+        			<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
         			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
         		{% else %}
@@ -161,7 +161,7 @@
         
         			<h3 class="govuk-heading-m">What happens next</h3>
 					<p class="govuk-body">You will not need to use this service again during your training.</p>
-					<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+					<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 					<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
     			{% endif %}

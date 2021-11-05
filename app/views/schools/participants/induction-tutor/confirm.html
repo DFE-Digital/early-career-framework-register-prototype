@@ -16,7 +16,7 @@
       		<p>You can only assign one induction tutor to use this service for your school.</p>
 
 			
-			<p>{{ defaults.userFullName() }} will no longer be able to:</p>
+			<p>{{ data.userFullName }} will no longer be able to:</p>
 
 				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
 				<li>sign in to this service</li>  
@@ -30,7 +30,7 @@
   				<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   				<strong class="govuk-warning-text__text">
    				 <span class="govuk-warning-text__assistive">Warning</span>
-    			 You’ll be signed out of this service. You will not be able to sign in as {{ defaults.userEmailAddress() }} again.
+    			 You’ll be signed out of this service. You will not be able to sign in as {{ data.userEmailAddress }} again.
   				</strong>
 			</div>
 			
