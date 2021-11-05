@@ -18,8 +18,6 @@ Example usage:
 */
 
 module.exports = {
-
-  // Insert values here
   schoolName: "Acme Primary School",
   userFullName: "Hugo Furst",
   userFirstName: "Hugo",
@@ -27,6 +25,5 @@ module.exports = {
   deliveryPartner: "Central London Teaching School Hub",
   userEmailAddress: "hugo.furst@dfe.test.gov.uk",
   linkExpire: "19 October 2021",
-  expiryTime: "1pm",
-  sprintNo: "latest"
+  expiryTime: "1pm"
 }
