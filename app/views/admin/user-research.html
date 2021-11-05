@@ -14,7 +14,7 @@
         <h2 class="govuk-heading-m">Change school induction tutor</h2>
         <p>To enable a school to change out who is the school induction tutor and details such as email.</p>
 
-        <form action="/{{ defaults.sprintNo() }}/emails/link-to-sign-in" method="post" >
+        <form action="/emails/link-to-sign-in" method="post" >
 
             <input type="hidden" name="training-programme" id="training-programme" value="FIP" />
             <input type="hidden" name="siteEntry" id="siteEntry" value="manage-training-email" />
@@ -28,7 +28,7 @@
 
         <h2 class="govuk-heading-m">Dashboard</h2>
         <p>ECT and mentor pages showing eligibility options.</p>
-        <form action="/{{ defaults.sprintNo() }}/schools/manage-your-training" method="post" >
+        <form action="/schools/manage-your-training" method="post" >
             <input type="hidden" name="show-participant-not-eligible" id="show-participant-not-eligible" value="Yes" />
             <input type="hidden" name="show-participant-status-checking" id="show-participant-status-checking" value="Yes" />
             <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />
@@ -75,7 +75,7 @@
         <!-- <h2 class="govuk-heading-m">Step by step</h2>
         <p>Research for testing the step by step guide and entrance to the service.</p>
 
-        <form action="/{{ defaults.sprintNo() }}/" method="post" >
+        <form action="/start" method="post" >
 
 
 

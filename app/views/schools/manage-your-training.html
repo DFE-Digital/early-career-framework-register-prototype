@@ -54,7 +54,7 @@
 				<!-- Show amount of ECT and mentors could be an option for later down the line -->
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Induction tutor</dt>					
-					<dd class="govuk-summary-list__value">{{ defaults.userFullName() }}</dd>
+					<dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
 					<dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
 				</div>
 
@@ -99,7 +99,7 @@
 						<dt class="govuk-summary-list__key">Training provider</dt>
 						<dd class="govuk-summary-list__value">
 							{% if data['user-research'] == "Yes" %}
-								{{ defaults.leadProvider() }}
+								{{ data.leadProvider }}
 							{% else %}
 								{% if data['InPartnership'] == "Yes" %}Educational Development Trust{% endif %}
 							{% endif %}
@@ -115,7 +115,7 @@
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
 						<dd class="govuk-summary-list__value">
 							{% if data['user-research'] == "Yes" %}
-								{{ defaults.deliveryPartner() }}
+								{{ data.deliveryPartner }}
 							{% else %}
 								Mega Delivery Partner
 							{% endif %}
@@ -152,7 +152,7 @@
 			</dl>			
 
 			{% if ((data['training-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}								
-			<p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ defaults.linkExpire() }}.</p>
+			<p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
 			{% endif %}
 
 			{% if ((data['accredited-materials']) and (data['training-programme'] == "CIP")) %}						

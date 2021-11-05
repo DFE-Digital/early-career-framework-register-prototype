@@ -130,7 +130,7 @@
 
 						{% if data['added-sitMentor'] == "Yes" %}
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell ">{{ defaults.userFullName() }}</td>
+							<td class="govuk-table__cell ">{{ data.userFullName }}</td>
 							<td class="govuk-table__cell">Mentor</td>
 							<td class="govuk-table__cell">Remind them	</td>
 							<td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=Remind" class="govuk-link govuk-link--no-visited-state">Check</a></td>

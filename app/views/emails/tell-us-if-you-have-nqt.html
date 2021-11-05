@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block head %}
-	
+
   	<link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
 
   	{% for stylesheetUrl in extensionConfig.stylesheets %}
@@ -22,7 +22,7 @@
 </div>
 
 <div class="pseudo-email-template">
-	<p>Dear {{ defaults.schoolName() }},</p>
+	<p>Dear {{ data.schoolName }},</p>
 
 	<p>Are you expecting any early career teachers (also known as NQTs) to join you in the 2021 to 2022 academic year? </p>
 	<p>Update the DfE here:</p>
@@ -31,22 +31,22 @@
 	</div>
 	<p>You only need to answer ‘yes’ or ‘no’.</p>
 
-	<h2 class="govuk-heading-m">What happens next</h2>		
+	<h2 class="govuk-heading-m">What happens next</h2>
 	<p>If you choose ‘yes’, we’ll guide you to set up your 2-year training programme, following the new statutory requirements.</p>
 	<p>If you choose ‘no’, we will not send you any more reminders until the next academic year.</p>
 
 	<h2 class="govuk-heading-m">Where to get more help and support</h2>
 
 	<p>Read our step-by-step guide to find out what’s changed this year, and what you need to do:</p>
-	<p><a class="govuk-link--no-visited-state" href="../how-to-set-up-your-programme">https://localhost:3000/latest/how-to-set-up-your-programme</a></p>
+	<p><a class="govuk-link--no-visited-state" href="../how-to-set-up-your-programme">https://localhost:3000/how-to-set-up-your-programme</a></p>
 
 	<p>You can contact your local teaching school hub for guidance:</p>
 	<p><a class="govuk-link--no-visited-state" href="https://www.gov.uk/guidance/teaching-school-hubs">https://www.gov.uk/guidance/teaching-school-hubs</a></p>
-	
+
 	<p>You can also contact your appropriate body, multi-academy trust (MAT) or federation for more advice.</p>
-	
+
 	<p>If you have any questions, reply to this email.</p>
-	
+
 	<p>Teacher Continuing Professional Development
 	<br>Department for Education</p>
 

@@ -35,12 +35,12 @@
 						<!-- In Partnership -->
 							<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
 							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
 						{% else %}
 						<!-- No Partnership -->
 							<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
 							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 						{% endif %}
 					
 					{% else %}
@@ -48,11 +48,11 @@
 						{% if (data['InPartnership'] == "Yes") %}																									
 						<!-- In Partnership -->
 							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
 						{% else %}             
 						<!-- No Partnership -->   												
 							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 						{% endif %}
 					{% endif %}	
 
@@ -65,11 +65,11 @@
 						<!-- In Partnership -->
 						  	<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
 						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-						  	<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+						  	<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
 					  	{% else %}
 						  	<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
 						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-						  	<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+						  	<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 					  	{% endif %}
 				  	
 				  	{% else %}
@@ -77,10 +77,10 @@
 					  	{% if (data['InPartnership'] == "Yes") %}
 						<!-- In Partnership -->
 							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has chosen {{ defaults.deliveryPartner() }} and {{ defaults.leadProvider() }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
 					  	{% else %}
 						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ defaults.schoolName() }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
 					  	{% endif %}
 					{% endif %}
 				{% endif %}
