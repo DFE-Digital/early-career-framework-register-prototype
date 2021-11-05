@@ -6,48 +6,48 @@
 
 {% block content %}
 
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
-      
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		      		
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		{{ govukSummaryList({
-        		rows: [
-					{ key: { text: "Local Authority" }, value: { text: data['schools-local-authority'] }, actions: {
-						items: [
-						  {
-							href: "schools-local-authority",
-							text: "Change",
-							visuallyHiddenText: "authority"
-						  }
-						]
-					  }  },
-					{ key: { text: "School" }, value: { text: data['school-name'] }, classes: "govuk-!-width-one-half", actions: {
-						items: [
-						  {
-							href: "schools-local-authority",
-							text: "Change",
-							visuallyHiddenText: "school"
-						  }
-						]
-					  } },
-          			{ key: { text: "URN" }, value: { text: "9348523" } },
-          			{ key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
-					
-        		]
-      		}) }}
-      		
-			<!-- <p class="govuk-body"><a class="govuk-link--no-visited-state" href="schools-local-authority">Change school</a></p>      	 -->
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<form class="form" action="success" method="post" class="govuk-!-margin-bottom-8">
+          {{ govukSummaryList({
+            rows: [
+          { key: { text: "Local Authority" }, value: { text: data['schools-local-authority'] }, actions: {
+            items: [
+              {
+              href: "schools-local-authority",
+              text: "Change",
+              visuallyHiddenText: "authority"
+              }
+            ]
+            }  },
+          { key: { text: "School" }, value: { text: data['school-name'] }, classes: "govuk-!-width-one-half", actions: {
+            items: [
+              {
+              href: "schools-local-authority",
+              text: "Change",
+              visuallyHiddenText: "school"
+              }
+            ]
+            } },
+                { key: { text: "URN" }, value: { text: "9348523" } },
+                { key: { text: "Address" }, value: { html: "School lane<br> Mill Road<br> Norwich<br> NR16 2HU" } }
 
-        		{{ govukButton({
-          			text: "Confirm and send"
-        		}) }}
-      	
-			</form>
+            ]
+          }) }}
 
-    	</div>
-  	</div>
+      <!-- <p class="govuk-body"><a class="govuk-link--no-visited-state" href="schools-local-authority">Change school</a></p>         -->
+
+          <form class="form" action="success" method="post" class="govuk-!-margin-bottom-8">
+
+            {{ govukButton({
+                text: "Confirm and send"
+            }) }}
+
+      </form>
+
+      </div>
+    </div>
 
 {% endblock %}

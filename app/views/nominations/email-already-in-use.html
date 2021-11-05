@@ -3,21 +3,21 @@
 {% set pageHeading = "That email address is being used by another school" %}
 
 {% block content %}
-	
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		<p class="govuk-body">We need a different email address for each school.</p>  
-      		<p class="govuk-body">Enter a different email address.</p>      						
-			
-			<form class="form" action="who-do-you-want-to-nominate" method="post" >												
-				{{ govukButton({
-						text: "Change email address"
-				}) }}
-			</form>      		
-    	
-		</div>
-  	</div>
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+          <p class="govuk-body">We need a different email address for each school.</p>
+          <p class="govuk-body">Enter a different email address.</p>
+
+      <form class="form" action="who-do-you-want-to-nominate" method="post" >
+        {{ govukButton({
+            text: "Change email address"
+        }) }}
+      </form>
+
+    </div>
+    </div>
 {% endblock %}

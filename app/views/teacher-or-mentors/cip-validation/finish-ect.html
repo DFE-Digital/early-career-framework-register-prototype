@@ -6,171 +6,171 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		<!-- // CIP ECT SKIP VALIDATION -->
-      		{% if ((data['participantOptions'] == "participantCIP") and (data['skipValidation'] == "notvalidating") and (data['participantType'] == "participantECT")) %}
-      		
-				{{ govukPanel({
-					titleText: "We’re checking your details"
-				}) }}
-							
-				<h3 class="govuk-heading-m">What happens next</h3>
-				<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
-				<p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
+          <!-- // CIP ECT SKIP VALIDATION -->
+          {% if ((data['participantOptions'] == "participantCIP") and (data['skipValidation'] == "notvalidating") and (data['participantType'] == "participantECT")) %}
 
-      		<!-- // CIP ECT -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantECT")) %}
-      		
-				{{ govukPanel({
-					titleText: "Registration complete"
-				}) }}      
-				<h3 class="govuk-heading-m">What happens next</h3>
-				<p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
+        {{ govukPanel({
+          titleText: "We’re checking your details"
+        }) }}
 
-      		<!-- CIP Mentor -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantMentor")) %}      
-      		
-				{{ govukPanel({
-        			titleText: "Registration complete"
-      			}) }}
-      		
-      			<h3 class="govuk-heading-m">What happens next</h3>
-        		<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+        <h3 class="govuk-heading-m">What happens next</h3>
+        <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+        <p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
 
+          <!-- // CIP ECT -->
+          {% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantECT")) %}
 
-        	<!-- FIP ECT/Mentor SKIP Validation -->
-        	{% elif ((data['skipValidation'] == "notvalidating") and (data['participantOptions'] == "participantFIP")) %}
+        {{ govukPanel({
+          titleText: "Registration complete"
+        }) }}
+        <h3 class="govuk-heading-m">What happens next</h3>
+        <p class="govuk-body">Your training materials will be available by the end of August. We’ll email you with a link to access them.</p>
 
-        			{% if (data['providerType'] == "providerKnown") %}
-        				
-        				{{ govukPanel({
-          					titleText: "We’re checking your details"
-        				}) }}
-        				<h3 class="govuk-heading-m">What happens next</h3>
-          				<p class="govuk-body">You will not need to use this service again during your training.</p>
-          				<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
-          			
-					{% else %}
-          
-          				{{ govukPanel({
-            				titleText: "We’re checking your details"
-          				}) }}          	
-          				
-						<h3 class="govuk-heading-m">What happens next</h3>
-            			<p class="govuk-body">You will not need to use this service again during your training.</p>
-            			<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+          <!-- CIP Mentor -->
+          {% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantMentor")) %}
 
-      				{% endif %}
+        {{ govukPanel({
+              titleText: "Registration complete"
+            }) }}
+
+            <h3 class="govuk-heading-m">What happens next</h3>
+            <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
 
 
-      		<!-- FIP ECT/Mentor -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "participantECT") or (data['participantType'] == "participantMentor") ) %}
+          <!-- FIP ECT/Mentor SKIP Validation -->
+          {% elif ((data['skipValidation'] == "notvalidating") and (data['participantOptions'] == "participantFIP")) %}
 
-              	{% if (data['providerType'] == "providerKnown") %}
-              	
-              		{{ govukPanel({
-                		titleText: "Registration complete"
-              		}) }}              
-              		<h3 class="govuk-heading-m">What happens next</h3>
-                	<p class="govuk-body">You will not need to use this service again during your training.</p>
-                	<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+              {% if (data['providerType'] == "providerKnown") %}
+
+                {{ govukPanel({
+                    titleText: "We’re checking your details"
+                }) }}
+                <h3 class="govuk-heading-m">What happens next</h3>
+                  <p class="govuk-body">You will not need to use this service again during your training.</p>
+                  <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+
+          {% else %}
+
+                  {{ govukPanel({
+                    titleText: "We’re checking your details"
+                  }) }}
+
+            <h3 class="govuk-heading-m">What happens next</h3>
+                  <p class="govuk-body">You will not need to use this service again during your training.</p>
+                  <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+
+              {% endif %}
+
+
+          <!-- FIP ECT/Mentor -->
+          {% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "participantECT") or (data['participantType'] == "participantMentor") ) %}
+
+                {% if (data['providerType'] == "providerKnown") %}
+
+                  {{ govukPanel({
+                    titleText: "Registration complete"
+                  }) }}
+                  <h3 class="govuk-heading-m">What happens next</h3>
+                  <p class="govuk-body">You will not need to use this service again during your training.</p>
+                  <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
 
                 {% else %}
 
-                	{{ govukPanel({
-                  		titleText: "Registration complete"
-                	}) }}                
-                	
-					<h3 class="govuk-heading-m">What happens next</h3>
-                  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-                  	<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+                  {{ govukPanel({
+                      titleText: "Registration complete"
+                  }) }}
 
-            	{% endif %}
+          <h3 class="govuk-heading-m">What happens next</h3>
+                    <p class="govuk-body">You will not need to use this service again during your training.</p>
+                    <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+
+              {% endif %}
 
 
-      		<!-- CIP SIT as Mentor + not validated -->
-      		{% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantSIT")) %}
-        		
-				{% if (data['skipValidation'] == "notvalidating") %}
-        	
-        			{{ govukPanel({
-          				titleText: "We're checking your details"
-        			}) }}        
-        			
-					<h3 class="govuk-heading-m">What happens next</h3>
-          			<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
-          			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
-        		
-				{% else %}
+          <!-- CIP SIT as Mentor + not validated -->
+          {% elif ((data['participantOptions'] == "participantCIP") and (data['participantType'] == "participantSIT")) %}
 
-      				{{ govukPanel({
-        				titleText: "Registration complete"
-      				}) }}      
-      				
-					<h3 class="govuk-heading-m">What happens next</h3>
-        			<p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
-        			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
-        		
-				{% endif %}
+        {% if (data['skipValidation'] == "notvalidating") %}
 
-      		<!-- FIP SIT as mentor -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "participantSIT")) %}
+              {{ govukPanel({
+                  titleText: "We're checking your details"
+              }) }}
 
-        		{% if (data['providerType'] == "providerKnown") %}
-        
-        			{{ govukPanel({
-          				titleText: "Registration complete"
-        			}) }}        
-        			<h3 class="govuk-heading-m">What happens next</h3>
-        			<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
-          			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+          <h3 class="govuk-heading-m">What happens next</h3>
+                <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+                <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
-          		{% else %}
-          
-          			{{ govukPanel({
-            			titleText: "Registration complete"
-          			}) }}
-          			
-					<h3 class="govuk-heading-m">What happens next</h3>
-            		<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-            		<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
-      			
-				{% endif %}
+        {% else %}
 
-      		<!-- FIP SIT as Mentor SKIP Validation -->
-      		{% elif ((data['participantOptions'] == "participantFIP") and (data['skipValidation'] == "notvalidating") and (data['participantType'] == "participantSIT")) %}
-      			
-				{% if (data['providerType'] == "providerKnown") %}
-      
-					{{ govukPanel({
-						titleText: "We’re checking your details"
-					}) }}
-      
-      				<h3 class="govuk-heading-m">What happens next</h3>
-        			<p class="govuk-body">You will not need to use this service again during your training.</p>
-        			<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
-        			<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+              {{ govukPanel({
+                titleText: "Registration complete"
+              }) }}
 
-        		{% else %}
-        		
-        			{{ govukPanel({
-          				titleText: "We’re checking your details"
-        			}) }}
-        
-        			<h3 class="govuk-heading-m">What happens next</h3>
-					<p class="govuk-body">You will not need to use this service again during your training.</p>
-					<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-					<p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+          <h3 class="govuk-heading-m">What happens next</h3>
+              <p class="govuk-body">If you need access to training materials, we’ll email you a link in the next 48 hours.</p>
+              <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
 
-    			{% endif %}
-      		{% else %}
-        		
+        {% endif %}
 
-      		{% endif %}
+          <!-- FIP SIT as mentor -->
+          {% elif ((data['participantOptions'] == "participantFIP") and (data['participantType'] == "participantSIT")) %}
 
-      		
-    	</div>
-  	</div>
+            {% if (data['providerType'] == "providerKnown") %}
+
+              {{ govukPanel({
+                  titleText: "Registration complete"
+              }) }}
+              <h3 class="govuk-heading-m">What happens next</h3>
+              <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+                <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+              {% else %}
+
+                {{ govukPanel({
+                  titleText: "Registration complete"
+                }) }}
+
+          <h3 class="govuk-heading-m">What happens next</h3>
+                <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+                <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+        {% endif %}
+
+          <!-- FIP SIT as Mentor SKIP Validation -->
+          {% elif ((data['participantOptions'] == "participantFIP") and (data['skipValidation'] == "notvalidating") and (data['participantType'] == "participantSIT")) %}
+
+        {% if (data['providerType'] == "providerKnown") %}
+
+          {{ govukPanel({
+            titleText: "We’re checking your details"
+          }) }}
+
+              <h3 class="govuk-heading-m">What happens next</h3>
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information.</p>
+              <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+            {% else %}
+
+              {{ govukPanel({
+                  titleText: "We’re checking your details"
+              }) }}
+
+              <h3 class="govuk-heading-m">What happens next</h3>
+          <p class="govuk-body">You will not need to use this service again during your training.</p>
+          <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+          <p class="govuk-body"><a href="/sprint-16/school-signed-in/cip/cip-choose-cohort">Manage induction for your school</a></p>
+
+          {% endif %}
+          {% else %}
+
+
+          {% endif %}
+
+
+      </div>
+    </div>
 {% endblock %}

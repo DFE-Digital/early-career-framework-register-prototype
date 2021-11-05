@@ -6,38 +6,38 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}			
-				
-				{%if data['user-research'] == "Yes" %}
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-					<form class="form" action="schools/manage-your-training" method="post">
+        {%if data['user-research'] == "Yes" %}
 
-				{% else %}
-					{% if data['registering'] == "Yes"%}
+          <form class="form" action="schools/manage-your-training" method="post">
 
-						<form class="form" action="privacy-policy" method="post">							
+        {% else %}
+          {% if data['registering'] == "Yes"%}
 
-					{% elif ((data['training-programme'] == "FIP") or ( data['training-programme'] == "CIP" )) %}
-						<form class="form" action="schools/manage-your-training" method="post">					
-					{% else %}
-						{% if data['participantType'] == "sitMentor" %}
-							<form class="form" action="two-roles" method="post">
-						{% else %}						
-							<form class="form" action="privacy-policy" method="post">							
-						{% endif %}
-					{% endif %}
+            <form class="form" action="privacy-policy" method="post">
 
-				{% endif %}
-        		
-				{{ govukButton({
-          			text: "Continue"
-        		}) }}
-      		
-			</form>
+          {% elif ((data['training-programme'] == "FIP") or ( data['training-programme'] == "CIP" )) %}
+            <form class="form" action="schools/manage-your-training" method="post">
+          {% else %}
+            {% if data['participantType'] == "sitMentor" %}
+              <form class="form" action="two-roles" method="post">
+            {% else %}
+              <form class="form" action="privacy-policy" method="post">
+            {% endif %}
+          {% endif %}
 
-    	</div>
-  	</div>
+        {% endif %}
+
+        {{ govukButton({
+                text: "Continue"
+            }) }}
+
+      </form>
+
+      </div>
+    </div>
 {% endblock %}

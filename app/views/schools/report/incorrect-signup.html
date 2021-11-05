@@ -5,37 +5,37 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
-      
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		<p class="govuk-body govuk-!-margin-bottom-7">{{ data.schoolName }} has received a confirmation from {{ data.deliveryPartner }} with {{ data.leadProvider }}, but you believe this is incorrect.</p>
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		<form class="form" action="submitted" method="post" >
-        		
-        		{{ govukRadios({
-          			idPrefix: "school-challenge-reason",
-          			name: "school-challenge-reason",
-          			fieldset: {
-            			legend: { text: "Tell us why", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
-          			},
-          			items: [
-						{ value: "alreadyPartnered", text: "I have already confirmed an agreement with another provider", checked: checked("school-challenge-reason", "alreadyPartnered")  },
-						{ value: "notAgreedNotSigned", text: "We have not confirmed an agreement", checked: checked("school-challenge-reason", "notAgreedNotSigned") },
-						{ value: "dontRecognise", text: "I do not recognise this training provider", checked: checked("school-challenge-reason", "dontRecognise") },
-						{ value: "noInductions", text: "We do not have any early career teachers this year", checked: checked("school-challenge-reason", "noInductions") },
-            			{ value: "mistake", text: "This looks like a mistake", checked: checked("school-challenge-reason", "mistake") }
-          			]
-        		}) }}
+          <p class="govuk-body govuk-!-margin-bottom-7">{{ data.schoolName }} has received a confirmation from {{ data.deliveryPartner }} with {{ data.leadProvider }}, but you believe this is incorrect.</p>
 
-        		{{ govukButton({
-          			text: "Submit"
-        		}) }}
+          <form class="form" action="submitted" method="post" >
 
-      		</form>
-    	
-		</div>
+            {{ govukRadios({
+                idPrefix: "school-challenge-reason",
+                name: "school-challenge-reason",
+                fieldset: {
+                  legend: { text: "Tell us why", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+            { value: "alreadyPartnered", text: "I have already confirmed an agreement with another provider", checked: checked("school-challenge-reason", "alreadyPartnered")  },
+            { value: "notAgreedNotSigned", text: "We have not confirmed an agreement", checked: checked("school-challenge-reason", "notAgreedNotSigned") },
+            { value: "dontRecognise", text: "I do not recognise this training provider", checked: checked("school-challenge-reason", "dontRecognise") },
+            { value: "noInductions", text: "We do not have any early career teachers this year", checked: checked("school-challenge-reason", "noInductions") },
+                  { value: "mistake", text: "This looks like a mistake", checked: checked("school-challenge-reason", "mistake") }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Submit"
+            }) }}
+
+          </form>
+
+    </div>
   </div>
 
 {% endblock %}

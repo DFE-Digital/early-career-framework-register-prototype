@@ -6,34 +6,34 @@
 
 {% block content %}
 
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a>.</p>
+      <p>This is the authority or council in your area. For example, Gloucestershire or Barnet. Not sure? <a class='govuk-link' href='https://get-information-schools.service.gov.uk/'>Find your school on our register</a>.</p>
 
-      		<form class="form" action="find-school" method="post">
-        						
-            	{{ govukInput({
-            		label: {            
-              			text: "What's your school’s local authority?",
-						isPageHeading: "false",
-              			classes: "govuk-visually-hidden"
-            		},            
-            		classes: "govuk-!-width-two-thirds",
-            		id: "schools-local-authority",
-					value: data['schools-local-authority'],
-            		name: "schools-local-authority"				
-          		}) }}        	
+          <form class="form" action="find-school" method="post">
 
-        		{{ govukButton({
-          			text: "Continue"
-        		}) }}
-      		
-			</form>
-    	
-		</div>
-  	</div>
+              {{ govukInput({
+                label: {
+                    text: "What's your school’s local authority?",
+            isPageHeading: "false",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "schools-local-authority",
+          value: data['schools-local-authority'],
+                name: "schools-local-authority"
+              }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+      </form>
+
+    </div>
+    </div>
 
 {% endblock %}

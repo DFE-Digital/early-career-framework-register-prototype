@@ -62,7 +62,7 @@
 
 
         <form action="/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-            
+
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
             <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
             {{ govukButton({
@@ -72,7 +72,7 @@
         </form>
 
         <form action="/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-            
+
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantCIP" />
             <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
             <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
@@ -83,7 +83,7 @@
         </form> -->
 
         <h2 class="govuk-heading-m">Participant validation</h2>
-        
+
         <form action="/emails/particpant-email" method="post" >
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="participantType" id="participantType" value="participantECT" />
@@ -100,11 +100,11 @@
                 text: "FIP - Mentor"
             }) }}
         </form>
-        
+
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-        
-        <h2 class="govuk-heading-m">Participants not matched</h2>        
+
+        <h2 class="govuk-heading-m">Participants not matched</h2>
         <form action="/emails/particpant-email" method="post" >
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
@@ -118,7 +118,7 @@
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
             <input type="hidden" name="participantType" id="participantType" value="participantMentor" />
-            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />            
+            <input type="hidden" name="providerType" id="providerType" value="providerKnown" />
             {{ govukButton({
                 text: "FIP - Mentor"
             }) }}
@@ -126,7 +126,7 @@
 
 
         <!-- <form action="/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-            
+
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
             {{ govukButton({
@@ -136,7 +136,7 @@
         </form>
 
         <form action="/teacher-or-mentors/cip-validation/particpant-email" method="post" >
-            
+
             <input type="hidden" name="participantOptions" id="participantOptions" value="participantFIP" />
             <input type="hidden" name="skipValidation" id="skipValidation" value="notvalidating" />
             <input type="hidden" name="participantType" id="participantType" value="participantSIT" />
@@ -158,7 +158,7 @@
 
         <!-- <form action="/teacher-or-mentors/cip-validation/sign-in-ect" method="post" >
 
-            <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />            
+            <input type="hidden" name="participantOptions" id="participantOptions" value="participantSIT" />
 
             {{ govukButton({
                 text: "Validation with School Induction Tutor"

@@ -9,18 +9,18 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 31 August 2021</p>        
-        
+        <p>Last updated: 31 August 2021</p>
+
         <p>Research for testing the dashboard journeys, as well as delete and add functionality.</p>
 
 
-        <form action="/emails/link-to-sign-in" method="post" >            
+        <form action="/emails/link-to-sign-in" method="post" >
             <input type="hidden" name="InPartnership" id="InPartnership" value="Yes" />
             <input type="hidden" name="induction-programme" id="induction-programme" value="FIP" />
             <input type="hidden" name="user-research" id="user-research" value="Yes" />
             <input type="hidden" name="has-mentors" id="has-mentors" value="No" />
 
-            
+
             {{ govukButton({
                 text: "Start user research"
             }) }}

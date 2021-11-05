@@ -4,33 +4,33 @@
 {% set pageHeading = "This link has expired" %}
 
 {% block content %}
-	
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-			{% if data['sign-in-link'] == "expired" %}
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-				<p class="govuk-body">You need to sign in again to get a new link.</p>
-				<form class="form" action="../sign-in" method="post" >
-					{{ govukButton({
-						  text: "Sign in"
-					}) }}
-				</form>
+      {% if data['sign-in-link'] == "expired" %}
 
-			{% else %}
-      			
-				<p class="govuk-body">You need to request another email with a new link.</p>
-				<form class="form" action="../emails/induction-nomination" method="post" >
-					{{ govukButton({
-						  text: "Send new email"
-					}) }}
-				</form>
+        <p class="govuk-body">You need to sign in again to get a new link.</p>
+        <form class="form" action="../sign-in" method="post" >
+          {{ govukButton({
+              text: "Sign in"
+          }) }}
+        </form>
 
-			{% endif %}
-      		
-    	</div>
-  	</div>
+      {% else %}
+
+        <p class="govuk-body">You need to request another email with a new link.</p>
+        <form class="form" action="../emails/induction-nomination" method="post" >
+          {{ govukButton({
+              text: "Send new email"
+          }) }}
+        </form>
+
+      {% endif %}
+
+      </div>
+    </div>
 
 {% endblock %}
