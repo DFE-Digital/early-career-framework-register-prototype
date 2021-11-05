@@ -22,6 +22,7 @@ const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
+const addNunjucksFiltersWithAppContext = require('./lib/filters-with-app-context')
 
 const app = express()
 
@@ -67,6 +68,9 @@ const nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
+
+// Add Nunjucks filters with access to app, req and res
+addNunjucksFiltersWithAppContext(nunjucksAppEnv, app)
 
 // Set views engine
 app.set('view engine', 'html')
