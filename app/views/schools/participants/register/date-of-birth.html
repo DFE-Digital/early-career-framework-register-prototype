@@ -5,57 +5,57 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<!-- If using change link -->
-			{% if data['linkaction'] == "change-dob" %}			
-			<form class="form" action="cannot-find-your-details" method="post" class="govuk-!-margin-bottom-8">
-				<input type="hidden" name="linkaction" id="changeaction" value="" />	
-			
-			{% else %}
+      <!-- If using change link -->
+      {% if data['linkaction'] == "change-dob" %}
+      <form class="form" action="cannot-find-your-details" method="post" class="govuk-!-margin-bottom-8">
+        <input type="hidden" name="linkaction" id="changeaction" value="" />
 
-				{% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
-					<form class="form" action="cannot-find-your-details" method="post">
-				{% else %}
-					<form class="form" action="confirmation" method="post">
-				{% endif %}
+      {% else %}
 
-			{% endif %}
+        {% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
+          <form class="form" action="cannot-find-your-details" method="post">
+        {% else %}
+          <form class="form" action="confirmation" method="post">
+        {% endif %}
 
-				<div class="govuk-form-group">
-					<label class="govuk-label govuk-visually-hidden govuk-!-width-three-quarters" for="dobNumb">What is your date of birth?</label>        
-					<div id="passport-issued-hint" class="govuk-hint">For example, 12 11 1990</div>
-					<div class="govuk-date-input" id="dob">
-						<div class="govuk-date-input__item">
-							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="register-dob">Day</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-day" name="register-dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-day'] }}">
-							</div>
-						</div>
-						<div class="govuk-date-input__item">
-							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="register-dob-month">Month</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-month" name="register-dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-month'] }}">
-							</div>
-						</div>
-						<div class="govuk-date-input__item">
-							<div class="govuk-form-group">
-								<label class="govuk-label govuk-date-input__label" for="register-dob-year">Year</label>
-								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="register-dob-year" name="register-dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-year'] }}">
-							</div>
-						</div>
-					</div>
-				</div>
+      {% endif %}
 
-				{{ govukButton({
-					text: "Continue"
-				}) }}
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden govuk-!-width-three-quarters" for="dobNumb">What is your date of birth?</label>
+          <div id="passport-issued-hint" class="govuk-hint">For example, 12 11 1990</div>
+          <div class="govuk-date-input" id="dob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="register-dob">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-day" name="register-dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-day'] }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="register-dob-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="register-dob-month" name="register-dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-month'] }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="register-dob-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="register-dob-year" name="register-dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['register-dob-year'] }}">
+              </div>
+            </div>
+          </div>
+        </div>
 
-			</form>
-		</div>
-	</div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
 
 {% endblock %}

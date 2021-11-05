@@ -2,119 +2,119 @@
 {% set showBackLink = false %}
 
 {% if data['register-cannot-validate'] == "Yes" %}
-	<!-- We approve all if CIP except mentors with flags -->
-	{% if data['training-programme'] == "CIP" %}
-		{% set pageHeading = "You’re eligible for this programme" %}
-	{% else %}
-		{% set pageHeading = "Information submitted" %}
-	{% endif %}
+  <!-- We approve all if CIP except mentors with flags -->
+  {% if data['training-programme'] == "CIP" %}
+    {% set pageHeading = "You’re eligible for this programme" %}
+  {% else %}
+    {% set pageHeading = "Information submitted" %}
+  {% endif %}
 {% else %}
-	{% set pageHeading = "You’re eligible for this programme" %}
+  {% set pageHeading = "You’re eligible for this programme" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-			<div class="govuk-panel govuk-panel--confirmation">
-				<h1 class="govuk-panel__title">{{ pageHeading }}</h1>		
-			</div>
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">{{ pageHeading }}</h1>
+      </div>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
-			
-			
-			{% if data['training-programme'] == "FIP" %}
-			<!-- FIP -->	
-				{% if data['participantType'] == "ECT" %}
-			  	<!-- Participant type ECT -->	
-					{% if data['register-cannot-validate'] == "Yes" %}
-					<!-- Fail validation -->	
-						{% if (data['InPartnership'] == "Yes") %}
-						<!-- In Partnership -->
-							<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
-							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
-						{% else %}
-						<!-- No Partnership -->
-							<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
-							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-						{% endif %}
-					
-					{% else %}
-					<!-- Not failed validation -->			  			
-						{% if (data['InPartnership'] == "Yes") %}																									
-						<!-- In Partnership -->
-							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
-						{% else %}             
-						<!-- No Partnership -->   												
-							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-						{% endif %}
-					{% endif %}	
+      <h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
 
 
-				{% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
-				<!-- Participant type is Mentor or sitMentor -->	
-				  	{% if data['register-cannot-validate'] == "Yes" %}
-					<!-- Fail validation -->  	
-					  	{% if (data['InPartnership'] == "Yes") %}
-						<!-- In Partnership -->
-						  	<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
-						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-						  	<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
-					  	{% else %}
-						  	<p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
-						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-						  	<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-					  	{% endif %}
-				  	
-				  	{% else %}
-					<!-- Not failed validation -->						
-					  	{% if (data['InPartnership'] == "Yes") %}
-						<!-- In Partnership -->
-							<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
-					  	{% else %}
-						  	<p class="govuk-body">You will not need to use this service again during your training.</p>
-							<p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
-					  	{% endif %}
-					{% endif %}
-				{% endif %}
+      {% if data['training-programme'] == "FIP" %}
+      <!-- FIP -->
+        {% if data['participantType'] == "ECT" %}
+          <!-- Participant type ECT -->
+          {% if data['register-cannot-validate'] == "Yes" %}
+          <!-- Fail validation -->
+            {% if (data['InPartnership'] == "Yes") %}
+            <!-- In Partnership -->
+              <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+            {% else %}
+            <!-- No Partnership -->
+              <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+            {% endif %}
 
-			
-			{% elif data['training-programme'] == "CIP" %}
-			<!-- CIP -->  	
-				{% if data['participantType'] == "ECT" %}					
-				<!-- Participant ECT -->
-					{% if data['register-cannot-validate'] == "Yes" %}						
-						<!-- Validation failed -->
-						<p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
-					{% else %}
-						<!-- Not failed -->
-						<p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
-					{% endif %}								  	
-				
-				{% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
-				<!-- Participant Mentor or sitMentor -->			  		
-					{% if data['register-cannot-validate'] == "Yes" %}
-					<!-- Validation failed -->
-						<p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>					
-					{% else %}						
-					<!-- Not failed validation -->
-						<p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>					
-					{% endif %}			  	
-				{% endif %}
-			
-			{% elif not data['training-programme'] %}
-			  <p>You will not see correct content as you have not chosen which type of training-programme on the preload.</p>
-			{% endif %}
-			
+          {% else %}
+          <!-- Not failed validation -->
+            {% if (data['InPartnership'] == "Yes") %}
+            <!-- In Partnership -->
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+            {% else %}
+            <!-- No Partnership -->
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+            {% endif %}
+          {% endif %}
 
-      		
-    	</div>
-  	</div>
+
+        {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
+        <!-- Participant type is Mentor or sitMentor -->
+            {% if data['register-cannot-validate'] == "Yes" %}
+          <!-- Fail validation -->
+              {% if (data['InPartnership'] == "Yes") %}
+            <!-- In Partnership -->
+                <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+                <p class="govuk-body">You will not need to use this service again during your training.</p>
+                <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+              {% else %}
+                <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
+                <p class="govuk-body">You will not need to use this service again during your training.</p>
+                <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+              {% endif %}
+
+            {% else %}
+          <!-- Not failed validation -->
+              {% if (data['InPartnership'] == "Yes") %}
+            <!-- In Partnership -->
+              <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
+              {% else %}
+                <p class="govuk-body">You will not need to use this service again during your training.</p>
+              <p class="govuk-body">{{ data.schoolName }} has been asked to choose a training provider to deliver your programme. The provider will contact you directly.</p>
+              {% endif %}
+          {% endif %}
+        {% endif %}
+
+
+      {% elif data['training-programme'] == "CIP" %}
+      <!-- CIP -->
+        {% if data['participantType'] == "ECT" %}
+        <!-- Participant ECT -->
+          {% if data['register-cannot-validate'] == "Yes" %}
+            <!-- Validation failed -->
+            <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
+          {% else %}
+            <!-- Not failed -->
+            <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
+          {% endif %}
+
+        {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
+        <!-- Participant Mentor or sitMentor -->
+          {% if data['register-cannot-validate'] == "Yes" %}
+          <!-- Validation failed -->
+            <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
+          {% else %}
+          <!-- Not failed validation -->
+            <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
+          {% endif %}
+        {% endif %}
+
+      {% elif not data['training-programme'] %}
+        <p>You will not see correct content as you have not chosen which type of training-programme on the preload.</p>
+      {% endif %}
+
+
+
+      </div>
+    </div>
 {% endblock %}

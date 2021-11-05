@@ -1,66 +1,66 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['user-details'] == "ect-2" %}  
-	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-2'] + '?' %}							
-{% elif data['deletelink'] == "ect" %}  
-	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname'] + '?' %}	
-{% elif data['deletelink'] == "mentor" %}  
-	{% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-mentor'] + '?' %}								
-{% elif data['deletelink'] == "sitMentor" %}  
-	{% set pageHeading = 'Are you sure you want to remove Hugo Furst?' %}								
+{% if data['user-details'] == "ect-2" %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-2'] + '?' %}
+{% elif data['deletelink'] == "ect" %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname'] + '?' %}
+{% elif data['deletelink'] == "mentor" %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-mentor'] + '?' %}
+{% elif data['deletelink'] == "sitMentor" %}
+  {% set pageHeading = 'Are you sure you want to remove Hugo Furst?' %}
 {% else %}
-	{% set pageHeading = "Are you sure you want to remove Full Name?" %}
+  {% set pageHeading = "Are you sure you want to remove Full Name?" %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
 {% block content %}
-	<div class="govuk-grid-row">
-    	<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      		
-			
-			<p>Their information will be deleted from this service.</p>
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<!-- Add logic to show for ppts who have yet to validate -->
-			{% if data['participant-status'] != "Validated" %}
-			<p>They will not be able to take part in the training programme.</p>
-			{% endif %}
- 
-				            
-			<form method="post" action="confirmation" class="govuk-!-margin-top-7" >
+      <p>Their information will be deleted from this service.</p>
 
-				{% if data['user-research'] == "Yes" %}
-
-					{% if data['deletelink'] == "ect" %}  
-						<input type="hidden" name="added-ect" id="added-ect" value="" />
-						<input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
-					{% elif data['deletelink'] == "mentor" %}  
-						<input type="hidden" name="added-mentor" id="added-mentor" value="" />
-						<input type="hidden" name="participant-email-address-mentor" id="participant-email-address-mentor" value="" />
-					{% elif data['deletelink'] == "sitMentor" %}  
-						<input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
-						<input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="" />
-						
-
-					{% else %}
-						
-					{% endif %}
-
-				{% else %}
+      <!-- Add logic to show for ppts who have yet to validate -->
+      {% if data['participant-status'] != "Validated" %}
+      <p>They will not be able to take part in the training programme.</p>
+      {% endif %}
 
 
-				{% endif %}
+      <form method="post" action="confirmation" class="govuk-!-margin-top-7" >
 
-			{{ govukButton({
-				text: "Confirm and remove"
-			}) }}
-			</form>
-			  
-			<p><a href="../participants/">Cancel and go back to your ECTs and mentors</a></p>
+        {% if data['user-research'] == "Yes" %}
 
-    	</div>
-  	</div>
+          {% if data['deletelink'] == "ect" %}
+            <input type="hidden" name="added-ect" id="added-ect" value="" />
+            <input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
+          {% elif data['deletelink'] == "mentor" %}
+            <input type="hidden" name="added-mentor" id="added-mentor" value="" />
+            <input type="hidden" name="participant-email-address-mentor" id="participant-email-address-mentor" value="" />
+          {% elif data['deletelink'] == "sitMentor" %}
+            <input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
+            <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="" />
+
+
+          {% else %}
+
+          {% endif %}
+
+        {% else %}
+
+
+        {% endif %}
+
+      {{ govukButton({
+        text: "Confirm and remove"
+      }) }}
+      </form>
+
+      <p><a href="../participants/">Cancel and go back to your ECTs and mentors</a></p>
+
+      </div>
+    </div>
 {% endblock %}

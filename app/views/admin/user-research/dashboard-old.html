@@ -9,14 +9,14 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 20 July 2021</p>        
+        <p>Last updated: 20 July 2021</p>
         <p>Research for testing the dashboard variations, including the status of participants.</p>
 
         <form action="/school-signed-in/school-add-participants-to-cohort/cohort-participant-listing" method="post" >
-            
+
             <input type="hidden" name="dashboard-variation" id="dashboard-variation" value="" />
 
-            
+
             {{ govukButton({
                 text: "Continue test on status tags"
             }) }}

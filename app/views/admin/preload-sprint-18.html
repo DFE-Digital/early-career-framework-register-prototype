@@ -15,9 +15,9 @@
 
         <form class="form" action="/start" method="post" class="">
 
-            
-            
-            
+
+
+
             {{ govukRadios({
                 idPrefix: "participantOptions",
                 name: "participantOptions",
@@ -30,7 +30,7 @@
                 ]
             }) }}
 
-            
+
 
             {% set partnershipHtml %}
                 {{ govukCheckboxes({
@@ -72,7 +72,7 @@
                 ]
             }) }}
 
-    
+
 
             {{ govukButton({
                 text: "Continue"
