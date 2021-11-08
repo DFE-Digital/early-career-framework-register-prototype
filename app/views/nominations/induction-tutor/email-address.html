@@ -14,35 +14,32 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% if data['linkaction'] == "change-induction-name" %}
+        {% if data['linkaction'] == "change-induction-name" %}
         <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8"></form>
-      {% else %}
-            <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-      {% endif %}
-            <div class="govuk-form-group">
+        {% else %}
+        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+        {% endif %}
 
           {{ govukInput({
-                  label: { text: "" },
-                  hint: {
-                      text: "We’ll use this address to contact them with more information."
-                  },
+            label: {
+                text: "Email address",
+                classes: "govuk-visually-hidden"
+              },
+              hint: {
+                text: "We’ll use this address to contact them with more information."
+              },
             classes: "govuk-!-width-two-thirds",
-            id: "induction-tutor-email",
-            name: "induction-tutor-email",
             type: "email",
             autocomplete: "email",
-            spellcheck: false,
-            value: data['induction-tutor-email']
-                }) }}
+            spellcheck: false
+          } | decorateFormAttributes('induction-tutor-email')) }}
 
-            </div>
+          <input type="hidden" name="school-status" id="school-status" value="Signed up" />
+          <input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="No" />
 
-        <input type="hidden" name="school-status" id="school-status" value="Signed up" />
-        <input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="No" />
-
-        {{ govukButton({
-                text: "Continue"
-            }) }}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
       </form>
 
