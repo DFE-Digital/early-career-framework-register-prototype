@@ -296,7 +296,8 @@
         {% endif %}
         {% endif %}
 
-        {% if not data['induction-tutor'] == "Yes" %}
+        {% if data['induction-tutor'] != "Yes" %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Status</dt>
             <dd class="govuk-summary-list__value">
