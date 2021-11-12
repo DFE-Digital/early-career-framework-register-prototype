@@ -23,12 +23,9 @@
             classes: "govuk-visually-hidden"
           },
           classes: "govuk-!-width-two-thirds",
-          id: "replace-induction-tutor-fullname",
-          name: "replace-induction-tutor-fullname",
           autocomplete: "name",
-          spellcheck: false,
-          value: data['replace-induction-tutor-fullname']
-        }) }}
+          spellcheck: false
+        } | decorateFormAttributes('replace-induction-tutor-fullname')) }}
 
         {{ govukButton({
                 text: "Continue"

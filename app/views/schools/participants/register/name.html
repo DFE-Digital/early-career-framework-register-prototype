@@ -35,11 +35,8 @@
             classes: "govuk-visually-hidden",
             isPageHeading: false
           },
-          classes: " govuk-!-width-two-thirds",
-          id: "register-full-name",
-          name: "register-full-name",
-          value: data['register-full-name']
-          }) }}
+          classes: " govuk-!-width-two-thirds"
+        } | decorateFormAttributes('register-full-name')) }}
 
 
         {{ govukButton({

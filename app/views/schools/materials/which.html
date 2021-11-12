@@ -15,15 +15,13 @@
           <form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
 
         {{ govukRadios({
-          idPrefix: "accredited-materials",
-          name: "accredited-materials",
           items: [
-            { value: "Ambition Institute", text: "Ambition Institute", checked: checked("accredited-materials", "Ambition Institute") },
-            { value: "Education Development Trust", text: "Education Development Trust", checked: checked("accredited-materials", "Education Development Trust") },
-            { value: "Teach First", text: "Teach First", checked: checked("accredited-materials", "Teach First") },
-            { value: "UCL Institute of Education", text: "UCL Institute of Education", checked: checked("accredited-materials", "UCL Institute of Education") }
+            { value: "Ambition Institute", text: "Ambition Institute" },
+            { value: "Education Development Trust", text: "Education Development Trust" },
+            { value: "Teach First", text: "Teach First" },
+            { value: "UCL Institute of Education", text: "UCL Institute of Education" }
           ]
-        }) }}
+        } | decorateFormAttributes('accredited-materials')) }}
 
         {{ govukButton({
           text: "Continue"

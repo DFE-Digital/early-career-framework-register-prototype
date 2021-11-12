@@ -40,11 +40,8 @@
             label: { text: "National Insurance number", classes: "govuk-visually-hidden" },
             hint: { text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’." },
             classes: "govuk-!-width-two-thirds",
-            id: "register-national-insurance-number",
-            name: "register-national-insurance-number",
-            spellcheck: false,
-            value: data['register-national-insurance-number']
-          }) }}
+            spellcheck: false
+          } | decorateFormAttributes('register-national-insurance-number')) }}
 
           {{ govukButton({
             text: "Continue"

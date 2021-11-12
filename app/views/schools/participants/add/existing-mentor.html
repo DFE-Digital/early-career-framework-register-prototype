@@ -22,21 +22,17 @@
 
 
         {{ govukRadios({
-          idPrefix: "neworexistingmentor",
-          name: "neworexistingmentor",
           items: [
             {
               value: "existingMentor",
-              text: "Yes, I want to add a mentor from another cohort",
-              checked: checked("neworexistingmentor", "existingMentor")
+              text: "Yes, I want to add a mentor from another cohort"
             },
             {
               value: "newMentor, redirect(name)",
-              text: "No, I want to add a new one",
-              checked: checked("neworexistingmentor", "newMentor")
+              text: "No, I want to add a new one"
             }
           ]
-        }) }}
+        } | decorateFormAttributes('neworexistingmentor')) }}
 
         {{ govukButton({
           text: "Continue"

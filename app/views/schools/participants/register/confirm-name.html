@@ -24,23 +24,21 @@
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          idPrefix: "register-name-correct",
-          name: "register-name-correct",
           hint: {
             text: "Answer ‘no’ if your last name has changed, or you used a different version of your first name."
           },
           fieldset: {
             legend: {
-            text: "Have you changed your name?",
-            isPageHeading: true,
-            classes: "govuk-visually-hidden"
+              text: "Have you changed your name?",
+              isPageHeading: true,
+              classes: "govuk-visually-hidden"
             }
           },
           items: [
-            { value: "Yes", text: "Yes", checked: checked("register-name-correct", "yes") },
-              { value: "No, redirect(name)", text: "No", checked: checked("register-name-correct", "No") }
+            { value: "Yes", text: "Yes" },
+            { value: "No, redirect(name)", text: "No" }
           ]
-        }) }}
+        } | decorateFormAttributes('register-name-correct')) }}
 
 
             {{ govukButton({
