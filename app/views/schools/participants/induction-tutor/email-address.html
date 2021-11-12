@@ -27,13 +27,10 @@
                       text: "We’ll use this address to contact them with more information."
                   },
             classes: "govuk-!-width-two-thirds",
-            id: "replace-induction-tutor-email",
-            name: "replace-induction-tutor-email",
             type: "email",
             autocomplete: "email",
-            spellcheck: false,
-            value: data['replace-induction-tutor-email']
-                }) }}
+            spellcheck: false
+          } | decorateFormAttributes('replace-induction-tutor-email')) }}
 
         {{ govukButton({
                 text: "Continue"

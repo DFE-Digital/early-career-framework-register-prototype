@@ -16,14 +16,12 @@
           <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
 
         {{ govukRadios({
-          idPrefix: "choose-existing-mentor",
-          name: "choose-existing-mentor",
           items: [
-            { value: "Ambrogio Lorenzetti", text: "Ambrogio Lorenzetti", hint: { text: "Also working with 2020 cohort" }, checked: checked("choose-existing-mentor", "Ambrogio Lorenzetti") },
-            { value: "Simone Martini", text: "Simone Martini", hint: { text: "Also working with 2019 cohort, 2020 cohort" }, checked: checked("choose-existing-mentor", "Simone Martini") },
-            { value: "Giotto di Bondone", text: "Giotto di Bondone", hint: { text: "Also working with 2019 cohort" }, checked: checked("choose-existing-mentor", "Giotto di Bondone") }
+            { value: "Ambrogio Lorenzetti", text: "Ambrogio Lorenzetti", hint: { text: "Also working with 2020 cohort" } },
+            { value: "Simone Martini", text: "Simone Martini", hint: { text: "Also working with 2019 cohort, 2020 cohort" } },
+            { value: "Giotto di Bondone", text: "Giotto di Bondone", hint: { text: "Also working with 2019 cohort" } }
           ]
-        }) }}
+        } | decorateFormAttributes('choose-existing-mentor')) }}
 
         {{ govukButton({
           text: "Continue"

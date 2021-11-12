@@ -40,11 +40,8 @@
             classes: "govuk-visually-hidden",
             isPageHeading: false
           },
-          classes: "govuk-!-width-two-thirds",
-          id: "register-teacher-reference-number",
-          name: "register-teacher-reference-number",
-          value: data['register-teacher-reference-number']
-        }) }}
+          classes: "govuk-!-width-two-thirds"
+        } | decorateFormAttributes('register-teacher-reference-number')) }}
 
         <p class="govuk-body govuk-!-margin-bottom-7"><a href="national-insurance-number">Register without a TRN </a></p>
 
