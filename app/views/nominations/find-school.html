@@ -7,30 +7,27 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
+      <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 
-              {{ govukInput({
-                label: {
-                    text: pageHeading,
+        {{ govukInput({
+          label: {
+            text: pageHeading,
             isPageHeading: "false",
-                    classes: "govuk-visually-hidden"
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "school-name",
-          value: data['school-name'],
-                name: "school-name"
-              }) }}
+            classes: "govuk-visually-hidden"
+          },
+          classes: "govuk-!-width-two-thirds"
+        } | decorateFormAttributes('school-name')) }}
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-          </form>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
 
     </div>
-    </div>
+  </div>
 
 {% endblock %}
