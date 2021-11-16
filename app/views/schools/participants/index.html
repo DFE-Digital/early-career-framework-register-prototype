@@ -35,7 +35,7 @@
 
     <div class="govuk-grid-column-full">
 
-
+      {% if data['show-participant-withdrawn'] == "Yes" %}
       <h2 class="govuk-heading-m govuk-!-margin-bottom-0">No longer being trained</h2>
         <p class="govuk-!-margin-bottom-3">Your provider reported that they’re not training the people listed below. If this is wrong, contact {{ data.leadProvider }} or {{ data.deliveryPartner }}.</p>
         <table class="govuk-table govuk-!-margin-bottom-9">
@@ -62,6 +62,7 @@
             </tr>
           </tbody>
         </table>
+      {% endif %}
 
       {% if data['show-participant-not-eligible'] == "Yes" %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible for funded training</h2>
