@@ -117,7 +117,7 @@
              <h2 class="govuk-heading-m">Participant dashboard eligibility options</h2>
              <div class="govuk-grid-row">
 
-                 <div class="govuk-grid-column-one-third">
+                 <div class="govuk-grid-column-one-half">
 
                      {{ govukCheckboxes({
                          idPrefix: "show-participant-not-eligible",
@@ -127,7 +127,7 @@
                      }) }}
                      <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
                  </div>
-                 <div class="govuk-grid-column-one-third">
+                 <div class="govuk-grid-column-one-half">
 
                     {{ govukCheckboxes({
                         idPrefix: "show-participant-status-checking",
@@ -137,7 +137,7 @@
                     }) }}
                     <p>We’re checking these people’s details with the Teaching Regulation Agency.</p>
                 </div>
-                <div class="govuk-grid-column-one-third">
+                <div class="govuk-grid-column-one-half">
 
                     {{ govukCheckboxes({
                         idPrefix: "show-participant-status-eligible",
@@ -147,6 +147,20 @@
                     }) }}
                     <p>These people are eligible to start this programme.</p>
                 </div>
+                <div class="govuk-grid-column-one-half">
+
+                  {{ govukCheckboxes({
+                      idPrefix: "show-participant-withdrawn",
+                      name: "show-participant-withdrawn",
+                      fieldset: { legend: { text: "Withdrawn", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                      items: [ { value: "Yes", text: "Withdrawn", checked: checked("show-participant-withdrawn", "Yes") } ]
+                  }) }}
+                  <p>Provider reported that they’re not training these people.</p>
+              </div>
+
+
+
+
              </div>
 
              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
