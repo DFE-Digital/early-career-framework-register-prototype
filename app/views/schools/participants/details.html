@@ -192,23 +192,30 @@
                 {{ data.userFullName }}
               {% elif data['user-details'] == "Random" %}
                 {{ data['random-name'] }}
+              {% else %}
+              {{ data['random-name'] }}
               {% endif %}
             {% endif %}
           </dd>
             <dd class="govuk-summary-list__actions">
+              {% if data['status'] == "Withdrawn" %}
 
-            {% if data['induction-tutor'] == "Yes" %}
-
-              <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
-
-            {% else %}
-
-              {% if data['user-details'] == "ect-2" %}
-                <a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
               {% else %}
-                <a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+
+                {% if data['induction-tutor'] == "Yes" %}
+
+                  <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
+
+                {% else %}
+
+                  {% if data['user-details'] == "ect-2" %}
+                    <a class="govuk-link" href="add/name?details-change-action=change-name-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% else %}
+                    <a class="govuk-link" href="add/name?details-change-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% endif %}
+                {% endif %}
+
               {% endif %}
-            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -236,19 +243,22 @@
             {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if data['status'] == "Withdrawn" %}
 
-            {% if data['induction-tutor'] == "Yes" %}
-
-              <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a>
-
-            {% else %}
-
-              {% if data['user-details'] == "ect-2" %}
-                <a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> email address</span></a>
               {% else %}
-                <a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a>
+                {% if data['induction-tutor'] == "Yes" %}
+
+                  <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a>
+
+                {% else %}
+
+                  {% if data['user-details'] == "ect-2" %}
+                    <a class="govuk-link" href="add/email-address?details-change-action=change-email-2">Change<span class="govuk-visually-hidden"> email address</span></a>
+                  {% else %}
+                    <a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a>
+                  {% endif %}
+                {% endif %}
               {% endif %}
-            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -501,6 +511,11 @@
 
             {% else %}
 
+            {% if data['status'] == "Withdrawn" %}
+
+
+            {% else %}
+
               {% if data['user-details'] == "ect-2" %}
                 <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }} from this cohort</a></p>
               {% elif data['user-details'] == "ect" %}
@@ -514,6 +529,8 @@
               {% endif %}
 
             {% endif %}
+
+          {% endif %}
 
         {% elif data['training-programme'] == "CIP" %}
 
