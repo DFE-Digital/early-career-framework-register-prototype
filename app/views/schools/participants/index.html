@@ -8,32 +8,29 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
-      <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-role=view">explain their role</a> and what they need to do next.</p>
+            <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
+            <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-role=view">explain their role</a> and what they need to do next.</p>
 
-      <div class="govuk-inset-text govuk-!-margin-bottom-7">
-        <ul class="govuk-list">
-          <!-- Allow for more than 1 ECT to be added -->
-          {% if data['added-ect'] %}
-          <li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
-          {% else %}
-          <li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
-          {% endif %}
-          <li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=mentor">Add a new mentor</a></li>
-          {% if not data['induction-tutor-as-mentor'] %}
-          <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
-          {% endif %}
-        </ul>
-      </div>
+            <div class="govuk-inset-text govuk-!-margin-bottom-7">
+                <ul class="govuk-list">
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=ECT">Add a new ECT</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/name?participantType=mentor">Add a new mentor</a></li>
+                    {% if not data['induction-tutor-as-mentor'] %}
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
 
-    </div>
 
-    <div class="govuk-grid-column-full">
+
+
+        <div class="govuk-grid-column-full">
 
       {% if data['show-participant-withdrawn'] == "Yes" %}
       <h2 class="govuk-heading-m govuk-!-margin-bottom-0">No longer being trained</h2>
@@ -116,6 +113,7 @@
             <tr class="govuk-table__row">
               <th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
               <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Start date</th>
               <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
               <th class="govuk-table__header" scope="col"></th>
             </tr>
@@ -124,6 +122,7 @@
             {% if data['added-ect-2'] == "Yes" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell ">{{ data['participant-fullname-2'] }}</td>
+              <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">
                 Remind them
@@ -140,6 +139,7 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
               <td class="govuk-table__cell">ECT</td>
+              <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">Check email address</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect&status=Email" class="govuk-link govuk-link--no-visited-state">Check</a></td>
             </tr>
@@ -148,6 +148,7 @@
             {% if data['added-ect'] == "Yes" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
+              <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">None</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=ect&status=EmailNotSent" class="govuk-link govuk-link--no-visited-state">Details</a></td>
@@ -158,6 +159,7 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell ">{{ data.userFullName }}</td>
               <td class="govuk-table__cell">Mentor</td>
+              <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">Remind them  </td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=Remind" class="govuk-link govuk-link--no-visited-state">Check</a></td>
             </tr>
