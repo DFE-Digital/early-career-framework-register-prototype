@@ -50,6 +50,24 @@
             </div>
             <!-- {% endif %} -->
 
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key"> Training start date</dt>
+                <dd class="govuk-summary-list__value">
+                    {% if data['participantType'] == "mentor" %}
+                        {{ data['participant-email-address-mentor'] }}
+                    {% elif data['participantType'] == "ECT" %}
+                        {% if data['added-ect'] %}
+                            {{ data['ect-start-date'] }}
+                        {% else %}
+                            {{ data['ect-start-date'] }}
+                        {% endif %}
+                    {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-ect-start-date">Change<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+              </div>
+
+
         <!-- If usertype is not mentor then show next group -->
         {% if not ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
           {% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}

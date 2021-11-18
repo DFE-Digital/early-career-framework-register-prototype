@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['participantType'] == "mentor" %}
+    {% set pageHeading = 'When do you expect ' + data['participant-fullname-mentor'] + ' to start their training programme?' %}
+{% else %}
+    {% if data['induction-tutor'] == "Yes" %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their training programme?' %}
+    {% elif data['added-ect'] %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their training programme?' %}
+    {% else %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname'] + ' to start their training programme?' %}
+    {% endif %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <!-- If coming from the participant details page -->
+            {% if ((data['details-change-action'] == "change-ect-start-date" ) or (data['details-change-action'] == "change-ect-start-date-2")) %}
+                <form class="form" action="../details" method="post">
+                    <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
+                    <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+
+            <!-- If coming from the CYA page -->
+            {% elif data['cya-action'] == "change-ect-start-date" %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
+
+            <!-- Otherwise first run through -->
+            {% else %}
+
+                {% if data['participantType'] == "ECT" %}
+                    {% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
+                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                    {% else %}
+                        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {% endif %}
+                {% elif data['participantType'] == "mentor" %}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
+            {% endif %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "September 2021", text: "September 2021" } ,
+                        { value: "January 2022", text: "January 2022" },
+                        { value: "April 2022", text: "April 2022" }
+                    ]
+                } | decorateFormAttributes("ect-start-date")) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

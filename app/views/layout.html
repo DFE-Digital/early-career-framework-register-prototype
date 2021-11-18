@@ -72,10 +72,22 @@
   {% endif %}
 
   {% if showBackLink != false %}
-    {{ govukBackLink({
-      text: "Back",
-      href: "javascript:history.go(-1)"
-    }) }}
+
+    {% if showManageBackLink != true %}
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+        }) }}
+
+    {% else %}
+
+        {{ govukBackLink({
+            text: "Back to manage your training",
+            href: "../manage-your-training"
+        }) }}
+
+    {% endif %}
   {% endif %}
 
   {% block pageNavigation %}{% endblock %}
