@@ -9,9 +9,9 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-        <p>Last updated: 25 October 2021</p>
+        <p>Last updated: 18 November 2021</p>
 
-        <h2 class="govuk-heading-m">Change school induction tutor</h2>
+        <!-- <h2 class="govuk-heading-m">Change school induction tutor</h2>
         <p>To enable a school to change out who is the school induction tutor and details such as email.</p>
 
         <form action="/emails/link-to-sign-in" method="post" >
@@ -24,32 +24,27 @@
             }) }}
         </form>
 
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
-        <h2 class="govuk-heading-m">Dashboard</h2>
-        <p>ECT and mentor pages showing eligibility options.</p>
+        <h2 class="govuk-heading-m">Cohorts</h2>
+        <p>Dahsboards and add ECT flow changes to accommodate multiple cohorts.</p>
         <form action="/schools/manage-your-training" method="post" >
-            <input type="hidden" name="show-participant-not-eligible" id="show-participant-not-eligible" value="Yes" />
-            <input type="hidden" name="show-participant-status-checking" id="show-participant-status-checking" value="Yes" />
+
+
+
             <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />
             <input type="hidden" name="training-programme" id="training-programme" value="FIP" />
             <input type="hidden" name="roles-seen" id="roles-seen" value="Yes" />
             <input type="hidden" name="user-research" id="user-research" value="Yes" />
             <input type="hidden" name="InPartnership" id="InPartnership" value="Yes" />
 
-            <!-- <input type="hidden" name="existing-ect-mentor-details" id="existing-ect-mentor-details" value="Yes" /> -->
-
-
-
-
-            <input type="hidden" name="participant-fullname" id="participant-fullname" value="Kate Lloyd" />
+            <!-- <input type="hidden" name="participant-fullname" id="participant-fullname" value="Kate Lloyd" />
             <input type="hidden" name="participant-email-address" id="participant-email-address" value="katel@test.dfe.gov.uk" />
             <input type="hidden" name="added-ect" id="added-ect" value="Yes" />
 
-
             <input type="hidden" name="participant-fullname-2" id="participant-fullname-2" value="Nicola Page" />
             <input type="hidden" name="participant-email-address-2" id="participant-email-address-2" value="nicolap@test.dfe.gov.uk" />
-            <input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" />
+            <input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" /> -->
 
 
             <input type="hidden" name="participant-fullname-mentor" id="participant-fullname-mentor" value="Brian Coult" />
