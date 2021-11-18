@@ -47,7 +47,7 @@
 
                 <!-- ///// Start of 2021 //// -->
 
-                {% if not ((data['training-programme'] == "DYO") or (data['training-programme'] == "temphold") or (data['training-programme'] == "noECT")) %}
+                <!-- {% if not ((data['training-programme'] == "DYO") or (data['training-programme'] == "temphold") or (data['training-programme'] == "noECT")) %}
                     {% if ((data['added-ect'] ) or ( data['added-mentor'] ))%}
                         <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Your early career teachers and mentors</a></p>
                     {% else %}
@@ -57,7 +57,7 @@
                             <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Add your early career teacher and mentor details</a></p>
                         {% endif %}
                     {% endif %}
-                {% endif %}
+                {% endif %} -->
 
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                     <div class="govuk-summary-list__row">
@@ -65,15 +65,16 @@
                         <dd class="govuk-summary-list__value">2021 to 2023</dd>
                         <dd class="govuk-summary-list__actions"></dd>
                     </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                        <dd class="govuk-summary-list__value">5</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                    </div>
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">Induction tutor</dt>
                         <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-                        <dd class="govuk-summary-list__value">5</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
                     <!-- Using DfE accredited materials -->
                     {% if data['training-programme'] == "CIP" %}
@@ -150,7 +151,7 @@
                     {% endif %}
                 </dl>
 
-                {% if ((data['training-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}
+                <!-- {% if ((data['training-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}
                     <p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
                 {% endif %}
 
@@ -160,7 +161,7 @@
 
                 {% if (data['training-programme'] === "temphold") %}
                     <p>You do not need to add information about your ECTs and mentors to this service.</p>
-                {% endif %}
+                {% endif %} -->
 
                 <!-- ///// End of 2021 //// -->
 
@@ -179,18 +180,20 @@
                         <dd class="govuk-summary-list__actions"></dd>
                     </div>
 
-                    <!-- Show amount of ECT and mentors could be an option for later down the line -->
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Induction tutor</dt>
-                        <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
-                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
-                    </div>
+
 
                     <!-- Show amount of ECT and mentors could be an option for later down the line -->
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">ECTs and mentors</dt>
                         <dd class="govuk-summary-list__value">3</dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2020">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                    </div>
+
+                    <!-- Show amount of ECT and mentors could be an option for later down the line -->
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Induction tutor</dt>
+                        <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
                     </div>
 
                     <!-- Using DfE accredited materials -->
@@ -291,18 +294,20 @@
                         <dd class="govuk-summary-list__actions"></dd>
                     </div>
 
-                    <!-- Show amount of ECT and mentors could be an option for later down the line -->
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Induction tutor</dt>
-                        <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
-                    </div>
+
 
                     <!-- Show amount of ECT and mentors could be an option for later down the line -->
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">ECTs and mentors</dt>
                         <dd class="govuk-summary-list__value">7</dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2019">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                    </div>
+
+                    <!-- Show amount of ECT and mentors could be an option for later down the line -->
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Induction tutor</dt>
+                        <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
+                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
 
                     <!-- Using DfE accredited materials -->
