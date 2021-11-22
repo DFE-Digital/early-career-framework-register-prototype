@@ -18,12 +18,12 @@ Example usage:
 */
 
 module.exports = {
-  schoolName: 'Lawford Church of England Voluntary Aided Primary School',
-  userFullName: 'Abbie Fairbairn',
-  userFirstName: 'Abbie',
-  leadProvider: 'Education Development Trust',
-  deliveryPartner: 'Alpha Teaching School (CCHSG)',
-  userEmailAddress: 'Abbie.Fairbairn@dfe.test.gov.uk',
+  schoolName: 'Willow Brook Primary School Academy',
+  userFullName: 'Mari Josephine Chivers',
+  userFirstName: 'Mari',
+  leadProvider: 'UCL Institute of Education',
+  deliveryPartner: 'North East London Teaching School Hub',
+  userEmailAddress: 'Mari.Josephine.Chivers@dfe.test.gov.uk',
   linkExpire: '22 November 2021',
   expiryTime: '1pm'
 }
