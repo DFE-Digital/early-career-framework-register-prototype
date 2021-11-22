@@ -18,7 +18,7 @@ Example usage:
 */
 
 module.exports = {
-  schoolName: 'Lawford Church of England Primary School',
+  schoolName: 'Lawford Church of England Voluntary Aided Primary School',
   userFullName: 'Abbie Fairbairn',
   userFirstName: 'Abbie',
   leadProvider: 'Education Development Trust',
