@@ -11,11 +11,13 @@
 
 
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-full">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
+        </div>
+        <div class="govuk-grid-column-two-thirds">
             {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
+
 
             <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
             <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-role=view">explain their role</a> and what they need to do next.</p>
