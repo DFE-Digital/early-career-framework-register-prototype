@@ -18,12 +18,12 @@ Example usage:
 */
 
 module.exports = {
-  schoolName: 'Burnside College',
-  userFullName: 'Helen Addison',
-  userFirstName: 'Helen',
-  leadProvider: '',
-  deliveryPartner: '',
-  userEmailAddress: 'Mari.Josephine.Chivers@dfe.test.gov.uk',
+  schoolName: 'Acme Primary School',
+  userFullName: 'Hugo Furst',
+  userFirstName: 'Hugo',
+  leadProvider: 'Educational Development Trust',
+  deliveryPartner: 'Mega Delivery Partner',
+  userEmailAddress: 'Hugo.Furst@dfe.test.gov.uk',
   linkExpire: '23 November 2021',
   expiryTime: '1pm'
 }
