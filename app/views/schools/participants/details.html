@@ -498,15 +498,15 @@
             {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
 
               {% if data['user-details'] == "ect-2" %}
-                <p>If {{ data['participant-fullname-2'] }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname-2'] }} from this cohort.</p>
               {% elif data['user-details'] == "ect" %}
-                <p>If {{ data['participant-fullname'] }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname'] }} from this cohort.</p>
               {% elif data['user-details'] == "mentor" %}
-                <p>If {{ data['participant-fullname-mentor'] }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname-mentor'] }} from this cohort.</p>
               {% elif data['user-details'] == "sitMentor" %}
-                <p>If {{ data.userFullName }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.userFullName }} from this cohort.</p>
               {% else %}
-                <p>If {{ data['random-name'] }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }} from this cohort.</p>
               {% endif %}
 
             {% else %}
