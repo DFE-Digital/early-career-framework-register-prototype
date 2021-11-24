@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Report that your school has been signed up incorrectly" %}
+{% set pageHeading = "Tell us why your school has been signed up incorrectly" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,25 +10,25 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          <p class="govuk-body govuk-!-margin-bottom-7">{{ data.schoolName }} has received a confirmation from {{ data.deliveryPartner }} with {{ data.leadProvider }}, but you believe this is incorrect.</p>
+          <p class="govuk-body">{{ data.schoolName }} has received a confirmation from {{ data.deliveryPartner }} with {{ data.leadProvider }}, but you believe this is incorrect.</p>
 
-          <form class="form" action="submitted" method="post" >
+          <form class="form" action="confirm" method="post" >
 
             {{ govukRadios({
               fieldset: {
-                legend: { text: "Tell us why", isPageHeading: false, classes: "govuk-fieldset__legend--m" }
+                legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
               },
               items: [
-                { value: "alreadyPartnered", text: "I have already confirmed an agreement with another provider" },
-                { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
-                { value: "dontRecognise", text: "I do not recognise this training provider" },
                 { value: "noInductions", text: "We do not have any early career teachers this year" },
+                { value: "dontRecognise", text: "We do not recognise this training provider" },
+                { value: "alreadyPartnered", text: "We have already confirmed an agreement with another provider" },
+                { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
                 { value: "mistake", text: "This looks like a mistake" }
               ]
               } | decorateFormAttributes('school-challenge-reason')) }}
 
             {{ govukButton({
-                text: "Submit"
+                text: "Continue"
             }) }}
 
           </form>

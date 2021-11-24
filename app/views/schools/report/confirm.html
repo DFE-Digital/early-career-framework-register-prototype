@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Are you sure you want to remove this provider?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p>This provider will be removed as your training provider.</p>
+      <p>They will not be able to supply your training programme.</p>
+
+
+      <form method="post" action="submitted" class="govuk-!-margin-top-7" >
+
+      {{ govukButton({
+        text: "Confirm and remove"
+      }) }}
+      </form>
+
+      </div>
+    </div>
+{% endblock %}
