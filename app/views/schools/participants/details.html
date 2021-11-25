@@ -331,7 +331,11 @@
               <p>We’ll ask this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
 
 
-          {% elif data['status'] == "Checking" %}
+              {% elif data['status'] == "noQTS" %}
+
+                <p>This ECT does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
+
+              {% elif data['status'] == "Checking" %}
 
 
               {% if data['training-programme'] == "FIP" %}
