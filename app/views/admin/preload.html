@@ -134,6 +134,11 @@
                         fieldset: { legend: { text: "Checking details", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Show checking details" } ]
                     } | decorateFormAttributes('show-participant-status-checking')) }}
+
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "No QTS", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "No QTS" } ]
+                    } | decorateFormAttributes('show-participant-no-QTS')) }}
                 </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
