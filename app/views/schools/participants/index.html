@@ -66,30 +66,7 @@
         </table>
       {% endif %}
 
-    {% if data['show-participant-no-QTS'] == "Yes" %}
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Checking QTS</h2>
-    <p class="govuk-!-margin-bottom-3">These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
-    <table class="govuk-table govuk-!-margin-bottom-9">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-          <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-          <th class="govuk-table__header" scope="col">Start training</th>
-          <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
-          <th class="govuk-table__header" scope="col"></th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Kate Thompson</td>
-          <td class="govuk-table__cell">ECT</td>
-          <td class="govuk-table__cell">Spring 2022</td>
-          <td class="govuk-table__cell">None</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=noQTS&random-name=Kate Thompson&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
-        </tr>
-      </tbody>
-    </table>
-  {% endif %}
+
 
 
 
@@ -193,7 +170,30 @@
       {% endif %}
       {% endif %}
 
-
+      {% if data['show-participant-no-QTS'] == "Yes" %}
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Checking QTS</h2>
+      <p class="govuk-!-margin-bottom-3">These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+            <th class="govuk-table__header" scope="col">Start training</th>
+            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Kate Thompson</td>
+            <td class="govuk-table__cell">ECT</td>
+            <td class="govuk-table__cell">Spring 2022</td>
+            <td class="govuk-table__cell">None</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=noQTS&random-name=Kate Thompson&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    {% endif %}
 
         {% if data['show-participant-status-checking'] == "Yes" %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-0">DfE checking eligibility</h2>
