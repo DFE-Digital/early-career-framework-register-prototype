@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you sure you want to remove this provider?" %}
+{% set pageHeading = "Are you sure you want us to remove this training provider?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,11 +10,24 @@
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        <!-- Brian -if the school has declared ppts and tells us they have no ECTs--> 
+
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+      <p>ALL CONTENT IS TBC</p>
       <p>This provider will be removed as your training provider.</p>
       <p>They will not be able to supply your training programme.</p>
 
+      <!-- Brian -if the school has added undeclared ppts and tells us they have no ECTs--> 
+
+      <p>ALL CONTENT IS TBC</p>
+      <p>This provider will be removed as your training provider.</p>
+      <p>They will not be able to supply your training programme.</p>
+
+      <!-- Brian -if the school selects any reason EXCEPT no ECTs--> 
+
+      <p>This provider will be removed as your training provider.</p>
+      <p>They will not be able to supply your training programme.</p>
 
       <form method="post" action="submitted" class="govuk-!-margin-top-7" >
 

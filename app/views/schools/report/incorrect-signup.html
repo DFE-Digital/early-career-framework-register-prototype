@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Tell us why your school has been signed up incorrectly" %}
+{% set pageHeading = "Why are these training provider details wrong?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,7 +10,7 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          <p class="govuk-body">{{ data.schoolName }} has received a confirmation from {{ data.deliveryPartner }} with {{ data.leadProvider }}, but you believe this is incorrect.</p>
+          <p class="govuk-body">{{ data.deliveryPartner }} with {{ data.leadProvider }} have told us they're providing training for your school.</p>
 
           <form class="form" action="confirm" method="post" >
 
@@ -21,7 +21,7 @@
               items: [
                 { value: "noInductions", text: "We do not have any early career teachers this year" },
                 { value: "dontRecognise", text: "We do not recognise this training provider" },
-                { value: "alreadyPartnered", text: "We have already confirmed an agreement with another provider" },
+                { value: "alreadyPartnered", text: "We've already confirmed an agreement with another provider" },
                 { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
                 { value: "mistake", text: "This looks like a mistake" }
               ]
