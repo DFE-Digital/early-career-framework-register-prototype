@@ -2,14 +2,14 @@
 {% set schoolSignedIn = true %}
 
 {% if data['participantType'] == "mentor" %}
-    {% set pageHeading = 'When do you expect ' + data['participant-fullname-mentor'] + ' to start their training programme?' %}
+    {% set pageHeading = 'When do you expect ' + data['participant-fullname-mentor'] + ' to start their induction programme?' %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their training programme?' %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their induction programme?' %}
     {% elif data['added-ect'] %}
-        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their training programme?' %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their induction programme?' %}
     {% else %}
-        {% set pageHeading = 'When do you expect ' + data['participant-fullname'] + ' to start their training programme?' %}
+        {% set pageHeading = 'When do you expect ' + data['participant-fullname'] + ' to start their induction programme?' %}
     {% endif %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}

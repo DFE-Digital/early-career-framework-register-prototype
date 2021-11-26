@@ -35,12 +35,65 @@
 
                     <!-- ///// Start of 2021 //// -->
 
-                    <!-- {% if not ((data['training-programme'] == "DYO") or (data['training-programme'] == "temphold") or (data['training-programme'] == "noECT")) %}
-                        {% if ((data['added-ect'] ) or ( data['added-mentor'] ))%}
-                            <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Your early career teachers and mentors</a></p>
-                        {% else %}
-                            {% if not data['roles-seen'] %}
-                                <p><a class="govuk-link govuk-link--no-visited-state" href="participants/what-each-person-does">Add your early career teacher and mentor details</a></p>
+            <!-- {% if not ((data['training-programme'] == "DYO") or (data['training-programme'] == "temphold") or (data['training-programme'] == "noECT")) %}
+                {% if ((data['added-ect'] ) or ( data['added-mentor'] ))%}
+                    <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Your early career teachers and mentors</a></p>
+                {% else %}
+                    {% if not data['roles-seen'] %}
+                        <p><a class="govuk-link govuk-link--no-visited-state" href="participants/what-each-person-does">Add your early career teacher and mentor details</a></p>
+                    {% else %}
+                        <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Add your early career teacher and mentor details</a></p>
+                    {% endif %}
+                {% endif %}
+            {% endif %} -->
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Length of induction</dt>
+                    <dd class="govuk-summary-list__value">2 years</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                    <dd class="govuk-summary-list__value">{% if data['added-ect'] == "Yes" %}7{% else %}6{% endif %}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Induction tutor</dt>
+                    <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+                </div>
+                <!-- Using DfE accredited materials -->
+                {% if data['training-programme'] == "CIP" %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Programme</dt>
+                        <dd class="govuk-summary-list__value">DfE accredited materials</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Materials</dt>
+                        <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
+                        <dd class="govuk-summary-list__actions">
+                            {% if data['accredited-materials'] %}
+                                <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+                            {% else %}
+                                <a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                            {% endif %}
+                        </dd>
+                    </div>
+                <!-- Using an approved training provider -->
+                {% elif data['training-programme'] == "FIP" %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Programme</dt>
+                        <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Training provider</dt>
+                        <dd class="govuk-summary-list__value">
+                            {% if data['user-research'] == "Yes" %}
+                                {{ data.leadProvider }}
                             {% else %}
                                 <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Add your early career teacher and mentor details</a></p>
                             {% endif %}
@@ -346,6 +399,7 @@
                                 </div>
                             {% endif %}
 
+<<<<<<< HEAD
                         <!-- Do your own programme -->
                         {% elif data['training-programme'] == "DYO" %}
                             <div class="govuk-summary-list__row">
@@ -384,6 +438,15 @@
                         { label: "Cohort 2019", id: "past-month", panel: { html: pastMonthHtml } }
                     ]
                 }) }}
+=======
+        {{ govukTabs({
+            items: [
+                { label: "2021 to 2022", id: "past-day", panel: { html: pastDayHtml } },
+                { label: "2020 to 2021", id: "past-week", panel: { html: pastWeekHtml } },
+                { label: "2019 to 2020", id: "past-month", panel: { html: pastMonthHtml } }
+            ]
+        }) }}
+>>>>>>> main
 
                 <p><a href="#" class="govuk-link govuk-link--no-visited-state">Archived cohorts</a></p>
 

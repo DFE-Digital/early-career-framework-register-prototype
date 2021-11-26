@@ -23,25 +23,25 @@
             <p class="govuk-body">Your school has chosen to use a training provider, funded by the DfE.</p>
 
         {% if data['incorrect-partnership'] == "Yes" %}
-            <!-- Report content will go here when logic in place Kate. -->
-            {% if data['InPartnership'] == "Yes" %}
+
+            <!-- {% if data['InPartnership'] == "Yes" %} -->
             <h2 class="govuk-heading-m">Are these training provider details correct?</h2>
             <p class="govuk-body">ADD LEAD PROVIDER NAME and ADD DELIVERY PARTNER NAME have told us they're providing your training.</p>
             <p class="govuk-body">If this is wrong, you need to <a href="report/incorrect-signup">tell us before {{ data.linkExpire }}</a>.</p>
             <p class="govuk-body">If these details are correct you do not need to take any action.</p>
-            {% endif %}
+            <!-- {% endif %} -->
 
         {% else %}
             <!-- Put content in both Kate so we can get content sorted see above. -->
             {% if data['InPartnership'] == "Yes" %}
             {% endif %}
-             <!-- Brian - we should only show this if the school has a confirmed provider.-->  
+             <!-- Brian - we should only show this if the school has a confirmed provider.-->
             <p class="govuk-body">Follow these steps to change how you run your programme:</p>
             <ol class="govuk-list govuk-list--number">
                 <li>Contact your training provider about the change.</li>
                 <li>Once your provider knows, email the DfE to let us know too: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
             </ol>
-             <!-- Brian - we should only show this if the school has NOT confirmed a provider.--> 
+             <!-- Brian - we should only show this if the school has NOT confirmed a provider.-->
               <p class="govuk-body">Email the DfE if you want to change how you deliver your training, or if you do not expect any ECTs: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</p>
         {% endif %}
 

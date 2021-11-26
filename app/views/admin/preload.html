@@ -29,6 +29,13 @@
                             { value: "noECT", text: "Not expecting to have any early career teachers" }
                         ]
                       } | decorateFormAttributes('training-programme')) }}
+
+
+                      <!-- Partnership -->
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "2 week period" } ]
+                    } | decorateFormAttributes('InPartnership')) }}
                 </div>
 
                 <!-- { value: "SelfFIP", text: "FIP - training provider, funded by the school not DfE", checked: checked("training-programme", "SelfFIP") } -->
@@ -134,6 +141,11 @@
                         fieldset: { legend: { text: "Checking details", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Show checking details" } ]
                     } | decorateFormAttributes('show-participant-status-checking')) }}
+
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "No QTS", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "No QTS" } ]
+                    } | decorateFormAttributes('show-participant-no-QTS')) }}
                 </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
