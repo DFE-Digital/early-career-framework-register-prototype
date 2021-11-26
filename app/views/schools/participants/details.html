@@ -261,6 +261,16 @@
               {% endif %}
           </dd>
         </div>
+        <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Start induction</dt>
+              <dd class="govuk-summary-list__value">
+
+              {{ data['ect-start-date'] }}
+            </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+          </div> -->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Role</dt>
             <dd class="govuk-summary-list__value">
@@ -283,6 +293,8 @@
           </dd>
             <dd class="govuk-summary-list__actions"></dd>
         </div>
+
+
 
         {% if not data['induction-tutor'] == "Yes" %}
         {% if ((data['user-details'] == "ect" ) or (data['user-details'] == "ect-2" ) or (data['random-type'] == "ECT" )) %}
