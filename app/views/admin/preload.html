@@ -33,9 +33,9 @@
 
                       <!-- Partnership -->
                     {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "2 week period" } ]
-                    } | decorateFormAttributes('InPartnership')) }}
+                        fieldset: { legend: { text: "2 week grace period", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "2 week grace period" } ]
+                    } | decorateFormAttributes('twoWeek')) }}
                 </div>
 
                 <!-- { value: "SelfFIP", text: "FIP - training provider, funded by the school not DfE", checked: checked("training-programme", "SelfFIP") } -->
