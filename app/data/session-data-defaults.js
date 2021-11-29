@@ -1,8 +1,8 @@
 const defaults = {
-  schoolName: 'Arthur Mellows Village College',
-  userFullName: 'Henry Sauntson',
-  leadProvider: 'Education Development Trust',
-  deliveryPartner: 'Cambridge & Peterborough Teaching School Hub'
+  schoolName: 'Acme Primary School',
+  userFullName: 'Hugo Furst',
+  leadProvider: 'Ambition Institute',
+  deliveryPartner: 'Mega Delivery Partner'
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
