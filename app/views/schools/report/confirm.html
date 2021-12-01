@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you sure you want us to remove this training provider?" %}
+{% set pageHeading = "Are you sure you want to remove this training provider?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,16 +17,18 @@
       {% if data['school-challenge-reason'] == "noInductions" %}
 
       <!-- <p>ALL CONTENT IS TBC</p> -->
-      <p>This provider will be removed as your training provider.</p>
-      <p>They will not be able to supply your training programme.</p>
+      <!-- <p>Brian - the H1 will be: Contact your training provider</p> --> 
+      <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} have officially reported that they're training ECTs and mentors at your school.</p>
+      <p>You must contact your provider if this is not correct.</p>
+
+      <p>Your provider will need to withdraw any ECTs or mentors who are no longer training at your school.</p>
+        <!-- Brian - there should be no button-->
+
 
       <!-- Brian -if the school has added undeclared ppts and tells us they have no ECTs-->
 
-      <!-- <p>ALL CONTENT IS TBC</p> -->
-      <!-- <p>This provider will be removed as your training provider.</p>
-      <p>They will not be able to supply your training programme.</p> -->
-
-
+      <p>We'll delete information you've added about any ECTs or mentors.</p>
+      <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school.</p>
 
             {% if data['added-ect']%}
 
@@ -37,8 +39,7 @@
       {% else %}
 
         <!-- Brian -if the school selects any reason EXCEPT no ECTs-->
-        <p>This provider will be removed as your training provider.</p>
-        <p>They will not be able to supply your training programme.</p>
+      <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school.</p>
 
       {% endif %}
 

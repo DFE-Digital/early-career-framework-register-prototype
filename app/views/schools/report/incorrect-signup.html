@@ -11,8 +11,6 @@
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-          <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} have told us they’re providing your training.</p>
-
           <form class="form" action="confirm" method="post" >
 
             {{ govukRadios({
@@ -20,7 +18,7 @@
                 legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
               },
               items: [
-                { value: "noInductions", text: "We do not have any early career teachers this year" },
+                { value: "noInductions", text: "We do not have any ECTs this year" },
                 { value: "dontRecognise", text: "We do not recognise this training provider" },
                 { value: "alreadyPartnered", text: "We've already confirmed an agreement with another provider" },
                 { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },

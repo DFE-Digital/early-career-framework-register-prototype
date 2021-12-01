@@ -30,7 +30,7 @@
                 </ol>
 
                 {% if data['twoWeek'] == "Yes" %}
-                    <h2 class="govuk-heading-m">Training provider details</h2>
+                    <h2 class="govuk-heading-m">Are these details correct?</h2>
                     <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} have told us they’re providing your training. If this is wrong, you need to <a href="report/incorrect-signup">tell us before {{ data.linkExpire }}</a>.</p>
                     <!-- <p class="govuk-body">If these details are correct you do not need to take any action.</p> -->
                 {% endif %}
