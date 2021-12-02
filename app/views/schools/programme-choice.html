@@ -23,7 +23,7 @@
                     <li>Once your provider knows, email the DfE to let us know too: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
                 </ol>
                 {% if data['twoWeek'] == "Yes" %}
-                    <h2 class="govuk-heading-m">Are these details correct?</h2>
+                    <h2 class="govuk-heading-m">Tell us if these training provider details are wrong</h2>
                     <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} have told us they’re providing your training. If this is wrong, you need to <a href="report/incorrect-signup">tell us before {{ data.linkExpire }}</a>.</p>                    
                 {% endif %}
             {% else %}

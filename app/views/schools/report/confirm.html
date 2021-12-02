@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['validated-ect'] == "Yes" %}
+{% if ((data['validated-ect'] == "Yes") and ( data['school-challenge-reason'] == "noInductions" )) %}
     {% set pageHeading = "Contact your training provider" %}
 {% else %}
     {% set pageHeading = "Are you sure you want to remove this training provider?" %}
@@ -26,7 +26,7 @@
 
                 {% else %}
                 <!-- Brian -if the school has added undeclared ppts and tells us they have no ECTs-->
-                <p>We'll delete information you've added about any ECTs or mentors.</p>
+                <p>We’ll delete information you’ve added about any ECTs or mentors.</p>
                 <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school.</p>
                 
                 {% endif %}
@@ -38,7 +38,7 @@
 
             {% endif %}
 
-            {% if data['validated-ect'] != "Yes" %} 
+            {% if not (( data['validated-ect'] == "Yes" ) and ( data['school-challenge-reason'] == "noInductions" )) %} 
             <form method="post" action="submitted" class="govuk-!-margin-top-7" >
                 <input type="hidden" name="InPartnership" id="InPartnership" value="" />
                 {{ govukButton({
