@@ -1,51 +1,47 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-
 {% set pageHeading = "Change how you run your programme" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
+      
       {% if data['training-programme'] == "CIP" %}
-
         <p class="govuk-body">Your school has chosen to deliver your own programme using DfE-accredited materials.</p>
         <p class="govuk-body">Email the DfE if you want to make a change: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</p>
-
       {% elif data['training-programme'] == "FIP" %}
-
-        <p class="govuk-body">Your school has chosen to use a training provider, funded by the DfE.</p>
-        <p class="govuk-body">Follow these steps to change how you run your programme.</p>
-        <ol class="govuk-list govuk-list--number">
-          <li>Contact your training provider, if you've signed up with one.</li>
-          <li>Email the DfE to let us know that you want to make a change: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
-        </ol>
-
+            {% if data['InPartnership'] == "Yes" %}
+                <p class="govuk-body">Your school has chosen to use a training provider, funded by the DfE.</p>
+                <p class="govuk-body">Follow these steps to change how you run your programme:</p>
+                <ol class="govuk-list govuk-list--number">
+                    <li>Contact your training provider about the change.</li>
+                    <li>Once your provider knows, email the DfE to let us know too: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
+                </ol>
+                {% if data['twoWeek'] == "Yes" %}
+                    <h2 class="govuk-heading-m">Tell us if these training provider details are wrong</h2>
+                    <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} have told us they’re providing your training. If this is wrong, you need to <a href="report/incorrect-signup">tell us before {{ data.linkExpire }}</a>.</p>                    
+                {% endif %}
+            {% else %}
+              <p class="govuk-body">Email the DfE if you want to change how you deliver your training, or if you do not expect any ECTs: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</p>
+            {% endif %}
       {% elif data['eligible-funding'] == "No" %}
-
         <p class="govuk-body">Your school has chosen to use a training provider, funded by your school.</p>
         <p class="govuk-body">Follow these steps to change how you run your programme.</p>
         <ol class="govuk-list govuk-list--number">
           <li>Contact your training provider, if you've signed up with one.</li>
           <li>Email the DfE to let us know that you want to make a change: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</li>
         </ol>
-
       {% elif data['training-programme'] == "DYO" %}
-
         <p>Your school has chosen to design and deliver your own programme based on the Early Career Framework (ECF).</p>
         <p class="govuk-body"><a class="govuk-link" href="training-programme/?change-programme=Yes">Check the other options available</a> for your school.</p>
-
       {% elif data['training-programme'] == "noECT" %}
-
         <p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2021 to 2022 academic year.</p>
         <p class="govuk-body"><a class="govuk-link" href="training-programme/?change-programme=Yes">Check the options available</a> for your school if this changes.</p>
-
       {% endif %}
 
     </div>

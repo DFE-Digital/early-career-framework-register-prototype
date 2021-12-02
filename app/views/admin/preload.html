@@ -29,6 +29,13 @@
                             { value: "noECT", text: "Not expecting to have any early career teachers" }
                         ]
                       } | decorateFormAttributes('training-programme')) }}
+
+
+                      <!-- Partnership -->
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "2 week grace period", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "2 week grace period" } ]
+                    } | decorateFormAttributes('twoWeek')) }}
                 </div>
 
                 <!-- { value: "SelfFIP", text: "FIP - training provider, funded by the school not DfE", checked: checked("training-programme", "SelfFIP") } -->
@@ -93,6 +100,17 @@
                 fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
                 items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
             } | decorateFormAttributes('betaProgramme')) }}
+
+
+            {{ govukCheckboxes({
+                fieldset: { legend: { text: "Declared participants", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "Declared participants" } ]
+            } | decorateFormAttributes('validated-ect')) }}
+
+
+
+
+            
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 

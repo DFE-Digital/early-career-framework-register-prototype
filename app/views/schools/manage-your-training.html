@@ -466,7 +466,7 @@
                                 {% if data['user-research'] == "Yes" %}
                                     {{ data.deliveryPartner }}
                                 {% else %}
-                                    Mega Delivery Partner
+                                    {{ data.leadProvider }}
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions"></dd>
@@ -494,9 +494,9 @@
                 {% endif %}
             </dl>
 
-            {% if ((data['training-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}
+            <!-- {% if ((data['training-programme'] == "FIP") and (data['InPartnership'] == "Yes")) %}
                 <p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
-            {% endif %}
+            {% endif %} -->
 
             {% if ((data['accredited-materials']) and (data['training-programme'] == "CIP")) %}
                 <p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>
