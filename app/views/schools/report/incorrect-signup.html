@@ -5,34 +5,33 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-          <form class="form" action="confirm" method="post" >
+            <form class="form" action="confirm" method="post" >
 
             {{ govukRadios({
-              fieldset: {
-                legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
-              },
-              items: [
-                { value: "noInductions", text: "We do not have any ECTs this year" },
-                { value: "dontRecognise", text: "We do not recognise this training provider" },
-                { value: "alreadyPartnered", text: "We've already confirmed an agreement with another provider" },
-                { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
-                { value: "mistake", text: "This looks like a mistake" }
-              ]
-              } | decorateFormAttributes('school-challenge-reason')) }}
+                fieldset: {
+                    legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                },
+                items: [
+                    { value: "noInductions", text: "We do not have any ECTs this year" },
+                    { value: "dontRecognise", text: "We do not recognise this training provider" },
+                    { value: "alreadyPartnered", text: "We’ve already confirmed an agreement with another provider" },
+                    { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
+                    { value: "mistake", text: "This looks like a mistake" }
+                ]
+            } | decorateFormAttributes('school-challenge-reason')) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
 
-          </form>
-
+            </form>
+        
+        </div>
     </div>
-  </div>
 
 {% endblock %}
