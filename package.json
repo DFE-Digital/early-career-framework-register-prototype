@@ -41,7 +41,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "glob": "^7.1.4",
+    "glob": "^7.2.0",
     "jest": "^27.4.3",
     "standard": "^16.0.4",
     "supertest": "^6.1.6"
