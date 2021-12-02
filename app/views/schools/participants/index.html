@@ -34,12 +34,15 @@
 
             {% endif %}
         </div>
-
-        <div class="govuk-grid-column-full">
+      </div>
 
       {% if data['show-participant-withdrawn'] == "Yes" %}
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-0">No longer being trained</h2>
-        <p class="govuk-!-margin-bottom-3">Your provider reported that they’re not training the people listed below. If this is wrong, contact {{ data.leadProvider }} or {{ data.deliveryPartner }}.</p>
+      <h2 class="govuk-heading-m">No longer being trained</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-!-margin-bottom-3">Your provider reported that they’re not training the people listed below. If this is wrong, contact {{ data.leadProvider }} or {{ data.deliveryPartner }}.</p>
+        </div>
+      </div>
         <table class="govuk-table govuk-!-margin-bottom-9">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -71,8 +74,12 @@
 
 
       {% if data['show-participant-not-eligible'] == "Yes" %}
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not eligible for funded training</h2>
-        <p class="govuk-!-margin-bottom-3">We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+        <h2 class="govuk-heading-m">Not eligible for funded training</h2>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-!-margin-bottom-3">We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+          </div>
+        </div>
         <table class="govuk-table govuk-!-margin-bottom-9">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -116,8 +123,13 @@
       {% if data['added-ect'] == "Yes" %}
       <!-- If we have any ECT or Mentors added then show the participant dashboard -->
 
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Contacted for information</h2>
-        <p class="govuk-!-margin-bottom-3">We need this to check their eligibility with the Teaching Regulation Agency.</p>
+        <h2 class="govuk-heading-m">Contacted for information</h2>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-!-margin-bottom-3">We need this to check their eligibility with the Teaching Regulation Agency.</p>
+          </div>
+        </div>
+
         <table class="govuk-table govuk-!-margin-bottom-9">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -171,8 +183,12 @@
       {% endif %}
 
       {% if data['show-participant-no-QTS'] == "Yes" %}
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Checking QTS</h2>
-      <p class="govuk-!-margin-bottom-3">These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
+      <h2 class="govuk-heading-m">Checking QTS</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-!-margin-bottom-3">These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+        </div>
+      </div>
       <table class="govuk-table govuk-!-margin-bottom-9">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -198,8 +214,12 @@
     {% endif %}
 
         {% if data['show-participant-status-checking'] == "Yes" %}
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-0">DfE checking eligibility</h2>
-          <p class="govuk-!-margin-bottom-3">We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+        <h2 class="govuk-heading-m">DfE checking eligibility</h2>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-!-margin-bottom-3">We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+          </div>
+        </div>
           <table class="govuk-table govuk-!-margin-bottom-9">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -227,21 +247,22 @@
         {% endif %}
 
         {% if data['show-participant-status-eligible'] == "Yes" %}
-          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Eligible to start</h2>
+          <h2 class="govuk-heading-m">Eligible to start</h2>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              {% if data['training-programme'] == "FIP" %}
 
-          {% if data['training-programme'] == "FIP" %}
+                {% if data['InPartnership'] == "Yes" %}
+                  <p>We’ve confirmed these people are eligible for this programme. Your training provider will contact them directly.</p>
+                {% else %}
+                  <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                {% endif %}
 
-            {% if data['InPartnership'] == "Yes" %}
-              <p>We’ve confirmed these people are eligible for this programme. Your training provider will contact them directly.</p>
-            {% else %}
-              <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
-            {% endif %}
-
-          {% elif data['training-programme'] == "CIP" %}
-            <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
-          {% endif %}
-
-
+              {% elif data['training-programme'] == "CIP" %}
+                <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+              {% endif %}
+            </div>
+          </div>
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -323,10 +344,5 @@
           </table>
         {% endif %}
 
-
-
         <!-- <p><a href="manage-your-training">Return to manage your training</a></p> -->
-      </div>
-    </div>
-
 {% endblock %}

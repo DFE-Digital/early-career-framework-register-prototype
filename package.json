@@ -12,12 +12,12 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
-    "acorn": "^8.5.0",
+    "acorn": "^8.6.0",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.27.7",
     "client-sessions": "^0.8.0",
     "cross-spawn": "^7.0.2",
     "del": "^6.0.0",
@@ -41,8 +41,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "glob": "^7.1.4",
-    "jest": "^27.3.1",
+    "glob": "^7.2.0",
+    "jest": "^27.4.3",
     "standard": "^16.0.4",
     "supertest": "^6.1.6"
   },

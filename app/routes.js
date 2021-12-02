@@ -27,4 +27,10 @@ router.post('/school-signed-in/school-add-participants-to-cohort/confirm-ect-det
   res.redirect('/school-signed-in/school-add-participants-to-cohort/confirm-participant-details')
 })
 
+router.post('/admin/user-research/participant-start', function (req, res) {
+  const firstName = req.session.data.userFullName.split(' ')[0]
+  req.session.data.userFirstName = firstName
+  res.redirect('/emails/link-to-sign-in')
+})
+
 module.exports = router
