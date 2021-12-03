@@ -17,7 +17,7 @@
 
       {% else %}
 
-        {% if ((data['register-validate'] == "No") or (data['register-cannot-validate'] == "Yes")) %}
+        {% if ((data['register-validate'] == "No") or (data['register-validate'] == "noMatch")) %}
           <form class="form" action="cannot-find-your-details" method="post">
         {% else %}
           <form class="form" action="confirmation" method="post">

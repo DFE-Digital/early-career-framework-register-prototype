@@ -10,3 +10,4 @@ node_modules/*
 .tmuxp.*
 app/views/DoNotNeed/index-old.html
 app/views/DoNotNeed/index-old.html
+usage-data-config.json

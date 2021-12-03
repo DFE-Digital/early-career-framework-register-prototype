@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
+{% if ((data['register-name-correct'] == "Yes") or ((data['register-validate'] == "noMatch") and ( data['register-name-correct'] == "No" ))) %}
   {% set pageHeading = "We still cannot find your details" %}
 {% else %}
   {% set pageHeading = "We cannot find your details" %}
@@ -60,11 +60,11 @@
 
 
       <!-- If we have checked the name then it superseeds the intial validation -->
-      {% if ((data['register-name-correct'] == "Yes") or ((data['register-cannot-validate'] == "Yes") and ( data['register-name-correct'] == "No" ))) %}
+      {% if ((data['register-name-correct'] == "Yes") or ((data['register-validate'] == "noMatch") and ( data['register-name-correct'] == "No" ))) %}
 
         <div class="govuk-inset-text">Our support team may contact you for more information to help us complete our checks.</div>
         <form class="form" action="confirmation" method="post" >
-          <input type="hidden" name="register-cannot-validate" id="register-cannot-validate" value="Yes" />
+          <input type="hidden" name="register-validate" id="register-validate" value="noMatch" />
           {{ govukButton({
             text: "Continue",
             classes: "govuk-button"

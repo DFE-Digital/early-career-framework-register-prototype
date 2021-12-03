@@ -20,7 +20,7 @@
 
       {% else %}
 
-        {% if data['register-cannot-validate'] == "Yes" %}
+        {% if data['register-validate'] == "noMatch" %}
             <form class="form" action="cannot-find-your-details" method="post">
             <!-- <input type="hidden" id="register-cant-validate" name="register-cant-validate"  value="Yes" /> -->
           {% elif data['register-validate'] == "No" %}
