@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['register-cannot-validate'] == "Yes" %}
+{% if data['register-validate'] == "noMatch" %}
   <!-- We approve all if CIP except mentors with flags -->
   {% if data['training-programme'] == "CIP" %}
     {% set pageHeading = "You’re eligible for this programme" %}
@@ -29,7 +29,7 @@
       <!-- FIP -->
         {% if data['participantType'] == "ECT" %}
           <!-- Participant type ECT -->
-          {% if data['register-cannot-validate'] == "Yes" %}
+          {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
             {% if (data['InPartnership'] == "Yes") %}
             <!-- In Partnership -->
@@ -59,7 +59,7 @@
 
         {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
         <!-- Participant type is Mentor or sitMentor -->
-            {% if data['register-cannot-validate'] == "Yes" %}
+            {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
               {% if (data['InPartnership'] == "Yes") %}
             <!-- In Partnership -->
@@ -90,7 +90,7 @@
       <!-- CIP -->
         {% if data['participantType'] == "ECT" %}
         <!-- Participant ECT -->
-          {% if data['register-cannot-validate'] == "Yes" %}
+          {% if data['register-validate'] == "noMatch" %}
             <!-- Validation failed -->
             <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
           {% else %}
@@ -100,7 +100,7 @@
 
         {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
         <!-- Participant Mentor or sitMentor -->
-          {% if data['register-cannot-validate'] == "Yes" %}
+          {% if data['register-validate'] == "noMatch" %}
           <!-- Validation failed -->
             <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
           {% else %}
