@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Do you have a teacher reference number (TRN)?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    
+            
+            <p class="govuk-body">This unique ID:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>is usually 7 digits long, for example ’4567814’</li>
+                <li>may include the letters ‘RP’ or a slash ‘/’ symbol, for example ‘RP99/12345’</li>
+                <li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
+            </ul>
+            
+
+            <form class="form" action="teacher-reference-number" method="post" >
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",                    
+                    fieldset: {
+                    legend: {
+                        text: "Have you changed your name?",
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                    { value: "Yes", text: "Yes" },
+                    { value: "No, redirect(trn-guidance)", text: "No" }
+                    ]
+                } | decorateFormAttributes('register-have-trn')) }}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
