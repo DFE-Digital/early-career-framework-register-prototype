@@ -5,9 +5,7 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
 {% block pageNavigation %}
-
 {% endblock %}
 
 {% block content %}
@@ -16,11 +14,9 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
 
-            <p class="govuk-body">You'll have a TRN if you hold, or are working towards qualified teacher status (QTS) in England.</p>   
-            
+            <p class="govuk-body">You’ll have a TRN if you hold, or are working towards qualified teacher status (QTS) in England.</p>               
             <p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
             
-
             <form class="form" action="teacher-reference-number" method="post" >
 
                 {{ govukRadios({
