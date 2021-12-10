@@ -261,6 +261,25 @@
               {% endif %}
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key"> Start induction</dt>
+            <dd class="govuk-summary-list__value">
+                {% if data['participantType'] == "mentor" %}
+                    {{ data['participant-email-address-mentor'] }}
+                {% elif data['participantType'] == "ECT" %}
+                    {% if data['added-ect'] %}
+                        {{ data['ect-start-date'] }}
+                    {% else %}
+                        {{ data['ect-start-date'] }}
+                    {% endif %}
+                {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?change-action=change-ect-start-date">Change<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+          </div>
+
+
+
         <!-- <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Start induction</dt>
               <dd class="govuk-summary-list__value">

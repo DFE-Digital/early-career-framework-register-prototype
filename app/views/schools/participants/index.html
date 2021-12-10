@@ -46,22 +46,25 @@
         <table class="govuk-table govuk-!-margin-bottom-9">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
-              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
-              <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+                <th class="govuk-table__header" scope="col">Start induction</th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
+                <th class="govuk-table__header " scope="col"></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Paul Hayes</td>
               <td class="govuk-table__cell">ECT</td>
+              <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
               <td class="govuk-table__cell">None</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Withdrawn&random-name=Paul Hayes&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Mili Malde</a></td>
               <td class="govuk-table__cell">ECT</td>
+              <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
               <td class="govuk-table__cell">None</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Withdrawn&random-name=Mili Malde&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
@@ -83,16 +86,18 @@
         <table class="govuk-table govuk-!-margin-bottom-9">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
-              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
-              <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+                <th class="govuk-table__header" scope="col">Start induction</th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
+                <th class="govuk-table__header " scope="col"></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Alex Nolan</td>
               <td class="govuk-table__cell">ECT</td>
+              <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
               <td class="govuk-table__cell">Delete</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=InductionStarted&user-details=Random&random-name=Alex Nolan&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Check</a></td>
             </tr>
@@ -112,6 +117,7 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Tony Headford</a></td>
               <td class="govuk-table__cell">ECT</td>
+              <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
               <td class="govuk-table__cell">Delete</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=NotEligible&ParticipantType=&random-name=Tony Headford&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Check</a></td>
             </tr>
@@ -170,6 +176,7 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell ">{{ data.userFullName }}</td>
               <td class="govuk-table__cell">Mentor</td>
+              <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
               <td class="govuk-table__cell">ECT</td>
               <td class="govuk-table__cell">Remind them  </td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=Remind" class="govuk-link govuk-link--no-visited-state">Check</a></td>
@@ -223,22 +230,25 @@
           <table class="govuk-table govuk-!-margin-bottom-9">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
-                <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+              <th class="govuk-table__header" scope="col">Start induction</th>
+              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
+              <th class="govuk-table__header " scope="col"></th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Erica Porter</a></td>
                 <td class="govuk-table__cell">Mentor</td>
+                <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Checking&random-name=Erica Porter&user-details=Random&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Details</a></td>
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Luke Richards</a></td>
                 <td class="govuk-table__cell">ECT</td>
+                <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">Assign mentor</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Checking&random-name=Luke Richards&user-details=Random&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Check</a></td>
               </tr>
@@ -267,10 +277,10 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
-                <th class="govuk-table__header" scope="col">Start induction</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
-                <th class="govuk-table__header" scope="col"></th>
+              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Role</th>
+              <th class="govuk-table__header" scope="col">Start induction</th>
+              <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Action required</th>
+              <th class="govuk-table__header " scope="col"></th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">

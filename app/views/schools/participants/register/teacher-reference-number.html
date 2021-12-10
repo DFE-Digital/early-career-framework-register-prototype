@@ -21,6 +21,9 @@
         		<li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
       		</ul>
 
+            {% if data['participantType'] == "ECT" %}
+            <p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
+              {% endif %}
       		{% if data['linkaction'] == "change-trn" %}
       		<!-- If using change link -->
       		<form class="form" action="cannot-find-your-details" method="post" class="govuk-!-margin-bottom-8">

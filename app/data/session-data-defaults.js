@@ -1,6 +1,6 @@
 const defaults = {
   schoolName: 'Acme Primary School',
-  userFullName: 'Hugo Furst',
+  userFullName: 'Michael Jordan',
   leadProvider: 'Ambition Institute',
   deliveryPartner: 'Mega Delivery Partner'
 }
