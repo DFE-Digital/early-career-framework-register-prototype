@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% if data['participantType'] == "mentor" %}
-    {% set pageHeading = 'When do you expect ' + data['participant-fullname-mentor'] + ' to start their induction programme?' %}
+    {% set pageHeading = 'When do you expect ' + data['participant-fullname-mentor'] + ' to begin mentoring ECTs?' %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
         {% set pageHeading = 'When do you expect ' + data['participant-fullname-2'] + ' to start their induction programme?' %}
