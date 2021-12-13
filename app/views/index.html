@@ -6,69 +6,67 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-    <ul class="govuk-list govuk-body-s">
-          <li>Last updated: 7 December 2021</li>
-            <li>Prototype version: {{releaseVersion}}</li>
-        </ul>
-        <p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <h2 class="govuk-heading-m">Current sprint</h2>
-    <p>This sprint will be focusing on:</p>
-        <ul class="govuk-list govuk-list--bullet">
-      <li>delete CIP participant</li>
-      <li>further discovery work for multiple cohorts, dashboard and flows</li>
-      <li>option to clean up any futher page from a GDS/Pattern point of view</li>
-        </ul>
+    		<ul class="govuk-list govuk-body-s">
+          		<li>Last updated: 13 December 2021</li>
+            	<li>Prototype version: {{releaseVersion}}</li>
+        	</ul>
+        	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
 
-        {{ govukButton({
-      text: "Journey from first email contact",
-      href: "/emails/tell-us-if-you-have-nqt"
-    }) }}
+        	<h2 class="govuk-heading-m">Current sprint</h2>
+    		<p>This sprint will be focusing on:</p>
+        	<ul class="govuk-list govuk-list--bullet">
+      			<li>allowing SIT's to change pariticpants email address</li>
+      			<li>discovery work to address changes of circumstances and other scenarios</li>
+        	</ul>
 
-    {{ govukButton({
-      text: "Listings",
-      href: "admin/listings",
-      classes: "govuk-button--secondary"
-    }) }}
+        	{{ govukButton({
+      			text: "Journey from first email contact",
+      			href: "/emails/tell-us-if-you-have-nqt"
+    		}) }}
 
-        {{ govukButton({
-      text: "Preloaded options",
-      href: "/admin/preload",
-      classes: "govuk-button--secondary"
-    }) }}
+    		{{ govukButton({
+      			text: "Listings",
+      			href: "admin/listings",
+      			classes: "govuk-button--secondary"
+    		}) }}
 
-        {% include "includes/break.html" %}
+        	{{ govukButton({
+      			text: "Preloaded options",
+      			href: "/admin/preload",
+      			classes: "govuk-button--secondary"
+    		}) }}
 
-        <h2 class="govuk-heading-m">User research</h2>
-        <p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
-        {{ govukButton({
-            text: "Continue",
-            href: "admin/user-research"
-        }) }}
+        	{% include "includes/break.html" %}
 
-        {% include "includes/break.html" %}
+        	<h2 class="govuk-heading-m">User research</h2>
+        	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+        	{{ govukButton({
+            	text: "Continue",
+            	href: "admin/user-research"
+        	}) }}
 
-    <h2 class="govuk-heading-m">Development baseline</h2>
-        <p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
+        	{% include "includes/break.html" %}
 
-        <form method="post" action="/index" >
+    		<h2 class="govuk-heading-m">Development baseline</h2>
+        	<p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
 
-            {{ govukButton({
-                text: "Continue",
-                href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
-            }) }}
+			<form method="post" action="/index" >
+            	{{ govukButton({
+                	text: "Continue",
+                	href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
+            	}) }}
+        	</form>
 
-        </form>
+        	<!-- {% include "includes/break.html" %}
 
-        {% include "includes/break.html" %}
-
-        <h2 class="govuk-heading-m">Previous sprint iterations</h2>
-        <p>Previous sprint work and iterations of the service at a given point in time (Still working on implementation).</p>
+        	<h2 class="govuk-heading-m">Previous sprint iterations</h2>
+        	<p>Previous sprint work and iterations of the service at a given point in time (Still working on implementation).</p>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -140,7 +138,7 @@
                     <td class="govuk-table__cell">Team spent time working on validation flow and raising some new ideas for the various dashboards.</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
 
     </div>
   </div>
