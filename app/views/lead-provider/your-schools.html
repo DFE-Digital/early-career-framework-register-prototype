@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Your schools" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+{% set page = 'schools' %}
+  {% include "includes/_training-provider-nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form class="form" action="find-and-add-schools" method="post" class="govuk-!-margin-bottom-9">
+                {{ govukButton({
+                    text: "Confirm more schools"
+                }) }}
+            </form>
+
+        </div>
+    </div>
+
+    <!-- <nav class="hmcts-sub-navigation" aria-label="Sub navigation">
+        <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item"><a class="hmcts-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="your-schools">2021 cohort</a></li>
+            <li class="hmcts-sub-navigation__item"><a class="hmcts-sub-navigation__link govuk-link--no-visited-state" href="school-listing-2022">2022 cohort</a></li>
+        </ul>
+    </nav> -->
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-3">
+        <div class="govuk-grid-column-one-third">
+            <div class="dashboard-numbers">
+                <p class="govuk-heading-xl">5</p>
+                <p class="govuk-heading-s">School recruited</p>
+            </div>
+        </div>
+        <!-- <div class="govuk-grid-column-one-half">
+            <div class="dashboard-numbers key-number">
+                <p class="govuk-heading-xl">300</p>
+                <p class="govuk-heading-s">participant target</p>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full index-group">
+
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <label class="govuk-label govuk-label--s" for="school-name">Search schools in the 2021 cohort</label>
+                <input class="govuk-input govuk-!-margin-bottom-3" id="school-name" name="school-name" type="text">
+                <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Search</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">School</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">URN</th>
+                        <th scope="col" class="govuk-table__header govuk-!-width-one-third ">Delivery partner</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">ECTs</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Mentors</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href='partnerships/school-detail-zero' class="govuk-link--no-visited-state">Vale Valley Primary School</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">153972</td>
+                        <td class="govuk-table__cell">Mega Delivery Partner</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href='partnerships/school-detail' class="govuk-link--no-visited-state">Abacus Primary School</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">153972</td>
+                        <td class="govuk-table__cell">Mega Delivery Partner</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href='partnerships/school-detail' class="govuk-link--no-visited-state">Bahr Academy</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">153972</td>
+                        <td class="govuk-table__cell">Mega Delivery Partner</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">6</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href='partnerships/school-detail' class="govuk-link--no-visited-state">The Rosary Catholic School</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">153972</td>
+                        <td class="govuk-table__cell">Mega Delivery Partner</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">8</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href='partnerships/school-detail' class="govuk-link--no-visited-state">Cleave Prior Primary School</a></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">153972</td>
+                        <td class="govuk-table__cell">Mega Delivery Partner</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">8</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}
