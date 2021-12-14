@@ -18,7 +18,7 @@
             <h2 class="govuk-heading-m">Induction programme</h2>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
-                    
+
                     {% set partnerHtml %}
                         <!-- Partnership -->
                         {{ govukCheckboxes({
@@ -40,7 +40,7 @@
                             items: [ { value: "Ambition Institute", text: "Materials chosen" } ]
                         } | decorateFormAttributes('accredited-materials')) }}
                     {% endset -%}
-                    
+
                     {{ govukRadios({
                         fieldset: {
                             legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
@@ -57,10 +57,22 @@
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Within 2 week period", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Within 2 week period where school can challenge" } ]
-                    } | decorateFormAttributes('twoWeek')) }}                    
-                </div>                
+                    } | decorateFormAttributes('twoWeek')) }}
+                </div>
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            <h2 class="govuk-heading-m">MAT</h2>
+            <div class="govuk-grid-row">
+                 <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "School is managed by a MAT" } ]
+                    } | decorateFormAttributes('MAT-managed')) }}
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
 
             <h2 class="govuk-heading-m">Validation</h2>
             <div class="govuk-grid-row">
@@ -72,19 +84,19 @@
                             },
                             items: [
                                 { value: "No", text: "No intial match"  },
-                                { value: "noMatch", text: "No match" }                                
+                                { value: "noMatch", text: "No match" }
                             ]
-                        } | decorateFormAttributes('register-validate')) }}                    
+                        } | decorateFormAttributes('register-validate')) }}
                     {% endset -%}
 
-                    {% set betaHtml %}                                        
+                    {% set betaHtml %}
                         {{ govukRadios({
                             fieldset: {
                                 legend: { text: "Matching", isPageHeading: false, classes: "govuk-visually-hidden" }
                             },
                             items: [
                                 { value: "noInitial", text: "No intial match"  },
-                                { value: "no", text: "No match" }                                
+                                { value: "no", text: "No match" }
                             ]
                         } | decorateFormAttributes('register-validate')) }}
 
@@ -105,28 +117,28 @@
                         ]
                       } | decorateFormAttributes('participantType')) }}
                 </div>
-                <div class="govuk-grid-column-one-half">                    
+                <div class="govuk-grid-column-one-half">
                     <p>To see correct content you must choose induction programme and additionally in partnership if you want to see all variants of additional content.</p>
                 </div>
-            </div>            
+            </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <h2 class="govuk-heading-m">Manage training dashboard</h2>             
+            <h2 class="govuk-heading-m">Manage training dashboard</h2>
             <div class="govuk-grid-row">
                  <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Show multiple cohorts", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Show multiple cohort years" } ]
-                    } | decorateFormAttributes('multi-cohort')) }}                    
+                    } | decorateFormAttributes('multi-cohort')) }}
                 </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Declared participants", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Participants declared by provider" } ]
-                    } | decorateFormAttributes('validated-ect')) }}                        
+                    } | decorateFormAttributes('validated-ect')) }}
                 </div>
             </div>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">        
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
             <h2 class="govuk-heading-m">Participant dashboard</h2>
             <div class="govuk-grid-row">
@@ -144,29 +156,29 @@
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Eligible to start" } ]
-                    } | decorateFormAttributes('show-participant-status-eligible')) }}                     
+                    } | decorateFormAttributes('show-participant-status-eligible')) }}
                 </div>
-                <div class="govuk-grid-column-one-half">                    
+                <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Not eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Not eligible" } ]
-                    } | decorateFormAttributes('show-participant-not-eligible')) }}                    
+                    } | decorateFormAttributes('show-participant-not-eligible')) }}
 
                     {{ govukCheckboxes({
                        fieldset: { legend: { text: "No QTS", isPageHeading: false, classes: "govuk-visually-hidden" } },
                        items: [ { value: "Yes", text: "No QTS" } ]
-                    } | decorateFormAttributes('show-participant-no-QTS')) }}                   
+                    } | decorateFormAttributes('show-participant-no-QTS')) }}
 
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Withdrawn", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Withdrawn by provider" } ]
-                    } | decorateFormAttributes('show-participant-withdrawn')) }}                    
+                    } | decorateFormAttributes('show-participant-withdrawn')) }}
                 </div>
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
             <h2 class="govuk-heading-m">Entry page</h2>
-            <p>If no selection will default to NQT email to schools asking about ECT for this year.</p>            
+            <p>If no selection will default to NQT email to schools asking about ECT for this year.</p>
                 {{ govukRadios({
                     fieldset: {
                         legend: { text: "Site entry url", isPageHeading: false, classes: "govuk-visually-hidden" }
