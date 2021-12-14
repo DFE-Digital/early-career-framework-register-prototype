@@ -71,24 +71,32 @@
     }) }}
   {% endif %}
 
-  {% if showBackLink != false %}
+    {% if showBackLink != false %}
 
-    {% if showManageBackLink != true %}
+        {% if showManageBackLink != true %}
+
+            {{ govukBackLink({
+                text: "Back",
+                href: "javascript:history.go(-1)"
+            }) }}
+
+        {% else %}
+
+            {{ govukBackLink({
+                text: "Back to manage your training",
+                href: "../manage-your-training"
+            }) }}
+
+        {% endif %}
+
+    {% elif showManageSchools == true %}
 
         {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.go(-1)"
-        }) }}
-
-    {% else %}
-
-        {{ govukBackLink({
-            text: "Back to manage your training",
-            href: "../manage-your-training"
+            text: "Manage your schools",
+            href: "/schools/"
         }) }}
 
     {% endif %}
-  {% endif %}
 
   {% block pageNavigation %}{% endblock %}
   {% block pageBanner %}{% endblock %}
