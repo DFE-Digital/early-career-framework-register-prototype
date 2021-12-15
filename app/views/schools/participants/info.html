@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You cannot change their name" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>Choose the reason that fits best.</p>
+
+
+
+            <p><a href="confirm-delete">Remove {{ data.userFullName }}</a></p>
+
+<!--
+                {{ govukButton({
+                    text: "Continue"
+                }) }} -->
+
+
+        </div>
+    </div>
+{% endblock %}

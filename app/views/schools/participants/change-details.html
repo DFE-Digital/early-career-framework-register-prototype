@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Changing an ECTs name" %}
+{% set pageHeading = "Why do you need to change their name?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,27 +12,51 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>You should only edit this name if:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>it was spelt incorrectly when intially added</li>
-                <li>you used a name they are known by instead of their real name</li>
-                <li>they have changed their surname due to marriage, or other legal means</li>
-            </ul>
+            <p>Choose the reason that fits best.</p>
 
-            <p>Do not edit this name if:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>they did not start employment but someone else has instead</li>
-                <li>they were registered incorrectly</li>
-            </ul>
 
-            <p>You should delete this ECT and add the new one instead.</p>
+            <form method="post" action="add/name" >
+
+            {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
+                },
+                items: [
+                { value: "CIP", text: "It has changed due to marriage, or other legal reason" },
+                { value: "FIP", text: "It was spelt incorrectly" },
+
+                    { value: "noECT, redirect(../info)", text: "They did not start employment but someone else has instead" },
+                    { value: "DYO, redirect(../info)", text: "They were registered by mistake" }
+
+                ]
+              } | decorateFormAttributes('change-name-reason')) }}
+
+
+            <!-- <p>You should only edit this name if:</p> -->
+            <!-- <ul class="govuk-list govuk-list--bullet">
+                <li>it was spelt incorrectly</li>
+                <li>changed name due to marriage, or other legal reason</li>
+                <li>they were registered by mistake</li> -->
+                <!-- <li>you used a name they are known by instead of their real name</li> -->
+
+                <!-- <li>they did not start employment but someone else has instead</li>
+
+            </ul> -->
+
+            <!-- <p>Do not edit this name if:</p>
+            <ul class="govuk-list govuk-list--bullet"> -->
+
+            <!-- </ul> -->
+
+            <!-- <p>You should delete this ECT and add the new one instead.</p> -->
 
             <!-- <form method="post" action="confirmation" class="govuk-!-margin-top-7" > -->
                 {{ govukButton({
-                    text: "Confirm and continue",
-                    href: "add/name"
+                    text: "Continue"
                 }) }}
             <!-- </form> -->
+            </form>
+
 
         </div>
     </div>
