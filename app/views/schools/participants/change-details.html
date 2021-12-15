@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Changing an ECTs name" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>You should only edit this name if:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>it was spelt incorrectly when intially added</li>
+                <li>you used a name they are known by instead of their real name</li>
+                <li>they have changed their surname due to marriage, or other legal means</li>
+            </ul>
+
+            <p>Do not edit this name if:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>they did not start employment but someone else has instead</li>
+                <li>they were registered incorrectly</li>
+            </ul>
+
+            <p>You should delete this ECT and add the new one instead.</p>
+
+            <!-- <form method="post" action="confirmation" class="govuk-!-margin-top-7" > -->
+                {{ govukButton({
+                    text: "Confirm and continue",
+                    href: "add/name"
+                }) }}
+            <!-- </form> -->
+
+        </div>
+    </div>
+{% endblock %}
