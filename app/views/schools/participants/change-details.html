@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Changing an ECTs name" %}
+{% if data['edit'] == "name" %}
+    {% set pageHeading = "Changing a name" %}
+{% elif data['edit'] == "email" %}
+    {% set pageHeading = "Changing an email address" %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
