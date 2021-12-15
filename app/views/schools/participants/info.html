@@ -12,15 +12,18 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>Choose the reason that fits best.</p>
+            <p><-- Registered by mistake --></p>
+            <p>Information about why they cannot just change the name and that they have to remove this person from this current years group/cohort.</p>
+            <p><a href="confirm-delete">Remove {{ data['participant-fullname'] }}</a></p>
+
+            <p><-- Need to register someone else --></p>
+            <p>Also need information to say that they will need to ADD the new person to this years current group/cohort.</p>
 
 
+            <p><a href="add/name?participantType=ECT">Add a new ECT</a></p>
 
-            <p><a href="confirm-delete">Remove {{ data.userFullName }}</a></p>
-
-<!--
-                {{ govukButton({
-                    text: "Continue"
+                <!-- {{ govukButton({
+                    text: "Remove this ECT"
                 }) }} -->
 
 
