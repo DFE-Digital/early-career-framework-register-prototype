@@ -19,6 +19,7 @@
             <p>Choose the reason that fits best.</p>
 
 
+            {% if data['details-change-action'] == "change-name" %}
             <form method="post" action="add/name" >
 
             {{ govukRadios({
@@ -35,6 +36,24 @@
                 ]
               } | decorateFormAttributes('change-name-reason')) }}
 
+            {% else %}
+
+            <form method="post" action="add/email-address" >
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                    { value: "CIP", text: "It has changed due to marriage, or other legal reason" },
+                    { value: "FIP", text: "It was spelt incorrectly" },
+
+                        { value: "noECT, redirect(../info)", text: "They did not start employment but someone else has instead" },
+                        { value: "DYO, redirect(../info)", text: "They were registered by mistake" }
+
+                    ]
+                } | decorateFormAttributes('change-name-reason')) }}
+
+            {% endif %}
 
             <!-- <p>You should only edit this name if:</p> -->
             <!-- <ul class="govuk-list govuk-list--bullet">
