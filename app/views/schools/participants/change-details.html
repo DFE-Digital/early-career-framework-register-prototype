@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+{% if data['details-change-action'] == "change-email" %}
+{% set pageHeading = "Why do you need to change their email address?" %}
+{% elif data['details-change-action'] == "change-name" %}
 {% set pageHeading = "Why do you need to change their name?" %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
