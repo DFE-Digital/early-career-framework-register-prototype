@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You cannot change their name" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if ((data['change-name-reason'] == "Not started employment") or (data['change-email-reason'] == "Not started employment")) %}
+                <p>Information about why they cannot just change the name and that they have to remove this person from this current years group/cohort.</p>
+                <p><a href="../confirm-delete">Remove this person</a></p>
+                <p>Also need information to say that they will need to ADD the new person to this years current group/cohort.</p>
+                <!-- <p><a href="add/name?participantType=ECT">Add a new ECT</a></p> -->
+            {% elif ((data['change-name-reason'] == "Registerd by mistake") or (data['change-email-reason'] == "Registerd by mistake")) %}
+                <p>Information about why they cannot just change the name and that they have to remove this person from this current years group/cohort.</p>
+                <p><a href="../confirm-delete">Remove {{ data['participant-fullname'] }}</a></p>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
