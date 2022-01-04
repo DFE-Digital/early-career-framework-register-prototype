@@ -172,7 +172,12 @@
       {% endif %} -->
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+        {% if data['status'] == "Withdrawn" %}
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+        {% else %}
         <div class="govuk-summary-list__row">
+        {% endif %}
           <dt class="govuk-summary-list__key">Name</dt>
             <dd class="govuk-summary-list__value">
 
@@ -197,10 +202,8 @@
               {% endif %}
             {% endif %}
           </dd>
+            {% if data['status'] != "Withdrawn" %}
             <dd class="govuk-summary-list__actions">
-              {% if data['status'] == "Withdrawn" %}
-
-              {% else %}
 
                 {% if data['induction-tutor'] == "Yes" %}
 
@@ -215,10 +218,15 @@
                   {% endif %}
                 {% endif %}
 
-              {% endif %}
+
           </dd>
+          {% endif %}
         </div>
+        {% if data['status'] == "Withdrawn" %}
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+        {% else %}
         <div class="govuk-summary-list__row">
+        {% endif %}
           <dt class="govuk-summary-list__key">Email address</dt>
             <dd class="govuk-summary-list__value">
 
@@ -242,10 +250,8 @@
               {% endif %}
             {% endif %}
             </dd>
+            {% if data['status'] != "Withdrawn" %}
             <dd class="govuk-summary-list__actions">
-              {% if data['status'] == "Withdrawn" %}
-
-              {% else %}
                 {% if data['induction-tutor'] == "Yes" %}
 
                   <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a>
@@ -258,8 +264,8 @@
                     <a class="govuk-link" href="add/email-address?details-change-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a>
                   {% endif %}
                 {% endif %}
-              {% endif %}
           </dd>
+          {% endif %}
         </div>
 
         <div class="govuk-summary-list__row">
@@ -290,7 +296,7 @@
 
               </dd>
           </div> -->
-        <div class="govuk-summary-list__row">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
           <dt class="govuk-summary-list__key">Role</dt>
             <dd class="govuk-summary-list__value">
 
@@ -310,7 +316,7 @@
               {% endif %}
             {% endif %}
           </dd>
-            <dd class="govuk-summary-list__actions"></dd>
+
         </div>
 
 
@@ -339,7 +345,7 @@
 
         {% if data['induction-tutor'] != "Yes" %}
 
-        <div class="govuk-summary-list__row">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
           <dt class="govuk-summary-list__key">Status</dt>
             <dd class="govuk-summary-list__value">
 
@@ -478,7 +484,7 @@
 
 
           </dd>
-            <dd class="govuk-summary-list__actions"></dd>
+
         </div>
         {% endif %}
 
