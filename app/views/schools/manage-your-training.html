@@ -49,10 +49,9 @@
             {% endif %} -->
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
-                <div class="govuk-summary-list__row">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Length of induction</dt>
                     <dd class="govuk-summary-list__value">2 years</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
@@ -90,7 +89,12 @@
                         <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
                     </div>
+                    <!-- Needed for if we show the actions line or not -->
+                    {% if data['InPartnership'] != "Yes" %}
                     <div class="govuk-summary-list__row">
+                    {% else %}
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    {% endif %}
                         <dt class="govuk-summary-list__key">Training provider</dt>
                         <dd class="govuk-summary-list__value">
                             {% if data['user-research'] == "Yes" %}
@@ -99,14 +103,14 @@
                                 {% if data['InPartnership'] == "Yes" %}Educational Development Trust{% endif %}
                             {% endif %}
                         </dd>
+                        {% if data['InPartnership'] != "Yes" %}
                         <dd class="govuk-summary-list__actions">
-                            {% if data['InPartnership'] != "Yes" %}
                                 <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
-                            {% endif %}
                         </dd>
+                        {% endif %}
                     </div>
                     {% if data['InPartnership'] == "Yes" %}
-                        <div class="govuk-summary-list__row">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Delivery partner</dt>
                             <dd class="govuk-summary-list__value">
                                 {% if data['user-research'] == "Yes" %}
@@ -115,7 +119,6 @@
                                     Mega Delivery Partner
                                 {% endif %}
                             </dd>
-                            <dd class="govuk-summary-list__actions"></dd>
                         </div>
                     {% endif %}
                 <!-- Do your own programme -->
@@ -162,11 +165,10 @@
 
 
             <!-- Summary list for each cohort -->
-            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+            <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Length of induction</dt>
                     <dd class="govuk-summary-list__value">2 years</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
                 </div>
 
 
@@ -187,27 +189,26 @@
 
                 <!-- Using DfE accredited materials -->
                 {% if data['training-programme'] == "CIP" %}
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Programme</dt>
                         <dd class="govuk-summary-list__value">DfE accredited materials</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Materials</dt>
                         <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
-                        <dd class="govuk-summary-list__actions">
-
-                        </dd>
                     </div>
 
                 <!-- Using an approved training provider -->
                 {% elif data['training-programme'] == "FIP" %}
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Programme</dt>
                         <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
+                    {% if data['InPartnership'] != "Yes" %}
                     <div class="govuk-summary-list__row">
+                    {% else %}
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    {% endif %}
                         <dt class="govuk-summary-list__key">Training provider</dt>
                         <dd class="govuk-summary-list__value">
                             {% if data['user-research'] == "Yes" %}
@@ -216,15 +217,15 @@
                                 {% if data['InPartnership'] == "Yes" %}Educational Development Trust{% endif %}
                             {% endif %}
                         </dd>
+                        {% if data['InPartnership'] != "Yes" %}
                         <dd class="govuk-summary-list__actions">
-                            {% if data['InPartnership'] != "Yes" %}
-                                <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
-                            {% endif %}
+                            <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
                         </dd>
+                        {% endif %}
                     </div>
 
                     {% if data['InPartnership'] == "Yes" %}
-                        <div class="govuk-summary-list__row">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Delivery partner</dt>
                             <dd class="govuk-summary-list__value">
                                 {% if data['user-research'] == "Yes" %}
@@ -233,7 +234,6 @@
                                     Mega Delivery Partner
                                 {% endif %}
                             </dd>
-                            <dd class="govuk-summary-list__actions"></dd>
                         </div>
                     {% endif %}
 
@@ -272,14 +272,11 @@
 
 
             <!-- Summary list for each cohort -->
-            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+            <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Length of induction</dt>
                     <dd class="govuk-summary-list__value">2 years</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
                 </div>
-
-
 
                 <!-- Show amount of ECT and mentors could be an option for later down the line -->
                 <div class="govuk-summary-list__row">
@@ -289,35 +286,33 @@
                 </div>
 
                 <!-- Show amount of ECT and mentors could be an option for later down the line -->
-                <div class="govuk-summary-list__row">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Induction tutor</dt>
                     <dd class="govuk-summary-list__value">{{ data.userFullName }}</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
                 </div>
 
                 <!-- Using DfE accredited materials -->
                 {% if data['training-programme'] == "CIP" %}
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Programme</dt>
                         <dd class="govuk-summary-list__value">DfE accredited materials</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Materials</dt>
                         <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
-                        <dd class="govuk-summary-list__actions">
-
-                        </dd>
                     </div>
 
                 <!-- Using an approved training provider -->
                 {% elif data['training-programme'] == "FIP" %}
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">Programme</dt>
                         <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-                        <dd class="govuk-summary-list__actions"></dd>
                     </div>
+                    {% if data['InPartnership'] != "Yes" %}
                     <div class="govuk-summary-list__row">
+                    {% else %}
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    {% endif %}
                         <dt class="govuk-summary-list__key">Training provider</dt>
                         <dd class="govuk-summary-list__value">
                             {% if data['user-research'] == "Yes" %}
@@ -326,15 +321,15 @@
                                 {% if data['InPartnership'] == "Yes" %}Educational Development Trust{% endif %}
                             {% endif %}
                         </dd>
+                        {% if data['InPartnership'] != "Yes" %}
                         <dd class="govuk-summary-list__actions">
-                            {% if data['InPartnership'] != "Yes" %}
-                                <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
-                            {% endif %}
+                            <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
                         </dd>
+                        {% endif %}
                     </div>
 
                     {% if data['InPartnership'] == "Yes" %}
-                        <div class="govuk-summary-list__row">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Delivery partner</dt>
                             <dd class="govuk-summary-list__value">
                                 {% if data['user-research'] == "Yes" %}
@@ -343,7 +338,6 @@
                                     Mega Delivery Partner
                                 {% endif %}
                             </dd>
-                            <dd class="govuk-summary-list__actions"></dd>
                         </div>
                     {% endif %}
 
@@ -404,16 +398,15 @@
             {% endif %}
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Length of induction</dt>
                     <dd class="govuk-summary-list__value">2 years</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
                 </div>
 
-                <div class="govuk-summary-list__row">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">ECTs and mentors</dt>
                     <dd class="govuk-summary-list__value">5</dd>
-                    <dd class="govuk-summary-list__actions"><!--<a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>--></dd>
+                    <!--<dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>-->
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Induction tutor</dt>
@@ -445,7 +438,12 @@
                         <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
                     </div>
+                    <!-- Needed for if we show the actions line or not -->
+                    {% if data['InPartnership'] != "Yes" %}
                     <div class="govuk-summary-list__row">
+                    {% else %}
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    {% endif %}
                         <dt class="govuk-summary-list__key">Training provider</dt>
                         <dd class="govuk-summary-list__value">
                             {% if data['user-research'] == "Yes" %}
@@ -454,14 +452,14 @@
                                 {% if data['InPartnership'] == "Yes" %}Educational Development Trust{% endif %}
                             {% endif %}
                         </dd>
+                        {% if data['InPartnership'] != "Yes" %}
                         <dd class="govuk-summary-list__actions">
-                            {% if data['InPartnership'] != "Yes" %}
-                                <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
-                            {% endif %}
+                            <a class="govuk-link" href="sign-up-to-training-provider"">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
                         </dd>
+                        {% endif %}
                     </div>
                     {% if data['InPartnership'] == "Yes" %}
-                        <div class="govuk-summary-list__row">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Delivery partner</dt>
                             <dd class="govuk-summary-list__value">
                                 {% if data['user-research'] == "Yes" %}
@@ -470,7 +468,6 @@
                                     {{ data.leadProvider }}
                                 {% endif %}
                             </dd>
-                            <dd class="govuk-summary-list__actions"></dd>
                         </div>
                     {% endif %}
                 <!-- Do your own programme -->
