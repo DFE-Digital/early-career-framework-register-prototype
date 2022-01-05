@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['details-change-action'] == "change-email" %}
-    {% set pageHeading = "Why do you need to change their email address?" %}
+    {% set pageHeading = "Why do you need to edit NAME'S email address?" %}
 {% elif data['details-change-action'] == "change-name" %}
-    {% set pageHeading = "Why do you need to change their name?" %}
+    {% set pageHeading = "Why do you need to edit NAME'S name?" %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,20 +15,18 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>Choose the reason that fits best.</p>
-
             {% if data['details-change-action'] == "change-name" %}
             <form method="post" action="name" >
 
             {{ govukRadios({
                 fieldset: {
-                    legend: { text: "Why do you need to change their name", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    legend: { text: "Why do you need to edit NAME's name", isPageHeading: false, classes: "govuk-visually-hidden" }
                 },
                 items: [
-                { value: "Legal reason", text: "It has changed due to marriage, or other legal reason" },
-                { value: "Misspelt", text: "It was spelt incorrectly" },
-                { value: "Not started employment, redirect(cannot-change)", text: "They did not start employment but someone else has instead" },
-                { value: "Registerd by mistake, redirect(cannot-change)", text: "They were registered by mistake" }
+                { value: "Legal reason", text: "They've changed their name (through marriage or divorce, for example)" },
+                { value: "Misspelt", text: "It's spelt incorrectly" },
+                { value: "Registered by mistake, redirect(cannot-change)", text: "They were registered by mistake" },
+                { value: "Not started employment, redirect(cannot-change)", text: "I want to replace them with a different person" }
                 ]
               } | decorateFormAttributes('change-name-reason')) }}
 
@@ -37,13 +35,14 @@
             <form method="post" action="email-address" >
                 {{ govukRadios({
                     fieldset: {
-                        legend: { text: "Why do you need to change their email address", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        legend: { text: "Why do you need to edit NAME'S email address", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "Legal reason", text: "It has changed due to marriage, or other legal reason" },
-                        { value: "Misspelt", text: "It was spelt incorrectly" },
-                        { value: "Not started employment, redirect(cannot-change)", text: "They did not start employment but someone else has instead" },
-                        { value: "Registerd by mistake, redirect(cannot-change)", text: "They were registered by mistake" }
+                        { value: "Legal reason", text: "They've changed their name (through marriage or divorce, for example)" },
+                        { value: "Misspelt", text: "It's spelt incorrectly" },
+                        { value: "Registered by mistake, redirect(cannot-change)", text: "They were registered by mistake" },
+                        { value: "Not started employment, redirect(cannot-change)", text: "I want to replace them with a different person" }
+                       
                     ]
                 } | decorateFormAttributes('change-email-reason')) }}
 
