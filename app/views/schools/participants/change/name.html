@@ -6,35 +6,32 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      <!-- This is just for the check your answers so it sends back to the CYA -->
+            <form class="form" action="confirmation" method="post">
 
-        <form class="form" action="confirmation" method="post">
-        <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
-        <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
+                    {% if data['participantType'] == "mentor" %}
+                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-mentor" name="participant-fullname-mentor" type="text" value="{{ data['participant-fullname-mentor'] }}" >
+                    {% else %}
+                        {% if data['added-ect'] %}
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-2" name="participant-fullname-2" type="text" value="{{ data['participant-fullname-2'] }}" >
+                        {% else %}
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname" name="participant-fullname" type="text" value="{{ data['participant-fullname'] }}" >
+                        {% endif %}
+                    {% endif %}
+                </div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
-          {% if data['participantType'] == "mentor" %}
-            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-mentor" name="participant-fullname-mentor" type="text" value="{{ data['participant-fullname-mentor'] }}" >
-          {% else %}
-            {% if data['added-ect'] %}
-            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-2" name="participant-fullname-2" type="text" value="{{ data['participant-fullname-2'] }}" >
-            {% else %}
-            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname" name="participant-fullname" type="text" value="{{ data['participant-fullname'] }}" >
-            {% endif %}
-          {% endif %}
-          </div>
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+            </form>
 
-      </form>
-      </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,15 +1,48 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
+{% if data['details-change-action'] == "change-email" %}
 
+    {% if data['induction-tutor'] == "Yes" %}
+        {% set pageHeading = 'Why do you need to edit Hugo Furst’s email address?' %}
+    {% else %}
+        {% if data['user-details'] == "ect-2" %}
+            {% set pageHeading = '' + data['participant-fullname-2'] + '’s email address has been changed' %}
+        {% elif data['user-details'] == "ect" %}
+            {% set pageHeading = '' + data['participant-fullname'] + '’s email address has been changed' %}
+        {% elif data['user-details'] == "mentor" %}
+            {% set pageHeading = '' + data['participant-fullname-mentor'] + '’s email address has been changed' %}
+        {% elif data['user-details'] == "sitMentor" %}
+            {% set pageHeading = 'Hugo Furst’s email address has been changed' %}
+        {% else %}
+            {% set pageHeading = '' + data['random-name'] + '’s email address has been changed' %}
+        {% endif %}
+    {% endif %}
 
-{% set pageHeading = "NAME'S email address has been changed" %}
+{% elif data['details-change-action'] == "change-name" %}
+
+    {% if data['induction-tutor'] == "Yes" %}
+        {% set pageHeading = 'Why do you need to edit Hugo Furst’s name?' %}
+    {% else %}
+        {% if data['user-details'] == "ect-2" %}
+            {% set pageHeading = '' + data['participant-fullname-2'] + '’s name has been changed' %}
+        {% elif data['user-details'] == "ect" %}
+            {% set pageHeading = '' + data['participant-fullname'] + '’s name has been changed' %}
+        {% elif data['user-details'] == "mentor" %}
+            {% set pageHeading = '' + data['participant-fullname-mentor'] + '’s name has been changed' %}
+        {% elif data['user-details'] == "sitMentor" %}
+            {% set pageHeading = 'Hugo Furst’s name has been changed' %}
+        {% else %}
+            {% set pageHeading = '' + data['random-name'] + '’s name has been changed' %}
+        {% endif %}
+    {% endif %}
+
+{% endif %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
-<p>BRIAN - the pageHeading text for a name change is: NAME'S name has been changed</p>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
