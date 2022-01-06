@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set sitMentorName = 'defaults.userFullName()' %}
+{% set sitMentorName = 'defaults.sitName()' %}
 
 {% if data['linkaction'] == "change-mentor-details"%}
   {% set title = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}

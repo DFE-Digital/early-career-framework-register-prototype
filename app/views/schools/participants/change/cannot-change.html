@@ -13,16 +13,16 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if ((data['change-name-reason'] == "Not started employment") or (data['change-email-reason'] == "Not started employment")) %}
-                <p>If this person is no longer completing their ECF induction at your school, you need to remove them from this service.</p> 
+                <p>If this person is no longer completing their ECF induction at your school, you need to remove them from this service.</p>
 
                 <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
 
-                <p>Contact {{ data.leadProvider }} to remove {{ data.userFullName }}.</p>
+                <p>Contact {{ data.leadProvider }} to remove {{ data.sitName }}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                
+
                 <p><a href="../confirm-delete">Remove this person{{ data['participant-fullname'] }}</a></p>
-                
+
                 <!--- IF ECT --->
 
                 <p>You need to register the new ECT separately. This is so that:</p>
@@ -45,14 +45,15 @@
 
 
             {% elif ((data['change-name-reason'] == "Registered by mistake") or (data['change-email-reason'] == "Registered by mistake")) %}
+
                 <p>If this person is no longer completing their ECF induction at your school, you need to remove them from this service.</p>
 
                 <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
 
-                <p>Contact {{ data.leadProvider }} to remove {{ data.userFullName }}.</p>
+                <p>Contact {{ data.leadProvider }} to remove {{ data.sitName }}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                
+
                 <p><a href="../confirm-delete">Remove this person{{ data['participant-fullname'] }}</a></p>
             {% endif %}
 

@@ -51,7 +51,7 @@
                     <dd class="govuk-summary-list__value">
 
                         {% if data['induction-tutor'] == "Yes" %}
-                            {{ data.userFullName }}
+                            {{ data.sitName }}
                         {% else %}
                             {% if data['user-details'] == "ect-2" %}
                                 {{ data['participant-fullname-2'] }}
@@ -60,7 +60,7 @@
                             {% elif data['user-details'] == "mentor" %}
                                 {{ data['participant-fullname-mentor'] }}
                             {% elif data['user-details'] == "sitMentor" %}
-                                {{ data.userFullName }}
+                                {{ data.sitName }}
                             {% elif data['user-details'] == "Random" %}
                                 {{ data['random-name'] }}
                             {% else %}
@@ -91,7 +91,7 @@
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">
                         {% if data['induction-tutor'] == "Yes" %}
-                            {{ data.userEmailAddress }}
+                            {{ data.sitEmail }}
                         {% else %}
                             {% if data['user-details'] == "ect-2" %}
                                 {{ data['participant-email-address-2'] }}
@@ -100,7 +100,7 @@
                             {% elif data['user-details'] == "mentor" %}
                                 {{ data['participant-email-address-mentor'] }}
                             {% elif data['user-details'] == "sitMentor" %}
-                                {{ data.userEmailAddress }}
+                                {{ data.sitEmail }}
                             {% else %}
                                 {{ data['random-name'] }}@test.dfe.gov.uk
                             {% endif %}
@@ -347,7 +347,7 @@
           {% elif data['user-details'] == "mentor" %}
              {{ data['participant-fullname-mentor'] }}
           {% elif data['user-details'] == "sitMentor" %}
-            {{ data.userFullName }}
+            {{ data.sitName }}
           {% else %}
             {{ data['random-name'] }}
           {% endif %}
@@ -361,7 +361,7 @@
           {% elif data['user-details'] == "mentor" %}
              {{ data['participant-fullname-mentor'] }}
           {% elif data['user-details'] == "sitMentor" %}
-            {{ data.userFullName }}
+            {{ data.sitName }}
           {% else %}
             {{ data['random-name'] }}
           {% endif %}
@@ -382,7 +382,7 @@
               {% elif data['user-details'] == "mentor" %}
                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname-mentor'] }}.</p>
               {% elif data['user-details'] == "sitMentor" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.userFullName }}.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
               {% else %}
                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
               {% endif %}
@@ -401,7 +401,7 @@
               {% elif data['user-details'] == "mentor" %}
                 <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }}</a></p>
               {% elif data['user-details'] == "sitMentor" %}
-                <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.userFullName }}</a></p>
+                <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.sitName }}</a></p>
               {% else %}
                 <p><a href="confirm-delete">Remove {{ data['random-name'] }}</a></p>
               {% endif %}
