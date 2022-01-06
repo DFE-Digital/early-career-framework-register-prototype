@@ -212,9 +212,9 @@
               {% elif data['status'] == "Checking" %}
 
 
-              {% if data['training-programme'] == "FIP" %}
+              {% if data['inductionProgramme'] == "FIP" %}
 
-                {% if data['InPartnership'] == "Yes" %}
+                {% if data['fipPartnership'] == "Yes" %}
                   <!-- <p>DfE checking eligibility</p>           -->
                   <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
                 {% else %}
@@ -222,7 +222,7 @@
                   <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
                 {% endif %}
 
-              {% elif data['training-programme'] == "CIP" %}
+              {% elif data['inductionProgramme'] == "CIP" %}
                 <p>No action required.</p>
               {% endif %}
 
@@ -230,9 +230,9 @@
           {% elif data['status'] == "Start" %}
 
 
-            {% if data['training-programme'] == "FIP" %}
+            {% if data['inductionProgramme'] == "FIP" %}
 
-              {% if data['InPartnership'] == "Yes" %}
+              {% if data['fipPartnership'] == "Yes" %}
                 <!-- <p>Eligible to start</p>           -->
                 <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
               {% else %}
@@ -240,7 +240,7 @@
                 <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
               {% endif %}
 
-            {% elif data['training-programme'] == "CIP" %}
+            {% elif data['inductionProgramme'] == "CIP" %}
               <!-- <p>Eligible to start</p>           -->
               <p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
             {% endif %}
@@ -249,7 +249,7 @@
 
           {% elif data['status'] == "NotEligible" %}
 
-            {% if data['training-programme'] == "FIP" %}
+            {% if data['inductionProgramme'] == "FIP" %}
 
               {% if data['ParticipantType'] == "Mentor" %}
 
@@ -293,7 +293,7 @@
 
 
 
-            {% elif data['training-programme'] == "CIP" %}
+            {% elif data['inductionProgramme'] == "CIP" %}
 
 
                 <!-- <p>Not eligible</p>                           -->
@@ -338,7 +338,7 @@
 
       {% if data['no-delete'] == "Yes" %}
 
-        {% if data['training-programme'] == "FIP" %}
+        {% if data['inductionProgramme'] == "FIP" %}
         <p>If
           {% if data['user-details'] == "ect-2" %}
             {{ data['participant-fullname-2'] }}
@@ -371,7 +371,7 @@
       {% else %}
 
 
-        {% if data['training-programme'] == "FIP" %}
+        {% if data['inductionProgramme'] == "FIP" %}
 
             {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
 
@@ -410,7 +410,7 @@
 
           {% endif %}
 
-        {% elif data['training-programme'] == "CIP" %}
+        {% elif data['inductionProgramme'] == "CIP" %}
 
 
         {% endif %}

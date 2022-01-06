@@ -40,7 +40,7 @@
 
             {% if not (( data['validated-ect'] == "Yes" ) and ( data['school-challenge-reason'] == "noInductions" )) %}
             <form method="post" action="submitted" class="govuk-!-margin-top-7" >
-                <input type="hidden" name="InPartnership" id="InPartnership" value="" />
+                <input type="hidden" name="fipPartnership" id="fipPartnership" value="" />
                 {{ govukButton({
                     text: "Confirm and remove"
                 }) }}

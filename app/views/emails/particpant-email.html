@@ -20,7 +20,7 @@
 
 
 
-      {% if ((data['participantType'] == "sitMentor") and ((data['training-programme'] == "CIP") or (data['training-programme'] == "FIP"))) %}
+      {% if ((data['participantType'] == "sitMentor") and ((data['inductionProgramme'] == "CIP") or (data['inductionProgramme'] == "FIP"))) %}
 
       <!-- <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
@@ -62,7 +62,7 @@
 
 
       <!-- CIP mentor (in beta programme) -->
-        {% elif ((data['participantType'] == "mentor") and (data['training-programme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
+        {% elif ((data['participantType'] == "mentor") and (data['inductionProgramme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
 
         <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
@@ -92,7 +92,7 @@
 
 
         <!-- FIP mentor -->
-        {% elif ((data['training-programme'] == "FIP") or (data['participantType'] == "sitMentor") and (data['participantType'] == "mentor") ) %}
+        {% elif ((data['inductionProgramme'] == "FIP") or (data['participantType'] == "sitMentor") and (data['participantType'] == "mentor") ) %}
 
           <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Add your details to start your mentor training</p>
@@ -125,7 +125,7 @@
           <span style="color:#888888;">Department for Education</span></p>
 
       <!-- CIP mentor (not in beta programme) registration email -->
-      {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor") and (data['training-programme'] == "CIP")) %}
+      {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor") and (data['inductionProgramme'] == "CIP")) %}
 
         <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
         <p><strong>Subject: </strong>Add your details to access your mentor training materials </p>

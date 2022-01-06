@@ -260,15 +260,15 @@
           <h2 class="govuk-heading-m">Eligible to start</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-              {% if data['training-programme'] == "FIP" %}
+              {% if data['inductionProgramme'] == "FIP" %}
 
-                {% if data['InPartnership'] == "Yes" %}
+                {% if data['fipPartnership'] == "Yes" %}
                   <p>We’ve confirmed these people are eligible for this programme. Your training provider will contact them directly.</p>
                 {% else %}
                   <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
                 {% endif %}
 
-              {% elif data['training-programme'] == "CIP" %}
+              {% elif data['inductionProgramme'] == "CIP" %}
                 <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
               {% endif %}
             </div>

@@ -3,7 +3,7 @@
 
 {% if data['register-validate'] == "noMatch" %}
   <!-- We approve all if CIP except mentors with flags -->
-  {% if data['training-programme'] == "CIP" %}
+  {% if data['inductionProgramme'] == "CIP" %}
     {% set pageHeading = "You’re eligible for this programme" %}
   {% else %}
     {% set pageHeading = "Information submitted" %}
@@ -25,13 +25,13 @@
       <h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
 
 
-      {% if data['training-programme'] == "FIP" %}
+      {% if data['inductionProgramme'] == "FIP" %}
       <!-- FIP -->
         {% if data['participantType'] == "ECT" %}
           <!-- Participant type ECT -->
           {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
-            {% if (data['InPartnership'] == "Yes") %}
+            {% if (data['fipPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
               <p class="govuk-body">You will not need to use this service again during your training.</p>
@@ -45,7 +45,7 @@
 
           {% else %}
           <!-- Not failed validation -->
-            {% if (data['InPartnership'] == "Yes") %}
+            {% if (data['fipPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">You will not need to use this service again during your training.</p>
               <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
@@ -61,7 +61,7 @@
         <!-- Participant type is Mentor or sitMentor -->
             {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
-              {% if (data['InPartnership'] == "Yes") %}
+              {% if (data['fipPartnership'] == "Yes") %}
             <!-- In Partnership -->
                 <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
                 <p class="govuk-body">You will not need to use this service again during your training.</p>
@@ -74,7 +74,7 @@
 
             {% else %}
           <!-- Not failed validation -->
-              {% if (data['InPartnership'] == "Yes") %}
+              {% if (data['fipPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">You will not need to use this service again during your training.</p>
               <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
@@ -86,7 +86,7 @@
         {% endif %}
 
 
-      {% elif data['training-programme'] == "CIP" %}
+      {% elif data['inductionProgramme'] == "CIP" %}
       <!-- CIP -->
         {% if data['participantType'] == "ECT" %}
         <!-- Participant ECT -->
@@ -109,8 +109,8 @@
           {% endif %}
         {% endif %}
 
-      {% elif not data['training-programme'] %}
-        <p>You will not see correct content as you have not chosen which type of training-programme on the preload.</p>
+      {% elif not data['inductionProgramme'] %}
+        <p>You will not see correct content as you have not chosen which type of inductionProgramme on the preload.</p>
       {% endif %}
 
 

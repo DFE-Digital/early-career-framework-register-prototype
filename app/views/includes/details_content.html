@@ -16,9 +16,9 @@
       {% elif data['status'] == "Checking" %}
 
         <div class="govuk-inset-text">
-          {% if data['training-programme'] == "FIP" %}
+          {% if data['inductionProgramme'] == "FIP" %}
 
-            {% if data['InPartnership'] == "Yes" %}
+            {% if data['fipPartnership'] == "Yes" %}
               <p><span class="govuk-!-font-weight-bold">Status:</span> DfE checking eligibility</p>
               <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
             {% else %}
@@ -26,7 +26,7 @@
               <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
             {% endif %}
 
-          {% elif data['training-programme'] == "CIP" %}
+          {% elif data['inductionProgramme'] == "CIP" %}
             <p>No action required.</p>
           {% endif %}
         </div>
@@ -34,9 +34,9 @@
       {% elif data['status'] == "Start" %}
 
         <div class="govuk-inset-text">
-        {% if data['training-programme'] == "FIP" %}
+        {% if data['inductionProgramme'] == "FIP" %}
 
-          {% if data['InPartnership'] == "Yes" %}
+          {% if data['fipPartnership'] == "Yes" %}
             <p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>
             <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
           {% else %}
@@ -44,7 +44,7 @@
             <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
           {% endif %}
 
-        {% elif data['training-programme'] == "CIP" %}
+        {% elif data['inductionProgramme'] == "CIP" %}
           <p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>
           <p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
         {% endif %}
@@ -53,7 +53,7 @@
 
       {% elif data['status'] == "NotEligible" %}
 
-        {% if data['training-programme'] == "FIP" %}
+        {% if data['inductionProgramme'] == "FIP" %}
 
           {% if data['ParticipantType'] == "Mentor" %}
 
@@ -104,7 +104,7 @@
 
 
 
-        {% elif data['training-programme'] == "CIP" %}
+        {% elif data['inductionProgramme'] == "CIP" %}
 
           <div class="govuk-inset-text">
             <p><span class="govuk-!-font-weight-bold">Status:</span> Not eligible</p>
