@@ -75,7 +75,7 @@
             <p class="govuk-!-margin-bottom-5">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
 
             <form class="form" action="confirmation" method="post" >
-                <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just removes values on link actions -->
+                <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just double check to remove value on change actions -->
 
                 {% if data['participantType'] == "ECT" %}
                     {% if data['participant-1-added'] %}
