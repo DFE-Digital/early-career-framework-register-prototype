@@ -14,78 +14,61 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <p>Teachers will need to do different things to prepare for and complete the early career teacher (ECT) training programme, depending on their role. </p>
+            <p>You can <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england">read the full list of responsibilities for each role in section 5 of the statutory guidance</a>. </p>
 
-          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            <h2 class="govuk-heading-m">Mentor</h2>
+            <p>This new role has been introduced as part of the <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview" class="govuk-link">early career framework (ECF) reforms</a>.</p>
+            <p>Mentor responsibilities include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>working with your school to make sure ECTs receive a high-quality induction programme</li>
+                <li>meeting regularly with their ECTs to provide support and feedback</li>
+                <li>providing or arranging mentoring and coaching around specific phases and subject areas</li>
+            </ul>
 
-      <p>Teachers will need to do different things to prepare for and complete the early career teacher (ECT) training programme, depending on their role. </p>
+            <h2 class="govuk-heading-m">Induction tutor</h2>
+            <p>This role has different responsibilities to a mentor. These include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>providing or coordinating the induction programme for your early career teachers (ECTs)</li>
+                <li>carrying out assessments and regular progress reviews</li>
+            </ul>
 
-      <p>You can <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/induction-for-early-career-teachers-england">read the full list of responsibilities for each role in section 5 of the statutory guidance</a>. </p>
+            <div class="govuk-inset-text">
+                <p>An induction tutor should only assign themself as a mentor in exceptional circumstances.</p>
+                <p>If your school needs you to do this, you should: </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>make sure you can take on the full responsibilities of both roles</li>
+                    <li>put safeguards in place to separate mentoring from assessment sessions</li>
+                </ul>
+            </div>
+            <p>Use your judgement to apply the best and fairest process for your ECTs and your school. If you need more guidance, contact your appropriate body.</p>
 
-      <h2 class="govuk-heading-m">Mentor</h2>
-      <p>This new role has been introduced as part of the <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview" class="govuk-link">early career framework (ECF) reforms</a>.</p>
-      <p>Mentor responsibilities include:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>working with your school to make sure ECTs receive a high-quality induction programme</li>
-          <li>meeting regularly with their ECTs to provide support and feedback</li>
-          <li>providing or arranging mentoring and coaching around specific phases and subject areas</li>
-      </ul>
+            <h2 class="govuk-heading-m">Early career teacher (ECT)</h2>
+            <p>The ECT’s responsibilities include:</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li>providing evidence that they have QTS and are eligible to start induction</li>
+                <li>meeting with their induction tutor to discuss, agree and review priorities for their induction programme </li>
+            </ul>
 
-      <h2 class="govuk-heading-m">Induction tutor</h2>
-      <p>This role has different responsibilities to a mentor. These include:</p>
-      <ul class="govuk-list govuk-list--bullet">
-          <li>providing or coordinating the induction programme for your early career teachers (ECTs)</li>
-          <li>carrying out assessments and regular progress reviews</li>
-      </ul>
+            <!-- There should be no continue button if you are just looking at this  -->
+            {% if not data['userstatus'] %}
 
-      <!-- {{ govukInsetText({
-        text: " "
-        }) }} -->
+                {% if not data['link-role'] %}
+                <form method="post" action="../participants/" >
+                    <input type="hidden" name="roles-explanation" id="roles" value="Seen" />
 
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </form>
+                {% endif %}
 
-      <!-- <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-          An induction tutor should only assign themself as a mentor in exceptional circumstances.
-          </strong>
-      </div>  -->
-
-      <div class="govuk-inset-text">
-        <p>An induction tutor should only assign themself as a mentor in exceptional circumstances.</p>
-        <p>If your school needs you to do this, you should: </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>make sure you can take on the full responsibilities of both roles</li>
-            <li>put safeguards in place to separate mentoring from assessment sessions</li>
-        </ul>
-      </div>
-      <p>Use your judgement to apply the best and fairest process for your ECTs and your school. If you need more guidance, contact your appropriate body.</p>
-
-      <h2 class="govuk-heading-m">Early career teacher (ECT)</h2>
-      <p>The ECT’s responsibilities include:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-        <li>providing evidence that they have QTS and are eligible to start induction</li>
-          <li>meeting with their induction tutor to discuss, agree and review priorities for their induction programme </li>
-      </ul>
-
-      <!-- There should be no continue button if you are just looking at this  -->
-      {% if not data['userstatus'] %}
-
-      {% if not data['link-role'] %}
-        <form method="post" action="../participants/" >
-          <input type="hidden" name="roles-seen" id="roles" value="Yes" />
-
-          {{ govukButton({
-            text: "Continue"
-            }) }}
-
-        </form>
-      {% endif %}
-      {% endif %}
-
-    </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
