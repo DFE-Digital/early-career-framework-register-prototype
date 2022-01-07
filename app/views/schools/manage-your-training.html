@@ -116,42 +116,17 @@
                         </div>
                         <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Programme</dt>
-                            <dd class="govuk-summary-list__value">
-                                {% if data['inductionProgramme'] == "FIP" %}
-                                    Training provider, funded by the DfE
-                                {% elif data['inductionProgramme'] == "CIP" %}
-                                    DfE accredited materials
-                                {% elif data['inductionProgramme'] == "DYO" %}
-                                    Design and deliver your own programme based on the Early Career Framework (ECF)
-                                {% elif data['inductionProgramme'] == "noECT" %}
-                                    Expecting no early career teachers
-                                {% elif (data['inductionProgramme'] === "temphold") %}
-                                    You’ve chosen to use a training provider funded by your school
-                                {% endif %}
-                            </dd>
+                            <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
                         </div>
-
-                        <!-- Using an approved training provider -->
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Training provider</dt>
-                                <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
-                            </div>
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Delivery partner</dt>
-                                <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
-                            </div>
-                        <!-- Using DfE accredited materials -->
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Materials</dt>
-                                <dd class="govuk-summary-list__value">{{ data['accredited-materials'] }}</dd>
-                            </div>
-
-                        {% endif %}
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Training provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                        </div>
                     </dl>
-
-                    {% include "includes/mt-message.html" %}
                     <!-- ///// End of 2020 //// -->
 
                 {% endset -%}
@@ -166,7 +141,7 @@
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">ECTs and mentors</dt>
                             <dd class="govuk-summary-list__value">7</dd>
-                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2019">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2019">View<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
                         </div>
                         <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Induction tutor</dt>
@@ -174,44 +149,19 @@
                         </div>
                         <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             <dt class="govuk-summary-list__key">Programme</dt>
-                            <dd class="govuk-summary-list__value">
-                                {% if data['inductionProgramme'] == "FIP" %}
-                                    Training provider, funded by the DfE
-                                {% elif data['inductionProgramme'] == "CIP" %}
-                                    DfE accredited materials
-                                {% elif data['inductionProgramme'] == "DYO" %}
-                                    Design and deliver your own programme based on the Early Career Framework (ECF)
-                                {% elif data['inductionProgramme'] == "noECT" %}
-                                    Expecting no early career teachers
-                                {% elif (data['inductionProgramme'] === "temphold") %}
-                                    You’ve chosen to use a training provider funded by your school
-                                {% endif %}
-                            </dd>
+                            <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
                         </div>
-                        <!-- Using DfE accredited materials -->
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Training provider</dt>
-                                <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
-                            </div>
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Delivery partner</dt>
-                                <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
-                            </div>
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Programme</dt>
-                                <dd class="govuk-summary-list__value">DfE accredited materials</dd>
-                            </div>
-                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                <dt class="govuk-summary-list__key">Materials</dt>
-                                <dd class="govuk-summary-list__value">{{ data['accredited-materials'] }}</dd>
-                            </div>
-                        {% endif %}
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Training provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                        </div>
                     </dl>
                     <!-- ///// End of 2019 //// -->
                 {% endset -%}
-
 
                 {% set pastArchiveHtml %}
                     <!-- ///// Start of 2019 //// -->
@@ -228,8 +178,6 @@
                     ]
                 }) }}
 
-
-            <!-- Current view  with only 1 academic year -->
             {% else %}
 
                 <!-- Check to make sure they are on a programme that allows addition of ECT -->
