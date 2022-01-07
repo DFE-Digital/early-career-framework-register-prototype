@@ -16,7 +16,7 @@
         classes: "govuk-!-margin-bottom-7"
           }) }}
 
-      {% if (data['training-programme'] === "FIP") %}
+      {% if (data['inductionProgramme'] === "FIP") %}
 
         <h2 class="govuk-heading-m">What to do next</h2>
         <p>You need to:</p>
@@ -31,7 +31,7 @@
         <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us to arrange funding.</p>
         <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
 
-      {% elif (data['training-programme'] === "CIP") %}
+      {% elif (data['inductionProgramme'] === "CIP") %}
 
         <h2 class="govuk-heading-m">What to do next</h2>
         <p>You need to:</p>
@@ -46,7 +46,7 @@
 
         <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
 
-      {% elif (data['training-programme'] === "DYO") %}
+      {% elif (data['inductionProgramme'] === "DYO") %}
 
         <h2 class="govuk-heading-m">What to do next</h2>
         <p>You need to:</p>
@@ -63,14 +63,14 @@
         <p>You do not need to add information about your ECTs and mentors to this service.</p>
         <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" class="govuk-link" rel="noreferrer noopener" target="_blank"> See our statutory guidance (open in new tab)</a> for information about funding, time off, and roles.</p>
 
-      {% elif (data['training-programme'] === "noECT") %}
+      {% elif (data['inductionProgramme'] === "noECT") %}
 
         <h3 class="govuk-heading-m">What to do next</h3>
         <p>Your school will not receive any more messages about statutory inductions for ECTs until the next academic year.</p>
         <p>If any ECTs do join your school this year, you need to use this service to let us know.</a></p>
 
       <!-- This is an option was looking at with Shani for future. -->
-      {% elif (data['training-programme'] === "temphold") %}
+      {% elif (data['inductionProgramme'] === "temphold") %}
 
         <h3 class="govuk-heading-m">What to do next</h3>
 

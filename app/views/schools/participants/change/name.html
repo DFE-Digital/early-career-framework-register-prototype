@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What should we change their name to?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form class="form" action="confirmation" method="post">
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
+                    {% if data['participantType'] == "mentor" %}
+                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-name" name="participant-1-mentor-name" type="text" value="{{ data['participant-1-mentor-name'] }}" >
+                    {% else %}
+                        {% if data['ect-participant-added'] %}
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-name" name="participant-2-name" type="text" value="{{ data['participant-2-name'] }}" >
+                        {% else %}
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-name" name="participant-1-name" type="text" value="{{ data['participant-1-name'] }}" >
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

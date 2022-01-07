@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s their new email address? ' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <!-- If coming from the participant details page -->
+
+            <form class="form" action="confirmation" method="post">
+                <!-- <input type="hidden" id="details-change-action" name="details-change-action" value="" />
+                <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /> -->
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-visually-hidden" for="event-name">Email address</label>
+                    <div id="event-name-hint" class="govuk-hint">You can enter their personal or school email address.</div>
+                        {% if data['participantType'] == "mentor" %}
+                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-mentor" name="participant-email-address-mentor" type="email" value="{{ data['participant-email-address-mentor'] }}" spellcheck="false" autocomplete="email" >
+                        {% else %}
+                            {% if data['ect-participant-added'] %}
+                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-2" name="participant-email-address-2" type="email" value="{{ data['participant-email-address-2'] }}" spellcheck="false" autocomplete="email">
+                            {% else %}
+                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address" name="participant-email-address" type="email" value="{{ data['participant-email-address'] }}" spellcheck="false" autocomplete="email">
+                            {% endif %}
+                        {% endif %}
+                </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

@@ -20,12 +20,12 @@
             {% if data['neworexistingmentor'] == "existingMentor"  %}
               {{ data['choose-existing-mentor'] }}
             {% elif data['participantType'] == "mentor" %}
-              {{ data['participant-fullname-mentor'] }}
+              {{ data['participant-1-mentor-name'] }}
             {% elif data['participantType'] == "ECT" %}
-              {% if data['added-ect'] %}
-                {{ data['participant-fullname-2'] }}
+              {% if data['ect-participant-added'] %}
+                {{ data['participant-2-name'] }}
               {% else %}
-                {{ data['participant-fullname'] }}
+                {{ data['participant-1-name'] }}
               {% endif %}
             {% endif %}
           </dd>
@@ -39,7 +39,7 @@
             {% if data['participantType'] == "mentor" %}
               {{ data['participant-email-address-mentor'] }}
             {% elif data['participantType'] == "ECT" %}
-              {% if data['added-ect'] %}
+              {% if data['ect-participant-added'] %}
                 {{ data['participant-email-address-2'] }}
               {% else %}
                 {{ data['participant-email-address'] }}
@@ -57,7 +57,7 @@
                     {% if data['participantType'] == "mentor" %}
                         {{ data['participant-email-address-mentor'] }}
                     {% elif data['participantType'] == "ECT" %}
-                        {% if data['added-ect'] %}
+                        {% if data['ect-participant-added'] %}
                             {{ data['ect-start-date'] }}
                         {% else %}
                             {{ data['ect-start-date'] }}
@@ -81,35 +81,6 @@
 
         <!-- // -->
 
-
-
-
-            <!-- {% if (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'ect') %}
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Mentor</dt>
-            <dd class="govuk-summary-list__value">{{ data['who-is-mentor'] }}</dd>
-            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor-for-ect">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
-          </div>
-
-        {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'mentor') %}
-
-          <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Early career teachers</dt>
-                <dd class="govuk-summary-list__value">{{ data['chooseEct'] }}</dd>
-                <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-ect-for-cohort">Change<span class="govuk-visually-hidden"> ect</span></a></dd>
-              </div>
-
-        {% elif (data['schoolParticipantOptions'] === 'hasAddedMentors' and data['participantType'] === 'sitmentor') %}
-
-          <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Early career teachers</dt>
-                <dd class="govuk-summary-list__value">{{ data['chooseEct'] }}</dd>
-                <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-ect-for-cohort">Change<span class="govuk-visually-hidden"> ect</span></a></dd>
-              </div>
-
-            {% endif %} -->
-
       </dl>
 
           <p class="govuk-!-margin-bottom-7">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
@@ -118,10 +89,10 @@
             <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just a double check to remove and link actions -->
 
         {% if data['participantType'] == "ECT" %}
-          {% if data['added-ect'] %}
-            <input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" />
+          {% if data['ect-participant-added'] %}
+            <input type="hidden" name="ect-participant-added-2" id="ect-participant-added-2" value="Yes" />
           {% else %}
-            <input type="hidden" name="added-ect" id="added-ect" value="Yes" />
+            <input type="hidden" name="ect-participant-added" id="ect-participant-added" value="Yes" />
           {% endif %}
         {% elif data['participantType'] == "mentor" %}
           <input type="hidden" name="added-mentor" id="added-mentor" value="Yes" />

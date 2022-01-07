@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You cannot change their name" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if ((data['change-name-reason'] == "Not started employment") or (data['change-email-reason'] == "Not started employment")) %}
+                <p>If this person is no longer completing their ECF induction at your school, you need to remove them from this service.</p>
+
+                <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
+
+                <p>Contact {{ data.leadProvider }} to remove {{ data.sitName }}.</p>
+
+                <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
+
+                <p><a href="../confirm-delete">Remove this person{{ data['participant-1-name'] }}</a></p>
+
+                <!--- IF ECT --->
+
+                <p>You need to register the new ECT separately. This is so that:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>we can check their eligibility for funded training</li>
+                    <li>their training is recorded against their own teacher reference number (TRN)</li>
+                </ul>
+
+                <p><a href="add/name?participantType=ECT">Add a new ECT</a></p>
+
+                <!--- End of ECT --->
+
+                <!--- If mentor --->
+
+                <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
+
+                <p><a href="add/name?participantType=mentor">Add a new mentor</a></p>
+
+                <!--- End of mentor --->
+
+
+            {% elif ((data['change-name-reason'] == "Registered by mistake") or (data['change-email-reason'] == "Registered by mistake")) %}
+
+                <p>If this person is no longer completing their ECF induction at your school, you need to remove them from this service.</p>
+
+                <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
+
+                <p>Contact {{ data.leadProvider }} to remove {{ data.sitName }}.</p>
+
+                <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
+
+                <p><a href="../confirm-delete">Remove this person{{ data['participant-1-name'] }}</a></p>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -3,14 +3,14 @@
 
 
 {% if data['participantType'] == "mentor" %}
-    {% set pageHeading = 'What’s ' + data['participant-fullname-mentor'] + '’s email address? ' %}
+    {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s email address? ' %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'What’s ' + data['participant-fullname-2'] + '’s email address? ' %}
-    {% elif data['added-ect'] %}
-        {% set pageHeading = 'What’s ' + data['participant-fullname-2'] + '’s email address? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s email address? ' %}
+    {% elif data['ect-participant-added'] %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s email address? ' %}
     {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-fullname'] + '’s email address? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s email address? ' %}
     {% endif %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -48,7 +48,7 @@
                 {% if data['participantType'] == "mentor" %}
                     <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-mentor" name="participant-email-address-mentor" type="email" value="{{ data['participant-email-address-mentor'] }}" spellcheck="false" autocomplete="email" >
                 {% else %}
-                    {% if data['added-ect'] %}
+                    {% if data['ect-participant-added'] %}
                         <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-2" name="participant-email-address-2" type="email" value="{{ data['participant-email-address-2'] }}" spellcheck="false" autocomplete="email">
                     {% else %}
                         <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address" name="participant-email-address" type="email" value="{{ data['participant-email-address'] }}" spellcheck="false" autocomplete="email">

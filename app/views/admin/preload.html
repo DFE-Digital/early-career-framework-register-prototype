@@ -24,7 +24,7 @@
                         {{ govukCheckboxes({
                             fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
                             items: [ { value: "Yes", text: "In partnership" } ]
-                        } | decorateFormAttributes('InPartnership')) }}
+                        } | decorateFormAttributes('fipPartnership')) }}
 
                         <!-- Not eligible for funding -->
                         {{ govukCheckboxes({
@@ -51,7 +51,7 @@
                             { value: "DYO", text: "DYO - Design and deliver own based ECF" },
                             { value: "noECT", text: "Not expecting to have any early career teachers" }
                         ]
-                      } | decorateFormAttributes('training-programme')) }}
+                      } | decorateFormAttributes('inductionProgramme')) }}
                 </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
@@ -182,7 +182,7 @@
                         legend: { text: "Entry page for journey", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "choose-induction, redirect(/schools/training-programme/)", text: "Choose induction programme" },
+                        { value: "choose-induction, redirect(/schools/inductionProgramme/)", text: "Choose induction programme" },
                         { value: "manage-training-email, redirect(/emails/link-to-sign-in)", text: "Manage training for cohort from sign in email" },
                         { value: "manage-training-mat, redirect(/schools/)", text: "Manage training as MAT" },
                         { value: "validation, redirect(/schools/participants/register/)", text: "Validate a participant" }

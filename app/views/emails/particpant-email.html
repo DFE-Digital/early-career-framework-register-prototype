@@ -20,7 +20,7 @@
 
 
 
-      {% if ((data['participantType'] == "sitMentor") and ((data['training-programme'] == "CIP") or (data['training-programme'] == "FIP"))) %}
+      {% if ((data['participantType'] == "sitMentor") and ((data['inductionProgramme'] == "CIP") or (data['inductionProgramme'] == "FIP"))) %}
 
       <!-- <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
@@ -28,7 +28,7 @@
 
       <div class="pseudo-email-template">
 
-          <p>Hello, {{ data.userFirstName }}</p>
+          <p>Hello, {{ data.sitFirstName }}</p>
           <p>You’ve nominated yourself as a mentor for early career teachers (ECTs) at {{ data.schoolName }}.</p>
         <p>An induction tutor should only assign themself as a mentor in exceptional circumstances. Read our guidance to make sure you can take on the full responsibilities of both roles: ((role_guidance))</p>
           <p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
@@ -62,7 +62,7 @@
 
 
       <!-- CIP mentor (in beta programme) -->
-        {% elif ((data['participantType'] == "mentor") and (data['training-programme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
+        {% elif ((data['participantType'] == "mentor") and (data['inductionProgramme'] == "CIP") and (data['betaProgramme'] == "Yes")) %}
 
         <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Confirm your details as a mentor for early career teachers</p>
@@ -70,7 +70,7 @@
 
       <div class="pseudo-email-template">
 
-          <p>Hello, {{ data.userFirstName }}</p>
+          <p>Hello, {{ data.sitFirstName }}</p>
           <p>{{ data.schoolName }} has nominated you to mentor early career teachers, and you should now have access to your training materials.</p>
           <p>Before you begin mentoring, the Department for Education needs some important information from you.</p>
 
@@ -92,14 +92,14 @@
 
 
         <!-- FIP mentor -->
-        {% elif ((data['training-programme'] == "FIP") or (data['participantType'] == "sitMentor") and (data['participantType'] == "mentor") ) %}
+        {% elif ((data['inductionProgramme'] == "FIP") or (data['participantType'] == "sitMentor") and (data['participantType'] == "mentor") ) %}
 
           <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
           <p><strong>Subject: </strong>Add your details to start your mentor training</p>
         </div>
         <div class="pseudo-email-template">
 
-        <p>Hello, {{ data.userFirstName }}</p>
+        <p>Hello, {{ data.sitFirstName }}</p>
           <p>{{ data.schoolName }} has nominated you to mentor early career teachers (also known as NQTs).</p>
           <p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify for mentor training and support.</p>
 
@@ -125,14 +125,14 @@
           <span style="color:#888888;">Department for Education</span></p>
 
       <!-- CIP mentor (not in beta programme) registration email -->
-      {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor") and (data['training-programme'] == "CIP")) %}
+      {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor") and (data['inductionProgramme'] == "CIP")) %}
 
         <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
         <p><strong>Subject: </strong>Add your details to access your mentor training materials </p>
       </div>
       <div class="pseudo-email-template">
 
-        <p>Hello, {{ data.userFirstName }}</p>
+        <p>Hello, {{ data.sitFirstName }}</p>
         <p>{{ data.schoolName }} has nominated you to mentor early career teachers (also known as NQTs).</p>
         <p>Before you begin mentoring, the Department for Education needs some important information from you. This is to confirm you qualify as a mentor, so that we can give you access to training materials.</p>
 
@@ -165,7 +165,7 @@
 
       <div class="pseudo-email-template">
 
-        <p>Hello, {{ data.userFirstName }}</p>
+        <p>Hello, {{ data.sitFirstName }}</p>
         <p>{{ data.schoolName }} has let us know that you’ll be joining them soon. They’re organising a training programme for you.</p>
         <p><strong>About your training programme</strong></p>
           <p>All early career teachers now complete a 2-year induction programme. This includes structured training and support to help you get your teaching career off to the best possible start.</p>
