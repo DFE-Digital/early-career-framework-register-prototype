@@ -94,11 +94,11 @@
                             {{ data.sitEmail }}
                         {% else %}
                             {% if data['user-details'] == "ect-2" %}
-                                {{ data['participant-email-address-2'] }}
+                                {{ data['participant-2-email'] }}
                             {% elif data['user-details'] == "ect" %}
-                                {{ data['participant-email-address'] }}
+                                {{ data['participant-1-email'] }}
                             {% elif data['user-details'] == "mentor" %}
-                                {{ data['participant-email-address-mentor'] }}
+                                {{ data['participant-1-mentor-email'] }}
                             {% elif data['user-details'] == "sitMentor" %}
                                 {{ data.sitEmail }}
                             {% else %}
@@ -125,7 +125,7 @@
                     <dt class="govuk-summary-list__key"> Start induction</dt>
                     <dd class="govuk-summary-list__value">
                     {% if data['participantType'] == "mentor" %}
-                        {{ data['participant-email-address-mentor'] }}
+                        {{ data['participant-1-mentor-email'] }}
                     {% elif data['participantType'] == "ECT" %}
                         {% if data['ect-participant-added'] %}
                             {{ data['ect-start-date'] }}
