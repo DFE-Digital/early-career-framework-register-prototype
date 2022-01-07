@@ -8,7 +8,11 @@
         {% set pageHeading = 'When do you expect ' + data['participant-1-name'] + ' to start their induction programme?' %}
     {% endif %}
 {% elif data['participantType'] == "mentor" %}
-    {% set pageHeading = 'When do you expect ' + data['participant-1-mentor-name'] + ' to begin mentoring ECTs?' %}
+    {% if data['participant-1-mentor-added'] %}
+        {% set pageHeading = 'When do you expect ' + data['participant-2-mentor-name'] + ' to begin mentoring ECTs?' %}
+    {% else %}
+        {% set pageHeading = 'When do you expect ' + data['participant-1-mentor-name'] + ' to begin mentoring ECTs?' %}
+    {% endif %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
         {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to begin mentoring ECTs?' %}
@@ -38,8 +42,12 @@
             {% else %}
                 {% if data['participantType'] == "ECT" %}
 
-                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
-                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
+                        {% if data['participant-1-added'] == "Yes" %}
+                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                        {% else %}
+                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                        {% endif %}
                     {% else %}
                         <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                     {% endif %}

@@ -8,7 +8,11 @@
         {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s email address? ' %}
     {% endif %}
 {% elif data['participantType'] == "mentor" %}
-    {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s email address? ' %}
+    {% if data['participant-1-mentor-added'] %}
+        {% set pageHeading = 'What’s ' + data['participant-2-mentor-name'] + '’s email address? ' %}
+    {% else %}
+        {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s email address? ' %}
+    {% endif %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
         {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s email address? ' %}
