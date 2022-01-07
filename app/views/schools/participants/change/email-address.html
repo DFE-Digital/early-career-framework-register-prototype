@@ -23,7 +23,7 @@
                         {% if data['participantType'] == "mentor" %}
                         <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-email" name="participant-1-mentor-email" type="email" value="{{ data['participant-1-mentor-email'] }}" spellcheck="false" autocomplete="email" >
                         {% else %}
-                            {% if data['ect-participant-added'] %}
+                            {% if data['participant-1-added'] %}
                                 <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-email" name="participant-2-email" type="email" value="{{ data['participant-2-email'] }}" spellcheck="false" autocomplete="email">
                             {% else %}
                                 <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-email" name="participant-1-email" type="email" value="{{ data['participant-1-email'] }}" spellcheck="false" autocomplete="email">

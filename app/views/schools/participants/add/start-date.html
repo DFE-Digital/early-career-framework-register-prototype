@@ -1,15 +1,17 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['participantType'] == "mentor" %}
+{% if data['participantType'] == "ECT" %}
+    {% if data['participant-1-added'] %}
+        {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to start their induction programme?' %}
+    {% else %}
+        {% set pageHeading = 'When do you expect ' + data['participant-1-name'] + ' to start their induction programme?' %}
+    {% endif %}
+{% elif data['participantType'] == "mentor" %}
     {% set pageHeading = 'When do you expect ' + data['participant-1-mentor-name'] + ' to begin mentoring ECTs?' %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
         {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to begin mentoring ECTs?' %}
-    {% elif data['ect-participant-added'] %}
-        {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to start their induction programme?' %}
-    {% else %}
-        {% set pageHeading = 'When do you expect ' + data['participant-1-name'] + ' to start their induction programme?' %}
     {% endif %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -22,37 +24,57 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- If coming from the participant details page -->
-            {% if ((data['details-change-action'] == "change-ect-start-date" ) or (data['details-change-action'] == "change-ect-start-date-2")) %}
+            {% if ((data['details-change-action'] == "change-participant-1-start-date" ) or (data['details-change-action'] == "change-participant-1-start-date-2")) %}
                 <form class="form" action="../details" method="post">
                     <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
 
             <!-- If coming from the CYA page -->
-            {% elif data['cya-action'] == "change-ect-start-date" %}
+            {% elif data['cya-action'] == "change-participant-1-start-date" %}
                 <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                     <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 
-            <!-- Otherwise first run through -->
+            <!-- Default add participant journey -->
             {% else %}
-
                 {% if data['participantType'] == "ECT" %}
-                    {% if ((data['added-mentor'] == "Yes") or (data['added-sitMentor'] == "Yes")) %}
+
+                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
                         <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                     {% else %}
                         <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                     {% endif %}
+
                 {% elif data['participantType'] == "mentor" %}
                     <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}
+
             {% endif %}
 
-                {{ govukRadios({
-                    items: [
-                        { value: "Autumn 2021", text: "Autumn 2021" } ,
-                        { value: "Spring 2022", text: "Spring 2022" },
-                        { value: "Summer 2022", text: "Summer 2022" }
-                    ]
-                } | decorateFormAttributes("ect-start-date")) }}
+                {% if data['participantType'] == "ECT" %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "Autumn 2021", text: "Autumn 2021" } ,
+                            { value: "Spring 2022", text: "Spring 2022" },
+                            { value: "Summer 2022", text: "Summer 2022" }
+                        ]
+                    } | decorateFormAttributes('participant-2-start-date' if data['participant-1-added'] else 'participant-1-start-date')) }}
+
+                {% elif data['participantType'] == "mentor" %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "Autumn 2021", text: "Autumn 2021" } ,
+                            { value: "Spring 2022", text: "Spring 2022" },
+                            { value: "Summer 2022", text: "Summer 2022" }
+                        ]
+                    } | decorateFormAttributes('participant-2-mentor-start-date' if data['participant-1-mentor-added'] else 'participant-1-mentor-start-date' )) }}
+
+                    {% else %}
+                        <!-- Dont really need this but its just incase someone looks at the page independently -->
+                        <p>You have not selected a participant type to choose a start date.</p>
+
+                    {% endif %}
 
                 {{ govukButton({
                     text: "Continue"
