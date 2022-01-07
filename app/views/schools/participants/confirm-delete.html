@@ -2,11 +2,11 @@
 {% set schoolSignedIn = true %}
 
 {% if data['user-details'] == "ect-2" %}
-  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-2'] + '?' %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-2-name'] + '?' %}
 {% elif data['deletelink'] == "ect" %}
-  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname'] + '?' %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-1-name'] + '?' %}
 {% elif data['deletelink'] == "mentor" %}
-  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-fullname-mentor'] + '?' %}
+  {% set pageHeading = 'Are you sure you want to remove ' + data['participant-1-mentor-name'] + '?' %}
 {% elif data['deletelink'] == "sitMentor" %}
   {% set pageHeading = 'Are you sure you want to remove Hugo Furst?' %}
 {% else %}

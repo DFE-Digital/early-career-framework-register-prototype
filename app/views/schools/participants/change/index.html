@@ -9,11 +9,11 @@
         {% set pageHeading = 'Why do you need to edit Hugo Furst’s email address?' %}
     {% else %}
         {% if data['user-details'] == "ect-2" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname-2'] + '’s email address?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-2-name'] + '’s email address?' %}
         {% elif data['user-details'] == "ect" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname'] + '’s email address?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-1-name'] + '’s email address?' %}
         {% elif data['user-details'] == "mentor" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname-mentor'] + '’s email address?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-1-mentor-name'] + '’s email address?' %}
         {% elif data['user-details'] == "sitMentor" %}
             {% set pageHeading = 'Why do you need to edit Hugo Furst’s email address?' %}
         {% else %}
@@ -27,11 +27,11 @@
         {% set pageHeading = 'Why do you need to edit Hugo Furst’s name?' %}
     {% else %}
         {% if data['user-details'] == "ect-2" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname-2'] + '’s name?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-2-name'] + '’s name?' %}
         {% elif data['user-details'] == "ect" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname'] + '’s name?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-1-name'] + '’s name?' %}
         {% elif data['user-details'] == "mentor" %}
-            {% set pageHeading = 'Why do you need to edit ' + data['participant-fullname-mentor'] + '’s name?' %}
+            {% set pageHeading = 'Why do you need to edit ' + data['participant-1-mentor-name'] + '’s name?' %}
         {% elif data['user-details'] == "sitMentor" %}
             {% set pageHeading = 'Why do you need to edit Hugo Furst’s name?' %}
         {% else %}

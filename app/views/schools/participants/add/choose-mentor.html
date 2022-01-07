@@ -5,9 +5,9 @@
   {% set pageHeading = 'You cannot assign a mentor to this ECT' %}
 {% else %}
   {% if data['ect-participant-added'] %}
-    {% set pageHeading = 'Who’s ' + data['participant-fullname-2'] + '’s mentor?' %}
+    {% set pageHeading = 'Who’s ' + data['participant-2-name'] + '’s mentor?' %}
   {% else %}
-    {% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
+    {% set pageHeading = 'Who’s ' + data['participant-1-name'] + '’s mentor?' %}
   {% endif %}
 
 
@@ -39,12 +39,12 @@
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-visually-hidden">  Who’s {{data['participant-fullname'] }}’s mentor?</legend>
+                <legend class="govuk-fieldset__legend govuk-visually-hidden">  Who’s {{data['participant-1-name'] }}’s mentor?</legend>
                 <div class="govuk-radios">
                 {% if data['added-mentor'] == "Yes" %}
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ data['participant-fullname-mentor'] }}">
-                    <label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ data['participant-fullname-mentor'] }}</label>
+                    <input class="govuk-radios__input" id="who-is-mentor" name="who-is-mentor" type="radio" value="{{ data['participant-1-mentor-name'] }}">
+                    <label class="govuk-label govuk-radios__label" for="who-is-mentor">{{ data['participant-1-mentor-name'] }}</label>
                 </div>
                 {% endif %}
 

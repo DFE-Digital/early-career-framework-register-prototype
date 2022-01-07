@@ -140,7 +140,7 @@
         <tbody class="govuk-table__body">
             {% if data['ect-participant-added-2'] == "Yes" %}
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell ">{{ data['participant-fullname-2'] }}</td>
+                <td class="govuk-table__cell ">{{ data['participant-2-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">{{ data['ect-start-date-2'] }}</td>
                 <td class="govuk-table__cell">Remind them
@@ -156,7 +156,7 @@
 
             {% if data['ect-participant-added'] == "Yes" %}
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell ">{{ data['participant-fullname'] }}</td>
+                <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">{{ data['ect-start-date'] }}</td>
                 <td class="govuk-table__cell">None</td>
@@ -321,7 +321,7 @@
 
             {% if data['added-mentor'] == "Yes" %}
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell ">{{ data['participant-fullname-mentor'] }}</td>
+                <td class="govuk-table__cell ">{{ data['participant-1-mentor-name'] }}</td>
                 <td class="govuk-table__cell">Mentor</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>

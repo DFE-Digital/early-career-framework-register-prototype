@@ -7,11 +7,11 @@
         {% set pageHeading = 'Why do you need to edit Hugo Furst’s email address?' %}
     {% else %}
         {% if data['user-details'] == "ect-2" %}
-            {% set pageHeading = '' + data['participant-fullname-2'] + '’s email address has been changed' %}
+            {% set pageHeading = '' + data['participant-2-name'] + '’s email address has been changed' %}
         {% elif data['user-details'] == "ect" %}
-            {% set pageHeading = '' + data['participant-fullname'] + '’s email address has been changed' %}
+            {% set pageHeading = '' + data['participant-1-name'] + '’s email address has been changed' %}
         {% elif data['user-details'] == "mentor" %}
-            {% set pageHeading = '' + data['participant-fullname-mentor'] + '’s email address has been changed' %}
+            {% set pageHeading = '' + data['participant-1-mentor-name'] + '’s email address has been changed' %}
         {% elif data['user-details'] == "sitMentor" %}
             {% set pageHeading = 'Hugo Furst’s email address has been changed' %}
         {% else %}
@@ -25,11 +25,11 @@
         {% set pageHeading = 'Why do you need to edit Hugo Furst’s name?' %}
     {% else %}
         {% if data['user-details'] == "ect-2" %}
-            {% set pageHeading = '' + data['participant-fullname-2'] + '’s name has been changed' %}
+            {% set pageHeading = '' + data['participant-2-name'] + '’s name has been changed' %}
         {% elif data['user-details'] == "ect" %}
-            {% set pageHeading = '' + data['participant-fullname'] + '’s name has been changed' %}
+            {% set pageHeading = '' + data['participant-1-name'] + '’s name has been changed' %}
         {% elif data['user-details'] == "mentor" %}
-            {% set pageHeading = '' + data['participant-fullname-mentor'] + '’s name has been changed' %}
+            {% set pageHeading = '' + data['participant-1-mentor-name'] + '’s name has been changed' %}
         {% elif data['user-details'] == "sitMentor" %}
             {% set pageHeading = 'Hugo Furst’s name has been changed' %}
         {% else %}

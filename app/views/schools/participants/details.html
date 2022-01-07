@@ -5,11 +5,11 @@
     {% set pageHeading = 'Hugo Furst' %}
 {% else %}
     {% if data['user-details'] == "ect-2" %}
-        {% set pageHeading = '' + data['participant-fullname-2'] + '' %}
+        {% set pageHeading = '' + data['participant-2-name'] + '' %}
     {% elif data['user-details'] == "ect" %}
-        {% set pageHeading = '' + data['participant-fullname'] + '' %}
+        {% set pageHeading = '' + data['participant-1-name'] + '' %}
     {% elif data['user-details'] == "mentor" %}
-        {% set pageHeading = '' + data['participant-fullname-mentor'] + '' %}
+        {% set pageHeading = '' + data['participant-1-mentor-name'] + '' %}
     {% elif data['user-details'] == "sitMentor" %}
         {% set pageHeading = 'Hugo Furst' %}
     {% else %}
@@ -54,11 +54,11 @@
                             {{ data.sitName }}
                         {% else %}
                             {% if data['user-details'] == "ect-2" %}
-                                {{ data['participant-fullname-2'] }}
+                                {{ data['participant-2-name'] }}
                             {% elif data['user-details'] == "ect" %}
-                                {{ data['participant-fullname'] }}
+                                {{ data['participant-1-name'] }}
                             {% elif data['user-details'] == "mentor" %}
-                                {{ data['participant-fullname-mentor'] }}
+                                {{ data['participant-1-mentor-name'] }}
                             {% elif data['user-details'] == "sitMentor" %}
                                 {{ data.sitName }}
                             {% elif data['user-details'] == "Random" %}
@@ -341,11 +341,11 @@
         {% if data['inductionProgramme'] == "FIP" %}
         <p>If
           {% if data['user-details'] == "ect-2" %}
-            {{ data['participant-fullname-2'] }}
+            {{ data['participant-2-name'] }}
           {% elif data['user-details'] == "ect" %}
-            {{ data['participant-fullname'] }}
+            {{ data['participant-1-name'] }}
           {% elif data['user-details'] == "mentor" %}
-             {{ data['participant-fullname-mentor'] }}
+             {{ data['participant-1-mentor-name'] }}
           {% elif data['user-details'] == "sitMentor" %}
             {{ data.sitName }}
           {% else %}
@@ -355,11 +355,11 @@
         {% else %}
         <p>If
           {% if data['user-details'] == "ect-2" %}
-            {{ data['participant-fullname-2'] }}
+            {{ data['participant-2-name'] }}
           {% elif data['user-details'] == "ect" %}
-            {{ data['participant-fullname'] }}
+            {{ data['participant-1-name'] }}
           {% elif data['user-details'] == "mentor" %}
-             {{ data['participant-fullname-mentor'] }}
+             {{ data['participant-1-mentor-name'] }}
           {% elif data['user-details'] == "sitMentor" %}
             {{ data.sitName }}
           {% else %}
@@ -376,11 +376,11 @@
             {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
 
               {% if data['user-details'] == "ect-2" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname-2'] }}.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
               {% elif data['user-details'] == "ect" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname'] }}.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
               {% elif data['user-details'] == "mentor" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-fullname-mentor'] }}.</p>
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
               {% elif data['user-details'] == "sitMentor" %}
                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
               {% else %}
@@ -395,11 +395,11 @@
             {% else %}
 
               {% if data['user-details'] == "ect-2" %}
-                <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-fullname-2'] }}</a></p>
+                <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-2-name'] }}</a></p>
               {% elif data['user-details'] == "ect" %}
-                <p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-fullname'] }}</a></p>
+                <p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-1-name'] }}</a></p>
               {% elif data['user-details'] == "mentor" %}
-                <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-fullname-mentor'] }}</a></p>
+                <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-1-mentor-name'] }}</a></p>
               {% elif data['user-details'] == "sitMentor" %}
                 <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.sitName }}</a></p>
               {% else %}

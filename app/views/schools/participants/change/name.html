@@ -16,12 +16,12 @@
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
                     {% if data['participantType'] == "mentor" %}
-                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-mentor" name="participant-fullname-mentor" type="text" value="{{ data['participant-fullname-mentor'] }}" >
+                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-name" name="participant-1-mentor-name" type="text" value="{{ data['participant-1-mentor-name'] }}" >
                     {% else %}
                         {% if data['ect-participant-added'] %}
-                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-2" name="participant-fullname-2" type="text" value="{{ data['participant-fullname-2'] }}" >
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-name" name="participant-2-name" type="text" value="{{ data['participant-2-name'] }}" >
                         {% else %}
-                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname" name="participant-fullname" type="text" value="{{ data['participant-fullname'] }}" >
+                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-name" name="participant-1-name" type="text" value="{{ data['participant-1-name'] }}" >
                         {% endif %}
                     {% endif %}
                 </div>

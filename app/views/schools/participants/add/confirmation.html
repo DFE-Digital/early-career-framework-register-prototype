@@ -5,15 +5,15 @@
 {% set sitMentorName = 'defaults.sitName()' %}
 
 {% if data['linkaction'] == "change-mentor-details"%}
-  {% set title = 'The mentor for ' + data['participant-fullname'] +  ' has been updated' %}
+  {% set title = 'The mentor for ' + data['participant-1-name'] +  ' has been updated' %}
 {% else %}
   {% if data['participantType'] == "mentor"  %}
-    {% set title = '' + data['participant-fullname-mentor'] +  ' has been added as a mentor' %}
+    {% set title = '' + data['participant-1-mentor-name'] +  ' has been added as a mentor' %}
   {% elif data['participantType'] == "ECT" %}
     {% if data['ect-participant-added-2'] %}
-      {% set title = '' + data['participant-fullname-2'] +  ' has been added as an ECT' %}
+      {% set title = '' + data['participant-2-name'] +  ' has been added as an ECT' %}
     {% elif data['ect-participant-added'] %}
-      {% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
+      {% set title = '' + data['participant-1-name'] +  ' has been added as an ECT' %}
     {% endif %}
   {% elif data['participantType'] == "sitMentor" %}
     {% set title = 'You’ve been added as a mentor' %}
