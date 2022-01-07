@@ -4,14 +4,16 @@
 {% if data['induction-tutor'] == "Yes" %}
     {% set pageHeading = 'Hugo Furst' %}
 {% else %}
-    {% if data['user-details'] == "ect-2" %}
-        {% set pageHeading = '' + data['participant-2-name'] + '' %}
-    {% elif data['user-details'] == "ect" %}
+    {% if data['user-details'] == "ect-1" %}
         {% set pageHeading = '' + data['participant-1-name'] + '' %}
-    {% elif data['user-details'] == "mentor" %}
+    {% elif data['user-details'] == "ect-2" %}
+        {% set pageHeading = '' + data['participant-2-name'] + '' %}
+    {% elif data['user-details'] == "mentor-1" %}
         {% set pageHeading = '' + data['participant-1-mentor-name'] + '' %}
+    {% elif data['user-details'] == "mentor-2" %}
+        {% set pageHeading = '' + data['participant-2-mentor-name'] + '' %}
     {% elif data['user-details'] == "sitMentor" %}
-        {% set pageHeading = 'Hugo Furst' %}
+        {% set pageHeading = '' + data.sitName + '' %}
     {% else %}
         {% set pageHeading = '' + data['random-name'] + '' %}
     {% endif %}
@@ -23,49 +25,24 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <!-- Do we need this notification header anymore -->
-            <!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-                <div class="govuk-notification-banner__header">
-                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
-                </div>
-                <div class="govuk-notification-banner__content">
-                    <h3 class="govuk-notification-banner__heading">You have updated the mentor for this early career teacher.</h3>
-                    <h3 class="govuk-notification-banner__heading">The participants name has been updated.</h3>
-                    <h3 class="govuk-notification-banner__heading">The participants email address has been updated.</h3>
-                </div>
-            </div> -->
-
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- Check if we need this include now -->
-            {% include "includes/details_content.html" %}
-
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-
-                {% if data['status'] == "Withdrawn" %}
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                {% else %}
-                <div class="govuk-summary-list__row">
-                {% endif %}
+                <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">
-
-                        {% if data['induction-tutor'] == "Yes" %}
+                        {% if data['user-details'] == "ect-1" %}
+                            {{ data['participant-1-name'] }}
+                        {% elif data['user-details'] == "ect-2" %}
+                            {{ data['participant-2-name'] }}
+                        {% elif data['user-details'] == "mentor-1" %}
+                            {{ data['participant-1-mentor-name'] }}
+                        {% elif data['user-details'] == "mentor-2" %}
+                            {{ data['participant-2-mentor-name'] }}
+                        {% elif data['user-details'] == "sitMentor" %}
                             {{ data.sitName }}
-                        {% else %}
-                            {% if data['user-details'] == "ect-2" %}
-                                {{ data['participant-2-name'] }}
-                            {% elif data['user-details'] == "ect" %}
-                                {{ data['participant-1-name'] }}
-                            {% elif data['user-details'] == "mentor" %}
-                                {{ data['participant-1-mentor-name'] }}
-                            {% elif data['user-details'] == "sitMentor" %}
-                                {{ data.sitName }}
-                            {% elif data['user-details'] == "Random" %}
-                                {{ data['random-name'] }}
-                            {% else %}
-                                {{ data['random-name'] }}
-                            {% endif %}
+                        {% elif data['user-details'] == "Random" %}
+                            {{ data['random-name'] }}
                         {% endif %}
                     </dd>
                     {% if data['status'] != "Withdrawn" %}
@@ -83,27 +60,21 @@
                     {% endif %}
                 </div>
 
-                {% if data['status'] == "Withdrawn" %}
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                {% else %}
-                <div class="govuk-summary-list__row">
-                {% endif %}
+                <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['induction-tutor'] == "Yes" %}
+                        {% if data['user-details'] == "ect-1" %}
+                            {{ data['participant-1-email'] }}
+                        {% elif data['user-details'] == "ect-2" %}
+                            {{ data['participant-2-email'] }}
+                        {% elif data['user-details'] == "mentor-1" %}
+                            {{ data['participant-1-mentor-email'] }}
+                        {% elif data['user-details'] == "mentor-2" %}
+                            {{ data['participant-2-mentor-email'] }}
+                        {% elif data['user-details'] == "sitMentor" %}
                             {{ data.sitEmail }}
                         {% else %}
-                            {% if data['user-details'] == "ect-2" %}
-                                {{ data['participant-2-email'] }}
-                            {% elif data['user-details'] == "ect" %}
-                                {{ data['participant-1-email'] }}
-                            {% elif data['user-details'] == "mentor" %}
-                                {{ data['participant-1-mentor-email'] }}
-                            {% elif data['user-details'] == "sitMentor" %}
-                                {{ data.sitEmail }}
-                            {% else %}
-                                {{ data['random-name'] }}@test.dfe.gov.uk
-                            {% endif %}
+                            {{ data['random-name'] }}@test.dfe.gov.uk
                         {% endif %}
                     </dd>
                     {% if data['status'] != "Withdrawn" %}
@@ -121,308 +92,229 @@
                     {% endif %}
                 </div>
 
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">Role</dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if ((data['user-details'] == "ect-1") or (data['user-details'] == "ect-2")) %}
+                            ECT
+                        {% elif ((data['user-details'] == "mentor-1") or (data['user-details'] == "mentor-2" ) or (data['user-details'] == "sitMentor" )) %}
+                            Mentor
+                        {% else %}
+                            {{ data['random-type'] }}
+                        {% endif %}
+                    </dd>
+                </div>
+
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key"> Start induction</dt>
                     <dd class="govuk-summary-list__value">
-                    {% if data['participantType'] == "mentor" %}
-                        {{ data['participant-1-mentor-email'] }}
-                    {% elif data['participantType'] == "ECT" %}
-                        {% if data['participant-1-added'] %}
+                        {% if data['user-details'] == "ect-1" %}
                             {{ data['participant-1-start-date'] }}
+                        {% elif data['user-details'] == "ect-2" %}
+                            {{ data['participant-2-start-date'] }}
+                        {% elif data['user-details'] == "mentor-1" %}
+                            {{ data['participant-1-mentor-start-date'] }}
+                        {% elif data['user-details'] == "mentor-2" %}
+                            {{ data['participant-2-mentor-start-date'] }}
+                        {% elif data['user-details'] == "sitMentor" %}
+                            Spring 2022
                         {% else %}
-                            {{ data['participant-1-start-date'] }}
+                            {{ data['random-type'] }}
                         {% endif %}
-                    {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
                 </div>
 
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Role</dt>
+                {% if ((data['user-details'] == "ect-1" ) or (data['user-details'] == "ect-2" ) or (data['random-type'] == "ECT" )) %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Mentor</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['induction-tutor'] == "Yes" %}
-                            Induction tutor
-                        {% else %}
-                            {% if data['user-details'] == "ect-2" %}
-                                ECT
-                            {% elif data['user-details'] == "ect" %}
-                                ECT
-                            {% elif data['user-details'] == "mentor" %}
-                                Mentor
-                            {% elif data['user-details'] == "sitMentor" %}
-                                Mentor
-                            {% else %}
-                                {{ data['random-type'] }}
+                        {% if ((data['participant-1-mentor-added']) or (data['participant-2-mentor-added']) or ( data['participant-1-sit-mentor-added'])) %}
+                            {% if data['user-details'] == "ect-1" %}
+                                {% if data['participant-1-mentor'] %} {{ data['participant-1-mentor'] }} {% else %} No mentor assigned {% endif %}
+                            {% elif data['user-details'] == "ect-2" %}
+                                {% if data['participant-2-mentor'] %} {{ data['participant-2-mentor'] }} {% else %} No mentor assigned {% endif %}
+                            {% elif data['user-details'] == "Random" %}
+                                No logic
                             {% endif %}
+                        {% else %}
+                            No mentors in your cohort
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data['user-details'] == "ect-1" %}
+                            <a class="govuk-link" href="mentor?details-change-action=change-mentor-details">Edit<span class="govuk-visually-hidden"> mentor</span></a>
+                        {% elif data['user-details'] == "ect-2" %}
+                            <a class="govuk-link" href="mentor?details-change-action=change-mentor-details-2">Edit<span class="govuk-visually-hidden"> mentor</span></a>
+                        {% elif data['user-details'] == "Random" %}
+                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
                         {% endif %}
                     </dd>
                 </div>
+                {% endif %}
 
-        {% if not data['induction-tutor'] == "Yes" %}
-        {% if ((data['user-details'] == "ect" ) or (data['user-details'] == "ect-2" ) or (data['random-type'] == "ECT" )) %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Mentor</dt>
-            <dd class="govuk-summary-list__value">
-            {% if ((data['participant-1-mentor-added']) or ( data['participant-1-sit-mentor-added'])) %}
-              {% if data['who-is-mentor'] %}{{ data['who-is-mentor']}}{% else %}No mentor assigned{% endif %}
+                {% if data['induction-tutor'] != "Yes" %}
+
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">Status</dt>
+                    <dd class="govuk-summary-list__value">
+
+                        {% if data['status'] == "Remind" %}
+
+                            <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                            <p>We suggest you remind them to provide this.</p>
+
+                        {% elif data['status'] == "Email" %}
+
+                        {% elif data['status'] == "EmailNotSent" %}
+
+                            <p>We’ll ask this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
+
+                        {% elif data['status'] == "noQTS" %}
+
+                            <p>This ECT does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
+
+                        {% elif data['status'] == "Checking" %}
+
+                            {% if data['inductionProgramme'] == "FIP" %}
+                                {% if data['fipPartnership'] == "Yes" %}
+                                    <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                                {% else %}
+                                    <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                                {% endif %}
+                            {% elif data['inductionProgramme'] == "CIP" %}
+                                <p>No action required.</p>
+                            {% endif %}
+
+                        {% elif data['status'] == "Start" %}
+
+                            {% if data['inductionProgramme'] == "FIP" %}
+                                {% if data['fipPartnership'] == "Yes" %}
+                                    <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
+                                {% else %}
+                                    <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
+                                {% endif %}
+                            {% elif data['inductionProgramme'] == "CIP" %}
+                                <p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
+                            {% endif %}
+
+                        {% elif data['status'] == "NotEligible" %}
+
+                            {% if data['inductionProgramme'] == "FIP" %}
+                                {% if data['ParticipantType'] == "mentor" %}
+                                    {% if data['noteligible-status'] == "AlreadyFunded" %}
+                                        <p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>
+                                    {% elif data['noteligible-status'] == "NotEligible" %}
+                                        <p>This person is not eligible for this programme.</p>
+                                    {% endif %}
+                                {% else %}
+                                    {% if data['noteligible-status'] == "InductionStarted" %}
+                                        <p>This is because they started or completed their statutory induction before 1 September 2021.</p>
+                                    {% elif data['noteligible-status'] == "NotEligible" %}
+                                        <p>This person is not eligible for this programme.</p>
+                                    {% elif data['noteligible-status'] == "Checking" %}
+                                        <p>Our checks show this person does not have qualified teacher status (QTS). Their status should be up to date if they completed their ITT in 2021.</p>
+                                    {% endif %}
+                                {% endif %}
+                            {% elif data['inductionProgramme'] == "CIP" %}
+                                <p>This person is not eligible for this programme.</p>
+                                <p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p>
+                            {% endif %}
+
+                        {% else %}
+
+                            <p>Eligible to start. They’re ready to mentor ECTs.</p>
+
+                        {% endif %}
+                    </dd>
+                </div>
+                {% endif %}
+            </dl>
+
+            {% if data['induction-tutor'] == "Yes" %}
+
+            <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
+
             {% else %}
-              No mentors in your cohort
-            {% endif %}
-            </dd>
-              <dd class="govuk-summary-list__actions">
-              {% if data['user-details'] == "ect-2" %}
-                <a class="govuk-link" href="mentor?details-change-action=change-mentor-details-2">Change<span class="govuk-visually-hidden"> name</span></a>
-              {% else %}
-                <a class="govuk-link" href="mentor?details-change-action=change-mentor-details">Change<span class="govuk-visually-hidden"> name</span></a>
-              {% endif %}
-            </dd>
-        </div>
-        {% endif %}
-        {% endif %}
 
-        {% if data['induction-tutor'] != "Yes" %}
+                {% if data['no-delete'] == "Yes" %}
+                    {% if data['inductionProgramme'] == "FIP" %}
+                        <p>If
+                            {% if data['user-details'] == "ect" %}
+                                {{ data['participant-1-name'] }}
+                            {% elif data['user-details'] == "ect-2" %}
+                                {{ data['participant-2-name'] }}
+                            {% elif data['user-details'] == "mentor-1" %}
+                                {{ data['participant-1-mentor-name'] }}
+                            {% elif data['user-details'] == "mentor-2" %}
+                                {{ data['participant-2-mentor-name'] }}
+                            {% elif data['user-details'] == "sitMentor" %}
+                                {{ data.sitName }}
+                            {% else %}
+                                {{ data['random-name'] }}
+                            {% endif %}
+                            should not be in this cohort, contact your training provider to remove them.</p>
+                    {% else %}
+                        <p>If
+                        {% if data['user-details'] == "ect-1" %}
+                            {{ data['participant-1-name'] }}
+                        {% elif data['user-details'] == "ect-2" %}
+                            {{ data['participant-2-name'] }}
+                        {% elif data['user-details'] == "mentor-1" %}
+                            {{ data['participant-1-mentor-name'] }}
+                        {% elif data['user-details'] == "mentor-2" %}
+                            {{ data['participant-2-mentor-name'] }}
+                        {% elif data['user-details'] == "sitMentor" %}
+                            {{ data.sitName }}
+                        {% else %}
+                            {{ data['random-name'] }}
+                        {% endif %}
+                        should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+                    {% endif %}
 
-        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-          <dt class="govuk-summary-list__key">Status</dt>
-            <dd class="govuk-summary-list__value">
-
-            {% if data['status'] == "Remind" %}
-
-
-              <!-- <p>Contacted for information</p>           -->
-              <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
-              <p>We suggest you remind them to provide this.</p>
-
-
-            {% elif data['status'] == "Email" %}
-
-
-            {% elif data['status'] == "EmailNotSent" %}
-
-
-              <!-- <p>Check email address</p>           -->
-              <!-- <p>Contacting for information.</p> -->
-              <p>We’ll ask this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
-
-
-              {% elif data['status'] == "noQTS" %}
-
-                <p>This ECT does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
-
-              {% elif data['status'] == "Checking" %}
-
-
-              {% if data['inductionProgramme'] == "FIP" %}
-
-                {% if data['fipPartnership'] == "Yes" %}
-                  <!-- <p>DfE checking eligibility</p>           -->
-                  <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
                 {% else %}
-                  <!-- <p>DfE checking eligibility</p>           -->
-                  <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+
+                    {% if data['inductionProgramme'] == "FIP" %}
+                        {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
+                            {% if data['user-details'] == "ect-1" %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
+                            {% elif data['user-details'] == "ect-2" %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
+                            {% elif data['user-details'] == "mentor-1" %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
+                            {% elif data['user-details'] == "mentor-2" %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-mentor-name'] }}.</p>
+                            {% elif data['user-details'] == "sitMentor" %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
+                            {% else %}
+                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
+                        {% endif %}
+                    {% else %}
+                        {% if data['status'] == "Withdrawn" %}
+
+                        {% else %}
+                            {% if data['user-details'] == "ect-1" %}
+                                <p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-1-name'] }}</a></p>
+                            {% elif data['user-details'] == "ect-2" %}
+                                <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-2-name'] }}</a></p>
+                            {% elif data['user-details'] == "mentor-1" %}
+                                <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-1-mentor-name'] }}</a></p>
+                            {% elif data['user-details'] == "mentor-2" %}
+                                <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-2-mentor-name'] }}</a></p>
+                            {% elif data['user-details'] == "sitMentor" %}
+                                <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.sitName }}</a></p>
+                            {% else %}
+                                <p><a href="confirm-delete">Remove {{ data['random-name'] }}</a></p>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+
+                {% elif data['inductionProgramme'] == "CIP" %}
+
                 {% endif %}
-
-              {% elif data['inductionProgramme'] == "CIP" %}
-                <p>No action required.</p>
-              {% endif %}
-
-
-          {% elif data['status'] == "Start" %}
-
-
-            {% if data['inductionProgramme'] == "FIP" %}
-
-              {% if data['fipPartnership'] == "Yes" %}
-                <!-- <p>Eligible to start</p>           -->
-                <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
-              {% else %}
-                <!-- <p>Eligible to start</p>           -->
-                <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
-              {% endif %}
-
-            {% elif data['inductionProgramme'] == "CIP" %}
-              <!-- <p>Eligible to start</p>           -->
-              <p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
             {% endif %}
-
-
-
-          {% elif data['status'] == "NotEligible" %}
-
-            {% if data['inductionProgramme'] == "FIP" %}
-
-              {% if data['ParticipantType'] == "mentor" %}
-
-                {% if data['noteligible-status'] == "AlreadyFunded" %}
-                <!-- Mentor -->
-
-                  <!-- <p>Already received funded mentor training </p>           -->
-
-                  <p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>
-
-
-                {% elif data['noteligible-status'] == "NotEligible" %}
-
-                  <!-- <p>Not eligible</p>           -->
-                  <p>This person is not eligible for this programme.</p>
-
-                {% endif %}
-
-              {% else %}
-
-                {% if data['noteligible-status'] == "InductionStarted" %}
-
-                  <!-- <p>Not eligible: induction already started </p>           -->
-                  <p>This is because they started or completed their statutory induction before 1 September 2021.</p>
-
-
-                {% elif data['noteligible-status'] == "NotEligible" %}
-
-                  <!-- <p>Not eligible</p>           -->
-                  <p>This person is not eligible for this programme.</p>
-
-
-                {% elif data['noteligible-status'] == "Checking" %}
-
-                  <!-- <p>Checking qualified teacher status </p>           -->
-                  <p>Our checks show this person does not have qualified teacher status (QTS). Their status should be up to date if they completed their ITT in 2021.</p>
-
-                {% endif %}
-
-              {% endif %}
-
-
-
-            {% elif data['inductionProgramme'] == "CIP" %}
-
-
-                <!-- <p>Not eligible</p>                           -->
-                <p>This person is not eligible for this programme.</p>
-
-
-
-                <!-- <p>Eligible to start</p>                           -->
-                <p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p>
-
-
             {% endif %}
-
-
-
-          {% else %}
-
-            <p>Eligible to start. They’re ready to mentor ECTs.</p>
-
-
-
-          {% endif %}
-
-
-
-
-          </dd>
 
         </div>
-        {% endif %}
-
-
-
-
-      </dl>
-
-      {% if data['induction-tutor'] == "Yes" %}
-
-      <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
-
-      {% else %}
-
-      {% if data['no-delete'] == "Yes" %}
-
-        {% if data['inductionProgramme'] == "FIP" %}
-        <p>If
-          {% if data['user-details'] == "ect-2" %}
-            {{ data['participant-2-name'] }}
-          {% elif data['user-details'] == "ect" %}
-            {{ data['participant-1-name'] }}
-          {% elif data['user-details'] == "mentor" %}
-             {{ data['participant-1-mentor-name'] }}
-          {% elif data['user-details'] == "sitMentor" %}
-            {{ data.sitName }}
-          {% else %}
-            {{ data['random-name'] }}
-          {% endif %}
-          should not be in this cohort, contact your training provider to remove them.</p>
-        {% else %}
-        <p>If
-          {% if data['user-details'] == "ect-2" %}
-            {{ data['participant-2-name'] }}
-          {% elif data['user-details'] == "ect" %}
-            {{ data['participant-1-name'] }}
-          {% elif data['user-details'] == "mentor" %}
-             {{ data['participant-1-mentor-name'] }}
-          {% elif data['user-details'] == "sitMentor" %}
-            {{ data.sitName }}
-          {% else %}
-            {{ data['random-name'] }}
-          {% endif %}
-          should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
-        {% endif %}
-
-      {% else %}
-
-
-        {% if data['inductionProgramme'] == "FIP" %}
-
-            {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
-
-              {% if data['user-details'] == "ect-2" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
-              {% elif data['user-details'] == "ect" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
-              {% elif data['user-details'] == "mentor" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
-              {% elif data['user-details'] == "sitMentor" %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
-              {% else %}
-                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
-              {% endif %}
-
-            {% else %}
-
-            {% if data['status'] == "Withdrawn" %}
-
-
-            {% else %}
-
-              {% if data['user-details'] == "ect-2" %}
-                <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-2-name'] }}</a></p>
-              {% elif data['user-details'] == "ect" %}
-                <p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-1-name'] }}</a></p>
-              {% elif data['user-details'] == "mentor" %}
-                <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-1-mentor-name'] }}</a></p>
-              {% elif data['user-details'] == "sitMentor" %}
-                <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.sitName }}</a></p>
-              {% else %}
-                <p><a href="confirm-delete">Remove {{ data['random-name'] }}</a></p>
-              {% endif %}
-
-            {% endif %}
-
-          {% endif %}
-
-        {% elif data['inductionProgramme'] == "CIP" %}
-
-
-        {% endif %}
-
-      {% endif %}
-
-      {% endif %}
-
-
-      <!-- <p class="govuk-!-margin-top-9"><a href="../participants/">Return to your ECTs and mentors</a></p> -->
-
-
-      </div>
     </div>
 {% endblock %}
