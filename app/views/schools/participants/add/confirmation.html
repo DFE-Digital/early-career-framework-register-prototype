@@ -10,9 +10,9 @@
   {% if data['participantType'] == "mentor"  %}
     {% set title = '' + data['participant-fullname-mentor'] +  ' has been added as a mentor' %}
   {% elif data['participantType'] == "ECT" %}
-    {% if data['added-ect-2'] %}
+    {% if data['ect-participant-added-2'] %}
       {% set title = '' + data['participant-fullname-2'] +  ' has been added as an ECT' %}
-    {% elif data['added-ect'] %}
+    {% elif data['ect-participant-added'] %}
       {% set title = '' + data['participant-fullname'] +  ' has been added as an ECT' %}
     {% endif %}
   {% elif data['participantType'] == "sitMentor" %}

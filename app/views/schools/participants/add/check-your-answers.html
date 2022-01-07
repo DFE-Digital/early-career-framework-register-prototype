@@ -22,7 +22,7 @@
             {% elif data['participantType'] == "mentor" %}
               {{ data['participant-fullname-mentor'] }}
             {% elif data['participantType'] == "ECT" %}
-              {% if data['added-ect'] %}
+              {% if data['ect-participant-added'] %}
                 {{ data['participant-fullname-2'] }}
               {% else %}
                 {{ data['participant-fullname'] }}
@@ -39,7 +39,7 @@
             {% if data['participantType'] == "mentor" %}
               {{ data['participant-email-address-mentor'] }}
             {% elif data['participantType'] == "ECT" %}
-              {% if data['added-ect'] %}
+              {% if data['ect-participant-added'] %}
                 {{ data['participant-email-address-2'] }}
               {% else %}
                 {{ data['participant-email-address'] }}
@@ -57,7 +57,7 @@
                     {% if data['participantType'] == "mentor" %}
                         {{ data['participant-email-address-mentor'] }}
                     {% elif data['participantType'] == "ECT" %}
-                        {% if data['added-ect'] %}
+                        {% if data['ect-participant-added'] %}
                             {{ data['ect-start-date'] }}
                         {% else %}
                             {{ data['ect-start-date'] }}
@@ -89,10 +89,10 @@
             <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just a double check to remove and link actions -->
 
         {% if data['participantType'] == "ECT" %}
-          {% if data['added-ect'] %}
-            <input type="hidden" name="added-ect-2" id="added-ect-2" value="Yes" />
+          {% if data['ect-participant-added'] %}
+            <input type="hidden" name="ect-participant-added-2" id="ect-participant-added-2" value="Yes" />
           {% else %}
-            <input type="hidden" name="added-ect" id="added-ect" value="Yes" />
+            <input type="hidden" name="ect-participant-added" id="ect-participant-added" value="Yes" />
           {% endif %}
         {% elif data['participantType'] == "mentor" %}
           <input type="hidden" name="added-mentor" id="added-mentor" value="Yes" />

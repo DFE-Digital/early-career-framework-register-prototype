@@ -28,7 +28,7 @@
                         </div>
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-                            <dd class="govuk-summary-list__value">{% if data['added-ect'] == "Yes" %}7{% else %}6{% endif %}</dd>
+                            <dd class="govuk-summary-list__value">{% if data['ect-participant-added'] == "Yes" %}7{% else %}6{% endif %}</dd>
                             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -182,7 +182,7 @@
 
                 <!-- Check to make sure they are on a programme that allows addition of ECT -->
                 {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgramme'] == "CIP")) %}
-                    {% if ((data['added-ect'] ) or ( data['added-mentor'] ))%}
+                    {% if ((data['ect-participant-added'] ) or ( data['added-mentor'] ))%}
                         <p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Your early career teachers and mentors</a></p>
                     {% else %}
                         {% if not data['roles-explanation'] %}

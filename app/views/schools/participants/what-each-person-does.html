@@ -1,12 +1,9 @@
 {% extends "layout.html" %}
 
-
-{% if not data['link-role'] %}
-{% set showBackLink = false %}
+{% if not data['link-action'] %}
+    {% set showBackLink = false %}
 {% endif %}
-<!-- Not sure what this line is doing? -->
 {% set schoolSignedIn = true %}
-
 
 {% set pageHeading = "Check what each person needs to do in the early career teacher training programme" %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -58,10 +55,9 @@
             <!-- There should be no continue button if you are just looking at this  -->
             {% if not data['userstatus'] %}
 
-                {% if not data['link-role'] %}
+                {% if not data['link-action'] %}
                 <form method="post" action="../participants/" >
                     <input type="hidden" name="roles-explanation" id="roles" value="Seen" />
-
                     {{ govukButton({
                         text: "Continue"
                     }) }}

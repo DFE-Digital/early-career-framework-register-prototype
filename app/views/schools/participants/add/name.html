@@ -28,7 +28,7 @@
           {% if data['participantType'] == "mentor" %}
             <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-mentor" name="participant-fullname-mentor" type="text" value="{{ data['participant-fullname-mentor'] }}" >
           {% else %}
-            {% if data['added-ect'] %}
+            {% if data['ect-participant-added'] %}
             <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname-2" name="participant-fullname-2" type="text" value="{{ data['participant-fullname-2'] }}" >
             {% else %}
             <input class="govuk-input govuk-!-width-two-thirds" id="participant-fullname" name="participant-fullname" type="text" value="{{ data['participant-fullname'] }}" >

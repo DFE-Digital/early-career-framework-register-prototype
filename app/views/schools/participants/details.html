@@ -127,7 +127,7 @@
                     {% if data['participantType'] == "mentor" %}
                         {{ data['participant-email-address-mentor'] }}
                     {% elif data['participantType'] == "ECT" %}
-                        {% if data['added-ect'] %}
+                        {% if data['ect-participant-added'] %}
                             {{ data['ect-start-date'] }}
                         {% else %}
                             {{ data['ect-start-date'] }}

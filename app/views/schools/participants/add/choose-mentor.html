@@ -4,7 +4,7 @@
 {% if not ((data['added-mentor'] == "Yes") or ( data['added-sitMentor'] == "Yes" )) %}
   {% set pageHeading = 'You cannot assign a mentor to this ECT' %}
 {% else %}
-  {% if data['added-ect'] %}
+  {% if data['ect-participant-added'] %}
     {% set pageHeading = 'Who’s ' + data['participant-fullname-2'] + '’s mentor?' %}
   {% else %}
     {% set pageHeading = 'Who’s ' + data['participant-fullname'] + '’s mentor?' %}
