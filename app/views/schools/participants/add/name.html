@@ -12,14 +12,14 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- This is just for the check your answers so it sends back to the CYA -->
-            {% if ((data['details-change-action'] == "change-name" ) or (data['details-change-action'] == "change-name-2")) %}
+            {% if data['cya-action'] == "change-name" %}
+            <!-- Sends back to the CYA -->
+                <form class="form" action="check-your-answers" method="post">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
+            {% elif ((data['details-change-action'] == "change-name" ) or (data['details-change-action'] == "change-name-2")) %}
                 <form class="form" action="../details" method="post">
                     <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
-            {% elif data['cya-action'] == "change-name" %}
-                <form class="form" action="check-your-answers" method="post">
-                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
             {% else %}
             <!-- Default add participant journey -->
                 <form class="form" action="email-address" method="post">
@@ -27,29 +27,14 @@
 
                 {% if data['participantType'] == "ECT" %}
 
-                    {% if data['ect-participant-added'] %}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Whats the full name of this person",
-                                classes: "govuk-visually-hidden",
-                                isPageHeading: false
-                            },
-                            classes: "govuk-!-width-two-thirds"
-                        } | decorateFormAttributes('participant-2-name')) }}
-
-                    {% else %}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Whats the full name of this person",
-                                classes: "govuk-visually-hidden",
-                                isPageHeading: false
-                            },
-                            classes: "govuk-!-width-two-thirds"
-                        } | decorateFormAttributes('participant-1-name')) }}
-
-                    {% endif %}
+                    {{ govukInput({
+                        label: {
+                            text: "Whats the full name of this person",
+                            classes: "govuk-visually-hidden",
+                            isPageHeading: false
+                        },
+                        classes: "govuk-!-width-two-thirds"
+                    } | decorateFormAttributes('participant-2-name' if data['participant-1-added'] else 'participant-1-name')) }}
 
                 {% elif data['participantType'] == "mentor" %}
 
@@ -60,10 +45,12 @@
                             isPageHeading: false
                         },
                         classes: "govuk-!-width-two-thirds"
-                    } | decorateFormAttributes('participant-1-mentor-name')) }}
+                    } | decorateFormAttributes('participant-2-mentor-name' if data['mentor-participant-added'] else 'participant-1-mentor-name' )) }}
 
                 {% else %}
 
+                    <!-- Dont really need this but its just incase someone looks at the page independently -->
+                    <p>You have not selected a participant type to add a name.</p>
                 {% endif %}
 
                 {{ govukButton({

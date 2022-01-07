@@ -35,13 +35,13 @@
         {% if data['user-research'] == "Yes" %}
 
           {% if data['deletelink'] == "ect" %}
-            <input type="hidden" name="ect-participant-added" id="ect-participant-added" value="" />
-            <input type="hidden" name="participant-email-address" id="participant-email-address" value="" />
+            <input type="hidden" name="participant-1-added" id="participant-1-added" value="" />
+            <input type="hidden" name="participant-1-email" id="participant-1-email" value="" />
           {% elif data['deletelink'] == "mentor" %}
-            <input type="hidden" name="added-mentor" id="added-mentor" value="" />
-            <input type="hidden" name="participant-email-address-mentor" id="participant-email-address-mentor" value="" />
+            <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="" />
+            <input type="hidden" name="participant-1-mentor-email" id="participant-1-mentor-email" value="" />
           {% elif data['deletelink'] == "sitMentor" %}
-            <input type="hidden" name="added-sitMentor" id="added-sitMentor" value="" />
+            <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="" />
             <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="" />
 
 

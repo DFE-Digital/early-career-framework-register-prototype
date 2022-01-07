@@ -21,12 +21,12 @@
                     <label class="govuk-label govuk-visually-hidden" for="event-name">Email address</label>
                     <div id="event-name-hint" class="govuk-hint">You can enter their personal or school email address.</div>
                         {% if data['participantType'] == "mentor" %}
-                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-mentor" name="participant-email-address-mentor" type="email" value="{{ data['participant-email-address-mentor'] }}" spellcheck="false" autocomplete="email" >
+                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-email" name="participant-1-mentor-email" type="email" value="{{ data['participant-1-mentor-email'] }}" spellcheck="false" autocomplete="email" >
                         {% else %}
-                            {% if data['ect-participant-added'] %}
-                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address-2" name="participant-email-address-2" type="email" value="{{ data['participant-email-address-2'] }}" spellcheck="false" autocomplete="email">
+                            {% if data['participant-1-added'] %}
+                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-email" name="participant-2-email" type="email" value="{{ data['participant-2-email'] }}" spellcheck="false" autocomplete="email">
                             {% else %}
-                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-email-address" name="participant-email-address" type="email" value="{{ data['participant-email-address'] }}" spellcheck="false" autocomplete="email">
+                                <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-email" name="participant-1-email" type="email" value="{{ data['participant-1-email'] }}" spellcheck="false" autocomplete="email">
                             {% endif %}
                         {% endif %}
                 </div>
