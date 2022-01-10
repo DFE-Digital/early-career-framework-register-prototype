@@ -15,16 +15,27 @@
 
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
-                    {% if data['participantType'] == "mentor" %}
-                        <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-name" name="participant-1-mentor-name" type="text" value="{{ data['participant-1-mentor-name'] }}" >
+                    
+                    {% if data['active-user'] == "ect-1" %}
+                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-name" name="participant-1-name" type="text" value="" >
+                    {% elif data['active-user'] == "ect-2" %}
+                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-name" name="participant-2-name" type="text" value="" >
+                    {% elif data['active-user'] == "mentor-1" %}
+                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-name" name="participant-1-mentor-name" type="text" value="" >
+                    {% elif data['active-user'] == "mentor-2" %}
+                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-mentor-name" name="participant-2-mentor-name" type="text" value="" >
+                    {% elif data['active-user'] == "sitMentor" %}
+                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-sitmentor-name" name="participant-1-sitmentor-name" type="text" value="" >
                     {% else %}
-                        {% if data['participant-1-added'] %}
-                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-name" name="participant-2-name" type="text" value="{{ data['participant-2-name'] }}" >
-                        {% else %}
-                            <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-name" name="participant-1-name" type="text" value="{{ data['participant-1-name'] }}" >
-                        {% endif %}
+                        <input class="govuk-input govuk-!-width-two-thirds" id="random-name" name="random-name" type="text" value="" >
                     {% endif %}
+                                                                                                                    
                 </div>
+
+                <!-- Clears the reason so can be used again -->
+                <input type="hidden" name="change-name-reason" id="change-name-reason" value="" />
+                <input type="hidden" name="change-email-reason" id="change-email-reason" value="" />
+
 
                 {{ govukButton({
                     text: "Continue"
