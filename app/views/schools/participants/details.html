@@ -3,16 +3,16 @@
 
 {% if data['induction-tutor'] == "Yes" %}
     {% set pageHeading = 'Hugo Furst' %}
-{% else %}
-    {% if data['user-details'] == "ect-1" %}
+{% else %}    
+    {% if data['active-user'] == "ect-1" %}
         {% set pageHeading = '' + data['participant-1-name'] + '' %}
-    {% elif data['user-details'] == "ect-2" %}
+    {% elif data['active-user'] == "ect-2" %}
         {% set pageHeading = '' + data['participant-2-name'] + '' %}
-    {% elif data['user-details'] == "mentor-1" %}
+    {% elif data['active-user'] == "mentor-1" %}
         {% set pageHeading = '' + data['participant-1-mentor-name'] + '' %}
-    {% elif data['user-details'] == "mentor-2" %}
+    {% elif data['active-user'] == "mentor-2" %}
         {% set pageHeading = '' + data['participant-2-mentor-name'] + '' %}
-    {% elif data['user-details'] == "sitMentor" %}
+    {% elif data['active-user'] == "sitMentor" %}
         {% set pageHeading = '' + data.sitName + '' %}
     {% else %}
         {% set pageHeading = '' + data['random-name'] + '' %}
@@ -31,17 +31,17 @@
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['user-details'] == "ect-1" %}
+                        {% if data['active-user'] == "ect-1" %}
                             {{ data['participant-1-name'] }}
-                        {% elif data['user-details'] == "ect-2" %}
+                        {% elif data['active-user'] == "ect-2" %}
                             {{ data['participant-2-name'] }}
-                        {% elif data['user-details'] == "mentor-1" %}
+                        {% elif data['active-user'] == "mentor-1" %}
                             {{ data['participant-1-mentor-name'] }}
-                        {% elif data['user-details'] == "mentor-2" %}
+                        {% elif data['active-user'] == "mentor-2" %}
                             {{ data['participant-2-mentor-name'] }}
-                        {% elif data['user-details'] == "sitMentor" %}
+                        {% elif data['active-user'] == "sitMentor" %}
                             {{ data.sitName }}
-                        {% elif data['user-details'] == "Random" %}
+                        {% elif data['active-user'] == "Random" %}
                             {{ data['random-name'] }}
                         {% endif %}
                     </dd>
@@ -50,10 +50,12 @@
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            {% if data['user-details'] == "ect-2" %}
+                            {% if data['active-user'] == "ect-1" %}    
+                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            {% elif data['active-user'] == "ect-2" %}
                                 <a class="govuk-link" href="change/?edit=name&details-change-action=change-name-2">Edit<span class="govuk-visually-hidden"> name</span></a>
                             {% else %}
-                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>
                             {% endif %}
                         {% endif %}
                     </dd>
@@ -63,15 +65,15 @@
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['user-details'] == "ect-1" %}
+                        {% if data['active-user'] == "ect-1" %}
                             {{ data['participant-1-email'] }}
-                        {% elif data['user-details'] == "ect-2" %}
+                        {% elif data['active-user'] == "ect-2" %}
                             {{ data['participant-2-email'] }}
-                        {% elif data['user-details'] == "mentor-1" %}
+                        {% elif data['active-user'] == "mentor-1" %}
                             {{ data['participant-1-mentor-email'] }}
-                        {% elif data['user-details'] == "mentor-2" %}
+                        {% elif data['active-user'] == "mentor-2" %}
                             {{ data['participant-2-mentor-email'] }}
-                        {% elif data['user-details'] == "sitMentor" %}
+                        {% elif data['active-user'] == "sitMentor" %}
                             {{ data.sitEmail }}
                         {% else %}
                             {{ data['random-name'] }}@test.dfe.gov.uk
@@ -82,10 +84,12 @@
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a>
                         {% else %}
-                            {% if data['user-details'] == "ect-2" %}
+                            {% if data['active-user'] == "ect-1" %}    
+                                <a class="govuk-link" href="change/?edit=email&details-change-action=change-email">Edit<span class="govuk-visually-hidden"> email address</span></a>
+                            {% elif data['active-user'] == "ect-2" %}
                                 <a class="govuk-link" href="change/?edit=email&details-change-action=change-email-2">Edit<span class="govuk-visually-hidden"> email address</span></a>
                             {% else %}
-                                <a class="govuk-link" href="change/?edit=email&details-change-action=change-email">Edit<span class="govuk-visually-hidden"> email address</span></a>
+                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> email address</span></a>
                             {% endif %}
                         {% endif %}
                     </dd>
@@ -95,12 +99,10 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if ((data['user-details'] == "ect-1") or (data['user-details'] == "ect-2")) %}
+                        {% if data['user-type'] == "ECT" %}
                             ECT
-                        {% elif ((data['user-details'] == "mentor-1") or (data['user-details'] == "mentor-2" ) or (data['user-details'] == "sitMentor" )) %}
-                            Mentor
-                        {% else %}
-                            {{ data['random-type'] }}
+                        {% elif data['user-type'] == "Mentor" %}
+                            Mentor                        
                         {% endif %}
                     </dd>
                 </div>
@@ -108,46 +110,57 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key"> Start induction</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['user-details'] == "ect-1" %}
+                        {% if data['active-user'] == "ect-1" %}
                             {{ data['participant-1-start-date'] }}
-                        {% elif data['user-details'] == "ect-2" %}
+                        {% elif data['active-user'] == "ect-2" %}
                             {{ data['participant-2-start-date'] }}
-                        {% elif data['user-details'] == "mentor-1" %}
+                        {% elif data['active-user'] == "mentor-1" %}
                             {{ data['participant-1-mentor-start-date'] }}
-                        {% elif data['user-details'] == "mentor-2" %}
+                        {% elif data['active-user'] == "mentor-2" %}
                             {{ data['participant-2-mentor-start-date'] }}
-                        {% elif data['user-details'] == "sitMentor" %}
+                        {% elif data['active-user'] == "sitMentor" %}
                             Spring 2022
                         {% else %}
-                            {{ data['random-type'] }}
+                            {{ data.inductionStart }}
                         {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data['induction-tutor'] == "Yes" %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+                        {% else %}
+                            {% if data['active-user'] == "ect-1" %}    
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+                            {% elif data['active-user'] == "ect-2" %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+                            {% else %}
+                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
+                            {% endif %}
+                        {% endif %}
                 </div>
 
-                {% if ((data['user-details'] == "ect-1" ) or (data['user-details'] == "ect-2" ) or (data['random-type'] == "ECT" )) %}
+                {% if data['user-type'] == "ECT" %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Mentor</dt>
                     <dd class="govuk-summary-list__value">
                         {% if ((data['participant-1-mentor-added']) or (data['participant-2-mentor-added']) or ( data['participant-1-sit-mentor-added'])) %}
-                            {% if data['user-details'] == "ect-1" %}
+                            {% if data['active-user'] == "ect-1" %}
                                 {% if data['participant-1-mentor'] %} {{ data['participant-1-mentor'] }} {% else %} No mentor assigned {% endif %}
-                            {% elif data['user-details'] == "ect-2" %}
+                            {% elif data['active-user'] == "ect-2" %}
                                 {% if data['participant-2-mentor'] %} {{ data['participant-2-mentor'] }} {% else %} No mentor assigned {% endif %}
-                            {% elif data['user-details'] == "Random" %}
-                                No logic
+                            {% elif data['active-user'] == "Random" %}
+                                Tom Hall
                             {% endif %}
                         {% else %}
-                            No mentors in your cohort
+                            Tom Hall
                         {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        {% if data['user-details'] == "ect-1" %}
-                            <a class="govuk-link" href="mentor?details-change-action=change-mentor-details">Edit<span class="govuk-visually-hidden"> mentor</span></a>
-                        {% elif data['user-details'] == "ect-2" %}
-                            <a class="govuk-link" href="mentor?details-change-action=change-mentor-details-2">Edit<span class="govuk-visually-hidden"> mentor</span></a>
-                        {% elif data['user-details'] == "Random" %}
-                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                        {% if data['active-user'] == "ect-1" %}
+                            <a class="govuk-link" href="change/mentor?details-change-action=change-mentor">Edit<span class="govuk-visually-hidden"> mentor</span></a>
+                        {% elif data['active-user'] == "ect-2" %}
+                            <a class="govuk-link" href="change/mentor?details-change-action=change-mentor">Edit<span class="govuk-visually-hidden"> mentor</span></a>
+                        {% elif data['active-user'] == "Random" %}
+                            <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> mentor</span></a>
                         {% endif %}
                     </dd>
                 </div>
@@ -240,15 +253,15 @@
                 {% if data['no-delete'] == "Yes" %}
                     {% if data['inductionProgramme'] == "FIP" %}
                         <p>If
-                            {% if data['user-details'] == "ect" %}
+                            {% if data['active-user'] == "ect" %}
                                 {{ data['participant-1-name'] }}
-                            {% elif data['user-details'] == "ect-2" %}
+                            {% elif data['active-user'] == "ect-2" %}
                                 {{ data['participant-2-name'] }}
-                            {% elif data['user-details'] == "mentor-1" %}
+                            {% elif data['active-user'] == "mentor-1" %}
                                 {{ data['participant-1-mentor-name'] }}
-                            {% elif data['user-details'] == "mentor-2" %}
+                            {% elif data['active-user'] == "mentor-2" %}
                                 {{ data['participant-2-mentor-name'] }}
-                            {% elif data['user-details'] == "sitMentor" %}
+                            {% elif data['active-user'] == "sitMentor" %}
                                 {{ data.sitName }}
                             {% else %}
                                 {{ data['random-name'] }}
@@ -256,15 +269,15 @@
                             should not be in this cohort, contact your training provider to remove them.</p>
                     {% else %}
                         <p>If
-                        {% if data['user-details'] == "ect-1" %}
+                        {% if data['active-user'] == "ect-1" %}
                             {{ data['participant-1-name'] }}
-                        {% elif data['user-details'] == "ect-2" %}
+                        {% elif data['active-user'] == "ect-2" %}
                             {{ data['participant-2-name'] }}
-                        {% elif data['user-details'] == "mentor-1" %}
+                        {% elif data['active-user'] == "mentor-1" %}
                             {{ data['participant-1-mentor-name'] }}
-                        {% elif data['user-details'] == "mentor-2" %}
+                        {% elif data['active-user'] == "mentor-2" %}
                             {{ data['participant-2-mentor-name'] }}
-                        {% elif data['user-details'] == "sitMentor" %}
+                        {% elif data['active-user'] == "sitMentor" %}
                             {{ data.sitName }}
                         {% else %}
                             {{ data['random-name'] }}
@@ -276,15 +289,15 @@
 
                     {% if data['inductionProgramme'] == "FIP" %}
                         {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
-                            {% if data['user-details'] == "ect-1" %}
+                            {% if data['active-user'] == "ect-1" %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
-                            {% elif data['user-details'] == "ect-2" %}
+                            {% elif data['active-user'] == "ect-2" %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
-                            {% elif data['user-details'] == "mentor-1" %}
+                            {% elif data['active-user'] == "mentor-1" %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
-                            {% elif data['user-details'] == "mentor-2" %}
+                            {% elif data['active-user'] == "mentor-2" %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-mentor-name'] }}.</p>
-                            {% elif data['user-details'] == "sitMentor" %}
+                            {% elif data['active-user'] == "sitMentor" %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
                             {% else %}
                                 <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
@@ -293,15 +306,15 @@
                         {% if data['status'] == "Withdrawn" %}
 
                         {% else %}
-                            {% if data['user-details'] == "ect-1" %}
+                            {% if data['active-user'] == "ect-1" %}
                                 <p><a href="confirm-delete?deletelink=ect">Remove {{ data['participant-1-name'] }}</a></p>
-                            {% elif data['user-details'] == "ect-2" %}
+                            {% elif data['active-user'] == "ect-2" %}
                                 <p><a href="confirm-delete?deletelink=ect-2">Remove {{ data['participant-2-name'] }}</a></p>
-                            {% elif data['user-details'] == "mentor-1" %}
+                            {% elif data['active-user'] == "mentor-1" %}
                                 <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-1-mentor-name'] }}</a></p>
-                            {% elif data['user-details'] == "mentor-2" %}
+                            {% elif data['active-user'] == "mentor-2" %}
                                 <p><a href="confirm-delete?deletelink=mentor">Remove {{ data['participant-2-mentor-name'] }}</a></p>
-                            {% elif data['user-details'] == "sitMentor" %}
+                            {% elif data['active-user'] == "sitMentor" %}
                                 <p><a href="confirm-delete?deletelink=sitMentor">Remove {{ data.sitName }}</a></p>
                             {% else %}
                                 <p><a href="confirm-delete">Remove {{ data['random-name'] }}</a></p>

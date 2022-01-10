@@ -2,7 +2,7 @@ const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Michael Jordan',
   leadProvider: 'Education Development Trust',
-  deliveryPartner: 'Mega Delivery Partner'
+  deliveryPartner: 'Mega Delivery Partner'  
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
@@ -19,6 +19,7 @@ module.exports = {
   sitEmail,
   leadProvider,
   deliveryPartner,
+  inductionStart: 'Spring 2022',
   linkExpire: '12 December 2021',
   expiryTime: '1pm'
 }
