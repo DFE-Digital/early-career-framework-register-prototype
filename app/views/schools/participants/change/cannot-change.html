@@ -27,9 +27,10 @@
                     {{ data.sitName }}
                 {% else %}
                     {% set pageHeading = 'this person' %}
-                {% endif %}  
-                    
-                     at your school, you need to remove them from this service.</p>
+                {% endif %}                      
+                at your school, you need to remove them from this service.</p>
+
+
                 <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
                 <p>Contact {{ data.leadProvider }} to remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
@@ -46,7 +47,6 @@
                 {% endif %}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-
                 <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
@@ -63,19 +63,18 @@
 
                 <!--- IF ECT --->
                 {% if data['user-type'] == "ECT" %}
-                <p>You need to register the new ECT separately. This is so that:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>we can check their eligibility for funded training</li>
-                    <li>their training is recorded against their own teacher reference number (TRN)</li>
-                </ul>
 
-                <p><a href="add/name?participantType=ECT">Add a new ECT</a></p>
-
+                    <p>You need to register the new ECT separately. This is so that:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>we can check their eligibility for funded training</li>
+                        <li>their training is recorded against their own teacher reference number (TRN)</li>
+                    </ul>
+                    <p><a href="add/name?participantType=ECT">Add a new ECT</a></p>
+                
                 {% elif data['user-type'] == "Mentor" %}
 
-                <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
-
-                <p><a href="add/name?participantType=mentor">Add a new mentor</a></p>
+                    <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
+                    <p><a href="add/name?participantType=mentor">Add a new mentor</a></p>
 
                 {% endif %}
 
@@ -96,10 +95,9 @@
                 {% else %}
                     {% set pageHeading = 'this person' %}
                 {% endif %}
-                  at your school, you need to remove them from this service.</p>
+                at your school, you need to remove them from this service.</p>
 
                 <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
-
                 <p>Contact {{ data.leadProvider }} to remove  {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
@@ -115,7 +113,6 @@
                 {% endif %}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-
                 <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
@@ -129,6 +126,7 @@
                 {% else %}
                     {% set pageHeading = 'this person' %}
                 {% endif %}</a></p>
+            
             {% endif %}
 
         </div>
