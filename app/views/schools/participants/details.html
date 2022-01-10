@@ -50,10 +50,8 @@
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            {% if data['active-user'] == "ect-1" %}    
-                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>
-                            {% elif data['active-user'] == "ect-2" %}
-                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name-2">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            {% if ((data['active-user'] == "ect-1") or (data['active-user'] == "ect-2") or (data['active-user'] == "mentor-1") or (data['active-user'] == "mentor-2")) %}    
+                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>                            
                             {% else %}
                                 <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>
                             {% endif %}
@@ -87,7 +85,7 @@
                             {% if data['active-user'] == "ect-1" %}    
                                 <a class="govuk-link" href="change/?edit=email&details-change-action=change-email">Edit<span class="govuk-visually-hidden"> email address</span></a>
                             {% elif data['active-user'] == "ect-2" %}
-                                <a class="govuk-link" href="change/?edit=email&details-change-action=change-email-2">Edit<span class="govuk-visually-hidden"> email address</span></a>
+                                <a class="govuk-link" href="change/?edit=email&details-change-action=change-email">Edit<span class="govuk-visually-hidden"> email address</span></a>
                             {% else %}
                                 <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> email address</span></a>
                             {% endif %}
