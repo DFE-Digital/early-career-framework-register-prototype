@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Start induction</dt>
+                    <dt class="govuk-summary-list__key">{% if data['participantType'] == "ECT" %}Start induction{% elif data['participantType'] == "mentor" %}Start mentoring{% endif %}</dt>
                     <dd class="govuk-summary-list__value">
                         {% if data['participantType'] == "ECT" %}
                             {% if data['participant-1-added'] %}
@@ -74,6 +74,83 @@
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-date">Change<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
+
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">                        
+                        {% if data['participantType'] == "ECT" %}
+                            <!-- Has to remain split up otherwise it wont know which participant to show -->
+                            {% if data['participant-1-added'] %}
+                                {% if data['participant-2-know-trn'] == "Yes" %}
+                                    Teacher reference number (TRN)
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                    Teacher reference number (TRN)
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% endif %}
+                        {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                    Teacher reference number (TRN)
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                    Teacher reference number (TRN)
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data['participantType'] == "ECT" %}
+
+                            {% if data['participant-1-added'] %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                    {{ data['participant-2-trn'] }}
+                                {% else %}
+                                    {{ data['participant-2-know-trn'] }}
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                    {{ data['participant-1-trn'] }}
+                                {% else %}
+                                    {{ data['participant-1-know-trn'] }}
+                                {% endif %}
+                            {% endif %}
+                        
+                            {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                    
+                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                    {{ data['participant-2-mentor-trn'] }}
+                                {% else %}
+                                    {{ data['participant-2-mentor-know-trn'] }}
+                                {% endif %}
+
+                            {% else %}
+                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                    {{ data['participant-1-mentor-trn'] }}
+                                {% else %}
+                                    {{ data['participant-1-mentor-know-trn'] }}
+                                {% endif %}
+                                
+                            {% endif %}
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                </div>
+
+
+                
+
                 <!-- If ECT and mentors are in the system -->
                 {% if ((data['participantType'] == "ECT") and ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes"))) %}
                     <div class="govuk-summary-list__row">

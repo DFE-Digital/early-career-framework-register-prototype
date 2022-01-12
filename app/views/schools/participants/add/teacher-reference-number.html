@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "What’s this person’s teacher reference number (TRN)?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+
+{% endblock %}
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      		<p class="govuk-body">This unique ID:</p>
+      		<ul class="govuk-list govuk-list--bullet">
+        		<li>is usually 7 digits long, for example ’4567814’</li>
+        		<li>may include the letters ‘RP’ or a slash ‘/’ symbol, for example ‘RP99/12345’</li>
+        		<li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
+      		</ul>            
+      		
+			{% if data['participantType'] == "ECT" %}
+
+				{% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
+					{% if data['participant-1-added'] == "Yes" %}
+						<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+					{% else %}
+						<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+					{% endif %}
+				{% else %}						
+					<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+				{% endif %} 
+
+			{% elif data['participantType'] == "mentor" %}
+				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+			{% endif %}
+      		
+        		<!-- <input type="hidden" id="register-main-route" name="register-main-route" value="tr-number" /> -->      	
+				
+				{% if data['participantType'] == "ECT" %}
+
+					{{ govukInput({
+						label: {
+							text: "What’s your teacher reference number (TRN)?",
+							classes: "govuk-visually-hidden",
+							isPageHeading: false
+						},
+						classes: "govuk-!-width-two-thirds"					
+					} | decorateFormAttributes('participant-2-trn' if data['participant-1-added'] else 'participant-1-trn')) }}     
+
+				{% else %}
+
+					{{ govukInput({
+						label: {
+							text: "What’s your teacher reference number (TRN)?",
+							classes: "govuk-visually-hidden",
+							isPageHeading: false
+						},
+						classes: "govuk-!-width-two-thirds"					
+					} | decorateFormAttributes('participant-2-mentor-trn' if data['participant-1-mentor-added'] else 'participant-1-mentor-trn')) }}     
+
+				{% endif %}
+
+            	{{ govukButton({
+              		text: "Continue"
+            	}) }}
+
+      		</form>
+    	</div>
+    </div>
+{% endblock %}

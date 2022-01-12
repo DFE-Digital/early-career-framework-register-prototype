@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = false %}
+
+{% set pageHeading = "Do you know this person’s teacher reference number (TRN)?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
+
+            <p class="govuk-body">They will have a TRN if you hold, or are working towards qualified teacher status (QTS) in England.</p>                           
+            
+
+            {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
+                {% if data['participant-1-added'] == "Yes" %}
+                    <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                {% else %}
+                    <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
+            {% else %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}            
+
+                {% if data['participantType'] == "ECT" %}
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",                    
+                        fieldset: {
+                        legend: {
+                            text: "Do you know this person’s teacher reference number (TRN)?",
+                            isPageHeading: true,
+                            classes: "govuk-visually-hidden"
+                        }
+                        },
+                        items: [
+                            { value: "Yes, redirect(teacher-reference-number)", text: "Yes" },
+                            { value: "No", text: "No" }
+                        ]                
+                    } | decorateFormAttributes('participant-2-know-trn' if data['participant-1-added'] else 'participant-1-know-trn')) }}
+                
+                {% elif data['participantType'] == "mentor" %}
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",                    
+                        fieldset: {
+                        legend: {
+                            text: "Do you know this person’s teacher reference number (TRN)?",
+                            isPageHeading: true,
+                            classes: "govuk-visually-hidden"
+                        }
+                        },
+                        items: [
+                            { value: "Yes, redirect(teacher-reference-number)", text: "Yes" },
+                            { value: "No", text: "No" }
+                        ]                
+                    } | decorateFormAttributes('participant-2-mentor-know-trn' if data['participant-1-mentor-added'] else 'participant-1-mentor-know-trn')) }}
+
+                {% endif %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
