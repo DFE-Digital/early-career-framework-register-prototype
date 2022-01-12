@@ -168,7 +168,16 @@
                     <dt class="govuk-summary-list__key">Status</dt>
                     <dd class="govuk-summary-list__value">
 
-                        {% if data['status'] == "Remind" %}
+                        
+                        {% if data['status'] == "TransferringOut" %}
+
+                            <p>Content for highlighting they are moving FROM the school but still eligible for programme.</p>
+
+                        {% elif data['status'] == "TransferringIn" %}
+
+                            <p>Content for highlighting they are moving TO this school and are eligible for programme.</p>
+                        
+                        {% elif data['status'] == "Remind" %}
 
                             <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
                             <p>We suggest you remind them to provide this.</p>
