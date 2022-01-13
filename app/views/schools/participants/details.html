@@ -27,6 +27,8 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <p><a href="transfer/">Tell us this {% if data['participantType'] == "mentor" %}ECT{% else %}ECT{% endif %} is moving to another school</a></p>
+
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
@@ -332,6 +334,10 @@
                 {% endif %}
             {% endif %}
             {% endif %}
+
+
+
+            
 
         </div>
     </div>

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Are you sure you want to tell us this ECT is moving to another school?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            
+            <p>You should only tell us they are moving schools if:</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li>they are intending to carry on with their ECT training</li>
+                <li>further information Kate</li>
+            </ul>
+
+            <p>You should not do this if:</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li>they are leaving the teaching profession</li>
+                <li>further information Kate</li>
+            </ul>
+
+            <form method="post" action="leaving-date" >
+                <!-- <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
+                <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />
+                <input type="hidden" name="link-action" id="link-action" value="" /> -->
+                {{ govukButton({
+                    text: "Confirm"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

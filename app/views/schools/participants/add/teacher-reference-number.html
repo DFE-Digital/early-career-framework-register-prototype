@@ -1,24 +1,25 @@
 {% extends "layout.html" %}
+{% set schoolSignedIn = true %}
 
 {% if data['participantType'] == "ECT" %}
     {% if data['participant-1-added'] %}
-        {% set pageHeading = 'What’s ' + data['participant-2-name'] + 's teacher reference number (TRN)?' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s teacher reference number (TRN)?' %}
     {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-1-name'] + 's teacher reference number (TRN)?' %}
+        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s teacher reference number (TRN)?' %}
     {% endif %}
 {% elif data['participantType'] == "mentor" %}
     {% if data['participant-1-mentor-added'] %}
-        {% set pageHeading = 'What’s ' + data['participant-2-mentor-name'] + 's teacher reference number (TRN)?' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-mentor-name'] + '’s teacher reference number (TRN)?' %}
     {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + 's teacher reference number (TRN)?' %}
+        {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s teacher reference number (TRN)?' %}
     {% endif %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'What’s ' + data['participant-2-name'] + 's teacher reference number (TRN)?' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s teacher reference number (TRN)?' %}
     {% endif %}
 {% endif %}
 
-{% set pageSection = "" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block pageNavigation %}
@@ -45,23 +46,9 @@
 				<form class="form" action="check-your-answers" method="post">
 					<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
 
-			{% elif data['participantType'] == "ECT" %}
-			  	<!-- If a mentor is in the system -->
-				{% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
-					{% if data['participant-1-added'] == "Yes" %}
-						<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-					{% else %}
-						<form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-					{% endif %}
-				<!-- No mentor currently added -->
-				{% else %}						
-					<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-				{% endif %} 
-
-			{% elif data['participantType'] == "mentor" %}
-				<!-- We have no need to go to choose mentor as they are a mentor -->
-				<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-			{% endif %}      	        		
+			{% else %}
+				<form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">			
+			{% endif %}
 				
 				{% if data['participantType'] == "ECT" %}
 
