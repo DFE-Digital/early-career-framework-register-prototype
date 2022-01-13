@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set pageHeading = "Edit notes" if data.support.notes else "Add notes" %}
+{% set pageSection = "Jane Doe" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/support/participant" method="post">
+      {% set labelHtml %}
+        <span class="govuk-heading-xl govuk-!-margin-bottom-0">
+          <span class="govuk-caption-xl">{{ pageSection }}</span>
+          {{ pageHeading }}
+        </span>
+      {% endset %}
+
+      {{ govukTextarea({
+        label: {
+          html: labelHtml,
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        rows: 15,
+        hint: {
+          text: "Give details about any decisions about, or changes made to this participant"
+        }
+      } | decorateFormAttributes(['support', 'notes']) ) }}
+
+      {{ govukButton({
+        text: 'Save'
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
