@@ -113,7 +113,7 @@
                         {% if data['participantType'] == "ECT" %}
 
                             {% if data['participant-1-added'] %}
-                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                {% if data['participant-2-know-trn'] == "Yes" %}
                                     {{ data['participant-2-trn'] }}
                                 {% else %}
                                     {{ data['participant-2-know-trn'] }}
@@ -177,7 +177,7 @@
                                 {% endif %}
                             {% endif %}
                         {% endif %}
-                                                
+                                
                 </div>
 
 
