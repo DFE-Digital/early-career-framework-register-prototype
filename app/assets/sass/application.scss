@@ -17,6 +17,14 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+// TODO: Temporary fix
+// Remove when bug is resolved: https://github.com/alphagov/govuk-frontend/issues/2495
+.app-summary-list-fix {
+  .govuk-summary-list__value {
+    width: 50%;
+  }
+}
+
 .investigate {
   border-left-color: #d4351c;
 }
