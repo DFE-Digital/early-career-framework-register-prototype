@@ -62,6 +62,134 @@
                     {% endif %}
                 </div>
 
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">                        
+                        {% if data['participantType'] == "ECT" %}
+                            <!-- Has to remain split up otherwise it wont know which participant to show -->
+                            {% if data['participant-1-added'] %}
+                                {% if data['participant-2-know-trn'] == "Yes" %}
+                                    TRN
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                    TRN
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% endif %}
+                        {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                    TRN
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                    TRN
+                                {% else %}
+                                    Know teacher reference number
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data['participantType'] == "ECT" %}
+
+                            {% if data['participant-1-added'] %}
+                                {% if data['participant-2-know-trn'] == "Yes" %}
+                                    {{ data['participant-2-trn'] }}
+                                {% else %}
+                                    {{ data['participant-2-know-trn'] }}
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                    {{ data['participant-1-trn'] }}
+                                {% else %}
+                                    {{ data['participant-1-know-trn'] }}
+                                {% endif %}
+                            {% endif %}
+                        
+                            {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                    
+                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                    {{ data['participant-2-mentor-trn'] }}
+                                {% else %}
+                                    {{ data['participant-2-mentor-know-trn'] }}
+                                {% endif %}
+
+                            {% else %}
+                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                    {{ data['participant-1-mentor-trn'] }}
+                                {% else %}
+                                    {{ data['participant-1-mentor-know-trn'] }}
+                                {% endif %}
+                                
+                            {% endif %}
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        
+                        {% if data['participantType'] == "ECT" %}
+                            <!-- Has to remain split up otherwise it wont know which participant to show -->
+                            {% if data['participant-1-added'] %}
+                                {% if data['participant-2-know-trn'] == "Yes" %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% else %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-know-trn'] == "Yes" %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% else %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% endif %}
+                            {% endif %}
+                        {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% else %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% endif %}
+                            {% else %}
+                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% else %}
+                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                                
+                </div>
+
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Date of birth</dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data['participantType'] == "ECT" %}
+                            {% if data['participant-1-added'] %}
+                                {{ data['participant-2-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% else %}
+                                {{ data['participant-1-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% endif %}
+                        {% elif data['participantType'] == "mentor" %}
+                            {% if data['participant-1-mentor-added'] %}
+                                {{ data['day'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% else %}
+                                {{ data['day'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% endif %}
+                        {% elif data['neworexistingmentor'] == "existingMentor"  %}
+                            {{ data['day'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                </div>
+
+                
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">

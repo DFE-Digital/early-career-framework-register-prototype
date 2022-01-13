@@ -147,7 +147,7 @@
                             {% if data['participant-1-added'] %}
                                 {{ data['participant-2-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
                             {% else %}
-                            {{ data['participant-1-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                                {{ data['participant-1-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
                             {% endif %}
                         {% elif data['participantType'] == "mentor" %}
                             {% if data['participant-1-mentor-added'] %}
