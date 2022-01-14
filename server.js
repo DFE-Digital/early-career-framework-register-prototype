@@ -24,6 +24,7 @@ const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
+const helpers = require('./lib/helpers.js')
 const extensions = require('./lib/extensions/extensions.js')
 const addNunjucksFiltersWithAppContext = require('./lib/filters-with-app-context')
 
@@ -190,6 +191,9 @@ if (useCookieSessionStore === 'true') {
     saveUninitialized: false
   })))
 }
+
+// Load in global helper functions
+helpers.addHelpers(nunjucksAppEnv)
 
 // Automatically store all data users enter
 if (useAutoStoreData === 'true') {
