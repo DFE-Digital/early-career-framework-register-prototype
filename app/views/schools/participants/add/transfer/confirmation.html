@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = 'Hugo Furst’s leaving date has been submitted' %}
+{% set pageHeading = 'Hugo Furst has been registered with your school' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,9 +16,20 @@
           	}) }}      
 
         	<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
-        	<p>They will continue to have access to their induction programme and will be moved to transferring out section of your dashboard.</p>                
-        	<p>If you’d assigned a mentor to this person, and that mentor is no longer mentoring an ECT once this person leaves, they will still be able to continue with their training.</p>        
-			<p>If you’d assigned this person one or more ECTs, you need to select a different mentor for them by the leaving date.</p>
+        	
+        	<p>We'll email this person to tell them they've been registered at your school.</p>
+        	<p>They'll appear on your dashboard as 'transferring to your school' until their start date.</p>
+        	<p>They're already training with the same provider used by your school.</p>
+
+        	<!-- If ECT -->
+
+        	<p>You need to assign them a mentor.</p>  
+
+			<!-- If FIP mentor -->
+        	<p>They can continue training as a mentor even if they do not have an ECT assigned to them yet.</p>  
+
+        	<!-- If mentor -->      
+			<p>If you’d assigned this person one or more ECTs, you need to select a different mentor for them.</p>
         	<p><a class="govuk-link govuk-link--no-visited-state" href="../participants/">Return to your ECTs and mentors</a></p>
 
     	</div>

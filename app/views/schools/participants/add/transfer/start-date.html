@@ -3,19 +3,19 @@
 
 {% if data['participantType'] == "ECT" %}
     {% if data['participant-1-added'] %}
-        {% set pageHeading = 'When is ' + data['participant-2-name'] + ' starting at your school? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s start date at your school? ' %}
     {% else %}
-        {% set pageHeading = 'When is ' + data['participant-1-name'] + ' starting at your school? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s start date at your school? ' %}
     {% endif %}
 {% elif data['participantType'] == "mentor" %}
     {% if data['participant-1-mentor-added'] %}
-        {% set pageHeading = 'When is ' + data['participant-2-mentor-name'] + ' starting at your school? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-mentor-name'] + '’s start date at your school? ' %}
     {% else %}
-        {% set pageHeading = 'When is ' + data['participant-1-mentor-name'] + ' starting at your school? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s start date at your school? ' %}
     {% endif %}
 {% else %}
     {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'When is ' + data['participant-2-name'] + ' starting at your school? ' %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s start date at your school? ' %}
     {% endif %}
 {% endif %}
 
@@ -67,7 +67,7 @@
 							}
 						],
 						hint: {
-							text: "For example, 14 7 1990"
+							text: "For example, 14 7 2023"
 						}
 					}) }}
 
