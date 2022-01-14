@@ -229,18 +229,33 @@
                 {% if data['participantType'] == "ECT" %}
                     {% if data['participant-1-added'] %}
                         <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
+                        {% if data['participant-2-know-trn'] == "Yes" %}
+                            <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="Yes" />
+                        {% endif %}
                     {% else %}
                         <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
+                        {% if data['participant-1-know-trn'] == "Yes" %}
+                            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Yes" />
+                        {% endif %}
                     {% endif %}
                 {% elif data['participantType'] == "mentor" %}
                     {% if data['participant-1-mentor-added'] %}
                         <input type="hidden" name="participant-2-mentor-added" id="participant-2-mentor-added" value="Yes" />
+                        {% if data['participant-1-know-trn'] == "Yes" %}
+                            <input type="hidden" name="participant-2-mentor-eligible" id="participant-2-mentor-eligible" value="Yes" />
+                        {% endif %}
                     {% else %}
                         <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
+                        {% if data['participant-1-know-trn'] == "Yes" %}
+                            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" />
+                        {% endif %}
                     {% endif %}
                 {% elif data['participantType'] == "sitMentor" %}
                     <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />
                 {% endif %}
+
+
+
 
                 {{ govukButton({
                     text: "Confirm and add"
