@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Is this ECT transferring to another school where they'll continue their induction?" %}
+{% set pageHeading = "Is this ECT transferring to another school where they’ll continue their induction?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +13,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>If they're leaving your school for a different reason, you must contact your training provider to remove them instead. Reasons may include:</p>
+            <p>If they’re leaving your school for a different reason, you must contact your training provider to remove them instead. Reasons may include:</p>
 
                <ul class="govuk-list govuk-list--bullet">
                   <li>leaving teaching</li>
@@ -21,7 +21,7 @@
                   <li>taking a teaching job outside of England</li>
                 </ul>
 
-            <p>If this person is moving to work at a new school where they'll continue their induction, confirm below.</p>
+            <p>If this person is moving to work at a new school where they’ll continue their induction, confirm below.</p>
 
             <form method="post" action="leaving-date" >
                 <!-- <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
