@@ -204,7 +204,10 @@
     <!-- We do not want to show this to older admission years -->
     {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
     <!-- If we have any ECT or Mentors added then show the participant dashboard -->
-    {% if ((data['participant-1-added'] == "Yes") or (data['participant-2-added'] == "Yes")) %}
+    {% if ((data['participant-1-added'] == "Yes") or (data['participant-2-added'] == "Yes") or (data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sitmentor-added'] == "Yes")) %}
+
+        {% if ((data['participant-1-eligible'] == "No" ) or (data['participant-2-eligible'] == "No" ) or (data['participant-1-mentor-eligible'] == "No" ) or (data['participant-2-mentor-eligible'] == "No" ))  %}
+    
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -223,6 +226,7 @@
         </thead>
         <tbody class="govuk-table__body">
             {% if data['participant-1-added'] == "Yes" %}
+                {% if not data['participant-1-eligible']  %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
@@ -230,8 +234,10 @@
                 <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=EmailNotSent" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td>
             </tr>
+                {% endif %}
             {% endif %}
             {% if data['participant-2-added'] == "Yes" %}
+                {% if not data['participant-2-eligible']  %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-2-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
@@ -239,8 +245,10 @@
                 <td class="govuk-table__cell">{% if data['participant-2-mentor'] %} None {% else %} Assign mentor {% endif %}</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-2&status=Remind" class="govuk-link govuk-link--no-visited-state">{% if data['participant-2-mentor'] %}Details{% else %}Check{% endif %}</a></td>
             </tr>
+                {% endif %}
             {% endif %}
             {% if data['participant-1-mentor-added'] == "Yes" %}
+                {% if not data['participant-1-mentor-eligible']  %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-1-mentor-name'] }}</td>
                 <td class="govuk-table__cell">Mentor</td>
@@ -248,8 +256,10 @@
                 <td class="govuk-table__cell">None</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=Mentor&active-user=mentor-1&status=Remind" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
+                {% endif %}
             {% endif %}
             {% if data['participant-2-mentor-added'] == "Yes" %}
+                {% if not data['participant-2-mentor-eligible']  %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-2-mentor-name'] }}</td>
                 <td class="govuk-table__cell">Mentor</td>
@@ -257,8 +267,10 @@
                 <td class="govuk-table__cell">None</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=Mentor&active-user=mentor-2&status=Remind" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
+                {% endif %}
             {% endif %}
             {% if data['participant-1-sit-mentor-added'] == "Yes" %}
+                {% if not data['participant-1-sitmentor-eligible']  %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data.sitName }}</td>
                 <td class="govuk-table__cell">Mentor</td>
@@ -266,10 +278,13 @@
                 <td class="govuk-table__cell">None</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-details=sitMentor&status=Remind" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
+                {% endif %}
             {% endif %}
+
 
         </tbody>
     </table>
+    {% endif %}
     {% endif %}<!-- // participants added -->
     {% endif %}<!-- // not shown to older school years -->
 
@@ -367,6 +382,17 @@
             </tr>
         </thead>
         <tbody class="govuk-table__body">
+            {% if data['participant-1-added'] == "Yes" %}
+                {% if data['participant-1-eligible']  %}
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
+                <td class="govuk-table__cell">ECT</td>
+                <td class="govuk-table__cell">{{ data['participant-1-start-date'] }}</td>
+                <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td>
+            </tr>
+                {% endif %}
+            {% endif %}
             {% if data['cohort'] == "2019" %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Kate Lloyd</a></td>

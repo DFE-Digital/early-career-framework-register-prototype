@@ -28,7 +28,8 @@
             <p>Content line for information about what will happen if we need it Kate.</p>
 
             <form class="form" action="confirmation" method="post" >    
-                <input type="hidden" name="show-participant-transferOut" id="show-participant-transferOut" value="Yes" />                       
+                <input type="hidden" name="show-participant-transferOut" id="show-participant-transferOut" value="Yes" />     
+                <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Transfer" />                  
                 {{ govukButton({
                     text: "Confirm and continue"
                 }) }}
