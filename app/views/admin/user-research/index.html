@@ -15,31 +15,43 @@
         <!-- <h2 class="govuk-heading-m">Cohorts</h2>
         <p>Dashboards and add ECT flow changes to accommodate multiple cohorts.</p> -->
 
-        <!-- <form action="/emails/link-to-sign-in" method="post" >
-            <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />
-            <input type="hidden" name="show-participant-no-QTS" id="show-participant-no-QTS" value="Yes" />
+        <form action="/schools/manage-your-training" method="post" >
+
+            <!-- Programme choice -->
             <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
-            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />
-            <input type="hidden" name="roles-explanation" id="roles-explanation" value="Seen" />
-            <input type="hidden" name="user-research" id="user-research" value="Yes" />
             <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
-            <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
-            <input type="hidden" name="participant-1-name" id="participant-1-name" value="Kate Lloyd" />
-            <input type="hidden" name="participant-1-email" id="participant-1-email" value="katel@test.dfe.gov.uk" />
+            <input type="hidden" name="roles-explanation" id="roles-explanation" value="Seen" />
+            <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
+            
+            <!-- Dashboard options -->
+            <!-- <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> -->
+            <!-- <input type="hidden" name="show-participant-no-QTS" id="show-participant-no-QTS" value="Yes" /> -->
+            <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" />            
+
+            <!-- Participants -->
+            <input type="hidden" name="participantType" id="participantType" value="ECT" />
+            <input type="hidden" name="participant-1-name" id="participant-1-name" value="Hugo Furst" />
+            <input type="hidden" name="participant-1-know-trn" id="participant-1-know-trn" value="Yes" />
+            <input type="hidden" name="participant-1-trn" id="participant-1-trn" value="1234567" />
+            <input type="hidden" name="participant-1-dob" id="participant-1-dob" value="[object Object]" />
+            <input type="hidden" name="participant-1-email" id="participant-1-email" value="hugo.furst@test.dfe.gov.uk" />
             <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
-            <input type="hidden" name="participant-2-name" id="participant-2-name" value="Nicola Page" />
+            <input type="hidden" name="participant-1-start-date" id="participant-1-start-date" value="Autumn 2021" />
+            
+            <!-- <input type="hidden" name="participant-2-name" id="participant-2-name" value="Nicola Page" />
             <input type="hidden" name="participant-2-email" id="participant-2-email" value="nicolap@test.dfe.gov.uk" />
             <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
             <input type="hidden" name="participant-1-mentor-name" id="participant-1-mentor-name" value="Brian Coult" />
             <input type="hidden" name="participant-1-mentor-email" id="participant-1-mentor-email" value="brianc@test.dfe.gov.uk" />
             <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
             <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
-            <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />
+            <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" /> -->
+                        
 
             {{ govukButton({
                 text: "Start user research"
             }) }}
-        </form> -->
+        </form>
 
     </div>
 </div>
