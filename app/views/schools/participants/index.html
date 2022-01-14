@@ -73,7 +73,7 @@
 
 
     
-    
+    {% if data['show-participant-transferOut'] == "Yes" %}
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -98,18 +98,19 @@
                 <td class="govuk-table__cell">18 February 2022</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=Luke Didsbury&status=TransferringOut" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
-            <tr class="govuk-table__row">
+            <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">James Rose</a></td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn 2021</td>
                 <td class="govuk-table__cell">8 April 2022</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=James Rose&status=TransferringOut" class="govuk-link govuk-link--no-visited-state">Details</a></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
+    {% endif %}
    
 
-
+    {% if data['show-participant-transferIn'] == "Yes" %}
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -134,15 +135,16 @@
                 <td class="govuk-table__cell">28 February 2022</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=Dominique Sherwood&status=TransferringIn" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
-            <tr class="govuk-table__row">
+            <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">James Liddell</a></td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn 2021</td>
                 <td class="govuk-table__cell">24 April 2022</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=James Liddell&status=TransferringIn" class="govuk-link govuk-link--no-visited-state">Details</a></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
+    {% endif %}
     
 
     <!-- Not eligible dashboard -->
