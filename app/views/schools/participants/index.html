@@ -96,7 +96,7 @@
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn 2021</td>
                 <td class="govuk-table__cell">
-                    {% set participant = 'participant-1-leaving-date' if data['participant-2-added'] else 'participant-2-leaving-date' %}
+                    {% set participant = 'participant-1-leaving' if data['participant-2-added'] else 'participant-2-leaving' %}
                     {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                 </td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
