@@ -95,8 +95,11 @@
                 <td class="govuk-table__cell">Hugo Furst</td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn 2021</td>
-                <td class="govuk-table__cell">{{ data['leaving-date-day'] }} {{ data['leaving-date-month'] | toMonth }} {{ data['leaving-date-year'] }}</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=Luke Didsbury&status=TransferringOut" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell">
+                    {% set participant = 'participant-1-leaving-date' if data['participant-2-added'] else 'participant-2-leaving-date' %}
+                    {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
+                </td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
             <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">James Rose</a></td>
@@ -129,14 +132,14 @@
         </thead>
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Hugo Furst</td>
+                <td class="govuk-table__cell">{{ data['participant-2-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn 2021</td>
                 <td class="govuk-table__cell">
-                    {% set participant = 'participant-1-start-date' if data['participant-1-added'] else 'participant-1-start-date' %}
+                    {% set participant = 'participant-2-start-date' if data['participant-2-added'] else 'participant-2-start-date' %}
                     {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                 </td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=Dominique Sherwood&status=TransferringIn" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
             </tr>
             <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">James Liddell</a></td>

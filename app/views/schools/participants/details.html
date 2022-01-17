@@ -61,73 +61,70 @@
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">                        
-                        {% if data['participantType'] == "ECT" %}
-                            <!-- Has to remain split up otherwise it wont know which participant to show -->
-                            {% if data['participant-1-added'] %}
-                                {% if data['participant-2-know-trn'] == "Yes" %}
-                                    TRN
-                                {% else %}
-                                    Know teacher reference number
-                                {% endif %}
+                    <dt class="govuk-summary-list__key">      
+                        
+                        {% if data['active-user'] == "ect-1" %}
+                            {% if data['participant-1-know-trn'] == "Yes" %}
+                                TRN
                             {% else %}
-                                {% if data['participant-1-know-trn'] == "Yes" %}
-                                    TRN
-                                {% else %}
-                                    Know teacher reference number
-                                {% endif %}
+                                TRN entered
                             {% endif %}
-                        {% elif data['participantType'] == "mentor" %}
-                            {% if data['participant-1-mentor-added'] %}
-                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                                    TRN
-                                {% else %}
-                                    Know teacher reference number
-                                {% endif %}
+                        {% elif data['active-user'] == "ect-2" %}
+                            {% if data['participant-2-know-trn'] == "Yes" %}
+                                TRN
                             {% else %}
-                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                                    TRN
-                                {% else %}
-                                    Know teacher reference number
-                                {% endif %}
+                                TRN entered
+                            {% endif %}                            
+                        {% elif data['active-user'] == "mentor-1" %}
+                            {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                TRN
+                            {% else %}
+                                TRN entered
                             {% endif %}
-                        {% endif %}
+                        {% elif data['active-user'] == "mentor-2" %}
+                            {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                TRN
+                            {% else %}
+                                TRN entered
+                            {% endif %}                            
+                        {% elif data['active-user'] == "sitMentor" %}                            
+                            TRN                            
+                        {% elif data['active-user'] == "Random" %}
+                            TRN
+                        {% endif %}                        
                         </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
 
-                            {% if data['participant-1-added'] %}
-                                {% if data['participant-2-know-trn'] == "Yes" %}
-                                    {{ data['participant-2-trn'] }}
-                                {% else %}
-                                    {{ data['participant-2-know-trn'] }}
-                                {% endif %}
+                        {% if data['active-user'] == "ect-1" %}
+                            {% if data['participant-1-know-trn'] == "Yes" %}
+                                {{ data['participant-1-trn'] }}
                             {% else %}
-                                {% if data['participant-1-know-trn'] == "Yes" %}
-                                    {{ data['participant-1-trn'] }}
-                                {% else %}
-                                    {{ data['participant-1-know-trn'] }}
-                                {% endif %}
+                                {{ data['participant-1-know-trn'] }}
                             {% endif %}
+                        {% elif data['active-user'] == "ect-2" %}
+                            {% if data['participant-2-know-trn'] == "Yes" %}
+                                {{ data['participant-2-trn'] }}
+                            {% else %}
+                                {{ data['participant-2-know-trn'] }}
+                            {% endif %}                            
+                        {% elif data['active-user'] == "mentor-1" %}
+                            {% if data['participant-1-mentor-know-trn'] == "Yes" %}
+                                {{ data['participant-1-mentor-trn'] }}
+                            {% else %}
+                                {{ data['participant-1-mentor-know-trn'] }}
+                            {% endif %}
+                        {% elif data['active-user'] == "mentor-2" %}
+                            {% if data['participant-2-mentor-know-trn'] == "Yes" %}
+                                {{ data['participant-2-mentor-trn'] }}
+                            {% else %}
+                                {{ data['participant-2-mentor-know-trn'] }}
+                            {% endif %}                            
+                        {% elif data['active-user'] == "sitMentor" %}                            
+                            7775556         
+                        {% elif data['active-user'] == "Random" %}
+                            {{ data['random-trn-number'] }}
+                        {% endif %}   
                         
-                            {% elif data['participantType'] == "mentor" %}
-                            {% if data['participant-1-mentor-added'] %}
-                                    
-                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                                    {{ data['participant-2-mentor-trn'] }}
-                                {% else %}
-                                    {{ data['participant-2-mentor-know-trn'] }}
-                                {% endif %}
-
-                            {% else %}
-                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                                    {{ data['participant-1-mentor-trn'] }}
-                                {% else %}
-                                    {{ data['participant-1-mentor-know-trn'] }}
-                                {% endif %}
-                                
-                            {% endif %}
-                        {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         
@@ -169,14 +166,18 @@
                     <dt class="govuk-summary-list__key">Date of birth</dt>
                     <dd class="govuk-summary-list__value">
 
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                        {% if data['active-user'] == "ect-1" %}                            
+                            {% set participant = 'participant-1-dob' %}
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-dob'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% set participant = 'participant-2-dob'%}
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['day'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% set participant = 'participant-1-mentor-dob' %}
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['day'] }} {{ data['month'] | toMonth }} {{ data['year'] }}
+                            {% set participant = 'participant-2-mentor-dob' %} 
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['active-user'] == "sitMentor" %}
                             
                         {% else %}
