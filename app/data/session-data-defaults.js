@@ -1,8 +1,8 @@
 const defaults = {
-  schoolName: 'Acme Primary School',
-  sitName: 'Michael Jordan',
-  leadProvider: 'Education Development Trust',
-  deliveryPartner: 'Mega Delivery Partner'  
+  schoolName: 'Poole Grammar School',
+  sitName: 'Pete Ingleby',
+  leadProvider: 'UCL Institute of Education',
+  deliveryPartner: 'South Central Teaching School Hub'  
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
@@ -20,6 +20,6 @@ module.exports = {
   leadProvider,
   deliveryPartner,
   inductionStart: 'Spring 2022',
-  linkExpire: '12 December 2021',
+  linkExpire: '12 February 2022',
   expiryTime: '1pm'
 }
