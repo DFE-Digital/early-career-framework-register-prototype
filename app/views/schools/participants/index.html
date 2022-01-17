@@ -384,6 +384,7 @@
         <tbody class="govuk-table__body">
             {% if data['participant-1-added'] == "Yes" %}
                 {% if data['participant-1-eligible']  %}
+                    {% if not data['participant-1-leaving-date-day'] %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
                 <td class="govuk-table__cell">ECT</td>
@@ -391,6 +392,7 @@
                 <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td>
             </tr>
+                    {% endif %}
                 {% endif %}
             {% endif %}
             {% if data['cohort'] == "2019" %}
