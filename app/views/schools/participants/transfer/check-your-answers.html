@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">Name</dt>
+                    <dd class="govuk-summary-list__value">Hugo Furst</dd>
+                    
+                </div>            
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Leaving date</dt>
+                    <dd class="govuk-summary-list__value">{{ data['participant-1-leaving-date-day'] }} {{ data['participant-1-leaving-date-month'] | toMonth }} {{ data['participant-1-leaving-date-year'] }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="leaving-date?cya-action=change-date">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
+            </dl>
+
+            <form class="form" action="confirmation" method="post" >    
+                <input type="hidden" name="show-participant-transferOut" id="show-participant-transferOut" value="Yes" />     
+                <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Transfer" />                  
+                {{ govukButton({
+                    text: "Confirm and continue"
+                }) }}
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

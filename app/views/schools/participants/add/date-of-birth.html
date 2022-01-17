@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% if data['participantType'] == "ECT" %}
+    {% if data['participant-1-added'] %}
+        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s date of birth?' %}
+    {% else %}
+        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s date of birth?' %}
+    {% endif %}
+{% elif data['participantType'] == "mentor" %}
+    {% if data['participant-1-mentor-added'] %}
+        {% set pageHeading = 'Do you know ' + data['participant-2-mentor-name'] + '’s teacher reference number (TRN)?' %}
+    {% else %}
+        {% set pageHeading = 'Do you know ' + data['participant-1-mentor-name'] + '’s teacher reference number (TRN)?' %}
+    {% endif %}
+{% else %}
+    {% if data['induction-tutor'] == "Yes" %}
+        {% set pageHeading = 'Do you know ' + data['participant-2-name'] + '’s teacher reference number (TRN)?' %}
+    {% endif %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        	<p class="govuk-body">We need this to check their details in the Teaching Regulation Agency records, and confirm they’re eligible for this programme.</p>
+        
+      		<!-- If using change link -->
+      		{% if data['cya-action'] == "change-dob" %}
+      		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+        		<input type="hidden" name="cya-action" id="cya-action" value="" />
+
+      		{% else %}
+
+				{% if data['transferIn'] == "Yes" %}
+					<form class="form" action="transfer/moving-from-another-school" method="post">        		
+				{% else %}        		
+          			<form class="form" action="email-address" method="post">        		
+				{% endif %}
+
+      		{% endif %}
+
+				
+			  	{% if data['participantType'] == "ECT" %}
+
+			  		{% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
+
+					{{ govukDateInput({
+						id: 'session-date',
+						fieldset: {
+							legend: {
+								text: pageHeading,
+								classes: "govuk-visually-hidden"
+							}
+						},
+						items: [
+							{
+								name: '[' + participant + '][date-day]',
+								value: data[participant]['date-day'],
+								classes: "govuk-input--width-2",
+								label: 'Day'
+							},
+							{
+								name: '[' + participant + '][date-month]',
+								value: data[participant]['date-month'],
+								classes: "govuk-input--width-2",
+								label: 'Month'
+							},
+							{
+								name: '[' + participant + '][date-year]',
+								value: data[participant]['date-year'],
+								classes: "govuk-input--width-4",
+								label: 'Year'
+							}
+						],
+						hint: {
+							text: "For example, 14 7 1990"
+						}
+					}) }}
+
+				{% elif data['participantType'] == "mentor" %}
+
+				{{ govukDateInput({					
+					fieldset: {
+				  		legend: {
+							text: "When was your passport issued?",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+				  		}
+					},
+					hint: {
+				  		text: "For example, 27 3 2007"
+					}			  	
+				} | decorateFormAttributes('participant-2-mentor-dob' if data['participant-1-mentor-added'] else 'participant-1-mentor-dob')) }}
+
+				{% endif %}
+				
+
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+
+      		</form>
+
+    	</div>
+  	</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "When are they leaving your school?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<!-- <p>This is the last day they are part of the staff at your school.</p> -->
+			
+          	<form class="form" action="check-your-answers" method="post">
+
+        		<div class="govuk-form-group">
+        			<label class="govuk-label govuk-visually-hidden govuk-!-width-three-quarters" for="dobNumb">What date are they leaving your school?</label>
+            		<div id="passport-issued-hint" class="govuk-hint">For example, 27 3 2023</div>
+					<div class="govuk-date-input" id="dob">
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="participant-1-leaving-date">Day</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="participant-1-leaving-date-day" name="participant-1-leaving-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['participant-1-leaving-date-day'] }}">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="participant-1-leaving-date-month">Month</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="participant-1-leaving-date-month" name="participant-1-leaving-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['participant-1-leaving-date-month'] }}">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">
+								<label class="govuk-label govuk-date-input__label" for="participant-1-leaving-date-year">Year</label>
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="participant-1-leaving-date-year" name="participant-1-leaving-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['participant-1-leaving-date-year'] }}">
+							</div>
+						</div>
+					</div>
+        		</div>
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+      		
+			</form>
+    	</div>
+  	</div>
+{% endblock %}

@@ -43,7 +43,7 @@
                                 {% if data['participant-2-know-trn'] == "Yes" %}
                                     TRN
                                 {% else %}
-                                    TRN entered
+                                    Know teacher reference number
                                 {% endif %}
                             {% else %}
                                 {% if data['participant-1-know-trn'] == "Yes" %}
@@ -180,13 +180,16 @@
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">{% if data['participantType'] == "ECT" %}Start induction{% elif data['participantType'] == "mentor" %}Start mentoring{% endif %}</dt>
+                    <dt class="govuk-summary-list__key">Start date</dt>
                     <dd class="govuk-summary-list__value">
                         {% if data['participantType'] == "ECT" %}
                             {% if data['participant-1-added'] %}
-                                {{ data['participant-2-start-date'] }}
-                            {% else %}
-                                {{ data['participant-1-start-date'] }}
+                                {% set participant = 'participant-2-start-date' if data['participant-1-added'] else 'participant-1-start-date' %}
+                                {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}    
+                            
+                            {% else %}                                
+                                {% set participant = 'participant-2-start-date' if data['participant-1-added'] else 'participant-1-start-date' %}
+                                {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                             {% endif %}
                         {% elif data['participantType'] == "mentor" %}
                             {% if data['participant-1-mentor-added'] %}
@@ -221,50 +224,27 @@
                 {% endif %}
             </dl>
 
-            <p class="govuk-!-margin-bottom-5">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
-
             <form class="form" action="confirmation" method="post" >
                 <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just double check to remove value on change actions -->
 
                 {% if data['participantType'] == "ECT" %}
                     {% if data['participant-1-added'] %}
                         <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
-                        {% if data['participant-2-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="No" />
-                        {% endif %}
                     {% else %}
                         <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="No" />
-                        {% endif %}
                     {% endif %}
                 {% elif data['participantType'] == "mentor" %}
                     {% if data['participant-1-mentor-added'] %}
                         <input type="hidden" name="participant-2-mentor-added" id="participant-2-mentor-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-2-mentor-eligible" id="participant-2-mentor-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-2-mentor-eligible" id="participant-2-mentor-eligible" value="No" />
-                        {% endif %}
                     {% else %}
                         <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="No" />
-                        {% endif %}
                     {% endif %}
                 {% elif data['participantType'] == "sitMentor" %}
-                    <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />                
+                    <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />
                 {% endif %}
 
 
-
-
+                <input type="hidden" name="show-participant-transferIn" id="show-participant-transferIn" value="Yes" />                
                 {{ govukButton({
                     text: "Confirm and add"
                 }) }}
