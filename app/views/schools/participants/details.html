@@ -128,7 +128,7 @@
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             <!-- Has to remain split up otherwise it wont know which participant to show -->
                             {% if data['participant-1-added'] %}
                                 {% if data['participant-2-know-trn'] == "Yes" %}
@@ -166,7 +166,8 @@
                     <dt class="govuk-summary-list__key">Date of birth</dt>
                     <dd class="govuk-summary-list__value">
 
-                        {% if data['active-user'] == "ect-1" %}                            
+                        {% if data['active-user'] == "ect-1" %}      
+
                             {% set participant = 'participant-1-dob' %}
                             {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['active-user'] == "ect-2" %}

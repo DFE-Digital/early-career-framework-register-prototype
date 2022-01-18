@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+
+
 {% set pageHeading = 'What’s the full name of this  ' + data['participantType'] + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -25,7 +27,7 @@
                 <form class="form" action="have-trn" method="post">
             {% endif %}
 
-                {% if data['participantType'] == "ECT" %}
+                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
 
                     {{ govukInput({
                         label: {

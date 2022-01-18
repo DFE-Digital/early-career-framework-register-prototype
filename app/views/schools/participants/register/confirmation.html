@@ -27,7 +27,7 @@
 
       {% if data['inductionProgramme'] == "FIP" %}
       <!-- FIP -->
-        {% if data['participantType'] == "ECT" %}
+        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
           <!-- Participant type ECT -->
           {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
@@ -88,7 +88,7 @@
 
       {% elif data['inductionProgramme'] == "CIP" %}
       <!-- CIP -->
-        {% if data['participantType'] == "ECT" %}
+        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
         <!-- Participant ECT -->
           {% if data['register-validate'] == "noMatch" %}
             <!-- Validation failed -->

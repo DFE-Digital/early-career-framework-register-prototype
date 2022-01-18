@@ -20,7 +20,7 @@
         	<p>They should continue with their current training programme until their leaving date. Their new school will arrange how they’ll continue their training after that.</p>
 
         	<!-- If FIP ECT -->
-			{% if data['participantType'] == "ECT" %}
+			{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
         	<p>The person mentoring this ECT can continue their training, even if they do not have another ECT assigned to them yet.</p>  
 
         	<!-- If mentor -->      
