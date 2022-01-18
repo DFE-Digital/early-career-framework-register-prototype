@@ -242,6 +242,7 @@
                             <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="No" />
                         {% endif %}
                     {% endif %}
+                
                 {% elif data['participantType'] == "mentor" %}
                     {% if data['participant-1-mentor-added'] %}
                         <input type="hidden" name="participant-2-mentor-added" id="participant-2-mentor-added" value="Yes" />
@@ -252,7 +253,7 @@
                         {% endif %}
                     {% else %}
                         <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
+                        {% if data['participant-1-mentor-know-trn'] == "Yes" %}
                             <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" />
                         {% else %}
                             <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="No" />

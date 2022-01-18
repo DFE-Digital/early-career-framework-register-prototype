@@ -19,10 +19,10 @@
 
         {{ govukRadios({
           items: [
-            { value: "ECT", text: "New ECT" },                        
-            { value: "ECT-transfer, redirect(transfer/)", text: "Transfer an ECT to your school from another school", hint: { text: "Registered alreday on an ECF-based training progamme." } },            
-            { value: "mentor", text: "New mentor" },            
-            { value: "mentor, redirect(transfer/)", text: "Transfer a mentor to your school from another school", hint: { text: " " } }
+            { value: "ECT", text: "A new ECT" },                        
+            { value: "ECT-transfer, redirect(transfer/)", text: "An ECT transferring from another school where they’ve started their induction", hint: { text: "" } },            
+            { value: "mentor", text: "A new mentor" },            
+            { value: "mentor-transfer, redirect(transfer/)", text: "A mentor transferring from another school where they mentor ECTs", hint: { text: "" } }
           ]
         } | decorateFormAttributes('participantType')) }}        
 

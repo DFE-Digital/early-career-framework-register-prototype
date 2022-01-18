@@ -399,7 +399,7 @@
         </thead>
         <tbody class="govuk-table__body">
             {% if data['participant-1-added'] == "Yes" %}
-                {% if data['participant-1-eligible']  %}
+                {% if data['participant-1-eligible'] == "Yes"  %}
                     {% if not data['participant-1-leaving-date-day'] %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
@@ -417,14 +417,16 @@
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Kate Lloyd&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Kate Lloyd&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Alex Nolan</a></td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Alex Nolan&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Alex Nolan&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
             {% endif %}
 
@@ -433,14 +435,16 @@
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Tom Hall&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Tom Hall&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Ethan Mills</a></td>
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Ethan Mills&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Ethan Mills&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
 
             {% if data['cohort'] != "2020" %}
@@ -449,7 +453,8 @@
                 <td class="govuk-table__cell">ECT</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&random-name=Luke Richards&user-details=Random&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&random-name=Luke Richards&user-details=Random&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
             <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Stanislaw Klajn</a></td>
@@ -466,7 +471,8 @@
                 <td class="govuk-table__cell">Mentor</td>
                 <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                 <td class="govuk-table__cell">None</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=mentor&user-details=mentor&status=Start" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=mentor&user-details=mentor&status=Start" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
             </tr>
             {% endif %}
         </tbody>
