@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set schoolSignedIn = true %}
 
 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
     {% if data['participant-1-added'] %}
@@ -36,7 +37,7 @@
 
       		{% else %}
 
-				{% if data['transferIn'] == "Yes" %}
+			  	{% if data['participantType'] == "ECT-transfer" %}
 					<form class="form" action="transfer/moving-from-another-school" method="post">        		
 				{% else %}        		
           			<form class="form" action="email-address" method="post">        		

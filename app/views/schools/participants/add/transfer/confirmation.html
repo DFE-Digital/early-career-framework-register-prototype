@@ -1,7 +1,27 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = '' + data['participant-2-name'] +  ' has been registered with your school' %}
+
+
+{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+        {% if data['participant-2-added'] == "Yes" %}
+            {% set pageHeading = '' + data['participant-2-name'] +  ' has been registered with your school' %}
+        {% elif data['participant-1-added'] == "Yes" %}
+            {% set pageHeading = '' + data['participant-1-name'] +  ' has been registered with your school' %}
+        {% endif %}
+    <!-- Mentor -->
+    {% elif data['participantType'] == "mentor"  %}
+        {% if data['participant-2-mentor-added'] == "Yes" %}
+            {% set pageHeading = '' + data['participant-2-mentor-name'] +  ' has been registered with your school' %}
+        {% elif data['participant-1-mentor-added'] == "Yes" %}
+            {% set pageHeading = '' + data['participant-1-mentor-name'] +  ' has been registered with your school' %}
+        {% endif %}
+
+    {% else %}
+        {% set pageHeading = 'Full Name has been registered with your school' %}
+    {% endif %}
+
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

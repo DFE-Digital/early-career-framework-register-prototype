@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-
-
-{% set pageHeading = 'What’s the full name of this  ' + data['participantType'] + '?' %}
+{% if ((data['participantType'] == "ECT-transfer") or (data['participantType'] == "ECT")) %}
+    {% set pageHeading = 'What’s the full name of this ECT?' %}    
+{% else %}
+    {% set pageHeading = 'What’s the full name of this mentor?' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -24,7 +26,14 @@
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
             {% else %}
             <!-- Default add participant journey -->
-                <form class="form" action="have-trn" method="post">
+
+                {% if data['participantType'] == "ECT-transfer" %}
+                    <form class="form" action="teacher-reference-number" method="post" class="govuk-!-margin-bottom-8">            
+                {% else %}
+                    <form class="form" action="have-trn" method="post">
+                {% endif %}
+
+                
             {% endif %}
 
                 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
