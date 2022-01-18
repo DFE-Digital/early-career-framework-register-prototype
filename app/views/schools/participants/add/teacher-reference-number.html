@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['participantType'] == "ECT" %}
+{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
     {% if data['participant-1-added'] %}
         {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s teacher reference number (TRN)?' %}
     {% else %}
@@ -50,7 +50,7 @@
 				<form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">			
 			{% endif %}
 				
-				{% if data['participantType'] == "ECT" %}
+				{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
 
 					{{ govukInput({
 						label: {

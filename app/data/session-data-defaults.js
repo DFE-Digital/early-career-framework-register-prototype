@@ -1,6 +1,6 @@
 const defaults = {
-  schoolName: 'Poole Grammar School',
-  sitName: 'Pete Ingleby',
+  schoolName: 'Acme Primary School',
+  sitName: 'Michael Jordan',
   leadProvider: 'UCL Institute of Education',
   deliveryPartner: 'South Central Teaching School Hub'  
 }

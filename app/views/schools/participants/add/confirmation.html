@@ -8,7 +8,7 @@
     {% set pageHeading = 'The mentor for ' + data['participant-1-name'] +  ' has been updated' %}
 {% else %}
     <!-- If ECT -->
-    {% if data['participantType'] == "ECT" %}
+    {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
         {% if data['participant-2-added'] == "Yes" %}
             {% set pageHeading = '' + data['participant-2-name'] +  ' has been added as an ECT' %}
         {% elif data['participant-1-added'] == "Yes" %}
@@ -59,7 +59,7 @@
                     </ul>
                 {% endif %}
 
-                <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">View your ECTs and mentors</a></p>
+                <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?participantType=">View your ECTs and mentors</a></p>
 
             {% endif %}
         </div>

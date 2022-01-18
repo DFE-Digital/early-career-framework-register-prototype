@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Transfer information needed" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>Information about what is needed to transfer.</p>
+
+            <form method="post" action="../name" >  
+                <input type="hidden" name="TransferIn" id="TransferIn" value="Yes" /> 
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

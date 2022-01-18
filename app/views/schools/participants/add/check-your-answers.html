@@ -16,7 +16,7 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             {% if data['participant-1-added'] %}
                                 {{ data['participant-2-name'] }}
                             {% else %}
@@ -37,7 +37,7 @@
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             <!-- Has to remain split up otherwise it wont know which participant to show -->
                             {% if data['participant-1-added'] %}
                                 {% if data['participant-2-know-trn'] == "Yes" %}
@@ -49,7 +49,7 @@
                                 {% if data['participant-1-know-trn'] == "Yes" %}
                                     TRN
                                 {% else %}
-                                    Know teacher reference number
+                                    TRN entered
                                 {% endif %}
                             {% endif %}
                         {% elif data['participantType'] == "mentor" %}
@@ -57,19 +57,19 @@
                                 {% if data['participant-2-mentor-know-trn'] == "Yes" %}
                                     TRN
                                 {% else %}
-                                    Know teacher reference number
+                                    TRN entered
                                 {% endif %}
                             {% else %}
                                 {% if data['participant-1-mentor-know-trn'] == "Yes" %}
                                     TRN
                                 {% else %}
-                                    Know teacher reference number
+                                    TRN entered
                                 {% endif %}
                             {% endif %}
                         {% endif %}
                         </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
 
                             {% if data['participant-1-added'] %}
                                 {% if data['participant-2-know-trn'] == "Yes" %}
@@ -106,7 +106,7 @@
                     </dd>
                     <dd class="govuk-summary-list__actions">
 
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             <!-- Has to remain split up otherwise it wont know which participant to show -->
                             {% if data['participant-1-added'] %}
                                 {% if data['participant-2-know-trn'] == "Yes" %}
@@ -143,7 +143,7 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Date of birth</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             {% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
                             {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
                         {% elif data['participantType'] == "mentor" %}
@@ -162,7 +162,7 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             {% if data['participant-1-added'] %}
                                 {{ data['participant-2-email'] }}
                             {% else %}
@@ -180,9 +180,9 @@
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">{% if data['participantType'] == "ECT" %}Start induction{% elif data['participantType'] == "mentor" %}Start mentoring{% endif %}</dt>
+                    <dt class="govuk-summary-list__key">{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}Start induction{% elif data['participantType'] == "mentor" %}Start mentoring{% endif %}</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['participantType'] == "ECT" %}
+                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             {% if data['participant-1-added'] %}
                                 {{ data['participant-2-start-date'] }}
                             {% else %}
@@ -226,7 +226,7 @@
             <form class="form" action="confirmation" method="post" >
                 <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just double check to remove value on change actions -->
 
-                {% if data['participantType'] == "ECT" %}
+                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                     {% if data['participant-1-added'] %}
                         <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
                         {% if data['participant-2-know-trn'] == "Yes" %}
@@ -263,7 +263,7 @@
                 {% endif %}
 
 
-
+                
 
                 {{ govukButton({
                     text: "Confirm and add"
