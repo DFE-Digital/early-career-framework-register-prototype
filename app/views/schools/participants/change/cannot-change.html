@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "You cannot change their name" %}
+{% set pageHeading = "You cannot change their email address" %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +14,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if ((data['change-name-reason'] == "Not started employment") or (data['change-email-reason'] == "Not started employment")) %}
-                
+
                 <p>If 
                 {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }} is no longer completing their ECF induction
@@ -32,6 +33,7 @@
 
 
                 <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
+                
                 <p>Contact {{ data.leadProvider }} to remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
@@ -47,7 +49,7 @@
                 {% endif %}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
+                <!-- <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
                     {{ data['participant-2-name'] }}
@@ -59,7 +61,7 @@
                     {{ data.sitName }}
                 {% else %}
                     {% set pageHeading = 'this person' %}
-                {% endif %}</a></p>
+                {% endif %}</a></p> -->
 
                 <!--- IF ECT --->
                 {% if data['user-type'] == "ECT" %}
@@ -69,16 +71,15 @@
                         <li>we can check their eligibility for funded training</li>
                         <li>their training is recorded against their own teacher reference number (TRN)</li>
                     </ul>
-                    <p><a href="add/name?participantType=ECT">Add a new ECT</a></p>
+                    <p><a href="../add/name?participantType=ECT">Add a new ECT</a></p>
                 
                 {% elif data['user-type'] == "Mentor" %}
 
                     <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
-                    <p><a href="add/name?participantType=mentor">Add a new mentor</a></p>
+                    <p><a href="../add/name?participantType=mentor">Add a new mentor</a></p>
 
                 {% endif %}
-
-
+                
             {% elif ((data['change-name-reason'] == "Registered by mistake") or (data['change-email-reason'] == "Registered by mistake")) %}
 
                 <p>If
@@ -113,7 +114,8 @@
                 {% endif %}.</p>
 
                 <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
+                
+                <!-- <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
                     {{ data['participant-1-name'] }}
                 {% elif data['active-user'] == "ect-2" %}
                     {{ data['participant-2-name'] }}
@@ -125,9 +127,10 @@
                     {{ data.sitName }}
                 {% else %}
                     {% set pageHeading = 'this person' %}
-                {% endif %}</a></p>
+                {% endif %}</a></p> -->
             
             {% endif %}
+
 
         </div>
     </div>
