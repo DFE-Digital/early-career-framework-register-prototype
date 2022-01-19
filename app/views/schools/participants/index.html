@@ -41,268 +41,11 @@
         {% endif %}
     </div>
 
+        {% set pastDayHtml %}
 
 
 
-    {% set pastDayHtml %}
-
-{{ govukTable({
-  head: [
-    {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "3"
-      },
-      {
-        text: "0"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "1"
-      },
-      {
-        text: "0"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "2"
-      },
-      {
-        text: "0"
-      }
-    ]
-  ]
-}) }}
-{% endset -%}
-
-{% set pastWeekHtml %}
-<h2 class="govuk-heading-l">Past week</h2>
-{{ govukTable({
-  head: [
-    {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "24"
-      },
-      {
-        text: "18"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "16"
-      },
-      {
-        text: "20"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "24"
-      },
-      {
-        text: "27"
-      }
-    ]
-  ]
-}) }}
-{% endset -%}
-
-{% set pastMonthHtml %}
-<h2 class="govuk-heading-l">Past month</h2>
-{{ govukTable({
-  head: [
-    {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "98"
-      },
-      {
-        text: "95"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "122"
-      },
-      {
-        text: "131"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "126"
-      },
-      {
-        text: "142"
-      }
-    ]
-  ]
-}) }}
-{% endset -%}
-
-{% set pastYearHtml %}
-<h2 class="govuk-heading-l">Past year</h2>
-{{ govukTable({
-  head: [
-    {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "1380"
-      },
-      {
-        text: "1472"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "1129"
-      },
-      {
-        text: "1083"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "1539"
-      },
-      {
-        text: "1265"
-      }
-    ]
-  ]
-}) }}
-{% endset -%}
-
-{{ govukTabs({
-  items: [
-    {
-      label: "Early career teachers",
-      id: "past-day",
-      panel: {
-        html: pastDayHtml
-      }
-    },
-    {
-      label: "Mentors",
-      id: "past-week",
-      panel: {
-        html: pastWeekHtml
-      }
-    },
-    {
-      label: "Transferring in",
-      id: "past-month",
-      panel: {
-        html: pastMonthHtml
-      }
-    },
-    {
-      label: "Transferring out",
-      id: "past-year",
-      panel: {
-        html: pastYearHtml
-      }
-    },
-    {
-        label: "Not eligible",
-        id: "past-year",
-        panel: {
-          html: pastYearHtml
-        }
-      }
-  ]
-}) }}
-
-
-    
-
-
-    
-   
-    
-
-    
-
-    <!-- Contacted for information -->
+                <!-- Contacted for information -->
     <!-- We do not want to show this to older admission years -->
     {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
     <!-- If we have any ECT or Mentors added then show the participant dashboard -->
@@ -393,47 +136,7 @@
 
     
 
-    {% if data['show-participant-transferOut'] == "Yes" %}
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
-        </div>
-    </div>
-    <table class="govuk-table govuk-!-margin-bottom-7">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>                
-                <th class="govuk-table__header" scope="col">Lead provider</th>
-                <th class="govuk-table__header" scope="col">Delivery partner</th>                
-                <th class="govuk-table__header" scope="col">Induction start</th>
-                <th class="govuk-table__header" scope="col">Leaving date</th>
-                <!-- <th class="govuk-table__header" scope="col"></th> -->
-            </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Hugo Furst</a></td>
-                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                <td class="govuk-table__cell">Autumn 2021</td>
-                <td class="govuk-table__cell">
-                    {{ data['participant-1-leaving-date-day']}} {{ data['participant-1-leaving-date-month'] | toMonth }} {{ data['participant-1-leaving-date-year']}}                    
-                    <!-- {% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
-                    {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }} -->
-                </td>
-                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
-            </tr>
-            <!-- <tr class="govuk-table__row">
-                <td class="govuk-table__cell">James Rose</a></td>
-                <td class="govuk-table__cell">ECT</td>
-                <td class="govuk-table__cell">Autumn 2021</td>
-                <td class="govuk-table__cell">8 April 2022</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=James Rose&status=TransferringOut" class="govuk-link govuk-link--no-visited-state">Details</a></td>
-            </tr> -->
-        </tbody>
-    </table>
-    {% endif %}
+    
    
 
     
@@ -657,7 +360,107 @@
     </table>
     {% endif %}
 
-    <!-- Not eligible dashboard -->
+        {% endset -%}
+
+        {% set pastWeekHtml %}
+            
+        {% endset -%}
+
+        {% set pastMonthHtml %}
+
+        {% if data['show-participant-transferIn'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-7">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Lead provider</th>
+                    <th class="govuk-table__header" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header" scope="col">Induction start</th>
+                    <th class="govuk-table__header" scope="col">Joining date</th>
+                    <!-- <th class="govuk-table__header" scope="col"></th> -->
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">{{ data['participant-2-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider}}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner}}</td>                
+                    <td class="govuk-table__cell">Autumn 2021</td>
+                    <td class="govuk-table__cell">
+                        {% set participant = 'participant-2-start-date' if data['participant-2-added'] else 'participant-2-start-date' %}
+                        {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
+                    </td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                <!-- <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">James Liddell</a></td>
+                    <td class="govuk-table__cell">ECT</td>
+                    <td class="govuk-table__cell">Autumn 2021</td>
+                    <td class="govuk-table__cell">24 April 2022</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=James Liddell&status=TransferringIn" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                </tr> -->
+            </tbody>
+        </table>
+        {% endif %}
+            
+        {% endset -%}
+
+        {% set pastYearHtml %}
+            
+            {% if data['show-participant-transferOut'] == "Yes" %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-7">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>                
+                        <th class="govuk-table__header" scope="col">Lead provider</th>
+                        <th class="govuk-table__header" scope="col">Delivery partner</th>                
+                        <th class="govuk-table__header" scope="col">Induction start</th>
+                        <th class="govuk-table__header" scope="col">Leaving date</th>
+                        <!-- <th class="govuk-table__header" scope="col"></th> -->
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Hugo Furst</a></td>
+                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                        <td class="govuk-table__cell">Autumn 2021</td>
+                        <td class="govuk-table__cell">
+                            {{ data['participant-1-leaving-date-day']}} {{ data['participant-1-leaving-date-month'] | toMonth }} {{ data['participant-1-leaving-date-year']}}                    
+                            <!-- {% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }} -->
+                        </td>
+                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                    </tr>
+                    <!-- <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">James Rose</a></td>
+                        <td class="govuk-table__cell">ECT</td>
+                        <td class="govuk-table__cell">Autumn 2021</td>
+                        <td class="govuk-table__cell">8 April 2022</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=Random&random-name=James Rose&status=TransferringOut" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            {% endif %}
+            
+        {% endset -%}
+
+        {% set pastMilleniumHtml %}
+
+
+                    <!-- Not eligible dashboard -->
     {% if data['show-participant-not-eligible'] == "Yes" %}
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
     <div class="govuk-grid-row">
@@ -700,6 +503,62 @@
         </tbody>
     </table>
     {% endif %}
+
+        {% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Early career teachers",
+      id: "past-day",
+      panel: {
+        html: pastDayHtml
+      }
+    },
+    {
+      label: "Mentors",
+      id: "past-week",
+      panel: {
+        html: pastWeekHtml
+      }
+    },
+    {
+      label: "Transferring in",
+      id: "past-month",
+      panel: {
+        html: pastMonthHtml
+      }
+    },
+    {
+      label: "Transferring out",
+      id: "past-year",
+      panel: {
+        html: pastYearHtml
+      }
+    },
+    {
+        label: "Not eligible",
+        id: "past-millenium",
+        panel: {
+          html: pastMilleniumHtml
+        }
+      }
+  ]
+}) }}
+
+
+    
+
+
+    
+   
+    
+
+    
+
+    
+
+    
     
 
 {% endblock %}
