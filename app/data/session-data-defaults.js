@@ -26,6 +26,14 @@ module.exports = {
     1234: {
       name: 'Jane Doe',
       email: 'jane.doe@example.com'
+    },
+    1235: {
+      name: 'James Doe',
+      email: 'james.doe@example.com'
+    },
+    6745: {
+      name: 'Jimmy Doe',
+      email: 'jimmy.doe@example.com'
     }
   }
 }
