@@ -30,7 +30,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
 
-            <!-- <p class="govuk-body">We need this to find their training record, and confirm they’re eligible for this programme.</p>                            -->
+            <!-- BRIAN - please code the help text to show on the 'add new' journey only -->
+
+            <p class="govuk-body">We need this to confirm they’re eligible for this programme. Adding it now will help us do this more quickly.</p> 
+
+           <p class="govuk-body">If you do not know it, we’ll ask {participant name} to tell us instead.</p> 
 
             {% if data['cya-action'] == "change-know-trn" %}
 

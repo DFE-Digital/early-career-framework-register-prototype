@@ -29,6 +29,8 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <!-- BRIAN - please code this so it only shows if the SIT does NOT enter the ppt TRN -->
+
             {% if data['induction-tutor'] != "Yes" %}
                 <p>We’ll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
             {% endif %}

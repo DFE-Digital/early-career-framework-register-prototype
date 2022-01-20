@@ -180,7 +180,7 @@
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}Start induction{% elif data['participantType'] == "mentor" %}Start mentoring{% endif %}</dt>
+                    <dt class="govuk-summary-list__key">{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}Induction start{% elif data['participantType'] == "mentor" %}Mentoring start{% endif %}</dt>
                     <dd class="govuk-summary-list__value">
                         {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                             {% if data['participant-1-added'] %}
@@ -238,7 +238,7 @@
                                         {% else %}
                                             <li>{{ data['participant-2-delivery-partner'] }}</li>    
                                         {% endif %}
-                                        <li>New delivery partner</li>                                    
+                                        <li>Delivery partner to be confirmed</li>                                    
                                     </ul>
                                 {% endif %}
                             {% else %}
@@ -254,7 +254,7 @@
                                         {% else %}
                                             <li>{{ data['participant-1-delivery-partner'] }}</li>    
                                         {% endif %}
-                                        <li>New delivery partner</li>                                    
+                                        <li>Delivery partner to be confirmed</li>                                    
                                     </ul>
                                 {% endif %}
                             {% endif %}
@@ -271,6 +271,8 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-check?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                 </div>
             </dl>
+
+            <!-- BRIAN - please code this so it only appears if the SIT does NOT enter the TRN -->
 
             <p class="govuk-!-margin-bottom-5">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
 
