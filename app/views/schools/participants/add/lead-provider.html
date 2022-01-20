@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+  {% if data['participant-1-added'] %}
+    {% set pageHeading = 'Which of these providers will ' + data['participant-2-name'] + ' be training with?' %}
+  {% else %}
+    {% set pageHeading = 'Which of these providers will ' + data['participant-1-name'] + ' be training with?' %}
+  {% endif %}
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+
+
+            
+                <form class="form" action="check-your-answers" method="post" >
+          
+
+                <!-- If type is ECT -->
+                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+
+                {{ govukRadios({                                      
+                    fieldset: {
+                    legend: {
+                        text: "Do you know this person’s teacher reference number (TRN)?",
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "Ambition Institute", text: "Ambition Institute" },
+                        { value: "Capita with lead academic partner the University of Birmingham", text: "Capita with lead academic partner the University of Birmingham" },
+                        { value: "Education Development Trust", text: "Education Development Trust" },
+                        { value: "Teach First", text: "Teach First" },
+                        { value: "UCL Institute of Education", text: "UCL Institute of Education" }
+                    ]                
+                } | decorateFormAttributes('participant-2-delivery-partner' if data['participant-1-added'] else 'participant-1-delivery-partner')) }}
+            
+            <!-- If type is Mentor -->
+            {% elif data['participantType'] == "mentor" %}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",                    
+                    fieldset: {
+                    legend: {
+                        text: "Do you know this person’s teacher reference number (TRN)?",
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "Yes, redirect(teacher-reference-number)", text: "Yes" },
+                        { value: "No", text: "No" }
+                    ]                
+                } | decorateFormAttributes('participant-2-mentor-know-trn' if data['participant-1-mentor-added'] else 'participant-1-mentor-know-trn')) }}
+
+            {% endif %}
+
+
+            
+          <!-- {{ govukRadios({
+            items: [
+              { value: "FIP", text: "Use a different training provider, funded by the DfE" },
+              { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+              { value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }              
+            ]
+          } | decorateFormAttributes("inductionProgramme-addition")) }}
+             -->
+
+        
+            {{ govukButton({                
+                text: "Continue"
+            }) }}
+                
+
+                </form>
+            
+        </div>
+    </div>
+{% endblock %}
