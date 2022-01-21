@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['participant-1-added'] %}
-{% set pageHeading = 'Will ' + data['participant-2-name'] + ' be continuing their programme in the same way?' %}
+{% set pageHeading = 'Will ' + data['participant-2-name'] + ' continue with their current training programme?' %}
 {% else %}
-{% set pageHeading = 'Will ' + data['participant-1-name'] + ' be continuing their programme in the same way?' %}
+{% set pageHeading = 'Will ' + data['participant-1-name'] + ' continue with their current training programme?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,6 +15,8 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This is a different programme to other ECTs at your school.</p>
             
             <div class="govuk-inset-text">
                 <ul class="govuk-list">

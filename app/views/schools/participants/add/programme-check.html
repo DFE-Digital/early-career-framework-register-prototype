@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['participant-1-added'] %}
-{% set pageHeading = 'Will ' + data['participant-2-name'] + ' be training with your current provider?' %}
+{% set pageHeading = 'Will ' + data['participant-2-name'] + ' be training with your school’s current providers?' %}
 {% else %}
-{% set pageHeading = 'Will ' + data['participant-1-name'] + ' be training with your current provider?' %}
+{% set pageHeading = 'Will ' + data['participant-1-name'] + ' be training with your school’s current providers?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
