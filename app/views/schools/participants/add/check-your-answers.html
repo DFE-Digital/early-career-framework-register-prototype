@@ -29,10 +29,11 @@
             {% endif %}
 
             <form class="form" action="confirmation" method="post" >
-                <input type="hidden" name="cya-action" id="cya-action" value="" /><!-- just double check to remove value on change actions -->
-
                 
+                {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
+            
                 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+                    
                     {% if data['participant-1-added'] %}
                         <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
                         {% if data['participant-2-know-trn'] == "Yes" %}
@@ -40,14 +41,19 @@
                         {% else %}
                             <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="No" />
                         {% endif %}
+                    
                     {% else %}
+                    
                         <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
                         {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Yes" />
+                            <input type="hidden" name="participant-1" id="participant-1" value="Eligible" />
                         {% else %}
-                            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="No" />
+                            <input type="hidden" name="participant-1" id="participant-1" value="Contacted" />
                         {% endif %}
                     {% endif %}
+
+
+
                 
                 {% elif data['participantType'] == "mentor" %}
                     {% if data['participant-1-mentor-added'] %}

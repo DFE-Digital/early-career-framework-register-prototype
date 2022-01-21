@@ -6,14 +6,14 @@
 
 {% if data['linkaction'] == "change-mentor-details"%}
     {% set pageHeading = 'The mentor for ' + data['participant-1-name'] +  ' has been updated' %}
+
 {% else %}
-    <!-- If ECT -->
     {% if data['participantType'] == "ECT-transfer" %}
         {% if data['participant-2-added'] == "Yes" %}
             {% set pageHeading = '' + data['participant-2-name'] +  ' has been registered with your school' %}
         {% elif data['participant-1-added'] == "Yes" %}
             {% set pageHeading = '' + data['participant-1-name'] +  ' has been registered with your school' %}
-{% endif %}
+        {% endif %}
     {% elif data['participantType'] == "ECT" %}
         {% if data['participant-2-added'] == "Yes" %}
             {% set pageHeading = '' + data['participant-2-name'] +  ' has been added as an ECT' %}
@@ -29,9 +29,7 @@
         {% endif %}
     <!-- sitMentor -->
     {% elif data['participantType'] == "sitMentor" %}
-        {% set pageHeading = 'You’ve been added as a mentor' %}
-    {% else %}
-        {% set pageHeading = 'Full Name has been added' %}
+        {% set pageHeading = 'You’ve been added as a mentor' %}    
     {% endif %}
 {% endif %}
 
@@ -47,44 +45,48 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data['linkaction'] == "change-mentor-details"%}<!-- If using page for change mentor confirmation -->
+            <!-- {% if data['linkaction'] == "change-mentor-details"%}
                 <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
-            {% else %}
+            {% endif %} -->            
 
-                {% if data['participant-1-sit-mentor-added'] == "Yes" %}
-                    <p>We’ll send you an email in the next few days that explains what information we need from you.</p>
-                {% else %}
+            <h2 class="govuk-heading-m">What happens next</h2>
+            
+            <!-- SitMentor -->
+            <!-- <p>We’ll send you an email in the next few days that explains what information we need from you.</p> -->
+                
+            {% if data['participantType'] == "ECT-transfer" %}
 
-                    <h2 class="govuk-heading-m">What happens next</h2>
-                    
-                    {% if data['participantType'] == "ECT-transfer" %}
-                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    <p>They’ll appear on your dashboard as ’transferring to your school’ until their start date.</p>
+                <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                <p>They’ll appear on your dashboard as ’transferring to your school’ until their start date.</p>
 
+            {% elif data['participantType'] == "ECT" %}
 
-                    {% elif data['participantType'] == "ECT" %}
-
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                        {% else %}
-                            <p>We’ll send them an email in the next few days. We’ll ask them to use our service to tell us their:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>full name</li>
-                                <li>teacher reference number (TRN)</li>
-                                <li>date of birth</li>
-                                <li>National Insurance number (optional)</li>
-                            </ul>
-                        {% endif %}
-
+                {% if data['participant-2-added'] == "Yes" %}                    
+                    {% if data['participant-2-know-trn'] == "Yes" %}
+                        <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    {% else %}
+                        {% include "includes/confirm_contact.html" %}
+                    {% endif %}                
+                {% elif data['participant-1-added'] == "Yes" %}                    
+                    {% if data['participant-1-know-trn'] == "Yes" %}
+                        <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    {% else %}
+                        {% include "includes/confirm_contact.html" %}
                     {% endif %}
+                {% endif %}                
 
-                    {% if data['participant-1-programme-check'] != "Yes" %}
-                        <p>New content about the training.</p>    
-                    {% endif %}
-			            <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>
-        	        {% endif %}
+            {% elif data['participantType'] == "mentor" %} 
 
             {% endif %}
+            
+            <!-- Training programme content -->
+            {% if data['participant-1-programme-check'] != "Yes" %}
+                <p>New content about the training.</p>    
+            {% else %}     
+			    <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
+            {% endif %}
+
+            
 			<!-- If no TRN is entered -->
         	<!-- <p>We’ll ask them for the information we need to check they’re eligible for this training programme.</p> -->
         	<!-- end -->
