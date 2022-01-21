@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['participant-1-added'] %}
-{% set pageHeading = 'Will ' + data['participant-2-name'] + ' be training with your school’s current providers?' %}
+    {% set pageHeading = 'Will ' + data['participant-2-name'] + ' be training with your school’s current providers?' %}
 {% else %}
-{% set pageHeading = 'Will ' + data['participant-1-name'] + ' be training with your school’s current providers?' %}
+    {% set pageHeading = 'Will ' + data['participant-1-name'] + ' be training with your school’s current providers?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -20,8 +20,7 @@
                 <ul class="govuk-list">
                     <li>Lead provider: {{ data.leadProvider }}</li>
                     <li>Delivery partner: {{ data.deliveryPartner }}</li>                    
-                </ul>
-            
+                </ul>            
             </div>
 
             {% if data['linkaction'] == "change-programme-check" %}
@@ -29,18 +28,17 @@
             {% else %}
             <form class="form" action="check-your-answers" method="post" >
             {% endif %}
-
-                <!-- If type is ECT -->
+                
                 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
 
                     {{ govukRadios({
                         classes: "govuk-radios--inline",                    
                         fieldset: {
-                        legend: {
-                            text: pageHeading,
-                            isPageHeading: true,
-                            classes: "govuk-visually-hidden"
-                        }
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: true,
+                                classes: "govuk-visually-hidden"
+                            }
                         },
                         items: [
                             { value: "Yes", text: "Yes" },
@@ -68,7 +66,9 @@
 
                 {% endif %}
                 
-                <input type="hidden" name="cya-action" id="cya-action" value="" />
+                <!-- Not sure if needed -->
+                <!-- <input type="hidden" name="cya-action" id="cya-action" value="" /> -->
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}

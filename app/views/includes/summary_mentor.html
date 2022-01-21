@@ -1,0 +1,14 @@
+<!-- If ECT and mentors are in the system -->
+{% if ((data['participantType'] == "ECT") and ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes"))) %}
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Mentor</dt>
+    <dd class="govuk-summary-list__value">
+        {% if data['participant-1-mentor-added'] %}
+            {{ data['participant-2-mentor'] }}
+        {% else %}
+            {{ data['participant-1-mentor'] }}
+        {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?cya-action=change-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
+</div>
+{% endif %}

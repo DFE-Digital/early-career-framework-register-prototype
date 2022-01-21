@@ -29,63 +29,48 @@
 
             <!-- If coming from the CYA page -->
             {% if data['cya-action'] == "change-start-date" %}
-                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
-
+            <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
             <!-- If coming from the participant details page -->
             {% elif ((data['details-change-action'] == "change-participant-1-start-date" ) or (data['details-change-action'] == "change-participant-1-start-date-2")) %}
-                <form class="form" action="../details" method="post">
-                    <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
-                    <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
-
-            <!-- Default add participant journey -->
+            <form class="form" action="../details" method="post">
+                <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
+                <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->            
             {% else %}
-
                 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
                     <!-- If a mentor is in the system -->
-                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}
-                        {% if data['participant-1-added'] == "Yes" %}
-                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-                        {% else %}
-                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-                        {% endif %}
-                        <!-- No mentor currently added -->
+                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}                        
+                    <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">                        
+                    <!-- No mentor currently added -->
                     {% else %}						
-                        <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">
+                    <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">
                     {% endif %} 
-
-                {% elif data['participantType'] == "mentor" %}
-                    <!-- We have no need to go to choose mentor as they are a mentor -->
+                {% elif data['participantType'] == "mentor" %}                    
                     <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}      	        	
-
             {% endif %}
 
                 {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
 
                     {{ govukRadios({
-                        items: [
-                            
+                        items: [                            
                             { value: "Spring 2022", text: "Spring 2022" },
-                            { value: "Summer 2022", text: "Summer 2022" }
+                            { value: "Summer 2022", text: "Summer 2022" },
+                            { value: "Autumn 2022", text: "Autumn 2022" }
                         ]
                     } | decorateFormAttributes('participant-2-start-date' if data['participant-1-added'] else 'participant-1-start-date')) }}
 
                 {% elif data['participantType'] == "mentor" %}
 
                     {{ govukRadios({
-                        items: [
-                            
+                        items: [                            
                             { value: "Spring 2022", text: "Spring 2022" },
-                            { value: "Summer 2022", text: "Summer 2022" }
+                            { value: "Summer 2022", text: "Summer 2022" },
+                            { value: "Autumn 2022", text: "Autumn 2022" }
                         ]
                     } | decorateFormAttributes('participant-2-mentor-start-date' if data['participant-1-mentor-added'] else 'participant-1-mentor-start-date' )) }}
-
-                    {% else %}
-                        <!-- Dont really need this but its just incase someone looks at the page independently -->
-                        <p>You have not selected a participant type to choose a start date.</p>
-
-                    {% endif %}
+                    
+                {% endif %}
 
                 {{ govukButton({
                     text: "Continue"

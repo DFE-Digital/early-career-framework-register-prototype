@@ -1,0 +1,19 @@
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Email address</dt>
+    <dd class="govuk-summary-list__value">
+        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+            {% if data['participant-1-added'] %}
+                {{ data['participant-2-email'] }}
+            {% else %}
+                {{ data['participant-1-email'] }}
+            {% endif %}
+        {% elif data['participantType'] == "mentor" %}
+            {% if data['participant-1-mentor-added'] %}
+                {{ data['participant-2-mentor-email'] }}
+            {% else %}
+                {{ data['participant-1-mentor-email'] }}
+            {% endif %}
+        {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?cya-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+</div>
