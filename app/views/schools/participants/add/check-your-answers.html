@@ -316,8 +316,9 @@
                     <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />                
                 {% endif %}
 
-
-                
+                {% if data['participantType'] == "ECT-transfer" %}
+                <input type="hidden" name="show-participant-transferIn" id="show-participant-transferIn" value="Yes" />                
+                {% endif %}
 
                 {{ govukButton({
                     text: "Confirm and add"
