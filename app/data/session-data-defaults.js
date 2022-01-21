@@ -19,6 +19,7 @@ module.exports = {
   sitEmail,
   leadProvider,
   deliveryPartner,
+  leadProviderTransfer: "Teach First",
   inductionStart: 'Spring 2022',
   linkExpire: '12 February 2022',
   expiryTime: '1pm'
