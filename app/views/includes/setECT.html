@@ -1,0 +1,342 @@
+{% set ectHtml %}
+
+        <!-- Contacted for information -->
+        <!-- We do not want to show this to older admission years -->
+        {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
+        <!-- Check we have ECTs -->
+        {% if ((data['participant-1-added'] == "Yes") or (data['participant-2-added'] == "Yes")) %}
+
+            {% if ((data['participant-1-eligible'] == "No" ) or (data['participant-2-eligible'] == "No" ) or (data['participant-1-mentor-eligible'] == "No" ) or (data['participant-2-mentor-eligible'] == "No" ))  %}
+        
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
+                        <th class="govuk-table__header" scope="col">Induction start</th>                        
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    
+                    {% if data['participant-1-added'] == "Yes" %}
+                        {% if data['participant-1-eligible'] == "No" %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell ">{{ data['participant-1-name'] }}</td>
+                            <td class="govuk-table__cell">DfE-funded training provider</td>
+                            <td class="govuk-table__cell">{{ data['participant-1-start-date'] }}</td>
+                            <!-- <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td> -->
+                            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=EmailNotSent" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td>
+                        </tr>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if data['participant-2-added'] == "Yes" %}
+                        {% if data['participant-2-eligible'] == "No" %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell "><a href="details?user-type=ECT&active-user=ect-2&status=Remind" class="govuk-link govuk-link--no-visited-state">{{ data['participant-2-name'] }}</a></td>
+                            <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                            <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                            <td class="govuk-table__cell">{{ data['participant-2-start-date'] }}</td>
+                            <!-- <td class="govuk-table__cell">{% if data['participant-2-mentor'] %} None {% else %} Assign mentor {% endif %}</td> -->
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-2&status=Remind" class="govuk-link govuk-link--no-visited-state">{% if data['participant-2-mentor'] %}Details{% else %}Check{% endif %}</a></td> -->
+                        </tr>
+                        {% endif %}
+                    {% endif %}
+                </tbody>
+            </table>
+            {% endif %}
+        {% endif %}<!-- // participants added -->
+        {% endif %}<!-- // not shown to older school years -->
+
+    
+        <!-- DfE checking eligibility -->
+        {% if data['show-participant-status-checking'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header" scope="col">Induction start</th>
+                    <!-- <th class="govuk-table__header" scope="col">Action required</th>                 -->
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=Mentor&active-user=Random&random-name=Erica Porter&status=Checking" class="govuk-link govuk-link--no-visited-state">Erica Porter</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td>                 -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&random-name=Luke Richards&status=Checking" class="govuk-link govuk-link--no-visited-state">Luke Richards</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td> -->
+                    
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Checking QTS -->
+        {% if data['show-participant-no-QTS'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header" scope="col">Induction start</th>
+                    <!-- <th class="govuk-table__header" scope="col">Action required</th>                 -->
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&random-name=Kate Thompson&status=noQTS" class="govuk-link govuk-link--no-visited-state">Kate Thompson</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Spring 2022</td>
+                    <!-- <td class="govuk-table__cell">None</td>                 -->
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Eligible to start -->
+        {% if data['show-participant-status-eligible'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {% if data['inductionProgramme'] == "FIP" %}
+                    {% if data['fipPartnership'] == "Yes" %}
+                        <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
+                    {% else %}
+                        <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                    {% endif %}
+                {% elif data['inductionProgramme'] == "CIP" %}
+                    <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Autumn 2021 starters</h3>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <!-- <th class="govuk-table__header" scope="col">Induction start</th> -->
+                    <th class="govuk-table__header" scope="col">Action required</th>                                                
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                {% if data['participant-1-added'] == "Yes" %}
+                    {% if data['participant-1-eligible'] == "Yes"  %}
+                        {% if not data['participant-1-leaving-date-day'] %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell "><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{{ data['participant-1-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">{{ data['participant-1-start-date'] }}</td> -->
+                    <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td> -->
+                </tr>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+                {% if data['cohort'] == "2019" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Kate Lloyd</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Kate Lloyd&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Alex Nolan</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Alex Nolan&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                {% endif %}
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Tom Hall</a></td>
+                    <!-- <td class="govuk-table__cell">Training provider</td> -->
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">Assign mentor</td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Tom Hall&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Ethan Mills</a></td>
+                    <!-- <td class="govuk-table__cell">Training materials</td> -->
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Ethan Mills&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+
+                {% if data['cohort'] != "2020" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?status=Start&random-name=Luke Richards&user-details=Random&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Luke Richards</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>                
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?status=Start&ParticipantType=Mentor&user-details=Random&random-name=Stanislaw Klajn&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Stanislaw Klajn</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>
+                    
+                </tr>
+                {% endif %}
+
+                {% if data['participant-1-mentor-added'] == "Yes" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell "><a href="details?user-type=mentor&user-details=mentor&status=Start" class="govuk-link govuk-link--no-visited-state">{{ data['participant-1-mentor-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <!-- <td class="govuk-table__cell ">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell">None</td>                
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Spring 2022 starters</h3>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header" scope="col">Induction start</th>
+                    <!-- <th class="govuk-table__header" scope="col">Action required</th>                                                 -->
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                {% if data['participant-1-added'] == "Yes" %}
+                    {% if data['participant-1-eligible'] == "Yes"  %}
+                        {% if not data['participant-1-leaving-date-day'] %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell "><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{{ data['participant-1-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">{{ data['participant-1-start-date'] }}</td>
+                    <!-- <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=Start" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td> -->
+                </tr>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+                {% if data['cohort'] == "2019" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Kate Lloyd</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Kate Lloyd&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Alex Nolan</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td> -->
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td>
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Alex Nolan&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                {% endif %}
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Tom Hall</a></td>
+                    <!-- <td class="govuk-table__cell">Training provider</td> -->
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">Assign mentor</td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Tom Hall&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Ethan Mills</a></td>
+                    <!-- <td class="govuk-table__cell">Training materials</td> -->
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">Details</a></td> -->
+                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=Start&user-details=Random&random-name=Ethan Mills&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Details</a></td> -->
+                </tr>
+
+                {% if data['cohort'] != "2020" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?status=Start&random-name=Luke Richards&user-details=Random&random-type=ECT" class="govuk-link govuk-link--no-visited-state">Luke Richards</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td>                 -->
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?status=Start&ParticipantType=Mentor&user-details=Random&random-name=Stanislaw Klajn&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Stanislaw Klajn</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td> -->
+                    
+                </tr>
+                {% endif %}
+
+                {% if data['participant-1-mentor-added'] == "Yes" %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell "><a href="details?user-type=mentor&user-details=mentor&status=Start" class="govuk-link govuk-link--no-visited-state">{{ data['participant-1-mentor-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell ">Autumn {{ data['cohort'] }}</td>
+                    <!-- <td class="govuk-table__cell">None</td>                 -->
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        {% endif %}    
+
+    {% endset -%}
+    <!-- // -->
