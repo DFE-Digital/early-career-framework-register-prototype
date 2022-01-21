@@ -1,7 +1,7 @@
 const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Michael Jordan',
-  leadProvider: 'UCL Institute of Education',
+  leadProvider: 'Education Development Trust',
   deliveryPartner: 'South Central Teaching School Hub'  
 }
 
