@@ -1,0 +1,99 @@
+{% extends "layout-admin.html" %}
+{% set title = 'Hayes College' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+  <nav class="app-subnav" aria-label="Sub navigation">
+    <ul class="app-subnav__list">
+      <li class="app-subnav__list-item">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="#">
+          Overview
+        </a>
+      </li>
+      <li class="app-subnav__list-item">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="#">
+          Participants
+        </a>
+      </li>
+      <li class="app-subnav__list-item app-subnav__list-item--selected">
+        <a class="app-subnav__link govuk-link--no-visited-state" aria-current="page" href="#">
+          Cohorts
+          <span class="govuk-visually-hidden">Current page</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <h2 class="govuk-heading-l">Cohorts</h2>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h3 class="govuk-heading-m">2021 cohort</h3>
+
+      {{ govukSummaryList({
+        classes: 'app-summary-list-fix',
+        rows: [
+          {
+            key: {
+              text: "Induction programme"
+            },
+            value: {
+              text: "Use an approved training provider"
+            }
+          },
+          {
+            key: {
+              text: "Lead provider"
+            },
+            value: {
+              text: "Ambition Institute"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/support/change-lead-provider",
+                  text: "Change",
+                  visuallyHiddenText: "lead provider"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Delivery partner"
+            },
+            value: {
+              text: "Mega Delivery Partner"
+            }
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">2022 cohort</h3>
+      {{ govukSummaryList({
+        classes: 'app-summary-list-fix',
+        rows: [
+          {
+            key: {
+              text: "Induction programme"
+            },
+            value: {
+              text: "No programme"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: " induction programme"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
