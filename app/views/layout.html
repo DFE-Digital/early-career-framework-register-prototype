@@ -52,14 +52,15 @@
     navigation: [
       {
         href: "#1",
-        text: data['school-email-address'] or 'headteacher@school.gov.uk'
+        text: 'admin@example.com' if isAdmin else (data['school-email-address'] or 'headteacher@school.gov.uk')
       },
       {
         href: "/sign-out",
         text: "Sign out"
       }
-    ] if schoolSignedIn
+    ] if schoolSignedIn or isAdmin
   }) }}
+  {% block adminPrimaryNav %}{% endblock %}
 {% endblock %}
 
 {% block beforeContent %}
