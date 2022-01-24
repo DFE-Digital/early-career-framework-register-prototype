@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+require('./routes/change-lead-provider')(router)
+
 // Add your routes here - above the module.exports line
 
 // Branching to choose mentor from cohort, if adding an ECT and mentors have already been added to cohort

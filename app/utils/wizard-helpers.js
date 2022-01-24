@@ -37,6 +37,13 @@ function nextForkPath (forks, req) {
   const fork = forks.find(obj => { return obj.currentPath === currentPath })
 
   if (fork) {
+    if (fork.skipTo) {
+      data['forked-from'] = currentPath
+      data['forked-to'] = fork.skipTo
+
+      return fork.skipTo
+    }
+
     const storedData = helpers.getDataValue(req.session.data, fork.storedData)
     const storedValues = Array.isArray(storedData) ? storedData : [storedData]
     const forkPath = (typeof fork.forkPath === 'function' ? fork.forkPath(storedData) : fork.forkPath)
