@@ -1,0 +1,66 @@
+{% extends "_wizard-page.html" %}
+{% set title = 'Check your answers and confirm' %}
+{% set buttonText = 'Confirm change of provider' %}
+
+{% block page %}
+<h1 class="govuk-heading-xl">{{ title }}</h1>
+
+{% set who %}
+  {% if data.admin.who == 'Not everyone' %}
+    <ul class="govuk-list">
+      {% for person in data.admin.people %}
+        <li>{{ person }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {{ data.admin.who }}
+  {% endif %}
+{% endset %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Old provider"
+      },
+      value: {
+        text: "Ambition Insitute"
+      }
+    },
+    {
+      key: {
+        text: "New provider"
+      },
+      value: {
+        text: data.admin['new-partnership']
+      },
+      actions: {
+        items: [
+          {
+            href: "/support/change-lead-provider/new-partnership",
+            text: "Change",
+            visuallyHiddenText: " new provider"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Who is switching"
+      },
+      value: {
+        html: who
+      },
+      actions: {
+        items: [
+          {
+            href: "/support/change-lead-provider/who",
+            text: "Change",
+            visuallyHiddenText: " who is switching"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% endblock %}

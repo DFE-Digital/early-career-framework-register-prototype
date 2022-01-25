@@ -1,0 +1,24 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Which participants will be switching provider?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    items: [
+      {
+        text: "Everyone in the 2021 cohort"
+      },
+      {
+        text: "Not everyone"
+      }
+    ]
+  } | decorateFormAttributes(['admin', 'who']) ) }}
+{% endblock %}
+
+We assume that the current provider has submitted any start declarations for the participants it has onboarded

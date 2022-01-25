@@ -1,0 +1,25 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Does Ambition Institute know the partnership is ending?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    hint: {
+      text: 'Delivery partners must be aware too'
+    },
+    items: [
+      {
+        text: "Yes, they know the partnership is ending"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateFormAttributes(['admin', 'end-partnership']) ) }}
+{% endblock %}
