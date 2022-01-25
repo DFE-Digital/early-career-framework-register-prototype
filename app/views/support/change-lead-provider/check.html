@@ -6,7 +6,7 @@
 <h1 class="govuk-heading-xl">{{ title }}</h1>
 
 {% set who %}
-  {% if data.admin.who == 'Not everyone' %}
+  {% if data.admin.who == 'All participants in the 2021 to 2022 cohort' %}
     <ul class="govuk-list">
       {% for person in data.admin.people %}
         <li>{{ person }}</li>
@@ -21,7 +21,7 @@
   rows: [
     {
       key: {
-        text: "Old provider"
+        text: "Current provider"
       },
       value: {
         text: "Ambition Institute"

@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Why are you changing the lead provider?' %}
+{% set title = 'Why are you changing this lead provider?' %}
 
 {% block form %}
   {{ govukRadios({
@@ -12,10 +12,10 @@
     },
     items: [
       {
-        text: "The lead provider was set up incorrectly"
+        text: "The school has challenged the partnership"
       },
       {
-        text: "The school is switching to a new provider"
+        text: "The school is switching to a different provider"
       }
     ]
   } | decorateFormAttributes(['admin', 'why-changing']) ) }}

@@ -1,15 +1,22 @@
 {% extends "_wizard-page.html" %}
-{% set title = 'What you need to do to switch a lead provider' %}
+{% set title = 'Check you have the information you need to make this change' %}
 
 {% block page %}
 <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-<p>Set out what the support agent should get from the school.</p>
+<p><b>You must ask Hayes College to:</b></p>
 
 <ul class="govuk-list govuk-list--bullet">
-  <li>who is the new provider</li>
-  <li>agreements with new and old providers</li>
-  <li>old provider submitted all declarations</li>
-  <li>know who will be switched - everyone or just some of the participants</li>
+  <li>confirm they've told Ambition Institute about the change</li>
+  <li>confirm which lead provider they want to work with instead</li>
+  <li>tell us which participants will be working with the new provider</li>
 </ul>
+
+<p><b>You must ask Ambition Institute to:</b></p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>confirm they've submitted declarations for all relevant participants</li>
+  <li>withdraw the relevant participants from their programme</li>
+</ul>
+
 {% endblock %}

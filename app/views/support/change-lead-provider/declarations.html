@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Have you confirmed that Ambition Institute has submitted all relevant declarations for this school?' %}
+{% set title = 'Have you confirmed that Ambition Institute has submitted all relevant declarations?' %}
 
 {% block form %}
   {{ govukCheckboxes({
@@ -12,7 +12,7 @@
     },
     items: [
       {
-        text: "Yes, they have submitted their declarations"
+        text: "Yes, the provider has confirmed this"
       }
     ]
   } | decorateFormAttributes(['admin', 'declarations']) ) }}
