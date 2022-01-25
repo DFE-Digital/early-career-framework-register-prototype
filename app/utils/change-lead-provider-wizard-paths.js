@@ -22,18 +22,6 @@ function changeLeadProviderPaths (req) {
 function changeLeadProviderForks (req) {
   const forks = [
     {
-      currentPath: '/support/change-lead-provider/end-partnership',
-      storedData: ['admin', 'end-partnership'],
-      values: ['No'],
-      forkPath: '/support/change-lead-provider/end-partnership-no'
-    },
-    {
-      currentPath: '/support/change-lead-provider/declarations',
-      storedData: ['admin', 'declarations'],
-      values: ['No'],
-      forkPath: '/support/change-lead-provider/declarations-no'
-    },
-    {
       currentPath: '/support/change-lead-provider/who',
       storedData: ['admin', 'who'],
       values: ['Everyone in the 2021 cohort'],

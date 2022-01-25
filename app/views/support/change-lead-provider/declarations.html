@@ -1,21 +1,18 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Has Ambition Institute submitted all relevant declarations for this school?' %}
+{% set title = 'Have you confirmed that Ambition Institute has submitted all relevant declarations for this school?' %}
 
 {% block form %}
-  {{ govukRadios({
+  {{ govukCheckboxes({
     fieldset: {
       legend: {
         text: title,
         isPageHeading: true,
-        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+        classes: 'govuk-fieldset__legend--l govuk-!-margin-bottom-6'
       }
     },
     items: [
       {
-        text: "Yes, they’ve submitted them"
-      },
-      {
-        text: "No"
+        text: "Yes, they have submitted their declarations"
       }
     ]
   } | decorateFormAttributes(['admin', 'declarations']) ) }}

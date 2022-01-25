@@ -1,13 +1,13 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Does Ambition Institute know the partnership is ending?' %}
+{% set title = 'Have you confirmed that Ambition Institute knows the partnership is ending?' %}
 
 {% block form %}
-  {{ govukRadios({
+  {{ govukCheckboxes({
     fieldset: {
       legend: {
         text: title,
         isPageHeading: true,
-        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+        classes: 'govuk-fieldset__legend--l govuk-!-margin-bottom-6'
       }
     },
     hint: {
@@ -16,9 +16,6 @@
     items: [
       {
         text: "Yes, they know the partnership is ending"
-      },
-      {
-        text: "No"
       }
     ]
   } | decorateFormAttributes(['admin', 'end-partnership']) ) }}
