@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Will all participants in the 2021 to 2022 cohort be moving to Capita?' %}
+{% set title = 'Will all participants in the 2021 cohort be moving to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
 
 {% block form %}
   {{ govukRadios({
@@ -12,10 +12,12 @@
     },
     items: [
       {
-        text: "Yes, all"
+        text: "Yes, all",
+        value: "Everyone in the 2021 cohort"
       },
       {
-        text: "No, only some"
+        text: "No, only some",
+        value: "some"
       }
     ]
   } | decorateFormAttributes(['admin', 'who']) ) }}

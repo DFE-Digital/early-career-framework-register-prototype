@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Who will be switching to Capita?' %}
+{% set title = 'Who will be switching to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
 
 {% block form %}
   {{ govukCheckboxes({
