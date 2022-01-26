@@ -1,5 +1,5 @@
 {% extends "_wizard-form.html" %}
-{% set title = 'Will all participants in the 2021 cohort be moving to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
+{% set title = 'Will all participants in the 2021 to 2022 cohort be moving to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
 
 {% block form %}
   {{ govukRadios({
@@ -13,7 +13,7 @@
     items: [
       {
         text: "Yes, all",
-        value: "Everyone in the 2021 cohort"
+        value: "Everyone in the 2021 to 2022 cohort"
       },
       {
         text: "No, only some",

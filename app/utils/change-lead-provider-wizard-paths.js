@@ -28,7 +28,7 @@ function changeLeadProviderForks (req) {
     {
       currentPath: '/support/change-lead-provider/who',
       storedData: ['admin', 'who'],
-      values: ['Everyone in the 2021 cohort'],
+      values: ['Everyone in the 2021 to 2022 cohort'],
       forkPath: '/support/change-lead-provider/check'
     }
   ]
