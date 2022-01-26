@@ -14,7 +14,7 @@ function changeLeadProviderPaths (req) {
     '/support/change-lead-provider/who',
     '/support/change-lead-provider/tell-us-who',
     '/support/change-lead-provider/check',
-    '/support/school-cohorts-confirmed',
+    '/support/change-lead-provider/confirmation',
 
     '/support/school-cohorts-multiple',
     '/support/change-lead-provider/multiple-providers',
