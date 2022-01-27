@@ -12,7 +12,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- This is going to be if on a different programme -->
+            <!-- This person is going to be on a different programme -->
             {% if data['transferProgramme'] == "different" %}
                 <p>This is a different programme to other ECTs at your school.</p>            
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
@@ -21,7 +21,6 @@
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
                 <p>ACME Delivery Partner</p>
                 
-
             {% else %}
                 
                 <p>This is the same programme, lead provider and delivery partner as other ECTs at your school.</p>                        

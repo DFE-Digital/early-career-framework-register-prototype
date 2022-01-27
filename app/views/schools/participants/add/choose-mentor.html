@@ -42,7 +42,8 @@
                         text: "Continue"
                     }) }}
                     
-                    {% if data.participants[id].type == "ectTransfer" %}
+                    {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                    <input type="hidden" id="transferProgramme" value="" name="transferProgramme" />
                     <!-- <input type="hidden" id="transferProgramme" value="different" name="transferProgramme" /> -->
                     {% endif %}
                 </form>

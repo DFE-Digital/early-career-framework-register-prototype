@@ -11,25 +11,9 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
-            <!-- <div class="govuk-inset-text">
-                <ul class="govuk-list">
-                    <li>Lead provider: {{ data.leadProvider }}</li>
-                    <li>Delivery partner: {{ data.deliveryPartner }}</li>                    
-                </ul>            
-            </div> -->
-
-            <!-- <div class="govuk-grid-row">
-                <div class="govuk-grid-column-one-third"><p class="govuk-!-font-weight-bold">Lead provider</p></div>
-                <div class="govuk-grid-column-two-thirds"><p>{{ data.leadProvider }}</p></div>
-            </div>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-one-third"><p class="govuk-!-font-weight-bold">Delivery partner</p></div>
-                <div class="govuk-grid-column-two-thirds"><p>{{ data.deliveryPartner }}</p></div>
-            </div> -->
+                        
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
-
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
 
@@ -52,7 +36,7 @@
                         { value: "Yes", text: "Yes" },
                         { value: "No, redirect(programme-change)", text: "No" }
                     ]                                    
-                } | decorateFormAttributes(['participants', id, 'programmeCheck']) ) }}                                                                     
+                } | decorateFormAttributes(['participants', id, 'usingCurrentProgramme']) ) }}                                                                     
 
                 {{ govukButton({
                     text: "Continue"

@@ -29,12 +29,15 @@
             {% endif %} -->            
 
             <h2 class="govuk-heading-m">What happens next</h2>                
+            
             {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
 
                 <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
                 <p>They’ll appear in the 'Moving school' tab on your dashboard until their start date.</p>
 
-                {% if data.participants[id].programmeCheck == "No" %}
+                
+                
+                {% if data.participants[id].usingCurrentProgramme == "No" %}
 
                 <h2 class="govuk-heading-m">What you need to do</h2>
                     <p>You must contact {lead provider} to confirm they can train this person.</p>    
@@ -50,38 +53,34 @@
 			        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
                     {% endif %}
                 {% endif %}
-
-            {% elif data.participants[id].type == "ect" %}
+            
+            <!-- User is ECF -->
+            {% elif data.participants[id].type == "ect" %}                
                 
-                {% if data.participants[id].knowtrn == "Yes" or data.participants[id].trnNumber != "" %}
+                <!-- TRN provided -->
+                {% if data.participants[id].trnKnown == "Yes" %}
+                
                     <p>We’ll let this person know you’ve registered them for ECF-based training at your school. They do not need to provide us with any more information.</p>
+                    <p>We’ll pass their information to their training provider.</p>
 
-                    <p>We'll pass their information to their training provider.</p>
-
-                    <h2 class="govuk-heading-m">Eligibility for funding</h2>
-                    
+                    <h2 class="govuk-heading-m">Eligibility for funding</h2>                    
                     <p>Our checks have confirmed this person is eligible for funded training, and time off timetable for training and mentoring.</p>
 
-               <!-- BRIAN - Please add a variation for a new ppt added without a TRN and DOB --> 
-               
-                <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-
-               <p class="govuk-body">We'll ask them to use this service to tell us their:</p>
+               <!-- TRN not provided -->
+                {% elif data.participants[id].trnKnown == "No" %}                           
+                    
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    <p class="govuk-body">We'll ask them to use this service to tell us their:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>full name</li>
-                      <li>date of birth</li>
-                      <li>teacher reference number (TRN) or National Insurance number</li>
-                    </ul>    
-                
-                <p>We'll then confirm if they're eligible for funded ECF-based training.</p>
+                        <li>full name</li>
+                        <li>date of birth</li>
+                        <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>                    
+                    <p>We'll then confirm if they're eligible for funded ECF-based training.</p>
 
-            <!--End of no TRN added-->
-
-                {% else %}
-                    {% include "includes/confirm_contact.html" %}                                    
                 {% endif %}
 
-                {% if data.participants[id].programmeCheck == "No" %}
+                {% if data.participants[id].usingCurrentProgramme == "No" %}
                     <p>New content about the training.</p>			        
                 {% endif %}
 

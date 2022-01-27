@@ -90,15 +90,17 @@
                 </div>
                 {% endif %}
                 
-                {% if participant.programmeCheck %}
+                {% if participant.usingCurrentProgramme %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Training with</dt>
                     <dd class="govuk-summary-list__value">                  
-                        {% if participant.programmeCheck == "Yes" %}
+                        {% if participant.usingCurrentProgramme == "Yes" %}
+                            <!-- Checked -->
                             <ul class="govuk-list">
                                 <li>{{ data.leadProvider}}</li>
                                 <li>{{ data.deliveryPartner }}</li>
                             </ul>
+                            <!-- // -->
                         {% else %}
                             <ul class="govuk-list">
                                 {% if participant.programmeChange == "Yes" %}
