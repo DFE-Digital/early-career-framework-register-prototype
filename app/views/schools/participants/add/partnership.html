@@ -12,7 +12,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
             
-            <p>This lead provider will need to confirm they can train this person.</p>
+            <p>{{ participant.leadProvider }} will need to confirm they can train this person.</p>
 
             <form class="form" action="info" method="post" >
 
@@ -31,7 +31,7 @@
                         
                     ]                
                 
-                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}                     
+                } | decorateFormAttributes(['participants', id, 'providerPartnership']) ) }}                     
                                     
           <!-- {{ govukRadios({
             items: [

@@ -103,7 +103,7 @@
                             <!-- // -->
                         {% else %}
                             <ul class="govuk-list">
-                                {% if participant.programmeChange == "Yes" %}
+                                {% if participant.usingCurrentProvider == "Yes" %}
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
                                     <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.leadProvider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>    
@@ -127,7 +127,7 @@
                             </ul>
                         {% else %}
                             <ul class="govuk-list">
-                                {% if participant.programmeChange == "Yes" %}
+                                {% if participant.usingCurrentProvider == "Yes" %}
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
                                     <li>{{ participant.leadProvider }}</li>    
