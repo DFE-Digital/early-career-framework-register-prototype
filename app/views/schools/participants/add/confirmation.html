@@ -32,13 +32,20 @@
             {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
 
                 <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                <p>They’ll appear on your dashboard as ’transferring to your school’ until their start date.</p>
+                <p>They’ll appear in the 'Moving school' tab on your dashboard until their start date.</p>
 
                 {% if data.participants[id].programmeCheck == "No" %}
-                    <p>New content about the training.</p>    
+
+                <h2 class="govuk-heading-m">What you need to do</h2>
+                    <p>You must contact {lead provider} to confirm they can train this person.</p>    
                 {% else %}     
                     {% if data['transferProgramme'] == "different" %}
-                    <p>Content about waiting to get confirmation from the new provider.</p>        	    
+
+                    <p>NOTE: If this process happens offline:</p>
+                    <p>{lead provider} must confirm they'll train this person directly with us too.</p>   
+
+                    <p>NOTE: If we can notify the provider via their dashboard:</p>
+                    <p>We've asked {lead provider} to confirm they'll train this person.</p>      	    
                     {% else %}
 			        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
                     {% endif %}
@@ -47,7 +54,29 @@
             {% elif data.participants[id].type == "ect" %}
                 
                 {% if data.participants[id].knowtrn == "Yes" or data.participants[id].trnNumber != "" %}
-                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>                
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school. They do not need to provide us with any more information.</p>
+
+                    <p>We'll pass their information to their training provider.</p>
+
+                    <h2 class="govuk-heading-m">Eligibility for funding</h2>
+                    
+                    <p>Our checks have confirmed this person is eligible for funded training, and time off timetable for training and mentoring.</p>
+
+               <!-- BRIAN - Please add a variation for a new ppt added without a TRN and DOB --> 
+               
+                <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+
+               <p class="govuk-body">We'll ask them to use this service to tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>full name</li>
+                      <li>date of birth</li>
+                      <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>    
+                
+                <p>We'll then confirm if they're eligible for funded ECF-based training.</p>
+
+            <!--End of no TRN added-->
+
                 {% else %}
                     {% include "includes/confirm_contact.html" %}                                    
                 {% endif %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Info page about agreement etc' %}  
+{% set pageHeading = 'You must contact {lead provider}' %}  
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,8 +14,8 @@
             
 
             
-            <p>You need to have a formal agreement with this provider...... </p>
-            <p>provider will then confirm with us</p>
+            <p>Your school must check {lead provider} is able to train this person.</p>
+            <p>{lead provider} then needs to confirm this directly with us too. We can then arrange the correct funding.</p>
                     
             
             <form class="form" action="check-your-answers" method="post" >                
