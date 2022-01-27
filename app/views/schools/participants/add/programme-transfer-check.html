@@ -13,16 +13,23 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- This is going to be if on a different programme -->
-            <p>This is the same programme as other ECTs at your school.</p>            
-            
-            <!-- <p>This is a different programme to other ECTs at your school.</p>             -->
+            <p>This is the same programme as other ECTs at your school.</p>                        
+            <p>This is a different programme to other ECTs at your school.</p>            
             <!-- // -->
-            <div class="govuk-inset-text">
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+            <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+            <p>{{ data.deliveryPartner }}</p>
+
+
+            <!-- <div class="govuk-inset-text">
                 <ul class="govuk-list">
                     <li>Lead provider: ACME Provider</li>
                     <li>Delivery partner: ACME Delivery Partner</li>                    
                 </ul>            
-            </div>
+            </div> -->
 
             {% if data['linkaction'] == "change-programme-check" %}
             <form class="form" action="../details" method="post" >
