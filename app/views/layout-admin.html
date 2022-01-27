@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% set isAdmin = true %}
+{% set showBackLink = false %}
+
+{% block adminPrimaryNav %}
+<div class="primary-nav-container">
+  <div class="govuk-width-container">
+    <div class="primary-nav">
+      <div class="nav-item nav-item__selected">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Schools
+          <span class="govuk-visually-hidden">Current page</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Participants
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Suppliers
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Admin users
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
