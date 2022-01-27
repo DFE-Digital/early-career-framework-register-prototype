@@ -42,7 +42,7 @@
 
             {% elif data.participants[id].type == "ect" %}
                 
-                {% if data.participants[id].knowtrn == "Yes" %}
+                {% if data.participants[id].knowtrn == "Yes" or data.participants[id].trnNumber != "" %}
                     <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>                
                 {% else %}
                     {% include "includes/confirm_contact.html" %}                                    
