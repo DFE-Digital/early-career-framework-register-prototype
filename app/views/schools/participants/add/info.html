@@ -12,11 +12,19 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
             
-
+          <!-- If ECT will train with a new provider -->
             
             <p>Your school must check {lead provider} is able to train this person.</p>
             <p>{lead provider} then needs to confirm this directly with us too. We can then arrange the correct funding.</p>
-                    
+            <p>You can continue to register this person.</p>
+
+           <!-- end -->
+           
+           <!-- If ECT will continue with their current provider at their new school --> 
+
+            <p>Your school must check {lead provider} is able to continue training this person when they transfer to your school.</p>
+            <p>{lead provider} needs to confirm this directly with us too. We can then update our records.</p>
+            <p>You can continue to register this person.</p>          
             
             <form class="form" action="check-your-answers" method="post" >                
         
