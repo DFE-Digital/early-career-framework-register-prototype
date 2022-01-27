@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Info page about agreement etc' %}  
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+            
+
+            
+            <p>You need to have a formal agreement with this provider...... </p>
+            <p>provider will then confirm with us</p>
+                    
+            
+            <form class="form" action="check-your-answers" method="post" >                
+        
+                {{ govukButton({                
+                    text: "Continue"
+                }) }}
+                
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

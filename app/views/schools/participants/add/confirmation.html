@@ -37,7 +37,11 @@
                 {% if data.participants[id].programmeCheck == "No" %}
                     <p>New content about the training.</p>    
                 {% else %}     
+                    {% if data['transferProgramme'] == "different" %}
+                    <p>Content about waiting to get confirmation from the new provider.</p>        	    
+                    {% else %}
 			        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
+                    {% endif %}
                 {% endif %}
 
             {% elif data.participants[id].type == "ect" %}

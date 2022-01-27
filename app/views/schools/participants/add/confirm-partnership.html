@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Have you asked ' + participant.leadProvider + ' to train this ECT?' %}  
+{% set pageHeading = 'Have you asked ACME Provider if they will carry on training this ECT?' %}  
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +13,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
             
             <p>You will need to have a formal agreement with this provider.</p>
-
+            
             <form class="form" action="info" method="post" >
 
                 {{ govukRadios({   

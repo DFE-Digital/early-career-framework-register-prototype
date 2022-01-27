@@ -13,45 +13,66 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- This is going to be if on a different programme -->
-            <p>This is the same programme as other ECTs at your school.</p>                        
-            <p>This is a different programme to other ECTs at your school.</p>            
+            {% if data['transferProgramme'] == "different" %}
+                <p>This is a different programme to other ECTs at your school.</p>            
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+                <p class="govuk-!-margin-bottom-1">ACME Provider</p>
+
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+                <p>ACME Delivery Partner</p>
+                
+
+            {% else %}
+                
+                <p>This is the same programme, provider and delivery partner as other ECTs at your school.</p>                        
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+                <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+                <p>{{ data.deliveryPartner }}</p>
+
+            {% endif %}
             <!-- // -->
 
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
-            <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
-
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
-            <p>{{ data.deliveryPartner }}</p>
-
-
-            <!-- <div class="govuk-inset-text">
-                <ul class="govuk-list">
-                    <li>Lead provider: ACME Provider</li>
-                    <li>Delivery partner: ACME Delivery Partner</li>                    
-                </ul>            
-            </div> -->
-
             {% if data['linkaction'] == "change-programme-check" %}
-            <form class="form" action="../details" method="post" >
-            {% else %}
-            <form class="form" action="check-your-answers" method="post" >
+                <form class="form" action="../details" method="post" >
+            {% elif data['transferProgramme'] == "different" %}
+                <form class="form" action="programme-check" method="post" >
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",                    
+                        fieldset: {
+                        legend: {
+                            text: pageHeading,
+                            isPageHeading: true,
+                            classes: "govuk-visually-hidden"
+                        }
+                        },
+                        items: [
+                            { value: "Yes, redirect(confirm-partnership)", text: "Yes" },
+                            { value: "No", text: "No" }
+                        ]                
+                    } | decorateFormAttributes(['participants', id, 'programmeCheckTransfer']) ) }} 		
+                        
+            {% else %}                
+                <form class="form" action="programme-change" method="post" >
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",                    
+                        fieldset: {
+                        legend: {
+                            text: pageHeading,
+                            isPageHeading: true,
+                            classes: "govuk-visually-hidden"
+                        }
+                        },
+                        items: [
+                            { value: "Yes, redirect(check-your-answers)", text: "Yes" },
+                            { value: "No", text: "No" }
+                        ]                
+                    } | decorateFormAttributes(['participants', id, 'programmeCheckTransfer']) ) }} 		
+                        
             {% endif %}
             
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",                    
-                    fieldset: {
-                    legend: {
-                        text: pageHeading,
-                        isPageHeading: true,
-                        classes: "govuk-visually-hidden"
-                    }
-                    },
-                    items: [
-                        { value: "Yes", text: "Yes" },
-                        { value: "No, redirect(programme-check)", text: "No" }
-                    ]                
-                } | decorateFormAttributes(['participants', id, 'programmeCheckTransfer']) ) }} 		
-                                                    
+                                                
                 {{ govukButton({
                     text: "Continue"
                 }) }}
