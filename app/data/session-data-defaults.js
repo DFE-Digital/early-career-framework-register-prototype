@@ -26,11 +26,13 @@ module.exports = {
   participants: {
     1234: {
       name: 'Jane Doe',
-      email: 'jane.doe@example.com'
+      email: 'jane.doe@example.com',
+      type: 'mentor'
     },
     1235: {
       name: 'James Doe',
-      email: 'james.doe@example.com'
+      email: 'james.doe@example.com',
+      type: 'mentor'
     },
     6745: {
       name: 'Jimmy Doe',

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Which of these providers will ' + participant.name + ' be training with?' %}  
+{% set pageHeading = 'Has ' + participant.leadProvider + ' agreed to train this ECT?' %}  
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,9 +12,12 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
             
-            <form class="form" action="partnership" method="post" >
+            <p>You will need to have a formal agreement with this provider.</p>
+            
+            <form class="form" action="check-your-answers" method="post" >
 
-                {{ govukRadios({                                      
+                {{ govukRadios({   
+                    classes: "govuk-radios--inline",                                   
                     fieldset: {
                     legend: {
                         text: "Do you know this person’s teacher reference number (TRN)?",
@@ -23,14 +26,12 @@
                     }
                     },
                     items: [
-                        { value: "Ambition Institute", text: "Ambition Institute" },
-                        { value: "Best Practice Network", text: "Best Practice Network (home of Outstanding Leaders Partnership)" },
-                        { value: "Capita with lead academic partner the University of Birmingham" , text: "Capita with lead academic partner the University of Birmingham" },
-                        { value: "Education Development Trust", text: "Education Development Trust" },
-                        { value: "Teach First", text: "Teach First" }                        
+                        { value: "Yes", text: "Yes" },
+                        { value: "No", text: "No" }
+                        
                     ]                
                 
-                } | decorateFormAttributes(['participants', id, 'leadProvider']) ) }}                     
+                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}                     
                                     
           <!-- {{ govukRadios({
             items: [

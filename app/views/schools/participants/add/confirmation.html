@@ -2,35 +2,14 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set sitMentorName = 'defaults.sitName()' %}
-
-{% if data['linkaction'] == "change-mentor-details"%}
-    {% set pageHeading = 'The mentor for ' + data['participant-1-name'] +  ' has been updated' %}
-
-{% else %}
-    {% if data['participantType'] == "ECT-transfer" %}
-        {% if data['participant-2-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-2-name'] +  ' has been registered with your school' %}
-        {% elif data['participant-1-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-1-name'] +  ' has been registered with your school' %}
-        {% endif %}
-    {% elif data['participantType'] == "ECT" %}
-        {% if data['participant-2-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-2-name'] +  ' has been added as an ECT' %}
-        {% elif data['participant-1-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-1-name'] +  ' has been added as an ECT' %}
-        {% endif %}
-    <!-- Mentor -->
-    {% elif data['participantType'] == "mentor"  %}
-        {% if data['participant-2-mentor-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-2-mentor-name'] +  ' has been added as a mentor' %}
-        {% elif data['participant-1-mentor-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-1-mentor-name'] +  ' has been added as a mentor' %}
-        {% endif %}
-    <!-- sitMentor -->
-    {% elif data['participantType'] == "sitMentor" %}
-        {% set pageHeading = 'You’ve been added as a mentor' %}    
-    {% endif %}
+{% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}             
+    {% set pageHeading = '' + participant.name +  ' has been registered with your school' %}        
+{% elif data.participants[id].type == "ect" %}        
+    {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}        
+{% elif data.participants[id].type == "mentor" %}                
+        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}        
+{% elif data.participants[id].type == "sitMentor" %}
+    {% set pageHeading = 'You’ve been added as a mentor' %}    
 {% endif %}
 
 {% set pageSection = "" %}
@@ -49,50 +28,40 @@
                 <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
             {% endif %} -->            
 
-            <h2 class="govuk-heading-m">What happens next</h2>
-            
-            <!-- SitMentor -->
-            <!-- <p>We’ll send you an email in the next few days that explains what information we need from you.</p> -->
-                
-            {% if data['participantType'] == "ECT-transfer" %}
+            <h2 class="govuk-heading-m">What happens next</h2>                
+            {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
 
                 <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
                 <p>They’ll appear on your dashboard as ’transferring to your school’ until their start date.</p>
 
-            {% elif data['participantType'] == "ECT" %}
+                {% if data.participants[id].programmeCheck == "No" %}
+                    <p>New content about the training.</p>    
+                {% else %}     
+			        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
+                {% endif %}
 
-                {% if data['participant-2-added'] == "Yes" %}                    
-                    {% if data['participant-2-know-trn'] == "Yes" %}
-                        <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    {% else %}
-                        {% include "includes/confirm_contact.html" %}
-                    {% endif %}                
-                {% elif data['participant-1-added'] == "Yes" %}                    
-                    {% if data['participant-1-know-trn'] == "Yes" %}
-                        <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    {% else %}
-                        {% include "includes/confirm_contact.html" %}
-                    {% endif %}
-                {% endif %}                
+            {% elif data.participants[id].type == "ect" %}
+                
+                {% if data.participants[id].knowtrn == "Yes" %}
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>                
+                {% else %}
+                    {% include "includes/confirm_contact.html" %}                                    
+                {% endif %}
+
+                {% if data.participants[id].programmeCheck == "No" %}
+                    <p>New content about the training.</p>			        
+                {% endif %}
 
             {% elif data['participantType'] == "mentor" %} 
 
             {% endif %}
             
             <!-- Training programme content -->
-            {% if data['participant-1-programme-check'] != "Yes" %}
-                <p>New content about the training.</p>    
-            {% else %}     
-			    <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>        	    
-            {% endif %}
+            
 
             
-			<!-- If no TRN is entered -->
-        	<!-- <p>We’ll ask them for the information we need to check they’re eligible for this training programme.</p> -->
-        	<!-- end -->
-                
 
-            <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?participantType=">View your ECTs and mentors</a></p>
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">View your ECTs and mentors</a></p>
             
         </div>
     </div>

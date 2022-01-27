@@ -13,71 +13,166 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">                
-                {% include "includes/summary_name.html" %}
-                {% include "includes/summary_trn.html" %}
-                {% include "includes/summary_dob.html" %}            
-                {% include "includes/summary_email.html" %}
-                {% include "includes/summary_induction_start.html" %}
-                {% include "includes/summary_mentor.html" %}
-                {% include "includes/summary_training_with.html" %}                
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Name</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?cya-action=change-name">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">{% if participant.trnKnown == "No" %}TRN entered{% else %}TRN{% endif %}</dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.trnKnown == "No" %}
+                            {{ participant.trnKnown }}            
+                        {% else %}
+                            {{ participant.trnNumber }}            
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if participant.trnKnown == "No" %}
+                            <a class="govuk-link" href="know-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a>                            
+                        {% else %}
+                            <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a>    
+                        {% endif %}                        
+                    </dd>                    
+                </div>
+                
+                {% if participant.dobDay %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Date of birth</dt>
+                    <dd class="govuk-summary-list__value">                        
+                        {{ isoDateFromDateInputs(participant['dobYear'], participant['dobMonth'], participant['dobDay']) | dateWithYear }}                        
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?cya-action=change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                </div>                
+                {% endif %}           
+
+                {% if participant.joiningDay %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Joining date</dt>
+                    <dd class="govuk-summary-list__value">                        
+                        {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}                        
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?cya-action=change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                </div>                
+                {% endif %}           
+
+                
+                {% if participant.email %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Email address</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="email-address?cya-action=change-email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+                </div>
+                {% endif %}
+
+                {% if participant.startDate %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {% if data.participants[id].type == "ect" %}
+                            Induction start
+                        {% elif data.participants[id].type == "mentor" %}
+                            Mentoring start
+                        {% endif %}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ participant.startDate }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-date">Change<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                </div>
+                {% endif %}
+                
+                {% if participant.mentor %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Mentor</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?cya-action=change-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                </div>
+                {% endif %}
+                
+                {% if participant.programmeCheck %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Training with</dt>
+                    <dd class="govuk-summary-list__value">                  
+                        {% if participant.programmeCheck == "Yes" %}
+                            <ul class="govuk-list">
+                                <li>{{ data.leadProvider}}</li>
+                                <li>{{ data.deliveryPartner }}</li>
+                            </ul>
+                        {% else %}
+                            <ul class="govuk-list">
+                                {% if participant.programmeChange == "Yes" %}
+                                    <li>{{ data.leadProvider}}</li>
+                                {% else %}
+                                    <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.leadProvider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>    
+                                {% endif %}
+                                <li>They’ll confirm the delivery partner</li>                                    
+                            </ul>
+                        {% endif %}            
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-check?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
+                
+
+                {% elif participant.programmeCheckTransfer %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Training with</dt>
+                    <dd class="govuk-summary-list__value">                  
+                        {% if participant.programmeCheckTransfer == "Yes" %}
+                            <ul class="govuk-list">
+                                <li>You need to arrange a partnership with ACME Lead Provider</li>
+                                <li>ACME Delivery Partner</li>
+                            </ul>
+                        {% else %}
+                            <ul class="govuk-list">
+                                {% if participant.programmeChange == "Yes" %}
+                                    <li>{{ data.leadProvider}}</li>
+                                {% else %}
+                                    <li>{{ participant.leadProvider }}</li>    
+                                {% endif %}
+                                <li>The lead provider will confirm the delivery partner</li>                                    
+                            </ul>
+                        {% endif %}            
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-check?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
+                {% endif %}
             </dl>
 
-            <!-- BRIAN - please code this so it only appears if the SIT does NOT enter the TRN -->
-
-            {% if data['participant-1-know-trn'] != "Yes" %}
+            <!-- Content to show if we do not have the TRN -->
+            {% if participant.trnKnown == "No" %}
                 <p class="govuk-!-margin-bottom-5">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
-            {% endif %}
+            {% endif %}                        
 
             <form class="form" action="confirmation" method="post" >
                 
+                <!-- Clears any change action from the CYA  -->
                 {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
-            
-                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-                    
-                    {% if data['participant-1-added'] %}
-                        <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
-                        {% if data['participant-2-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-2-eligible" id="participant-2-eligible" value="No" />
-                        {% endif %}
-                    
-                    {% else %}
-                    
-                        <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-1" id="participant-1" value="Eligible" />
-                        {% else %}
-                            <input type="hidden" name="participant-1" id="participant-1" value="Contacted" />
-                        {% endif %}
-                    {% endif %}
-
-
-
                 
-                {% elif data['participantType'] == "mentor" %}
-                    {% if data['participant-1-mentor-added'] %}
-                        <input type="hidden" name="participant-2-mentor-added" id="participant-2-mentor-added" value="Yes" />
-                        {% if data['participant-1-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-2-mentor-eligible" id="participant-2-mentor-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-2-mentor-eligible" id="participant-2-mentor-eligible" value="No" />
-                        {% endif %}
-                    {% else %}
-                        <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
-                        {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" />
-                        {% else %}
-                            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="No" />
-                        {% endif %}
-                    {% endif %}
-                {% elif data['participantType'] == "sitMentor" %}
-                    <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />                
+
+                {% if participant[id].type == "ect-transfer" or participant[id].type == "mentor"  %}
+
+                    {{ govukInput({                    
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden", 
+                        value: "TransferIn"                   
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}                                         
+                            
+                {% elif participant.trnKnown == "Yes" %}
+
+                    {{ govukInput({                    
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden", 
+                        value: "Eligible"                   
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}                     
+            
+                {% else %}
+
+                    {{ govukInput({                    
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden", 
+                        value: "Contacted"                   
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}                     
+                
                 {% endif %}
 
-                {% if data['participantType'] == "ECT-transfer" %}
-                <input type="hidden" name="show-participant-transferIn" id="show-participant-transferIn" value="Yes" />                
-                {% endif %}
 
                 {{ govukButton({
                     text: "Confirm and add"

@@ -1,23 +1,12 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-    {% if data['participant-1-added'] %}
-        {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to start their induction programme?' %}
-    {% else %}
-        {% set pageHeading = 'When do you expect ' + data['participant-1-name'] + ' to start their induction programme?' %}
-    {% endif %}
-{% elif data['participantType'] == "mentor" %}
-    {% if data['participant-1-mentor-added'] %}
-        {% set pageHeading = 'When do you expect ' + data['participant-2-mentor-name'] + ' to begin mentoring ECTs?' %}
-    {% else %}
-        {% set pageHeading = 'When do you expect ' + data['participant-1-mentor-name'] + ' to begin mentoring ECTs?' %}
-    {% endif %}
-{% else %}
-    {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'When do you expect ' + data['participant-2-name'] + ' to begin mentoring ECTs?' %}
-    {% endif %}
+{% if data.participants[id].type == "ect" %}
+    {% set pageHeading = 'When do you expect ' + participant.name + ' to start their induction programme?' %}    
+{% elif data.participants[id].type == "mentor" %}
+    {% set pageHeading = 'When do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,8 +16,12 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+
+            
             <!-- If coming from the CYA page -->
             {% if data['cya-action'] == "change-start-date" %}
+
+            
             <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                 <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
             <!-- If coming from the participant details page -->
@@ -36,41 +29,26 @@
             <form class="form" action="../details" method="post">
                 <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
                 <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->            
-            {% else %}
-                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-                    <!-- If a mentor is in the system -->
-                    {% if ((data['participant-1-mentor-added'] == "Yes") or (data['participant-2-mentor-added'] == "Yes") or (data['participant-1-sit-mentor-added'] == "Yes")) %}                        
+            
+            {% else %}                                        
+                {% if data.participants[id].type == "ect" %}
+                    {% if hasMentors %}                    
                     <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">                        
-                    <!-- No mentor currently added -->
-                    {% else %}						
+                    {% else %}                    
                     <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">
-                    {% endif %} 
-                {% elif data['participantType'] == "mentor" %}                    
-                    <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">
-                {% endif %}      	        	
+                    {% endif %}                
+                {% elif data.participants[id].type == "mentor"%}
+                    <form class="form" action="programme-check" method="post" class="govuk-!-margin-bottom-8">                
+                {% endif %}            
             {% endif %}
 
-                {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-
-                    {{ govukRadios({
-                        items: [                            
-                            { value: "Spring 2022", text: "Spring 2022" },
-                            { value: "Summer 2022", text: "Summer 2022" },
-                            { value: "Autumn 2022", text: "Autumn 2022" }
-                        ]
-                    } | decorateFormAttributes('participant-2-start-date' if data['participant-1-added'] else 'participant-1-start-date')) }}
-
-                {% elif data['participantType'] == "mentor" %}
-
-                    {{ govukRadios({
-                        items: [                            
-                            { value: "Spring 2022", text: "Spring 2022" },
-                            { value: "Summer 2022", text: "Summer 2022" },
-                            { value: "Autumn 2022", text: "Autumn 2022" }
-                        ]
-                    } | decorateFormAttributes('participant-2-mentor-start-date' if data['participant-1-mentor-added'] else 'participant-1-mentor-start-date' )) }}
-                    
-                {% endif %}
+                {{ govukRadios({
+                    items: [                            
+                        { value: "Spring 2022", text: "Spring 2022" },
+                        { value: "Summer 2022", text: "Summer 2022" },
+                        { value: "Autumn 2022", text: "Autumn 2022" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
 
                 {{ govukButton({
                     text: "Continue"

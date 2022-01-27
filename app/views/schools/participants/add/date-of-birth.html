@@ -1,23 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-    {% if data['participant-1-added'] %}
-        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s date of birth?' %}
-    {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s date of birth?' %}
-    {% endif %}
-{% elif data['participantType'] == "mentor" %}
-    {% if data['participant-1-mentor-added'] %}
-        {% set pageHeading = 'Do you know ' + data['participant-2-mentor-name'] + '’s date of birth?' %}
-    {% else %}
-        {% set pageHeading = 'Do you know ' + data['participant-1-mentor-name'] + '’s date of birth?' %}
-    {% endif %}
-{% else %}
-    {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'Do you know ' + data['participant-2-name'] + '’s date of birth?' %}
-    {% endif %}
-{% endif %}
+{% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,79 +11,52 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-        	<!-- <p class="govuk-body">We need this to find their training record, and confirm they’re eligible for this programme.</p> -->
-        
-      		<!-- If using change link -->
+        	
       		{% if data['cya-action'] == "change-dob" %}
       		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
         		<input type="hidden" name="cya-action" id="cya-action" value="" />
-
       		{% else %}
-
-			  	{% if data['participantType'] == "ECT-transfer" %}
-					<form class="form" action="joining-date" method="post">        		
+			  	{% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}			  
+				  	<form class="form" action="email-address" method="post">
 				{% else %}        		
-          			<form class="form" action="email-address" method="post">        		
+					<form class="form" action="joining-date" method="post">
 				{% endif %}
+      		{% endif %}						  	
+						  			  
 
-      		{% endif %}
-
-				
-			  	{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-
-			  		{% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
-
-					{{ govukDateInput({
-						id: 'session-date',
-						fieldset: {
-							legend: {
-								text: pageHeading,
-								classes: "govuk-visually-hidden"
-							}
-						},
-						items: [
-							{
-								name: '[' + participant + '][date-day]',
-								value: data[participant]['date-day'],
-								classes: "govuk-input--width-2",
-								label: 'Day'
-							},
-							{
-								name: '[' + participant + '][date-month]',
-								value: data[participant]['date-month'],
-								classes: "govuk-input--width-2",
-								label: 'Month'
-							},
-							{
-								name: '[' + participant + '][date-year]',
-								value: data[participant]['date-year'],
-								classes: "govuk-input--width-4",
-								label: 'Year'
-							}
-						],
-						hint: {
-							text: "For example, 14 7 1990"
-						}
-					}) }}
-
-				{% elif data['participantType'] == "mentor" %}
-
-				{{ govukDateInput({					
+				{{ govukDateInput({
+					id: 'session-date-dob',
 					fieldset: {
-				  		legend: {
-							text: "When was your passport issued?",
-							isPageHeading: false,
+						legend: {
+							text: pageHeading,
 							classes: "govuk-visually-hidden"
-				  		}
+						}
 					},
+					items: [
+						{
+							
+							name: '[participants][' + id + '][dobDay]',
+							value: data.participants[id]['dobDay'],
+							classes: "govuk-input--width-2",
+							label: 'Day'
+						},
+						{
+							name: '[participants][' + id + '][dobMonth]',
+							value: data.participants[id]['dobMonth'],
+							classes: "govuk-input--width-2",
+							label: 'Month'
+						},
+						{
+							name: '[participants][' + id + '][dobYear]',
+							value: data.participants[id]['dobYear'],
+							classes: "govuk-input--width-4",
+							label: 'Year'
+						}
+					],
 					hint: {
-				  		text: "For example, 27 3 2007"
-					}			  	
-				} | decorateFormAttributes('participant-2-mentor-dob' if data['participant-1-mentor-added'] else 'participant-1-mentor-dob')) }}
-
-				{% endif %}
-				
+						text: "For example, 14 7 1990"
+					}
+				}) }} 						
 
         		{{ govukButton({
           			text: "Continue"
