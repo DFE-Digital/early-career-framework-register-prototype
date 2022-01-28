@@ -1,5 +1,9 @@
 {% set ectHtml %}
 
+
+{% for id, participant in data.participants %}
+    <p>{{ participant.name }}</p>
+{% endfor %}
         <!-- Contacted for information -->
         <!-- We do not want to show this to older admission years -->
         {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
