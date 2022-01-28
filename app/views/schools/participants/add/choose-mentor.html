@@ -43,8 +43,14 @@
                     }) }}
                     
                     {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
-                    <input type="hidden" id="transferProgramme" value="" name="transferProgramme" />
-                    <!-- <input type="hidden" id="transferProgramme" value="different" name="transferProgramme" /> -->
+                        
+                        <!-- This is just a trigger to suggest an ECT is on a different programme -->
+                        <!-- {{ govukInput({                            
+                            classes: "govuk-visually-hidden",
+                            value: "different"
+                        } | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}  -->
+                        <!-- // -->
+                                    
                     {% endif %}
                 </form>
             

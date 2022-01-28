@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'You must contact ' + participant.leadProvider + '' %}  
+{% if data.participants[id].transferProgramme == "different" %}
+    {% set pageHeading = 'You must contact ACME provider' %}  
+{% else %}
+    {% set pageHeading = 'You must contact ' + participant.leadProvider + '' %}  
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -22,8 +26,8 @@
            
            <!-- If ECT will continue with their current provider at their new school --> 
 
-            <p>Your school must check {{ participant.leadProvider }} is able to continue training this person when they transfer to your school.</p>
-            <p>{{ participant.leadProvider }} needs to confirm this directly with us too. We can then update our records.</p>
+            <p>Your school must check {% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} is able to continue training this person when they transfer to your school.</p>
+            <p>{% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} needs to confirm this directly with us too. We can then update our records.</p>
             <p>You can continue to register this person.</p>  
             
             {% endif %}
