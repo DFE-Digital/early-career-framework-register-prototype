@@ -11,30 +11,38 @@ module.exports = router => {
     next()
   })
 
+  router.all('/participants/', (req, res) => {
+    const participants = req.session.data.participants
+    res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted')
+    res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking')
+    res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn')
+    next()
+  })
+
   router.all('/participants/start', (req, res) => {
     res.redirect(`/participants/${generateRandomString()}/details`)
   })
 
-  
+
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
 
-  router.all('/schools/participants/:id/add/email-address', (req, res, next) => { 
-    const participants = req.session.data.participants        
+  router.all('/schools/participants/:id/add/email-address', (req, res, next) => {
+    const participants = req.session.data.participants
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     next()
   })
 
 
-  router.all('/schools/participants/:id/add/start-date', (req, res, next) => { 
-    const participants = req.session.data.participants        
+  router.all('/schools/participants/:id/add/start-date', (req, res, next) => {
+    const participants = req.session.data.participants
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     next()
   })
 
-  router.all('/schools/participants/:id/add/choose-mentor', (req, res, next) => {     
-    const participants = req.session.data.participants    
+  router.all('/schools/participants/:id/add/choose-mentor', (req, res, next) => {
+    const participants = req.session.data.participants
     // console.log(participants)
     // console.log(Object.values(participants))
     // console.log(Object.values(participants).some((p) => p.type === 'mentor'))
@@ -49,7 +57,7 @@ module.exports = router => {
     next()
   })
 
-  router.all('/schools/participants/:id/add/:view', (req, res) => { 
+  router.all('/schools/participants/:id/add/:view', (req, res) => {
     res.render(`schools/participants/add/${req.params.view}`)
   })
 
