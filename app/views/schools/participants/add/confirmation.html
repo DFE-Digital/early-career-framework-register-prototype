@@ -39,7 +39,7 @@
 
                 <!-- Brian fix this HEADING -->
                 <!-- data.participants[id].providerPartnership != "Yes" or  -->
-                    {% if data.participants[id].partnership != "Yes"  %}
+                    {% if data.participants[id].partnership != "Yes" %}
                     <h2 class="govuk-heading-m">What you need to do</h2>
                     {% endif %}
 
@@ -58,7 +58,9 @@
                             {% if data.participants[id].transferProgramme == "different" %}
 
                                 {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
-                                <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
+                                    {% if data.participants[id].usingCurrentProvider != "No" %}
+                                        <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
+                                    {% endif %}
                                 {% endif %}
 
                                 <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
