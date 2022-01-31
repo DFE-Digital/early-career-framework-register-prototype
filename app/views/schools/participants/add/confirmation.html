@@ -40,9 +40,9 @@
                     <h2 class="govuk-heading-m">What you need to do</h2>                                    
 
                     {% if data.participants[id].usingCurrentProvider == "Yes" %}
-                        <p>They’re already training with the same provider used by your school. The lead provider will confirm the delivery partner.</p>
+                        <p>They’re already training with the same provider used by your school. Your provider will confirm the delivery partner with us directly.</p>
                     {% else %}
-                        <p>You must contact {lead provider} to confirm they can train this person.</p>    
+                        <p>You must contact {{ participant.leadProvider }} to confirm they can train this person.</p>    
                     {% endif %}
 
                 {% else %}
@@ -83,13 +83,9 @@
                         <li>full name</li>
                         <li>date of birth</li>
                         <li>teacher reference number (TRN) or National Insurance number</li>
-                    </ul>        
-                    <p>We‘ll:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>pass their information to your training provider</li>
-                        <li>confirm if they’re eligible for funded ECF-based training</li>
-                       
-                    </ul>
+                    </ul> 
+                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>       
+                    <p>We‘ll also pass their information to your training provider.</p>
                     
 
                 {% endif %}
@@ -101,7 +97,7 @@
 
                 {% if data.participants[id].usingCurrentProgramme == "No" %}
                     <!-- <h2 class="govuk-heading-m">What you need to do</h2>                     -->
-                    <p>New content about the training with a different partner.</p>			        
+                    <p>{{ participant.leadProvider }} will confirm your delivery partner with us directly. We'll add this information to '' + participant.name +  ' record as soon as possible.</p>			        
                 {% endif %}
 
             {% elif data['participantType'] == "mentor" %} 
