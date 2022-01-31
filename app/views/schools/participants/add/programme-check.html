@@ -11,7 +11,7 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-                        
+
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
@@ -20,11 +20,16 @@
             {% if data['linkaction'] == "change-programme-check" %}
             <form class="form" action="../details" method="post" >
             {% else %}
-            <form class="form" action="check-your-answers" method="post" >
+
+                {% if data.participants[id].transferProgramme == "different"%}
+                <form class="form" action="confirm-partnership" method="post" >
+                {% else %}
+                <form class="form" action="check-your-answers" method="post" >
+                {% endif %}
             {% endif %}
-                
+
                 {{ govukRadios({
-                    classes: "govuk-radios--inline",                    
+                    classes: "govuk-radios--inline",
                     fieldset: {
                         legend: {
                             text: pageHeading,
@@ -35,15 +40,15 @@
                     items: [
                         { value: "Yes", text: "Yes" },
                         { value: "No, redirect(programme-change)", text: "No" }
-                    ]                                    
-                } | decorateFormAttributes(['participants', id, 'usingCurrentProgramme']) ) }}                                                                     
+                    ]
+                } | decorateFormAttributes(['participants', id, 'usingCurrentProgramme']) ) }}
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
 
             </form>
-            
+
         </div>
     </div>
 {% endblock %}

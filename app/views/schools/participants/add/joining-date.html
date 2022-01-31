@@ -9,8 +9,8 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}			
-			
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
           	<form class="form" action="email-address" method="post">
 
 				{{ govukDateInput({
@@ -22,7 +22,7 @@
 						}
 					},
 					items: [
-						{							
+						{
 							name: '[participants][' + id + '][joiningDay]',
 							value: data.participants[id]['joiningDay'],
 							classes: "govuk-input--width-2",
@@ -42,14 +42,14 @@
 						}
 					],
 					hint: {
-						text: "For example, 14 7 1990"
+						text: "For example, 14 7 2023"
 					}
-				}) }} 		
-        		
+				}) }}
+
 				{{ govukButton({
 					text: "Continue"
 				}) }}
-      		
+
 			</form>
     	</div>
   	</div>

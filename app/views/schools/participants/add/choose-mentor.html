@@ -3,7 +3,7 @@
 
 
 {% if hasMentors %}
-    {% set pageHeading = 'Who will ' + participant.name + '’s mentor be?' %}      
+    {% set pageHeading = 'Who will ' + participant.name + '’s mentor be?' %}
 {% else %}
     {% set pageHeading = 'You cannot assign a mentor to this ECT' %}
 {% endif %}
@@ -16,7 +16,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if hasMentors %}
 
@@ -31,7 +31,7 @@
                     {% elif data.participants[id].type == "ectTransfer" %}
                     <form class="form" action="programme-transfer-check" method="post" >
                     {% endif %}
-                
+
                 {% endif %}
 
                     {{ govukRadios({
@@ -41,19 +41,19 @@
                     {{ govukButton({
                         text: "Continue"
                     }) }}
-                    
+
                     {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
-                        
+
                         <!-- This is just a trigger to suggest an ECT is on a different programme -->
-                        <!-- {{ govukInput({                            
+                        {{ govukInput({
                             classes: "govuk-visually-hidden",
                             value: "different"
-                        } | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}  -->
+                        } | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}
                         <!-- // -->
-                                    
+
                     {% endif %}
                 </form>
-            
+
             {% else %}
 
                 <p>You do not have any mentors in your cohort.</p>

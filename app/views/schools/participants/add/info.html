@@ -2,9 +2,13 @@
 {% set schoolSignedIn = true %}
 
 {% if data.participants[id].transferProgramme == "different" %}
-    {% set pageHeading = 'You must check ACME provider is able to train this person' %}  
+    {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
+        {% set pageHeading = 'You must check ' + data.leadProvider + ' is able to train this ECT'  %}
+    {% else %}
+        {% set pageHeading = 'You must check ACME provider is able to continue training this ECT' %}
+    {% endif %}
 {% else %}
-    {% set pageHeading = 'You must check ' + participant.leadProvider + ' is able to train this person'  %}  
+    {% set pageHeading = 'You must check ' + participant.leadProvider + ' is able to train this person'  %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -14,34 +18,44 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
-            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
             {% if data.participants[id].type == "ect" %}
-            <!-- If ECT will train with a new provider -->            
+            <!-- If ECT will train with a new provider -->
             <p>{{ participant.leadProvider }} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
-
             <p>If you're already signed up with a delivery partner (the organisation that will deliver your training), they can help you to contact {{ participant.leadProvider }}.</p>
-
             <p>You can now continue to register {{ participant.name }}.</p>
 
             {% elif data.participants[id].type == "ectTransfer" %}
-           
-           <!-- If ECT will continue with their current provider at their new school --> 
 
-            <p>Your school must check {% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} is able to continue training this person when they transfer to your school.</p>
-            <p>{% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} needs to confirm this directly with us too. We can then update our records.</p>
-            <p>You can continue to register this person.</p>  
-            
+            <!-- If ECT will continue with their current provider at their new school -->
+            {% if data.participants[id].transferProgramme == "different"%}
+                {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
+                <p>Your school must check {{ data.leadProvider }} is able to train this person when they transfer to your school.</p>
+                <p>{{ data.leadProvider }} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
+                {% else %}
+                <p>Your school must check {% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} is able to continue training this person when they transfer to your school.</p>
+                {% endif %}
+            {% else %}
+                <p>Your school must check {% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} is able to train this person when they transfer to your school.</p>
             {% endif %}
-            
-            <form class="form" action="check-your-answers" method="post" >                
-        
-                {{ govukButton({                
+            <!-- <p>{% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} needs to confirm this directly with us too. We can then update our records.</p> -->
+
+            {% if data.participants[id].usingCurrentProgrammeTransfer != "No" %}
+            <p>{% if data.participants[id].transferProgramme == "different" %}ACME Provider{% else %}{{ participant.leadProvider }}{% endif %} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
+            {% endif %}
+            <p>You can now continue to register {{ participant.name }}.</p>
+
+            {% endif %}
+
+            <form class="form" action="check-your-answers" method="post" >
+
+                {{ govukButton({
                     text: "Continue"
                 }) }}
-                
+
             </form>
-            
+
         </div>
     </div>
 {% endblock %}

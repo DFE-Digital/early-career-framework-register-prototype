@@ -14,16 +14,16 @@
 
             <!-- This person is going to be on a different programme -->
             {% if data.participants[id].transferProgramme == "different" %}
-                <p>This is a different programme to other ECTs at your school.</p>            
+                <p>This is a different programme to other ECTs at your school.</p>
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                 <p class="govuk-!-margin-bottom-1">ACME Provider</p>
 
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
                 <p>ACME Delivery Partner</p>
-                
+
             {% else %}
-                
-                <p>This is the same programme, lead provider and delivery partner as other ECTs at your school.</p>                        
+
+                <p>This is the same programme, lead provider and delivery partner as other ECTs at your school.</p>
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                 <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
 
@@ -35,10 +35,11 @@
 
             {% if data['linkaction'] == "change-programme-check" %}
                 <form class="form" action="../details" method="post" >
-            {% elif data['transferProgramme'] == "different" %}
+            {% elif data.participants[id].transferProgramme == "different"%}
+
                 <form class="form" action="programme-check" method="post" >
                     {{ govukRadios({
-                        classes: "govuk-radios--inline",                    
+                        classes: "govuk-radios--inline",
                         fieldset: {
                         legend: {
                             text: pageHeading,
@@ -49,13 +50,13 @@
                         items: [
                             { value: "Yes, redirect(confirm-partnership)", text: "Yes" },
                             { value: "No", text: "No" }
-                        ]                
-                    } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }} 		
-                        
-            {% else %}                
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+
+            {% else %}
                 <form class="form" action="programme-change" method="post" >
                     {{ govukRadios({
-                        classes: "govuk-radios--inline",                    
+                        classes: "govuk-radios--inline",
                         fieldset: {
                         legend: {
                             text: pageHeading,
@@ -66,18 +67,18 @@
                         items: [
                             { value: "Yes, redirect(check-your-answers)", text: "Yes" },
                             { value: "No", text: "No" }
-                        ]                
-                    } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }} 		
-                        
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+
             {% endif %}
-            
-                                                
+
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
 
             </form>
-            
+
         </div>
     </div>
 {% endblock %}

@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Have you asked ACME Provider if they’ll carry on training this ECT at your school?' %}  
+{% if data.participants[id].transferProgramme == "different"%}
+    {% set pageHeading = 'Have you confirmed ACME Provider will train this ECT at your school?' %}
+{% else %}
+    {% set pageHeading = 'Have you asked ACME Provider if they’ll carry on training this ECT at your school?' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,14 +14,14 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
-            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
             <p>You must agree this with the lead provider directly.</p>
-            
+
             <form class="form" action="info" method="post" >
 
-                {{ govukRadios({   
-                    classes: "govuk-radios--inline",                                   
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
                     fieldset: {
                     legend: {
                         text: "Do you know this person’s teacher reference number (TRN)?",
@@ -28,26 +32,26 @@
                     items: [
                         { value: "Yes, redirect(check-your-answers)", text: "Yes" },
                         { value: "No", text: "No" }
-                        
-                    ]                
-                
-                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}                     
-                                    
+
+                    ]
+
+                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}
+
           <!-- {{ govukRadios({
             items: [
               { value: "FIP", text: "Use a different training provider, funded by the DfE" },
               { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
-              { value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }              
+              { value: "DYO", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }
             ]
           } | decorateFormAttributes("inductionProgramme-addition")) }}
              -->
-        
-                {{ govukButton({                
+
+                {{ govukButton({
                     text: "Continue"
                 }) }}
-                
+
             </form>
-            
+
         </div>
     </div>
 {% endblock %}
