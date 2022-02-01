@@ -54,7 +54,7 @@
                     {% for id, participant in data.participants %}
                     {% if participant.status == "Contacted" and participant.type == "ect" %}
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="details" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+                        <td class="govuk-table__cell "><a href="{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
                         <td class="govuk-table__cell">{{ data.leadProvider }}</td>
                         <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
@@ -425,10 +425,10 @@
                 {% for id, participant in data.participants %}
                     {% if participant.status == "Withdrawn" %}
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="details" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+                        <td class="govuk-table__cell "><a href="/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
                         <td class="govuk-table__cell">{{ data.leadProvider }}</td>
                         <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ isoDateFromDateInputs(data[participant]['leaving-date-date-year'], data[participant]['leaving-date-date-month'], data[participant]['leaving-date-date-day']) | dateWithYear }}</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
                     </tr>
                     {% endif %}
                 {% endfor %}

@@ -32,6 +32,7 @@ module.exports = router => {
     next()
   })
 
+
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
@@ -64,13 +65,24 @@ module.exports = router => {
     next()
   })
 
-  router.all('/schools/participants/:id/add/:view', (req, res) => {
-    res.render(`schools/participants/add/${req.params.view}`)
+
+  router.all('/schools/participants/:id', (req, res) => {
+    res.redirect(`details`)
   })
 
-  router.all('/schools/participants/:id/add/transfer/:view', (req, res) => {
-    res.render(`schools/participants/add/transfer/${req.params.view}`)
-  })
+
+
+
+
+//   router.all('/schools/participants/:id/add/:view', (req, res) => {
+//     res.render(`schools/participants/add/${req.params.view}`)
+//   })
+
+//   router.all('/schools/participants/:id/add/transfer/:view', (req, res) => {
+//     res.render(`schools/participants/add/transfer/${req.params.view}`)
+//   })
+
+
 
   router.all('/participants/start', (req, res) => {
     res.redirect(`/participants/${generateRandomString()}/details`)
