@@ -11,7 +11,7 @@ module.exports = router => {
     next()
   })
 
-  router.all('/schools/participants', (req, res) => {
+  router.all('/schools/participants', (req, res, next) => {
     const participants = req.session.data.participants
     res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
@@ -28,11 +28,6 @@ module.exports = router => {
     next()
   })
 
-  router.all('/participants/start', (req, res) => {
-    res.redirect(`/participants/${generateRandomString()}/details`)
-  })
-
-
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
@@ -42,7 +37,6 @@ module.exports = router => {
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     next()
   })
-
 
   router.all('/schools/participants/:id/add/start-date', (req, res, next) => {
     const participants = req.session.data.participants
@@ -72,6 +66,10 @@ module.exports = router => {
 
   router.all('/schools/participants/:id/add/transfer/:view', (req, res) => {
     res.render(`schools/participants/add/transfer/${req.params.view}`)
+  })
+
+  router.all('/participants/start', (req, res) => {
+    res.redirect(`/participants/${generateRandomString()}/details`)
   })
 
   router.all('/participants/:id', (req, res) => {
