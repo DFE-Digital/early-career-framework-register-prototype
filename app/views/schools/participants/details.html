@@ -12,6 +12,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                <!-- Name -->
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
@@ -20,13 +21,14 @@
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                             <!-- <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>                             -->
                         {% endif %}
                     </dd>
                     {% endif %}
                 </div>
 
+                <!-- TRN -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">{% if participant.trnKnown == "No" %}TRN entered{% else %}TRN{% endif %}</dt>
                     <dd class="govuk-summary-list__value">
@@ -45,6 +47,7 @@
                     </dd>
                 </div>
 
+                <!-- DOB -->
                 {% if participant.dobDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Date of birth</dt>
@@ -55,6 +58,7 @@
                 </div>
                 {% endif %}
 
+                <!-- Joining date -->
                 {% if participant.joiningDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Joining date</dt>
@@ -65,6 +69,7 @@
                 </div>
                 {% endif %}
 
+                <!-- Email -->
                 {% if participant.email %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
@@ -75,6 +80,7 @@
                 </div>
                 {% endif %}
 
+                <!-- Role -->
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
@@ -83,6 +89,7 @@
                     </dd>
                 </div>
 
+                <!-- Start date -->
                 {% if participant.startDate %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -95,25 +102,21 @@
                     <dd class="govuk-summary-list__value">
                         {{ participant.startDate }}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
                 {% endif %}
 
+                <!-- Mentor -->
                 {% if participant.mentor %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Mentor</dt>
                     <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?cya-action=change-mentor">Edit<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> mentor</span></a></dd>
                 </div>
                 {% endif %}
 
-
-
-
-
-
+                <!-- Status -->
                 {% if data['induction-tutor'] != "Yes" %}
-
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Status</dt>
                     <dd class="govuk-summary-list__value">
