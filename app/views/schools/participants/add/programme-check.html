@@ -3,7 +3,7 @@
 
 {% if data['inductionProgramme'] == "CIP" %}
     {% set pageHeading = 'Will ' + participant.name + ' use your school’s current training materials?' %}
-{% else %}
+{% elif data['inductionProgramme'] == "FIP" %}
     {% set pageHeading = 'Will ' + participant.name + ' be training with your school’s current providers?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -17,15 +17,17 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if data['inductionProgramme'] == "CIP" %}
-                <!-- CIP -->
+
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
                 <p>{{ data.leadProviderMaterials }}</p>
-                <!-- FIP -->
+
             {% elif data['inductionProgramme'] == "FIP" %}
+
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                 <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
                 <p>{{ data.deliveryPartner }}</p>
+
             {% endif %}
 
             {% if data['linkaction'] == "change-programme-check" %}

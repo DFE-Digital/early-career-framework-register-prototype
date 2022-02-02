@@ -1,49 +1,23 @@
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-        {% if participant.know-trn == "No" %}
+        {% if participant.trnKnown == "No" %}
             TRN entered
         {% else %}
             TRN
-        {% endif %}                
-        </dt>
+        {% endif %}
+    </dt>
     <dd class="govuk-summary-list__value">
-        {% if participants[id].know-trn == "No" %}
-            {{ participant[id].know-trn }}            
+        {% if participant.trnKnown == "No" %}
+            {{ participant.trnKnown }}
         {% else %}
-            {{ participant.trn-number }}            
+            {{ participant.trnNumber }}
         {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions">
-
-        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-            <!-- Has to remain split up otherwise it wont know which participant to show -->
-            {% if data['participant-1-added'] %}
-                {% if data['participant-2-know-trn'] == "Yes" %}
-                <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% else %}
-                <a class="govuk-link" href="have-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% endif %}
-            {% else %}
-                {% if data['participant-1-know-trn'] == "Yes" %}
-                <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% else %}
-                <a class="govuk-link" href="have-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% endif %}
-            {% endif %}
-        {% elif data['participantType'] == "mentor" %}
-            {% if data['participant-1-mentor-added'] %}
-                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% else %}
-                <a class="govuk-link" href="have-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% endif %}
-            {% else %}
-                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% else %}
-                <a class="govuk-link" href="have-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                {% endif %}
-            {% endif %}
+        {% if participant.trnKnown == "No" %}
+            <a class="govuk-link" href="know-trn?cya-action=change-know-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a>
+        {% else %}
+            <a class="govuk-link" href="teacher-reference-number?cya-action=change-trn">Change<span class="govuk-visually-hidden"> teacher reference number</span></a>
         {% endif %}
-
+    </dd>
 </div>

@@ -11,7 +11,6 @@
 {% elif data.participants[id].type == "sitMentor" %}
     {% set pageHeading = 'You’ve been added as a mentor' %}
 {% endif %}
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -133,7 +132,6 @@
                     <p>We’ll let this person know you’ve registered them for ECF-based training at your school. They do not need to provide us with any more information.</p>
 
                     {% if data['inductionProgramme'] == "CIP" %}
-                    HERE
                         <p>They’ll receive a link to their training materials within 24 hours.</p>
                     {% elif data['inductionProgramme'] == "FIP" %}
                         <p>We’ll pass their information to their training provider.</p>
