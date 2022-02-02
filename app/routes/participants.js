@@ -38,6 +38,10 @@ module.exports = router => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
 
+  router.all('/schools/participants/what-each-person-does', (req, res) => {
+    res.render('schools/participants/what-each-person-does')
+  })
+
   router.all('/schools/participants/:id', (req, res) => {
     res.render('schools/participants/details')
   })
