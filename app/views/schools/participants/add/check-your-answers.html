@@ -92,19 +92,34 @@
 
                 {% if participant.usingCurrentProgramme %}
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Training with</dt>
+                    <dt class="govuk-summary-list__key">
+                        {% if data['inductionProgramme'] == "CIP" %}
+                        Materials supplier
+                        {% elif data['inductionProgramme'] == "FIP" %}
+                        Training with
+                        {% endif %}
+                    </dt>
                     <dd class="govuk-summary-list__value">
                         {% if participant.usingCurrentProgramme == "Yes" %}
-
-
                             <!-- Checked -->
                             <ul class="govuk-list">
                                 {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
-                                    <li>You need to contact {{ data.leadProvider }}</li>
-                                    <li>They’ll confirm the delivery partner</li>
+
+                                    {% if data['inductionProgramme'] == "CIP" %}
+                                        <li>{{ data.leadProviderMaterials}}</li>
+                                    {% elif data['inductionProgramme'] == "FIP" %}
+                                        <li>You need to contact {{ data.leadProvider }}</li>
+                                        <li>They’ll confirm the delivery partner</li>
+                                    {% endif %}
                                 {% else %}
-                                <li>{{ data.leadProvider}}</li>
-                                <li>{{ data.deliveryPartner }}</li>
+                                    <!-- CIP -->
+                                    {% if data['inductionProgramme'] == "CIP" %}
+                                        <li>{{ data.leadProviderMaterials}}</li>
+                                    <!-- FIP -->
+                                    {% elif data['inductionProgramme'] == "FIP" %}
+                                        <li>{{ data.leadProvider}}</li>
+                                        <li>{{ data.deliveryPartner }}</li>
+                                    {% endif %}
                                 {% endif %}
                             </ul>
                             <!-- // -->
@@ -115,7 +130,8 @@
                                 {% else %}
                                     <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.leadProvider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>
                                 {% endif %}
-                                <li>They’ll confirm the delivery partner</li>
+                                <!-- only for FIP -->
+                                {% if data['inductionProgramme'] == "FIP" %}<li>They’ll confirm the delivery partner</li>{% endif %}
                             </ul>
                         {% endif %}
                     </dd>
@@ -125,7 +141,13 @@
 
                 {% elif participant.usingCurrentProgrammeTransfer %}
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Training with</dt>
+                    <dt class="govuk-summary-list__key">
+                        {% if data['inductionProgramme'] == "CIP" %}
+                            Materials supplier
+                        {% elif data['inductionProgramme'] == "FIP" %}
+                            Training with
+                        {% endif %}
+                    </dt>
                     <dd class="govuk-summary-list__value">
                         {% if participant.usingCurrentProgrammeTransfer == "Yes" %}
                             <ul class="govuk-list">
@@ -136,13 +158,22 @@
                                         <li>ACME Lead Provider</li>
                                         <li>ACME Delivery Partner</li>
                                     {% else %}
+                                        {% if data['inductionProgramme'] == "CIP" %}
+                                            <li>ACME Supplier</li>
+                                        {% else %}
                                         <li>You need to contact ACME Lead Provider</li>
                                         <li>They’ll confirm the delivery partner</li>
+                                        {% endif %}
                                     {% endif %}
                                 <!-- Or using same as school -->
                                 {% else %}
+
+                                    {% if data['inductionProgramme'] == "CIP" %}
+                                        <li>{{ data.leadProviderMaterials}}</li>
+                                    {% elif data['inductionProgramme'] == "FIP" %}
                                     <li>{{ data.leadProvider}}</li>
                                     <li>{{ data.deliveryPartner }}</li>
+                                    {% endif %}
                                 {% endif %}
 
                             </ul>
@@ -150,11 +181,15 @@
                             <!-- So not using the current schools providers -->
                             <ul class="govuk-list">
                                 {% if participant.usingCurrentProvider == "Yes" %}
+
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
                                     <li>{{ participant.leadProvider }}</li>
                                 {% endif %}
+
+                                {% if data['inductionProgramme'] == "FIP" %}
                                 <li>The lead provider will confirm the delivery partner</li>
+                                {% endif %}
                             </ul>
                         {% endif %}
                     </dd>
@@ -164,9 +199,9 @@
             </dl>
 
             <!-- Content to show if we do not have the TRN -->
-            {% if participant.trnKnown == "No" %}
+            <!-- {% if participant.trnKnown == "No" %}
                 <p class="govuk-!-margin-bottom-5">We’ll contact this person for information needed to check they’re eligible for this training programme.</p>
-            {% endif %}
+            {% endif %} -->
 
             <form class="form" action="confirmation" method="post" >
 

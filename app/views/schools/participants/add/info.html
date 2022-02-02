@@ -23,7 +23,8 @@
             {% if data.participants[id].type == "ect" %}
             <!-- If ECT will train with a new provider -->
             <p>{{ participant.leadProvider }} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
-            <p>If you're already signed up with a delivery partner (the organisation that will deliver your training), they can help you to contact {{ participant.leadProvider }}.</p>
+            <!-- Only FIP -->
+            {% if data['inductionProgramme'] == "FIP" %}<p>If you're already signed up with a delivery partner (the organisation that will deliver your training), they can help you to contact {{ participant.leadProvider }}.</p>{% endif %}
             <p>You can now continue to register {{ participant.name }}.</p>
 
             {% elif data.participants[id].type == "ectTransfer" %}
