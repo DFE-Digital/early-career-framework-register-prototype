@@ -17,7 +17,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- This person is going to be on a different programme -->
-            {% if data.participants[id].programmeMatch == "no" %}
+            {% if data.participants[id].programmeMatch == "No" %}
 
                 {% if data['inductionProgramme'] == "CIP" %}
                     <p>These are different materials to those used by other ECTs at your school.</p>
@@ -56,7 +56,7 @@
 
 
 
-            {% elif data.participants[id].programmeMatch == "no"%}
+            {% elif data.participants[id].programmeMatch == "No"%}
 
                 {% if data['inductionProgramme'] == "CIP" %}
                     <form class="form" action="check-your-answers" method="post" >
