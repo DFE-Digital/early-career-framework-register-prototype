@@ -1,23 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['induction-tutor'] == "Yes" %}
-    {% set pageHeading = 'Hugo Furst' %}
-{% else %}    
-    {% if data['active-user'] == "ect-1" %}
-        {% set pageHeading = '' + data['participant-1-name'] + '' %}
-    {% elif data['active-user'] == "ect-2" %}
-        {% set pageHeading = '' + data['participant-2-name'] + '' %}
-    {% elif data['active-user'] == "mentor-1" %}
-        {% set pageHeading = '' + data['participant-1-mentor-name'] + '' %}
-    {% elif data['active-user'] == "mentor-2" %}
-        {% set pageHeading = '' + data['participant-2-mentor-name'] + '' %}
-    {% elif data['active-user'] == "sitMentor" %}
-        {% set pageHeading = '' + data.sitName + '' %}
-    {% else %}
-        {% set pageHeading = '' + data['random-name'] + '' %}
-    {% endif %}
-{% endif %}
+{% set pageHeading = '' + participant.name + '' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -25,280 +9,119 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                <!-- Name -->
                 <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-name'] }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-name'] }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['participant-1-mentor-name'] }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['participant-2-mentor-name'] }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            {{ data.sitName }}
-                        {% elif data['active-user'] == "Random" %}
-                            {{ data['random-name'] }}
-                        {% endif %}
-                    </dd>
+                    <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
                     {% if data['status'] != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions">
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            {% if ((data['active-user'] == "ect-1") or (data['active-user'] == "ect-2") or (data['active-user'] == "mentor-1") or (data['active-user'] == "mentor-2")) %}    
-                                <a class="govuk-link" href="change/?edit=name&details-change-action=change-name">Edit<span class="govuk-visually-hidden"> name</span></a>                            
-                            {% else %}
-                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>
-                            {% endif %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            <!-- <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>                             -->
                         {% endif %}
                     </dd>
                     {% endif %}
                 </div>
 
+                <!-- TRN -->
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">      
-                        
-                        {% if data['active-user'] == "ect-1" %}
-                            {% if data['participant-1-know-trn'] == "Yes" %}
-                                TRN
-                            {% else %}
-                                TRN entered
-                            {% endif %}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {% if data['participant-2-know-trn'] == "Yes" %}
-                                TRN
-                            {% else %}
-                                TRN entered
-                            {% endif %}                            
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                                TRN
-                            {% else %}
-                                TRN entered
-                            {% endif %}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                                TRN
-                            {% else %}
-                                TRN entered
-                            {% endif %}                            
-                        {% elif data['active-user'] == "sitMentor" %}                            
-                            TRN                            
-                        {% elif data['active-user'] == "Random" %}
-                            TRN
-                        {% endif %}                        
-                        </dt>
+                    <dt class="govuk-summary-list__key">{% if participant.trnKnown == "No" %}TRN entered{% else %}TRN{% endif %}</dt>
                     <dd class="govuk-summary-list__value">
-
-                        {% if data['active-user'] == "ect-1" %}
-                            {% if data['participant-1-know-trn'] == "Yes" %}
-                                {{ data['participant-1-trn'] }}
-                            {% else %}
-                                {{ data['participant-1-know-trn'] }}
-                            {% endif %}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {% if data['participant-2-know-trn'] == "Yes" %}
-                                {{ data['participant-2-trn'] }}
-                            {% else %}
-                                {{ data['participant-2-know-trn'] }}
-                            {% endif %}                            
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                                {{ data['participant-1-mentor-trn'] }}
-                            {% else %}
-                                {{ data['participant-1-mentor-know-trn'] }}
-                            {% endif %}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                                {{ data['participant-2-mentor-trn'] }}
-                            {% else %}
-                                {{ data['participant-2-mentor-know-trn'] }}
-                            {% endif %}                            
-                        {% elif data['active-user'] == "sitMentor" %}                            
-                            7775556         
-                        {% elif data['active-user'] == "Random" %}
-                            {{ data['random-trn-number'] }}
-                        {% endif %}   
-                        
+                        {% if participant.trnKnown == "No" %}
+                            {{ participant.trnKnown }}
+                        {% else %}
+                            {{ participant.trnNumber }}
+                        {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        
-                        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-                            <!-- Has to remain split up otherwise it wont know which participant to show -->
-                            {% if data['participant-1-added'] %}
-                                {% if data['participant-2-know-trn'] == "Yes" %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% else %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% endif %}
-                            {% else %}
-                                {% if data['participant-1-know-trn'] == "Yes" %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% else %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% endif %}
-                            {% endif %}
-                        {% elif data['participantType'] == "mentor" %}
-                            {% if data['participant-1-mentor-added'] %}
-                                {% if data['participant-2-mentor-know-trn'] == "Yes" %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% else %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% endif %}
-                            {% else %}
-                                {% if data['participant-1-mentor-know-trn'] == "Yes" %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% else %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                                {% endif %}
-                            {% endif %}
+                        {% if participant.trnKnown == "No" %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                        {% else %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
                         {% endif %}
-                                
+                    </dd>
                 </div>
 
-
+                <!-- DOB -->
+                {% if participant.dobDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Date of birth</dt>
                     <dd class="govuk-summary-list__value">
-
-                        {% if data['active-user'] == "ect-1" %}      
-
-                            {% set participant = 'participant-1-dob' %}
-                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {% set participant = 'participant-2-dob'%}
-                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {% set participant = 'participant-1-mentor-dob' %}
-                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {% set participant = 'participant-2-mentor-dob' %} 
-                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            
-                        {% else %}
-                            
-                        {% endif %}
-                        
+                        {{ isoDateFromDateInputs(participant['dobYear'], participant['dobMonth'], participant['dobDay']) | dateWithYear }}
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> date of birth</span></a></dd>
                 </div>
+                {% endif %}
 
-                
-                <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
-                    <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-email'] }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-email'] }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['participant-1-mentor-email'] }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['participant-2-mentor-email'] }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            {{ data.sitEmail }}
-                        {% else %}
-                            {{ data['random-name'] }}@test.dfe.gov.uk
-                        {% endif %}
-                    </dd>
-                    {% if data['status'] != "Withdrawn" %}
-                    <dd class="govuk-summary-list__actions">
-                        {% if data['induction-tutor'] == "Yes" %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a>
-                        {% else %}
-                        {% if ((data['active-user'] == "ect-1") or (data['active-user'] == "ect-2") or (data['active-user'] == "mentor-1") or (data['active-user'] == "mentor-2")) %}    
-                                <a class="govuk-link" href="change/?edit=email&details-change-action=change-email">Edit<span class="govuk-visually-hidden"> email address</span></a>                            
-                            {% else %}
-                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> email address</span></a>
-                            {% endif %}
-                        {% endif %}
-                    </dd>
-                    {% endif %}
-                </div>
-
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Role</dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if data['user-type'] == "ECT" %}
-                            ECT
-                        {% elif data['user-type'] == "Mentor" %}
-                            Mentor                        
-                        {% endif %}
-                    </dd>
-                </div>
-
+                <!-- Joining date -->
+                {% if participant.joiningDay %}
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key"> Start induction</dt>
+                    <dt class="govuk-summary-list__key">Joining date</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-start-date'] }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-start-date'] }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['participant-1-mentor-start-date'] }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['participant-2-mentor-start-date'] }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            Spring 2022
-                        {% else %}
-                            {{ data.inductionStart }}
-                        {% endif %}
+                        {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
                     </dd>
-                    <dd class="govuk-summary-list__actions">
-                        {% if data['induction-tutor'] == "Yes" %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
-                        {% else %}
-                            {% if data['active-user'] == "ect-1" %}    
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
-                            {% elif data['active-user'] == "ect-2" %}
-                                <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
-                            {% else %}
-                                <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> start date for training programme</span></a></dd>
-                            {% endif %}
-                        {% endif %}
-                </div>
-
-                {% if data['user-type'] == "ECT" %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Mentor</dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if ((data['participant-1-mentor-added']) or (data['participant-2-mentor-added']) or ( data['participant-1-sit-mentor-added'])) %}
-                            {% if data['active-user'] == "ect-1" %}
-                                {% if data['participant-1-mentor'] %} {{ data['participant-1-mentor'] }} {% else %} No mentor assigned {% endif %}
-                            {% elif data['active-user'] == "ect-2" %}
-                                {% if data['participant-2-mentor'] %} {{ data['participant-2-mentor'] }} {% else %} No mentor assigned {% endif %}
-                            {% elif data['active-user'] == "Random" %}
-                                Tom Hall
-                            {% endif %}
-                        {% else %}
-                            Tom Hall
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        {% if data['active-user'] == "ect-1" %}
-                            <a class="govuk-link" href="change/mentor?details-change-action=change-mentor">Edit<span class="govuk-visually-hidden"> mentor</span></a>
-                        {% elif data['active-user'] == "ect-2" %}
-                            <a class="govuk-link" href="change/mentor?details-change-action=change-mentor">Edit<span class="govuk-visually-hidden"> mentor</span></a>
-                        {% elif data['active-user'] == "Random" %}
-                            <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> mentor</span></a>
-                        {% endif %}
-                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> joining date</span></a></dd>
                 </div>
                 {% endif %}
 
-                {% if data['induction-tutor'] != "Yes" %}
+                <!-- Email -->
+                {% if participant.email %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Email address</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
+                    {% if data['status'] != "Withdrawn" %}
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
+                    {% endif %}
+                </div>
+                {% endif %}
 
+                <!-- Role -->
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">Role</dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.type == "ect" or participant.type == "ectTransfer" %}ECT
+                        {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
+                    </dd>
+                </div>
+
+                <!-- Start date -->
+                {% if participant.startDate %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {% if data.participants[id].type == "ect" %}
+                            Induction start
+                        {% elif data.participants[id].type == "mentor" %}
+                            Mentoring start
+                        {% endif %}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ participant.startDate }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                </div>
+                {% endif %}
+
+                <!-- Mentor -->
+                {% if participant.mentor %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Mentor</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                </div>
+                {% endif %}
+
+                <!-- Status -->
+                {% if data['induction-tutor'] != "Yes" %}
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Status</dt>
                     <dd class="govuk-summary-list__value">
 
-                        
+
                         {% if data['status'] == "TransferringOut" %}
 
                             <p>Content for highlighting they are moving FROM the school but still eligible for programme.</p>
@@ -306,7 +129,7 @@
                         {% elif data['status'] == "TransferringIn" %}
 
                             <p>Content for highlighting they are moving TO this school and are eligible for programme.</p>
-                        
+
                         {% elif data['status'] == "Remind" %}
 
                             <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
@@ -469,7 +292,7 @@
 
 
 
-            
+
 
         </div>
     </div>

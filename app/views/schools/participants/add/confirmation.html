@@ -2,33 +2,15 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set sitMentorName = 'defaults.sitName()' %}
-
-{% if data['linkaction'] == "change-mentor-details"%}
-    {% set pageHeading = 'The mentor for ' + data['participant-1-name'] +  ' has been updated' %}
-{% else %}
-    <!-- If ECT -->
-    {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-        {% if data['participant-2-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-2-name'] +  ' has been added as an ECT' %}
-        {% elif data['participant-1-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-1-name'] +  ' has been added as an ECT' %}
-        {% endif %}
-    <!-- Mentor -->
-    {% elif data['participantType'] == "mentor"  %}
-        {% if data['participant-2-mentor-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-2-mentor-name'] +  ' has been added as a mentor' %}
-        {% elif data['participant-1-mentor-added'] == "Yes" %}
-            {% set pageHeading = '' + data['participant-1-mentor-name'] +  ' has been added as a mentor' %}
-        {% endif %}
-    <!-- sitMentor -->
-    {% elif data['participantType'] == "sitMentor" %}
-        {% set pageHeading = 'You’ve been added as a mentor' %}
-    {% else %}
-        {% set pageHeading = 'Full Name has been added' %}
-    {% endif %}
+{% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+    {% set pageHeading = '' + participant.name +  ' has been registered with your school' %}
+{% elif data.participants[id].type == "ect" %}
+    {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
+{% elif data.participants[id].type == "mentor" %}
+        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
+{% elif data.participants[id].type == "sitMentor" %}
+    {% set pageHeading = 'You’ve been added as a mentor' %}
 {% endif %}
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -41,27 +23,167 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data['linkaction'] == "change-mentor-details"%}<!-- If using page for change mentor confirmation -->
+            <!-- {% if data['linkaction'] == "change-mentor-details"%}
                 <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
-            {% else %}
+            {% endif %} -->
 
-                {% if data['participant-1-sit-mentor-added'] == "Yes" %}
-                    <p>We’ll send you an email in the next few days that explains what information we need from you.</p>
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+
+                <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                <p>They’ll appear in the 'Moving school' tab on your dashboard until their start date.</p>
+
+                {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
+
+                <!-- Brian fix this HEADING -->
+                <!-- data.participants[id].partnershipWithProvider != "Yes" or  -->
+                    {% if data.participants[id].partnershipWithProvider != "Yes" %}
+                    <h2 class="govuk-heading-m">What you need to do</h2>
+                    {% endif %}
+
+                    {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                        <!-- TRANSFER
+                        <p>They’re already training with the same provider used by your school. Your provider will confirm the delivery partner with us directly.</p>
+                        ADD ECT -->
+                            <!-- <h2 class="govuk-heading-m">What you need to do</h2>                     -->
+
+                            {% if data['inductionProgramme'] == "CIP" %}
+                            <p>They already have access to their training materials. </p>
+                            {% elif data['inductionProgramme'] == "FIP" %}
+                            <p>They’re already training with the same lead provider used by your school. {{ participant.newLeadprovider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
+                            {% endif %}
+                    {% else %}
+
+                        {% if data.participants[id].partnershipWithProvider == "No" %}
+                            <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
+                        {% else %}
+
+                            {% if data.participants[id].programmeMatch == "no" %}
+
+                                {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                                    {% if data.participants[id].usingCurrentProvider != "No" %}
+                                        {% if data['inductionProgramme'] == "FIP" %}
+                                        <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if data['inductionProgramme'] == "CIP" %}
+                                    <p>They’ll receive a link to their new training materials within 24 hours.</p>
+                                {% elif data['inductionProgramme'] == "FIP" %}
+
+                                    <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
+                                    <br>{{ data.leadProvider }} must confirm they'll train this person directly with us too.</p>
+                                    <p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
+                                    <br>We've asked {{ data.leadProvider }} to confirm they'll train this person.</p>
+                                {% endif %}
+                            {% else %}
+
+                            {% if data['inductionProgramme'] == "CIP" %}
+                                <p>They’ll then receive a link to their training materials within 24 hours.</p>
+                            {% elif data['inductionProgramme'] == "FIP" %}
+                                <p>{{ participant.newLeadprovider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
+                            {% endif %}
+
+
+                            {% endif %}
+
+                        {% endif %}
+                    {% endif %}
+
                 {% else %}
 
-                    <h2 class="govuk-heading-m">What happens next</h2>
-                    <p>We’ll send them an email in the next few days. We’ll ask them to use our service to tell us their:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>full name</li>
-                        <li>teacher reference number (TRN)</li>
-                        <li>date of birth</li>
-                        <li>National Insurance number (optional)</li>
-                    </ul>
+                    {% if data.participants[id].programmeMatch == "no" %}
+
+                        {% if data['inductionProgramme'] == "CIP" %}
+                            <p>They’ll receive a link to their new training materials within 24 hours.</p>
+                        {% elif data['inductionProgramme'] == "FIP" %}
+
+
+                        <h2 class="govuk-heading-m">What you need to do</h2>
+                        <p>You must contact {{ participant.newLeadprovider }} to confirm they can continue training this person.</p>
+
+                        <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
+                        <br>ACME provider must confirm they'll train this person directly with us too.</p>
+
+                        <p><p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
+                        <br>We've asked ACME provider to confirm they'll train this person.</p>
+                        {% endif %}
+
+                    {% else %}
+
+                    {% if data['inductionProgramme'] == "CIP" %}
+                        <p>They already have access to their training materials. We’ll update their account with their new email address when they start at your school.</p>
+                    {% elif data['inductionProgramme'] == "FIP" %}
+                        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>
+                    {% endif %}
+
+                    {% endif %}
+
                 {% endif %}
 
-                <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?participantType=">View your ECTs and mentors</a></p>
+            <!-- User is ECF -->
+            {% elif data.participants[id].type == "ect" %}
+
+                <!-- TRN provided -->
+                {% if data.participants[id].trnKnown == "Yes" %}
+
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school. They do not need to provide us with any more information.</p>
+
+                    {% if data['inductionProgramme'] == "CIP" %}
+                        <p>They’ll receive a link to their training materials within 24 hours.</p>
+                    {% elif data['inductionProgramme'] == "FIP" %}
+                        <p>We’ll pass their information to their training provider.</p>
+                    {% endif %}
+
+                    <h2 class="govuk-heading-m">Eligibility for funding</h2>
+                    <p>Our checks have confirmed this person is eligible for funded training, and time off timetable for training and mentoring.</p>
+
+               <!-- TRN not provided -->
+                {% elif data.participants[id].trnKnown == "No" %}
+
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    <p class="govuk-body">We’ll ask them to use this service to tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>full name</li>
+                        <li>date of birth</li>
+                        <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>
+                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
+
+                    {% if data['inductionProgramme'] == "CIP" %}
+                        <p>They’ll then receive a link to their training materials within 24 hours.</p>
+                    {% elif data['inductionProgramme'] == "CIP" %}
+                        <p>We‘ll also pass their information to your training provider.</p>
+                    {% endif %}
+
+
+                {% endif %}
+
+                {% if data.participants[id].partnershipWithProvider == "No" %}
+                <h2 class="govuk-heading-m">What you need to do</h2>
+                <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
+                {% endif %}
+
+                {% if data.participants[id].usingCurrentTraining== "No" %}
+                    <!-- <h2 class="govuk-heading-m">What you need to do</h2>                     -->
+                    {% if data['inductionProgramme'] == "FIP" %}
+                    <p>{{ participant.newLeadprovider }} will confirm your delivery partner with us directly. We'll add this information to {{ participant.name }} record as soon as possible.</p>
+                    {% endif %}
+                {% endif %}
+
+            {% elif data['participantType'] == "mentor" %}
 
             {% endif %}
+
+            <!-- Training programme content -->
+
+
+
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">View your ECTs and mentors</a></p>
+
         </div>
     </div>
 {% endblock %}

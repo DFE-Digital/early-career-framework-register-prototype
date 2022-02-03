@@ -12,21 +12,21 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            <p>To transfer this person’s training record to your school, we need to know their:</p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>full name</li>
-                  <li>teacher reference number (TRN)</li>
-                  <li>date of birth</li>
-                  <li>email address (personal or school)</li>
-                  <li>start date at your school</li>
-                </ul>
+            
+            <p>We need to find the right person in our database so we can transfer their training record to your school.</p> 
+            <p>To do this, you need to tell us their:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>full name</li>
+                <li>teacher reference number (TRN)</li>
+                <li>date of birth</li>
+                <li>email address (personal or school)</li>
+                <li>start date at your school</li>
+            </ul>
 
             <p>If your school does not have this information, contact the person directly to ask for it.</p>
 
-            <form method="post" action="../name" >  
-                <input type="hidden" name="TransferIn" id="TransferIn" value="Yes" /> 
+            <form method="post" action="name" >  
+                <!-- <input type="hidden" name="TransferIn" id="TransferIn" value="Yes" />  -->
                 {{ govukButton({
                     text: "Continue"
                 }) }}

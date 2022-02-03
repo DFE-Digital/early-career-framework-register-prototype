@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Will ' + participant.name + ' be training with your school’s current providers?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+            <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+            <p>{{ data.deliveryPartner }}</p>
+
+            {% if data['linkaction'] == "change-programme-check" %}
+                <!-- CYA action -->
+                <form class="form" action="../details" method="post" >
+            {% else %}
+                {% if data.participants[id].programmeMatch == "No"%}
+                    <form class="form" action="confirm-partnership" method="post" >
+                {% else %}
+                    <form class="form" action="check-your-answers" method="post" >
+                {% endif %}
+            {% endif %}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                        legend: {
+                            text: pageHeading,
+                            isPageHeading: true,
+                            classes: "govuk-visually-hidden"
+                        }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(provider)", text: "No" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'usingCurrentTraining']) ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

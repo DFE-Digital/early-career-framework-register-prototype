@@ -1,0 +1,90 @@
+{% set transferHtml %}
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
+                    <th class="govuk-table__header" scope="col">Joining</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                {% for id, participant in data.participants %}
+                    {% if participant.status == "TransferIn" %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell "><a href="details" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                        <td class="govuk-table__cell">{{ participant.startDate }}</td>
+                        <!-- <td class="govuk-table__cell">{% if data['participant-1-mentor'] %} None {% else %} Assign mentor {% endif %}</td> -->
+                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?user-type=ECT&active-user=ect-1&status=EmailNotSent" class="govuk-link govuk-link--no-visited-state">{% if data['participant-1-mentor'] %}Details{% else %}Check{% endif %}</a></td> -->
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">{{ data['participant-1-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider}}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner}}</td>
+                    <td class="govuk-table__cell">
+                        {% set participant = 'participant-1-start-date' %}
+                        {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">{{ data['participant-2-name'] }}</a></td>
+                    <td class="govuk-table__cell">{{ data.leadProvider}}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner}}</td>
+                    <td class="govuk-table__cell">
+                        {% set participant = 'participant-2-start-date' %}
+                        {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
+                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
+                        <th class="govuk-table__header" scope="col">Leaving</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">{{ data['participant-2-mentor-name'] }}</a></td>
+                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                        <td class="govuk-table__cell">
+                            {{ data['participant-1-leaving-date-day']}} {{ data['participant-1-leaving-date-month'] | toMonth }} {{ data['participant-1-leaving-date-year']}}
+                            <!-- {% set participant = 'participant-2-dob' if data['participant-1-added'] else 'participant-1-dob' %}
+                            {{ isoDateFromDateInputs(data[participant]['date-year'], data[participant]['date-month'], data[participant]['date-day']) | dateWithYear }} -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+    {% endset -%}
+    <!-- // Transfer -->

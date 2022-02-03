@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s ' + participant.name + '’s start date at your school? ' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+          	<form class="form" action="email-address" method="post">
+
+				{{ govukDateInput({
+					id: 'session-date-joining',
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [
+						{
+							name: '[participants][' + id + '][joiningDay]',
+							value: data.participants[id]['joiningDay'],
+							classes: "govuk-input--width-2",
+							label: 'Day'
+						},
+						{
+							name: '[participants][' + id + '][joiningMonth]',
+							value: data.participants[id]['joiningMonth'],
+							classes: "govuk-input--width-2",
+							label: 'Month'
+						},
+						{
+							name: '[participants][' + id + '][joiningYear]',
+							value: data.participants[id]['joiningYear'],
+							classes: "govuk-input--width-4",
+							label: 'Year'
+						}
+					],
+					hint: {
+						text: "For example, 14 7 2023"
+					}
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+    	</div>
+  	</div>
+{% endblock %}
