@@ -18,7 +18,7 @@
 
             <p>You must agree this with the lead provider directly.</p>
 
-            <form class="form" action="info" method="post" >
+            <form class="form" action="check" method="post" >
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
@@ -35,7 +35,7 @@
 
                     ]
 
-                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}
+                } | decorateFormAttributes(['participants', id, 'partnershipWithProvider']) ) }}
 
           <!-- {{ govukRadios({
             items: [

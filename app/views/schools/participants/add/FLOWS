@@ -10,6 +10,35 @@ FIP ECT
                                                                                                                 partnershipWithProvider |   YES =   > Check your answers
                                                                                                                                             NO  =   > Check > Check your answers
 
+FIP ECT transfer
+
+Match
+> Current providers
+    usingCurrentTrainingProgramme   |   YES =   > Check your answers
+                                    |   NO  =   > Provider
+                                                    usingCurrentProvider    |   YES =   > Check your answers (Show default provder and dp to be confirmed)
+                                                                                NO  =   > which-provider
+                                                                                            newLeadprovider |   =   > Partnership
+                                                                                                                        partnershipWithProvider |   YES =   > Check your answers
+                                                                                                                                                    NO  =   > Check > Check your answers
+
+
+FIP ECT transfer
+
+No Match
+> Current providers
+    usingCurrentTrainingProgramme   |   YES =   > Confirm-partnership
+                                                    partnershipWithProvider |   Yes =   > Check your answers
+                                                                            |   No  =   > Check > Check your answers
+                                    |   NO  =   > Current providers
+                                                    usingCurrentTraining    |   Yes =   > Confirm-partnership
+                                                                                            partnershipWithProvider |   Yes =   > Check your answers
+                                                                                                                    |   No  =   > Check > Check your answers
+                                                                            |   No  =   >   which-provider
+                                                                                            newLeadprovider |   =   > Partnership
+                                                                                                                        partnershipWithProvider |   YES =   > Check your answers
+                                                                                                                                                    NO  =   > Check > Check your answers
+
 CIP ECT
 
 > Current trainging materials
@@ -17,6 +46,23 @@ CIP ECT
                                 NO  =   > Which supplier
                                             newMaterialsSupplier |  =   > Check your answers
 
+
+CIP ECT Transfer
+
+MATCH
+> Current training programme
+    usingCurrentTrainingMaterials   |   Yes =   > Check your answers
+                                    |   No  =   > Which supplier
+                                                    newMaterialsSupplier |  =   > Check your answers
+
+
+NO MATCH
+> Current training programme
+    usingCurrentTrainingMaterials   |   Yes =   > Check your answers
+                                    |   No  =   > Current training materials
+                                                    usingCurrentMaterials   |   YES =   > Check your answers
+                                                                            |   NO  =   > Which supplier
+                                                                                            newMaterialsSupplier |  =   > Check your answers
 
 
 

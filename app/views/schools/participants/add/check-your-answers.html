@@ -87,7 +87,7 @@
                                 {% if participant.usingCurrentProvider == "Yes" %}
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
-                                    <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.newLeadprovider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>
+                                    <li>{% if participant.partnershipWithProvider == "No" %}You need to arrange a partnership with {% endif %}{{ participant.newLeadprovider }} {% if participant.partnershipWithProvider == "Yes" %}needs to confirm this agreement{% endif %}</li>
                                 {% endif %}
                                 <!-- only for FIP -->
                                 {% if data['inductionProgramme'] == "FIP" %}<li>They’ll confirm the delivery partner</li>{% endif %}
@@ -113,7 +113,7 @@
                                 <!-- Using different -->
                                 {% if data.participants[id].programmeMatch == "no" %}
 
-                                    {% if data.participants[id].partnership == "Yes" %}
+                                    {% if data.participants[id].partnershipWithProvider == "Yes" %}
                                         <li>ACME Lead Provider</li>
                                         <li>ACME Delivery Partner</li>
                                     {% else %}
