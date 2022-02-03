@@ -34,21 +34,22 @@ No Match
                                                     usingCurrentTraining    |   Yes =   > Confirm-partnership
                                                                                             partnershipWithProvider |   Yes =   > Check your answers
                                                                                                                     |   No  =   > Check > Check your answers
-                                                                            |   No  =   >   which-provider
-                                                                                            newLeadprovider |   =   > Partnership
-                                                                                                                        partnershipWithProvider |   YES =   > Check your answers
-                                                                                                                                                    NO  =   > Check > Check your answers
+                                                                            |   No  =   >  Provider
+                                                                                            usingCurrentProvider    |   YES =   > Check your answers (Show default provder and dp to be confirmed)
+                                                                                                                        NO  =   > which-provider
+                                                                                                                                    newLeadprovider |   =   > Partnership
+                                                                                                                                                                partnershipWithProvider |   YES =   > Check your answers
+                                                                                                                                                                                            NO  =   > Check > Check your answers
 
 CIP ECT
 
-> Current trainging materials
+> Current training materials
     usingCurrentMaterials   |   YES =   > Check your answers
                                 NO  =   > Which supplier
                                             newMaterialsSupplier |  =   > Check your answers
 
 
 CIP ECT Transfer
-
 MATCH
 > Current training programme
     usingCurrentTrainingMaterials   |   Yes =   > Check your answers

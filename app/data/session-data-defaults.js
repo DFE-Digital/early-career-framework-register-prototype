@@ -25,7 +25,7 @@ module.exports = {
     linkExpire: '12 February 2022',
     expiryTime: '1pm',
     inductionProgramme: "FIP",
-    fippartnershipWithProvider: "Yes",
+    fipPartnership: "Yes",
     rolesexplanation: "Seen",
     participants: {
         1234: {
