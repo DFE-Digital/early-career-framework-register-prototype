@@ -17,7 +17,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- This person is going to be on a different programme -->
-            {% if data.participants[id].transferProgramme == "different" %}
+            {% if data.participants[id].programmeMatch == "no" %}
 
                 {% if data['inductionProgramme'] == "CIP" %}
                     <p>These are different materials to those used by other ECTs at your school.</p>
@@ -56,7 +56,7 @@
 
 
 
-            {% elif data.participants[id].transferProgramme == "different"%}
+            {% elif data.participants[id].programmeMatch == "no"%}
 
                 {% if data['inductionProgramme'] == "CIP" %}
                     <form class="form" action="check-your-answers" method="post" >
@@ -71,12 +71,12 @@
                             },
                             items: [
                                 { value: "Yes", text: "Yes" },
-                                { value: "No, redirect(programme-check)", text: "No" }
+                                { value: "No, redirect(current-providers)", text: "No" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
 
                 {% elif data['inductionProgramme'] == "FIP" %}
-                    <form class="form" action="programme-check" method="post" >
+                    <form class="form" action="current-providers" method="post" >
                         {{ govukRadios({
                             classes: "govuk-radios--inline",
                             fieldset: {
@@ -90,7 +90,7 @@
                                 { value: "Yes, redirect(confirm-partnership)", text: "Yes" },
                                 { value: "No", text: "No" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
 
                 {% endif %}
 
@@ -100,7 +100,7 @@
 
             {% if data['inductionProgramme'] == "CIP" %}
 
-            <form class="form" action="lead-provider" method="post" >
+            <form class="form" action="which-provider" method="post" >
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     fieldset: {
@@ -114,12 +114,12 @@
                         { value: "Yes, redirect(check-your-answers)", text: "Yes" },
                         { value: "No", text: "No" }
                     ]
-                } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+                } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
 
             {% else %}
 
 
-                <form class="form" action="programme-change" method="post" >
+                <form class="form" action="provider" method="post" >
                     {{ govukRadios({
                         classes: "govuk-radios--inline",
                         fieldset: {
@@ -133,7 +133,7 @@
                             { value: "Yes, redirect(check-your-answers)", text: "Yes" },
                             { value: "No", text: "No" }
                         ]
-                    } | decorateFormAttributes(['participants', id, 'usingCurrentProgrammeTransfer']) ) }}
+                    } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
 
                 {% endif %}
 

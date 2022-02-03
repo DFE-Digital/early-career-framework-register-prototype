@@ -47,7 +47,7 @@
 
 
 
-                {% if participant.usingCurrentProgramme %}
+                {% if participant.usingCurrentTraining%}
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -58,10 +58,10 @@
                         {% endif %}
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.usingCurrentProgramme == "Yes" %}
+                        {% if participant.usingCurrentTraining== "Yes" %}
                         <!-- Using the programme that the school is currently using as default -->
                             <ul class="govuk-list">
-                                {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
+                                {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
 
                                     {% if data['inductionProgramme'] == "CIP" %}
                                         <li>{{ data.leadProviderMaterials}}</li>
@@ -87,18 +87,18 @@
                                 {% if participant.usingCurrentProvider == "Yes" %}
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
-                                    <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.leadProvider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>
+                                    <li>{% if participant.partnership == "No" %}You need to arrange a partnership with {% endif %}{{ participant.newLeadprovider }} {% if participant.partnership == "Yes" %}needs to confirm this agreement{% endif %}</li>
                                 {% endif %}
                                 <!-- only for FIP -->
                                 {% if data['inductionProgramme'] == "FIP" %}<li>They’ll confirm the delivery partner</li>{% endif %}
                             </ul>
                         {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-check?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                 </div>
 
 
-                {% elif participant.usingCurrentProgrammeTransfer %}
+                {% elif participant.usingCurrentTrainingProgramme %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         {% if data['inductionProgramme'] == "CIP" %}
@@ -108,10 +108,10 @@
                         {% endif %}
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.usingCurrentProgrammeTransfer == "Yes" %}
+                        {% if participant.usingCurrentTrainingProgramme == "Yes" %}
                             <ul class="govuk-list">
                                 <!-- Using different -->
-                                {% if data.participants[id].transferProgramme == "different" %}
+                                {% if data.participants[id].programmeMatch == "no" %}
 
                                     {% if data.participants[id].partnership == "Yes" %}
                                         <li>ACME Lead Provider</li>
@@ -142,7 +142,7 @@
                                 {% if participant.usingCurrentProvider == "Yes" %}
                                     <li>{{ data.leadProvider}}</li>
                                 {% else %}
-                                    <li>{{ participant.leadProvider }}</li>
+                                    <li>{{ participant.newLeadprovider }}</li>
                                 {% endif %}
 
                                 {% if data['inductionProgramme'] == "FIP" %}
@@ -151,7 +151,7 @@
                             </ul>
                         {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-check?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                 </div>
                 {% endif %}
             </dl>

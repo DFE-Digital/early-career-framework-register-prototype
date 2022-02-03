@@ -28,11 +28,14 @@
                 {% else %}
                 <!-- Not CYA change -->
                     {% if data.participants[id].type == "ect" %}
-                    <!-- ECT -->
-                    <form class="form" action="programme-check" method="post" >
+                        {% if data['inductionProgramme'] == "FIP" %}
+                            <form class="form" action="current-providers" method="post" >
+                        {% elif data['inductionProgramme'] == "CIP" %}
+                            <form class="form" action="current-training-materials" method="post" >
+                        {% endif %}
                     {% elif data.participants[id].type == "ectTransfer" %}
-                    <!-- TransferIn -->
-                    <form class="form" action="programme-transfer-check" method="post" >
+                        <!-- TransferIn -->
+                        <form class="form" action="current-training-programme" method="post" >
                     {% endif %}
                 {% endif %}
 
@@ -44,15 +47,16 @@
                         text: "Continue"
                     }) }}
 
-                    <!-- Check if participant is TransferringIn -->
+
                     {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
-                        <!-- This is just a trigger to suggest an ECT is on a different programme -->
+                    <!-- Check if participant is TransferringIn -->
+                        <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small",
                             items: [
-                                { value: "different", text: "Diff Programme" }
+                                { value: "no", text: "No match" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
                         <!-- // -->
                     {% endif %}
 

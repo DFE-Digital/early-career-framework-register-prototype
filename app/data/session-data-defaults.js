@@ -47,16 +47,16 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "kate.lloyd@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP Kate Lloyd",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Autumn 2021",
             status: "TransferOut",
             trnKnown: "Yes",
             trnNumber: "324234",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         PQ9: {
@@ -64,16 +64,16 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "nicola.page@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP Nicola Page",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Autumn 2021",
             status: "Withdrawn",
             trnKnown: "Yes",
             trnNumber: "9998567",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         SD2: {
@@ -81,16 +81,16 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "jack.bracewell@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP Jack Bracewell",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Spring 2022",
             status: "NotEligible",
             trnKnown: "Yes",
             trnNumber: "2332454",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         GH3: {
@@ -98,16 +98,16 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "luke.richards@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP Luke Richards",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Spring 2022",
             status: "Checking",
             trnKnown: "Yes",
             trnNumber: "78402875",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         DB5: {
@@ -115,29 +115,29 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "luke.didsbury@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP Luke Didsbury",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Spring 2022",
             status: "CheckingQTS",
             trnKnown: "Yes",
             trnNumber: "1424353",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         BCF: {
             email: "ect5@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP ECT noTRN dLP dDP notTold",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Spring 2022",
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         DN2: {
@@ -148,7 +148,7 @@ module.exports = {
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "Yes"
         },
         EP5: {
@@ -156,16 +156,16 @@ module.exports = {
             dobMonth: "1",
             dobYear: "2222",
             email: "ect7@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "James Doe",
             name: "FIP ECT TRN dLP dDP notTold",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             startDate: "Spring 2022",
             status: "Eligible",
             trnKnown: "Yes",
             trnNumber: "324234",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
 
@@ -181,19 +181,19 @@ module.exports = {
             trnKnown: "Yes",
             trnNumber: "123423423",
             type: "ect",
-            usingCurrentProgramme: "Yes"
+            usingCurrentTraining: "Yes"
         },
         PO9:  {
             email: "ect6@test.dfe.gov.uk",
-            leadProvider: "Ambition Institute",
+            newLeadProvider: "Ambition Institute",
             mentor: "Jane Doe",
             name: "FIP ECT noTRN dLP dDP Told",
-            providerPartnership: "Yes",
+            partnershipWithProvider: "Yes",
             startDate: "Spring 2022",
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
         VLT: {
@@ -208,7 +208,7 @@ module.exports = {
             trnKnown: "Yes",
             trnNumber: "56756756",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "Yes"
         },
         YZG: {
@@ -219,23 +219,23 @@ module.exports = {
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "Yes"
+            usingCurrentTraining: "Yes"
         },
         Z87: {
             dobDay: "3",
             dobMonth: "3",
             dobYear: "3333",
             email: "ect8@test.dfe.gov.uk",
-            leadProvider: "Teach First",
+            newLeadProvider: "Teach First",
             mentor: "James Doe",
             name: "FIP ECT TRN dLP dDP Told",
-            providerPartnership: "Yes",
+            partnershipWithProvider: "Yes",
             startDate: "Summer 2022",
             status: "Eligible",
             trnKnown: "Yes",
             trnNumber: "3243432",
             type: "ect",
-            usingCurrentProgramme: "No",
+            usingCurrentTraining: "No",
             usingCurrentProvider: "No"
         },
 
@@ -253,7 +253,7 @@ module.exports = {
             status: "TransferIn",
             trnNumber: "8999999",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "Yes"
+            usingCurrentTrainingProgramme: "Yes"
         },
         Z62: {
             dobDay: "2",
@@ -268,7 +268,7 @@ module.exports = {
             status: "TransferIn",
             trnNumber: "34534534",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "No",
+            usingCurrentTrainingProgramme: "No",
             usingCurrentProvider: "Yes"
         },
         LEJ: {
@@ -279,14 +279,14 @@ module.exports = {
             joiningDay: "5",
             joiningMonth: "5",
             joiningYear: "2023",
-            leadProvider: "Teach First",
+            newLeadProvider: "Teach First",
             mentor: "James Doe",
             name: "FIP TR ECT Match diffLP lpNotTold",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             status: "TransferIn",
             trnNumber: "7688797789",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "No",
+            usingCurrentTrainingProgramme: "No",
             usingCurrentProvider: "No"
         },
         HZ7: {
@@ -297,14 +297,14 @@ module.exports = {
             joiningDay: "3",
             joiningMonth: "5",
             joiningYear: "2023",
-            leadProvider: "Teach First",
+            newLeadProvider: "Teach First",
             mentor: "Jane Doe",
             name: "FIP TR ECT Match diffLP lpTold",
-            providerPartnership: "Yes",
+            partnershipWithProvider: "Yes",
             status: "TransferIn",
             trnNumber: "45645645",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "No",
+            usingCurrentTrainingProgramme: "No",
             usingCurrentProvider: "No"
         },
         YQ4: {
@@ -319,10 +319,10 @@ module.exports = {
             name: "FIP TR ECT noMatch ContLP ContDP lpTold",
             partnership: "Yes",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "34535334",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "Yes"
+            usingCurrentTrainingProgramme: "Yes"
         },
 
         JHW: {
@@ -337,10 +337,10 @@ module.exports = {
             name: "FIP TR ECT noMatch ContLP ContDP lpNotTold",
             partnership: "No",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "78978987",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "Yes"
+            usingCurrentTrainingProgramme: "Yes"
         },
         MAK: {
             dobDay: "1",
@@ -350,16 +350,16 @@ module.exports = {
             joiningDay: "11",
             joiningMonth: "5",
             joiningYear: "2023",
-            leadProvider: "Best Practice Network",
+            newLeadProvider: "Best Practice Network",
             mentor: "Jane Doe",
             name: "FIP TR ECT noMatch diffLP lpNotTold",
-            providerPartnership: "No",
+            partnershipWithProvider: "No",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "56756756",
             type: "ectTransfer",
-            usingCurrentProgramme: "No",
-            usingCurrentProgrammeTransfer: "No",
+            usingCurrentTraining: "No",
+            usingCurrentTrainingProgramme: "No",
             usingCurrentProvider: "No"
         },
         RWH: {
@@ -374,11 +374,11 @@ module.exports = {
             name: "FIP TR ECT noMatch schooLP schooDP lpNotTold",
             partnership: "No",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "44545454",
             type: "ectTransfer",
-            usingCurrentProgramme: "Yes",
-            usingCurrentProgrammeTransfer: "No"
+            usingCurrentTraining: "Yes",
+            usingCurrentTrainingProgramme: "No"
         },
         VBI: {
             dobDay: "8",
@@ -392,11 +392,11 @@ module.exports = {
             name: "FIP TR ECT noMatch schooLP schooDP lpTold",
             partnership: "Yes",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "1231323",
             type: "ectTransfer",
-            usingCurrentProgramme: "Yes",
-            usingCurrentProgrammeTransfer: "No"
+            usingCurrentTraining: "Yes",
+            usingCurrentTrainingProgramme: "No"
         },
         GDS: {
             dobDay: "1",
@@ -406,16 +406,16 @@ module.exports = {
             joiningDay: "10",
             joiningMonth: "5",
             joiningYear: "2023",
-            leadProvider: "Best Practice Network",
+            newLeadProvider: "Best Practice Network",
             mentor: "James Doe",
             name: "FIP TR ECT noMatch difLP lpTold",
-            providerPartnership: "Yes",
+            partnershipWithProvider: "Yes",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "345435345",
             type: "ectTransfer",
-            usingCurrentProgramme: "No",
-            usingCurrentProgrammeTransfer: "No",
+            usingCurrentTraining: "No",
+            usingCurrentTrainingProgramme: "No",
             usingCurrentProvider: "No"
         },
         ZZL: {
@@ -429,11 +429,11 @@ module.exports = {
             mentor: "Jane Doe",
             name: "CIP TR ECT noMatch schooProg",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "45645753",
             type: "ectTransfer",
-            usingCurrentProgramme: "Yes",
-            usingCurrentProgrammeTransfer: "No"
+            usingCurrentMaterials: "Yes",
+            usingCurrentTrainingMaterials: "No"
         },
         RSD: {
             dobDay: "12",
@@ -443,13 +443,13 @@ module.exports = {
             joiningDay: "6",
             joiningMonth: "8",
             joiningYear: "2023",
-            mentor: "Jane Doe",
+            mentor: "FIP Jane Doe",
             name: "CIP TR ECT noMatch contProg",
             status: "TransferIn",
-            transferProgramme: "different",
+            programmeMatch: "no",
             trnNumber: "567567567",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "Yes"
+            usingCurrentTrainingMaterials: "Yes"
         },
         ADC: {
             dobDay: "23",
@@ -459,13 +459,13 @@ module.exports = {
             joiningDay: "12",
             joiningMonth: "6",
             joiningYear: "2023",
-            leadProvider: "Education Development Trust",
-            mentor: "James Doe",
+            newMaterialsSupplier: "Education Development Trust",
+            mentor: "FIP James Doe",
             name: "CIP TR ECT Match dProg",
             status: "TransferIn",
             trnNumber: "3453453",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "No"
+            usingCurrentTrainingMaterials: "No"
         },
         LLK: {
             dobDay: "1",
@@ -475,23 +475,23 @@ module.exports = {
             joiningDay: "6",
             joiningMonth: "4",
             joiningYear: "2023",
-            mentor: "James Doe",
+            mentor: "FIP James Doe",
             name: "CIP TR ECT Match sProg",
             status: "TransferIn",
             trnNumber: "56756756",
             type: "ectTransfer",
-            usingCurrentProgrammeTransfer: "Yes"
+            usingCurrentTrainingMaterials: "Yes"
         },
         JA8: {
             email: "CIP ECT noTRN dMaterials@test.dfe.gov.uk",
-            leadProvider: "Teach First",
+            newMaterialsSupplier: "Teach First",
             mentor: "Jane Doe",
             name: "CIP ECT noTRN dMaterials",
             startDate: "Summer 2022",
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "No"
+            usingCurrentMaterials: "No"
         },
         OBW: {
             email: "CIP ECT noTRN sMaterials@test.dfe.gov.uk",
@@ -501,7 +501,7 @@ module.exports = {
             status: "Contacted",
             trnKnown: "No",
             type: "ect",
-            usingCurrentProgramme: "Yes"
+            usingCurrentMaterials: "Yes"
         },
         SI3: {
             dobDay: "1",
@@ -515,14 +515,14 @@ module.exports = {
             trnKnown: "Yes",
             trnNumber: "1231312",
             type: "ect",
-            usingCurrentProgramme: "Yes"
+            usingCurrentMaterials: "Yes"
         },
         PYE: {
             dobDay: "2",
             dobMonth: "2",
             dobYear: "2002",
             email: "CIP ECT TRN dMaterials@test.dfe.gov.uk",
-            leadProvider: "Teach First",
+            newMaterialsSupplier: "Teach First",
             mentor: "FIP James Doe",
             name: "CIP ECT TRN dMaterials",
             startDate: "Summer 2022",
@@ -530,8 +530,7 @@ module.exports = {
             trnKnown: "Yes",
             trnNumber: "34543654",
             type: "ect",
-            usingCurrentProgramme: "No"
-    }
-
+            usingCurrentMaterials: "No"
+        }
     }
 }

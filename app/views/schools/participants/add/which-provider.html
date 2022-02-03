@@ -1,11 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].programmeMatch == "no"%}
-    {% set pageHeading = 'Have you confirmed ACME Provider will train this ECT at your school?' %}
-{% else %}
-    {% set pageHeading = 'Have you asked ACME Provider if they’ll carry on training this ECT at your school?' %}
-{% endif %}
+{% set pageHeading = 'Which of these providers will ' + participant.name + ' be training with?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,12 +12,9 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>You must agree this with the lead provider directly.</p>
-
-            <form class="form" action="info" method="post" >
+                <form class="form" action="partnership" method="post" >
 
                 {{ govukRadios({
-                    classes: "govuk-radios--inline",
                     fieldset: {
                     legend: {
                         text: "Do you know this person’s teacher reference number (TRN)?",
@@ -30,12 +23,15 @@
                     }
                     },
                     items: [
-                        { value: "Yes, redirect(check-your-answers)", text: "Yes" },
-                        { value: "No", text: "No" }
-
+                        { value: "Ambition Institute", text: "Ambition Institute" },
+                        { value: "Best Practice Network", text: "Best Practice Network (home of Outstanding Leaders Partnership)" },
+                        { value: "Capita with lead academic partner the University of Birmingham" , text: "Capita with lead academic partner the University of Birmingham" },
+                        { value: "Education Development Trust", text: "Education Development Trust" },
+                        { value: "Teach First", text: "Teach First" },
+                        { value: "UCL Institute of Education", text: "UCL Institute of Education" }
                     ]
 
-                } | decorateFormAttributes(['participants', id, 'partnership']) ) }}
+                } | decorateFormAttributes(['participants', id, 'newLeadProvider']) ) }}
 
           <!-- {{ govukRadios({
             items: [

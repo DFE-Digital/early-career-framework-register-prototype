@@ -34,10 +34,10 @@
                 <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
                 <p>They’ll appear in the 'Moving school' tab on your dashboard until their start date.</p>
 
-                {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
+                {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
 
                 <!-- Brian fix this HEADING -->
-                <!-- data.participants[id].providerPartnership != "Yes" or  -->
+                <!-- data.participants[id].partnershipWithProvider != "Yes" or  -->
                     {% if data.participants[id].partnership != "Yes" %}
                     <h2 class="govuk-heading-m">What you need to do</h2>
                     {% endif %}
@@ -51,17 +51,17 @@
                             {% if data['inductionProgramme'] == "CIP" %}
                             <p>They already have access to their training materials. </p>
                             {% elif data['inductionProgramme'] == "FIP" %}
-                            <p>They’re already training with the same lead provider used by your school. {{ participant.leadProvider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
+                            <p>They’re already training with the same lead provider used by your school. {{ participant.newLeadprovider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
                             {% endif %}
                     {% else %}
 
-                        {% if data.participants[id].providerPartnership == "No" %}
-                            <p>You must contact {{ participant.leadProvider }} to confirm they can train this person.</p>
+                        {% if data.participants[id].partnershipWithProvider == "No" %}
+                            <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
                         {% else %}
 
-                            {% if data.participants[id].transferProgramme == "different" %}
+                            {% if data.participants[id].programmeMatch == "no" %}
 
-                                {% if data.participants[id].usingCurrentProgrammeTransfer == "No" %}
+                                {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
                                     {% if data.participants[id].usingCurrentProvider != "No" %}
                                         {% if data['inductionProgramme'] == "FIP" %}
                                         <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
@@ -83,7 +83,7 @@
                             {% if data['inductionProgramme'] == "CIP" %}
                                 <p>They’ll then receive a link to their training materials within 24 hours.</p>
                             {% elif data['inductionProgramme'] == "FIP" %}
-                                <p>{{ participant.leadProvider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
+                                <p>{{ participant.newLeadprovider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
                             {% endif %}
 
 
@@ -94,7 +94,7 @@
 
                 {% else %}
 
-                    {% if data.participants[id].transferProgramme == "different" %}
+                    {% if data.participants[id].programmeMatch == "no" %}
 
                         {% if data['inductionProgramme'] == "CIP" %}
                             <p>They’ll receive a link to their new training materials within 24 hours.</p>
@@ -102,7 +102,7 @@
 
 
                         <h2 class="govuk-heading-m">What you need to do</h2>
-                        <p>You must contact {{ participant.leadProvider }} to confirm they can continue training this person.</p>
+                        <p>You must contact {{ participant.newLeadprovider }} to confirm they can continue training this person.</p>
 
                         <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
                         <br>ACME provider must confirm they'll train this person directly with us too.</p>
@@ -161,15 +161,15 @@
 
                 {% endif %}
 
-                {% if data.participants[id].providerPartnership == "No" %}
+                {% if data.participants[id].partnershipWithProvider == "No" %}
                 <h2 class="govuk-heading-m">What you need to do</h2>
-                <p>You must contact {{ participant.leadProvider }} to confirm they can train this person.</p>
+                <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
                 {% endif %}
 
-                {% if data.participants[id].usingCurrentProgramme == "No" %}
+                {% if data.participants[id].usingCurrentTraining== "No" %}
                     <!-- <h2 class="govuk-heading-m">What you need to do</h2>                     -->
                     {% if data['inductionProgramme'] == "FIP" %}
-                    <p>{{ participant.leadProvider }} will confirm your delivery partner with us directly. We'll add this information to {{ participant.name }} record as soon as possible.</p>
+                    <p>{{ participant.newLeadprovider }} will confirm your delivery partner with us directly. We'll add this information to {{ participant.name }} record as soon as possible.</p>
                     {% endif %}
                 {% endif %}
 

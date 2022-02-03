@@ -16,11 +16,13 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- {% if data['cya-action'] == "change-programme-change" %}
+            <!-- {% if data['cya-action'] == "change-provider" %}
             <form class="form" action="../details" method="post" >
             {% else %} -->
             <form class="form" action="check-your-answers" method="post" >
             <!-- {% endif %} -->
+
+            {% if data['inductionProgramme'] == "FIP" %}
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
@@ -33,9 +35,28 @@
                     },
                     items: [
                         { value: "Yes", text: "Yes" },
-                        { value: "No, redirect(lead-provider)", text: "No" }
+                        { value: "No, redirect(which-provider)", text: "No" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'usingCurrentProvider']) ) }}
+
+            {% elif data['inductionProgramme'] == "CIP" %}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                    legend: {
+                        text: "pageHeading",
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(which-supplier)", text: "No" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'usingCurrentProvider']) ) }}
+
+            {% endif %}
 
                 {{ govukButton({
                     text: "Continue"
