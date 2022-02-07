@@ -23,17 +23,21 @@
                     ]
                 } | decorateFormAttributes(['participants', id, 'type']) ) }}
 
-
+                <!-- Assign programme type -->
                 {% if data['inductionProgramme'] == "FIP" %}
+                <!-- FIP -->
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "FIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
                 {% elif data['inductionProgramme'] == "CIP" %}
+                <!-- CIP -->
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "FIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
                 {% endif %}
 
                 {{ govukButton({
