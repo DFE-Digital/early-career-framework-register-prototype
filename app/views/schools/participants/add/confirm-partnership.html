@@ -2,7 +2,12 @@
 {% set schoolSignedIn = true %}
 
 {% if data.participants[id].programmeMatch == "No"%}
-    {% set pageHeading = 'Have you confirmed ACME Provider will train ' + participant.name + ' at your school?' %}
+
+    {% if data.participants[id].usingCurrentTraining == "Yes" %}
+        {% set pageHeading = 'Have you confirmed ' + data.leadProvider + ' will train ' + participant.name + ' at your school?' %}
+    {% else %}
+        {% set pageHeading = 'Have you confirmed ACME Provider will train ' + participant.name + ' at your school?' %}
+    {% endif %}
 {% else %}
     {% set pageHeading = 'Have you asked ACME Provider if they’ll carry on training this ECT at your school?' %}
 {% endif %}
