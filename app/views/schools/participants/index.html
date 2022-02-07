@@ -355,8 +355,31 @@
                     {% if participant.status == "TransferIn" %}
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProviderTransfer }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartnerTransfer }}</td>
+                        <td class="govuk-table__cell">
+                            {% if data.participants[id].programmeMatch == "No" %}
+                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                                    {{ data.leadProviderTransfer }}
+                                {% else %}
+                                    {{ data.leadProvider }}
+                                {% endif %}
+                            {% else %}
+                                {{ data.leadProvider }}
+                            {% endif %}
+
+                            </td>
+                        <td class="govuk-table__cell">
+                            {% if data.participants[id].programmeMatch == "No" %}
+                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                                    {{ data.deliveryPartnerTransfer }}
+                                {% else %}
+                                    {{ data.deliveryPartner }}
+                                {% endif %}
+                            {% else %}
+                                {{ data.deliveryPartner }}
+                            {% endif %}
+
+
+                            </td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
                         </td>
