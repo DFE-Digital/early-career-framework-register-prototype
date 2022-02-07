@@ -3,9 +3,9 @@
 
 {% if data.participants[id].programmeMatch == "No" %}
     {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
-        {% set pageHeading = 'You must check ' + data.leadProvider + ' is able to train this ECT'  %}
+        {% set pageHeading = 'You must check ' + data.leadProvider + ' is able to train ' + participant.name + ''  %}
     {% else %}
-        {% set pageHeading = 'You must check ACME provider is able to continue training this ECT' %}
+        {% set pageHeading = 'You must check ACME provider is able to continue training ' + participant.name + '' %}
     {% endif %}
 {% else %}
     {% set pageHeading = 'You must check ' + participant.newLeadprovider + ' is able to train this person'  %}
