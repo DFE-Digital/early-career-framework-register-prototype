@@ -52,7 +52,7 @@
                     <!-- Check if participant is TransferringIn -->
                         <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
 
-                        <!-- {{ govukInput({
+                        {{ govukInput({
                             label: {
                                 text: pageHeading,
                                 classes: "govuk-visually-hidden",
@@ -60,14 +60,9 @@
                             },
                             classes: "govuk-visually-hidden",
                             value: "No"
-                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }} -->
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small",
-                            items: [
-                                { value: "No", text: "No match" }
-                            ]
                         } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
+
+
 
                     {% endif %}
 
