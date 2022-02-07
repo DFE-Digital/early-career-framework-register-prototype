@@ -64,7 +64,7 @@
                                 {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
                                     {% if data.participants[id].usingCurrentProvider != "No" %}
                                         {% if data['inductionProgramme'] == "FIP" %}
-                                        <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
+                                        <!-- <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p> -->
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
@@ -74,7 +74,7 @@
                                 {% elif data['inductionProgramme'] == "FIP" %}
 
                                     <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span> -->
-                                    <p>{{ data.leadProvider }} must confirm they'll train this person directly with us too.</p>
+                                    <!-- <p>{{ data.leadProvider }} must confirm they'll train this person directly with us too.</p> -->
                                     <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
                                     <br>We've asked {{ data.leadProvider }} to confirm they'll train this person.</p> -->
                                 {% endif %}
