@@ -1,0 +1,22 @@
+{% extends "_wizard-page.html" %}
+{% set title = 'Check you have the information you need to make this change' %}
+
+{% block page %}
+<h1 class="govuk-heading-xl">{{ title }}</h1>
+
+<p><b>You must ask Hayes College to:</b></p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>confirm they’ve told Ambition Institute about the change</li>
+  <li>confirm which lead provider they want to work with instead</li>
+  <li>tell us which participants will be working with the new provider</li>
+</ul>
+
+<p><b>You must ask Ambition Institute to confirm that they've:</b></p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>submitted declarations for all relevant participants</li>
+  <li>withdrawn the relevant participants from their programme</li>
+</ul>
+
+{% endblock %}

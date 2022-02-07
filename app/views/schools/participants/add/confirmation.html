@@ -59,12 +59,12 @@
                             <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
                         {% else %}
 
-                            {% if data.participants[id].programmeMatch == "no" %}
+                            {% if data.participants[id].programmeMatch == "No" %}
 
                                 {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
                                     {% if data.participants[id].usingCurrentProvider != "No" %}
                                         {% if data['inductionProgramme'] == "FIP" %}
-                                        <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
+                                        <!-- <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p> -->
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
@@ -73,10 +73,10 @@
                                     <p>They’ll receive a link to their new training materials within 24 hours.</p>
                                 {% elif data['inductionProgramme'] == "FIP" %}
 
-                                    <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
-                                    <br>{{ data.leadProvider }} must confirm they'll train this person directly with us too.</p>
-                                    <p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
-                                    <br>We've asked {{ data.leadProvider }} to confirm they'll train this person.</p>
+                                    <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span> -->
+                                    <!-- <p>{{ data.leadProvider }} must confirm they'll train this person directly with us too.</p> -->
+                                    <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
+                                    <br>We've asked {{ data.leadProvider }} to confirm they'll train this person.</p> -->
                                 {% endif %}
                             {% else %}
 
@@ -94,7 +94,7 @@
 
                 {% else %}
 
-                    {% if data.participants[id].programmeMatch == "no" %}
+                    {% if data.participants[id].programmeMatch == "No" %}
 
                         {% if data['inductionProgramme'] == "CIP" %}
                             <p>They’ll receive a link to their new training materials within 24 hours.</p>
@@ -102,13 +102,13 @@
 
 
                         <h2 class="govuk-heading-m">What you need to do</h2>
-                        <p>You must contact {{ participant.newLeadprovider }} to confirm they can continue training this person.</p>
+                        <p>You must contact {% if data.participant.newLeadprovider %}{{ participant.newLeadprovider }}{% else %}ACME Provider{% endif %} to confirm they can continue training this person.</p>
 
-                        <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span>
-                        <br>ACME provider must confirm they'll train this person directly with us too.</p>
+                        <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span> -->
+                        <p>ACME provider must confirm they'll train this person directly with us too.</p>
 
-                        <p><p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
-                        <br>We've asked ACME provider to confirm they'll train this person.</p>
+                        <!-- <p><p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
+                        <br>We've asked ACME provider to confirm they'll train this person.</p> -->
                         {% endif %}
 
                     {% else %}
