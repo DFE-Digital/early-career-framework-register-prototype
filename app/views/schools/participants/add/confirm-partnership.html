@@ -1,16 +1,34 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].programmeMatch == "No"%}
 
-    {% if data.participants[id].usingCurrentTraining == "Yes" %}
-        {% set pageHeading = 'Have you confirmed ' + data.leadProvider + ' will train ' + participant.name + ' at your school?' %}
-    {% else %}
-        {% set pageHeading = 'Have you confirmed ACME Provider will train ' + participant.name + ' at your school?' %}
+
+    {% if data['inductionProgramme'] == "FIP" %}
+        {% if data.participants[id].programmeMatch == "No"%}
+        <!-- No match on programme -->
+                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                <!-- Using programme currently on -->
+                    {% set pageHeading = 'Have you asked ' + data.leadProviderTransfer + ' if they’ll carry on training ' + participant.name + ' at your school?' %}
+                {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                <!-- using schools programme -->
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProvider + ' will train ' + participant.name + ' at your school?' %}
+                {% endif %}
+        {% else %}
+        <!-- Promgramme match -->
+        <!-- Not got to yet -->
+        {% endif %}
+    {% elif data['inductionProgramme'] == "CIP" %}
+        {% if data.participants[id].programmeMatch == "No"%}
+                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will carry ontrain ' + participant.name + ' at your school?' %}
+                {% else %}
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will train ' + participant.name + ' at your school?' %}
+                {% endif %}
+        {% else %}
+        <!-- Programme match -->
+        {% endif %}
     {% endif %}
-{% else %}
-    {% set pageHeading = 'Have you asked ACME Provider if they’ll carry on training this ECT at your school?' %}
-{% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

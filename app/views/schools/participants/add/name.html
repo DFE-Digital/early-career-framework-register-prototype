@@ -2,13 +2,12 @@
 {% set schoolSignedIn = true %}
 
 {% if data.participants[id].type == "ect" or data.participants[id].type == "ectTransfer"  %}
-    {% set pageHeading = 'What’s the full name of this ECT?' %}    
+    {% set pageHeading = 'What’s the full name of this ECT?' %}
 {% elif data.participants[id].type == "mentor" or data.participants[id].type == "mentorTransfer" %}
     {% set pageHeading = 'What’s the full name of this mentor?' %}
 {% else %}
     {% set pageHeading = 'What’s the full name of this person?' %}
 {% endif %}
-
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,9 +17,9 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
+
             <!-- Is user coming from the CYA -->
-            {% if data['cya-action'] == "change-name" %}            
+            {% if data['cya-action'] == "change-name" %}
                 <form class="form" action="check-your-answers" method="post">
                     <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
             <!-- Is user coming from the details page -->
@@ -28,24 +27,23 @@
                 <form class="form" action="../details" method="post">
                     <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
-            
-            {% else %}                
+            {% else %}
+            <!-- Add journey -->
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
-                    <form class="form" action="know-trn" method="post">    
+                    <form class="form" action="know-trn" method="post">
                 {% elif data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer"  %}
-                    <form class="form" action="teacher-reference-number" method="post" >                                
-                {% endif %}                
+                    <form class="form" action="teacher-reference-number" method="post" >
+                {% endif %}
             {% endif %}
-            
+
                 {{ govukInput({
                     label: {
                         text: pageHeading,
                         classes: "govuk-visually-hidden",
                         isPageHeading: false
                     },
-                    classes: "govuk-!-width-two-thirds"                    
-                } | decorateFormAttributes(['participants', id, 'name']) ) }}      
-                                
+                    classes: "govuk-!-width-two-thirds"
+                } | decorateFormAttributes(['participants', id, 'name']) ) }}
 
                 {{ govukButton({
                     text: "Continue"

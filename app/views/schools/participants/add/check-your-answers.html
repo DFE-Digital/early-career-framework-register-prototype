@@ -60,15 +60,18 @@
                     <!-- Programme is FIP -->
                         {% if participant.usingCurrentTrainingProgramme %}
                         <ul class="govuk-list">
+
+
+
                             <!-- Using schools training -->
                             {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                                 <!-- No Match with current training -->
                                 {% if data.participants[id].programmeMatch == "No" %}
                                     {% if data.participants[id].partnershipWithProvider == "Yes" %}
-                                        <li>ACME Lead Provider</li>
-                                        <li>ACME Delivery Partner</li>
+                                        <li>{{ data.leadProviderTransfer }}</li>
+                                        <li>{{ data.deliveryPartnerTransfer }}</li>
                                     {% elif data.participants[id].partnershipWithProvider == "No" %}
-                                        <li>You need to contact ACME Lead Provider</li>
+                                        <li>You need to contact {{ data.leadProviderTransfer }}</li>
                                         <li>They’ll confirm the delivery partner</li>
                                     {% endif %}
                                 <!-- Match on programme -->
@@ -112,7 +115,16 @@
                                     {% endif %}
                                 {% endif %}
                             {% endif %}
+
+
+
+
                         </ul>
+
+
+
+
+
 
                         {% elif participant.usingCurrentTrainingMaterials %}
                         <!-- Programme is CIP -->

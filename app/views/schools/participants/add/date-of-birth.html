@@ -11,18 +11,19 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        	
+
       		{% if data['cya-action'] == "change-dob" %}
       		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
         		<input type="hidden" name="cya-action" id="cya-action" value="" />
       		{% else %}
-			  	{% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}			  
+            <!-- Add journey -->
+			  	{% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 				  	<form class="form" action="email-address" method="post">
-				{% else %}        		
+				{% else %}
 					<form class="form" action="joining-date" method="post">
 				{% endif %}
-      		{% endif %}						  	
-						  			  
+      		{% endif %}
+
 
 				{{ govukDateInput({
 					id: 'session-date-dob',
@@ -34,7 +35,7 @@
 					},
 					items: [
 						{
-							
+
 							name: '[participants][' + id + '][dobDay]',
 							value: data.participants[id]['dobDay'],
 							classes: "govuk-input--width-2",
@@ -56,7 +57,7 @@
 					hint: {
 						text: "For example, 14 7 1990"
 					}
-				}) }} 						
+				}) }}
 
         		{{ govukButton({
           			text: "Continue"
