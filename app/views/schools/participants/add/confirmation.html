@@ -56,7 +56,7 @@
                     {% else %}
 
                         {% if data.participants[id].partnershipWithProvider == "No" %}
-                            <p>You must contact {{ participant.newLeadprovider }} to confirm they can train this person.</p>
+                            <p>You must contact {{ data.leadProvider }} to confirm they can train this person.</p>
                         {% else %}
 
                             {% if data.participants[id].programmeMatch == "No" %}
@@ -100,12 +100,17 @@
                             <p>They’ll receive a link to their new training materials within 24 hours.</p>
                         {% elif data['inductionProgramme'] == "FIP" %}
 
-
+                        {% if data.participants[id].partnershipWithProvider != "Yes" %}
                         <h2 class="govuk-heading-m">What you need to do</h2>
-                        <p>You must contact {% if data.participant.newLeadprovider %}{{ participant.newLeadprovider }}{% else %}ACME Provider{% endif %} to confirm they can continue training this person.</p>
+
+
+                            <p>You must contact {% if data.participants[id].programmeMatch == "No" %}{{ data.leadProviderTransfer }}{% else %}{{ participant.newLeadprovider }}{% endif %} to confirm they can continue training this person.</p>
+
 
                         <!-- <p><span class="govuk-!-font-weight-bold">NOTE: If this process happens offline:</span> -->
-                        <p>ACME provider must confirm they'll train this person directly with us too.</p>
+                        <p>{% if data.participants[id].programmeMatch == "No" %}{{ data.leadProviderTransfer }}{% else %}{{ participant.newLeadprovider }}{% endif %} must confirm they’ll train this person directly with us too.</p>
+
+                        {% endif %}
 
                         <!-- <p><p><span class="govuk-!-font-weight-bold">NOTE: If we can notify the provider via their dashboard:</span>
                         <br>We've asked ACME provider to confirm they'll train this person.</p> -->
