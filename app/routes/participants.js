@@ -82,9 +82,15 @@ module.exports = router => {
     res.render(`schools/participants/add/${req.params.view}`)
   })
 
-  router.all('/schools/participants/:id/add/transfer/:view', (req, res) => {
-    res.render(`schools/participants/add/transfer/${req.params.view}`)
+
+  router.all('/schools/participants/:id/transfer/', (req, res) => {
+    res.render('schools/participants/transfer/index')
   })
+
+  router.all('/schools/participants/:id/transfer/:view', (req, res) => {
+    res.render(`schools/participants/transfer/${req.params.view}`)
+  })
+
 
 
 }
