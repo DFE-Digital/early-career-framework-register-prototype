@@ -33,8 +33,9 @@
 
     {% set ectHtml %}
 
-        {% if hasAnyContactedParticipants %}
 
+
+        {% if hasAnyContactedParticipants %}
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
@@ -51,20 +52,23 @@
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
+
+
                     {% for id, participant in data.participants %}
-                    {% if participant.status == "Contacted" and participant.type == "ect" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                    </tr>
-                    {% endif %}
+                        {% if participant.status == "Contacted" and participant.type == "ect" %}
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+                                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
 
         {% endif %}
+
 
 
         {% if hasAnyCheckingParticipants %}
@@ -156,7 +160,7 @@
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
                     <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Action required</th>
+                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -307,7 +311,7 @@
                 <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                 <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
                 <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                <th class="govuk-table__header" scope="col">Action required</th>
+                <th class="govuk-table__header" scope="col">Induction start</th>
             </tr>
         </thead>
         <tbody class="govuk-table__body">
