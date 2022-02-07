@@ -49,7 +49,7 @@
                             <!-- <h2 class="govuk-heading-m">What you need to do</h2>                     -->
 
                             {% if data['inductionProgramme'] == "CIP" %}
-                            <p>They already have access to their training materials. </p>
+                            <p>They already have access to the relevant training materials. </p>
                             {% elif data['inductionProgramme'] == "FIP" %}
                             <p>They’re already training with the same lead provider used by your school. {{ participant.newLeadprovider }} will confirm the delivery partner with us directly. We'll add this information to {{ participant.name }}’s record as soon as possible.</p>
                             {% endif %}

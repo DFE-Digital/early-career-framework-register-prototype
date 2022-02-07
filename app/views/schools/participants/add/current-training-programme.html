@@ -2,7 +2,11 @@
 {% set schoolSignedIn = true %}
 
 {% if data['inductionProgramme'] == "CIP" %}
-    {% set pageHeading = 'Will ' + participant.name + ' continue with their current materials?' %}
+    {% if data.participants[id].type == "mentor" %}
+    {% set pageHeading = 'Will ' + participant.name + ' continue mentoring ECTs using the same materials?' %}
+    {% else %}
+        {% set pageHeading = 'Will ' + participant.name + ' continue with their current materials?' %}
+    {% endif %}
 {% else %}
     {% set pageHeading = 'Will ' + participant.name + ' continue with their current training programme?' %}
 {% endif %}
@@ -35,7 +39,7 @@
             {% else %}
 
                 {% if data['inductionProgramme'] == "CIP" %}
-                    <p>These are the same materials used by other ECTs at your school.</p>
+                    <p>These are the same materials used by other ECTs and mentors at your school</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
                     <p>{{ data.leadProviderMaterials }}</p>
                 {% else %}
