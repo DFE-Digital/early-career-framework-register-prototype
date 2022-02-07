@@ -1,8 +1,8 @@
 const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Michael Jordan',
-  leadProvider: 'UCL Institute of Education',
-  deliveryPartner: 'South Central Teaching School Hub'
+  leadProvider: 'Ambition Institute',
+  deliveryPartner: 'United Learning'
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
