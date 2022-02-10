@@ -21,19 +21,24 @@ module.exports = router => {
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.type === 'mentorTransfer')
-    res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.type == "ect" )
-    res.locals.hasAnyContactedParticipantsFIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.type == "ect" && p.programme == "FIP")
-    res.locals.hasAnyContactedMentorParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.type == "mentor")
-    res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking' && p.programme == "CIP" )
-    res.locals.hasAnyCheckingMentorParticipants = Object.values(participants).some((p) => p.status === 'Checking' && p.type == "mentor")
+
+    res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted' )
+    res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking' )
     res.locals.hasAnyCheckingQTSParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS')
-    res.locals.hasAnyCheckingQTSMentorParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" )
     res.locals.hasAnyEligibleParticipants = Object.values(participants).some((p) => p.status === 'Eligible')
-    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor")
+    res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" )
     res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn')
     res.locals.hasAnyTransferOutParticipants = Object.values(participants).some((p) => p.status === 'TransferOut')
     res.locals.hasAnyWithdrawnParticipants = Object.values(participants).some((p) => p.status === 'Withdrawn')
     res.locals.hasAnyNotEligibleParticipants = Object.values(participants).some((p) => p.status === 'NotEligible')
+
+
+    res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.type == "ect" && p.programme == "CIP")
+    res.locals.hasAnyContactedMentorParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.type == "mentor")
+    res.locals.hasAnyCheckingMentorParticipants = Object.values(participants).some((p) => p.status === 'Checking' && p.type == "mentor")
+    res.locals.hasAnyCheckingQTSMentorParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" )
+    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor")
+
     next()
   })
 
