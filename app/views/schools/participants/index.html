@@ -29,492 +29,528 @@
         {% endif %}
     </div>
 
-
-
+    <!-- ECT TAB -->
     {% set ectHtml %}
 
         <!-- Contacted ECTs -->
-        {% if hasAnyContactedParticipants %}
-
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyContactedParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
                 </div>
-            </div>
-            <table class="govuk-table govuk-!-margin-bottom-9">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-
-
-                    {% for id, participant in data.participants %}
-                        {% if participant.status == "Contacted" and participant.type == "ect" %}
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.type == "ect" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['induction-programme'] == "CIP" %}
+            {% if hasAnyContactedParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.type == "ect" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
-
         <!-- DfE Checking ECTs -->
-        {% if hasAnyCheckingParticipants %}
-
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyCheckingParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
                 </div>
-            </div>
-            <table class="govuk-table govuk-!-margin-bottom-9">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for id, participant in data.participants %}
-                    {% if participant.status == "Checking" and participant.type == "ect" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.type == "ect" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyCheckingParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.type == "ect" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
         <!-- Checking QTS -->
-        {% if hasAnyCheckingQTSParticipants %}
-
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyCheckingQTSParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
                 </div>
-            </div>
-            <table class="govuk-table govuk-!-margin-bottom-9">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for id, participant in data.participants %}
-                    {% if participant.status == "CheckingQTS" and participant.type == "ect" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "ect" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyCheckingQTSParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "ect" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
         <!-- Eligible to start -->
-        {% if hasAnyEligibleParticipants %}
-
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% if data['inductionProgramme'] == "FIP" %}
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyEligibleParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
                         {% if data['fipPartnership'] == "Yes" %}
                             <p>We’ve confirmed these people are eligible for this programme. We’ve given their details to your provider.</p>
                         {% else %}
                             <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
                         {% endif %}
-                    {% elif data['inductionProgramme'] == "CIP" %}
-                        <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
-                    {% endif %}
+                    </div>
                 </div>
-            </div>
-
-            <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Autumn 2021 starters</h3> -->
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-
-                    {% if data['inductionProgramme'] == "FIP" %}
-
+                <table class="govuk-table">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
                             {% if participant.status == "Eligible" and participant.type == "ect" and participant.programme == "FIP" %}
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                            </tr>
+                                {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
-
-                    {% elif data['inductionProgramme'] == "CIP" %}
-
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyEligibleParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
                             {% if participant.status == "Eligible" and participant.type == "ect" and participant.programme == "CIP" %}
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                            </tr>
+                                {% include "includes/dash_cip_row.html" %}
                             {% endif %}
                         {% endfor %}
-
-                    {% endif %}
-                </tbody>
-            </table>
-
-
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
     {% endset -%}
-    <!-- // -->
+    <!-- // ect tab -->
 
-
-
-
-
-
-
-
+    <!-- Mentor Tab -->
     {% set mentorHtml %}
 
-    {% if hasAnyContactedMentorParticipants %}
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyContactedMentorParticipants %}
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
-        </div>
-    </div>
-    <table class="govuk-table govuk-!-margin-bottom-9">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                <th class="govuk-table__header" scope="col">Induction start</th>
-            </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-            {% for id, participant in data.participants %}
-            {% if participant.status == "Contacted" and participant.type == "mentor" %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                <td class="govuk-table__cell">{{ participant.startDate }}</td>
-            </tr>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
             {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyContactedMentorParticipantsCIP %}
 
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.type == "mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
 
-    {% if hasAnyCheckingMentorParticipants %}
-    <!-- DfE checking eligibility -->
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
-        </div>
-    </div>
-    <table class="govuk-table govuk-!-margin-bottom-9">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                <th class="govuk-table__header" scope="col">Induction start</th>
-            </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-            {% for id, participant in data.participants %}
-            {% if participant.status == "Checking" and participant.type == "mentor"  %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                <td class="govuk-table__cell">{{ participant.startDate }}</td>
-            </tr>
             {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+        {% endif %}
 
-    {% if hasAnyCheckingQTSMentorParticipants %}
-    <!-- Checking QTS -->
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
-        </div>
-    </div>
-    <table class="govuk-table govuk-!-margin-bottom-9">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                <th class="govuk-table__header" scope="col">Induction start</th>
-            </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-            {% for id, participant in data.participants %}
-            {% if participant.status == "CheckingQTS" and participant.type == "mentor"  %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                <td class="govuk-table__cell">{{ participant.startDate }}</td>
-            </tr>
+        <!-- DfE checking eligibility -->
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyCheckingMentorParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyCheckingMentorParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.type == "mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
 
-    {% if hasAnyEligibleMentorParticipants %}
-    <!-- Eligible to start -->
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            {% if data['inductionProgramme'] == "FIP" %}
-                {% if data['fipPartnership'] == "Yes" %}
-                    <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
-                {% else %}
-                    <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
-                {% endif %}
-            {% elif data['inductionProgramme'] == "CIP" %}
-                <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+        <!-- Checking QTS -->
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyCheckingQTSMentorParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
-        </div>
-    </div>
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyCheckingQTSMentorParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
 
-    <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Autumn 2021 starters</h3> -->
-    <table class="govuk-table">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                <th class="govuk-table__header" scope="col">Induction start</th>
-            </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-            {% for id, participant in data.participants %}
-            {% if participant.status == "Eligible" and participant.type == "mentor"  %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                <td class="govuk-table__cell">{{ participant.startDate }}</td>
-            </tr>
+        <!-- Eligible to start -->
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyEligibleMentorParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        {% if data['fipPartnership'] == "Yes" %}
+                            <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
+                        {% else %}
+                            <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyEligibleMentorParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
 
     {% endset -%}
+    <!-- // Mentor TAB -->
 
+    <!-- Moving schools TAB -->
     {% set transferHtml %}
 
+    <!-- Moving to the school -->
+        {% if data['inductionProgramme'] == "FIP" %}
             {% if hasAnyTransferInParticipants %}
-            <!-- Moving to the school -->
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+                    </div>
                 </div>
-            </div>
-            <table class="govuk-table govuk-!-margin-bottom-9">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Joining</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for id, participant in data.participants %}
-                    {% if participant.status == "TransferIn" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">
-                            {% if data.participants[id].programmeMatch == "No" %}
-                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
-                                    {{ data.leadProviderTransfer }}
-                                {% else %}
-                                    {{ data.leadProvider }}
-                                {% endif %}
-                            {% else %}
-                                {{ data.leadProvider }}
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferIn" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row_transferIn.html" %}
                             {% endif %}
-
-                            </td>
-                        <td class="govuk-table__cell">
-                            {% if data.participants[id].programmeMatch == "No" %}
-                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
-                                    {{ data.deliveryPartnerTransfer }}
-                                {% else %}
-                                    {{ data.deliveryPartner }}
-                                {% endif %}
-                            {% else %}
-                                {{ data.deliveryPartner }}
-                            {% endif %}
-
-
-                            </td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
-                        </td>
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyTransferInParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferIn" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row_transferIn.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
 
+        <!-- Moving from the school -->
+        {% if data['inductionProgramme'] == "FIP" %}
             {% if hasAnyTransferOutParticipants %}
-            <!-- Moving from the school -->
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                    </div>
                 </div>
-            </div>
-            <table class="govuk-table govuk-!-margin-bottom-9">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                        <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header govuk-table__header--numeric" scope="col">Leaving</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for id, participant in data.participants %}
-                    {% if participant.status == "TransferOut" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            {{ isoDateFromDateInputs(participant['leavingYear'], participant['leavingMonth'], participant['leavingDay']) | dateWithYear }}
-                        </td>
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferOut" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row_transferOut.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyTransferOutParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferOut" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row_transferOut.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
 
     {% endset -%}
     <!-- // Transfer -->
 
     {% set nottrainingHtml %}
-
-        {% if hasAnyWithdrawnParticipants %}
         <!-- Withdrawn dashboard -->
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <p>Your provider reported that they’re not training the people listed below. If this is wrong, contact the relevant provider.</p>
-            </div>
-        </div>
-        <table class="govuk-table govuk-!-margin-bottom-9">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Induction start</th>
-
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-
-                {% for id, participant in data.participants %}
-                    {% if participant.status == "Withdrawn" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell">{{ data.leadProvider }}</td>
-                        <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">{{ participant.startDate }}</td>
-                    </tr>
-                    {% endif %}
-                {% endfor %}
-
-                </tr>
-            </tbody>
-        </table>
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyWithdrawnParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>Your provider reported that they’re not training the people listed below. If this is wrong, contact the relevant provider.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Withdrawn" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyWithdrawnParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>Your provider reported that they’re not training the people listed below. If this is wrong, contact the relevant provider.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Withdrawn" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
-        {% if hasAnyNotEligibleParticipants %}
         <!-- Not eligible dashboard -->
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
-            </div>
-        </div>
-        <table class="govuk-table govuk-!-margin-bottom-9">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Action required</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-
-                {% for id, participant in data.participants %}
-                    {% if participant.status == "NotEligible" %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">Delete</td>
-                    </tr>
-                    {% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% if hasAnyNotEligibleParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_head_notE.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "NotEligible" and participant.programme == "FIP" %}
+                                {% include "includes/dash_row_notE.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyNotEligibleParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_head_notE.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "NotEligible" and participant.programme == "CIP" %}
+                                {% include "includes/dash_row_notE.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
         {% endif %}
 
     {% endset -%}
