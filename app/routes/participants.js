@@ -92,5 +92,14 @@ module.exports = router => {
   })
 
 
+  router.all('/schools/participants/:id/remove/', (req, res) => {
+    res.render('schools/participants/remove/confirm')
+  })
+
+  router.all('/schools/participants/:id/remove/:view', (req, res) => {
+    res.render(`schools/participants/remove/${req.params.view}`)
+  })
+
+
 
 }
