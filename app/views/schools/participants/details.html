@@ -202,24 +202,27 @@
                 {% endif %}
             </dl>
 
-            <p><a href="{{ id }}/transfer/">Tell us this {% if data['participantType'] == "mentor" %}ECT{% else %}ECT{% endif %} is transferring to another school</a></p>
+            <p><a href="{{ id }}/transfer/">Tell us {{ participant.name }} is transferring to another school</a></p>
 
 
+            <!-- If SIT Mentor -->
             {% if data.participants[id].type == "sitMentor" %}
 
                 <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
 
+            <!-- Otherwise if FIP -->
             {% elif data.participants[id].programme == "FIP" %}
-
+                <!-- Make sure not already declared by a provider -->
+                {% if data.participants[id].status != "Eligible" %}
                 <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
-                <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>
-                <p>If {{ participant.name }}should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
-
+                {% else %}
+                    <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>
+                    <p>If {{ participant.name }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+                {% endif %}
+            <!-- Not FIP -->
             {% else %}
-
                 <p>Contact {{ data.leadProvider }} if you want to remove {{ participant.name }}.</p>
                 <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
-
             {% endif %}
 
 
