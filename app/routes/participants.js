@@ -46,6 +46,7 @@ module.exports = router => {
     res.render('schools/participants/details')
   })
 
+
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })

@@ -13,10 +13,10 @@
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 <!-- Name -->
-                <div class="govuk-summary-list__row {% if data['status'] == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
+                <div class="govuk-summary-list__row {% if data.participants[id].status == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
-                    {% if data['status'] != "Withdrawn" %}
+                    {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions">
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
@@ -74,7 +74,7 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
-                    {% if data['status'] != "Withdrawn" %}
+                    {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
                     {% endif %}
                 </div>
@@ -121,32 +121,16 @@
                     <dt class="govuk-summary-list__key">Status</dt>
                     <dd class="govuk-summary-list__value">
 
-
-                        {% if data['status'] == "TransferringOut" %}
-
+                        <!-- Transfer Out -->
+                        {% if data.participants[id].status == "TransferOut" %}
                             <p>Content for highlighting they are moving FROM the school but still eligible for programme.</p>
-
-                        {% elif data['status'] == "TransferringIn" %}
-
+                        <!-- Transfer In -->
+                        {% elif data.participants[id].status == "TransferIn" %}
                             <p>Content for highlighting they are moving TO this school and are eligible for programme.</p>
 
-                        {% elif data['status'] == "Remind" %}
 
-                            <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
-                            <p>We suggest you remind them to provide this.</p>
-
-                        {% elif data['status'] == "Email" %}
-
-                        {% elif data['status'] == "EmailNotSent" %}
-
-                            <p>We’ll ask this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
-
-                        {% elif data['status'] == "noQTS" %}
-
-                            <p>This ECT does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
-
-                        {% elif data['status'] == "Checking" %}
-
+                        <!-- Checking-->
+                        {% elif data.participants[id].status == "Checking" %}
                             {% if data['inductionProgramme'] == "FIP" %}
                                 {% if data['fipPartnership'] == "Yes" %}
                                     <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
@@ -156,124 +140,95 @@
                             {% elif data['inductionProgramme'] == "CIP" %}
                                 <p>No action required.</p>
                             {% endif %}
-
-                        {% elif data['status'] == "Start" %}
-
-                            {% if data['inductionProgramme'] == "FIP" %}
+                        <!-- Eligible -->
+                        {% elif data.participants[id].status == "Eligible" %}
+                            {% if data.participants[id].programme == "FIP" %}
                                 {% if data['fipPartnership'] == "Yes" %}
                                     <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
                                 {% else %}
                                     <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
                                 {% endif %}
-                            {% elif data['inductionProgramme'] == "CIP" %}
+                            {% elif data.participants[id].programme == "CIP" %}
                                 <p>We’ve confirmed this person is eligible for this programme. They have access to their materials.</p>
                             {% endif %}
+                        <!-- Contacted -->
+                        {% elif data.participants[id].status == "Contacted" %}
+                            <!-- If email not sent yet -->
+                            {% if data.participants[id].status == "EmailNotSent" %}
+                                <p>We’ll ask this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                            <!-- Email sent -->
+                            {% else %}
+                                <p>We’ve asked this person to use our service to provide some information. We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                                <p>We suggest you remind them to provide this.</p>
+                            {% endif %}
+                        <!-- No QTS yet -->
+                        {% elif data.participants[id].status == "CheckingQTS" %}
+                            <p>This ECT does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes. </p>
 
-                        {% elif data['status'] == "NotEligible" %}
+                        {% elif data.participants[id].status == "Withdrawn" %}
 
-                            {% if data['inductionProgramme'] == "FIP" %}
-                                {% if data['ParticipantType'] == "mentor" %}
-                                    {% if data['noteligible-status'] == "AlreadyFunded" %}
+                            <p>They</p>
+
+                        {% elif data.participants[id].status == "NotEligible" %}
+
+                            {% if data.participants[id].programme == "FIP" %}
+                                {% if data.participants[id].type == "mentor" %}
+                                    {% if data.participants[id].status == "alreadyFunded" %}
                                         <p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>
-                                    {% elif data['noteligible-status'] == "NotEligible" %}
+                                    {% else %}
                                         <p>This person is not eligible for this programme.</p>
                                     {% endif %}
-                                {% else %}
-                                    {% if data['noteligible-status'] == "InductionStarted" %}
+                                {% elif data.participants[id].type == "ect" %}
+                                    {% if data.participants[id].status == "inductionStarted" %}
                                         <p>This is because they started or completed their statutory induction before 1 September 2021.</p>
-                                    {% elif data['noteligible-status'] == "NotEligible" %}
+                                    {% else %}
                                         <p>This person is not eligible for this programme.</p>
-                                    {% elif data['noteligible-status'] == "Checking" %}
-                                        <p>Our checks show this person does not have qualified teacher status (QTS). Their status should be up to date if they completed their ITT in 2021.</p>
                                     {% endif %}
                                 {% endif %}
-                            {% elif data['inductionProgramme'] == "CIP" %}
+
+                                <!-- <p>Eligible to start. They’re ready to mentor ECTs.</p> -->
+
+                            {% elif data.participants[id].programme == "CIP" %}
                                 <p>This person is not eligible for this programme.</p>
-                                <p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p>
+                                <!-- <p>We’ve confirmed this person is eligible for this programme. They have access to their training materials.</p> -->
                             {% endif %}
 
-                        {% else %}
-
-                            <p>Eligible to start. They’re ready to mentor ECTs.</p>
-
                         {% endif %}
+
                     </dd>
                 </div>
                 {% endif %}
             </dl>
 
-            <p><a href="{{ id }}/transfer/">Tell us this {% if data['participantType'] == "mentor" %}ECT{% else %}ECT{% endif %} is transferring to another school</a></p>
+            <p><a href="{{ id }}/transfer/">Tell us {{ participant.name }} is transferring to another school</a></p>
 
 
-            {% if data['induction-tutor'] == "Yes" %}
+            <!-- If SIT Mentor -->
+            {% if data.participants[id].type == "sitMentor" %}
+
                 <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
-            {% else %}
 
-                {% if data['no-delete'] == "Yes" %}
-                    {% if data['inductionProgramme'] == "FIP" %}
-                        <p>If
-                            {% if data['active-user'] == "ect" %}
-                                {{ data['participant-1-name'] }}
-                            {% elif data['active-user'] == "ect-2" %}
-                                {{ data['participant-2-name'] }}
-                            {% elif data['active-user'] == "mentor-1" %}
-                                {{ data['participant-1-mentor-name'] }}
-                            {% elif data['active-user'] == "mentor-2" %}
-                                {{ data['participant-2-mentor-name'] }}
-                            {% elif data['active-user'] == "sitMentor" %}
-                                {{ data.sitName }}
-                            {% else %}
-                                {{ data['random-name'] }}
-                            {% endif %}
-                            should not be in this cohort, contact your training provider to remove them.</p>
-                    {% else %}
-                        <p>If
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-name'] }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-name'] }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['participant-1-mentor-name'] }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['participant-2-mentor-name'] }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            {{ data.sitName }}
-                        {% else %}
-                            {{ data['random-name'] }}
-                        {% endif %}
-                        should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
-                    {% endif %}
-
+            <!-- Otherwise if FIP -->
+            {% elif data.participants[id].programme == "FIP" %}
+                <!-- Make sure not already declared by a provider -->
+                {% if data.participants[id].status != "Eligible" %}
+                <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
                 {% else %}
-
-                    {% if data['inductionProgramme'] == "FIP" %}
-                        {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
-                            {% if data['active-user'] == "ect-1" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
-                            {% elif data['active-user'] == "ect-2" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
-                            {% elif data['active-user'] == "mentor-1" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
-                            {% elif data['active-user'] == "mentor-2" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-mentor-name'] }}.</p>
-                            {% elif data['active-user'] == "sitMentor" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
-                            {% else %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
-                        {% endif %}
-                    {% else %}
-                        {% if data['status'] == "Withdrawn" %}
-
-                        {% else %}
-                            <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
-                        {% endif %}
-                    {% endif %}
-
-                {% elif data['inductionProgramme'] == "CIP" %}
-
+                    <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>
+                    <p>If {{ participant.name }} should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
                 {% endif %}
+            <!-- Not FIP -->
+            {% else %}
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ participant.name }}.</p>
+                <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
             {% endif %}
-            {% endif %}
+
+
+
+
+
+
+
 
 
 
