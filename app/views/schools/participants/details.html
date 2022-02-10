@@ -205,75 +205,29 @@
             <p><a href="{{ id }}/transfer/">Tell us this {% if data['participantType'] == "mentor" %}ECT{% else %}ECT{% endif %} is transferring to another school</a></p>
 
 
-            {% if data['induction-tutor'] == "Yes" %}
+            {% if data.participants[id].type == "sitMentor" %}
+
                 <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
+
+            {% elif data.participants[id].programme == "FIP" %}
+
+                <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
+                <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>
+                <p>If {{ participant.name }}should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
+
             {% else %}
 
-                {% if data['no-delete'] == "Yes" %}
-                    {% if data['inductionProgramme'] == "FIP" %}
-                        <p>If
-                            {% if data['active-user'] == "ect" %}
-                                {{ data['participant-1-name'] }}
-                            {% elif data['active-user'] == "ect-2" %}
-                                {{ data['participant-2-name'] }}
-                            {% elif data['active-user'] == "mentor-1" %}
-                                {{ data['participant-1-mentor-name'] }}
-                            {% elif data['active-user'] == "mentor-2" %}
-                                {{ data['participant-2-mentor-name'] }}
-                            {% elif data['active-user'] == "sitMentor" %}
-                                {{ data.sitName }}
-                            {% else %}
-                                {{ data['random-name'] }}
-                            {% endif %}
-                            should not be in this cohort, contact your training provider to remove them.</p>
-                    {% else %}
-                        <p>If
-                        {% if data['active-user'] == "ect-1" %}
-                            {{ data['participant-1-name'] }}
-                        {% elif data['active-user'] == "ect-2" %}
-                            {{ data['participant-2-name'] }}
-                        {% elif data['active-user'] == "mentor-1" %}
-                            {{ data['participant-1-mentor-name'] }}
-                        {% elif data['active-user'] == "mentor-2" %}
-                            {{ data['participant-2-mentor-name'] }}
-                        {% elif data['active-user'] == "sitMentor" %}
-                            {{ data.sitName }}
-                        {% else %}
-                            {{ data['random-name'] }}
-                        {% endif %}
-                        should not be in this cohort, <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> to remove them.
-                    {% endif %}
+                <p>Contact {{ data.leadProvider }} if you want to remove {{ participant.name }}.</p>
+                <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
 
-                {% else %}
-
-                    {% if data['inductionProgramme'] == "FIP" %}
-                        {% if ((data['status'] == "Start") or (data['status'] == "Remind") or (data['status'] == "Email") or (data['status'] == "EmailNotSent") or (data['status'] == "Checking")) %}
-                            {% if data['active-user'] == "ect-1" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-name'] }}.</p>
-                            {% elif data['active-user'] == "ect-2" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-name'] }}.</p>
-                            {% elif data['active-user'] == "mentor-1" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-1-mentor-name'] }}.</p>
-                            {% elif data['active-user'] == "mentor-2" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['participant-2-mentor-name'] }}.</p>
-                            {% elif data['active-user'] == "sitMentor" %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data.sitName }}.</p>
-                            {% else %}
-                                <p>Contact {{ data.leadProvider }} if you want to remove {{ data['random-name'] }}.</p>
-                        {% endif %}
-                    {% else %}
-                        {% if data['status'] == "Withdrawn" %}
-
-                        {% else %}
-                            <p><a href="{{ id }}/remove/confirm">Remove {{ data['random-name'] }}</a></p>
-                        {% endif %}
-                    {% endif %}
-
-                {% elif data['inductionProgramme'] == "CIP" %}
-
-                {% endif %}
             {% endif %}
-            {% endif %}
+
+
+
+
+
+
+
 
 
 
