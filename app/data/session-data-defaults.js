@@ -26,8 +26,8 @@ module.exports = {
     inductionStart: 'Spring 2022',
     linkExpire: '12 February 2022',
     expiryTime: '1pm',
-    // inductionProgramme: "FIP",
-    // fipPartnership: "Yes",
+    inductionProgramme: "FIP",
+    fipPartnership: "Yes",
     rolesexplanation: "Seen",
     participants: {
         1234: { name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', startDate: "Autumn 2021" },
@@ -46,6 +46,7 @@ module.exports = {
         Z87: { dobDay: "3", dobMonth: "3", dobYear: "3333", email: "ruby.lally@test.dfe.gov.uk", newLeadProvider: "Teach First", mentor: "James Doe", name: "Ruby Lally", partnershipWithProvider: "Yes", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "3243432", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         IQ8: { dobDay: "12", dobMonth: "12", dobYear: "1212", email: "james.liddell@test.dfe.gov.uk", mentor: "Jane Doe", name: "James Liddell", programme: "FIP", startDate: "Spring 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "123423423", type: "ect", usingCurrentTraining: "Yes" },
         VLT: { dobDay: "1", dobMonth: "1", dobYear: "1111", email: "steven.wood@test.dev.gov.uk", mentor: "James Doe", name: "Steven Wood", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "56756756", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "Yes" },
+
         // KJ8: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "kate.lloyd@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Kate Lloyd", partnershipWithProvider: "No", programme: "FIP", startDate: "Autumn 2021", status: "TransferOut", trnKnown: "Yes", trnNumber: "324234", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // GH3: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.richards@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Richards", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "Checking", trnKnown: "Yes", trnNumber: "78402875", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // DB5: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.didsbury@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Didsbury", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "CheckingQTS", trnKnown: "Yes", trnNumber: "1424353", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },

@@ -46,6 +46,7 @@ module.exports = router => {
     res.render('schools/participants/details')
   })
 
+
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
@@ -89,6 +90,15 @@ module.exports = router => {
 
   router.all('/schools/participants/:id/transfer/:view', (req, res) => {
     res.render(`schools/participants/transfer/${req.params.view}`)
+  })
+
+
+  router.all('/schools/participants/:id/remove/', (req, res) => {
+    res.render('schools/participants/remove/confirm')
+  })
+
+  router.all('/schools/participants/:id/remove/:view', (req, res) => {
+    res.render(`schools/participants/remove/${req.params.view}`)
   })
 
 

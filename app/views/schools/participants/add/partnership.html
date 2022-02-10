@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+
+
 {% set pageHeading = 'Have you asked ' + participant.newLeadprovider + ' to train this ECT?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
