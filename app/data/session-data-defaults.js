@@ -24,7 +24,7 @@ module.exports = {
     leadProviderMaterials: "Ambition Institue",
     leadProviderMaterialsTransfer: "Education Development Trust",
     inductionStart: 'Spring 2022',
-    linkExpire: '12 February 2022',
+    linkExpire: '28 February 2022',
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",
