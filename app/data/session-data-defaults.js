@@ -28,7 +28,7 @@ module.exports = {
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",
-    rolesexplanation: "Seen",
+    // rolesexplanation: "Seen",
     participants: {
         1234: { name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021" },
         1235: { name: 'James Doe', email: 'james.doe@example.com', programme: "FIP", type: 'mentor', status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", },
