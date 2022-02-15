@@ -1,6 +1,6 @@
- <!-- {% if ((data['inductionProgramme'] == "FIP") and (data['fipPartnership'] == "Yes")) %}
+ {% if ((data['inductionProgramme'] == "FIP") and (data['fipPartnership'] == "Yes")) %}
                     <p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
-                {% endif %} -->
+                {% endif %}
 
                 {% if ((data['inductionProgramme'] == "CIP" ) and (data['accredited-materials'] )) %}
                     <p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>

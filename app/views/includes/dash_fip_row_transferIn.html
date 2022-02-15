@@ -25,7 +25,5 @@
 
 
         </td>
-    <td class="govuk-table__cell govuk-table__cell--numeric">
-        {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
-    </td>
+    <td class="govuk-table__cell">{{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}</td>
 </tr>
