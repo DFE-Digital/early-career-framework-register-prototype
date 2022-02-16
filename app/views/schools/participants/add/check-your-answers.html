@@ -111,6 +111,11 @@
                                 {% endif %}
                                 {# //////////////////////////////////////////////////// #}
 
+                            </ul>
+                        </dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
                 {% elif data['inductionProgramme'] == "CIP" %}
 
                     <div class="govuk-summary-list__row">
@@ -138,13 +143,14 @@
                                     {% endif %}
                                 {% endif %}
 
-                {% endif %}
-
-
                             </ul>
                         </dd>
                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                     </div>
+
+                {% endif %}
+
+                {# Dont remove its the end of the summary list #}
                 </dl>
 
                 <form class="form" action="confirmation" method="post" >
