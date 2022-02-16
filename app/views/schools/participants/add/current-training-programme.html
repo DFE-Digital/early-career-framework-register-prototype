@@ -53,7 +53,7 @@
                 {# Not training on the schools default programme #}
                 {% if data.participants[id].programmeMatch == "No" %}
 
-                DIFFERENT FIP
+                {# DIFFERENT FIP #}
                     <p>This is a different programme to other ECTs and mentors at your school.</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                     <p class="govuk-!-margin-bottom-1">{{ data.leadProviderTransfer }}</p>
@@ -63,7 +63,7 @@
                 {# Training on the schools default programme #}
                 {% else %}
 
-                SAME FIP
+                {# SAME FIP #}
                     <p>This is the same programme, lead provider and delivery partner as other ECTs and mentors at your school.</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                     <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
