@@ -13,12 +13,11 @@
         <div class="govuk-grid-column-full">
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         </div>
-
+        {# Dont show this to older cohort years as they can no longer add #}
         {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
         <div class="govuk-grid-column-two-thirds">
             <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
             <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p>
-
             <div class="govuk-inset-text govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
                     <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
@@ -27,13 +26,14 @@
             </div>
         </div>
         {% endif %}
+        {# // #}
     </div>
 
-    <!-- ECT TAB -->
+    {# ECT TAB #}
     {% set ectHtml %}
-
         <!-- Contacted ECTs -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any ECT that have status contacted #}
             {% if hasAnyContactedParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                 <div class="govuk-grid-row">
@@ -75,6 +75,7 @@
 
         <!-- DfE Checking ECTs -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any ECT that have status Checking #}
             {% if hasAnyCheckingParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                 <div class="govuk-grid-row">
@@ -116,6 +117,7 @@
 
         <!-- Checking QTS -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any ECT that have status CheckingQTS #}
             {% if hasAnyCheckingQTSParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                 <div class="govuk-grid-row">
@@ -157,6 +159,7 @@
 
         <!-- Eligible to start -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any ECT that have status Eligible #}
             {% if hasAnyEligibleParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                 <div class="govuk-grid-row">
@@ -199,16 +202,14 @@
                 </table>
             {% endif %}
         {% endif %}
-
     {% endset -%}
-    <!-- // ect tab -->
+    {# // ect tab #}
 
     <!-- Mentor Tab -->
     {% set mentorHtml %}
-
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any mentors that have status Contacted #}
             {% if hasAnyContactedMentorParticipants %}
-
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
@@ -225,11 +226,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
-
             {% endif %}
         {% elif data['inductionProgramme'] == "CIP" %}
             {% if hasAnyContactedMentorParticipantsCIP %}
-
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
@@ -246,12 +245,12 @@
                         {% endfor %}
                     </tbody>
                 </table>
-
             {% endif %}
         {% endif %}
 
         <!-- DfE checking eligibility -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any mentors that have status Checking #}
             {% if hasAnyCheckingMentorParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                 <div class="govuk-grid-row">
@@ -293,6 +292,7 @@
 
         <!-- Checking QTS -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any mentors that have status CheckingQTS #}
             {% if hasAnyCheckingQTSMentorParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                 <div class="govuk-grid-row">
@@ -334,6 +334,7 @@
 
         <!-- Eligible to start -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any mentors that have status Eligible #}
             {% if hasAnyEligibleMentorParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                 <div class="govuk-grid-row">
@@ -382,9 +383,9 @@
 
     <!-- Moving schools TAB -->
     {% set transferHtml %}
-
     <!-- Moving to the school -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any users that have status TransferIn #}
             {% if hasAnyTransferInParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
                 <div class="govuk-grid-row">
@@ -426,6 +427,7 @@
 
         <!-- Moving from the school -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any users that have status TransferOut #}
             {% if hasAnyTransferOutParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
                 <div class="govuk-grid-row">
@@ -464,13 +466,13 @@
                 </table>
             {% endif %}
         {% endif %}
-
     {% endset -%}
-    <!-- // Transfer -->
+    {# // Transfer tab #}
 
     {% set nottrainingHtml %}
         <!-- Withdrawn dashboard -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any users that have status Withdrawn #}
             {% if hasAnyWithdrawnParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
                 <div class="govuk-grid-row">
@@ -486,7 +488,6 @@
                                 {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
-                        </tr>
                     </tbody>
                 </table>
             {% endif %}
@@ -514,6 +515,7 @@
 
         <!-- Not eligible dashboard -->
         {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any users that have status NotEligible #}
             {% if hasAnyNotEligibleParticipants %}
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
                 <div class="govuk-grid-row">
@@ -552,12 +554,10 @@
                 </table>
             {% endif %}
         {% endif %}
-
     {% endset -%}
-    <!-- // Not training -->
+    {# // Not training tab #}
 
-
-
+    {# Tabs #}
     {{ govukTabs({
         items: [
             { label: "ECTs", id: "ect", panel: { html: ectHtml } },
@@ -566,5 +566,6 @@
             { label: "Not training", id: "not-training", panel: { html: nottrainingHtml } }
         ]
     }) }}
+    {# // Tabs #}
 
 {% endblock %}
