@@ -18,12 +18,11 @@
 
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
-
                 <p>You can tell us this later if you’re not sure.</p>
 
                 {% if data['linkaction'] == "change-mentor" %}
-                <!-- Change from CYA -->
-                <form class="form" action="../details" method="post" >
+                    <!-- Change from CYA -->
+                    <form class="form" action="../details" method="post" >
                 {% else %}
                 <!-- Add journey -->
                     {% if data.participants[id].type == "ect" %}
@@ -32,8 +31,8 @@
                         {% elif data['inductionProgramme'] == "CIP" %}
                             <form class="form" action="current-training-materials" method="post" >
                         {% endif %}
+                    {# Transfer In #}
                     {% elif data.participants[id].type == "ectTransfer" %}
-                        <!-- TransferIn -->
                         <form class="form" action="current-training-programme" method="post" >
                     {% endif %}
                 {% endif %}

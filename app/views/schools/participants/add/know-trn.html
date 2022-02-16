@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Do you know ' + participant.name + '’s teacher reference number (TRN)?' %}    
+{% set pageHeading = 'Do you know ' + participant.name + '’s teacher reference number (TRN)?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,19 +12,19 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}             
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>We need this to confirm they’re eligible for this programme. Adding it now will help us do this more quickly.</p> 
-            <p>If you do not know it, we’ll ask {{participant.name}} to tell us instead.</p> 
-            
+            <p>We need this to confirm they’re eligible for this programme. Adding it now will help us do this more quickly.</p>
+            <p>If you do not know it, we’ll ask {{ participant.name }} to tell us instead.</p>
+
             {% if data['cya-action'] == "change-know-trn" %}
-            <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">            
-            {% else %}                                
-            <form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">                                        
-            {% endif %}                                
+            <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% else %}
+            <form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
 
                 {{ govukRadios({
-                    classes: "govuk-radios--inline",                    
+                    classes: "govuk-radios--inline",
                     fieldset: {
                     legend: {
                         text: pageHeading,
@@ -35,9 +35,9 @@
                     items: [
                         { value: "Yes, redirect(teacher-reference-number)", text: "Yes" },
                         { value: "No", text: "No" }
-                    ]                                    
-                } | decorateFormAttributes(['participants', id, 'trnKnown']) ) }} 
-                                
+                    ]
+                } | decorateFormAttributes(['participants', id, 'trnKnown']) ) }}
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
