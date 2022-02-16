@@ -2,7 +2,7 @@ const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Chris P Bacon',
   leadProvider: 'Ambition Institute',
-  deliveryPartner: 'GLF Schools'
+  deliveryPartner: 'Kings College London'
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
@@ -20,18 +20,18 @@ module.exports = {
     leadProvider,
     deliveryPartner,
     leadProviderTransfer: "Teach First",
-    deliveryPartnerTransfer: "United Learning",
+    deliveryPartnerTransfer: "Inspire Teaching School Hub",
     leadProviderMaterials: "Ambition Institue",
     leadProviderMaterialsTransfer: "Education Development Trust",
     inductionStart: 'Spring 2022',
-    linkExpire: '28 February 2022',
+    linkExpire: '2 March 2022',
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",
     // rolesexplanation: "Seen",
     participants: {
-        1234: { name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021" },
-        1235: { name: 'James Doe', email: 'james.doe@example.com', programme: "FIP", type: 'mentor', status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", },
+        ME1: { name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", usingCurrentTraining: "Yes" },
+        ME2: { name: 'James Doe', email: 'james.doe@example.com', programme: "FIP", type: 'mentor', status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", usingCurrentTraining: "Yes" },
 
         // CIP
         SI3: { dobDay: "1", dobMonth: "1", dobYear: "2001", email: "CIP ECT TRN sMaterials@test.dfe.gov.uk", mentor: "FIP Jane Doe", name: "CIP ECT TRN sMaterials", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "1231312", type: "ect", usingCurrentMaterials: "Yes" },
@@ -40,22 +40,22 @@ module.exports = {
         OBW: { email: "CIP ECT noTRN sMaterials@test.dfe.gov.uk", mentor: "Jane Doe", name: "CIP ECT noTRN sMaterials", programme: "CIP", startDate: "Summer 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentMaterials: "Yes" },
 
         //FIP
-        PQ9: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "nicola.page@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Nicola Page", partnershipWithProvider: "No", programme: "FIP", startDate: "Autumn 2021", status: "Withdrawn", trnKnown: "Yes", trnNumber: "9998567", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
-        SD2: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "jack.bracewell@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Jack Bracewell", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "NotEligible", trnKnown: "Yes", trnNumber: "2332454", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
-        EP5: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.didsbury@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Didsbury", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "324234", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
-        Z87: { dobDay: "3", dobMonth: "3", dobYear: "3333", email: "ruby.lally@test.dfe.gov.uk", newLeadProvider: "Teach First", mentor: "James Doe", name: "Ruby Lally", partnershipWithProvider: "Yes", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "3243432", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        PQ9: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "nicola.page@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Nicola Page", programme: "FIP", startDate: "Autumn 2021", status: "Withdrawn", trnKnown: "Yes", trnNumber: "9998567", type: "ect", usingCurrentTraining: "Yes"  },
+        SD2: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "jack.bracewell@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Jack Bracewell", programme: "FIP", startDate: "Spring 2022", status: "NotEligible", trnKnown: "Yes", trnNumber: "2332454", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        EP5: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.didsbury@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Didsbury", programme: "FIP", startDate: "Spring 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "324234", type: "ect", usingCurrentTraining: "Yes" },
+        Z87: { dobDay: "3", dobMonth: "3", dobYear: "3333", email: "ruby.lally@test.dfe.gov.uk", newLeadProvider: "Teach First", mentor: "James Doe", name: "Ruby Lally", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "3243432", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         IQ8: { dobDay: "12", dobMonth: "12", dobYear: "1212", email: "james.liddell@test.dfe.gov.uk", mentor: "Jane Doe", name: "James Liddell", programme: "FIP", startDate: "Spring 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "123423423", type: "ect", usingCurrentTraining: "Yes" },
-        VLT: { dobDay: "1", dobMonth: "1", dobYear: "1111", email: "steven.wood@test.dev.gov.uk", mentor: "James Doe", name: "Steven Wood", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "56756756", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "Yes" },
+        VLT: { dobDay: "1", dobMonth: "1", dobYear: "1111", email: "steven.wood@test.dev.gov.uk", mentor: "James Doe", name: "Steven Wood", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "56756756", type: "ect", usingCurrentTraining: "Yes" },
         // TranferOut Mentor
-        KJ8: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "kate.lloyd@test.dfe.gov.uk", newLeadProvider: "Ambition Institute",  name: "Kate Lloyd", partnershipWithProvider: "No", programme: "FIP", startDate: "Autumn 2021", status: "TransferOut", trnKnown: "Yes", trnNumber: "324234", type: "mentor", usingCurrentTraining: "No", usingCurrentProvider: "No", leavingDay: "10", leavingMonth: "4", leavingYear: "2023" },
+        KJ8: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "kate.lloyd@test.dfe.gov.uk", newLeadProvider: "Ambition Institute",  name: "Kate Lloyd", programme: "FIP", startDate: "Autumn 2021", status: "TransferOut", trnKnown: "Yes", trnNumber: "324234", type: "mentor", usingCurrentTraining: "Yes", leavingDay: "10", leavingMonth: "4", leavingYear: "2023" },
         // Checking with TRA
-        GH3: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.richards@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Richards", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "Checking", trnKnown: "Yes", trnNumber: "78402875", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        GH3: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.richards@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Luke Richards", programme: "FIP", startDate: "Spring 2022", status: "Checking", trnKnown: "Yes", trnNumber: "78402875", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // Checking QTS
-        DB5: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "mili.malde@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Mili Malde", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "CheckingQTS", trnKnown: "Yes", trnNumber: "1424353", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        DB5: { dobDay: "1", dobMonth: "1", dobYear: "2222", email: "mili.malde@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Mili Malde", programme: "FIP", startDate: "Spring 2022", status: "CheckingQTS", trnKnown: "Yes", trnNumber: "1424353", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // Contacted
-        BCF: { email: "noTRNdLPdDPnotTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Stanislaw Klajn", partnershipWithProvider: "No", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        BCF: { email: "noTRNdLPdDPnotTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Stanislaw Klajn", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         DN2: { email: "noTRNsLPdDP@test.dfe.gov.uk", mentor: "James Doe", name: "Tony Headford", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "Yes" },
-        PO9:  { email: "noTRNdLPdDPTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "Jane Doe", name: "Paul Hayes", partnershipWithProvider: "Yes", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        PO9:  { email: "noTRNdLPdDPTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "Jane Doe", name: "Paul Hayes", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         YZG: { email: "noTRNsProg@test.dfe.gov.uk", mentor: "James Doe", name: "Kate Thompson", programme: "FIP", startDate: "Summer 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "Yes" },
 
         // TRANSFER ECT
