@@ -413,7 +413,7 @@
                     </div>
                 </div>
                 <table class="govuk-table govuk-!-margin-bottom-9">
-                    {% include "includes/dash_cip_head.html" %}
+                    {% include "includes/dash_cip_head_transferIn.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
                             {% if participant.status == "TransferIn" and participant.programme == "CIP" %}

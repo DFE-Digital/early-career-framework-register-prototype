@@ -12,7 +12,7 @@
         {% endif %}
 
         </td>
-    <td class="govuk-table__cell">
+    {# <td class="govuk-table__cell">
         {% if data.participants[id].programmeMatch == "No" %}
             {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 {{ data.deliveryPartnerTransfer }}
@@ -24,8 +24,8 @@
         {% endif %}
 
 
-        </td>
-    <td class="govuk-table__cell govuk-table__cell--numeric">
+        </td> #}
+    <td class="govuk-table__cell">
         {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
     </td>
 </tr>

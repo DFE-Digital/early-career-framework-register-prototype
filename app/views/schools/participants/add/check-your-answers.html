@@ -126,15 +126,15 @@
                                 {% if participant.usingCurrentTrainingMaterials == "Yes" %}
                                     <!-- Check if noMatch -->
                                     {% if participant.programmeMatch == "No" %}
-                                        -USE DIFFERENT CURRENT
+
                                         <li>{{ data.leadProviderMaterials}}</li>
                                     {% else %}
-                                        -CURRENT SCHOOL MATERIALS
+
                                         <li>{{ data.leadProviderMaterials}}</li>
                                     {% endif %}
                                 <!-- Matched but using different programme  -->
                                 {% elif participant.usingCurrentTrainingMaterials == "No" %}
-                                    -DIFFERENT MATERIAL
+
                                     <!-- Check if going to use schools current materials provider -->
                                     {% if participant.usingCurrentMaterials == "Yes" %}
                                         <li>{{ data.leadProviderMaterials}}</li>
