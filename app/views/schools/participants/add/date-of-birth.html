@@ -20,7 +20,12 @@
 			  	{% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 				  	<form class="form" action="email-address" method="post">
 				{% else %}
-					<form class="form" action="joining-date" method="post">
+
+                    {% if data.participants[id].dbMatched == "Yes" %}
+                        <form class="form" action="cannot-find-your-details" method="post">
+                    {% else %}
+					    <form class="form" action="joining-date" method="post">
+                    {% endif %}
 				{% endif %}
       		{% endif %}
 
@@ -59,21 +64,15 @@
 				}) }}
 
 
-                    {# {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
 
-                         {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden",
-                            items: [
-                                { value: "Yes", text: "Yes", checked: "true" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
-
-                    {% endif %} #}
 
 
         		{{ govukButton({
           			text: "Continue"
         		}) }}
+
+
+
 
       		</form>
 
