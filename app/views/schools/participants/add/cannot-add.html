@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "You cannot add this person" %}
+{% set pageHeading = 'You cannot add ' + participant.name + '' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +12,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
+            <p>Our records show this person is not registered on an ECF-based training progamme at a different school.</p>
             <p>If you believe this is wrong, contact us for help: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
 
         </div>
