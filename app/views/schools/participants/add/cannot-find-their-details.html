@@ -17,9 +17,14 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <p class="govuk-body">Check the information you entered is correct.</p>
-            <p>We need to find {{ participant.name }} in our database so we can transfer their record to your school.</p>
 
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can check their details. This is to make sure they’re eligible for this funded programme.</p>
+            {% else %}
+                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can transfer their record to your school.</p>
+            {% endif %}
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 <!-- Name -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Name</dt>
@@ -42,7 +47,16 @@
                 </div>
             </dl>
 
-            <form class="form" action="cannot-add" method="post" >
+            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+
+                {{ govukInsetText({
+                    text: "You can still continue if you think this information is correct and we will ask {{ participant.name }} to validate their information."
+                }) }}
+
+                <form class="form" action="email-address" method="post" >
+            {% else %}
+                <form class="form" action="cannot-add" method="post" >
+            {% endif %}
                 {{ govukButton({
                     text: "Confirm and continue"
                 }) }}

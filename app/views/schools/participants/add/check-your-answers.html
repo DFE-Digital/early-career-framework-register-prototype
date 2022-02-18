@@ -168,10 +168,22 @@
 
                 <!-- Otherwise if TRN provided  -->
                 {% elif participant.trnKnown == "Yes" %}
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "Eligible"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    {% if data.participants[id].dbMatched == "Yes" %}
+
+                        {{ govukInput({
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "Contacted"
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    {% else %}
+
+                        {{ govukInput({
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "Eligible"
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    {% endif %}
 
                 <!-- Otherwise we need to contact them -->
                 {% else %}
