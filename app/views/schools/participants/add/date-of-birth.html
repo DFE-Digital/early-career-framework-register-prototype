@@ -24,6 +24,14 @@
                         {% if data['linkaction'] == "cannotFind" %}
                             <form class="form" action="email-address" method="post">
                             <input type="hidden" name="linkaction" id="linkaction" value="" />
+
+                            {{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small govuk-visually-hidden",
+                                items: [
+                                    { value: "", text: "Is not matched", checked: "true" }
+                                ]
+                            } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+
                         {% else %}
                             <form class="form" action="cannot-find-their-details" method="post">
                         {% endif %}
