@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'We cannot find ' + participant.name + '' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block pageNavigation %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">Check the information you entered is correct.</p>
+            <p>We need to find {{ participant.name }} in our database so we can transfer their record to your school.</p>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <!-- Name -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Name</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
+                <!-- TRN -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">TRN</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.trnNumber }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                </div>
+                <!-- Date of birth -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Date of birth</dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ isoDateFromDateInputs(participant['dobYear'], participant['dobMonth'], participant['dobDay']) | dateWithYear }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                </div>
+            </dl>
+
+            <form class="form" action="cannot-add" method="post" >
+                {{ govukButton({
+                    text: "Confirm and continue"
+                }) }}
+            </form>
+
+
+
+
+    </div>
+    </div>
+{% endblock %}

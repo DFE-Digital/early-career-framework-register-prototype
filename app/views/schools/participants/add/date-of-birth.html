@@ -22,7 +22,12 @@
 				{% else %}
 
                     {% if data.participants[id].dbMatched == "Yes" %}
-                        <form class="form" action="cannot-find-your-details" method="post">
+                        {% if data['linkaction'] == "cannotFind" %}
+                            <form class="form" action="joining-date" method="post">
+                            <input type="hidden" name="linkaction" id="linkaction" value="" />
+                        {% else %}
+                            <form class="form" action="cannot-find-their-details" method="post">
+                        {% endif %}
                     {% else %}
 					    <form class="form" action="joining-date" method="post">
                     {% endif %}

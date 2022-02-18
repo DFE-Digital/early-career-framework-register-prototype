@@ -27,7 +27,17 @@
 				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
 
 			{% else %}
-			<form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
+
+                {# Look for if coming from cannot find in database #}
+                    {% if data['linkaction'] == "cannotFind" %}
+                            <form class="form" action="joining-date" method="post">
+                            <input type="hidden" name="linkaction" id="linkaction" value="" />
+                    {# Otherwise normal path #}
+                    {% else %}
+                            <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
+                    {% endif %}
+
+
 			{% endif %}
 
 				{{ govukInput({
@@ -50,9 +60,9 @@
 
                     {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
                          {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small",
+                            classes: "govuk-checkboxes--small govuk-visually-hidden",
                             items: [
-                                { value: "Yes", text: "Is not matched" }
+                                { value: "Yes", text: "Is not matched", checked: "true" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
 
