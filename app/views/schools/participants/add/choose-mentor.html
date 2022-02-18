@@ -47,7 +47,7 @@
                     }) }}
 
 
-                    {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                    {# {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
                     <!-- Check if participant is TransferringIn -->
                         <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
                          {{ govukCheckboxes({
@@ -55,7 +55,7 @@
                             items: [
                                 { value: "No", text: "No match", checked: "true" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }} #}
 
 
                     {% endif %}
