@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'We cannot find ' + participant.name + '' %}
+{% set pageHeading = 'We cannot find ' + participant.name + '’s record' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,7 +19,7 @@
             <p class="govuk-body">Check the information you entered is correct.</p>
 
             {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
-                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can check their details. This is to make sure they’re eligible for this funded programme.</p>
+                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records to make sure they’re eligible for this funded programme.</p>
             {% else %}
                 <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can transfer their record to your school.</p>
             {% endif %}
@@ -49,9 +49,9 @@
 
             {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 
-                {{ govukInsetText({
-                    text: "You can still continue if you think this information is correct and we will ask {{ participant.name }} to validate their information."
-                }) }}
+                <h3 class="govuk-heading-s">If this information is correct</h3>
+
+                <p>You can still continue to register {{ participant.name }}. We'll contact them to check their information.</p>
 
                 <form class="form" action="email-address" method="post" >
             {% else %}
