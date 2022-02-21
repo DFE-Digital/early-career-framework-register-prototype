@@ -96,7 +96,20 @@
         		}) }}
 
 
+                {% if data['linkaction'] != "cannotFind" %}
 
+                <div class="govuk-!-padding-top-5">
+
+
+                         {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "No QTS", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
+
+                </div>
+                {% endif %}
 
       		</form>
 
