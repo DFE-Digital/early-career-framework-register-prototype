@@ -99,19 +99,34 @@
                 {% else %}
 
                     {% if data.participants[id].trnKnown == "Yes" %}
+
+                    <!-- Brian- the line that follows should only appear if the ECT does not have QTS -->
+
+                        <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+
+                    <!-- end of no QTS -->
+
                         <p>We’ll let this person know you’ve registered them for ECF-based training at your school. They do not need to provide us with any more information.</p>
+
                         {% if data['inductionProgramme'] == "CIP" %}
                             <p>They’ll receive a link to their training materials within 24 hours.</p>
                         {% elif data['inductionProgramme'] == "FIP" %}
+                        <!-- Brian- the line that follows should not appear if the ECT does not have QTS -->
                             <p>We’ll pass their information to their training provider.</p>
                         {% endif %}
 
-                        {% if data.participants[id].noQTS == "Yes" %}
-                             <p>{{ participant.name }} does not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
-                        {% else %}
                         <h2 class="govuk-heading-m">Eligibility for funding</h2>
+
+                        {% if data.participants[id].noQTS == "Yes" %}
+
+                             <p>{{ participant.name }} does not have qualified teacher status (QTS) yet. They need this to be eligible for funded training.</p> 
+
+                                <p>We’ll keep checking their status and notify you if something changes.</p>
+                        {% else %}
+
                         <p>Our checks have confirmed this person is eligible for funded training, and time off timetable for training and mentoring.</p>
                         {% endif %}
+
                 <!-- TRN not provided -->
                     {% elif data.participants[id].trnKnown == "No" %}
                         <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
