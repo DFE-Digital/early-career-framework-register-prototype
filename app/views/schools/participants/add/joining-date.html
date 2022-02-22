@@ -46,6 +46,16 @@
 					}
 				}) }}
 
+
+                {% if data.participants[id].existingMatch == "Yes" %}
+
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "ectTransfer"
+                    } | decorateFormAttributes(['participants', id, 'type']) ) }}
+
+                {% endif %}
+
 				{{ govukButton({
 					text: "Continue"
 				}) }}

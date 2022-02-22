@@ -78,6 +78,13 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
 
+                         {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "Existing match", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
+
                 </div>
                 {% endif %}
 

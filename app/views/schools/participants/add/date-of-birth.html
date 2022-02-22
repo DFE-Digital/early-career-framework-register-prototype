@@ -36,7 +36,12 @@
                             <form class="form" action="cannot-find-their-details" method="post">
                         {% endif %}
                     {% else %}
-				  	    <form class="form" action="email-address" method="post">
+
+                        {% if data.participants[id].existingMatch == "Yes" %}
+                            <form class="form" action="moving-from-another-school" method="post">
+                        {% else %}
+				  	        <form class="form" action="email-address" method="post">
+                        {% endif %}
                     {% endif %}
 				{% else %}
 
