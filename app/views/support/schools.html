@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Schools" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        </div>
+
+
+
+        <div class="govuk-grid-column-full">
+            <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
+            <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p>
+
+
+            <div class="govuk-grid-column-full light-grey">
+            {{ govukInput({
+                    label: {
+                        text: pageHeading,
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                    },
+                    hint: {
+                        text: "Enter the school’s name, URN or tutor email"
+                    },
+                    classes: "govuk-!-width-full"
+            } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+            </div>
+
+
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "School", classes: 'govuk-!-width-one-half' },
+                    { text: "URN" },
+                    { text: "Local Authority" },
+                    { text: "Group/network" },
+                    { text: "Induction tutor" }
+                ],
+                rows: [
+                    [
+                        { text: "16-19 Abingdon" },
+                        { text: "133226" },
+                        { text: "Oxfordshire" },
+                        { text: "" },
+                        { text: "" }
+                    ],
+                    [
+                        { text: "3 Dimensions" },
+                        { text: "134909" },
+                        { text: "Somerset" },
+                        { text: "" },
+                        { text: "" }
+                    ],
+                    [
+                        { text: "Abberley Hall" },
+                        { text: "117011" },
+                        { text: "Worcestershire" },
+                        { text: "" },
+                        { text: "" }
+                    ],
+                    [
+                        { text: "Ashley Primary School" },
+                        { text: "108685" },
+                        { text: "South Tyneside" },
+                        { text: "" },
+                        { text: "jmccormick@ashley.s-tyneside.sch.uk" }
+                    ],
+                    [
+                        { text: "Easingwold Community Primary School" },
+                        { text: "121331" },
+                        { text: "North Yorkshire" },
+                        { text: "" },
+                        { text: "headteacher@easingwold-pri.n-yorks.sch.uk" }
+                    ],
+                    [
+                        { text: "Gosforth Academy" },
+                        { text: "136352" },
+                        { text: "Newcastle upon Tyne" },
+                        { text: "" },
+                        { text: "suzanne.pringle@ga.newcastle.sch.uk" }
+                    ],
+                    [
+                        { text: "Huntington School" },
+                        { text: "121673" },
+                        { text: "York" },
+                        { text: "" },
+                        { text: "a.talbot@huntington-ed.org.uk" }
+                    ],
+                    [
+                        { text: "Ponteland Primary School" },
+                        { text: "145780" },
+                        { text: "Northumberland" },
+                        { text: "" },
+                        { text: "m.warland@ponthigh.org.uk" }
+                    ],
+                    [
+                        { text: "Westmoor Primary School" },
+                        { text: "108582" },
+                        { text: "North Tyneside" },
+                        { text: " " },
+                        { text: " " }
+                    ]
+                ]
+            }) }}
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
