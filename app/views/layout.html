@@ -61,7 +61,30 @@
       }
     ] if schoolSignedIn or isAdmin
   }) }}
-  {% block adminPrimaryNav %}{% endblock %}
+
+
+{% if showadminPrimaryNav == true %}
+    {% block adminPrimaryNav %}
+        <div class="primary-nav-container">
+            <div class="govuk-width-container">
+                <div class="primary-nav">
+                    <div class="nav-item nav-item__selected">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/schools">Schools<span class="govuk-visually-hidden">Current page</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/participants">Participants</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/suppliers">Suppliers</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/administrators">Admin users</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endif %}
 {% endblock %}
 
 {% block beforeContent %}

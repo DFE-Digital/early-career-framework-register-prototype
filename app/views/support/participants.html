@@ -3,7 +3,7 @@
 {% set schoolSignedIn = false %}
 {% set showadminPrimaryNav = true %}
 
-{% set pageHeading = "Schools" %}
+{% set pageHeading = "Participants" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -12,19 +12,37 @@
         <div class="govuk-grid-column-full">
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-full  light-grey govuk-!-padding-top-4 govuk-!-margin-bottom-3">
+            <div class="govuk-grid-row light-grey govuk-!-padding-top-4 govuk-!-margin-bottom-3">
+                <div class="govuk-grid-column-two-thirds ">
                 {{ govukInput({
                         label: {
-                            text: "Search schools",
-                            classes: "govuk-label--s",
+                            text: "Participant’s name, school’s name or URN",
+                            classes: "govuk-label",
                             isPageHeading: false
-                        },
-                        hint: {
-                            text: "Enter the school’s name, URN or tutor email"
                         },
                         classes: "govuk-!-width-full"
                 } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+                </div>
+
+                <div class="govuk-grid-column-one-third  ">
+
+                {{ govukSelect({
+                        label: {
+                            text: "Filter by type",
+                            classes: "govuk-label",
+                            isPageHeading: false
+                        },
+                        items: [
+                            { value: "", text: "" },
+                            { value: "ect", text: "ECT" },
+                            { value: "mentor", text: "Mentor" },
+                            { value: "npq", text: "NPQ" }
+                        ],
+                        classes: "govuk-!-width-full"
+                } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+
+                </div>
+                <div class="govuk-grid-column-full">
 
                 {{ govukButton({
                     text: "Search"
@@ -42,73 +60,83 @@
                 captionClasses: "govuk-table__caption--m govuk-visually-hidden",
                 firstCellIsHeader: false,
                 head: [
-                    { text: "School", classes: 'govuk-!-width-one-half' },
-                    { text: "URN" },
-                    { text: "Local Authority" },
-                    { text: "Group/network" },
-                    { text: "Induction tutor", classes: 'govuk-!-width-one-quarter' }
+                    { text: "Full name" },
+                    { text: "Role" },
+                    { text: "School", classes: 'govuk-!-width-one-quarter' },
+                    { text: "School URM/network" },
+                    { text: "Date added" },
+                    { text: "Validation status", classes: 'govuk-!-width-one-quarter' }
                 ],
                 rows: [
                     [
+                        { text: "Dean Winchester" },
+                        { text: "Mentor" },
                         { text: "16-19 Abingdon" },
                         { text: "133226" },
-                        { text: "Oxfordshire" },
                         { text: "" },
                         { text: "" }
                     ],
                     [
+                        { text: "Bruce Wayne" },
+                        { text: "Mentor" },
                         { text: "3 Dimensions" },
                         { text: "134909" },
-                        { text: "Somerset" },
                         { text: "" },
                         { text: "" }
                     ],
                     [
+                        { text: "Luke Skywalker" },
+                        { text: "Mentor" },
                         { text: "Abberley Hall" },
                         { text: "117011" },
-                        { text: "Worcestershire" },
                         { text: "" },
                         { text: "" }
                     ],
                     [
+                        { text: "Sam Winchester" },
+                        { text: "NPQ" },
                         { text: "Ashley Primary School" },
                         { text: "108685" },
-                        { text: "South Tyneside" },
                         { text: "" },
-                        { text: "jmccormick@ashley.s-tyneside.sch.uk" }
+                        { text: "" }
                     ],
                     [
+                        { text: "Damon Salvatore" },
+                        { text: "Mentor" },
                         { text: "Easingwold Community Primary School" },
                         { text: "121331" },
-                        { text: "North Yorkshire" },
                         { text: "" },
-                        { text: "headteacher@easingwold-pri.n-yorks.sch.uk" }
+                        { text: "" }
                     ],
                     [
+                        { text: "Bakki Hammnah" },
+                        { text: "ECT" },
                         { text: "Gosforth Academy" },
                         { text: "136352" },
-                        { text: "Newcastle upon Tyne" },
                         { text: "" },
-                        { text: "suzanne.pringle@ga.newcastle.sch.uk" }
+                        { text: "" }
                     ],
                     [
+                        { text: "Steven Rogers" },
+                        { text: "Mentor" },
                         { text: "Huntington School" },
                         { text: "121673" },
-                        { text: "York" },
                         { text: "" },
-                        { text: "a.talbot@huntington-ed.org.uk" }
+                        { text: "" }
                     ],
                     [
+                        { text: "Natasha Romanoff" },
+                        { text: "NPQ" },
                         { text: "Ponteland Primary School" },
                         { text: "145780" },
-                        { text: "Northumberland" },
                         { text: "" },
-                        { text: "m.warland@ponthigh.org.uk" }
+                        { text: "" }
                     ],
                     [
+                        { text: "Peter Parker" },
+                        { text: "ECT" },
                         { text: "Westmoor Primary School" },
                         { text: "108582" },
-                        { text: "North Tyneside" },
                         { text: " " },
                         { text: " " }
                     ]

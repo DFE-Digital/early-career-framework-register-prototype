@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "Suppliers" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+    <ul class="app-subnav__list">
+      <li class="app-subnav__list-item app-subnav__list-item--selected">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="#">
+          All suppliers
+        </a>
+      </li>
+      <li class="app-subnav__list-item">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="#">
+          All users
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+            <p>Manage your lead providers and delivery partners supplying training.</p>
+
+
+                {{ govukButton({
+                    text: "Add a new delivery partner"
+
+                }) }}
+
+
+
+
+
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "Supplier", classes: 'govuk-!-width-one-half' },
+                    { text: "Supplier type", classes: 'govuk-!-width-one-quarter' }
+                ],
+                rows: [
+                    [
+                        { text: "Ambition Institute" },
+                        { text: "Lead provider" }
+                    ],
+                    [
+                        { text: "Best Practice Network" },
+                        { text: "Lead provider" }
+                    ],
+                    [
+                        { text: "Tech First" },
+                        { text: "Lead provider" }
+                    ],
+                    [
+                        { text: "UCL Institute of Education" },
+                        { text: "Lead provider" }
+                    ],
+                    [
+                        { text: "Academy Transformation Trust" },
+                        { text: "Delivery partner" }
+                    ],
+                    [
+                        { text: "Elliot Foundation" },
+                        { text: "Delivery partner" }
+                    ],
+                    [
+                        { text: "Nova Education Trust" },
+                        { text: "Delivery partner" }
+                    ],
+                    [
+                        { text: "South Yorkshire Teaching School Hub" },
+                        { text: "Delivery partner" }
+                    ],
+                    [
+                        { text: "United Learning Trust" },
+                        { text: "Delivery partner" }
+                    ]
+                ]
+            }) }}
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
