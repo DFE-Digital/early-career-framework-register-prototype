@@ -1,9 +1,40 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set schoolSignedIn = true %}
+{% set schoolSignedIn = false %}
 
 {% set pageHeading = "Schools" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block adminPrimaryNav %}
+<div class="primary-nav-container">
+  <div class="govuk-width-container">
+    <div class="primary-nav">
+      <div class="nav-item nav-item__selected">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Schools
+          <span class="govuk-visually-hidden">Current page</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Participants
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Suppliers
+        </a>
+      </div>
+      <div class="nav-item">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">
+          Admin users
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 
 {% block content %}
 
@@ -12,18 +43,11 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         </div>
 
-
-
-        <div class="govuk-grid-column-full">
-            <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
-            <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p>
-
-
-            <div class="govuk-grid-column-full light-grey">
+        <div class="govuk-grid-column-two-thirds">
             {{ govukInput({
                     label: {
-                        text: pageHeading,
-                        classes: "govuk-label--m",
+                        text: "Search schools",
+                        classes: "govuk-label--s",
                         isPageHeading: false
                     },
                     hint: {
@@ -31,8 +55,14 @@
                     },
                     classes: "govuk-!-width-full"
             } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
-            </div>
 
+            {{ govukButton({
+                text: "Search"
+
+            }) }}
+        </div>
+
+        <div class="govuk-grid-column-full">
 
             {{ govukTable({
                 caption: "Schools",
@@ -43,7 +73,7 @@
                     { text: "URN" },
                     { text: "Local Authority" },
                     { text: "Group/network" },
-                    { text: "Induction tutor" }
+                    { text: "Induction tutor", classes: 'govuk-!-width-one-quarter' }
                 ],
                 rows: [
                     [
