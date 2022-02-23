@@ -19,20 +19,21 @@ module.exports = router => {
     next()
   })
 
-
-
-
   router.all('/support/schools', (req, res, next) => {
     const participants = req.session.data.schools
     next()
   })
 
-  router.all('/support/schools/add', (req, res) => {
-    res.redirect(`/support/schools/${generateRandomString()}/index`)
+  router.all('/support/schools/:id/', (req, res) => {
+    res.render('support/schools/overview')
   })
 
-  router.all('/support/schools/:id', (req, res) => {
-    res.render('support/schools/index')
+  router.all('/support/schools/:id/participants', (req, res) => {
+    res.render('support/schools/participants')
+  })
+
+  router.all('/support/schools/:id/participants/:view', (req, res) => {
+    res.render(`support/schools/participants/${req.params.view}`)
   })
 
 
