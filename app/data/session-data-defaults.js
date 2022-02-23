@@ -79,5 +79,9 @@ module.exports = {
         // LLK: { dobDay: "1", dobMonth: "1", dobYear: "1990", email: "CIP TR ECT sProg@test.dfe.gov.uk", joiningDay: "6", joiningMonth: "4", joiningYear: "2023", mentor: "FIP James Doe", name: "CIP TR ECT Match sProg", programme: "CIP", status: "TransferIn", trnNumber: "56756756", type: "ectTransfer", usingCurrentTrainingMaterials: "Yes" }
 
 
-    }
+    },
+    schools: {
+        ND1: { name: '16-19 Abingdon ', localAuthority: 'Oxfordshire' },
+        ND2: { name: '3 Dimensions', localAuthority: "Somerset"},
+
 }
