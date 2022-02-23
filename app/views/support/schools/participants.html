@@ -26,6 +26,74 @@
             <p>No participants found for this school.</p>
 
 
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "Full name" },
+                    { text: "Role" },
+                    { text: "Cohort" },
+                    { text: "Validation status", classes: 'govuk-!-width-one-quarter' }
+                ],
+                rows: [
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Dean Winchester</a>' },
+                        { text: "Mentor" },
+                        { text: "20 Jul 2021" },
+                        { text: "Eligible to start" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Bruce Wayne' },
+                        { text: "Mentor" },
+                        { text: "29 Oct 2021" },
+                        { text: "Eligible to start" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Luke Skywalker' },
+                        { text: "Mentor" },
+                        { text: "15 Jul 2021" },
+                        { text: "Eligible to start: ERO" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Sam Winchester' },
+                        { text: "NPQ" },
+                        { text: "29 Sep 2021" },
+                        { text: "Pending" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Damon Salvatore' },
+                        { text: "Mentor" },
+                        { text: "29 Sep 2021" },
+                        { text: "Eligible to start" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Bakki Hammnah' },
+                        { text: "ECT" },
+                        { text: "16 Feb 2021" },
+                        { text: "Eligible to start" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Steven Rogers' },
+                        { text: "Mentor" },
+                        { text: "29 Sep 2021" },
+                        { text: "Pending" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Natasha Romanoff' },
+                        { text: "NPQ" },
+                        { text: "29 Sep 2021" },
+                        { text: "Pending" }
+                    ],
+                    [
+                        { html: '<a href="/support/participant" class="govuk-link govuk-link--no-visited-state">Peter Parker' },
+                        { text: "ECT" },
+                        { text: "11 Aug 2021" },
+                        { text: "Eligible to start" }
+                    ]
+                ]
+            }) }}
+
         </div>
     </div>
 
