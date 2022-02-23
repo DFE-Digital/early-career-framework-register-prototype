@@ -13,6 +13,17 @@ module.exports = router => {
 
   router.all('/support/schools', (req, res, next) => {
     const participants = req.session.data.schools
+    // res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
+    // res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP"  )
+    // res.locals.hasAnyEligibleMentorParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "CIP" )
+    next()
+  })
+
+
+
+
+  router.all('/support/schools', (req, res, next) => {
+    const participants = req.session.data.schools
     next()
   })
 
@@ -20,7 +31,7 @@ module.exports = router => {
     res.redirect(`/support/schools/${generateRandomString()}/index`)
   })
 
-  router.all('/supports/schools/:id', (req, res) => {
+  router.all('/support/schools/:id', (req, res) => {
     res.render('support/schools/index')
   })
 

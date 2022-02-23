@@ -81,7 +81,14 @@ module.exports = {
 
     },
     schools: {
-        ND1: { name: '16-19 Abingdon ', localAuthority: 'Oxfordshire' },
-        ND2: { name: '3 Dimensions', localAuthority: "Somerset"},
-
+        SC1: { name: '16-19 Abingdon ', localAuthority: 'Oxfordshire', urn: '133226' },
+        SC2: { name: '3 Dimensions', localAuthority: "Somerset", urn: '134909' },
+        SC3: { name: 'Abberley Hall', localAuthority: "Worcestershire", urn: '117011' },
+        SC4: { name: 'Ashley Primary School', localAuthority: "South Tyneside", urn: '108685', inductionEmail: 'jmccormick@ashley.s-tyneside.sch.uk', inductionName: 'Joanne McCormick' },
+        SC5: { name: 'Easingwold Community Primary School', localAuthority: "North Yorkshire", urn: '121331', inductionEmail: 'headteacher@easingwold-pri.n-yorks.sch.uk', inductionName: 'Alison Cottrell' },
+        SC6: { name: 'Gosforth Academy', localAuthority: "Newcastle upon Tyne", urn: '136352', inductionEmail: 'suzanne.pringle@ga.newcastle.sch.uk', inductionName: 'Suzanne Pringle' },
+        SC7: { name: 'Huntington School', localAuthority: "York", urn: '121673', inductionEmail: 'a.talbot@huntington-ed.org.uk', inductionName: 'Alister Talbot' },
+        SC8: { name: 'Ponteland Primary School', localAuthority: "Northumberland", urn: '145780', inductionEmail: 'm.warland@ponthigh.org.uk', inductionName: 'Mark Warland' },
+        SC9: { name: 'Westmoor Primary School', localAuthority: "North Tyneside	", urn: '108582' },
+    }
 }

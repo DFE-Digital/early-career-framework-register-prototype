@@ -33,88 +33,22 @@
                 </div>
             </div>
 
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_support_schools_head.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, school in data.schools %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/support/schools/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
+                        <td class="govuk-table__cell">{{ school.urn }}</td>
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{{ school.localAuthority }}</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{{ school.inductionEmail }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-            {{ govukTable({
-                caption: "Schools",
-                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-                firstCellIsHeader: false,
-                head: [
-                    { text: "School", classes: 'govuk-!-width-one-half' },
-                    { text: "URN" },
-                    { text: "Local Authority" },
-                    { text: "Group/network" },
-                    { text: "Induction tutor", classes: 'govuk-!-width-one-quarter' }
-                ],
-                rows: [
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">16-19 Abingdon</a>' },
-                        { text: "133226" },
-                        { text: "Oxfordshire" },
-                        { text: "" },
-                        { text: "" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">3 Dimensions</a>' },
-                        { text: "134909" },
-                        { text: "Somerset" },
-                        { text: "" },
-                        { text: "" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Abberley Hall</a>' },
-                        { text: "117011" },
-                        { text: "Worcestershire" },
-                        { text: "" },
-                        { text: "" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Ashley Primary School</a>' },
-                        { text: "108685" },
-                        { text: "South Tyneside" },
-                        { text: "" },
-                        { text: "jmccormick@ashley.s-tyneside.sch.uk" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Easingwold Community Primary School</a>' },
-                        { text: "121331" },
-                        { text: "North Yorkshire" },
-                        { text: "" },
-                        { text: "headteacher@easingwold-pri.n-yorks.sch.uk" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Gosforth Academy</a>' },
-                        { text: "136352" },
-                        { text: "Newcastle upon Tyne" },
-                        { text: "" },
-                        { text: "suzanne.pringle@ga.newcastle.sch.uk" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Huntington School</a>' },
-                        { text: "121673" },
-                        { text: "York" },
-                        { text: "" },
-                        { text: "a.talbot@huntington-ed.org.uk" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Ponteland Primary School</a>' },
-                        { text: "145780" },
-                        { text: "Northumberland" },
-                        { text: "" },
-                        { text: "m.warland@ponthigh.org.uk" }
-                    ],
-                    [
-                        { html: '<a href="schools/" class="govuk-link govuk-link--no-visited-state">Westmoor Primary School</a>' },
-                        { text: "108582" },
-                        { text: "North Tyneside" },
-                        { text: " " },
-                        { text: " " }
-                    ]
-                ]
-            }) }}
+        </div>
     </div>
-
-    </div>
-
-
 
 {% endblock %}
