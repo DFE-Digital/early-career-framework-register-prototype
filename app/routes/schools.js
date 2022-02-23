@@ -24,7 +24,7 @@ module.exports = router => {
     next()
   })
 
-  router.all('/support/schools/:id/', (req, res) => {
+  router.all('/support/schools/:id/overview', (req, res) => {
     res.render('support/schools/overview')
   })
 
@@ -34,6 +34,14 @@ module.exports = router => {
 
   router.all('/support/schools/:id/participants/:view', (req, res) => {
     res.render(`support/schools/participants/${req.params.view}`)
+  })
+
+  router.all('/support/schools/:id/cohorts', (req, res) => {
+    res.render('support/schools/cohorts')
+  })
+
+  router.all('/support/schools/:id/cohorts/:view', (req, res) => {
+    res.render(`support/schools/cohorts/${req.params.view}`)
   })
 
 
