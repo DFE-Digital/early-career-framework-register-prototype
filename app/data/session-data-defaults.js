@@ -84,7 +84,7 @@ module.exports = {
         SC1: { name: '16-19 Abingdon ', localAuthority: 'Oxfordshire', urn: '133226' },
         SC2: { name: '3 Dimensions', localAuthority: "Somerset", urn: '134909' },
         SC3: { name: 'Abberley Hall', localAuthority: "Worcestershire", urn: '117011' },
-        SC4: { name: 'Ashley Primary School', localAuthority: "South Tyneside", urn: '108685', inductionEmail: 'jmccormick@ashley.s-tyneside.sch.uk', inductionName: 'Joanne McCormick' },
+        SC4: { name: 'Ashley Primary School', localAuthority: "South Tyneside", urn: '108685', inductionEmail: 'jmccormick@ashley.s-tyneside.sch.uk', inductionName: 'Joanne McCormick', programme: 'DfE-approved training provider', deliveryPartner: 'Mega Delivery Partner', leadProvider: 'Ambition Institute' },
         SC5: { name: 'Easingwold Community Primary School', localAuthority: "North Yorkshire", urn: '121331', inductionEmail: 'headteacher@easingwold-pri.n-yorks.sch.uk', inductionName: 'Alison Cottrell' },
         SC6: { name: 'Gosforth Academy', localAuthority: "Newcastle upon Tyne", urn: '136352', inductionEmail: 'suzanne.pringle@ga.newcastle.sch.uk', inductionName: 'Suzanne Pringle' },
         SC7: { name: 'Huntington School', localAuthority: "York", urn: '121673', inductionEmail: 'a.talbot@huntington-ed.org.uk', inductionName: 'Alister Talbot' },

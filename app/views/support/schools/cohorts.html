@@ -28,32 +28,28 @@
 
                     <h3 class="govuk-heading-m">2021 to 2022 starters</h3>
 
-                    {{ govukSummaryList({
-                        classes: 'app-summary-list-fix',
-                        rows: [
-                            {
-                                key: { text: "Induction programme" },
-                                value: { text: "DfE-approved training provider" }
-                            },
-                            {
-                                key: { text: "Lead provider"},
-                                value: { text: "Ambition Institute" },
-                                actions: {
-                                    items: [
-                                        {
-                                            href: "/support/change-lead-provider",
-                                            text: "Change",
-                                            visuallyHiddenText: "lead provider"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                key: { text: "Delivery partner" },
-                                value: { text: "Mega Delivery Partner" }
-                            }
-                        ]
-                    }) }}
+
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Induction programme</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].programme }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Lead provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].leadProvider }}</dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="change-lead-provider">Change
+                                <span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].deliveryPartner }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                    </dl>
+
 
                     <h3 class="govuk-heading-m">2022 to 2023 starters</h3>
                     {{ govukSummaryList({

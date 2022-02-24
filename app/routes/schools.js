@@ -36,6 +36,14 @@ module.exports = router => {
     res.render(`support/schools/participants/${req.params.view}`)
   })
 
+  router.all('/support/schools/:id/change-lead-provider', (req, res) => {
+    res.render('support/schools/change-lead-provider/why-are-you-changing')
+  })
+
+  router.all('/support/schools/:id/change-lead-provider/:view', (req, res) => {
+    res.render(`support/schools/change-lead-provider/${req.params.view}`)
+  })
+
   router.all('/support/schools/:id/cohorts', (req, res) => {
     res.render('support/schools/cohorts')
   })
