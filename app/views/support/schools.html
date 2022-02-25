@@ -14,22 +14,23 @@
 
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-full  light-grey govuk-!-padding-top-4 govuk-!-margin-bottom-3">
-                {{ govukInput({
-                        label: {
-                            text: "Search schools",
-                            classes: "govuk-label--s",
-                            isPageHeading: false
-                        },
-                        hint: {
-                            text: "Enter the school’s name, URN or tutor email"
-                        },
-                        classes: "govuk-!-width-full"
-                } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
 
-                {{ govukButton({
-                    text: "Search"
+                    {{ govukInput({
+                            label: {
+                                text: "Search schools",
+                                classes: "govuk-label--s",
+                                isPageHeading: false
+                            },
+                            hint: {
+                                text: "Enter the school’s name, URN or tutor email"
+                            },
+                            classes: "govuk-!-width-full"
+                    } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
 
-                }) }}
+                    {{ govukButton({
+                        text: "Search"
+                    }) }}
+
                 </div>
             </div>
 
@@ -40,9 +41,9 @@
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell govuk-!-width-one-third"><a href="/support/schools/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
                         <td class="govuk-table__cell">{{ school.urn }}</td>
-                        <td class="govuk-table__cell govuk-!-width-one-quarter">{{ school.localAuthority }}</td>
-                        <td class="govuk-table__cell"></td>
-                        <td class="govuk-table__cell govuk-!-width-one-quarter">{{ school.inductionEmail }}</td>
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].localAuthority %}{{ school.localAuthority }}{% else %}-{% endif %}</td>
+                        <td class="govuk-table__cell">-</td>
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].inductionEmail %}{{ school.inductionEmail }}{% else %}-{% endif %}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
