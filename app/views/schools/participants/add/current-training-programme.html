@@ -2,8 +2,12 @@
 {% set schoolSignedIn = true %}
 
 {% if data['inductionProgramme'] == "CIP" %}
-    {% set pageHeading = 'Will ' + participant.name + ' continue with their current materials?' %}
-{% else %}
+    {% if data.participants[id].type == "mentor" %}
+        {% set pageHeading = 'Will ' + participant.name + ' continue mentoring ECTs using the same materials?' %}
+    {% else %}
+        {% set pageHeading = 'Will ' + participant.name + ' continue with their current materials?' %}
+    {% endif %}
+{% elif data['inductionProgramme'] == "FIP" %}
     {% set pageHeading = 'Will ' + participant.name + ' continue with their current training programme?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -16,50 +20,57 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- This person is going to be on a different programme -->
-            {% if data.participants[id].programmeMatch == "No" %}
-
-                {% if data['inductionProgramme'] == "CIP" %}
-                    <p>These are different materials to those used by other ECTs at your school.</p>
+            {% if data['inductionProgramme'] == "CIP" %}
+                {# Not training on the schools default programme #}
+                {% if data.participants[id].programmeMatch == "No" %}
+                    <p>These are different materials to those used by other ECTs and mentors at your school.</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
-                    <p>ACME Supplier</p>
-                {% elif data['inductionProgramme'] == "FIP" %}
-                    <p>This is a different programme to other ECTs at your school.</p>
-                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
-                    <p class="govuk-!-margin-bottom-1">ACME Provider</p>
-
-                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
-                    <p>ACME Delivery Partner</p>
-                {% endif %}
-
-            {% else %}
-
-                {% if data['inductionProgramme'] == "CIP" %}
-                    <p>These are the same materials used by other ECTs at your school.</p>
+                    <p>{{ data.leadProviderMaterialsTransfer }}</p>
+                    <form class="form" action="current-training-materials" method="post" >
+                {# Training on the schools default programme #}
+                {% else %}
+                    <p>These are the same materials used by other ECTs and mentors at your school</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
                     <p>{{ data.leadProviderMaterials }}</p>
+                    <form class="form" action="which-supplier" method="post" >
+                {% endif %}
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: true,
+                                classes: "govuk-visually-hidden"
+                            }
+                            },
+                            items: [
+                                { value: "Yes, redirect(check-your-answers)", text: "Yes" },
+                                { value: "No", text: "No" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingMaterials']) ) }}
+
+            {% elif data['inductionProgramme'] == "FIP" %}
+                {# Not training on the schools default programme #}
+                {% if data.participants[id].programmeMatch == "No" %}
+
+                {# DIFFERENT FIP #}
+                    <p>This is a different programme to other ECTs and mentors at your school.</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+                    <p class="govuk-!-margin-bottom-1">{{ data.leadProviderTransfer }}</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+                    <p>{{ data.deliveryPartnerTransfer }}</p>
+                    <form class="form" action="current-providers" method="post" >
+                {# Training on the schools default programme #}
                 {% else %}
-                    <p>This is the same programme, lead provider and delivery partner as other ECTs at your school.</p>
+
+                {# SAME FIP #}
+                    <p>This is the same programme, lead provider and delivery partner as other ECTs and mentors at your school.</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
                     <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
                     <p>{{ data.deliveryPartner }}</p>
+                    <form class="form" action="provider" method="post" >
                 {% endif %}
-
-            {% endif %}
-            <!-- // -->
-
-            {% if data['linkaction'] == "change-programme-check" %}
-                <form class="form" action="../details" method="post" >
-
-
-
-
-
-            {% elif data.participants[id].programmeMatch == "No"%}
-
-                {% if data['inductionProgramme'] == "CIP" %}
-                    <form class="form" action="check-your-answers" method="post" >
                         {{ govukRadios({
                             classes: "govuk-radios--inline",
                             fieldset: {
@@ -70,75 +81,12 @@
                             }
                             },
                             items: [
-                                { value: "Yes", text: "Yes" },
-                                { value: "No, redirect(current-training-materials)", text: "No" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingMaterials']) ) }}
-
-                {% elif data['inductionProgramme'] == "FIP" %}
-                    <form class="form" action="current-providers" method="post" >
-                        {{ govukRadios({
-                            classes: "govuk-radios--inline",
-                            fieldset: {
-                            legend: {
-                                text: pageHeading,
-                                isPageHeading: true,
-                                classes: "govuk-visually-hidden"
-                            }
-                            },
-                            items: [
-                                { value: "Yes, redirect(confirm-partnership)", text: "Yes" },
+                                { value: "Yes, redirect(check-your-answers)", text: "Yes" },
                                 { value: "No", text: "No" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
 
-                {% endif %}
-
-
-            {% else %}
-
-
-            {% if data['inductionProgramme'] == "CIP" %}
-
-            <form class="form" action="which-supplier" method="post" >
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    fieldset: {
-                    legend: {
-                        text: pageHeading,
-                        isPageHeading: true,
-                        classes: "govuk-visually-hidden"
-                    }
-                    },
-                    items: [
-                        { value: "Yes, redirect(check-your-answers)", text: "Yes" },
-                        { value: "No", text: "No" }
-                    ]
-                } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingMaterials']) ) }}
-
-            {% else %}
-
-
-                <form class="form" action="provider" method="post" >
-                    {{ govukRadios({
-                        classes: "govuk-radios--inline",
-                        fieldset: {
-                        legend: {
-                            text: pageHeading,
-                            isPageHeading: true,
-                            classes: "govuk-visually-hidden"
-                        }
-                        },
-                        items: [
-                            { value: "Yes, redirect(check-your-answers)", text: "Yes" },
-                            { value: "No", text: "No" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'usingCurrentTrainingProgramme']) ) }}
-
-                {% endif %}
-
             {% endif %}
-
 
                 {{ govukButton({
                     text: "Continue"

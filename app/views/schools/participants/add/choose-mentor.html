@@ -16,25 +16,24 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
-
                 <p>You can tell us this later if you’re not sure.</p>
 
                 {% if data['linkaction'] == "change-mentor" %}
-                <!-- Change from CYA -->
-                <form class="form" action="../details" method="post" >
+                    <!-- Change from CYA -->
+                    <form class="form" action="../details" method="post" >
                 {% else %}
-                <!-- Not CYA change -->
+
+                {# Add journey #}
                     {% if data.participants[id].type == "ect" %}
                         {% if data['inductionProgramme'] == "FIP" %}
                             <form class="form" action="current-providers" method="post" >
                         {% elif data['inductionProgramme'] == "CIP" %}
                             <form class="form" action="current-training-materials" method="post" >
                         {% endif %}
+                {# Transfer Journey #}
                     {% elif data.participants[id].type == "ectTransfer" %}
-                        <!-- TransferIn -->
                         <form class="form" action="current-training-programme" method="post" >
                     {% endif %}
                 {% endif %}
@@ -48,16 +47,17 @@
                     }) }}
 
 
-                    {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                    {# {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
                     <!-- Check if participant is TransferringIn -->
                         <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small",
+                         {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden",
                             items: [
-                                { value: "No", text: "No match" }
+                                { value: "No", text: "No match", checked: "true" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
-                        <!-- // -->
+                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }} #}
+
+
                     {% endif %}
 
                 </form>

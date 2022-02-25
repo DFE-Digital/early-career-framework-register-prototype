@@ -16,24 +16,29 @@
 
                 {{ govukRadios({
                     items: [
-                    { value: "ect", text: "A new ECT" },
-                    { value: "ectTransfer, redirect(what-we-need)", text: "An ECT transferring from another school where they’ve started their induction", hint: { text: "" } },
-                    { value: "mentor", text: "A new mentor" },
-                    { value: "mentorTransfer, redirect(what-we-need)", text: "A mentor transferring from another school where they mentor ECTs", hint: { text: "" } }
+                        { value: "ectTransfer, redirect(what-we-need)", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
+                        { value: "ect", text: "A new ECT" },
+                        { value: "mentor", text: "A new mentor" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'type']) ) }}
 
+                <!-- Assign programme type -->
+                {% if data['inductionProgramme'] == "CIP" %}
+                <!-- CIP -->
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "CIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
 
-                {% if data['inductionProgramme'] == "FIP" %}
+
+                {% else %}
+                <!-- FIP -->
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "FIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
-                {% elif data['inductionProgramme'] == "CIP" %}
-                    {{ govukInput({
-                        classes: "govuk-visually-hidden",
-                        value: "FIP"
-                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
+
                 {% endif %}
 
                 {{ govukButton({

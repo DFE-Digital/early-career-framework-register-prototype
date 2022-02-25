@@ -15,6 +15,10 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/task-list";
 @import "patterns/related-items";
 
+// Admin styles ported from live
+@import "components/_subnav";
+@import "components/_primary-nav";
+
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 // TODO: Temporary fix

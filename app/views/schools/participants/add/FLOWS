@@ -6,9 +6,7 @@ FIP ECT
                             |   NO  =   > Provider
                                             usingCurrentProvider    |   YES =   > Check your answers (Show default provder and dp to be confirmed)
                                                                         NO  =   > which-provider
-                                                                                    newLeadprovider |   =   > Partnership
-                                                                                                                partnershipWithProvider |   YES =   > Check your answers
-                                                                                                                                            NO  =   > Check > Check your answers
+                                                                                    newLeadprovider |   =   > Check your answers
 
 FIP ECT transfer
 
@@ -18,28 +16,20 @@ Match
                                     |   NO  =   > Provider
                                                     usingCurrentProvider    |   YES =   > Check your answers (Show default provder and dp to be confirmed)
                                                                                 NO  =   > which-provider
-                                                                                            newLeadprovider |   =   > Partnership
-                                                                                                                        partnershipWithProvider |   YES =   > Check your answers
-                                                                                                                                                    NO  =   > Check > Check your answers
+                                                                                            newLeadprovider |   =   Check your answers
 
 
 FIP ECT transfer
 
 No Match
 > Current providers
-    usingCurrentTrainingProgramme   |   YES =   > Confirm-partnership
-                                                    partnershipWithProvider |   Yes =   > Check your answers
-                                                                            |   No  =   > Check > Check your answers
+    usingCurrentTrainingProgramme   |   YES =   > Check your answers
                                     |   NO  =   > Current providers
-                                                    usingCurrentTraining    |   Yes =   > Confirm-partnership
-                                                                                            partnershipWithProvider |   Yes =   > Check your answers
-                                                                                                                    |   No  =   > Check > Check your answers
+                                                    usingCurrentTraining    |   Yes =   > Check your answers
                                                                             |   No  =   >  Provider
                                                                                             usingCurrentProvider    |   YES =   > Check your answers (Show default provder and dp to be confirmed)
                                                                                                                         NO  =   > which-provider
-                                                                                                                                    newLeadprovider |   =   > Partnership
-                                                                                                                                                                partnershipWithProvider |   YES =   > Check your answers
-                                                                                                                                                                                            NO  =   > Check > Check your answers
+                                                                                                                                    newLeadprovider |   =   > Check your answers
 
 CIP ECT
 
