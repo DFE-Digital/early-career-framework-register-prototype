@@ -13,8 +13,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-            <form method="post" action="change-lead-provider/switching-guidance" />
+            <form class="form"  method="post" action="change-lead-provider/switching-guidance" />
 
                 {{ govukRadios({
                     fieldset: {
@@ -28,7 +27,7 @@
                         { text: "The school has challenged the partnership" },
                         { text: "The school is switching to a different provider" }
                     ]
-                } | decorateFormAttributes(['schools', 'why-changing']) ) }}
+                } | decorateFormAttributes(['schools', id, 'why-changing']) ) }}
 
                 {{ govukButton({
                     text: "Continue"

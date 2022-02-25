@@ -37,7 +37,7 @@
                         </div>
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Lead provider</dt>
-                            <dd class="govuk-summary-list__value">{{ data.schools[id].leadProvider }}</dd>
+                            <dd class="govuk-summary-list__value">{% if data.schools[id].newleadProvider %}{{ data.schools[id].newleadProvider }}{% else %}{{ data.schools[id].leadProvider }}{% endif %}</dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="change-lead-provider">Change
                                 <span class="govuk-visually-hidden"> name</span></a>
