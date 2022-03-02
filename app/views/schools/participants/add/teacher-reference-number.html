@@ -71,12 +71,9 @@
                 <div class="govuk-!-padding-top-5">
 
 
-                         {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "Is not matched", checked: "true" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+
+
+
 
                          {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
@@ -84,6 +81,16 @@
                                 { value: "Yes", text: "Existing match", checked: "true" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
+
+
+
+                         {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "Is not matched", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+
 
                 </div>
                 {% endif %}
