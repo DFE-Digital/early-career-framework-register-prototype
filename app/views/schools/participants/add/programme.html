@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['inductionProgramme'] == "CIP" %}
+    {% set pageHeading = 'Will ' + participant.name + ' be switching to your schools training programme?' %}
+{% elif data['inductionProgramme'] == "FIP" %}
+    {% set pageHeading = 'Will ' + participant.name + ' be switching to your schools training programme?' %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+                    <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+                    <p>{{ data.deliveryPartner }}</p>
+                                                
+            <form class="form" action="provider" method="post" >                
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: true,
+                                classes: "govuk-visually-hidden"
+                            }
+                            },
+                            items: [
+                                { value: "Yes, redirect(check-your-answers)", text: "Yes" },
+                                { value: "No", text: "No" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
+
+            
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

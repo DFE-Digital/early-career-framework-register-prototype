@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['inductionProgramme'] == "CIP" %}
+    {% set pageHeading = '' + participant.name + ' is currently training using a provider, funded by the DfE' %}
+{% elif data['inductionProgramme'] == "FIP" %}
+    {% set pageHeading = '' + participant.name + ' is currently training using DfE accredited materials' %}
+{% endif %}
+{% set pageHeading = '' + participant.name + ' is currently training using a different programme to your school' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            
+            {% if data['inductionProgramme'] == "CIP" %}
+                <p>{{ participant.name }} is currently training using a provider, funded by the DfE. </p>
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
+                <p>{{ data.leadProviderMaterialsTransfer }}</p>
+                    
+            {% elif data['inductionProgramme'] == "FIP" %}
+                
+                <p>They are currently on a programme which is delivered with DfE accredited materials supplied by {{ data.leadProviderMaterialsTransfer }}. </p>                                        
+            {% endif %}
+            
+            <!-- <p>{{ participant.name }} is currently training using a provider, funded by the DfE.</p>                     -->
+            <div class="govuk-inset-text">
+                {% if data['inductionProgramme'] == "CIP" %}                    
+                    <p>This is a different training programme to your school, which is delivering your own programme using DfE accredited materials.</p>
+                {% elif data['inductionProgramme'] == "FIP" %}                
+                    <p>This is different to your school, which is training using {{ data.leadProvider }} and {{ data.deliveryPartner }}, funded by the DfE.</p>                
+                {% endif %}
+            </div>
+                                        
+            <form class="form" action="programme" method="post" >                            
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
