@@ -16,11 +16,22 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+
+            {% if data['inductionProgramme'] == "CIP" %}       
+
+            <p>This is a training programme, delivered using DfE accredited materials.</p>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
+            <p>{{ data.leadProviderMaterials }}</p>
+
+            {% elif data['inductionProgramme'] == "FIP" %}       
+
             <p>This is a training programme, funded by the DfE.</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
+
+            {% endif %}
                                                 
             <form class="form" action="provider" method="post" >                
                 {{ govukRadios({

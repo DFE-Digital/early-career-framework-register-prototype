@@ -18,13 +18,9 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
             
             <div class="govuk-inset-text">
-            {% if data['inductionProgramme'] == "CIP" %}
-                <p>{{ participant.name }} is currently training using a provider, funded by the DfE. </p>
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
-                <p>{{ data.leadProviderMaterialsTransfer }}</p>
-                    
-            {% elif data['inductionProgramme'] == "FIP" %}
-                
+            {% if data['inductionProgramme'] == "CIP" %}                
+                <p>They are training on a programme using a lead provider and delivery partner funded by DfE.</p>                                                                            
+            {% elif data['inductionProgramme'] == "FIP" %}                
                 <p>They are training on a programme delivered using DfE accredited materials supplied by {{ data.leadProviderMaterialsTransfer }}. </p>                                        
             {% endif %}
             </div>
@@ -32,7 +28,7 @@
             <!-- <p>{{ participant.name }} is currently training using a provider, funded by the DfE.</p>                     -->
             
                 {% if data['inductionProgramme'] == "CIP" %}                    
-                    <p>This is a different training programme to your school, which is delivering your own programme using DfE accredited materials.</p>
+                    <p>This is different to your school, which is delivering your own programme using DfE accredited materials supplied by {{ data.leadProviderMaterials }}.</p>
                 {% elif data['inductionProgramme'] == "FIP" %}                
                     <p>This is different to your school, which is training using {{ data.leadProvider }} and {{ data.deliveryPartner }}, funded by the DfE.</p>                
                 {% endif %}
