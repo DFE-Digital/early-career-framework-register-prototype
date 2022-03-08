@@ -28,84 +28,24 @@
 
             {% else %}
 
-
-            {{ govukTable({
-                caption: "Schools",
-                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-                firstCellIsHeader: false,
-                head: [
-                    { text: "Full name" },
-                    { text: "ID" },
-                    { text: "Role" },
-                    { text: "Lead provider" },
-                    { text: "Delivery partner" }                                        
-                ],
-                rows: [
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Dean Winchester</a>' },
-                        { text: "34567" },
-                        { text: "Mentor" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bruce Wayne' },
-                        { text: "45579" },
-                        { text: "Mentor" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Luke Skywalker' },
-                        { text: "45579" },
-                        { text: "Mentor" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Sam Winchester' },
-                        { text: "45579" },
-                        { text: "NPQ" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Damon Salvatore' },
-                        { text: "45579" },
-                        { text: "Mentor" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bakki Hammnah' },
-                        { text: "45579" },
-                        { text: "ECT" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Steven Rogers' },
-                        { text: "45579" },
-                        { text: "Mentor" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Natasha Romanoff' },
-                        { text: "45579" },
-                        { text: "NPQ" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ],
-                    [
-                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Peter Parker' },
-                        { text: "45579" },
-                        { text: "ECT" },
-                        { text: "Ambition Institute" },
-                        { text: "Kings College London" }
-                    ]
-                ]
-            }) }}
+                <table class="govuk-table">                    
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">TRN</th>
+                            <th scope="col" class="govuk-table__header">Role</th>
+                            <th scope="col" class="govuk-table__header">Lead Provider</th>
+                            <th scope="col" class="govuk-table__header">Delivery partner</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">                    
+                        {% for id, participant in data.participants %}
+                            {% if participant.programme == "FIP" %}
+                                {% include "includes/support_dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
 
             {% endif %}
 
