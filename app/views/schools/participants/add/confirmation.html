@@ -70,7 +70,17 @@
                         {% if data['inductionProgramme'] == "CIP" %}
                             <p>They already have access to their training materials. We’ll update their account with their new email address when they start at your school.</p>
                         {% elif data['inductionProgramme'] == "FIP" %}
+                            
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                {% if data.participants[id].switchProgramme == "Yes" %}
+                                    <p>CONTENT for dealing with a switch in programme for the participant.</p>
+                                {% else %}
+
+                                {% endif %}
+
+                            {% else %}                        
                             <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>
+                            {% endif %}
                         {% endif %}
                     {% endif %}
 

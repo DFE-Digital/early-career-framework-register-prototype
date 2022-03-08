@@ -6,7 +6,7 @@
 {% elif data['inductionProgramme'] == "FIP" %}
     {% set pageHeading = '' + participant.name + ' is currently training using DfE accredited materials' %}
 {% endif %}
-{% set pageHeading = '' + participant.name + ' is currently training using a different programme to your school' %}
+{% set pageHeading = '' + participant.name + ' is training on a different programme to your school' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,6 +17,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
             
+            <div class="govuk-inset-text">
             {% if data['inductionProgramme'] == "CIP" %}
                 <p>{{ participant.name }} is currently training using a provider, funded by the DfE. </p>
                 <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
@@ -24,17 +25,18 @@
                     
             {% elif data['inductionProgramme'] == "FIP" %}
                 
-                <p>They are currently on a programme which is delivered with DfE accredited materials supplied by {{ data.leadProviderMaterialsTransfer }}. </p>                                        
+                <p>They are training on a programme delivered using DfE accredited materials supplied by {{ data.leadProviderMaterialsTransfer }}. </p>                                        
             {% endif %}
+            </div>
             
             <!-- <p>{{ participant.name }} is currently training using a provider, funded by the DfE.</p>                     -->
-            <div class="govuk-inset-text">
+            
                 {% if data['inductionProgramme'] == "CIP" %}                    
                     <p>This is a different training programme to your school, which is delivering your own programme using DfE accredited materials.</p>
                 {% elif data['inductionProgramme'] == "FIP" %}                
                     <p>This is different to your school, which is training using {{ data.leadProvider }} and {{ data.deliveryPartner }}, funded by the DfE.</p>                
                 {% endif %}
-            </div>
+            
                                         
             <form class="form" action="programme" method="post" >                            
 

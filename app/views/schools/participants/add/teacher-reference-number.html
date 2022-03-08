@@ -68,7 +68,7 @@
 
                 {% if data['linkaction'] != "cannotFind" %}
 
-                <div class="govuk-!-padding-top-5 govuk-visually-hidden">
+                <div class="govuk-!-padding-top-5 ">
 
 
                     
@@ -91,6 +91,13 @@
                                 { value: "Yes", text: "No match in database" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "On different programme" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'diffProgramme']) ) }}
 
 
                 </div>

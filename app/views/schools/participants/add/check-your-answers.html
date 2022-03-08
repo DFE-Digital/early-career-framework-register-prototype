@@ -50,8 +50,31 @@
 
                                 {# //////////////////////////////////////////////////// #}
                                 {# Transfer of teacher #}
+                                {% if data.participants[id].diffProgramme == "Yes" %}
+
+                                    {% if data.participants[id].switchProgramme == "Yes" %}
+                                        <li>{{ data.leadProvider}}</li>
+                                        <li>{{ data.deliveryPartner }}</li>
+                                    {% else %}
+
+                                        {% if data.participants[id].usingCurrentTraining == "Yes" %}
+                                            <li>{{ data.leadProvider}}</li>
+                                            <li>{{ data.deliveryPartner }}</li>
+                                            {% else %}
+                                                {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                                                    <li>{{ data.leadProvider}}</li>
+                                                    <li>They’ll confirm the delivery partner</li>
+                                                {% else %}
+                                                    <li>{{ participant.newLeadProvider }}</li>
+                                                    <li>They’ll confirm the delivery partner</li>
+                                                {% endif %}
+                                        {% endif %}
+
+                                    {% endif %}
+
+
                                 {# Is using either same or continue with current programme #}
-                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                                {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                                     {# Not a match #}
                                     {% if data.participants[id].programmeMatch == "No" %}
                                         <li>{{ data.leadProviderTransfer }}</li>
