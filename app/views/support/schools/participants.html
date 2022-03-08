@@ -40,7 +40,7 @@
                     </thead>
                     <tbody class="govuk-table__body">                    
                         {% for id, participant in data.participants %}
-                            {% if participant.programme == "FIP" %}
+                            {% if participant.programme == "FIP" %}                            
                                 {% include "includes/support_dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
