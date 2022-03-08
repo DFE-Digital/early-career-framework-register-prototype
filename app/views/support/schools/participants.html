@@ -23,7 +23,10 @@
 
             <h2 class="govuk-heading-l">Participants</h2>
 
+            {% if data.schools[id].participants == "No" %}
             <p>No participants found for this school.</p>
+
+            {% else %}
 
 
             {{ govukTable({
@@ -32,67 +35,79 @@
                 firstCellIsHeader: false,
                 head: [
                     { text: "Full name" },
+                    { text: "ID" },
                     { text: "Role" },
-                    { text: "Cohort" },
-                    { text: "Validation status", classes: 'govuk-!-width-one-quarter' }
+                    { text: "Lead provider" },
+                    { text: "Delivery partner" }                                        
                 ],
                 rows: [
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Dean Winchester</a>' },
+                        { text: "34567" },
                         { text: "Mentor" },
-                        { text: "20 Jul 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bruce Wayne' },
+                        { text: "45579" },
                         { text: "Mentor" },
-                        { text: "29 Oct 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Luke Skywalker' },
+                        { text: "45579" },
                         { text: "Mentor" },
-                        { text: "15 Jul 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start:ERO</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Sam Winchester' },
+                        { text: "45579" },
                         { text: "NPQ" },
-                        { text: "29 Sep 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Damon Salvatore' },
+                        { text: "45579" },
                         { text: "Mentor" },
-                        { text: "29 Sep 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bakki Hammnah' },
+                        { text: "45579" },
                         { text: "ECT" },
-                        { text: "16 Feb 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Steven Rogers' },
+                        { text: "45579" },
                         { text: "Mentor" },
-                        { text: "29 Sep 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Natasha Romanoff' },
+                        { text: "45579" },
                         { text: "NPQ" },
-                        { text: "29 Sep 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ],
                     [
                         { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Peter Parker' },
+                        { text: "45579" },
                         { text: "ECT" },
-                        { text: "11 Aug 2021" },
-                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                        { text: "Ambition Institute" },
+                        { text: "Kings College London" }
                     ]
                 ]
             }) }}
+
+            {% endif %}
 
         </div>
     </div>
