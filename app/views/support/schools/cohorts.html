@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = '' + school.name + '' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+                <ul class="app-subnav__list">
+                    <li class="app-subnav__list-item "><a class="app-subnav__link govuk-link--no-visited-state" href="overview">Overview</a></li>
+                    <li class="app-subnav__list-item"><a class="app-subnav__link govuk-link--no-visited-state" href="participants">Participants</a></li>
+                    <li class="app-subnav__list-item app-subnav__list-item--selected"><a class="app-subnav__link govuk-link--no-visited-state" href="cohorts">Cohorts</a></li>
+                </ul>
+            </nav>
+
+
+            <h2 class="govuk-heading-l">Cohorts</h2>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+
+                    <h3 class="govuk-heading-m">2021 to 2022 starters</h3>
+
+
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Induction programme</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].programme }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Lead provider</dt>
+                            <dd class="govuk-summary-list__value">{% if data.schools[id].newleadProvider %}{{ data.schools[id].newleadProvider }}{% else %}{{ data.schools[id].leadProvider }}{% endif %}</dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="change-lead-provider">Change
+                                <span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].deliveryPartner }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                    </dl>
+
+
+                    <h3 class="govuk-heading-m">2022 to 2023 starters</h3>
+                    {{ govukSummaryList({
+                        classes: 'app-summary-list-fix',
+                        rows: [
+                            {
+                                key: { text: "Induction programme" },
+                                value: { text: "No programme" },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "#",
+                                            text: "Change",
+                                            visuallyHiddenText: " induction programme"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }) }}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

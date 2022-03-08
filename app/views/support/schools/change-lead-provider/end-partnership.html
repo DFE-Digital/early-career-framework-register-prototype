@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "Have you confirmed that Ambition Institute knows the partnership is ending?" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form method="post" action="declarations" >
+
+            {{ govukCheckboxes({
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: false,
+                        classes: 'govuk-visually-hidden'
+                    }
+                },
+                items: [
+                    { text: "Yes, the school confirmed this" }
+                ]
+            } | decorateFormAttributes(['schools', id, 'end-partnership']) ) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
