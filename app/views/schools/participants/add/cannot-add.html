@@ -2,6 +2,10 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = 'You cannot add ' + participant.name + '' %}
+
+<!-- Brian - please use this H1 if the SIT is coming from /add/programme and selects 'Train in a different way' -->
+{% set pageHeading = 'Contact us to transfer ' + participant.name + '' %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,6 +15,8 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <!-- Brian, please do not show this text if the SIT is coming from /add/programme and selects 'Train in a different way' -->
 
             {% if data.participants[id].existingMatch == "Yes" %}
 
@@ -24,10 +30,11 @@
                 <ul class="govuk-list govuk-list--bullet">
                 <li>the information does not match their Teaching Regulation Agency record</li>
                 <li>they're not registered on an ECF-based training progamme yet</li>
-
                 </ul>
+
             {% endif %}
 
+            <!-- End of exclusion if the SIT is coming from /add/programme and selects 'Train in a different way' -->
 
                 <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
 

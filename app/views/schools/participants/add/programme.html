@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['inductionProgramme'] == "CIP" %}
-    {% set pageHeading = 'Will ' + participant.name + ' be changing to your schools training programme?' %}
+    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
 {% elif data['inductionProgramme'] == "FIP" %}
-    {% set pageHeading = 'Will ' + participant.name + ' be changing to your schools training programme?' %}
+    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,27 +15,10 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-
-            {% if data['inductionProgramme'] == "CIP" %}       
-
-            <p>This is a training programme, delivered using DfE accredited materials.</p>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
-            <p>{{ data.leadProviderMaterials }}</p>
-
-            {% elif data['inductionProgramme'] == "FIP" %}       
-
-            <p>This is a training programme, funded by the DfE.</p>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
-            <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
-            <p>{{ data.deliveryPartner }}</p>
-
-            {% endif %}
-                                                
+<p>They'll:</p>
+                                                     
             <form class="form" action="provider" method="post" >                
                 {{ govukRadios({
-                    classes: "govuk-radios--inline",
                     fieldset: {
                     legend: {
                         text: pageHeading,
@@ -44,8 +27,9 @@
                     }
                     },
                     items: [
-                        { value: "Yes, redirect(check-your-answers)", text: "Yes" },
-                        { value: "No", text: "No" }
+                        { value: "They'll transfer onto the same programme as other ECTs at the school, redirect(check-your-answers)", text: "Transfer onto the same programme as other ECTs at the school" },
+                        { value: "Continue with their current training programme, redirect(check-your-answers)", text: "Continue with their current training programme" },
+                        { value: "Train in a different way, redirect(cannot-add)", text: "Train in a different way" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}        
 

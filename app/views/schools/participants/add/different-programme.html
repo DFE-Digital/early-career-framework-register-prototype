@@ -4,9 +4,9 @@
 {% if data['inductionProgramme'] == "CIP" %}
     {% set pageHeading = '' + participant.name + ' is currently training using a provider, funded by the DfE' %}
 {% elif data['inductionProgramme'] == "FIP" %}
-    {% set pageHeading = '' + participant.name + ' is currently training using DfE accredited materials' %}
+    {% set pageHeading = '' + participant.name + ' is currently training using DfE-accredited materials' %}
 {% endif %}
-{% set pageHeading = '' + participant.name + ' is training on a different programme to your school' %}
+{% set pageHeading = '' + participant.name + ' has been training in a different way to your school' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,22 +16,41 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
-            <div class="govuk-inset-text">
-            {% if data['inductionProgramme'] == "CIP" %}                
-                <p>They are training on a programme using a lead provider and delivery partner funded by DfE.</p>                                                                            
-            {% elif data['inductionProgramme'] == "FIP" %}                
-                <p>They are training on a programme delivered using DfE accredited materials supplied by {{ data.leadProviderMaterialsTransfer }}. </p>                                        
+
+            <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Their programme</th>
+              {% if data['inductionProgramme'] == "CIP" %} 
+              <td class="govuk-table__cell">Using DfE-accredited materials</td>
+              <td class="govuk-table__cell">Provided by { data.leadProviderMaterialsTransfer }}</td>
+              {% elif data['inductionProgramme'] == "FIP" %}
+              <td class="govuk-table__cell">Using a DfE-funded training provider</td>
+              <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Your school's programme</th>
+              {% if data['inductionProgramme'] == "FIP" %}
+              <td class="govuk-table__cell">Using a DfE-funded training provider</td>
+              <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+              {% elif data['inductionProgramme'] == "CIP" %}
+              <td class="govuk-table__cell">Using DfE-accredited materials</td>
+              <td class="govuk-table__cell">Provided by { data.leadProviderMaterialsTransfer }}</td> 
+            </tr>
             {% endif %}
-            </div>
-            
-            <!-- <p>{{ participant.name }} is currently training using a provider, funded by the DfE.</p>                     -->
-            
-                {% if data['inductionProgramme'] == "CIP" %}                    
-                    <p>This is different to your school, which is delivering your own programme using DfE accredited materials supplied by {{ data.leadProviderMaterials }}.</p>
-                {% elif data['inductionProgramme'] == "FIP" %}                
-                    <p>This is different to your school, which is training using {{ data.leadProvider }} and {{ data.deliveryPartner }}, funded by the DfE.</p>                
-                {% endif %}
+          </tbody>
+        </table>
+
+        <!-- If CIP -->
+        <p>The school they're moving from chose to design and deliver their own training programme using DfE-accredited materials. They do not use a training provider.</p>
+
+        <!-- If FIP -->
+        <p>The school they're moving from chose to use a DfE-funded provider to deliver their training.</p>
+        
+        <p>Your school needs to choose the best way for NAME to continue with their training.</p>
             
                                         
             <form class="form" action="programme" method="post" >                            
