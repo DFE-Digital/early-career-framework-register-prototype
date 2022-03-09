@@ -12,10 +12,10 @@
 {% block content %}
 
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            
-			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                        			
-			
+        <div class="govuk-grid-column-full">
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
 
 			{{ participants.name }}
 
@@ -54,11 +54,11 @@
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
 				  	</div>
 				</dl>
-				<!-- {{ govukSummaryList({			
-					classes: 'govuk-!-margin-bottom-9',	
-					rows: [                
-					{ key: { text: "Email" }, value: { html: 'participant.email' } },             
-					{ key: { text: "TRN" }, value: { text: "1234567" } },					
+				<!-- {{ govukSummaryList({
+					classes: 'govuk-!-margin-bottom-9',
+					rows: [
+					{ key: { text: "Email" }, value: { html: 'participant.email' } },
+					{ key: { text: "TRN" }, value: { text: "1234567" } },
 					{ key: { text: "Status" },  value: { text: "Eligible to start" }  },
 					{ key: { text: "Induction start date" },  value: { text: "1 September 2021" }  },
 					{ key: { text: "Notes" }, value: { text: data.support.notes | nl2br | safe if data.support.notes else "No notes" },
@@ -142,33 +142,33 @@
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
 					</div>
 					{% endif %}
-				</dl>						
+				</dl>
 			{% endset -%}
 
 			{% set pastMonthHtml %}
 
-			{{ govukSummaryList({              
-				rows: [				  	
-					{ key: { text: "Registered" }, value: { text: "11 August 2021" } },				  			  						
+			{{ govukSummaryList({
+				rows: [
+					{ key: { text: "Registered" }, value: { text: "11 August 2021" } },
 					{ key: { text: "Programme changes" }, value: { text: "None" } },
-					{ key: { text: "Moved schools" }, value: { text: "None" } },                
-					{ key: { text: "Declarations made" }, value: { text: "3" } }					
+					{ key: { text: "Moved schools" }, value: { text: "None" } },
+					{ key: { text: "Declarations made" }, value: { text: "3" } }
 				]
 			}) }}
-			
+
 			{% endset -%}
-			
+
 
 			{{ govukTabs({
 				items: [
 					{ label: "Details", id: "past-day", panel: { html: pastDayHtml } },
 					{ label: "School", id: "past-week", panel: { html: pastWeekHtml } },
-					{ label: "History", id: "past-month", panel: { html: pastMonthHtml } }					
+					{ label: "History", id: "past-month", panel: { html: pastMonthHtml } }
 				]
 			}) }}
-						
+
             <p><a href="#">Delete participant</a></p>
-        
+
           </div>
 	</div>
 
