@@ -31,6 +31,13 @@
 						<dd class="govuk-summary-list__value">{{ participant.trnNumber }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				  	</div>
+                    {% if data['inductionProgramme'] == "FIP" %}
+                      <div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">ID</dt>
+						<dd class="govuk-summary-list__value">{{ participant.iD }}</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  	</div>
+                    {% endif %}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">DOB</dt>
 						<dd class="govuk-summary-list__value">
@@ -48,6 +55,8 @@
 						<dd class="govuk-summary-list__value">{{ participant.startDate }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 				  	</div>
+
+
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Notes</dt>
 						<dd class="govuk-summary-list__value">{{ data.support.notes | nl2br }}</dd>
@@ -152,7 +161,8 @@
 					{ key: { text: "Registered" }, value: { text: "11 August 2021" } },
 					{ key: { text: "Programme changes" }, value: { text: "None" } },
 					{ key: { text: "Moved schools" }, value: { text: "None" } },
-					{ key: { text: "Declarations made" }, value: { text: "3" } }
+					{ key: { text: "Declarations made" }, value: { text: "Last: 5 January 2022" } },
+                    { key: { text: "Eligibility" }, value: { text: "No QTS" } }
 				]
 			}) }}
 
