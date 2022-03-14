@@ -15,9 +15,10 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-<p>They'll:</p>
-                                                     
-            <form class="form" action="provider" method="post" >                
+
+            {# <p>They'll:</p> #}
+
+            <form class="form" action="check-your-answers" method="post" >
                 {{ govukRadios({
                     fieldset: {
                     legend: {
@@ -27,11 +28,11 @@
                     }
                     },
                     items: [
-                        { value: "They'll transfer onto the same programme as other ECTs at the school, redirect(check-your-answers)", text: "Transfer onto the same programme as other ECTs at the school" },
-                        { value: "Continue with their current training programme, redirect(check-your-answers)", text: "Continue with their current training programme" },
-                        { value: "Train in a different way, redirect(cannot-add)", text: "Train in a different way" }
+                        { value: "transferProgramme", text: "Transfer onto the same programme as other ECTs at the school" },
+                        { value: "continueProgramme", text: "Continue with their current training programme" },
+                        { value: "differentWay, redirect(cannot-add)", text: "Train in a different way" }
                     ]
-                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}        
+                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
 
                 {{ govukButton({
                     text: "Continue"
