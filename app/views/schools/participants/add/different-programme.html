@@ -1,11 +1,6 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['inductionProgramme'] == "CIP" %}
-    {% set pageHeading = '' + participant.name + ' is currently training using a provider, funded by the DfE' %}
-{% elif data['inductionProgramme'] == "FIP" %}
-    {% set pageHeading = '' + participant.name + ' is currently training using DfE-accredited materials' %}
-{% endif %}
 {% set pageHeading = '' + participant.name + ' has been training in a different way to your school' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -21,11 +16,13 @@
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header">Their programme</th>
-
+                        <!-- Default school programme -->
                         {% if data['inductionProgramme'] == "FIP" %}
+                            <!-- Then we need to show CIP information -->
                             <td class="govuk-table__cell">Using DfE-accredited materials</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProviderMaterialsTransfer }}</td>
-                        {% elif data['inductionProgramme'] == "CIP" %}
+                        {% elif data['inductionProgramme'] == "CIP" %}                        
+                        <!-- Then we need to show FIP information -->
                             <td class="govuk-table__cell">Using a DfE-funded training provider</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
                         {% endif %}
@@ -34,7 +31,9 @@
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">Your school’s programme</th>
+                        <!-- Default school programme -->
                         {% if data['inductionProgramme'] == "FIP" %}
+                            
                             <td class="govuk-table__cell">Using a DfE-funded training provider</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
                         {% elif data['inductionProgramme'] == "CIP" %}
