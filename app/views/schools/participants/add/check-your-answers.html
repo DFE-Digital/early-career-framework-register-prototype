@@ -136,7 +136,13 @@
 
                             </ul>
                         </dd>
-                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                <a class="govuk-link" href="programme?cya-action=change-programme">
+                            {% else %}
+                                <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
+                            {% endif %}
+                            Change<span class="govuk-visually-hidden"> name</span></a></dd>
                     </div>
 
                 {% elif data['inductionProgramme'] == "CIP" %}
@@ -206,7 +212,13 @@
 
                             </ul>
                         </dd>
-                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                <a class="govuk-link" href="programme?cya-action=change-programme">
+                            {% else %}
+                                <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
+                            {% endif %}
+                            Change<span class="govuk-visually-hidden"> name</span></a></dd>
                     </div>
 
                 {% endif %}
