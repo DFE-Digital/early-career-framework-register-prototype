@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['inductionProgramme'] == "CIP" %}
+    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
+{% elif data['inductionProgramme'] == "FIP" %}
+    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {# <p>They'll:</p> #}
+
+            <form class="form" action="check-your-answers" method="post" >
+                {{ govukRadios({
+                    fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "transferProgramme", text: "Transfer onto the same programme as other ECTs and mentors at your school" },
+                        { value: "continueProgramme", text: "Continue with their current training programme" },
+                        { value: "differentWay, redirect(cannot-add)", text: "Train in a different way" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

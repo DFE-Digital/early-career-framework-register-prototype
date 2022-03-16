@@ -44,14 +44,37 @@
                 {# FIP programme #}
 
                     <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Training with</dt>
+                        <dt class="govuk-summary-list__key">
+                             {% if data.participants[id].diffProgramme == "Yes" %}
+                                {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                    Training with
+                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    Materials supplier
+                                {% endif %}
+                            {% else %}
+                                Training with
+                            {% endif %}
+                        </dt>
                         <dd class="govuk-summary-list__value">
                             <ul class="govuk-list">
 
                                 {# //////////////////////////////////////////////////// #}
                                 {# Transfer of teacher #}
+                                {% if data.participants[id].diffProgramme == "Yes" %}
+
+                                    {% if data.participants[id].switchProgramme == "transferProgramme" %}
+
+                                        <li>{{ data.leadProvider}}</li>
+                                        <li>{{ data.deliveryPartner }}</li>
+
+                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+
+                                        <li>{{ data.leadProviderMaterialsTransfer }}</li>
+
+                                    {% endif %}
+
                                 {# Is using either same or continue with current programme #}
-                                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                                {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                                     {# Not a match #}
                                     {% if data.participants[id].programmeMatch == "No" %}
                                         <li>{{ data.leadProviderTransfer }}</li>
@@ -113,17 +136,61 @@
 
                             </ul>
                         </dd>
-                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                <a class="govuk-link" href="programme?cya-action=change-programme">
+                            {% else %}
+                                <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
+                            {% endif %}
+                            Change<span class="govuk-visually-hidden"> name</span></a></dd>
                     </div>
 
                 {% elif data['inductionProgramme'] == "CIP" %}
 
                     <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Materials supplier</dt>
+                        <dt class="govuk-summary-list__key">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                    Materials supplier
+                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    Training with
+                                {% endif %}
+                            {% else %}
+                                Materials supplier
+                            {% endif %}
+                        </dt>
                         <dd class="govuk-summary-list__value">
                             <ul class="govuk-list">
 
-                                {% if participant.usingCurrentTrainingMaterials == "Yes" %}
+                                {% if data.participants[id].diffProgramme == "Yes" %}
+
+                                    {% if data.participants[id].switchProgramme == "transferProgramme" %}
+
+                                        <li>{{ data.leadProviderMaterials}}</li>
+
+
+                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+
+                                        <li>{{ data.leadProvider}}</li>
+                                        <li>{{ data.deliveryPartner }}</li>
+
+
+                                    {% endif %}
+
+
+
+                                {% elif data.participants[id].diffProgramme == "Yes" %}
+
+                                    {% if data.participants[id].switchProgramme == "Yes" %}
+                                        <li>{{ data.leadProviderMaterials}}</li>
+                                    {% else %}
+
+                                        <li>{{ participant.newMaterialsSupplier }}</li>
+
+                                    {% endif %}
+
+
+                                {% elif participant.usingCurrentTrainingMaterials == "Yes" %}
                                     <!-- Check if noMatch -->
                                     {% if participant.programmeMatch == "No" %}
 
@@ -145,7 +212,13 @@
 
                             </ul>
                         </dd>
-                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-providers?cya-action=change-programme-check">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                <a class="govuk-link" href="programme?cya-action=change-programme">
+                            {% else %}
+                                <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
+                            {% endif %}
+                            Change<span class="govuk-visually-hidden"> name</span></a></dd>
                     </div>
 
                 {% endif %}

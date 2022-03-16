@@ -28,17 +28,29 @@
                     {% if data.participants[id].type == "ectTransfer" %}
 
                         {% if data.participants[id].isMentor == "Yes" %}
-                            <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                            {% else %}
+                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                            {% endif %}
                         {% else %}
 
                             {% if hasMentors %}
                             <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                             {% else %}
-                            <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% if data.participants[id].diffProgramme == "Yes" %}
+                                    <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% else %}
+                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% endif %}
                             {% endif %}
                         {% endif %}
                     {% elif data.participants[id].type == "mentorTransfer" %}
-                        <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                        {% if data.participants[id].diffProgramme == "Yes" %}
+                            <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                        {% else %}
+                            <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                        {% endif %}
                     {% endif %}
                 {% endif %}
 

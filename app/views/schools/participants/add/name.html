@@ -1,15 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "ect"  %}
-    {% set pageHeading = 'What’s the full name of this ECT?' %}
-{% elif data.participants[id].type == "ectTransfer"  %}
-    {% set pageHeading = 'What’s the full name of this teacher?' %}
-{% elif data.participants[id].type == "mentor" %}
-    {% set pageHeading = 'What’s the full name of this mentor?' %}
-{% else %}
-    {% set pageHeading = 'What’s the full name of this person?' %}
-{% endif %}
+{% set pageHeading = 'What’s this person’s full name?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
