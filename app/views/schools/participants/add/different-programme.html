@@ -21,7 +21,7 @@
                             <!-- Then we need to show CIP information -->
                             <td class="govuk-table__cell">Using DfE-accredited materials</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProviderMaterialsTransfer }}</td>
-                        {% elif data['inductionProgramme'] == "CIP" %}                        
+                        {% elif data['inductionProgramme'] == "CIP" %}
                         <!-- Then we need to show FIP information -->
                             <td class="govuk-table__cell">Using a DfE-funded training provider</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
@@ -33,7 +33,7 @@
                         <th scope="row" class="govuk-table__header">Your school’s programme</th>
                         <!-- Default school programme -->
                         {% if data['inductionProgramme'] == "FIP" %}
-                            
+
                             <td class="govuk-table__cell">Using a DfE-funded training provider</td>
                             <td class="govuk-table__cell">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
                         {% elif data['inductionProgramme'] == "CIP" %}
@@ -47,7 +47,7 @@
             <table class="govuk-table govuk-!-margin-bottom-7">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        {# <th scope="col" class="govuk-table__header"></th> #}
+                        <th scope="col" class="govuk-table__header"></th>
                         <th scope="col" class="govuk-table__header">Your school</th>
                         <th scope="col" class="govuk-table__header">{{ participant.name }}</th>
 
@@ -55,25 +55,25 @@
                 </thead>
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        {# <th class="govuk-table__cell govuk-!-width-one-quarter">Programme</th> #}
+                        <th class="govuk-table__cell govuk-!-width-one-quarter">Programme</th>
                         {% if data['inductionProgramme'] == "FIP" %}
 
-                            <td class="govuk-table__cell govuk-!-width-one-half">Using DfE-funded training</td>
-                            <td class="govuk-table__cell govuk-!-width-one-half">Using DfE-accredited materials</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-funded training</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-accredited materials</td>
                         {% elif data['inductionProgramme'] == "CIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-half">Using DfE-accredited materials</td>
-                            <td class="govuk-table__cell govuk-!-width-one-half">Using DfE-funded training</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-accredited materials</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-funded training</td>
                         {% endif %}
                     </tr>
 
                     <tr class="govuk-table__row">
-                        {# <th class="govuk-table__cell govuk-!-width-one-quarter">Provided by</th> #}
+                        <th class="govuk-table__cell govuk-!-width-one-quarter">Provided by</th>
                         {% if data['inductionProgramme'] == "FIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-half">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
-                            <td class="govuk-table__cell govuk-!-width-one-half">Provided by {{ data.leadProviderMaterialsTransfer }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third">  {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProviderMaterialsTransfer }}</td>
                         {% elif data['inductionProgramme'] == "CIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-half">Provided by {{ data.leadProviderMaterials }}</td>
-                            <td class="govuk-table__cell govuk-!-width-one-half">Provided by {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProviderMaterials }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
                         {% endif %}
                     </tr>
                 </tbody>
