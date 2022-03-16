@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = 'Will all participants in the 2021 to 2022 cohort be moving to ' + data.schools[id].leadProvider' + '?' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form method="post" action="tell-us-who" >
+
+                {{ govukRadios({
+                    fieldset: {
+                        legend: {
+                            text: title,
+                            isPageHeading: false,
+                            classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+                        }
+                    },
+                    items: [
+                        { text: "Yes, all", value: "Everyone in the 2021 to 2022 cohort, redirect(check)" },
+                        { text: "No, only some", value: "some" }
+                    ]
+                } | decorateFormAttributes(['schools', id, 'who']) ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+            {# We assume that the current provider has submitted any start declarations for the participants it has onboarded #}
+
+        </div>
+    </div>
+
+{% endblock %}

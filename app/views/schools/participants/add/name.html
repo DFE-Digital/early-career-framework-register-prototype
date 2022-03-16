@@ -1,11 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-
-<!-- BRIAN - I've deleted the other options 09.03.22 -->
-
-    {% set pageHeading = 'What’s this person’s full name?' %}
-
+{% set pageHeading = 'What’s this person’s full name?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

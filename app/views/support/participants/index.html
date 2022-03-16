@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set name = 'Jane Doe' %}
+{% set pageHeading = name %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+  {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+  {{ govukSummaryList({
+    classes: 'app-summary-list-fix',
+    rows: [
+      {
+        key: {
+          text: "Full name"
+        },
+        value: {
+          text: name
+        }
+      },
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: "email@example.com"
+        }
+      },
+      {
+        key: {
+          text: "Participant type"
+        },
+        value: {
+          text: "Early career teacher"
+        }
+      },
+      {
+        key: {
+          text: "Mentor"
+        },
+        value: {
+          text: "Joe Bloggs"
+        }
+      },
+      {
+        key: {
+          text: "School"
+        },
+        value: {
+          text: "Hayes College"
+        }
+      },
+      {
+        key: {
+          text: "Cohort"
+        },
+        value: {
+          text: "2021"
+        }
+      },
+      {
+        key: {
+          text: "Notes"
+        },
+        value: {
+          text: data.support.notes | nl2br | safe if data.support.notes else "No notes"
+        },
+        actions: {
+          items: [
+            {
+              href: "/support/participant-add-notes",
+              text: "Change notes" if data.support.notes else "Add notes"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  <p>
+    <a href="#">Delete participant</a>
+  </p>
+{% endblock %}
