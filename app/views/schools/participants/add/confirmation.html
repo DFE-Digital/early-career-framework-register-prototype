@@ -21,7 +21,7 @@
             {{ govukPanel({
                 titleText: pageHeading,
                 classes: "govuk-!-margin-bottom-7"
-            }) }}            
+            }) }}
 
             {% if data.participants[id].type == "ectTransfer" %}
                 {% if data.participants[id].switchProgramme %}
@@ -33,69 +33,77 @@
 
                             {% if data.participants[id].pastDate == "Yes" %}
                                 <p>Remember to confirm this transfer with your training provider.</p>
-                            {% else %}                        
-                                <h2 class="govuk-heading-m">What happens next</h2>                                                                
-                                <p>We’ll contact your training provider to let them know that you’ve reported this transfer. We recommend you confirm this with them directly too.</p>                        
-                                <p>We’ll also let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>                                        
+                            {% else %}
+                                <h2 class="govuk-heading-m">What happens next</h2>
+                                <p>We’ll contact your training provider to let them know that you’ve reported this transfer. We recommend you confirm this with them directly too.</p>
+                                <p>We’ll also let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
                                 <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
-                            
+
                                 <!-- ECT ONLY CONTENT -->
-                                <h2 class="govuk-heading-s">Continuing induction and ECF-based training</h2>                        
-                                <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>                        
+                                {% if not data.participants[id].isMentor %}
+                                <h2 class="govuk-heading-s">Continuing induction and ECF-based training</h2>
+                                <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>
                                 <p>Your training provider will advise how {{ participant.name }} should transfer onto their programme.</p>
+                                {% endif %}
                                 <!-- // -->
                             {% endif %}
-                                                                            
+
                         {% elif data['inductionProgramme'] == "CIP" %}
 
-                            <h2 class="govuk-heading-m">What happens next</h2>                                                                
-                            <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>                                                 
+                            <h2 class="govuk-heading-m">What happens next</h2>
+                            <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
                             <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
-                                                 
-                            <h2 class="govuk-heading-s">Continuing induction and ECF-based training</h2>                        
-                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>                        
-                            <p>We’ll send {{ participant.name }} a link to access your school’s training materials.</p>                                                
+
+                            {% if not data.participants[id].isMentor %}
+                            <h2 class="govuk-heading-s">Continuing induction and ECF-based training</h2>
+                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>
+                            <p>We’ll send {{ participant.name }} a link to access your school’s training materials.</p>
+                            {% endif %}
 
                         {% endif %}
-                                                        
+
                     {% elif data.participants[id].switchProgramme == "continueProgramme" %}
 
                         {% if data['inductionProgramme'] == "FIP" %}
 
-                            <h2 class="govuk-heading-m">What happens next</h2>            
-                            <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>                                
+                            <h2 class="govuk-heading-m">What happens next</h2>
+                            <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
                             <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
-                            
+
                             <!-- ECT ONLY CONTENT -->
-                            <h3 class="govuk-heading-s">Continuing induction and ECF-based training</h3>                                                
-                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>                        
+                            {% if not data.participants[id].isMentor %}
+                            <h3 class="govuk-heading-s">Continuing induction and ECF-based training</h3>
+                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>
                             <p>To access the {{ data.leadProviderMaterialsTransfer }} training materials:</p>
                             <ol class="govuk-list govuk-list--number">
                                 <li>Visit <a href="https://support-for-early-career-teachers.education.gov.uk/users/sign-up" >https://support-for-early-career-teachers.education.gov.uk/users/sign-up</a>.</li>
                                 <li>Enter your email address.</li>
                             </ol>
+                            {% endif %}
                             <!-- // -->
 
                         {% elif data['inductionProgramme'] == "CIP" %}
 
-                            <h2 class="govuk-heading-m">What happens next</h2>                           
-                            <p>We’ll let {{ participant.name }}’s training provider know they’re transferring to your school.</p>                        
-                            <p>We’ll also let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>                                        
+                            <h2 class="govuk-heading-m">What happens next</h2>
+                            <p>We’ll let {{ participant.name }}’s training provider know they’re transferring to your school.</p>
+                            <p>We’ll also let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
                             <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
-                                                
-                            <h3 class="govuk-heading-s">Continuing induction and ECF-based training</h3>                        
-                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>                        
+
+                            {% if not data.participants[id].isMentor %}
+                            <h3 class="govuk-heading-s">Continuing induction and ECF-based training</h3>
+                            <p>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</p>
                             <p><a href="#">Contact our support team</a> if you need more guidance.</p>
-                                                
+                            {% endif %}
+
                         {% endif %}
-                
+
 
                     {% else %}
                         <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
                         {# <p>If you added a new email address for this person, we’ll let your training provider know.</p> #}
                     {% endif %}
                     <!-- <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p> -->
-                
+
                 {% else %}
 
                     <h2 class="govuk-heading-m">What happens next</h2>
