@@ -46,9 +46,9 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                              {% if data.participants[id].diffProgramme == "Yes" %}
-                                {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                {% if data.participants[id].switchProgramme == "Yes" %}
                                     Training with
-                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                {% elif data.participants[id].continueProgramme == "Yes" %}
                                     Materials supplier
                                 {% endif %}
                             {% else %}
@@ -62,12 +62,12 @@
                                 {# Transfer of teacher #}
                                 {% if data.participants[id].diffProgramme == "Yes" %}
 
-                                    {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                    {% if data.participants[id].switchProgramme == "Yes" %}
 
                                         <li>{{ data.leadProvider}}</li>
                                         <li>{{ data.deliveryPartner }}</li>
 
-                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    {% elif data.participants[id].continueProgramme == "Yes" %}
 
                                         <li>{{ data.leadProviderMaterialsTransfer }}</li>
 
@@ -150,9 +150,9 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                             {% if data.participants[id].diffProgramme == "Yes" %}
-                                {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                {% if data.participants[id].switchProgramme == "Yes" %}
                                     Materials supplier
-                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                {% elif data.participants[id].continueProgramme == "Yes" %}
                                     Training with
                                 {% endif %}
                             {% else %}
@@ -164,12 +164,12 @@
 
                                 {% if data.participants[id].diffProgramme == "Yes" %}
 
-                                    {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                                    {% if data.participants[id].switchProgramme == "Yes" %}
 
                                         <li>{{ data.leadProviderMaterials}}</li>
 
 
-                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    {% elif data.participants[id].continueProgramme == "Yes" %}
 
                                         <li>{{ data.leadProvider}}</li>
                                         <li>{{ data.deliveryPartner }}</li>

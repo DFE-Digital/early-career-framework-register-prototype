@@ -26,7 +26,7 @@
             {% if data.participants[id].type == "ectTransfer" %}
                 {% if data.participants[id].switchProgramme %}
 
-                    {% if data.participants[id].switchProgramme == "transferProgramme" %}
+                    {% if data.participants[id].switchProgramme == "Yes" %}
 
                         <!-- WHat programme is the school defaulted too -->
                         {% if data['inductionProgramme'] == "FIP" %}
@@ -62,7 +62,7 @@
 
                         {% endif %}
 
-                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                    {% elif data.participants[id].continueProgramme == "Yes" %}
 
                         {% if data['inductionProgramme'] == "FIP" %}
 
