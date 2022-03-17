@@ -48,7 +48,7 @@
                              {% if data.participants[id].diffProgramme == "Yes" %}
                                 {% if data.participants[id].switchProgramme == "Yes" %}
                                     Training with
-                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                {% elif data.participants[id].continueProgramme == "Yes" %}
                                     Materials supplier
                                 {% endif %}
                             {% else %}
@@ -67,7 +67,7 @@
                                         <li>{{ data.leadProvider}}</li>
                                         <li>{{ data.deliveryPartner }}</li>
 
-                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    {% elif data.participants[id].continueProgramme == "Yes" %}
 
                                         <li>{{ data.leadProviderMaterialsTransfer }}</li>
 
@@ -152,7 +152,7 @@
                             {% if data.participants[id].diffProgramme == "Yes" %}
                                 {% if data.participants[id].switchProgramme == "Yes" %}
                                     Materials supplier
-                                {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                {% elif data.participants[id].continueProgramme == "Yes" %}
                                     Training with
                                 {% endif %}
                             {% else %}
@@ -169,7 +169,7 @@
                                         <li>{{ data.leadProviderMaterials}}</li>
 
 
-                                    {% elif data.participants[id].switchProgramme == "continueProgramme" %}
+                                    {% elif data.participants[id].continueProgramme == "Yes" %}
 
                                         <li>{{ data.leadProvider}}</li>
                                         <li>{{ data.deliveryPartner }}</li>

@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 <!-- {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %} -->
-{% set pageHeading = 'Will ' + participant.name + ' transfer onto the same programme as other ECTs and mentors at your school?' %}
+{% set pageHeading = 'Will ' + participant.name + ' continue with their current training programme?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -28,9 +28,9 @@
                     },
                     items: [
                         { value: "Yes", text: "Yes" },                        
-                        { value: "No, redirect(continue-programme)", text: "No" }
+                        { value: "No, redirect(cannot-add)", text: "No" }
                     ]
-                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
+                } | decorateFormAttributes(['participants', id, 'continueProgramme']) ) }}
 
 
                 
