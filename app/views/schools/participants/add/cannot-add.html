@@ -16,7 +16,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].switchProgramme != "differentWay" %}
+            {% if data.participants[id].switchProgramme != "No" %}
                 {% if data.participants[id].existingMatch == "Yes" %}
                     <p>Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
                 {% else %}

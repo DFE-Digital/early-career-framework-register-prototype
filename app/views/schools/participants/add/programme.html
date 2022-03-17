@@ -1,11 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['inductionProgramme'] == "CIP" %}
-    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
-{% elif data['inductionProgramme'] == "FIP" %}
-    {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %}
-{% endif %}
+<!-- {% set pageHeading = 'How will ' + participant.name + ' continue training at your school?' %} -->
+{% set pageHeading = 'Will ' + participant.name + ' transfer onto the same programme as other ECTs and mentors at your school?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,7 +16,25 @@
             {# <p>They'll:</p> #}
 
             <form class="form" action="check-your-answers" method="post" >
+                
                 {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes" },                        
+                        { value: "No, redirect(cannot-add)", text: "No" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
+
+
+                
+                <!-- {{ govukRadios({
                     fieldset: {
                     legend: {
                         text: pageHeading,
@@ -32,7 +47,7 @@
                         { value: "continueProgramme", text: "Continue with their current training programme" },
                         { value: "differentWay, redirect(cannot-add)", text: "Train in a different way" }
                     ]
-                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }}
+                } | decorateFormAttributes(['participants', id, 'switchProgramme']) ) }} -->
 
                 {{ govukButton({
                     text: "Continue"
