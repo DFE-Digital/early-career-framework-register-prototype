@@ -34,7 +34,12 @@
                         {% endif %}
                 {# Transfer Journey #}
                     {% elif data.participants[id].type == "ectTransfer" %}
-                        <form class="form" action="current-training-programme" method="post" >
+
+                        {% if data.participants[id].diffProgramme == "Yes" %}
+                            <form class="form" action="different-programme" method="post" >
+                        {% else %}
+                            <form class="form" action="current-training-programme" method="post" >
+                        {% endif %}
                     {% endif %}
                 {% endif %}
 
