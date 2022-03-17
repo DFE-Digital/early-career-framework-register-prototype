@@ -47,9 +47,9 @@
             <table class="govuk-table govuk-!-margin-bottom-7">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header"></th>
-                        <th scope="col" class="govuk-table__header">Your school</th>
+                        <th scope="col" class="govuk-table__header"></th>                        
                         <th scope="col" class="govuk-table__header">{{ participant.name }}</th>
+                        <th scope="col" class="govuk-table__header">Your school</th>
 
                     </tr>
                 </thead>
@@ -57,23 +57,22 @@
                     <tr class="govuk-table__row">
                         <th class="govuk-table__cell govuk-!-width-one-quarter">Programme</th>
                         {% if data['inductionProgramme'] == "FIP" %}
-
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-accredited materials</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-funded training</td>                            
+                        {% elif data['inductionProgramme'] == "CIP" %}                            
                             <td class="govuk-table__cell govuk-!-width-one-third"> DfE-funded training</td>
                             <td class="govuk-table__cell govuk-!-width-one-third"> DfE-accredited materials</td>
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-accredited materials</td>
-                            <td class="govuk-table__cell govuk-!-width-one-third"> DfE-funded training</td>
                         {% endif %}
                     </tr>
 
                     <tr class="govuk-table__row">
                         <th class="govuk-table__cell govuk-!-width-one-quarter">Provided by</th>
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-third">  {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+                        {% if data['inductionProgramme'] == "FIP" %}                            
                             <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProviderMaterialsTransfer }}</td>
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProviderMaterials }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third">  {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+                        {% elif data['inductionProgramme'] == "CIP" %}                            
                             <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProvider }} and {{ data.deliveryPartner }}</td>
+                            <td class="govuk-table__cell govuk-!-width-one-third"> {{ data.leadProviderMaterials }}</td>
                         {% endif %}
                     </tr>
                 </tbody>
@@ -81,11 +80,11 @@
 
             <!-- If CIP -->
             {% if data['inductionProgramme'] == "FIP" %}
-            <p>The school they’re moving from chose to design and deliver their own training programme using DfE-accredited materials. They do not use a training provider.</p>
+            <p>The school they’re moving from chose to deliver their own training programme using DfE-accredited materials. They do not use a training provider.</p>
             {% elif data['inductionProgramme'] == "CIP" %}
             <p>The school they’re moving from chose to use a DfE-funded provider to deliver their training.</p>
             {% endif %}
-            <p>Your school needs to choose the best way for {{ participant.name }} to continue with their training.</p>
+            <p class="govuk-!-margin-bottom-7">Your school needs to choose the best way for {{ participant.name }} to continue with their training.</p>
 
             {{ govukButton({
                 text: "Continue",
