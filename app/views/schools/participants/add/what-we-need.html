@@ -22,23 +22,29 @@
                 <li>email address (personal or school)</li>
                 <li>start date at your school</li>
             </ul>
-
             <p>If your school does not have this information, contact the person directly to ask for it.</p>
-            <!-- <p>Content in for making sure they have permission to use this information (Kate).</p> -->
 
-            <form method="post" action="name" >
-                <!-- <input type="hidden" name="TransferIn" id="TransferIn" value="Yes" />  -->
-                {{ govukButton({
+            <form method="post" action="name" >                
+                
+                    {{ govukButton({
                     text: "Continue"
                 }) }}
 
+                <div class="govuk-!-padding-top-5">
 
-                <div class="govuk-!-padding-top-5  govuk-visually-hidden">
+                    {{ govukCheckboxes({
+                        classes: "govuk-checkboxes--small",
+                        items: [
+                            { value: "Yes", text: "Training on different programme to school"}
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'diffProgramme']) ) }}
+
+                    
                     {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
                          {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small",
                             items: [
-                                { value: "Yes", text: "Is a transferring mentor" }
+                                { value: "Yes", text: "Is mentor" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
                     {% endif %}

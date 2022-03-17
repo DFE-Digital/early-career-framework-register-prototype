@@ -26,7 +26,7 @@
 			    <form class="form" action="check-your-answers" method="post">
 				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
 			{% else %}
-                {# Look for if coming from cannot find in database #}
+                <!-- Look for if coming from cannot find in database -->
                 {% if data['linkaction'] == "cannotFind" %}
                         {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
                             <form class="form" action="email-address" method="post">
@@ -40,7 +40,7 @@
                                 { value: "", text: "Is not matched", checked: "true" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-                {# Otherwise normal path #}
+                <!-- Otherwise normal path -->
                 {% else %}
                     <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}
@@ -48,11 +48,7 @@
 			{% endif %}
 
 				{{ govukInput({
-					label: {
-						text: pageHeading,
-						classes: "govuk-visually-hidden",
-						isPageHeading: false
-					},
+					label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
 					classes: "govuk-!-width-two-thirds",
                     inputmode: "numeric",
                     pattern: "[0-9]*"
@@ -61,7 +57,6 @@
             	{{ govukButton({
               		text: "Continue"
             	}) }}
-
 
                 {% if data['linkaction'] != "cannotFind" %}
 
@@ -74,27 +69,21 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
                     {% endif %}
+                    
 
                         {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden",
+                            classes: "govuk-checkboxes--small ",
                             items: [
-                                { value: "Yes", text: "Is a mentor" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
-                            items: [
-                                { value: "Yes", text: "No match in database" }
+                                { value: "Yes", text: "No match in DB" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
 
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden",
+                        <!-- {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small",
                             items: [
-                                { value: "Yes", text: "On different programme", checked: "true" }
+                                { value: "Yes", text: "Training on different programme to school"}
                             ]
-                        } | decorateFormAttributes(['participants', id, 'diffProgramme']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'diffProgramme']) ) }} -->
 
                     {% endif %}
                 </div>

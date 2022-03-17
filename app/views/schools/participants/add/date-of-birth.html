@@ -92,11 +92,6 @@
 					}
 				}) }}
 
-
-
-
-
-
         		{{ govukButton({
           			text: "Continue"
         		}) }}
@@ -111,7 +106,7 @@
                          {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
                             items: [
-                                { value: "Yes", text: "No QTS", checked: "true" }
+                                { value: "Yes", text: "No QTS" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
                     {% endif %}

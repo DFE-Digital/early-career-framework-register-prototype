@@ -57,14 +57,8 @@
             {% endif %}
 
                 {{ govukInput({
-                    label: {
-                        text: pageHeading,
-                        classes: "govuk-visually-hidden",
-                        isPageHeading: false
-                    },
-                    hint: {
-                        text: "You can enter their personal or school email address."
-                    },
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    hint: { text: "You can enter their personal or school email address." },
                     classes: "govuk-!-width-two-thirds"
                 } | decorateFormAttributes(['participants', id, 'email']) ) }}
 

@@ -29,27 +29,20 @@
                         classes: "govuk-visually-hidden",
                         value: "CIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
-
-
                 {% else %}
                 <!-- FIP -->
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "FIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
-
-
                 {% endif %}
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
 
-
-
-
             </form>
-
+            
         </div>
     </div>
 {% endblock %}
