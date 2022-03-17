@@ -137,12 +137,104 @@
 			{{ govukSummaryList({
 				rows: [
 					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
+					{ key: { text: "Programme changes" }, value: { text: "None" } }
+					
+					
+                    
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m">Transferring in</h2>
+			{{ govukTable({				
+				captionClasses: "govuk-table__caption--m",
+				
+				head: [
+				  {
+					text: "New school",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "New programme",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "New LP/DP/Materials",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Joining date",
+					classes: 'govuk-!-width-one-quarter'
+				  }
+				],
+				rows: [
+				  [
+					{
+					  text: "ACME school"
+					},
+					{
+					  text: "Programme"
+					},
+					{
+						text: "Ambition Institute"
+					  },
+					{
+					  text: "15 March 2022"
+					}
+				  ]
+				]
+			  }) }}
+
+
+			  <h2 class="govuk-heading-m">Transferring out</h2>
+			{{ govukTable({				
+				captionClasses: "govuk-table__caption--m",
+				
+				head: [
+				  {
+					text: "Old school",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Old programme",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Old LP/DP/Materials",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Leaving date",
+					classes: 'govuk-!-width-one-quarter'
+				  }
+				],
+				rows: [
+				  [
+					{
+					  text: "ACME school"
+					},
+					{
+					  text: "Programme"
+					},
+					{
+						text: "Ambition Institute"
+					  },
+					{
+					  text: "15 March 2022"
+					}
+				  ]
+				]
+			  }) }}
+
+			<!-- <h2 class="govuk-heading-m">Programme changes</h2>
+			{{ govukSummaryList({
+				rows: [
+					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
 					{ key: { text: "Programme changes" }, value: { text: "None" } },
 					{ key: { text: "Moved schools" }, value: { text: "None" } }
 					
                     
 				]
-			}) }}
+			}) }} -->
 
 			{% endset -%}
 
