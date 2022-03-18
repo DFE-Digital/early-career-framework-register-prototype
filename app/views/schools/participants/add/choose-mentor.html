@@ -27,12 +27,8 @@
 
                 {# Add journey #}
                     {% if data.participants[id].type == "ect" %}
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <form class="form" action="current-providers" method="post" >
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <form class="form" action="current-training-materials" method="post" >
-                        {% endif %}
-                {# Transfer Journey #}
+                        <form class="form" action="check-your-answers" method="post" >
+                    <!-- Transfer Journey -->
                     {% elif data.participants[id].type == "ectTransfer" %}
 
                         {% if data.participants[id].diffProgramme == "Yes" %}
@@ -46,13 +42,7 @@
                     {{ govukRadios({
                         items: mentors
                     } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
-
-                    {{ govukCheckboxes({
-                        classes: "govuk-checkboxes--small ",
-                        items: [
-                            { value: "No", text: "No match" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
+                    
 
                     {{ govukButton({
                         text: "Continue"

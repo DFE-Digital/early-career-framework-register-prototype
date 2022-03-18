@@ -20,7 +20,18 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/_primary-nav";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.key {  
+  padding-left: 10px;
+  background: #efefef;
+  padding-top: 0 !important;
+  margin-top: 0;
+}
 
+.key .govuk-form-group {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
 
 .light-grey { background-color: #f3f2f1 }
 
