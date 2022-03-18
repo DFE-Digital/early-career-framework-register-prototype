@@ -25,41 +25,37 @@
                     <form class="form" action="../details" method="post" >
                 {% else %}
 
-                {# Add journey #}
+                <!-- Add journey -->
                     {% if data.participants[id].type == "ect" %}
                         <form class="form" action="check-your-answers" method="post" >
                     <!-- Transfer Journey -->
                     {% elif data.participants[id].type == "ectTransfer" %}
 
-                        {% if data.participants[id].diffProgramme == "Yes" %}
+                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                             <form class="form" action="different-programme" method="post" >
-                        {% else %}
+                        {% elif data.participants[id].programmeMatch == "No" %}
                             <form class="form" action="current-training-programme" method="post" >
+                        {% else %}
+                            <form class="form" action="check-your-answers" method="post" >
                         {% endif %}
+
+
                     {% endif %}
                 {% endif %}
 
-                    {{ govukRadios({
-                        items: mentors
-                    } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
+                {{ govukRadios({
+                    items: mentors
+                } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
                     
 
-                    {{ govukButton({
-                        text: "Continue"
-                    }) }}
-
-
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                    
                     
-                    
-                    <!-- Check if participant is TransferringIn -->
-                        <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
-                         
+                <!-- Check if participant is TransferringIn -->
+                <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
 
-
-
-                </form>
-
-               
+                </form>               
 
             {% else %}
             <!-- no mentors to choose from -->

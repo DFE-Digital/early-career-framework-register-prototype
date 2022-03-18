@@ -64,19 +64,14 @@
                     
                     {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 
+                        
+                        
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
                             items: [
                                 { value: "Yes", text: "Fail validation" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "Participant already doing ECF-based training" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}                        
                         
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
@@ -85,6 +80,13 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
 
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "Participant already doing ECF-based training" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}    
+
                         
 
                     {% elif data.participants[id].type == "ectTransfer" %}
@@ -92,9 +94,25 @@
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
                             items: [
-                                { value: "No", text: "Training on different programme" }
+                                { value: "No", text: "Training using different LP or DP" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small",
+                            items: [
+                                { value: "Yes", text: "Training on different main programme"}
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}    
+                        
+                        {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                             {{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small",
+                                items: [
+                                    { value: "Yes", text: "Is mentor" }
+                                ]
+                            } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
+                        {% endif %}
 
                     {% endif %}
                     
@@ -110,7 +128,7 @@
                             items: [
                                 { value: "Yes", text: "Training on different programme to school"}
                             ]
-                        } | decorateFormAttributes(['participants', id, 'diffProgramme']) ) }} -->
+                        } | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }} -->
 
                     {% endif %}
                 </div>

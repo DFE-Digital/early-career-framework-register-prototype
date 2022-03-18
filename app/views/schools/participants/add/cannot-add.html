@@ -14,9 +14,11 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            {% if data.participants[id].continueProgramme != "No" %}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+            
+            {% if data.participants[id].usingCurrentTraining == "No" %}
+                <p>Additional content should we need it Kate.</p>
+            {% elif data.participants[id].continueProgramme != "No" %}
                 {% if data.participants[id].existingMatch == "Yes" %}
                     <p>Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
                 {% else %}

@@ -41,27 +41,8 @@
 
                 <!-- Training -->
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
-
-                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                        <dt class="govuk-summary-list__key">                            
-                            {% if data['inductionProgramme'] == "FIP" %}    
-                                Training with                                                            
-                            {% elif data['inductionProgramme'] == "CIP" %}    
-                                Materials supplier                          
-                            {% endif %}
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <ul class="govuk-list">
-                            {% if data['inductionProgramme'] == "FIP" %}    
-                                <li>{{ data.leadProvider}}</li>
-                                <li>{{ data.deliveryPartner }}</li>
-                            {% elif data['inductionProgramme'] == "CIP" %}    
-                                <li>{{ data.leadProviderMaterials }}</li>        
-                            {% endif %}
-                            </ul>
-                        </dd>
-                        
-                    </div>
+                    <!-- Include file for training -->
+                    {% include "includes/summary_training_ect_mentor.html" %}                    
 
                 {% elif data.participants[id].type == "ectTransfer" %}
 
@@ -70,7 +51,7 @@
                             <!-- FIP programme -->
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">
-                                        {% if data.participants[id].diffProgramme == "Yes" %}
+                                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                             {% if data.participants[id].switchProgramme == "Yes" %}
                                                 Training with
                                             {% elif data.participants[id].continueProgramme == "Yes" %}
@@ -85,7 +66,7 @@
 
                                             <!-- //////////////////////////////////////////////////// -->
                                             <!-- Transfer of teacher -->
-                                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                            {% if data.participants[id].diffInductionProgramme == "Yes" %}
 
                                                 {% if data.participants[id].switchProgramme == "Yes" %}
 
@@ -162,7 +143,7 @@
                                         </ul>
                                     </dd>
                                     <dd class="govuk-summary-list__actions">
-                                        {% if data.participants[id].diffProgramme == "Yes" %}
+                                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                             <a class="govuk-link" href="programme?cya-action=change-programme">
                                         {% else %}
                                             <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
@@ -174,7 +155,7 @@
 
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">
-                                        {% if data.participants[id].diffProgramme == "Yes" %}
+                                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                             {% if data.participants[id].switchProgramme == "Yes" %}
                                                 Materials supplier
                                             {% elif data.participants[id].continueProgramme == "Yes" %}
@@ -187,7 +168,7 @@
                                     <dd class="govuk-summary-list__value">
                                         <ul class="govuk-list">
 
-                                            {% if data.participants[id].diffProgramme == "Yes" %}
+                                            {% if data.participants[id].diffInductionProgramme == "Yes" %}
 
                                                 {% if data.participants[id].switchProgramme == "Yes" %}
 
@@ -204,7 +185,7 @@
 
 
 
-                                            {% elif data.participants[id].diffProgramme == "Yes" %}
+                                            {% elif data.participants[id].diffInductionProgramme == "Yes" %}
 
                                                 {% if data.participants[id].switchProgramme == "Yes" %}
                                                     <li>{{ data.leadProviderMaterials}}</li>
@@ -238,7 +219,7 @@
                                         </ul>
                                     </dd>
                                     <dd class="govuk-summary-list__actions">
-                                        {% if data.participants[id].diffProgramme == "Yes" %}
+                                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                             <a class="govuk-link" href="programme?cya-action=change-programme">
                                         {% else %}
                                             <a class="govuk-link" href="current-providers?cya-action=change-programme-check">
@@ -275,16 +256,17 @@
                             classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                             value: "Contacted"
                         } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
+                    
                     {% else %}
-
+                        <!-- No QTS -->
                         {% if data.participants[id].noQTS == "Yes" %}
-
+                            
                             {{ govukInput({
                                 classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                                 value: "CheckingQTS"
                             } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
+                        
+                        <!-- Eligible -->
                         {% else %}
 
                             {{ govukInput({
@@ -296,17 +278,20 @@
 
                     {% endif %}
 
-                <!-- Otherwise we need to contact them -->
+                <!-- If no TRN we need to contact them to provde the details -->
                 {% else %}
+                    
                     {{ govukInput({
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "Contacted"
                     } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
                 {% endif %}
 
                 {{ govukButton({
                     text: "Confirm and add"
                 }) }}
+            
             </form>
 
         </div>
