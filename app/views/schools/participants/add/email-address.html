@@ -27,32 +27,41 @@
                 {% else %}
                     {% if data.participants[id].type == "ectTransfer" %}
 
+                        <!-- Is a mentor -->
                         {% if data.participants[id].isMentor == "Yes" %}
-                            <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                            <!-- Check if on a different main programme -->
+                            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                                <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                            <!-- Check if on a different provider/partner -->
+                            {% elif data.participants[id].programmeMatch == "No" %}
+                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                            <!-- Otherwise go to CYA -->
+                            {% else %}
+                                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">   
+                            {% endif %}
                         {% else %}
 
                             {% if hasMentors %}
                             <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                             {% else %}
-                            <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                                    <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% elif data.participants[id].programmeMatch == "No" %}
+                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                                {% else %}
+                                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
-                    {% elif data.participants[id].type == "mentorTransfer" %}
-                        <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                        {% endif %}                    
+                    
                     {% endif %}
                 {% endif %}
 
             {% endif %}
 
                 {{ govukInput({
-                    label: {
-                        text: pageHeading,
-                        classes: "govuk-visually-hidden",
-                        isPageHeading: false
-                    },
-                    hint: {
-                        text: "You can enter their personal or school email address."
-                    },
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    hint: { text: "You can enter their personal or school email address." },
                     classes: "govuk-!-width-two-thirds"
                 } | decorateFormAttributes(['participants', id, 'email']) ) }}
 

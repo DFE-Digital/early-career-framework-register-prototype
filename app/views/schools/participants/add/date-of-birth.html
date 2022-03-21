@@ -16,11 +16,49 @@
       		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
         		<input type="hidden" name="cya-action" id="cya-action" value="" />
       		{% else %}
-            <!-- Add journey -->
+
+                <!-- Add journey -->
 			  	{% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
-				  	<form class="form" action="email-address" method="post">
+
+                    {% if data.participants[id].dbMatched == "Yes" %}
+                        {% if data['linkaction'] == "cannotFind" %}
+                            <form class="form" action="email-address" method="post">
+                            <input type="hidden" name="linkaction" id="linkaction" value="" />
+
+                            {{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small govuk-visually-hidden",
+                                items: [
+                                    { value: "", text: "Is not matched", checked: "true" }
+                                ]
+                            } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+
+                        {% else %}
+                            <form class="form" action="cannot-find-their-details" method="post">
+                        {% endif %}
+                    {% else %}
+
+                        {% if data.participants[id].existingMatch == "Yes" %}
+                            <form class="form" action="moving-from-another-school" method="post">
+                        {% else %}
+				  	        <form class="form" action="email-address" method="post">
+                        {% endif %}
+                    {% endif %}
 				{% else %}
-					<form class="form" action="joining-date" method="post">
+
+                    {% if data.participants[id].eroMultiMentor == "Yes" %}
+
+                        <form class="form" action="cannot-add" method="post">
+
+                    {% elif data.participants[id].dbMatched == "Yes" %}
+                        {% if data['linkaction'] == "cannotFind" %}
+                            <form class="form" action="joining-date" method="post">
+                            <input type="hidden" name="linkaction" id="linkaction" value="" />
+                        {% else %}
+                            <form class="form" action="cannot-find-their-details" method="post">
+                        {% endif %}
+                    {% else %}
+					    <form class="form" action="joining-date" method="post">
+                    {% endif %}
 				{% endif %}
       		{% endif %}
 
@@ -58,29 +96,10 @@
 					}
 				}) }}
 
-
-                    {# {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
-
-                         {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden",
-                            items: [
-                                { value: "Yes", text: "Yes", checked: "true" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden",
-                            items: [
-                                { value: "No", text: "No match", checked: "true" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
-
-                    {% endif %} #}
-
-
         		{{ govukButton({
           			text: "Continue"
         		}) }}
+
 
       		</form>
 

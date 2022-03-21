@@ -122,7 +122,7 @@
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
-                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for funded training. We’ll keep checking their status and notify you if something changes.</p>
                     </div>
                 </div>
                 <table class="govuk-table govuk-!-margin-bottom-9">
@@ -513,6 +513,9 @@
             {% endif %}
         {% endif %}
 
+
+
+
         <!-- Not eligible dashboard -->
         {% if data['inductionProgramme'] == "FIP" %}
             {# Check to see if there are any users that have status NotEligible #}
@@ -548,6 +551,48 @@
                         {% for id, participant in data.participants %}
                             {% if participant.status == "NotEligible" and participant.programme == "CIP" %}
                                 {% include "includes/dash_row_notE.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
+
+         <!-- Moving from the school -->
+        {% if data['inductionProgramme'] == "FIP" %}
+            {# Check to see if there are any users that have status TransferOut #}
+            {% if hasAnyTransferOutParticipants %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transfered from your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You told us these people have moved to a new school.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head_left.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferOut" and participant.programme == "FIP" %}
+                                {% include "includes/dash_fip_row_left.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% if hasAnyTransferOutParticipantsCIP %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transfered from your school</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>You told us these people have moved to a new school. </p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "TransferOut" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row_transferOut.html" %}
                             {% endif %}
                         {% endfor %}
                     </tbody>
