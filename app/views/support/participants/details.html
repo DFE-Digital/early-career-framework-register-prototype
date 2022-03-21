@@ -80,7 +80,7 @@
 						<dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 					</div>
-					
+
 
 					{% if data.participants[id].programme == "FIP" %}
 					<div class="govuk-summary-list__row">
@@ -138,16 +138,14 @@
 				rows: [
 					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
 					{ key: { text: "Programme changes" }, value: { text: "None" } }
-					
-					
-                    
 				]
 			}) }}
 
-			<h2 class="govuk-heading-m">Transferring in</h2>
-			{{ govukTable({				
+			<h2 class="govuk-heading-m">School transfers</h2>
+            <p class="govuk-!-margin-bottom-0">Reported: 10 March 2022</p>
+			{{ govukTable({
+                classes: "govuk-!-margin-bottom-3",
 				captionClasses: "govuk-table__caption--m",
-				
 				head: [
 				  {
 					text: "New school",
@@ -180,15 +178,16 @@
 					{
 					  text: "15 March 2022"
 					}
+
 				  ]
 				]
 			  }) }}
 
 
-			  <h2 class="govuk-heading-m">Transferring out</h2>
-			{{ govukTable({				
+
+			{{ govukTable({
 				captionClasses: "govuk-table__caption--m",
-				
+
 				head: [
 				  {
 					text: "Old school",
@@ -231,8 +230,8 @@
 					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
 					{ key: { text: "Programme changes" }, value: { text: "None" } },
 					{ key: { text: "Moved schools" }, value: { text: "None" } }
-					
-                    
+
+
 				]
 			}) }} -->
 
