@@ -21,7 +21,7 @@ module.exports = {
     deliveryPartner,
     leadProviderTransfer: "Teach First",
     deliveryPartnerTransfer: "Inspire Teaching School Hub",
-    leadProviderMaterials: "Ambition Institue",
+    leadProviderMaterials: "Teach First",
     leadProviderMaterialsTransfer: "Education Development Trust",
     inductionStart: 'Spring 2022',
     linkExpire: '2 March 2022',

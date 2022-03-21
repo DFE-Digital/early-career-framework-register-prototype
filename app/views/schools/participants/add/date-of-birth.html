@@ -45,7 +45,11 @@
                     {% endif %}
 				{% else %}
 
-                    {% if data.participants[id].dbMatched == "Yes" %}
+                    {% if data.participants[id].eroMultiMentor == "Yes" %}
+
+                        <form class="form" action="cannot-add" method="post">
+
+                    {% elif data.participants[id].dbMatched == "Yes" %}
                         {% if data['linkaction'] == "cannotFind" %}
                             <form class="form" action="joining-date" method="post">
                             <input type="hidden" name="linkaction" id="linkaction" value="" />
@@ -96,23 +100,6 @@
           			text: "Continue"
         		}) }}
 
-
-                {% if data['linkaction'] != "cannotFind" %}
-
-                <div class="govuk-!-padding-top-5">
-
-                    {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
-
-                         {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "No QTS" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
-                    {% endif %}
-
-                </div>
-                {% endif %}
 
       		</form>
 
