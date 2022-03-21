@@ -1,0 +1,22 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Which lead provider are you changing?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    items: [
+      {
+        text: "Ambition Institute"
+      },
+      {
+        text: "Teach First"
+      }
+    ]
+  } | decorateFormAttributes(['admin', 'why-changing']) ) }}
+{% endblock %}

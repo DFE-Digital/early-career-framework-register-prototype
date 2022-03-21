@@ -1,0 +1,85 @@
+<tr class="govuk-table__row">
+    <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+    <td class="govuk-table__cell">
+        {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+            {# Not a match #}
+            {% if data.participants[id].programmeMatch == "No" %}
+                {{ data.leadProviderTransfer }}
+            {# Is a match #}
+            {% else %}
+                {{ data.leadProvider}}
+            {% endif %}
+        {# Is not going to use the default or the current programme they are on #}
+        {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
+            {# Not a match #}
+            {% if data.participants[id].programmeMatch == "No" %}
+                {% if data.participants[id].usingCurrentTraining == "Yes" %}
+                    {{ data.leadProvider}}
+                {% else %}
+                    {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                        {{ data.leadProvider}}
+                    {% else %}
+                        {{ participant.newLeadProvider }}
+                    {% endif %}
+                {% endif %}
+            {# Is a match #}
+            {% else %}
+                {# Using schools default lead provider but not delivery partner #}
+                {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                    {{ data.leadProvider}}
+                {# Using a new lead provider and delivery partner #}
+                {% else %}
+                    {{ participant.newLeadProvider }}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+    </td>
+    <td class="govuk-table__cell">
+
+        {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+            {# Not a match #}
+            {% if data.participants[id].programmeMatch == "No" %}
+                {{ data.deliveryPartnerTransfer }}
+            {# Is a match #}
+            {% else %}
+                {{ data.deliveryPartner }}
+            {% endif %}
+        {# Is not going to use the default or the current programme they are on #}
+        {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
+            {# Not a match #}
+            {% if data.participants[id].programmeMatch == "No" %}
+                {% if data.participants[id].usingCurrentTraining == "Yes" %}
+                {{ data.deliveryPartner }}
+                {% else %}
+                    {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                        To be confirmed
+                    {% else %}
+                        To be confirmed
+                    {% endif %}
+                {% endif %}
+            {# Is a match #}
+            {% else %}
+                {# Using schools default lead provider but not delivery partner #}
+                {% if data.participants[id].usingCurrentProvider == "Yes" %}
+                    To be confirmed
+                {# Using a new lead provider and delivery partner #}
+                {% else %}
+                    To be confirmed
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </td>
+    <td class="govuk-table__cell">{{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+

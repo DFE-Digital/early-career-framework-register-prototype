@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Is this ECT transferring to another school where they’ll continue their induction?" %}
+{% set pageHeading = 'Is ' + participant.name + ' transferring to another school where they’ll continue their induction?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

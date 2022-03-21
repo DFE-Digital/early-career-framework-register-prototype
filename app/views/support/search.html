@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "Search schools and participants" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form method="post" action="search" class="form" />
+
+                {{ govukInput({
+                    label: {
+                        text: "Search by name, email, URN or TRN",
+                        classes: "govuk-label govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    hint: {
+                        text: "Search by name, email, URN or TRN"
+                    },
+                    classes: "govuk-!-width-full"
+                } | decorateFormAttributes([ 'searchWord']) ) }}
+
+                <!-- {{ govukCheckboxes({
+                    classes: "govuk-checkboxes--small govuk-checkboxes--inline",
+                    fieldset: {
+                        legend: {
+                            text: title,
+                            isPageHeading: false,
+                            classes: 'govuk-visually-hidden'
+                        }
+                    },
+                    items: [
+                        { text: "Schools", value: "school" },
+                        { text: "Participants", value: "person" }
+                    ]
+                } | decorateFormAttributes(['schools', 'searchResults']) ) }} -->
+
+
+                {{ govukButton({
+                    text: "Search"
+                }) }}
+            </form>
+            
+        </div>
+        <div class="govuk-grid-column-full">
+
+
+            <!-- <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full  light-grey govuk-!-padding-top-4 govuk-!-margin-bottom-3">
+
+                    {{ govukInput({
+                            label: {
+                                text: "Search schools",
+                                classes: "govuk-label--s",
+                                isPageHeading: false
+                            },
+                            hint: {
+                                text: "Enter the school’s name, URN or tutor email"
+                            },
+                            classes: "govuk-!-width-full"
+                    } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+
+                    {{ govukButton({
+                        text: "Search"
+                    }) }}
+
+                </div>
+            </div> -->
+
+            
+                
+                
+
+                <!-- <div class="govuk-grid-column-one-third  ">
+
+                {{ govukSelect({
+                        label: {
+                            text: "Filter by type",
+                            classes: "govuk-label",
+                            isPageHeading: false
+                        },
+                        items: [
+                            { value: "", text: "" },
+                            { value: "ect", text: "ECT" },
+                            { value: "mentor", text: "Mentor" },
+                            { value: "npq", text: "NPQ" }
+                        ],
+                        classes: "govuk-!-width-full"
+                } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+
+                </div> -->
+                <!-- <div class="govuk-grid-column-full"> -->
+            
+            {% if data['searchWord'] == "urn" %}
+                
+            
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_support_schools_head_new.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, school in data.schools %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/support/schools/{{ id }}/overview" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
+                        <td class="govuk-table__cell">{{ school.urn }}</td>
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].localAuthority %}{{ school.localAuthority }}{% else %}-{% endif %}</td>
+                        <!-- <td class="govuk-table__cell">-</td> -->
+                        <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].inductionEmail %}{{ school.inductionEmail }}{% else %}-{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% elif data['searchWord'] == "trn" %}
+
+            <table class="govuk-table">                    
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Name</th>
+                        <th scope="col" class="govuk-table__header">TRN</th>
+                        <th scope="col" class="govuk-table__header">Role</th>
+                        <th scope="col" class="govuk-table__header">Lead Provider</th>
+                        <th scope="col" class="govuk-table__header">Delivery partner</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">                    
+                    {% for id, participant in data.participants %}
+                        {% if participant.programme == "FIP" %}                            
+                            {% include "includes/support_dash_fip_row.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+<tr class="govuk-table__row">
+    <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+    <td class="govuk-table__cell govuk-table__cell--numeric">
+        {{ isoDateFromDateInputs(participant['leavingYear'], participant['leavingMonth'], participant['leavingDay']) | dateWithYear }}
+    </td>
+</tr>

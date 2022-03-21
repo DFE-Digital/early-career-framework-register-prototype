@@ -13,17 +13,17 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
     		<ul class="govuk-list govuk-body-s">
-          		<li>Last updated: 17 January 2022</li>
+          		<li>Last updated: 17 March 2022</li>
             	<li>Prototype version: {{releaseVersion}}</li>
         	</ul>
         	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
 
-        	<h2 class="govuk-heading-m">Current sprint</h2>
+        	<!-- <h2 class="govuk-heading-m">Current sprint</h2>
     		<p>This sprint will be focusing on:</p>
         	<ul class="govuk-list govuk-list--bullet">
       			<li>allowing SIT's to change pariticpants email address</li>
       			<li>discovery work to address changes of circumstances and other scenarios</li>
-        	</ul>
+        	</ul> -->
 
         	{{ govukButton({
       			text: "Journey from first email contact",
@@ -44,12 +44,24 @@
 
         	{% include "includes/break.html" %}
 
-        	<h2 class="govuk-heading-m">User research</h2>
-        	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+
+            <h2 class="govuk-heading-m">Admin support</h2>
+        	<p>Administration and support pages for the Manage training for early career teachers.</p>
         	{{ govukButton({
             	text: "Continue",
-            	href: "admin/user-research/"
+            	href: "/support/schools"
         	}) }}
+
+        	{% include "includes/break.html" %}
+
+
+        	<h2 class="govuk-heading-m">User research</h2>
+        	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+          <p>No current user research taking place.</p>
+        	<!-- {{ govukButton({
+            	text: "Continue",
+            	href: "admin/user-research/"
+        	}) }} -->
 
         	{% include "includes/break.html" %}
 

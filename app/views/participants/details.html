@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% set title = "Change " + participant.name if participant else "Add participant" %}
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <form method="post" action="/participants">
+        {{ govukInput({
+          label: {
+            text: "Name",
+            classes: "govuk-label--m"
+          }
+        } | decorateFormAttributes(['participants', id, 'name']) ) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label--m"
+          }
+        } | decorateFormAttributes(['participants', id, 'email']) ) }}
+
+        {{ govukButton({
+          html: 'Save'
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

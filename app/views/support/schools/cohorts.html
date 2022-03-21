@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = '' + school.name + '' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+                <ul class="app-subnav__list">
+                    <li class="app-subnav__list-item "><a class="app-subnav__link govuk-link--no-visited-state" href="overview">Overview</a></li>
+                    <li class="app-subnav__list-item"><a class="app-subnav__link govuk-link--no-visited-state" href="participants">Participants</a></li>
+                    <li class="app-subnav__list-item app-subnav__list-item--selected"><a class="app-subnav__link govuk-link--no-visited-state" href="cohorts">Cohorts</a></li>
+                </ul>
+            </nav>
+
+
+            <h2 class="govuk-heading-l">Cohorts</h2>
+
+
+            {% set pastDayHtml %}
+
+                    <!-- ///// Start of 2021 //// -->
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">{% if data['participant-1-added'] == "Yes" %}7{% else %}6{% endif %}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].inductionName }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Programme</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].programme }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+                        </div>
+
+                        <!-- Using an approved training provider -->
+                        {% if data['inductionProgramme'] == "FIP" %}
+                            <!-- Needed for if we show the actions line or not -->
+                            
+                            <div class="govuk-summary-list__row">                            
+                                <dt class="govuk-summary-list__key">Lead provider</dt>
+                                <dd class="govuk-summary-list__value">{% if data.schools[id].newleadProvider %}{{ data.schools[id].newleadProvider }}{% else %}{{ data.schools[id].leadProvider }}{% endif %}</dd>                                
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> to a training provider</span></a>
+                                </dd>
+                                
+                            </div>
+                            {% if data['fipPartnership'] == "Yes" %}
+                                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                                    <dt class="govuk-summary-list__key">Delivery partner</dt>
+                                    <dd class="govuk-summary-list__value">{{ data.schools[id].deliveryPartner }}</dd>
+                                </div>
+                            {% endif %}
+                        <!-- Using DfE accredited materials -->
+                        {% elif data['inductionProgramme'] == "CIP" %}
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">Materials</dt>
+                                <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {% if data['accredited-materials'] %}
+                                        <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                    {% else %}
+                                        <a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                    {% endif %}
+                                </dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+
+                    {% include "includes/mt-message.html" %}
+                    <!-- ///// End of 2021 //// -->
+
+                {% endset -%}
+
+                {% set pastWeekHtml %}
+                    <!-- ///// Start of 2020 //// -->
+                    <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">3</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].inductionName }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Programme</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].programme }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Lead provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                        </div>
+                    </dl>
+                    <!-- ///// End of 2020 //// -->
+
+                {% endset -%}
+
+                {% set pastMonthHtml %}
+                    <!-- ///// Start of 2019 //// -->
+                    <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">7</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].inductionName }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Programme</dt>
+                            <dd class="govuk-summary-list__value">{{ data.schools[id].programme }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Lead provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                        </div>
+                    </dl>
+                    <!-- ///// End of 2019 //// -->
+                {% endset -%}
+
+                {% set pastArchiveHtml %}
+                    <!-- ///// Start of 2019 //// -->
+                    <p>Previous years information will go here.</p>
+                    <!-- ///// End of 2019 //// -->
+                {% endset -%}
+
+                {{ govukTabs({
+                    items: [
+                        { label: "2021 to 2022", id: "past-day", panel: { html: pastDayHtml } },
+                        { label: "2020 to 2021", id: "past-week", panel: { html: pastWeekHtml } },
+                        { label: "2019 to 2020", id: "past-month", panel: { html: pastMonthHtml } },
+                        { label: "Previous years", id: "past-archive", panel: { html: pastArchiveHtml } }
+                    ]
+                }) }}
+
+
+
+
+
+            
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

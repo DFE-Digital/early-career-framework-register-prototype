@@ -64,11 +64,13 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if ((data['details-change-action'] == "change-mentor") or (data['details-change-action'] == "change-name") or (data['details-change-action'] == "change-email")) %}
-                <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/details?details-change-action=">Return to details</a></p>
-            {% else %}
-            <p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?linkaction=">Return to your ECTs and mentors</a></p>
-            {% endif %}
+            <ul class="govuk-list">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="../../participants/details?details-change-action=">Return to their details</a></li>            
+                <li><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?linkaction=">Return to your ECTs and mentors</a></li>
+            </ul>
+            
+                
+            
         </div>
     </div>
 

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = 'The lead provider has been changed' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ govukPanel({
+                titleText: pageHeading,
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+            <p>The school’s induction tutor will be notified that this change has been made.</p>
+            <p>You do not need to take any further action.</p>
+
+            <p><a href="/support/school-cohorts-confirmed">Return to school</a></p>
+
+            {# We assume that the current provider has submitted any start declarations for the participants it has onboarded #}
+
+        </div>
+    </div>
+
+{% endblock %}

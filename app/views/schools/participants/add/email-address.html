@@ -1,25 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['participantType'] == "ECT" %}
-    {% if data['participant-1-added'] %}
-        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s email address? ' %}
-    {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-1-name'] + '’s email address? ' %}
-    {% endif %}
-{% elif data['participantType'] == "mentor" %}
-    {% if data['participant-1-mentor-added'] %}
-        {% set pageHeading = 'What’s ' + data['participant-2-mentor-name'] + '’s email address? ' %}
-    {% else %}
-        {% set pageHeading = 'What’s ' + data['participant-1-mentor-name'] + '’s email address? ' %}
-    {% endif %}
-{% else %}
-    {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'What’s ' + data['participant-2-name'] + '’s email address? ' %}
-    {% endif %}
-{% endif %}
-
-
+{% set pageHeading = 'What’s ' + participant.name + '’s email address? ' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -29,66 +11,65 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data['induction-tutor'] != "Yes" %}
-                <p>We’ll use this to contact them for more information. This is needed to check their eligibility with the Teaching Regulation Authority.</p>
-            {% endif %}
-
-
             {% if data['cya-action'] == "change-email" %}
-            <!-- Sends back to the CYA -->
-                <form class="form" action="check-your-answers" method="post">
+            <form class="form" action="check-your-answers" method="post">
                 <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 
-            <!-- If coming from the participant details page -->
             {% elif ((data['details-change-action'] == "change-email" ) or (data['details-change-action'] == "change-email-2")) %}
-                <form class="form" action="../details" method="post">
-                    <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
-                    <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+            <form class="form" action="../details" method="post">
+                <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
+                <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
 
-            <!-- Default add participant journey -->
             {% else %}
-                <form class="form" action="start-date" method="post">
+            <!-- Add journey -->
+                {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
+                    <form class="form" action="start-date" method="post" class="govuk-!-margin-bottom-8">
+                {% else %}
+                    {% if data.participants[id].type == "ectTransfer" %}
+
+                        <!-- Is a mentor -->
+                        {% if data.participants[id].isMentor == "Yes" %}
+                            <!-- Check if on a different main programme -->
+                            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                                <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                            <!-- Check if on a different provider/partner -->
+                            {% elif data.participants[id].programmeMatch == "No" %}
+                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                            <!-- Otherwise go to CYA -->
+                            {% else %}
+                                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">   
+                            {% endif %}
+                        {% else %}
+
+                            {% if hasMentors %}
+                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                            {% else %}
+                                {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                                    <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% elif data.participants[id].programmeMatch == "No" %}
+                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                                {% else %}
+                                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}                    
+                    
+                    {% endif %}
+                {% endif %}
+
             {% endif %}
 
-                    {% if data['participantType'] == "ECT" %}
+                {{ govukInput({
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    hint: { text: "You can enter their personal or school email address." },
+                    classes: "govuk-!-width-two-thirds"
+                } | decorateFormAttributes(['participants', id, 'email']) ) }}
 
-                            {{ govukInput({
-                                label: {
-                                    text: "Email address",
-                                    classes: "govuk-visually-hidden",
-                                    isPageHeading: false
-                                },
-                                hint: {
-                                    text: "You can enter their personal or school email address."
-                                },
-                                classes: "govuk-!-width-two-thirds"
-                            } | decorateFormAttributes('participant-2-email' if data['participant-1-added'] else 'participant-1-email')) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
 
-                    {% elif data['participantType'] == "mentor" %}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Email address",
-                                classes: "govuk-visually-hidden",
-                                isPageHeading: false
-                            },
-                            hint: {
-                                text: "You can enter their personal or school email address."
-                            },
-                            classes: "govuk-!-width-two-thirds"
-                        } | decorateFormAttributes('participant-2-mentor-email' if data['participant-1-mentor-added'] else 'participant-1-mentor-email' )) }}
-
-                    {% else %}
-                        <!-- Dont really need this but its just incase someone looks at the page independently -->
-                        <p>You have not selected a participant type to add an email.</p>
-
-                    {% endif %}
-
-                    {{ govukButton({
-                        text: "Continue"
-                    }) }}
-
-                </form>
+            </form>
 
         </div>
     </div>

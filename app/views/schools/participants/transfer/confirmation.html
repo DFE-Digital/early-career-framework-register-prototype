@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = 'Hugo Furst’s leaving date has been submitted' %}
+{% set pageHeading = '' + participant.name + '’s leaving date has been submitted' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,22 +13,24 @@
         	{{ govukPanel({
             	titleText: pageHeading,
         		classes: "govuk-!-margin-bottom-7"
-          	}) }}      
+          	}) }}
 
         	<h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
-        	<p>We’ll tell this person that you’ve reported their transfer. They’ll appear on your dashboard as ’transferring from your school’ until their leaving date.</p>
+
+            <p>We’ll tell {{ participant.name }} that you’ve reported their transfer. They’ll appear in the ’moving schools’ section of your dashboard until their leaving date.</p>
+        	<p>You need to let their training provider know that they’re transferring to another school.</p>
         	<p>They should continue with their current training programme until their leaving date. Their new school will arrange how they’ll continue their training after that.</p>
 
         	<!-- If FIP ECT -->
-			{% if data['participantType'] == "ECT" %}
-        	<p>The person mentoring this ECT can continue their training, even if they do not have another ECT assigned to them yet.</p>  
+			{% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+        	<p>The person mentoring this ECT can continue their training, even if they do not have another ECT assigned to them yet.</p>
 
-        	<!-- If mentor -->      
+        	<!-- If mentor -->
 			{% elif  data['participantType'] == "mentor" %}
 			<p>You need to assign a new mentor for any ECTs they’ve been working with.</p>
 			{% endif %}
-        	<p><a class="govuk-link govuk-link--no-visited-state" href="../../participants/">Return to your ECTs and mentors</a></p>
-			
+        	<p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">Return to your ECTs and mentors</a></p>
+
     	</div>
     </div>
 {% endblock %}

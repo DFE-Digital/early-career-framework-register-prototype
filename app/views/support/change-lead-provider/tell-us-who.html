@@ -1,0 +1,30 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Who will be switching to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
+
+{% block form %}
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    items: [
+      {
+        text: "Jane Doe"
+      },
+      {
+        text: "John Doe"
+      },
+      {
+        text: "Keanu Greeves"
+      },
+      {
+        text: "Tom Thanks"
+      }
+    ]
+  } | decorateFormAttributes(['admin', 'people']) ) }}
+{% endblock %}
+
+We assume that the current provider has submitted any start declarations for the participants it has onboarded

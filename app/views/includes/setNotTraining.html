@@ -1,0 +1,88 @@
+{% set nottrainingHtml %}
+
+        <!-- Withdrawn dashboard -->
+        {% if data['show-participant-withdrawn'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>Your provider reported that they’re not training the people listed below. If this is wrong, contact the relevant provider.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>  
+                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                              
+                    <th class="govuk-table__header" scope="col">Induction start</th>
+                    
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&random-name=Paul Hayes&status=Withdrawn" class="govuk-link govuk-link--no-visited-state">Paul Hayes</a></td>                
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                    
+                    
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&random-name=Mili Malde&status=Withdrawn" class="govuk-link govuk-link--no-visited-state">Mili Malde</a></td>                
+                    <td class="govuk-table__cell">{{ data.leadProvider }}</td>
+                    <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
+                    <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
+                                
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+        <!-- // not training -->
+
+        <!-- Not eligible dashboard -->
+        {% if data['show-participant-not-eligible'] == "Yes" %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>We’ve checked these people’s details and found they’re not eligible for this programme.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>                
+                    <!-- <th class="govuk-table__header" scope="col">Induction start</th> -->
+                    <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Action required</th>                
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&random-name=Alex Nolan&status=NotEligible&noteligible-status=InductionStarted" class="govuk-link govuk-link--no-visited-state">Alex Nolan</a></td>
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell govuk-table__cell--numeric">Delete</td>                
+                </tr>
+                <!-- This option is no longer valid -->
+                <!-- <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Shani Rogers</td>
+                    <td class="govuk-table__cell">Mentor</td>
+                    <td class="govuk-table__cell">Delete</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=Checking&user-details=Random&random-name=Shani Rogers&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Check</a></td>
+                </tr> -->
+                <!-- <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Stanislaw Klajn</a></td>
+                    <td class="govuk-table__cell">Mentor</td>
+                    <td class="govuk-table__cell">None</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="details?status=NotEligible&noteligible-status=AlreadyFunded&ParticipantType=Mentor&random-name=Stanislaw Klajn" class="govuk-link govuk-link--no-visited-state">Check</a></td>
+                </tr> -->
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="details?user-type=ECT&active-user=Random&&random-name=Tony Headford&status=NotEligible&noteligible-status=NotEligible" class="govuk-link govuk-link--no-visited-state">Tony Headford</a></td>                
+                    <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
+                    <td class="govuk-table__cell govuk-table__cell--numeric">Delete</td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+        <!-- // Not eligible -->
+
+    {% endset -%}
+    <!-- // Not training -->

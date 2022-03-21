@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = 'Check your answers and confirm' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% set who %}
+                {% if data.schools.who == 'some' %}
+                    <ul class="govuk-list">
+                        {% for person in data.schools.people %}
+                        <li>{{ person }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    {{ data.schools.who }}
+                {% endif %}
+            {% endset %}
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Current provider</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].leadProvider }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">New provider</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].newleadProvider }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Who is switching</dt>
+                    <dd class="govuk-summary-list__value">{{ who }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+            </dl>
+
+
+
+            {# {{ govukSummaryList({
+                classes: 'app-summary-list-fix',
+                rows: [
+                    {
+                        key: { text: "Current provider" },
+                        value: { text: '{{ data.schools[id].leadProvider }}' }
+                    },
+                    {
+                        key: { text: "New provider" },
+                        value: { text: data.admin['new-partnership'] },
+                        actions: {
+                            items: [
+                                { href: "/support/change-lead-provider/new-partnership", text: "Change", visuallyHiddenText: " new provider" }
+                            ]
+                        }
+                    },
+                    {
+                        key: { text: "Who is switching" },
+                        value: { html: who },
+                        actions: {
+                            items: [
+                                { href: "/support/change-lead-provider/who", text: "Change", visuallyHiddenText: " who is switching" }
+                            ]
+                        }
+                    }
+                ]
+            }) }} #}
+
+            <form method="post" action="confirmation" >
+
+
+
+                {{ govukButton({
+                    text: "Confirm change of provider"
+                }) }}
+
+            </form>
+
+            {# We assume that the current provider has submitted any start declarations for the participants it has onboarded #}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+{% extends "_wizard-page.html" %}
+{% set title = 'Check your answers and confirm' %}
+{% set buttonText = 'Confirm change of provider' %}
+
+{% block page %}
+<h1 class="govuk-heading-xl">{{ title }}</h1>
+
+{% set who %}
+  {% if data.admin.who == 'some' %}
+    <ul class="govuk-list">
+      {% for person in data.admin.people %}
+        <li>{{ person }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {{ data.admin.who }}
+  {% endif %}
+{% endset %}
+
+{{ govukSummaryList({
+  classes: 'app-summary-list-fix',
+  rows: [
+    {
+      key: {
+        text: "Current provider"
+      },
+      value: {
+        text: "Ambition Institute"
+      }
+    },
+    {
+      key: {
+        text: "New provider"
+      },
+      value: {
+        text: data.admin['new-partnership']
+      },
+      actions: {
+        items: [
+          {
+            href: "/support/change-lead-provider/new-partnership",
+            text: "Change",
+            visuallyHiddenText: " new provider"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Who is switching"
+      },
+      value: {
+        html: who
+      },
+      actions: {
+        items: [
+          {
+            href: "/support/change-lead-provider/who",
+            text: "Change",
+            visuallyHiddenText: " who is switching"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% endblock %}
