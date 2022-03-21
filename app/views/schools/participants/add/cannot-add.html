@@ -14,9 +14,11 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
-            
-            {% if data.participants[id].usingCurrentTraining == "No" %}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if data.participants[id].eroMultiMentor == "Yes" %}
+                <p>Additional content should we need it Kate around ERO mentor or mentor at multiple schools.</p>
+            {% elif data.participants[id].usingCurrentTraining == "No" %}
                 <p>Additional content should we need it Kate.</p>
             {% elif data.participants[id].continueProgramme != "No" %}
                 {% if data.participants[id].existingMatch == "Yes" %}

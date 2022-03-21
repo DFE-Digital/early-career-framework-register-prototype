@@ -45,7 +45,11 @@
                     {% endif %}
 				{% else %}
 
-                    {% if data.participants[id].dbMatched == "Yes" %}
+                    {% if data.participants[id].eroMultiMentor == "Yes" %}
+
+                        <form class="form" action="cannot-add" method="post">
+
+                    {% elif data.participants[id].dbMatched == "Yes" %}
                         {% if data['linkaction'] == "cannotFind" %}
                             <form class="form" action="joining-date" method="post">
                             <input type="hidden" name="linkaction" id="linkaction" value="" />
@@ -95,7 +99,7 @@
         		{{ govukButton({
           			text: "Continue"
         		}) }}
- 
+
 
       		</form>
 
