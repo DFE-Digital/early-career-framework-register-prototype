@@ -27,7 +27,7 @@
 				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 					</div>
                     {% if data['inductionProgramme'] == "FIP" %}
-                      <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">ID</dt>
 						<dd class="govuk-summary-list__value">{{ participant.iD }}</dd>
 				  	</div>
@@ -36,14 +36,14 @@
 						<dt class="govuk-summary-list__key">Validation status</dt>
 						<dd class="govuk-summary-list__value">{{ participant.status }}</dd>
 				  	</div>
-					<div class="govuk-summary-list__row">
+					{# <div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Training cohort</dt>
-						<dd class="govuk-summary-list__value">2012 to 2022</dd>
-					</div>
+						<dd class="govuk-summary-list__value">2021 to 2022</dd>
+					</div> #}
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Start term</dt>
 						<dd class="govuk-summary-list__value">{{ participant.startDate }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Notes</dt>
@@ -78,7 +78,7 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Mentor</dt>
 						<dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
 					</div>
 
 
@@ -99,7 +99,7 @@
 								{% endif %}
 							{% endif %}
 						</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
@@ -118,7 +118,7 @@
 								{% endif %}
 							{% endif %}
 						</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd> #}
 					</div>
 					{% elif data.participants[id].programme == "CIP" %}
 					<div class="govuk-summary-list__row">
@@ -137,11 +137,12 @@
 			{{ govukSummaryList({
 				rows: [
 					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
-					{ key: { text: "Programme changes" }, value: { text: "None" } }
+					{ key: { text: "Programme changes" }, value: { text: "None" } },
+                    { key: { text: "School transfers" }, value: { html: '10 March 2022<br>Gob out information' } }
 				]
 			}) }}
 
-			<h2 class="govuk-heading-m">School transfers</h2>
+			{# <h2 class="govuk-heading-m">School transfers</h2>
             <p class="govuk-!-margin-bottom-0">Reported: 10 March 2022</p>
 			{{ govukTable({
                 classes: "govuk-!-margin-bottom-3",
@@ -222,7 +223,7 @@
 					}
 				  ]
 				]
-			  }) }}
+			  }) }} #}
 
 			<!-- <h2 class="govuk-heading-m">Programme changes</h2>
 			{{ govukSummaryList({
