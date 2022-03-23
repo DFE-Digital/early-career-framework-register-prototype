@@ -33,7 +33,7 @@
 
                         {% if data.participants[id].diffInductionProgramme == "Yes" %}
                             <form class="form" action="different-programme" method="post" >
-                        {% elif data.participants[id].programmeMatch == "No" %}
+                        {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
                             <form class="form" action="current-training-programme" method="post" >
                         {% else %}
                             <form class="form" action="check-your-answers" method="post" >
@@ -46,16 +46,16 @@
                 {{ govukRadios({
                     items: mentors
                 } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
-                    
+
 
                 {{ govukButton({
                     text: "Continue"
-                }) }}                    
-                    
+                }) }}
+
                 <!-- Check if participant is TransferringIn -->
                 <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
 
-                </form>               
+                </form>
 
             {% else %}
             <!-- no mentors to choose from -->

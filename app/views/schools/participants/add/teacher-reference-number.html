@@ -101,9 +101,16 @@
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
                             items: [
-                                { value: "No", text: "Training using different LP or DP" }
+                                { value: "No", text: "Training using different LP and DP" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'trainingMatch']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "No", text: "Training using same LP and different DP" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'dpMatch']) ) }}
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small",

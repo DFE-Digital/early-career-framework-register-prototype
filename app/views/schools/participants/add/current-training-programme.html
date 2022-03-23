@@ -22,7 +22,7 @@
 
             {% if data['inductionProgramme'] == "CIP" %}
                 {# Not training on the schools default programme #}
-                {% if data.participants[id].programmeMatch == "No" %}
+                {% if data.participants[id].trainingMatch == "No" %}
                     <p>These are different materials to those used by other ECTs and mentors at your school.</p>
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Materials supplier</h2>
                     <p>{{ data.leadProviderMaterialsTransfer }}</p>
@@ -51,7 +51,18 @@
 
             {% elif data['inductionProgramme'] == "FIP" %}
                 {# Not training on the schools default programme #}
-                {% if data.participants[id].programmeMatch == "No" %}
+
+
+                {% if data.participants[id].dpMatch == "No" %}
+                    {# DIFFERENT FIP #}
+                    <p>This is the same lead provider, but a different delivery partner to other ECTs and mentors at your school.</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
+                    <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+                    <p>{{ data.deliveryPartnerTransfer }}</p>
+                    <form class="form" action="current-providers" method="post" >
+
+                {% elif data.participants[id].trainingMatch == "No" %}
 
                 {# DIFFERENT FIP #}
                     <p>This is a different programme to other ECTs and mentors at your school.</p>
