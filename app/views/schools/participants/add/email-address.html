@@ -33,11 +33,11 @@
                             {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                 <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
                             <!-- Check if on a different provider/partner -->
-                            {% elif data.participants[id].programmeMatch == "No" %}
-                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                            {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
+                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
                             <!-- Otherwise go to CYA -->
                             {% else %}
-                                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">   
+                                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                             {% endif %}
                         {% else %}
 
@@ -46,14 +46,14 @@
                             {% else %}
                                 {% if data.participants[id].diffInductionProgramme == "Yes" %}
                                     <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
-                                {% elif data.participants[id].programmeMatch == "No" %}
-                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">   
+                                {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
+                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
                                 {% else %}
                                     <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                                 {% endif %}
                             {% endif %}
-                        {% endif %}                    
-                    
+                        {% endif %}
+
                     {% endif %}
                 {% endif %}
 
