@@ -3,7 +3,9 @@
 {% set schoolSignedIn = true %}
 
 
-{% if data['school-expects-ect-next-year'] %}
+{% if data['newYear-continue-same-programme'] %}
+    {% set pageHeading = "Your choice has been saved for the next academic year" %}
+{% elif data['newYear-expects-ect'] %}
     {% set pageHeading = "Your choice has been saved for the next academic year" %}
 {% else %}
     {% set pageHeading = "Your choice has been saved for this academic year" %}
