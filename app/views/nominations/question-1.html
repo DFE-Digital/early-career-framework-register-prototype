@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set schoolSignedIn = true %}
 
 {% set pageHeading = "Do you expect to have early career teachers join your school in the next academic year?" %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -20,8 +21,8 @@
               },
               items: [
                 { value: "yes", text: "Yes" },
-                { value: "no", text: "No" }
-                
+                { value: "no, redirect(confirmation)", text: "No" }
+
               ]
             } | decorateFormAttributes('school-expects-ect-next-year')) }}
 

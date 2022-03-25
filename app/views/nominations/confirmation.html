@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
+{% set schoolSignedIn = true %}
 
-{% set pageHeading = "Your choice has been saved for this academic year" %}
+
+{% if data['school-expects-ect-next-year'] %}
+    {% set pageHeading = "Your choice has been saved for the next academic year" %}
+{% else %}
+    {% set pageHeading = "Your choice has been saved for this academic year" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,8 +22,18 @@
         }) }}
 
         <h3 class="govuk-heading-m">What happens next</h3>
-        <p>We will contact {{ data.schoolName }} in the next academic year.</p>
-        <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+
+        {% if data['school-expects-ect-next-year'] %}
+
+            <p>We will contact {{ data.schoolName }} in the next academic year.</p>
+            <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+
+        {% else %}
+
+            <p>We will contact {{ data.schoolName }} in the next academic year.</p>
+            <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+
+        {% endif %}
 
     </div>
   </div>
