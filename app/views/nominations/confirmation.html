@@ -4,11 +4,11 @@
 
 
 {% if data['newYear-continue-same-programme'] %}
-    {% set pageHeading = "Your choice has been saved" %}
+    {% set pageHeading = "Your information has been saved" %}
 {% elif data['newYear-expects-ect'] %}
-    {% set pageHeading = "Your choice has been saved for the next academic year" %}
+    {% set pageHeading = "Your information has been saved for the next academic year" %}
 {% else %}
-    {% set pageHeading = "Your choice has been saved for this academic year" %}
+    {% set pageHeading = "Your information has been saved for this academic year" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -27,15 +27,15 @@
 
         {% if data['school-expects-ect-next-year'] %}
 
-            <p>We will contact {{ data.schoolName }} in the next academic year.</p>
-            <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+            <p>We'll contact {{ data.schoolName }} in the next academic year.</p>
+            <p>If you do employ ECTs later this year, you can sign in to this service to let us know.</p>
 
             <p><a href="/schools/manage-your-training">Return to manage your training</a></p>
 
         {% else %}
 
-            <p>We will contact {{ data.schoolName }} in the next academic year.</p>
-            <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+            <p>We'll contact {{ data.schoolName }} again in the next academic year.</p>
+            <p>If you do employ ECTs later this year, sign in to this service to let us know.</p>
 
         {% endif %}
 

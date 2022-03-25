@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set pageHeading = "Will the school continue with their current training programme?" %}
+{% set pageHeading = "Will you use the same training programme again?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,6 +10,8 @@
       <div class="govuk-grid-column-two-thirds">
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+          <p>Read our guidance to <a href="x">check your options.</a> [Will link to new GOV guidance]</p>
 
           <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
           <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>

@@ -3,7 +3,7 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYear-continue-same-programme'] %}
-    {% set pageHeading = "Training programme for next academic year confirmed" %}
+    {% set pageHeading = "You've submitted your training information for 2022 to 2023" %}
 {% else %}
     {% set pageHeading = "Training programme confirmed" %}
 {% endif %}
@@ -25,10 +25,21 @@
                 {% if data['newYear-continue-same-programme'] %}
 
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    <p>You need to:</p>
+                    
+                    <h3 class="govuk-heading-s">1. Add your new ECTs and mentors</h3>
+                    
+                    <p>You can now choose to add their teacher reference number (TRN) and date of birth. This helps us to confirm they're eligible for funding more quickly.</p>
+                    
+                    <h3 class="govuk-heading-s">2. Appoint an appropriate body</h3>
+
+                    <p>You must appoint an appropriate body as soon as possible so they can:</p>
+
                     <ul class="govuk-list govuk-list--bullet">
-                    <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
-                    <li>have an appropriate body in place</li>
+                      <li>confirm each ECT’s role is suitable to count towards their statutory induction, then
+                      </li>
+                      <li>
+                        register the ECT’s statutory induction
+                      </li>
                     </ul>
 
                     <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in a new tab)</a> to find out how to complete these steps.</p>
