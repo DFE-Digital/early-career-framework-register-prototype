@@ -12,7 +12,7 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          <form class="form" action="question-2" method="post" class="govuk-!-margin-bottom-8">
+          <form class="form" action="/schools/training-programme/question-2" method="post" class="govuk-!-margin-bottom-8">
 
             {{ govukRadios({
               classes: "govuk-radios--inline",
@@ -21,7 +21,7 @@
               },
               items: [
                 { value: "yes", text: "Yes" },
-                { value: "no, redirect(confirmation)", text: "No" }
+                { value: "no, redirect(/nominations/confirmation)", text: "No" }
 
               ]
             } | decorateFormAttributes('newYear-expects-ect')) }}
