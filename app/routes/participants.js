@@ -3,7 +3,9 @@ const { generateRandomString } = require('../utils/helpers')
 module.exports = router => {
   router.all([
     '/schools/participants/:id',
-    '/schools/participants/:id/*'
+    '/schools/participants/:id/*',
+    '/support/participants/:id',
+    '/support/participants/:id/*'
   ], (req, res, next) => {
     const data = req.session.data
     res.locals.id = req.params.id
@@ -117,6 +119,11 @@ module.exports = router => {
     res.render(`schools/participants/remove/${req.params.view}`)
   })
 
-
+  router.all('/support/participants/:id/', (req, res) => {
+    res.render('support/participants/details')
+})
+router.all('/support/participants/:id/details/:view', (req, res) => {
+    res.render(`support/participants/details/${req.params.view}`)
+})
 
 }

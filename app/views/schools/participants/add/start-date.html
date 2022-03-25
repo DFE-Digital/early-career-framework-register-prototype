@@ -16,6 +16,10 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <div class="govuk-inset-text">
+            <p>You’ll be able to add Autumn 2022 starters from May. We’ll email schools as soon as the new term is added.</p>
+            </div>
+
             <!-- If coming from the CYA page -->
             {% if data['cya-action'] == "change-start-date" %}
                 <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
@@ -40,11 +44,14 @@
 
                 {{ govukRadios({
                     items: [
+                        { value: "Autumn 2021", text: "Autumn 2021" },
                         { value: "Spring 2022", text: "Spring 2022" },
-                        { value: "Summer 2022", text: "Summer 2022" },
-                        { value: "Autumn 2022", text: "Autumn 2022" }
+                        { value: "Summer 2022", text: "Summer 2022" }
+
                     ]
                 } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
+
+
 
                 {{ govukButton({
                     text: "Continue"

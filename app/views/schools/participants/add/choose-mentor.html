@@ -25,51 +25,37 @@
                     <form class="form" action="../details" method="post" >
                 {% else %}
 
-                {# Add journey #}
+                <!-- Add journey -->
                     {% if data.participants[id].type == "ect" %}
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <form class="form" action="current-providers" method="post" >
-                        {% elif data['inductionProgramme'] == "CIP" %}
-                            <form class="form" action="current-training-materials" method="post" >
-                        {% endif %}
-                {# Transfer Journey #}
+                        <form class="form" action="check-your-answers" method="post" >
+                    <!-- Transfer Journey -->
                     {% elif data.participants[id].type == "ectTransfer" %}
 
-                        {% if data.participants[id].diffProgramme == "Yes" %}
+                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
                             <form class="form" action="different-programme" method="post" >
-                        {% else %}
+                        {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
                             <form class="form" action="current-training-programme" method="post" >
+                        {% else %}
+                            <form class="form" action="check-your-answers" method="post" >
                         {% endif %}
+
+
                     {% endif %}
                 {% endif %}
 
-                    {{ govukRadios({
-                        items: mentors
-                    } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
-
-                    {{ govukCheckboxes({
-                        classes: "govuk-checkboxes--small ",
-                        items: [
-                            { value: "No", text: "No match" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'programmeMatch']) ) }}
-
-                    {{ govukButton({
-                        text: "Continue"
-                    }) }}
+                {{ govukRadios({
+                    items: mentors
+                } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
 
 
-                    
-                    
-                    <!-- Check if participant is TransferringIn -->
-                        <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
-                         
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
 
-
+                <!-- Check if participant is TransferringIn -->
+                <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
 
                 </form>
-
-               
 
             {% else %}
             <!-- no mentors to choose from -->

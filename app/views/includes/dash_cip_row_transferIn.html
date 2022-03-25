@@ -1,7 +1,7 @@
 <tr class="govuk-table__row">
     <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
     <td class="govuk-table__cell">
-        {% if data.participants[id].programmeMatch == "No" %}
+        {% if data.participants[id].trainingMatch == "No" %}
             {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 {{ data.leadProviderTransfer }}
             {% else %}
@@ -13,7 +13,7 @@
 
         </td>
     {# <td class="govuk-table__cell">
-        {% if data.participants[id].programmeMatch == "No" %}
+        {% if data.participants[id].trainingMatch == "No" %}
             {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 {{ data.deliveryPartnerTransfer }}
             {% else %}

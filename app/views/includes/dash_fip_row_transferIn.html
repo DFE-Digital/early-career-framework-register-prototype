@@ -3,7 +3,7 @@
     <td class="govuk-table__cell">
         {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
             {# Not a match #}
-            {% if data.participants[id].programmeMatch == "No" %}
+            {% if data.participants[id].trainingMatch == "No" %}
                 {{ data.leadProviderTransfer }}
             {# Is a match #}
             {% else %}
@@ -12,7 +12,7 @@
         {# Is not going to use the default or the current programme they are on #}
         {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
             {# Not a match #}
-            {% if data.participants[id].programmeMatch == "No" %}
+            {% if data.participants[id].trainingMatch == "No" %}
                 {% if data.participants[id].usingCurrentTraining == "Yes" %}
                     {{ data.leadProvider}}
                 {% else %}
@@ -39,7 +39,7 @@
 
         {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
             {# Not a match #}
-            {% if data.participants[id].programmeMatch == "No" %}
+            {% if data.participants[id].trainingMatch == "No" %}
                 {{ data.deliveryPartnerTransfer }}
             {# Is a match #}
             {% else %}
@@ -48,7 +48,7 @@
         {# Is not going to use the default or the current programme they are on #}
         {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
             {# Not a match #}
-            {% if data.participants[id].programmeMatch == "No" %}
+            {% if data.participants[id].trainingMatch == "No" %}
                 {% if data.participants[id].usingCurrentTraining == "Yes" %}
                 {{ data.deliveryPartner }}
                 {% else %}

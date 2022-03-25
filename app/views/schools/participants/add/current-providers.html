@@ -21,7 +21,7 @@
                 <!-- CYA action -->
                 <form class="form" action="../details" method="post" >
             {% else %}
-                {% if data.participants[id].programmeMatch == "No"%}
+                {% if data.participants[id].trainingMatch == "No"%}
                     <form class="form" action="check-your-answers" method="post" >
                 {% else %}
                     <form class="form" action="check-your-answers" method="post" >
@@ -39,7 +39,7 @@
                     },
                     items: [
                         { value: "Yes", text: "Yes" },
-                        { value: "No, redirect(provider)", text: "No" }
+                        { value: "No, redirect(cannot-add)", text: "No" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'usingCurrentTraining']) ) }}
 
