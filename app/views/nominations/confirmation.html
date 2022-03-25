@@ -4,7 +4,7 @@
 
 
 {% if data['newYear-continue-same-programme'] %}
-    {% set pageHeading = "Your choice has been saved for the next academic year" %}
+    {% set pageHeading = "Your choice has been saved" %}
 {% elif data['newYear-expects-ect'] %}
     {% set pageHeading = "Your choice has been saved for the next academic year" %}
 {% else %}
@@ -29,6 +29,8 @@
 
             <p>We will contact {{ data.schoolName }} in the next academic year.</p>
             <p>If you do employ career teachers later this year, you can sign in to this service to let us know.</p>
+
+            <p><a href="/schools/manage-your-training">Return to manage your training</a></p>
 
         {% else %}
 

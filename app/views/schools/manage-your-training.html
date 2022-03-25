@@ -20,8 +20,14 @@
 
             {% set newYearHtml %}
 
+                {% if data['newYear-expects-ect'] == "No" %}
 
-            <p>Tell us <a href="/nominations/question-1">how you want to run your programme this year.</a></p>
+                    <p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="#">Check the options available</a> for your school if this changes.</p>
+
+                {% else %}
+                    <p>Tell us <a href="/nominations/question-1">how you want to run your programme this year.</a></p>
+                {% endif %}
 
 
 
