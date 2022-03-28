@@ -11,20 +11,20 @@
       <div class="govuk-grid-column-two-thirds">
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-          <form class="form" action="/schools/training-programme/question-2" method="post" class="govuk-!-margin-bottom-8">
+          <p>These are teachers who have finished their initial teacher training. It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
+          <form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
 
             {{ govukRadios({
-              classes: "govuk-radios--inline",
-              hint: {
-                text: "These are teachers who have finished their initial teacher training. It does not include teachers who started or completed their statutory induction before 1 September 2022."
-              },
+              classes: "govuk-radios--inline",              
               items: [
                 { value: "Yes", text: "Yes" },
                 { value: "No, redirect(/nominations/confirmation)", text: "No" }
 
               ]
             } | decorateFormAttributes('newYear-expects-ect')) }}
+
+            <p class="govuk-body govuk-!-margin-bottom-7"><a href="#">Not sure right now</a></p>
+            
 
             {{ govukButton({
                 text: "Continue"
