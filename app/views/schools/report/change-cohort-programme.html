@@ -15,16 +15,17 @@
 
         <p class="govuk-body">The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
 
-
+<!-- goes to confirm-change-cohort-programme -->
+<!-- goes to new options screen for CIP or DIY -->        
             {{ govukRadios({
                 fieldset: {
                     legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
                 },
                 items: [
-            <!-- goes to confirm-change-cohort-programme -->
+            
                     { value: "noInductions", text: "Stay with Education Development Trust, but change our delivery partner" },
                     { value: "dontRecognise", text: "Change to a different lead provider" },
-            <!-- goes to new options screen for CIP or DIY -->        
+            
                     { value: "alreadyPartnered", text: "Use DfE-accredited training materials, or design our own programme" }
                 ]
             } | decorateFormAttributes('school-challenge-reason')) }}

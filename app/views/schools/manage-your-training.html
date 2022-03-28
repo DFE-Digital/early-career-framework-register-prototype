@@ -27,17 +27,26 @@
 
                 {% else %}
 
-                <h3 class="govuk-heading-s">How to set up training for 2022 to 2023</h3>
+                    <h3 class="govuk-heading-m">How to set up training for 2022 to 2023</h3>
 
-                <p class="govuk-body">We need to know:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>if your school expects any ECTs in the next academic year</li>
-                  <li>which training programme you want to use for any new ECTs</li>
-                </ul>
+                    <p class="govuk-body">We need to know:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>if your school expects any ECTs in the next academic year</li>
+                        <li>which training programme you want to use for any new ECTs</li>
+                    </ul>
+                    <p>It should only take a few minutes to get set up.</p>
 
-                <p>It should only take a few minutes to get set up.</p>
+                    <form action="/nominations/next-academic-year" method="post" >
 
-                <p><a href="/nominations/next-academic-year">Start now</a></p>
+                        <input type="hidden" name="newYear-setup" id="newYear-setup" value="Started"  />
+
+                        {{ govukButton({
+                            text: "Start now"
+                        }) }}
+                        
+                    </form>
+
+                <!-- <p><a href="/nominations/next-academic-year">Start now</a></p> -->
 
                 {% endif %}
 

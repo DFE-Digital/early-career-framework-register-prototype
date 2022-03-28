@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Why are you changing your training programme?" %}
+{% set pageHeading = "How do you want to change your training programme?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,19 +11,21 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <form class="form" action="confirm-challenge" method="post" >
+            <p>The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
 
-            {{ govukRadios({
-                fieldset: {
-                    legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
-                },
-                items: [                    
-                    { value: "dontRecognise", text: "We do not recognise this training provider" },
-                    { value: "alreadyPartnered", text: "We’ve already confirmed an agreement with another provider" },
-                    { value: "notAgreedNotSigned", text: "We have not confirmed an agreement" },
-                    { value: "mistake", text: "This looks like a mistake" }
-                ]
-            } | decorateFormAttributes('newYear-why-changing')) }}
+            <form class="form" action="confirm-change-cohort-programme" method="post" >
+
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [                    
+                        { value: "changeLeadProvider", text: "Change to a different lead provider" },            
+                        { value: "changeDeliveryPartner", text: "Stay with Education Development Trust, but change our delivery partner" },                    
+                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Use DfE-accredited training materials, or design our own programme" }                    
+                    ]
+                } | decorateFormAttributes('newYear-why-changing')) }}                    
+
 
             {{ govukButton({
                 text: "Continue"
