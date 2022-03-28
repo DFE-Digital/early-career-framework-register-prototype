@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set schoolSignedIn = true %}
 
 {% set pageHeading = "Will you use the same training programme again?" %}
 {% set pageSection = " " + data.schoolName + " " %}
@@ -26,7 +27,7 @@
               classes: "govuk-radios--inline",
               items: [
                 { value: "yes", text: "Yes" },
-                { value: "no, redirect(#)", text: "No" }
+                { value: "no, redirect(why-are-you-changing)", text: "No" }
               ]
             } | decorateFormAttributes('newYear-continue-same-programme')) }}
 
