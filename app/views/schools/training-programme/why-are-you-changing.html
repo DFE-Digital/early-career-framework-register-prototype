@@ -12,10 +12,9 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <p>The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+            
 
             <form class="form" action="confirm-change-cohort-programme" method="post" >
-
-
 
                 {% if data['inductionProgramme'] == "FIP" %}
 
@@ -30,7 +29,7 @@
                             { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
-
+                    
 
                 {% elif data['inductionProgramme'] == "CIP" %}
 
@@ -46,12 +45,8 @@
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
 
-
                 {% endif %}
-
-                
-
-
+            
             {{ govukButton({
                 text: "Continue"
             }) }}
