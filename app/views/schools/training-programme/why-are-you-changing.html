@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "How do you want to change your training programme?" %}
+{% set pageHeading = "What change do you want to make?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,10 +20,10 @@
                         legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
                     items: [
-                        { value: "changeLeadProvider", text: "Change to a different lead provider" },
-                        { value: "changeDeliveryPartner", text: "Stay with Education Development Trust, but change our delivery partner" },
-                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Deliver your own programme using DfE accredited materials" },
-                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }
+                        { value: "changeLeadProvider", text: "Leave Ambition Institute and use a different lead provider" },
+                        { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change our delivery partner, Kings College London" },
+                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Deliver our own programme using DfE-accredited materials" },
+                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
                     ]
                 } | decorateFormAttributes('newYear-why-changing')) }}
 
