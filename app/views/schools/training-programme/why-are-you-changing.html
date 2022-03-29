@@ -19,12 +19,13 @@
                     fieldset: {
                         legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
                     },
-                    items: [                    
-                        { value: "changeLeadProvider", text: "Change to a different lead provider" },            
-                        { value: "changeDeliveryPartner", text: "Stay with Education Development Trust, but change our delivery partner" },                    
-                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Use DfE-accredited training materials, or design our own programme" }                    
+                    items: [
+                        { value: "changeLeadProvider", text: "Change to a different lead provider" },
+                        { value: "changeDeliveryPartner", text: "Stay with Education Development Trust, but change our delivery partner" },
+                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Deliver your own programme using DfE accredited materials" },
+                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }
                     ]
-                } | decorateFormAttributes('newYear-why-changing')) }}                    
+                } | decorateFormAttributes('newYear-why-changing')) }}
 
 
             {{ govukButton({
@@ -32,7 +33,7 @@
             }) }}
 
             </form>
-        
+
         </div>
     </div>
 
