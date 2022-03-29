@@ -15,17 +15,41 @@
 
             <form class="form" action="confirm-change-cohort-programme" method="post" >
 
-                {{ govukRadios({
-                    fieldset: {
-                        legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
-                    },
-                    items: [
-                        { value: "changeLeadProvider", text: "Leave Ambition Institute and use a different lead provider" },
-                        { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change our delivery partner, Kings College London" },
-                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Deliver our own programme using DfE-accredited materials" },
-                        { value: "changeInudctionProgramme, redirect(/schools/training-programme/)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
-                    ]
-                } | decorateFormAttributes('newYear-why-changing')) }}
+
+
+                {% if data['inductionProgramme'] == "FIP" %}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "changeLeadProvider", text: "Leave Ambition Institute and use a different lead provider" },
+                            { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change our delivery partner, Kings College London" },
+                            { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver our own programme using DfE-accredited materials" },
+                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes('newYear-why-changing')) }}
+
+
+                {% elif data['inductionProgramme'] == "CIP" %}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "changeLeadProvider", text: "Leave Ambition Institute and use a different lead provider" },
+                            { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change our delivery partner, Kings College London" },
+                            { value: "nextYear-FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes('newYear-why-changing')) }}
+
+
+                {% endif %}
+
+                
 
 
             {{ govukButton({
