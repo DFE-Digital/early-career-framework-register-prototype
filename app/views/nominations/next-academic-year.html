@@ -11,22 +11,19 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-          	
-			<p>ECTs are teachers who have finished their initial teacher training.</p> 
+
+			<p>ECTs are teachers who have finished their initial teacher training.</p>
           	<p>It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
-          	
+
 			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
 
 				{{ govukRadios({
-				classes: "govuk-radios--inline",              
+				classes: "govuk-radios--inline",
 				items: [
-					{ value: "Yes", text: "Yes" },                
+					{ value: "Yes", text: "Yes" },
 					{ value: "No, redirect(/nominations/confirmation)", text: "No" }
 				]
 				} | decorateFormAttributes('newYear-expects-ect')) }}
-            
-            	<!-- Brian - where does this take the user? -->
-            	<!-- <p class="govuk-body govuk-!-margin-bottom-7"><a href="#">We do not know yet</a></p>         -->
 
 				<!-- Just for dashboard -->
 				<input type="hidden" name="newYear-training" id="newYear-training" value="noECT" >

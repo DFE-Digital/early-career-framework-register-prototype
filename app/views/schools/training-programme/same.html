@@ -24,12 +24,12 @@
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
-                        { value: "yes", text: "Yes" },
-                        { value: "no, redirect(why-are-you-changing)", text: "No" }
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(why-are-you-changing)", text: "No" }
                     ]
                 } | decorateFormAttributes('newYear-continue-same-programme')) }}
 
-                <!-- Just for dashboard -->
+                <!-- Just for dashboard to remove the NoECT that we set on previous page -->
 				<input type="hidden" name="newYear-training" id="newYear-training" value="" >
 
                 {{ govukButton({
