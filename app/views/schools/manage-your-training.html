@@ -31,8 +31,93 @@
 
                     {% elif data['newYear-expects-ect'] == "Yes" %}
 
+                        {% if data['inductionProgramme'] == "FIP" %}
 
-                        <p>New dashboard for the next academic year.</p>
+                            {% if data['newYear-why-changing'] == "nextYear-DYO" %}
+
+                                <p>New dashboard for DYO the next academic year school currently on FIP.</p>
+
+                            {% else %}
+                                <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">Length of induction</dt>
+                                        <dd class="govuk-summary-list__value">2 years</dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                                        <dd class="govuk-summary-list__value">0</dd>
+                                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                                        <dt class="govuk-summary-list__key">Induction tutor</dt>
+                                        <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
+                                    </div>
+
+
+                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                                        <dt class="govuk-summary-list__key">Programme</dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['newYear-why-changing'] == "nextYear-CIP" %}
+                                                DfE accredited materials
+                                            {% else %}
+                                                Training provider, funded by the DfE
+                                            {% endif %}
+                                        </dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row ">
+                                        <dt class="govuk-summary-list__key">
+                                            {% if data['newYear-why-changing'] == "nextYear-CIP" %}
+                                                Materials supplier
+                                            {% else %}
+                                                Training provider
+                                            {% endif %}
+                                            </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['newYear-why-changing'] %}
+                                                {% if data['newYear-why-changing'] == "changeLeadProvider" %}
+                                                    To be confirmed
+                                                {% elif data['newYear-why-changing'] == "changeDeliveryPartner" %}
+                                                    {{ data.leadProvider }}
+                                                {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
+
+                                                {% endif %}
+                                            {% else %}
+                                                {{ data.leadProvider }}
+                                            {% endif %}
+                                        </dd>
+                                        {% if data['newYear-why-changing'] == "nextYear-CIP" %}
+                                            <dd class="govuk-summary-list__actions">
+                                            {% if data['accredited-materials'] %}
+                                                <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                            {% else %}
+                                                <a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </dd>
+                                    </div>
+                                    {% if data['newYear-why-changing'] != "nextYear-CIP" %}
+                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                                        <dt class="govuk-summary-list__key">Delivery partner</dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['newYear-why-changing'] %}
+                                                {% if data['newYear-why-changing'] == "changeLeadProvider" %}
+                                                    To be confirmed
+                                                {% elif data['newYear-why-changing'] == "changeDeliveryPartner" %}
+                                                    To be confirmed
+                                                {% endif %}
+                                            {% else %}
+                                                {{ data.deliveryPartner }}
+                                            {% endif %}
+                                        </dd>
+                                    </div>
+                                    {% endif %}
+
+                                </dl>
+                            {% endif %}
+
+                        {% elif data['inductionProgramme'] == "CIP" %}
+                            <p>New dashboard to follow for the next academic year school currently on CIP.</p>
+                        {% endif %}
 
                     {% else %}
 
@@ -61,39 +146,6 @@
                     </form>
 
                     {% endif %}
-
-
-
-
-
-
-            <!-- <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Length of induction</dt>
-                    <dd class="govuk-summary-list__value">2 years</dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-                    <dd class="govuk-summary-list__value">7</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2019">View<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
-                </div>
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Induction tutor</dt>
-                    <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
-                </div>
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Programme</dt>
-                    <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-                </div>
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Training provider</dt>
-                    <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
-                </div>
-                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                    <dt class="govuk-summary-list__key">Delivery partner</dt>
-                    <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
-                </div>
-            </dl> -->
 
                 {% endset -%}
 
