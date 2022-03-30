@@ -24,7 +24,7 @@
             {# Next academic year content #}
             {% if data['newYear-continue-same-programme'] %}
 
-                {# Content for the change in Lead Provider and or Delivery Partner #}
+                {# Content for the change in Lead Provider and or Delivery Partner or programme change #}
                 {% if data['newYear-continue-same-programme'] == "No" %}
 
                     {% if data['newYear-why-changing'] == "changeLeadProvider" %}
@@ -42,32 +42,62 @@
                         <p>It’s important to confirm with the delivery partner you do want to work with as soon as possible.</p>
 
                     {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
+
+                        <h2 class="govuk-heading-m">What to do next</h2>
+                        <p>You need to:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>compare and choose which DfE-accredited materials you want to use</li>
+                            <li>use this service to tell us which materials you want to use</li>
+                            <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
+                            <li>have an appropriate body in place</li>
+                        </ul>
+                        <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in a new tab)</a> to find out how to complete these steps.</p>
+
                         {# Content to decide upon #}
                     {% elif data['newYear-why-changing'] == "nextYear-FIP" %}
                         {# Content to decide upon #}
                     {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
-                        {# Content to decide upon #}
+
+                        <h2 class="govuk-heading-m">What to do next</h2>
+                        <p>You need to:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link" rel="noreferrer noopener" target="_blank">Early Career Framework (ECF) (opens in new tab)</a></li>
+                            <li>contact your appropriate body to find out what evidence is needed to demonstrate that your programme:
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>is based on the ECF</li>
+                                <li>meets the statutory requirements</li>
+                            </ul>
+                            </li>
+                        </ul>
+                        <p>You do not need to add information about your ECTs and mentors to this service.</p>
+                        <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" class="govuk-link" rel="noreferrer noopener" target="_blank"> See our statutory guidance (open in new tab)</a> for information about funding, time off, and roles.</p>
+
                     {% endif %}
 
                 {% endif %}
 
-                <h2 class="govuk-heading-m">You’re ready to add new ECTs and mentors</h2>
+                {# Default content for FIP shown if you continue on the same or wish to change the LeadProivder / Delivery Partner #}
+                {% if data['newYear-why-changing'] != "nextYear-DYO" %}
+                {# Make sure not DYO as they do not need to add ECTs #}
 
-                <p class="govuk-body">You must tell us their:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>full name</li>
-                    <li>email address</li>
-                </ul>
+                    <h2 class="govuk-heading-m">You’re ready to add new ECTs and mentors</h2>
+                    <p>You must tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>full name</li>
+                        <li>email address</li>
+                    </ul>
 
-                <p>You can now choose to enter their teacher reference number (TRN) and date of birth too.</p>
+                    <p>You can now choose to enter their teacher reference number (TRN) and date of birth too.</p>
 
-                <p class="govuk-body">If you can tell us this extra information:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>ECTs and mentors will not be asked to provide this information themselves</li>
-                    <li>we can confirm if they’re eligible for funding more quickly</li>
-                </ul>
+                    <p>If you can tell us this extra information:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>ECTs and mentors will not be asked to provide this information themselves</li>
+                        <li>we can confirm if they’re eligible for funding more quickly</li>
+                    </ul>
 
-                <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
+                {% endif %}
+
+                <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Return to manage your training</a></p>
 
             {# // of next academic year content #}
             {% else %}

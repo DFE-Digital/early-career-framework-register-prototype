@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "What change do you want to make?" %}
+{% set pageHeading = "What change do you want to make to your training programme?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +12,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <p>The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-            
+
 
             <form class="form" action="confirm-change-cohort-programme" method="post" >
 
@@ -29,7 +29,7 @@
                             { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
-                    
+
 
                 {% elif data['inductionProgramme'] == "CIP" %}
 
@@ -46,7 +46,7 @@
                     } | decorateFormAttributes('newYear-why-changing')) }}
 
                 {% endif %}
-            
+
             {{ govukButton({
                 text: "Continue"
             }) }}
