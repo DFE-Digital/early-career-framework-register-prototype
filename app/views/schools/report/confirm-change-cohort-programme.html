@@ -1,11 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if ((data['validated-ect'] == "Yes") and ( data['school-challenge-reason'] == "noInductions" )) %}
-    {% set pageHeading = "Contact your training provider" %}
-{% else %}
-    {% set pageHeading = "Are you sure you want to remove this training provider?" %}
-{% endif %}
+    {% set pageHeading = "Are you sure you want to make this change?" %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,6 +14,13 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <p class="govuk-body">Lead provider and delivery partner will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+
+            <p class="govuk-body">They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however. To change that too, xxx</p>
+
+
+            <!--
+
             {% if data['school-challenge-reason'] == "noInductions" %}
 
                 {% if data['validated-ect'] == "Yes" %}
@@ -25,7 +29,6 @@
                     <p>Your provider will need to withdraw any ECTs or mentors who are no longer training at your school.</p>
 
                 {% else %}
-                <!-- Brian -if the school has added undeclared ppts and tells us they have no ECTs-->
                 <p>We’ll delete information you’ve added about any ECTs or mentors.</p>
                 <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school.</p>
 
@@ -33,19 +36,20 @@
 
             {% else %}
 
-                <!-- Brian -if the school selects any reason EXCEPT no ECTs-->
+
                 <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school.</p>
 
             {% endif %}
 
-            {% if not (( data['validated-ect'] == "Yes" ) and ( data['school-challenge-reason'] == "noInductions" )) %}
+        -->
+
             <form method="post" action="submitted" class="govuk-!-margin-top-7" >
                 <input type="hidden" name="fipPartnership" id="fipPartnership" value="" />
+        <!-- goes to /schools/training-programme/success# -->        
                 {{ govukButton({
-                    text: "Confirm and remove"
+                    text: "Confirm"
                 }) }}
             </form>
-            {% endif %}
 
         </div>
     </div>

@@ -25,16 +25,16 @@
 
         <h3 class="govuk-heading-m">What happens next</h3>
 
-        {% if data['school-expects-ect-next-year'] %}
+        {% if data['newYear-expects-ect'] %}
 
-            <p>We'll contact {{ data.schoolName }} in the next academic year.</p>
+            <p>We’ll contact {{ data.schoolName }} in the next academic year.</p>
             <p>If you do employ ECTs later this year, you can sign in to this service to let us know.</p>
 
             <p><a href="/schools/manage-your-training">Return to manage your training</a></p>
 
         {% else %}
 
-            <p>We'll contact {{ data.schoolName }} again in the next academic year.</p>
+            <p>We’ll contact {{ data.schoolName }} again in the next academic year.</p>
             <p>If you do employ ECTs later this year, sign in to this service to let us know.</p>
 
         {% endif %}

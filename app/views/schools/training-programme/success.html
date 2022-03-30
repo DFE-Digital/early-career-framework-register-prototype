@@ -3,7 +3,8 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYear-continue-same-programme'] %}
-    {% set pageHeading = "You've submitted your training information for 2022 to 2023" %}
+	<!-- {% set pageHeading = "You’ve submitted your training information for 2022 to 2023" %}     -->
+	{% set pageHeading = "You’ve submitted your training information" %}
 {% else %}
     {% set pageHeading = "Training programme confirmed" %}
 {% endif %}
@@ -12,37 +13,65 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
 
-            {{ govukPanel({
+        	{{ govukPanel({
                 titleText: pageHeading,
+				html: "Academic year<br><strong>2022 to 2023</strong>",
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
             {% if (data['inductionProgramme'] === "FIP") %}
 
+            	{% if data['newYear-why-changing'] == "changeLeadProvider" %}
+                  
+                	<h2 class="govuk-heading-m">What happens next</h2> 
+					<p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>      
+                  	<p>They may contact you to confirm this.</p>      
+                  	<p>It’s important to confirm with the training provider you do want to work with as soon as possible.</p>  
+  
+                {% elif data['newYear-why-changing'] == "changeDeliveryPartner" %}                  
+
+                  	<h2 class="govuk-heading-m">What happens next</h2> 
+					<p>We’ll let {{ data.deliveryPartner }} that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+                  	<p>They may contact you to confirm this.</p>      
+                  	<p>It’s important to confirm with the delivery partner you do want to work with as soon as possible.</p>  
+                
+                {% endif %}
+
+				
                 {% if data['newYear-continue-same-programme'] %}
 
-                    <h2 class="govuk-heading-m">What to do next</h2>
-                    
-                    <h3 class="govuk-heading-s">1. Add your new ECTs and mentors</h3>
-                    
-                    <p>You can now choose to add their teacher reference number (TRN) and date of birth. This helps us to confirm they're eligible for funding more quickly.</p>
-                    
-                    <h3 class="govuk-heading-s">2. Appoint an appropriate body</h3>
-
-                    <p>You must appoint an appropriate body as soon as possible so they can:</p>
-
+                    <h2 class="govuk-heading-m">You’re ready to add new ECTs and mentors</h2>                   
+                    <p class="govuk-body">You must tell us their:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>confirm each ECT’s role is suitable to count towards their statutory induction, then
-                      </li>
-                      <li>
-                        register the ECT’s statutory induction
-                      </li>
+                    	<li>full name</li>
+                      	<li>email address</li>
                     </ul>
 
-                    <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in a new tab)</a> to find out how to complete these steps.</p>
+                    <p>You can now choose to enter their teacher reference number (TRN) and date of birth too.</p> 
+
+                  	<p class="govuk-body">If you can tell us this extra information:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                    	<li>ECTs and mentors will not be asked to provide this information themselves</li>
+                      	<li>we can confirm if they’re eligible for funding more quickly</li>
+                    </ul>
+
+
+
+					<!-- AB reminder is TBC
+
+                    <p>You will need to add your new ECTs and mentors. You can now choose to add their teacher reference number (TRN) and date of birth. This helps us to confirm they’re eligible for funding more quickly.</p>
+                                        
+                    <p>You must also appoint an appropriate body as soon as possible so they can:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                    	<li>confirm each ECT’s role is suitable to count towards their statutory induction, then</li>
+                      	<li>register the ECT’s statutory induction</li>
+                    </ul>					
+                    <p><a class="govuk-link govuk-link--no-visited-state" href="../how-to-set-up-your-programme">Read our guidance (opens in new tab)</a> to find out how to complete these steps.</p>-->
+					
 
                     <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
 

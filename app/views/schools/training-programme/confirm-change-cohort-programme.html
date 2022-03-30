@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+    {% set pageHeading = "Are you sure you want to make this change?" %}
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+            <p>They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however.</p>
+
+            <form method="post" action="success" class="govuk-!-margin-top-7" >        
+
+                {{ govukButton({
+                    text: "Confirm"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

@@ -19,26 +19,124 @@
             {% if data['multi-cohort'] == "Yes" %}
 
             {% set newYearHtml %}
+                            
+                {% if data['newYear-training'] == "noECT" %}
 
-                {% if data['newYear-expects-ect'] == "No" %}
+                    <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
 
-                    <p>Your school has told us you do not expect any early career teachers (ECTs) to join you in the 2022 to 2023 academic year.</p>
-                    <p class="govuk-body"><a class="govuk-link" href="#">Check the options available</a> for your school if this changes.</p>
+                
+                {% elif data['newYear-continue-same-programme'] == "yes" %}
 
+
+                    {% if data['inductionProgramme'] == "FIP" %}
+
+
+                            <!-- ///// Start of 2021 //// -->
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">0</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2022">Add<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Programme</dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if data['inductionProgramme'] == "FIP" %}
+                                    Training provider, funded by the DfE
+                                {% elif data['inductionProgramme'] == "CIP" %}
+                                    DfE accredited materials
+                                {% elif data['inductionProgramme'] == "DYO" %}
+                                    Design and deliver your own programme based on the Early Career Framework (ECF)
+                                {% elif data['inductionProgramme'] == "noECT" %}
+                                    Expecting no early career teachers
+                                {% elif (data['inductionProgramme'] === "temphold") %}
+                                    You’ve chosen to use a training provider funded by your school
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+                        </div>
+
+                        <!-- Using an approved training provider -->
+                        {% if data['inductionProgramme'] == "FIP" %}
+                            <!-- Needed for if we show the actions line or not -->
+                            {% if data['fipPartnership'] != "Yes" %}
+                            <div class="govuk-summary-list__row">
+                            {% else %}
+                            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            {% endif %}
+                                <dt class="govuk-summary-list__key">Training provider</dt>
+                                <dd class="govuk-summary-list__value">{% if data['fipPartnership'] == "Yes" %}{{ data.leadProvider }}{% endif %}</dd>
+                                {% if data['fipPartnership'] != "Yes" %}
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="sign-up-to-training-provider">Sign up<span class="govuk-visually-hidden"> to a training provider</span></a>
+                                </dd>
+                                {% endif %}
+                            </div>
+                            {% if data['fipPartnership'] == "Yes" %}
+                                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                                    <dt class="govuk-summary-list__key">Delivery partner</dt>
+                                    <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                                </div>
+                            {% endif %}
+                        <!-- Using DfE accredited materials -->
+                        {% elif data['inductionProgramme'] == "CIP" %}
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">Materials</dt>
+                                <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {% if data['accredited-materials'] %}
+                                        <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                    {% else %}
+                                        <a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                    {% endif %}
+                                </dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+
+                    {% include "includes/mt-message.html" %}
+                    <!-- ///// End of 2021 //// -->
+
+
+                    {% elif data['inductionProgramme'] == "CIP" %}
+
+
+                    {% endif %}
+
+                
+                
+                
                 {% else %}
 
-                <h3 class="govuk-heading-s">How to set up training for 2022 to 2023</h3>
+                    <h3 class="govuk-heading-m">How to set up training for 2022 to 2023</h3>
+                    <p class="govuk-body">We need to know:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>if your school expects any ECTs in the next academic year</li>
+                        <li>which training programme you want to use for any new ECTs</li>
+                    </ul>
+                    <p>It should only take a few minutes to get set up.</p>
+                    
+                    <form action="/nominations/next-academic-year" method="post" >
+                        <input type="hidden" name="newYear-setup" id="newYear-setup" value="Started"  />
 
-                <p class="govuk-body">We need to know 3 things:</p>
-                <ol class="govuk-list govuk-list--number">
-                  <li>Whether or not your school expects any ECTs in the next academic year.</li>
-                  <li>Which training programme you want to use for any new ECTs.</li>
-                  <li>Information about your new ECTs and mentors.</li>
-                </ol>
+                        {{ govukButton({
+                            text: "Start now"
+                        }) }}
 
-                <p>It should only take a few minutes to get set up.</p>
+                    </form>
 
-                    <p><a href="/nominations/question-1">Start now</a></p>
+                <!-- <p><a href="/nominations/next-academic-year">Start now</a></p> -->
+
                 {% endif %}
 
 
@@ -73,7 +171,7 @@
             <!-- ///// End of 2019 //// -->
         {% endset -%}
 
-                {% set pastDayHtml %}
+                {% set pastDayHtml %}                    
 
                     <!-- ///// Start of 2021 //// -->
                     <dl class="govuk-summary-list govuk-!-margin-bottom-3">
