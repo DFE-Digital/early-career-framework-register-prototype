@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-    {% set pageHeading = "Are you sure you want to make this change?" %}
-
+{% set pageHeading = "Are you sure you want to make this change?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
