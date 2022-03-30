@@ -27,12 +27,12 @@
 				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
 					</div>
                     {% if data['inductionProgramme'] == "FIP" %}
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">ID</dt>
 						<dd class="govuk-summary-list__value">{{ participant.iD }}</dd>
 				  	</div>
                     {% endif %}
-					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">Validation status</dt>
 						<dd class="govuk-summary-list__value">{{ participant.status }}</dd>
 				  	</div>
@@ -40,7 +40,7 @@
 						<dt class="govuk-summary-list__key">Training cohort</dt>
 						<dd class="govuk-summary-list__value">2021 to 2022</dd>
 					</div> #}
-					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">Start term</dt>
 						<dd class="govuk-summary-list__value">{{ participant.startDate }}</dd>
 						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
@@ -71,11 +71,11 @@
 
 			{% set pastWeekHtml %}
 				<dl class="govuk-summary-list">
-					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">School</dt>
 						<dd class="govuk-summary-list__value">Ashley Primary School</dd>
 					</div>
-					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">Mentor</dt>
 						<dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
 						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
@@ -101,7 +101,7 @@
 						</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd>
 					</div>
-					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
 						<dd class="govuk-summary-list__value">
 							{% if data.participants[id].usingCurrentTraining == "Yes" %}
