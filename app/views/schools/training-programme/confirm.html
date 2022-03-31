@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-setup'] %}
+{% if data['newYear-inductionProgramme'] %}
 
     {% if data['inductionProgramme'] == "FIP" %}
         {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
@@ -24,7 +24,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data['newYear-setup'] %}
+            {% if data['newYear-inductionProgramme'] %}
 
 
                 {% if (data['newYear-why-changing'] == "nextYear-FIP") %}
