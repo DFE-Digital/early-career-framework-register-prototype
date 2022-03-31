@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "You can confirm your programme choice later" %}
+{% set pageHeading = "Remember to confirm your programme choice later" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,14 +13,20 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+    
+                <p>You must tell us how you want to run your programme as soon as possible.</p>   
+                
+                <p>We need this information to make sure:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>your ECTs and mentors can access the materials they need</li>
+                  <li>we pay the right training provider (if you use one)</li>
+                </ul>
+
                 <div class="govuk-inset-text">
-                <p>We'll add your current training provider details for now.</p>
-                </div>
+                <p>We'll send you a reminder before any deadlines.</p> 
 
-                <p>You must update these details if you want to change how to run your programme for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-
-                <p>We'll send you a reminder to check this information in the autumn term.</p>
-
+                <p>You can add new ECTs and mentors before you confirm your programme choice.</p> 
+                </div> 
 
             <form method="post" action="success" class="govuk-!-margin-top-7" >
 
