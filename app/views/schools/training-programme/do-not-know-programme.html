@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You can confirm your programme choice later" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+                <div class="govuk-inset-text">
+                <p>We'll add your current training provider details for now.</p>
+                </div>
+
+                <p>You must update these details if you want to change how to run your programme for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+
+                <p>We'll send you a reminder to check this information in the autumn term.</p>
+
+
+            <form method="post" action="success" class="govuk-!-margin-top-7" >
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
