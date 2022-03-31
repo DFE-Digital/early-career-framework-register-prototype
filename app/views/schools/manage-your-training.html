@@ -35,8 +35,15 @@
                         {# If school is currently on FIP #}
                         {% if data['inductionProgramme'] == "FIP" %}
 
+                            {% if data['newYear-continue-same-programme'] == "Not sure" %}
+
+
+                                    PROGRAMME SPLIT WILL GO HERE KATE
+
+
+
                             {# Next academic year they want to switch to DIY #}
-                            {% if data['newYear-why-changing'] == "nextYear-DYO" %}
+                            {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
                                 <p>New dashboard for DYO the next academic year school currently on FIP.</p>
 
                             {# Next academic year they want to switch to CIP #}
