@@ -22,10 +22,10 @@
             <form class="form" action="success" method="post" class="govuk-!-margin-bottom-8">
 
                 {{ govukRadios({
-                    classes: "govuk-radios--inline",
                     items: [
                         { value: "Yes", text: "Yes" },
-                        { value: "No, redirect(why-are-you-changing)", text: "No" }
+                        { value: "No, redirect(why-are-you-changing)", text: "No" },
+                        { value: "Not sure, redirect(success)", text: "I dont know" }
                     ]
                 } | decorateFormAttributes('newYear-continue-same-programme')) }}
 
