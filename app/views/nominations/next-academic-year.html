@@ -15,7 +15,11 @@
 			<p>ECTs are teachers who have finished their initial teacher training.</p>
           	<p>It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
 
-			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
+            {% if data['inductionProgramme'] == "CIP" %}
+                <form class="form" action="/schools/training-programme/how-will-you-run" method="post" class="govuk-!-margin-bottom-8">
+            {% elif data['inductionProgramme'] == "FIP" %}
+    			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
 
 				{{ govukRadios({
 				classes: "govuk-radios--inline",
@@ -27,7 +31,6 @@
 
 				<!-- Just for dashboard -->
 				<input type="hidden" name="newYear-training" id="newYear-training" value="noECT" >
-
 
             	{{ govukButton({
                 	text: "Continue"

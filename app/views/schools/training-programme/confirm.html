@@ -2,7 +2,12 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYear-setup'] %}
-    {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
+
+    {% if data['inductionProgramme'] == "FIP" %}
+        {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
+    {% else %}
+        {% set pageHeading = "Are you sure this is how you want to run your training?" %}
+    {% endif %}
 {% elif data['change-programme'] == "Yes" %}
   {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
 {% else %}
