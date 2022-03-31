@@ -58,6 +58,22 @@
                                     <p><a href="training-programme/same">Tell us how you'll run training this year</a></p>
                                 </div>
 
+                    <p>You're currently registered with:</p>
+
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Programme</dt>
+                            <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Training provider</dt>
+                            <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
+                        </div>
+                        <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                            <dt class="govuk-summary-list__key">Delivery partner</dt>
+                            <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
+                        </div></dl>
+
 
                             {# Next academic year they want to switch to DIY #}
                             {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
