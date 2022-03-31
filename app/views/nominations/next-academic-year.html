@@ -23,11 +23,11 @@
             {% endif %}
 
 				{{ govukRadios({
-				classes: "govuk-radios--inline",
-				items: [
-					{ value: "Yes", text: "Yes" },
-					{ value: "No, redirect(/nominations/confirmation)", text: "No" }
-				]
+				    classes: "govuk-radios--inline",
+				    items: [
+					    { value: "Yes", text: "Yes" },
+					    { value: "No, redirect(/nominations/confirmation)", text: "No" }
+				    ]
 				} | decorateFormAttributes('newYear-expectECT')) }}
 
 				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
