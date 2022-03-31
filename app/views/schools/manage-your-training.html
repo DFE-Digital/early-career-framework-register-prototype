@@ -25,7 +25,7 @@
 
 
                     {# If SIT has told us there wil be no ECTs in the next academic year #}
-                    {% if data['newYear-expectECT'] == "No" %}
+                    {% if (( data['newYear-inductionProgramme'] == "noECT" ) or (data['newYear-expectECT'] == "No" )) %}
                         <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                         <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Tell us if this has changed</a></p>
 
