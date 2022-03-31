@@ -29,22 +29,28 @@
                         <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                         <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Tell us if this has changed</a></p>
 
+                    {# There will be ECTs in the next academic year #}
                     {% elif data['newYear-expects-ect'] == "Yes" %}
 
+                        {# If school is currently on FIP #}
                         {% if data['inductionProgramme'] == "FIP" %}
 
+                            {# Next academic year they want to switch to DIY #}
                             {% if data['newYear-why-changing'] == "nextYear-DYO" %}
-
                                 <p>New dashboard for DYO the next academic year school currently on FIP.</p>
 
-                            {% else %}
+                            {# Next academic year they want to switch to CIP #}
+                            {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
 
-                            <h2 class="govuk-heading-m">Choose your training materials</h2>
-                            <p>Read our guidance to <a href="x">compare materials</a>.</p>
-                            
-                            <div class="govuk-inset-text">
-                            <p><a href="/schools/materials/which">Tell us which materials you'll use</a></p>
-                            </div>    
+                                <h2 class="govuk-heading-m">Choose your training materials</h2>
+                                <p>Read our guidance to <a href="x">compare materials</a>.</p>
+
+                                <div class="govuk-inset-text">
+                                    <p><a href="/schools/materials/which">Tell us which materials you'll use</a></p>
+                                </div>
+
+                            {# Next academic year they will continue with FIP #}
+                            {% else %}
 
                                 <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
                                     <div class="govuk-summary-list__row">
@@ -61,8 +67,6 @@
                                         <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
                                         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
                                     </div>
-
-
                                     <div class="govuk-summary-list__row ">
                                         <dt class="govuk-summary-list__key">Programme</dt>
                                         <dd class="govuk-summary-list__value">
@@ -121,22 +125,32 @@
                                         </dd>
                                     </div>
                                     {% endif %}
-
                                 </dl>
                             {% endif %}
 
+                        {# If school is currently on CIP #}
                         {% elif data['inductionProgramme'] == "CIP" %}
                             <p>New dashboard to follow for the next academic year school currently on CIP.</p>
+
+                        {# If school is currently on DIY #}
+                        {% elif data['inductionProgramme'] == "DIY" %}
+
+
+                        {# If school is currently on noECT #}
+                        {% elif data['inductionProgramme'] == "noECT" %}
+
+
                         {% endif %}
 
+                    {# No decision about next year has been given #}
                     {% else %}
 
                         <h3 class="govuk-heading-m">How to set up training for 2022 to 2023</h3>
+                        <div class="govuk-inset-text">
+                            <p>You can do this later if you do not have the information you need yet.</p>
+                        </div>
 
-                         <div class="govuk-inset-text">
-                        <p>You can do this later if you do not have the information you need yet.</p></div>
-
-                        <p class="govuk-body">We need to know:</p>
+                        <p>We need to know:</p>
                         <ul class="govuk-list govuk-list--bullet">
                             <li>if your school expects any ECTs in the next academic year</li>
                             <li>which training programme you want to use for any new ECTs</li>
@@ -144,18 +158,17 @@
 
                         <p>It should only take a few minutes to get set up.</p>
 
-
-
                         <form action="/nominations/next-academic-year" method="post" >
-                        <input type="hidden" name="newYear-setup" id="newYear-setup" value="Started"  />
+                            <input type="hidden" name="newYear-setup" id="newYear-setup" value="Started"  />
 
-                        {{ govukButton({
-                            text: "Start now"
-                        }) }}
+                            {{ govukButton({
+                                text: "Start now"
+                            }) }}
 
-                    </form>
+                        </form>
 
                     {% endif %}
+                    {# // newYear #}
 
                 {% endset -%}
 
