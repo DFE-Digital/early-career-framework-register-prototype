@@ -4,7 +4,7 @@
 
 {% if data['newYear-continue-same-programme'] %}
     {% set pageHeading = "Your information has been saved" %}
-{% elif data['newYear-expects-ect'] == "No"  %}
+{% elif data['newYear-expectECT'] == "No"  %}
     {% set pageHeading = "Your information has been saved" %}
 {% else %}
     {% set pageHeading = "Your information has been saved for this academic year" %}
@@ -25,7 +25,7 @@
 
             <h3 class="govuk-heading-m">What happens next</h3>
 
-            {% if data['newYear-expects-ect'] == "No" %}
+            {% if data['newYear-expectECT'] == "No" %}
 
                 <p>We’ll contact {{ data.schoolName }} in the next academic year.</p>
                 <p>If you do employ ECTs later this academic year, you can sign in to this service to let us know.</p>

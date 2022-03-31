@@ -15,7 +15,8 @@
 			<p>ECTs are teachers who have finished their initial teacher training.</p>
           	<p>It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
 
-            {% if data['inductionProgramme'] == "CIP" %}
+            {# If not already training using FIP then always look to see how they will run programme like new #}
+            {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" )) %}
                 <form class="form" action="/schools/training-programme/how-will-you-run" method="post" class="govuk-!-margin-bottom-8">
             {% elif data['inductionProgramme'] == "FIP" %}
     			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
@@ -27,9 +28,9 @@
 					{ value: "Yes", text: "Yes" },
 					{ value: "No, redirect(/nominations/confirmation)", text: "No" }
 				]
-				} | decorateFormAttributes('newYear-expects-ect')) }}
+				} | decorateFormAttributes('newYear-expectECT')) }}
 
-				<!-- Just for dashboard -->
+				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
 				<input type="hidden" name="newYear-training" id="newYear-training" value="noECT" >
 
             	{{ govukButton({
