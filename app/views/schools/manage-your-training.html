@@ -35,7 +35,7 @@
                         {# If school is currently on FIP #}
                         {% if data['inductionProgramme'] == "FIP" %}
 
-                            {% if data['newYear-continue-same-programme'] == "Not sure" %}
+                            {% if data['newYear-continue-same-programme'] == "notSure" %}
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                         <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -53,7 +53,7 @@
                             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
                         </div></dl>
 
-                        <div class="govuk-inset-text">    
+                        <div class="govuk-inset-text">
                         <p><a href="training-programme/same">Tell us how you'll run training this year</a></p>
                     </div>
 
