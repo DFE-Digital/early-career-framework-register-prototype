@@ -24,11 +24,13 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data['newYear-inductionProgramme'] %}
+            <!-- Check to make sure its the newYear programme flow we are on -->
+            {% if data['newYear-inductionProgramme'] == "" %}
 
 
                 {% if (data['newYear-why-changing'] == "nextYear-FIP") %}
 
+                
                     <p>You’ve chosen to use a training provider, funded by the DfE.</p>
                     <p>You’ll need to:
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -36,7 +38,7 @@
                         <li>add your ECTs and mentors</li>
                     </ul>
 
-                {% elif (data['newYear-why-changing'] == "nextYear-CIP") %}
+                {% elif (data['newYear-why-changing'] == "nextYear-CIP") %}                
 
                     <p>You’ve chosen to deliver your own programme using DfE accredited materials.</p>
                     <p>You’ll need to:
@@ -54,9 +56,9 @@
 
                 {% endif %}
 
-
+            <!-- Not the newYear programme flow -->
             {% else %}
-
+              
                 <!-- if changing programme -->
                 {% if data['change-programme'] == "Yes" %}
 

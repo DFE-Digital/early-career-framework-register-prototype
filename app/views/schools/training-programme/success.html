@@ -3,9 +3,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYear-sameProgramme'] == "notSure" %}
-	{% set pageHeading = "You’ve submitted your training information" %}
+	{% set pageHeading = "Training programme confirmed" %}
 {% else %}
-    {% set pageHeading = "Training programme confirmed" %}
+	{% set pageHeading = "You’ve submitted your training information" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
