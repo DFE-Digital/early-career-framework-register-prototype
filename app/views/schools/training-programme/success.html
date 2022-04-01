@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-sameProgramme'] %}
-    {% set pageHeading = "You’ve submitted your training information" %}
+{% if data['newYear-sameProgramme'] == "notSure" %}
+	{% set pageHeading = "You’ve submitted your training information" %}
 {% else %}
     {% set pageHeading = "Training programme confirmed" %}
 {% endif %}
