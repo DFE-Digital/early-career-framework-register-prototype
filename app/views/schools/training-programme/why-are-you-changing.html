@@ -45,6 +45,19 @@
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
 
+                {% elif data['inductionProgramme'] == "DYO" %}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [                                                        
+                            { value: "nextYear-FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver our own programme using DfE-accredited materials" },
+                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes('newYear-why-changing')) }}
+
                 {% endif %}
 
             {{ govukButton({
