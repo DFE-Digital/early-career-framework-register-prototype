@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-sameProgramme'] == "notSure" %}
+{% if data['newYear-changeProviders'] == "notSure" %}
 	{% set pageHeading = "Training programme confirmed" %}
 {% else %}
 	{% set pageHeading = "You’ve submitted your training information" %}
@@ -24,10 +24,10 @@
             }) }}
 
             {# Next academic year content #}
-            {% if data['newYear-sameProgramme'] %}
+            {% if data['newYear-changeProviders'] %}
 
                 {# Content for the change in Lead Provider and or Delivery Partner or programme change #}
-                {% if data['newYear-sameProgramme'] == "Yes" %}
+                {% if data['newYear-changeProviders'] == "Yes" %}
 
                     {% if data['newYear-why-changing'] == "changeLeadProvider" %}
                         <h2 class="govuk-heading-m">What happens next</h2>
