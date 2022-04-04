@@ -57,7 +57,7 @@
 
                                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Confirm your programme choice</h2>
                                 <p><a href="training-programme/same">Tell us how you want to run your training programme</a> as soon as possible. You’re currently registered/partnered with:</p>
-                                                                
+
 
                                 <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                     <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -268,7 +268,11 @@
                         <p>We need to know:</p>
                         <ul class="govuk-list govuk-list--bullet">
                             <li>if your school expects any ECTs in the next academic year</li>
-                            <li>which training programme you want to use for any new ECTs</li>
+                            {% if data['inductionProgramme'] == "FIP" %}
+                                <li>any changes to the training programme you want to use for any new ECTs</li>
+                            {% else %}
+                                <li>which training programme you want to use for any new ECTs</li>
+                            {% endif %}
                         </ul>
 
                         <p>It should only take a few minutes to get set up.</p>

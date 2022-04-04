@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "What change do you want to make?" %}
+{% set pageHeading = "What change do you plan to make?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
                 {% if data['inductionProgramme'] == "FIP" %}
 
-                
+
 
                     {{ govukRadios({
                         fieldset: {
@@ -53,7 +53,7 @@
                         fieldset: {
                             legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
                         },
-                        items: [                                                        
+                        items: [
                             { value: "nextYear-FIP", text: "Use a training provider, funded by the DfE" },
                             { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver our own programme using DfE-accredited materials" },
                             { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }

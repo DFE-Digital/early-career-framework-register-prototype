@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you planning to change anything about how you run you training programme?" %}
+{% set pageHeading = "Will you use the same training programme again?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,22 +11,12 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            {# <p>You are currently training with <strong>{{ data.leadProvider }}</strong> as your lead provider and <strong>{{ data.deliveryPartner }}</strong> as your delivery partner.</p> #}
-
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">You are currently training with</h2> #}
-            <!-- This page is only shown to schools currently on FIP programme  -->
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your lead provider funded by DfE</h2>
+            
+            <!-- This page is only shown to schools currently on FIP programme  -->            
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
-
-
-            <!-- This page is only shown to schools currently on FIP programme  -->
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2> #}
-            {# <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }} and {{ data.deliveryPartner }}</p> #}
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2> #}
-
 
             <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (open in new window)</a>.</p>
 
@@ -35,12 +25,12 @@
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
-                        { value: "Yes, redirect(why-are-you-changing)", text: "Yes" },
-                        { value: "No", text: "No" }
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(why-are-you-changing)", text: "No" }                        
                     ]
                 } | decorateFormAttributes('newYear-sameProgramme')) }}
 
-                {# { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } --> #}
+                <!-- { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } -->
 
                 <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p>
                 <!-- Just for dashboard to remove the NoECT that we set on previous page -->
