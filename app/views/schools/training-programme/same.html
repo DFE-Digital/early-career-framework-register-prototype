@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you planning to change your training provider?" %}
+{% set pageHeading = "Are you planning to change your training providers?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,9 +12,6 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {# <p>You are currently training with <strong>{{ data.leadProvider }}</strong> as your lead provider and <strong>{{ data.deliveryPartner }}</strong> as your delivery partner.</p> #}
-
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">You are currently training with</h2> #}
             <!-- This page is only shown to schools currently on FIP programme  -->
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
