@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you planning to change anything about how you run you training programme?" %}
+{% set pageHeading = "Are you planning to change your training provider?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,9 +16,9 @@
 
             {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">You are currently training with</h2> #}
             <!-- This page is only shown to schools currently on FIP programme  -->
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your lead provider funded by DfE</h2>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
 
 
@@ -28,7 +28,7 @@
             {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2> #}
 
 
-            <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (open in new window)</a>.</p>
+            <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (opens in new window)</a>.</p>
 
             <form class="form" action="success" method="post" >
 
