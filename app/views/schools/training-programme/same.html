@@ -12,18 +12,10 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- This page is only shown to schools currently on FIP programme  -->
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
-
-
-            <!-- This page is only shown to schools currently on FIP programme  -->
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2> #}
-            {# <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }} and {{ data.deliveryPartner }}</p> #}
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2> #}
-
 
             <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (opens in new window)</a>.</p>
 
@@ -41,7 +33,7 @@
 
                 {# <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p> #}
                 <!-- Just for dashboard to remove the NoECT that we set on previous page -->
-				<input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="" />
+				<!-- Checked --><input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="" />
 
                 {{ govukButton({
                     text: "Continue"

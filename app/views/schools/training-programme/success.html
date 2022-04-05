@@ -2,16 +2,17 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-changeProviders'] == "notSure" %}
-	{% set pageHeading = "Training programme confirmed" %}
-{% else %}
-	{% set pageHeading = "You’ve submitted your training information" %}
-{% endif %}
+{# Not sure has been removed currently from the options #}
+<!-- Checked -->
+{# {% if data['newYear-changeProviders'] == "notSure" %} #}
+	{# {% set pageHeading = "Training programme confirmed" %} #}
+{# {% else %} #}
+{% set pageHeading = "You’ve submitted your training information" %}
+{# {% endif %} #}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 <!-- Brian - If FIP user coming from /schools/training-programme/confirm-choice-later, H1 should be 'You've submitted your information' -->
-
 {% block content %}
 
     <div class="govuk-grid-row">
@@ -65,30 +66,17 @@
                         <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" class="govuk-link" rel="noreferrer noopener" target="_blank"> See our statutory guidance (open in new tab)</a> for information about funding, time off timetable, and roles.</p>
                     {% endif %}
 
+                <!-- Checked -->
                 {% endif %}
 
-                    {# Default content for FIP shown if you continue on the same or Dont know at the moment #}
+                    {# Dont show to anyone on DYO #}
                     {% if data['newYear-why-changing'] != "nextYear-DYO" %}
-
-                        <h2 class="govuk-heading-m">You’re ready to add new ECTs and mentors</h2>
-                        <p>You must tell us their:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>full name</li>
-                            <li>email address</li>
-                        </ul>
-                        <p>You can now choose to enter their teacher reference number (TRN) and date of birth too.</p>
-                        <p>If you can tell us this extra information:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>ECTs and mentors will not be asked to provide this information themselves</li>
-                            <li>we can confirm if they’re eligible for funding more quickly</li>
-                        </ul>
+                        {# Default content for carrying on with no change to programme #}
+                        {% include "includes/success_fip_nochange.html" %}
                     {% endif %}
-
-                <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
+                    <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
 
             {# // of next academic year content #}
-
-
             {% else %}
 
                 {# Programme is FIP #}
