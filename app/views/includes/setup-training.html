@@ -1,0 +1,30 @@
+<h3 class="govuk-heading-m">How to set up training for 2022 to 2023</h3>
+
+
+<div class="govuk-inset-text">
+    <p>You can do this later if you do not have the information you need yet.</p>
+</div>
+{% if data['inductionProgramme'] == "FIP" %}
+    <p>We need to know if:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>your school expects any ECTs in the next academic year</li>
+        <li>you plan to change how you run training for any new ECTs</li>
+{% else %}
+    <p>We need to know:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>if your school expects any ECTs in the next academic year</li>
+        <li>which training programme you want to use for any new ECTs</li>
+{% endif %}
+</ul>
+
+{# <p>It should only take a few minutes to get set up and you can change your answers later if you need to.</p> #}
+{# Old version of content can revert to if need be #}
+<p>You can change your answers later if you need to.</p>
+<p class="govuk-!-margin-bottom-5">It should only take a few minutes to get set up. </p>
+
+<form action="/nominations/next-academic-year" method="post" >
+    <input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="Started"  />
+    {{ govukButton({
+        text: "Start now"
+    }) }}
+</form>

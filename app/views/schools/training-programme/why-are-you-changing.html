@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "What change do you want to make?" %}
+{% set pageHeading = "What change do you plan to make?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,11 +12,13 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <p>The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-            
+
 
             <form class="form" action="confirm-change-cohort-programme" method="post" >
 
                 {% if data['inductionProgramme'] == "FIP" %}
+
+
 
                     {{ govukRadios({
                         fieldset: {
@@ -24,12 +26,12 @@
                         },
                         items: [
                             { value: "changeLeadProvider", text: "Leave Ambition Institute and use a different lead provider" },
-                            { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change our delivery partner, Kings College London" },
-                            { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver our own programme using DfE-accredited materials" },
-                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
+                            { value: "changeDeliveryPartner", text: "Stay with Ambition Institute but change your delivery partner, Kings College London" },
+                            { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver your own programme using DfE-accredited materials" },
+                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver your own programme based on the Early Career Framework (ECF)" }
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
-                    
+
 
                 {% elif data['inductionProgramme'] == "CIP" %}
 
@@ -45,8 +47,21 @@
                         ]
                     } | decorateFormAttributes('newYear-why-changing')) }}
 
+                {% elif data['inductionProgramme'] == "DYO" %}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "nextYear-FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "nextYear-CIP, redirect(/schools/training-programme/confirm)", text: "Deliver our own programme using DfE-accredited materials" },
+                            { value: "nextYear-DYO, redirect(/schools/training-programme/confirm)", text: "Design and deliver our own programme based on the Early Career Framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes('newYear-why-changing')) }}
+
                 {% endif %}
-            
+
             {{ govukButton({
                 text: "Continue"
             }) }}

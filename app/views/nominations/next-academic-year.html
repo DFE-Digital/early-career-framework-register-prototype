@@ -11,26 +11,27 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-          	
-			<p>ECTs are teachers who have finished their initial teacher training.</p> 
+
+			<p>ECTs are teachers who have finished their initial teacher training.</p>
           	<p>It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
-          	
-			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
+
+            {# If not already training using FIP then always look to see how they will run programme like new #}
+            {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" ) or ( data['inductionProgramme'] == "noECT" )) %}
+                <form class="form" action="/schools/training-programme/how-will-you-run" method="post">
+            {% elif data['inductionProgramme'] == "FIP" %}
+    			<!-- Checked --><form class="form" action="/schools/training-programme/same" method="post">
+            {% endif %}
 
 				{{ govukRadios({
-				classes: "govuk-radios--inline",              
-				items: [
-					{ value: "Yes", text: "Yes" },                
-					{ value: "No, redirect(/nominations/confirmation)", text: "No" }
-				]
-				} | decorateFormAttributes('newYear-expects-ect')) }}
-            
-            	<!-- Brian - where does this take the user? -->
-            	<!-- <p class="govuk-body govuk-!-margin-bottom-7"><a href="#">We do not know yet</a></p>         -->
+				    classes: "govuk-radios--inline",
+				    items: [
+					    { value: "Yes", text: "Yes" },
+					    { value: "No, redirect(/nominations/confirmation)", text: "No" }
+				    ]
+				} | decorateFormAttributes('newYear-expectECT')) }}
 
-				<!-- Just for dashboard -->
-				<input type="hidden" name="newYear-training" id="newYear-training" value="noECT" >
-
+				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
+				<!-- Checked --><input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
 
             	{{ govukButton({
                 	text: "Continue"

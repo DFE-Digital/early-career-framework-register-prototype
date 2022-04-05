@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Are you planning to change your current training provider?" %}
+{% set pageHeading = "Will you use the same training programme again?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,27 +11,28 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
+            
+            <!-- This page is only shown to schools currently on FIP programme  -->            
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Lead provider</h2>
             <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Delivery partner</h2>
             <p>{{ data.deliveryPartner }}</p>
 
-            <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (opens in new window)</a>.</p>
+            <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="x">check your options (open in new window)</a>.</p>
 
             <form class="form" action="success" method="post" >
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
-                        { value: "Yes, redirect(why-are-you-changing)", text: "Yes" },
-                        { value: "No", text: "No" }
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(why-are-you-changing)", text: "No" }                        
                     ]
                 } | decorateFormAttributes('newYear-changeProviders')) }}
 
-                {# { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } --> #}
+                <!-- { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } -->
 
-                {# <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p> #}
+                <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p>
                 <!-- Just for dashboard to remove the NoECT that we set on previous page -->
 				<input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="" />
 
