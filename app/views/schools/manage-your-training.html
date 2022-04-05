@@ -45,7 +45,7 @@
                             {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
                                 <p>New dashboard for DYO the next academic year school currently on FIP.</p>
 
-                            {# Next academic year they want to switch to CIP #}
+                            <!-- Next academic year they want to switch to CIP -->
                             {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
 
                                 <h2 class="govuk-heading-m">Choose your training materials</h2>
@@ -131,35 +131,35 @@
                                     <p><a href="/schools/materials/which">Tell us which materials you'll use</a></p>
                                 </div>
 
-                            {# Next academic year they will continue with FIP #}
+                            <!-- Next academic year they will continue with FIP -->
                             {% else %}
+                                
+                                <!-- Default manage training for FIP with no change to programme -->
                                 <!-- Checked -->
-                                {# Default manage training for FIP with no change to programme #}
                                 {% include "includes/manage_training_fip_nochange.html" %}
                             {% endif %}
 
-                        {# If school is currently on CIP #}
+                        <!-- If school is currently on CIP -->
                         {% elif data['inductionProgramme'] == "CIP" %}
                             <p>New dashboard to follow for the next academic year school currently on CIP.</p>
 
-                        {# If school is currently on DIY #}
+                        <!-- If school is currently on DIY -->
                         {% elif data['inductionProgramme'] == "DIY" %}
 
-
-                        {# If school is currently on noECT #}
+                        <!-- If school is currently on noECT -->
                         {% elif data['inductionProgramme'] == "noECT" %}
-
 
                         {% endif %}
 
-                    {# No decision about next year has been given #}
+                    <!-- No decision about next year has been given -->
                     {% else %}
-                        {# Initial setup information for next academic year #}
-                        <!-- Checked -->{% include "includes/setup-training.html" %}
+                        <!-- Initial setup information for next academic year -->
+                        <!-- Checked -->
+                        {% include "includes/setup-training.html" %}
 
                     {% endif %}
-                    {# // newYear #}
-
+                     
+                <!-- // newYear -->
                 {% endset -%}
 
                 {% set pastDayHtml %}

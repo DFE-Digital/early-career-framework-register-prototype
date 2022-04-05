@@ -4,11 +4,11 @@
 
 {# Not sure has been removed currently from the options #}
 <!-- Checked -->
-{# {% if data['newYear-changeProviders'] == "notSure" %} #}
-	{# {% set pageHeading = "Training programme confirmed" %} #}
-{# {% else %} #}
+<!-- {% if data['newYear-changeProviders'] == "notSure" %} -->
+	<!-- {% set pageHeading = "Training programme confirmed" %} -->
+<!-- {% else %} -->
 {% set pageHeading = "You’ve submitted your training information" %}
-{# {% endif %} #}
+<!-- {% endif %} -->
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -24,10 +24,10 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {# Next academic year content #}
+            <!-- Next academic year content -->
             {% if data['newYear-changeProviders'] %}
 
-                {# Content for the change in Lead Provider and or Delivery Partner or programme change #}
+                <!-- Content for the change in Lead Provider and or Delivery Partner or programme change -->
                 {% if data['newYear-changeProviders'] == "Yes" %}
 
                     {% if data['newYear-why-changing'] == "changeLeadProvider" %}
@@ -69,14 +69,14 @@
                 <!-- Checked -->
                 {% endif %}
 
-                    {# Dont show to anyone on DYO #}
+                    <!-- Dont show to anyone on DYO -->
                     {% if data['newYear-why-changing'] != "nextYear-DYO" %}
                         {# Default content for carrying on with no change to programme #}
                         {% include "includes/success_fip_nochange.html" %}
                     {% endif %}
                     <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
 
-            {# // of next academic year content #}
+            <!-- // of next academic year content -->
             {% else %}
 
                 {# Programme is FIP #}
