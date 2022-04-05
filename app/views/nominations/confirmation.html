@@ -3,7 +3,7 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYear-expectECT'] == "No"  %}
-    {% set pageHeading = "Your information has been saved" %}
+    <!-- Checked -->{% set pageHeading = "Your information has been saved" %}
 {% elif data['newYear-sameProgramme'] %}
     {% set pageHeading = "Your information has been saved" %}
 {% else %}
@@ -24,12 +24,11 @@
             }) }}
 
             <h3 class="govuk-heading-m">What happens next</h3>
-
-            {# Irrespective of which training  programme the school is doing now #}
             <p>We’ll contact {{ data.schoolName }} in the next academic year.</p>
             <p>If you do employ ECTs later this academic year, you can sign in to this service to let us know.</p>
 
             {% if data['newYear-expectECT'] == "No" %}
+            {# Could argue this link should only be available for those that didnt come via COMMS #}
                 <p><a href="/schools/manage-your-training#past-month">Return to manage your training</a></p>
             {% endif %}
 

@@ -17,9 +17,9 @@
 
             {# If not already training using FIP then always look to see how they will run programme like new #}
             {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" ) or ( data['inductionProgramme'] == "noECT" )) %}
-                <form class="form" action="/schools/training-programme/how-will-you-run" method="post" class="govuk-!-margin-bottom-8">
+                <form class="form" action="/schools/training-programme/how-will-you-run" method="post">
             {% elif data['inductionProgramme'] == "FIP" %}
-    			<form class="form" action="/schools/training-programme/same" method="post" class="govuk-!-margin-bottom-8">
+    			<!-- Checked --><form class="form" action="/schools/training-programme/same" method="post">
             {% endif %}
 
 				{{ govukRadios({
@@ -31,7 +31,7 @@
 				} | decorateFormAttributes('newYear-expectECT')) }}
 
 				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
-				<input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
+				<!-- Checked --><input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
 
             	{{ govukButton({
                 	text: "Continue"
