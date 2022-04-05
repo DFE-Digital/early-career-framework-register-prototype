@@ -12,7 +12,7 @@
     {% include "includes/notification-banner.html" %}
 
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -260,37 +260,7 @@
                     {# No decision about next year has been given #}
                     {% else %}
 
-                        <h3 class="govuk-heading-m">How to set up training for 2022 to 2023</h3>
-                        <div class="govuk-inset-text">
-                            <p>You can do this later if you do not have the information you need yet.</p>
-                        </div>
-
-                        {% if data['inductionProgramme'] == "FIP" %}
-                        <p>We need to know if:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>your school expects any ECTs in the next academic year</li>
-                            <li>you plan to change how you run training for any new ECTs</li>
-                            
-                            {% else %}
-                        <p>We need to know:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>if your school expects any ECTs in the next academic year</li>
-                                <li>which training programme you want to use for any new ECTs</li>
-                            {% endif %}
-                        </ul>
-
-                        <p>You can change your answers later if you need to.</p>
-                        <p class="govuk-!-margin-bottom-5">It should only take a few minutes to get set up. </p>
-
-
-                        <form action="/nominations/next-academic-year" method="post" >
-                            <input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="Started"  />
-
-                            {{ govukButton({
-                                text: "Start now"
-                            }) }}
-
-                        </form>
+                        {% include "includes/setup-training.html" %}
 
                     {% endif %}
                     {# // newYear #}
@@ -422,10 +392,12 @@
                     items: [
                         { label: "2022 to 2023", id: "past-month", panel: { html: newYearHtml } },
                         { label: "2021 to 2022", id: "past-day", panel: { html: pastDayHtml } },
-                        { label: "2020 to 2021", id: "past-week", panel: { html: pastWeekHtml } },
-                        { label: "Previous years", id: "past-archive", panel: { html: pastArchiveHtml } }
+                        { label: "2020 to 2021", id: "past-week", panel: { html: pastWeekHtml } }
+
                     ]
                 }) }}
+
+                {# { label: "Previous years", id: "past-archive", panel: { html: pastArchiveHtml } } #}
 
             {% else %}
 
