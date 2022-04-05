@@ -31,39 +31,15 @@
                 {% if data['newYear-changeProviders'] == "Yes" %}
 
                     {% if data['newYear-why-changing'] == "changeLeadProvider" %}
-                        <h2 class="govuk-heading-m">What happens next</h2>
-                        <p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-                        <p>They may contact you to confirm this.</p>
-                        <p>It’s important to confirm with the training provider you do want to work with as soon as possible.</p>
+                        {% include "includes/nextYear_fip_changeLeadProvider.html "%}
                     {% elif data['newYear-why-changing'] == "changeDeliveryPartner" %}
-                        <h2 class="govuk-heading-m">What happens next</h2>
-                        <p>We’ll let {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-                        <p>They may contact you to confirm this.</p>
-                        <p>It’s important to confirm with the delivery partner you do want to work with as soon as possible.</p>
+                        {% include "includes/nextYear_ChangeDeliveryPartner.html" %}
                     {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
-                        <h2 class="govuk-heading-m">What to do next</h2>
-                        <p>You need to:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>compare and choose which DfE-accredited materials you want to use</li>
-                            <li>use this service to tell us which materials you want to use</li>
-                        </ul>
-                    {# Content to decide upon #}
+                        {% include "includes/nextYear_ChangeToCip.html" %}
                     {% elif data['newYear-why-changing'] == "nextYear-FIP" %}
-                    {# Content to decide upon #}
+                        {% include "includes/nextYear_ChangeToFip.html" %}
                     {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
-                        <h2 class="govuk-heading-m">What to do next</h2>
-                        <p>You need to:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a></li>
-                            <li>contact your appropriate body to find out what evidence is needed to demonstrate that your programme:
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>is based on the ECF</li>
-                                <li>meets the statutory requirements</li>
-                            </ul>
-                            </li>
-                        </ul>
-                        <p>You do not need to add information about your ECTs and mentors to this service.</p>
-                        <p><a class="govuk-link" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" class="govuk-link" rel="noreferrer noopener" target="_blank"> See our statutory guidance (open in new tab)</a> for information about funding, time off timetable, and roles.</p>
+                        {% include "includes/nextYear_ChangeToDIY.html" %}
                     {% endif %}
 
                 <!-- Checked -->
