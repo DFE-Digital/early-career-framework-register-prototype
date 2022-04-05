@@ -22,8 +22,10 @@
 
 
                 {% set newYearHtml %}
+
                     <!-- If SIT has told us there wil be no ECTs in the next academic year no matter what Programme they run currently -->
                     {% if (( data['newYear-inductionProgramme'] == "noECT" ) or (data['newYear-expectECT'] == "No" )) %}
+
                         {% include "includes/ectNotExpected.html" %}
                     <!-- There will be ECTs in the next academic year -->
                     {% elif data['newYear-expectECT'] == "Yes" %}
@@ -46,13 +48,36 @@
 
                         <!-- If school is currently on CIP -->
                         {% elif data['inductionProgramme'] == "CIP" %}
-                            <p>New dashboard to follow for the next academic year school currently on CIP.</p>
+
+                            {% if data['newYear-inductionProgramme'] == "CIP" %}
+                                {% include "includes/manage_training_fip_switch_cip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "FIP" %}
+                                <p>New dashboard for CIP to FIP</p>
+                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
+                                <p>New dashboard for CIP to DIY</p>
+                            {% endif %}
 
                         <!-- If school is currently on DIY -->
                         {% elif data['inductionProgramme'] == "DIY" %}
 
+                            {% if data['newYear-inductionProgramme'] == "CIP" %}
+                                {% include "includes/manage_training_fip_switch_cip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "FIP" %}
+                                <p>New dashboard for DIY to FIP</p>
+                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
+                                <p>New dashboard for DIY to DIY</p>
+                            {% endif %}
+
                         <!-- If school is currently on noECT -->
                         {% elif data['inductionProgramme'] == "noECT" %}
+
+                            {% if data['newYear-inductionProgramme'] == "CIP" %}
+                                {% include "includes/manage_training_fip_switch_cip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "FIP" %}
+                                <p>New dashboard for noECT to FIP</p>
+                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
+                                <p>New dashboard for noECT to DIY</p>
+                            {% endif %}
 
                         {% endif %}
 
