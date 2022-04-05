@@ -34,7 +34,7 @@
                                 {% include "includes/manage_training_fip_notsure.html" %}
                             <!-- Next academic year they want to switch to DIY -->
                             {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
-                                <p>New dashboard for DYO the next academic year school currently on FIP.</p>
+                                {% include "includes/manage_training_fip_switch_diy.html" %}
                             <!-- Next academic year they want to switch to CIP -->
                             {% elif data['newYear-why-changing'] == "nextYear-CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
