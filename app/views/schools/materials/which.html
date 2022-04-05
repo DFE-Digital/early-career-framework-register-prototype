@@ -7,29 +7,44 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          <form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
+            <form class="form" action="confirmation" method="post" class="govuk-!-margin-bottom-8">
 
-        {{ govukRadios({
-          items: [
-            { value: "Ambition Institute", text: "Ambition Institute" },
-            { value: "Education Development Trust", text: "Education Development Trust" },
-            { value: "Teach First", text: "Teach First" },
-            { value: "UCL Institute of Education", text: "UCL Institute of Education" }
-          ]
-        } | decorateFormAttributes('accredited-materials')) }}
+                {% if data['cohort'] == "2022" %}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+                    {{ govukRadios({
+                        items: [
+                            { value: "Ambition Institute", text: "Ambition Institute" },
+                            { value: "Education Development Trust", text: "Education Development Trust" },
+                            { value: "Teach First", text: "Teach First" },
+                            { value: "UCL Institute of Education", text: "UCL Institute of Education" }
+                        ]
+                    } | decorateFormAttributes('nextYear-accredited-materials')) }}
 
-      </form>
+                {% else %}
 
-    </div>
+                    {{ govukRadios({
+                        items: [
+                            { value: "Ambition Institute", text: "Ambition Institute" },
+                            { value: "Education Development Trust", text: "Education Development Trust" },
+                            { value: "Teach First", text: "Teach First" },
+                            { value: "UCL Institute of Education", text: "UCL Institute of Education" }
+                        ]
+                    } | decorateFormAttributes('accredited-materials')) }}
+
+                {% endif %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
     </div>
 
 {% endblock %}

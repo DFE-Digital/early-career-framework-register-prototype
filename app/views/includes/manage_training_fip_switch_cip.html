@@ -1,9 +1,17 @@
-<h2 class="govuk-heading-m">Choose your training materials</h2>
-                                <p>Read our guidance to <a href="x">compare materials</a>.</p>
+{% if not data['nextYear-accredited-materials'] %}
+    <h2 class="govuk-heading-m">Choose your training materials</h2>
 
-<div class="govuk-inset-text">
-    <p><a href="/schools/materials/which" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a></p>
-</div>
+    {# <div class="govuk-inset-text"> #}
+    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a></p>
+    {# </div> #}
+    <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
+
+    {# <p class="govuk-body">Not sure? <a href="../choose-study-materials" target="_blank"> See our guidance to compare your options (opens in new tab)</a>.</p>
+    <p class="govuk-body">You'll be choosing materials for any new ECTs.</p>
+    <p>They'll access these materials on our service, and usually complete their training programme over 2 years.</p> #}
+{% endif %}
+
+
 
 <dl class="govuk-summary-list govuk-summary-list__row--no-actions govuk-!-margin-bottom-3">
     <div class="govuk-summary-list__row">
@@ -27,13 +35,19 @@
     </div>
     <div class="govuk-summary-list__row ">
         <dt class="govuk-summary-list__key">Materials supplier</dt>
-        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__value">
+            {% if data['nextYear-accredited-materials'] %}
+                {{ data['nextYear-accredited-materials'] }}
+            {% endif %}
+        </dd>
         <dd class="govuk-summary-list__actions">
             {% if data['nextYear-accredited-materials'] %}
-                <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
+                <a class="govuk-link" href="materials/change?cohort=2022">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
             {% else %}
-                <a class="govuk-link" href="materials/?nextYear">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                <a class="govuk-link" href="materials/?cohort=2022">Choose<span class="govuk-visually-hidden"> accredited materials</span></a>
             {% endif %}
         </dd>
     </div>
 </dl>
+
+
