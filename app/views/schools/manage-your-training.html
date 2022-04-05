@@ -23,57 +23,25 @@
 
                 {% set newYearHtml %}
 
+                    <!-- If SIT has told us there wil be no ECTs in the next academic year no matter what Programme they run currently -->
+                    <!-- Checked -->
+                    {% if (( data['newYear-inductionProgramme'] == "noECT" ) or (data['newYear-expectECT'] == "No" )) %}
+                        <!-- Checked -->
+                        {% include "includes/ectNotExpected.html" %}
 
-                    {# If SIT has told us there wil be no ECTs in the next academic year no matter what Programme they run currently #}
-                    <!-- Checked -->{% if (( data['newYear-inductionProgramme'] == "noECT" ) or (data['newYear-expectECT'] == "No" )) %}
+                    <!-- There will be ECTs in the next academic year -->
+                    <!-- Checked -->
+                    {% elif data['newYear-expectECT'] == "Yes" %}
 
-                        <!-- Checked -->{% include "includes/ectNotExpected.html" %}
-
-                    {# There will be ECTs in the next academic year #}
-                    <!-- Checked -->{% elif data['newYear-expectECT'] == "Yes" %}
-
-                        {# If school is currently on FIP #}
-                        <!-- Checked -->{% if data['inductionProgramme'] == "FIP" %}
+                        <!-- If school is currently on FIP -->
+                        <!-- Checked -->
+                        {% if data['inductionProgramme'] == "FIP" %}
 
                             {% if data['newYear-changeProviders'] == "notSure" %}
+                                <!-- Checked -->
+                                {% include "includes/manage_training_fip_notsure.html" %}
 
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                        <dt class="govuk-summary-list__key">Length of induction</dt>
-                                        <dd class="govuk-summary-list__value">2 years</dd>
-                                    </div>
-                                    <div class="govuk-summary-list__row">
-                                        <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-                                        <dd class="govuk-summary-list__value">0</dd>
-                                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
-                                    </div>
-                                    <div class="govuk-summary-list__row">
-                                        <dt class="govuk-summary-list__key">Induction tutor</dt>
-                                        <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
-                                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
-                                    </div>
-                                </dl>
-
-                                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Confirm your programme choice</h2>
-                                <p><a href="training-programme/same">Tell us how you want to run your training programme</a> as soon as possible. You’re currently registered/partnered with:</p>
-
-
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
-                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                        <dt class="govuk-summary-list__key">Programme</dt>
-                                        <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
-                                    </div>
-                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                        <dt class="govuk-summary-list__key">Training provider</dt>
-                                        <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
-                                    </div>
-                                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                                        <dt class="govuk-summary-list__key">Delivery partner</dt>
-                                        <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
-                                    </div>
-                                </dl>
-
-                            {# Next academic year they want to switch to DIY #}
+                            <!-- Next academic year they want to switch to DIY -->
                             {% elif data['newYear-why-changing'] == "nextYear-DYO" %}
                                 <p>New dashboard for DYO the next academic year school currently on FIP.</p>
 
