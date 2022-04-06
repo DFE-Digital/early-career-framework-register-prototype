@@ -22,9 +22,14 @@
 			{% set pastDayHtml %}
 				<dl class="govuk-summary-list">
 					<div class="govuk-summary-list__row">
+				  		<dt class="govuk-summary-list__key">Name</dt>
+				  		<dd class="govuk-summary-list__value">{{ participant.name }}</dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+					</div>
+                    <div class="govuk-summary-list__row">
 				  		<dt class="govuk-summary-list__key">Email</dt>
 				  		<dd class="govuk-summary-list__value">{{ participant.email }}</dd>
-				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
 					</div>
                     {% if data['inductionProgramme'] == "FIP" %}
                     <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
