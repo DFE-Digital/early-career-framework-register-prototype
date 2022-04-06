@@ -17,7 +17,13 @@
                 }) }}
             </div>
 
+            
             {% if data['cohort'] == "2022" %}
+                <p>To access the {{ data['nextYear-accredited-materials'] }} training materials:</p>
+                <ol class="govuk-list govuk-list--number">
+                    <li>Visit <a href="https://support-for-early-career-teachers.education.gov.uk/users/sign-up" target="_blank">Support for early career teachers (opens in new tab)</a>.</li>
+                    <li>Enter your email address to create a new account.</li>
+                </ol>
                 <p class="govuk-body"><a href="/schools/manage-your-training#past-month"> Return to manage your training</a></p>
             {% else %}
                 <p class="govuk-body"><a href="/schools/manage-your-training#past-day"> Return to manage your training</a></p>
