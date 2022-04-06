@@ -62,20 +62,20 @@
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
-                                <p>New dashboard for CIP to FIP</p>
-                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
-                                <p>New dashboard for CIP to DIY</p>
+                                {% include "includes/manage_training_cip_switch_fip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "DYO" %}
+                                {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
 
                         <!-- If school is currently on DIY -->
-                        {% elif data['inductionProgramme'] == "DIY" %}
+                        {% elif data['inductionProgramme'] == "DYO" %}
 
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
-                                <p>New dashboard for DIY to FIP</p>
-                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
-                                <p>New dashboard for DIY to DIY</p>
+                                {% include "includes/manage_training_cip_switch_fip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "DYO" %}
+                                {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
 
                         <!-- If school is currently on noECT -->
@@ -84,9 +84,9 @@
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
-                                <p>New dashboard for noECT to FIP</p>
-                            {% elif data['newYear-inductionProgramme'] == "DIY" %}
-                                <p>New dashboard for noECT to DIY</p>
+                                {% include "includes/manage_training_cip_switch_fip.html" %}
+                            {% elif data['newYear-inductionProgramme'] == "DYO" %}
+                                {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
 
                         {% endif %}
