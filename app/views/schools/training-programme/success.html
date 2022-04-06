@@ -49,24 +49,35 @@
                     {% include "includes/success_fip_nochange.html" %}
                 {% endif %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
-            
+
             <!-- Dont show to anyone on DYO -->
-            {% elif data['newYear-inductionProgramme'] == "DYO" %} 
+            {% elif data['newYear-inductionProgramme'] == "DYO" %}
 
                 {% include "includes/nextYear_ChangeToDIY.html" %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
 
-            {% elif data['newYear-inductionProgramme'] == "FIP" %} 
+            {% elif data['newYear-inductionProgramme'] == "FIP" %}
+
+                 <h2 class="govuk-heading-m">What to do next</h2>
+                    <p>You need to:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>choose one of the 6 DfE-funded training providers as soon as possible</li>
+                        <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
+                        <li>have an appropriate body in place</li>
+                    </ul>
+                    <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in a new tab)</a> to find out how to complete these steps.</p>
+                    <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us to arrange funding.</p>
 
                 {% include "includes/nextYear_ChangeToFip.html" %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
 
-            {% elif data['newYear-inductionProgramme'] == "CIP" %} 
+            {% elif data['newYear-inductionProgramme'] == "CIP" %}
 
                 {% include "includes/nextYear_ChangeToCip.html" %}
+
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#past-month">Return to manage your training</a></p>
 
-            
+
             <!-- // of next academic year content -->
             {% else %}
 
