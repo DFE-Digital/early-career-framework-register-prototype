@@ -13,44 +13,29 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
     		<ul class="govuk-list govuk-body-s">
-          		<li>Last updated: 6 April 2022</li>
+          		<li>Last updated: 7 April 2022</li>
             	<li>Prototype version: {{releaseVersion}}</li>
         	</ul>
         	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
-
-        	<!-- <h2 class="govuk-heading-m">Current sprint</h2>
-    		<p>This sprint will be focusing on:</p>
-        	<ul class="govuk-list govuk-list--bullet">
-      			<li>allowing SIT's to change pariticpants email address</li>
-      			<li>discovery work to address changes of circumstances and other scenarios</li>
-        	</ul> -->
 
         	{{ govukButton({
       			text: "Journey from first email contact",
       			href: "/emails/tell-us-if-you-have-nqt"
     		}) }}
-
+            <br>
     		{{ govukButton({
-      			text: "Listings",
+      			text: "Page listings",
       			href: "admin/listings",
       			classes: "govuk-button--secondary"
     		}) }}
 
+
+
         	{{ govukButton({
-      			text: "Preloaded options",
+      			text: "Preload options",
       			href: "/admin/preload",
       			classes: "govuk-button--secondary"
     		}) }}
-
-        	{% include "includes/break.html" %}
-
-
-            <h2 class="govuk-heading-m">Admin support</h2>
-        	<p>Administration and support pages for the Manage training for early career teachers.</p>
-        	{{ govukButton({
-            	text: "Continue",
-            	href: "/support/schools"
-        	}) }}
 
         	{% include "includes/break.html" %}
 
