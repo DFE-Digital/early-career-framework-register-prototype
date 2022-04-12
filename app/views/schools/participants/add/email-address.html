@@ -23,7 +23,7 @@
             {% else %}
             <!-- Add journey -->
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
-                    <form class="form" action="start-date" method="post" class="govuk-!-margin-bottom-8">
+                    <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
                 {% else %}
                     {% if data.participants[id].type == "ectTransfer" %}
 
