@@ -32,11 +32,12 @@
             {% else %}
             <!-- Add journey -->
                 {% if data.participants[id].type == "ect" %}
-                    {% if hasMentors %}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {# {% if hasMentors %}
                         <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                     {% else %}
                         <form class="form" action="current-providers" method="post" class="govuk-!-margin-bottom-8">
-                    {% endif %}
+                    {% endif %} #}
                 {% elif data.participants[id].type == "mentor"%}
                     <form class="form" action="current-providers" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}
