@@ -23,21 +23,23 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {# If transferring teacher #}
-            {% if data.participants[id].type == "ectTransfer" %}
-
-                {% include "includes/confirmation_transfer.html" %}
-            {# Not Transfer and is ECT #}
-            {% elif data.participants[id].type == "ect" %}
-                {% include "includes/confirmation_ect.html" %}
-
-
-                {# JO we can put in ADD mentor content here #}
-
-
-
-            {% elif data['participantType'] == "mentor" %}
+            {% if data['participantType'] == "mentor" %}
                 {% include "includes/confirmation_mentor.html" %}
+
+            {# If transferring teacher #}
+            {% else %}
+                {% if data.participants[id].type == "ectTransfer" %}
+
+                    {% include "includes/confirmation_transfer.html" %}
+                {# Not Transfer and is ECT #}
+                {% elif data.participants[id].type == "ect" %}
+                    {% include "includes/confirmation_ect.html" %}
+
+                {% endif %}
+
+
+                {# JO we can put in ADD mentor content here as its the same for both ECT and ECT Transfer #}
+
             {% endif %}
 
 
