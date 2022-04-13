@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
+
+            {% if data.participants[id].type == "ect" %}
+                    {% if hasMentors %}
+                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                    {% else %}
+                        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {% endif %}
+            {% elif data.participants[id].type == "mentor"%}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
+
+				{{ govukDateInput({
+					id: 'session-date-induction',
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [
+						{
+							name: '[participants][' + id + '][inductionDay]',
+							value: data.participants[id]['inductionDay'],
+							classes: "govuk-input--width-2",
+							label: 'Day'
+						},
+						{
+							name: '[participants][' + id + '][inductionMonth]',
+							value: data.participants[id]['inductionMonth'],
+							classes: "govuk-input--width-2",
+							label: 'Month'
+						},
+						{
+							name: '[participants][' + id + '][inductionYear]',
+							value: data.participants[id]['inductionYear'],
+							classes: "govuk-input--width-4",
+							label: 'Year'
+						}
+					],
+					hint: {
+						text: "For example, 14 9 2022"
+					}
+				}) }}
+
+
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+    	</div>
+  	</div>
+{% endblock %}

@@ -30,9 +30,13 @@
                 {% if participant.email %}
                     {% include "includes/summary_email.html" %}
                 {% endif %}
+
                 <!-- Induction start date -->
                 {% if participant.startDate %}
                     {% include "includes/summary_induction_start.html" %}
+                {% endif %}
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
                 {% endif %}
                 <!-- Mentor details -->
                 {% if not data.participants[id].isMentor %}
@@ -43,13 +47,13 @@
 
                 <!-- Training -->
                 <!-- If adding ECT or MENTOR -->
-                {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}                    
-                    {% include "includes/summary_training_ect_mentor.html" %}                    
+                {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                    {% include "includes/summary_training_ect_mentor.html" %}
                 <!-- If Transferring -->
                 {% elif data.participants[id].type == "ectTransfer" %}
-                    {% include "includes/summary_training_transfer.html" %}                                            
+                    {% include "includes/summary_training_transfer.html" %}
                 {% endif %}
-            
+
             </dl>
 
                 <form class="form" action="confirmation" method="post" >
@@ -74,16 +78,16 @@
                             classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                             value: "Contacted"
                         } | decorateFormAttributes(['participants', id, 'status']) ) }}
-                    
+
                     {% else %}
                         <!-- No QTS -->
                         {% if data.participants[id].noQTS == "Yes" %}
-                            
+
                             {{ govukInput({
                                 classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                                 value: "CheckingQTS"
                             } | decorateFormAttributes(['participants', id, 'status']) ) }}
-                        
+
                         <!-- Eligible -->
                         {% else %}
 
@@ -98,7 +102,7 @@
 
                 <!-- If no TRN we need to contact them to provde the details -->
                 {% else %}
-                    
+
                     {{ govukInput({
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "Contacted"
@@ -109,7 +113,7 @@
                 {{ govukButton({
                     text: "Confirm and add"
                 }) }}
-            
+
             </form>
 
         </div>
