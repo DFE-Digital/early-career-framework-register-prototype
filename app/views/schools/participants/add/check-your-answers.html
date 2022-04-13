@@ -30,12 +30,13 @@
                 {% if participant.email %}
                     {% include "includes/summary_email.html" %}
                 {% endif %}
-                {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
-                {% endif %}
+
                 <!-- Induction start date -->
                 {% if participant.startDate %}
                     {% include "includes/summary_induction_start.html" %}
+                {% endif %}
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
                 {% endif %}
                 <!-- Mentor details -->
                 {% if not data.participants[id].isMentor %}
