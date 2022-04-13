@@ -197,8 +197,8 @@
 
                 {{ govukTabs({
                     items: [
-                        { label: "2022 to 2023", id: "past-month", panel: { html: newYearHtml } },
-                        { label: "2021 to 2022", id: "past-day", panel: { html: pastDayHtml } }
+                        { label: "2022 to 2023", id: "new-year", panel: { html: newYearHtml } },
+                        { label: "2021 to 2022", id: "current-year", panel: { html: pastDayHtml } }
                     ]
                 }) }}
 
@@ -209,12 +209,12 @@
                 <!-- Check to make sure they are on a programme that allows addition of ECT -->
                 {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgramme'] == "CIP")) %}
                     {% if ((data['participant-1-added'] ) or ( data['participant-1-mentor-added'] ))%}
-                        <p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Your early career teachers and mentors</a></p>
+                        <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Your early career teachers and mentors</a></p>
                     {% else %}
                         {% if not data['rolesexplanation'] %}
-                            <p><a class="govuk-link govuk-link--no-visited-state" href="participants/what-each-person-does">Add your early career teacher and mentor details</a></p>
+                            <p><a class="govuk-link govuk-link--no-visited-state" href="participants/what-each-person-does?cohort=2021">Add your early career teacher and mentor details</a></p>
                         {% else %}
-                            <p><a class="govuk-link govuk-link--no-visited-state" href="participants/">Add your early career teacher and mentor details</a></p>
+                            <p><a class="govuk-link govuk-link--no-visited-state" href="participants/?cohort=2021">Add your early career teacher and mentor details</a></p>
                         {% endif %}
                     {% endif %}
                 {% endif %}
