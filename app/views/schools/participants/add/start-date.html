@@ -31,7 +31,11 @@
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
             {% else %}
             <!-- Add journey -->
-                <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
+                {% if data.participants[id].type == "mentor"%}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                {% else %}
+                    <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
             {% endif %}
 
                 {{ govukRadios({
