@@ -13,8 +13,10 @@
         <div class="govuk-grid-column-full">
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         </div>
+
         {# Dont show this to older cohort years as they can no longer add #}
         {% if not (( data['cohort'] == "2019" ) or ( data['cohort'] == "2020" )) %}
+
         <div class="govuk-grid-column-two-thirds">
             <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
             <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p>
@@ -24,8 +26,13 @@
 
             <div class="govuk-inset-text govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+                    {% if data['cohort'] == "2022" %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="#">Add an ECT or mentor</a></li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="#">Add yourself as a mentor</a></li>
+                    {% elif data['cohort'] == "2021" %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
