@@ -31,15 +31,7 @@
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
             {% else %}
             <!-- Add journey -->
-                {% if data.participants[id].type == "ect" %}
-                    {% if hasMentors %}
-                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-                    {% else %}
-                        <form class="form" action="current-providers" method="post" class="govuk-!-margin-bottom-8">
-                    {% endif %}
-                {% elif data.participants[id].type == "mentor"%}
-                    <form class="form" action="current-providers" method="post" class="govuk-!-margin-bottom-8">
-                {% endif %}
+                <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
             {% endif %}
 
                 {{ govukRadios({

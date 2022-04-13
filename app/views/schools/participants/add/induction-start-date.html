@@ -11,9 +11,17 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>This is the date ........ </p>
+            <p>This is the date s........ </p>
 
-          	<form class="form" action="start-date" method="post">
+            {% if data.participants[id].type == "ect" %}
+                    {% if hasMentors %}
+                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                    {% else %}
+                        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {% endif %}
+            {% elif data.participants[id].type == "mentor"%}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
 
 				{{ govukDateInput({
 					id: 'session-date-induction',
