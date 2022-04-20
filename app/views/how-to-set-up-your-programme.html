@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Set up your school’s early career teacher training programme: step by step" %}
+{% set pageHeading = "Set up your school’s ECF-based training programme: step by step" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -22,14 +22,32 @@
       <div class="govuk-grid-column-two-thirds">
 
       {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      <h2 class="govuk-heading-m">What’s different about the new 2-year programme</h2>
 
-      <p class="govuk-body">From September 2021, statutory induction for early career teachers (also known as NQTs) will change as part of the early career framework (ECF) reforms. <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview" class="govuk-link">Read more about the reforms in our guidance</a>.</p>
-      <p class="govuk-body">All early career teachers (ECTs) are now entitled to a funded 2-year induction programme. This includes structured training and support to help them get their teaching career off to the best possible start.</p>
-      <p class="govuk-body">Your school still needs to <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#the-role-of-the-appropriate-body" class="govuk-link">have an appropriate body in place</a>.</p>
+      <p>This guidance explains how and why to use the <a href="https://manage-training-for-early-career-teachers.education.gov.uk" class="govuk-link">Manage training for early career teachers service</a> provided by the Department for Education (DfE).</p>
+      <p class="govuk-body">You can find information on training, mentoring and induction for early career teachers (ECTs) here:</p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li><a href="https://www.gov.uk/guidance/how-the-early-career-framework-ecf-supports-induction" class="govuk-link">How the early career framework (ECF) supports induction</a></li>
+          <li><a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" class="govuk-link">Guidance for schools: how to manage ECF-based training</a></li>
+          <li><a href="https://www.gov.uk/guidance/guidance-for-early-career-teachers-ects-ecf-based-training" class="govuk-link">Guidance for ECTs on ECF-based training</a></li>
+          <li><a href="https://www.gov.uk/guidance/guidance-for-mentors-how-to-support-ecf-based-training">Guidance for mentors: how to support ECF-based training</a></li>
+        </ul>
 
-      <h2 class="govuk-heading-m">When to set up your school’s programme</h2>
-      <p class="govuk-body">Any school that offers statutory induction needs to follow the steps below as soon as possible.</p>
+      <h2 class="govuk-heading-m">How and why to access the DfE service</h2>
+      <p class="govuk-body">Any school offering statutory induction must use the service to tell us:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>which training option you’ve chosen</li>
+        <li>information about your ECTs and mentors (unless you choose to design and deliver your own ECF-based programme)</li>
+
+      <p class="govuk-body">We need this information to:</p>
+      <li>check if ECTs and mentors are eligible for funded training and time off timetable (see guidance on <a href="https://www.gov.uk/guidance/funding-and-eligibility-for-ecf-based-training" class="govuk-link">funding and eligibility for ECF-based training</a> for more information)</li>
+      <li>pay your training provider, if you choose to use one</li> 
+      <li>give access to DfE-accredited training materials, if you choose to use them</li>
+
+      <p class="govuk-body">You must provide this in addition to any information you give a training provider or appropriate body.</p>
+
+      <div class="govuk-inset-text">If your school has not used the service before, request a link to sign in. If this does not work, contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></div>
+
+      <p class="govuk-body">Follow the steps below to provide the DfE with the information we need.</p>
 
         <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
 
@@ -46,22 +64,25 @@
                               </span>
                           </span>
                         </span>
-                        <span class="js-step-title">Tell us whether or not you expect ECTs to join you in this academic year</span>
+                        <span class="js-step-title">Tell us whether or not you expect ECTs to join your school in the academic year ahead</span>
                     </h2>
                   </div>
 
                   <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-check-youre-allowed-to-drive-1">
-                    <p class="app-step-nav__paragraph">We recommend you do this as soon as possible, even if you’re not sure.</p>
+                    <p class="app-step-nav__paragraph">We ask you to do this before the start of each academic year. We recommend you do this as soon as possible.</p>
 
-              <p class="app-step-nav__paragraph"><a href="nominations/resend-email">Use our service to tell us about your ECTs</a></p>
+              <p class="app-step-nav__paragraph">If your school is already registered on our service - <a href="https://manage-training-for-early-career-teachers.education.gov.uk/users/sign_in">sign in</a>.</p>
+
+              <p class="app-step-nav__paragraph">If your school is not registered on our service - <a href="https://manage-training-for-early-career-teachers.education.gov.uk/nominations/resend-email">get access here</a>.</p>
+
+              <p class="app-step-nav__paragraph">If you tell us you do not expect ECTs, you do not need to complete any more steps. Your school will not receive any more messages about ECF-based training  until the next academic year.</p>
+
+              <p class="app-step-nav__paragraph">Remember to sign in and tell us if things change and ECTs do start their induction at your school.</p>
+
 
 
               <!-- <p class="app-step-nav__paragraph">Your school may have been a link so that you can 'tell us if you have ECTs (previously NQTs) joining you this academic year.'</p>
               <p class="app-step-nav__paragraph">If you can not find this email, you can <a href="nominations/resend-email">send your school a new link</a>.</p> -->
-
-              <!-- <p class="app-step-nav__paragraph"><a href="nominations/resend-email">Tell us about your ECTs</a></p> -->
-                        <p class="app-step-nav__paragraph">If you answer ‘no’, you do not need to complete any more steps. Your school will not receive any more messages about statutory inductions for early career teachers until the next academic year.</p>
-                        <p class="app-step-nav__paragraph">You can <a href="mailto:continuing-professional-development@digital.education.gov.uk">contact us</a> if things change and ECTs do join your school this academic year.</p>
                   </div>
               </li>
           <!-- ////////////////////////// -->
@@ -77,15 +98,23 @@
                               </span>
                           </span>
                         </span>
-                        <span class="js-step-title">Nominate an induction tutor to manage your school’s programme</span>
+                        <span class="js-step-title">Choose or change your school’s induction tutor</span>
                     </h2>
                   </div>
                   <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-                    <p class="app-step-nav__paragraph">You need to do this as soon as possible if you expect ECTs to join your school this academic year, or if you’re not sure.</p>
+                    <p class="app-step-nav__paragraph">Your school must nominate an induction tutor to use our service. They’ll be our point of contact for ECF-based training.</p>
               <ol class="app-step-nav__list " data-length="4">
-                <li class="app-step-nav__list-item js-list-item "><a data-position="2.1" class="app-step-nav__link js-link" href="schools/participants/what-each-person-does?userstatus=step">Check what an induction tutor needs to do</a></li>
-                <li class="app-step-nav__list-item js-list-item "><a data-position="2.2" class="app-step-nav__link js-link" href="nominations/resend-email">Nominate the induction tutor for your school</a></li>
-              </ol>
+                <li class="app-step-nav__list-item js-list-item "><a data-position="2.1" class="app-step-nav__link js-link" href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#nominate-an-induction-tutor">Find out more about the role of an induction tutor</a></li>
+
+                <p class="app-step-nav__paragraph">Currently you can only nominate one induction tutor at a time. If you want more than one person to access the service, you can choose to register with a shared email address (for example, ‘admin@yourschool.com’).</p>
+
+                <p class="app-step-nav__paragraph">They’ll need to make sure your school <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#appoint-an-appropriate-body">has an appropriate body in place for your inductions</a>.</p>
+
+                <h3 class="govuk-heading-s">Nominate the induction tutor for your school</h3>
+
+                <p class="app-step-nav__paragraph">Your current induction tutor can <a href="https://manage-training-for-early-career-teachers.education.gov.uk/users/sign_in">sign in to the service</a> and nominate someone else to do the role instead. If they cannot do this, contact our support team for help: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
+
+
                   </div>
               </li>
           <!-- ////////////////////////// -->
