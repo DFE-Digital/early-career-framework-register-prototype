@@ -91,10 +91,10 @@ module.exports = router => {
       return { text: p.name }
       // `${p.name} ${p.email}`
     })
-    res.locals.mentors.push({ text: 'Assign a mentor later' })
+    // res.locals.mentors.push({ text: 'Add a new mentor' }) - commenting this out temporarily, as I didn't know how to show an 'or' divider - sorry!
     // res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor')
     console.log(res.locals)
-    next()
+    next() 
   })
 
   router.all('/schools/participants/:id/add/:view', (req, res) => {

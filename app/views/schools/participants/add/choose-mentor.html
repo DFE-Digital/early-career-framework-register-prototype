@@ -16,10 +16,20 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            
+
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
-            <!-- This sentence (You can tell us this later...) can be removed as it's a hangover from when this question was part of the Add ECT journey -->
-                {# <p>You can tell us this later if you’re not sure.</p> #}
+            <!-- The sentence (You can tell us this later...) has been removed as it's a hangover from when this question was part of the Add ECT journey -->
+
+            <!-- Two options for display of the "Add a new mentor" option: Hint text (top) or an "OR" divider (bottom) - I've commented out the first option for the moment.-->
+
+            <!-- Option 1 
+            <div class="govuk-hint">
+              Select a mentor from the list or <a class="govuk-link govuk-link--no-visited-state" href="../../../participants/X81/add/name">add a new mentor</a>.
+            </div> -->
+  
+
 
                 {% if data['linkaction'] == "change-mentor" %}
                     <!-- Change from CYA -->
@@ -46,7 +56,12 @@
 
                 {{ govukRadios({
                     items: mentors
-                } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
+                } | decorateFormAttributes(['participants', id]) ) }}
+
+            <!-- Option 2 -->
+                <p>or</p>
+                <p>[Radio button] Add a new mentor</p> <!-- Sorry, I couldn't figure out how to do the divider! -->
+                
 
 
                 {{ govukButton({
@@ -60,7 +75,7 @@
 
             {% else %}
             <!-- no mentors to choose from -->
-            <p>You have not added any mentors.</p>
+            <p>You have not added any mentors. </p>
                 <!-- Brian - I edited this to remove the word "cohort". As far as I know, we don't use it in user-facing content. -->
                 <p><a class="govuk-link govuk-link--no-visited-state" href="#">Add a new mentor</a></p>
             {% endif %}
