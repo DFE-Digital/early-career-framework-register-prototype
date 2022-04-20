@@ -18,6 +18,7 @@
 
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
+            <!-- This sentence (You can tell us this later...) can be removed as it's a hangover from when this question was part of the Add ECT journey -->
                 {# <p>You can tell us this later if you’re not sure.</p> #}
 
                 {% if data['linkaction'] == "change-mentor" %}
@@ -59,7 +60,8 @@
 
             {% else %}
             <!-- no mentors to choose from -->
-                <p>You do not have any mentors in your cohort.</p>
+            <p>You have not added any mentors.</p>
+                <!-- Brian - I edited this to remove the word "cohort". As far as I know, we don't use it in user-facing content. -->
                 <p><a class="govuk-link govuk-link--no-visited-state" href="#">Add a new mentor</a></p>
             {% endif %}
         </div>
