@@ -16,9 +16,15 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            
+
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
-                {# <p>You can tell us this later if you’re not sure.</p> #}
+            <!-- The sentence (You can tell us this later...) has been removed as it's a hangover from when this question was part of the Add ECT journey -->
+
+            <!-- I've sketched in the add CTA below the list of mentors, under an "or" divider. I think making them read the list will help avoid duplicate entries. I didn't like the "Assign a mentor later" CTA being inline with the mentor names as users could miss this if they're scanning over a long list. I know you and/or Kate aren't keen on the "or" divider, but it needs some type of visual differentiation. -->
+  
+
 
                 {% if data['linkaction'] == "change-mentor" %}
                     <!-- Change from CYA -->
@@ -45,7 +51,12 @@
 
                 {{ govukRadios({
                     items: mentors
-                } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
+                } | decorateFormAttributes(['participants', id]) ) }}
+
+            <!-- Option 2 -->
+                <p>or</p>
+                <p>[Radio button] Add a new mentor</p> <!-- Sorry, I couldn't figure out how to do the divider! -->
+                
 
 
                 {{ govukButton({
@@ -59,7 +70,8 @@
 
             {% else %}
             <!-- no mentors to choose from -->
-                <p>You do not have any mentors in your cohort.</p>
+            <p>You have not added any mentors. </p>
+                <!-- Brian - I edited this to remove the word "cohort". As far as I know, we don't use it in user-facing content. -->
                 <p><a class="govuk-link govuk-link--no-visited-state" href="#">Add a new mentor</a></p>
             {% endif %}
         </div>
