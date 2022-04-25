@@ -7,9 +7,10 @@
 {% elif data.participants[id].type == "ect" %}
     {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
 {% elif data.participants[id].type == "mentor" %}
-        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
+        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %} 
 {% elif data.participants[id].type == "sitMentor" %}
     {% set pageHeading = 'You’ve been added as a mentor' %}
+<!-- Hi Brian, I think we may need a CYA and/or another confirmation page for '[Existing mentor] has been assigned to an ECT', no conditional content needed in the page -->
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -38,7 +39,10 @@
                 {% endif %}
 
 
-                {# JO we can put in ADD mentor content here as its the same for both ECT and ECT Transfer #}
+<!-- Hi Brian - I've added the "Assign a mentor" content to the ECT and transfer 'includes' files, as this page seems to be used for mentor confirmations as well.  -->
+
+ 
+        
 
             {% endif %}
 
