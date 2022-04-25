@@ -91,7 +91,6 @@ module.exports = router => {
       return { text: p.name }
       // `${p.name} ${p.email}`
     })
-    res.locals.mentors.push({ text: 'Or' })
     res.locals.mentors.push({ text: 'Add a new mentor' })
     // res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor')
     console.log(res.locals)

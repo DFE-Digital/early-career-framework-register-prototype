@@ -20,38 +20,22 @@
 
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
-            <!-- The sentence (You can tell us this later...) has been removed as it's a hangover from when this question was part of the Add ECT journey -->
 
-            <!-- I've sketched in the add CTA below the list of mentors, under an "or" divider. I think making them read the list will help avoid duplicate entries. I didn't like the "Assign a mentor later" CTA being inline with the mentor names as users could miss this if they're scanning over a long list. I know you and/or Kate aren't keen on the "or" divider, but it needs some type of visual differentiation. -->
+                <form class="form" action="confirmation" method="post" >
 
-
-
-                {% if data['linkaction'] == "change-mentor" %}
-                    <!-- Change from CYA -->
-                    <form class="form" action="../details" method="post" >
-                {% else %}
-
-                <!-- Add journey -->
-                    {% if data.participants[id].type == "ect" %}
-                        <form class="form" action="check-your-answers" method="post" >
-                    <!-- Transfer Journey -->
-                    {% elif data.participants[id].type == "ectTransfer" %}
-
-                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
-                            <form class="form" action="different-programme" method="post" >
-                        {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
-                            <form class="form" action="current-training-programme" method="post" >
-                        {% else %}
-                            <form class="form" action="check-your-answers" method="post" >
-                        {% endif %}
-
-
-                    {% endif %}
-                {% endif %}
 
                 {{ govukRadios({
                     items: mentors
-                } | decorateFormAttributes(['participants', id]) ) }}
+                } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
+
+                <div class="govuk-visually-hidden">
+                {{ govukCheckboxes({
+                    classes: "govuk-checkboxes--small ",
+                    items: [
+                        { value: "Yes", text: "Mentor assigned", checked: "true" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'mentorAssigned']) ) }}
+                </div>
 
 
                 {{ govukButton({
