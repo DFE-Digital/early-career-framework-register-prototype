@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% set showPhaseBanner = false %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+
+  <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+      <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="pseudo-bg"></div>
+    <div class="email-metadata">
+      <p><strong>From: </strong>Department for Education Teacher CPD </p>
+        <p><strong>Subject: </strong>Sign in to our service to set up ECF-based training for 2022 to 2023</p>
+    </div>
+    <div class="pseudo-email-template">
+
+        <p>Hello {{ data.sitName }},</p>
+
+        <p>You can now use our service to tell us about your ECT training for the 2022 to 2023 academic year.</p>
+
+        <p>Follow these steps:</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>Sign in to the Manage training for early career teachers service:<br>
+            <a href="../signed-in">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt</a></li>
+
+            <li>Tell us whether or not you expect any new ECTs. If you do, continue with the next steps.</li>
+            <li>Tell us if you want new ECTs to continue with the same type of training programme, or make a change.</li>
+            <li>Add information about your new ECTs.</li>
+            <li>Tell us which mentor is assigned to each new ECT. You’ll need to add information for any mentors not yet registered on our service.</li>
+        </ol>
+        <p>Do not worry if you do not know this information yet. You can sign in and tell us later.</p>
+
+        <h2 class="govuk-heading-m">How to use our service</h2>
+        <p>Our step-by-step guidance explains how to:</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>access the service</li>
+            <li>make choices to set up your training programme</li>
+            <li>make changes</li>
+        </ol>
+
+        <p>Read our guidance: https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme</p>
+
+        <h2 class="govuk-heading-m">You can now do more in our service</h2>
+
+        <p>Sign in to:</p>
+        <ol class="govuk-list govuk-list--number">
+            <li>nominate someone else to be your school’s induction tutor</li>
+            <li>change how you run your training programme (check your options in our guidance: <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#delivery-options-for-ecf-based-training">https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#delivery-options-for-ecf-based-training</a>)</li>
+            <li>tell us that an ECT is transferring from another school, and let us know how you want them to continue their training</li>
+            <li>tell us that an ECT is transferring out of your school, and will no longer be training with you</li>
+            <li>update contact details</li>
+        </ol>
+
+        <h2 class="govuk-heading-m">Read new guidance for schools, ECTs and mentors</h2>
+        <p>You can find information on induction, training and support for early career teachers (ECTs) in our guidance: <a href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects">https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects</a></p>
+
+        <p>Kind regards,</p>
+        <p>Teacher Continuing Professional Development
+        <br>Department for Education</p>
+
+
+
+    </div>
+
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+
+
+
+
+
+
+
+
