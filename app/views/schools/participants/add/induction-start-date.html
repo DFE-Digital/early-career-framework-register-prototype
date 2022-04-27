@@ -13,15 +13,14 @@
 
             <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
 
-            {% if data.participants[id].type == "ect" %}
-                    {% if hasMentors %}
+                    {# Removed as part of the multiple cohort mentor work #}
+                    {# {% if hasMentors %}
                         <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-                    {% else %}
-                        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-                    {% endif %}
-            {% elif data.participants[id].type == "mentor"%}
-                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-            {% endif %}
+                    {% else %} #}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {# {% endif %} #}
+
+
 
 				{{ govukDateInput({
 					id: 'session-date-induction',

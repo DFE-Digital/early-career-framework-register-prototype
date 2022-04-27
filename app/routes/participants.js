@@ -75,7 +75,7 @@ module.exports = router => {
     next()
   })
 
-  router.all('/schools/participants/:id/add/induction-start-date', (req, res, next) => {
+  router.all('/schools/participants/:id/add/start-date', (req, res, next) => {
     const participants = req.session.data.participants
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     next()
@@ -91,7 +91,7 @@ module.exports = router => {
       return { text: p.name }
       // `${p.name} ${p.email}`
     })
-    res.locals.mentors.push({ text: 'Assign a mentor later' })
+    // res.locals.mentors.push({ text: 'Add a new mentor' })
     // res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor')
     console.log(res.locals)
     next()

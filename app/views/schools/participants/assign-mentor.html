@@ -16,26 +16,36 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>If the mentor is not listed below, you’ll need to <a href="/schools/participants/add/">add a new mentor</a>.</p>
-
             {% if hasMentors %}
             <!-- If mentors exist in the cohort -->
+                <p>You can tell us this later if you’re not sure.</p>
 
-                <form class="form" action="confirmation" method="post" >
+                {% if data['linkaction'] == "change-mentor" %}
+                    <!-- Change from CYA -->
+                    <form class="form" action="../details" method="post" >
+                {% else %}
 
+                <!-- Add journey -->
+                    {% if data.participants[id].type == "ect" %}
+                        <form class="form" action="check-your-answers" method="post" >
+                    <!-- Transfer Journey -->
+                    {% elif data.participants[id].type == "ectTransfer" %}
+
+                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                            <form class="form" action="different-programme" method="post" >
+                        {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
+                            <form class="form" action="current-training-programme" method="post" >
+                        {% else %}
+                            <form class="form" action="check-your-answers" method="post" >
+                        {% endif %}
+
+
+                    {% endif %}
+                {% endif %}
 
                 {{ govukRadios({
                     items: mentors
                 } | decorateFormAttributes(['participants', id, 'mentor']) ) }}
-
-                <div class="govuk-visually-hidden">
-                {{ govukCheckboxes({
-                    classes: "govuk-checkboxes--small ",
-                    items: [
-                        { value: "Yes", text: "Mentor assigned", checked: "true" }
-                    ]
-                } | decorateFormAttributes(['participants', id, 'mentorAssigned']) ) }}
-                </div>
 
 
                 {{ govukButton({
@@ -49,8 +59,9 @@
 
             {% else %}
             <!-- no mentors to choose from -->
-            <p>You have not added any mentors. </p>
+                <p>You have not added any mentors.</p>
                 <!-- Brian - I edited this to remove the word "cohort". As far as I know, we don't use it in user-facing content. -->
+
                 <p><a class="govuk-link govuk-link--no-visited-state" href="#">Add a new mentor</a></p>
             {% endif %}
         </div>
