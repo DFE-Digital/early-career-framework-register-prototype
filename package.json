@@ -51,7 +51,7 @@
     "glob": "^8.0.1",
     "jest": "^27.5.1",
     "standard": "^17.0.0",
-    "supertest": "^6.2.2"
+    "supertest": "^6.2.3"
   },
   "jest": {
     "testRunner": "jest-jasmine2"
