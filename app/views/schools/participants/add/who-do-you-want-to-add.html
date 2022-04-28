@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Who do you want to add?" %}
-{% set pageSection = "" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
                 }) }}
 
             </form>
-            
+
         </div>
     </div>
 {% endblock %}
