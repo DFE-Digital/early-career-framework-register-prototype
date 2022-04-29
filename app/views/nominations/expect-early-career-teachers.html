@@ -10,13 +10,12 @@
       <div class="govuk-grid-column-two-thirds">
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        <p>These are teachers who have finished their initial teacher training. It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
+
 
           <form class="form" action="induction-tutor/" method="post" class="govuk-!-margin-bottom-8">
 
             {{ govukRadios({
-              hint: {
-                text: "These are teachers who have finished their initial teacher training. It does not include teachers who started or completed their statutory induction before 1 September 2022."
-              },
               items: [
                 { value: "yes", text: "Yes" },
                 { value: "no, redirect(../confirmation)", text: "No" },
