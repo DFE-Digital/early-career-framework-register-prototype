@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "List of appropriate bodies?" %}
+<!-- This is just here to show what we could pull in Jo, not what we should use :-) -->
+{% set pageHeading = 'Tell us which of these ' + data.abType + ' appropriate bodies from ' + data.abRegion + ' ?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,18 +18,86 @@
 
             <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 
+                {% if data['abRegion'] == "East Midlands and the Humber"  %}
+
                 {{ govukRadios({
                     items: [
-                        { value: "Yes", text: "East Midlands and the Humber" },
-                        { value: "No", text: "East of England and North-East London" },
-                        { value: "No", text: "Lancashire and West Yorkshire" },
-                        { value: "No", text: "North of England" },
-                        { value: "No", text: "North-West London and South-Central England" },
-                        { value: "No", text: "South-East England and South London" },
-                        { value: "No", text: "South-West England" },
-                        { value: "No", text: "West Midlands" }
+                        { value: "Derby", text: "Derby" },
+                        { value: "Derbyshire", text: "Derbyshire" },
+                        { value: "Doncaster", text: "Doncaster" },
+                        { value: "East Riding of Yorkshire", text: "East Riding of Yorkshire" },
+                        { value: "Kingston upon Hull", text: "Kingston upon Hull" },
+                        { value: "Leicestershire", text: "Leicestershire" },
+                        { value: "North Lincolnshire", text: "North Lincolnshire" },
+                        { value: "Nottingham", text: "Nottingham" },
+                        { value: "Nottinghamshire", text: "Nottinghamshire" },
+                        { value: "Rotherham", text: "Rotherham" },
+                        { value: "York", text: "York" }
                     ]
-                } | decorateFormAttributes("newYear-abNational")) }}
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "East of England and North-East London"  %}
+
+                {{ govukRadios({
+                    items: [
+                       { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "Lancashire and West Yorkshire"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "North of England"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "North-West London and South-Central England"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "South-East England and South London"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+                {% elif data['abRegion'] == "South-West England"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+
+                {% elif data['abRegion'] == "West Midlands"  %}
+
+                {{ govukRadios({
+                    items: [
+                        { value: "tbc", text: "tbc" }
+                    ]
+                } | decorateFormAttributes("abName")) }}
+
+
+                {% endif %}
+
+
+
 
 
                 {{ govukButton({
