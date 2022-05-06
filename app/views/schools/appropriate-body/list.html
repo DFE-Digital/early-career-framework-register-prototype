@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Which type of appropriate body?" %}
+{% set pageHeading = "List of appropriate bodies?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,13 +15,18 @@
 
             {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
 
-            <form class="form" action="region" method="post" class="govuk-!-margin-bottom-8">
+            <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 
                 {{ govukRadios({
                     items: [
-                        { value: "Yes", text: "Teaching school hub" },
-                        { value: "No", text: "Local authority" },
-                        { value: "No, redirect(national-organisation)", text: "National organisation" }
+                        { value: "Yes", text: "East Midlands and the Humber" },
+                        { value: "No", text: "East of England and North-East London" },
+                        { value: "No", text: "Lancashire and West Yorkshire" },
+                        { value: "No", text: "North of England" },
+                        { value: "No", text: "North-West London and South-Central England" },
+                        { value: "No", text: "South-East England and South London" },
+                        { value: "No", text: "South-West England" },
+                        { value: "No", text: "West Midlands" }
                     ]
                 } | decorateFormAttributes("newYear-abNational")) }}
 
