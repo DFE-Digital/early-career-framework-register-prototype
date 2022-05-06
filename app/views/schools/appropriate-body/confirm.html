@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Confirm" %}
+{% set pageHeading = "Appropriate body confirmed" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,11 +10,14 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            {{ govukPanel({
+                titleText: pageHeading,
+                html: "Academic year<br><strong>2022 to 2023</strong>",
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
 
-            {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
-
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/schools/manage-your-training#new-year">Return to manage your training</a></p>
 
 
         </div>

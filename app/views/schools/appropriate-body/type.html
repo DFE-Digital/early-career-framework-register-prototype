@@ -19,11 +19,11 @@
 
                 {{ govukRadios({
                     items: [
-                        { value: "Yes", text: "Teaching school hub" },
                         { value: "No", text: "Local authority" },
-                        { value: "No, redirect(national-organisation)", text: "National organisation" }
+                        { value: "No, redirect(national-organisation)", text: "National organisation" },
+                        { value: "Yes", text: "Teaching school hub" }
                     ]
-                } | decorateFormAttributes("newYear-abNational")) }}
+                } | decorateFormAttributes("newYear-abType")) }}
 
 
                 {{ govukButton({
