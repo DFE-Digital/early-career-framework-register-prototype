@@ -14,6 +14,8 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+          <p>We’ll use this address to contact them with more information.</p>
+
         {% if data['linkaction'] == "change-induction-name" %}
         <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8"></form>
         {% else %}
@@ -24,9 +26,6 @@
             label: {
                 text: "Email address",
                 classes: "govuk-visually-hidden"
-              },
-              hint: {
-                text: "We’ll use this address to contact them with more information."
               },
             classes: "govuk-!-width-two-thirds",
             type: "email",
