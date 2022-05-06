@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "Appropriate body confirmed" %}
+{% set pageHeading = "Appropriate body reported" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,6 +17,11 @@
                 html: "Academic year<br><strong>2022 to 2023</strong>",
                 classes: "govuk-!-margin-bottom-7"
             }) }}
+
+            <h2 class="govuk-heading-m">If you work with more than one appropriate body</h2>
+            <p class="govuk-body">You can report a different appropriate body for an ECT when you first register them on our service.</p>
+            <p class="govuk-body">If the ECT is already registered, select their name on the <a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2021">ECTS and mentors</a> page to view their information and change their appropriate body.</p>
+<!-- Assume you'll probably need to mess with the link here, since this appears to be the one for the 2021 to 2022 academic year -->
 
             <p><a class="govuk-link govuk-link--no-visited-state" href="/schools/manage-your-training#new-year">Return to manage your training</a></p>
 

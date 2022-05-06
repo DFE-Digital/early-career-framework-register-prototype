@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "region question?" %}
+{% set pageHeading = "In which region is the " + data.abType + " based?" %}
+<!-- Can we make this so "teaching" and "local" are lower case? --> 
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

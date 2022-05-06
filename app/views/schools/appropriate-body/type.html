@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Which type of appropriate body?" %}
+{% set pageHeading = "Which type of appropriate body have you appointed?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,6 +14,8 @@
 
 
             {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
+
+            <p class="govuk-body">If your school works with more than one, first tell us about the appropriate body appointed for the majority of your ECTs. You can add the others later.</p>
 
             <form class="form" action="region" method="post" class="govuk-!-margin-bottom-8">
 

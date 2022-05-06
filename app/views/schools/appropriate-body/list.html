@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-<!-- This is just here to show what we could pull in Jo, not what we should use :-) -->
-{% set pageHeading = 'Tell us which of these ' + data.abType + ' appropriate bodies from ' + data.abRegion + ' ?' %}
+<!-- This is just here to show what we could pull in Jo, not what we should use :-) -->  
+{% set pageHeading = 'Which ' + data.abType + ' in ' + data.abRegion + ' have you appointed?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
