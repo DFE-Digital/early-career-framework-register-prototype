@@ -17,7 +17,12 @@
                     {# {% if hasMentors %}
                         <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                     {% else %} #}
-                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+
+                {% if data['abName'] %}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                {% else %}
+                    <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
                     {# {% endif %} #}
 
 

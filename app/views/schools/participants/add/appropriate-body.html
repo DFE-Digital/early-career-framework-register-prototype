@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+
+{% set pageHeading = 'Will this appropriate body be assuring ' + participant.name + ' teacher induction?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+                <div class="govuk-inset-text">
+                    <p class="govuk-!-margin-bottom-1">{{ data.abName }}</p>
+                </div>
+
+                <form class="form" action="check-your-answers" method="post" >
+                    {{ govukButton({
+                        text: "Confirm"
+                    }) }}
+                </form>
+
+                <p><a href="#">They are assured by another appropriate body</a></p>
+
+
+        </div>
+    </div>
+{% endblock %}
