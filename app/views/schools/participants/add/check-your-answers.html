@@ -129,6 +129,15 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'cohort2022']) ) }}
 
+                {% elif data['cohort'] == "2021" %}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Cohort 2021", checked: "checked" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort2021']) ) }}
+
                 {% endif %}
 
                 {{ govukButton({
