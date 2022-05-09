@@ -48,7 +48,7 @@
                     <!-- Contacted ECTs -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any ECT that have status contacted #}
-                        {% if hasAnyContactedParticipants %}
+                        {% if hasAnyContactedParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -67,7 +67,7 @@
                             </table>
                         {% endif %}
                     {% elif data['induction-programme'] == "CIP" %}
-                        {% if hasAnyContactedParticipants %}
+                        {% if hasAnyContactedParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -90,7 +90,7 @@
                     <!-- DfE Checking ECTs -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any ECT that have status Checking #}
-                        {% if hasAnyCheckingParticipants %}
+                        {% if hasAnyCheckingParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -109,7 +109,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyCheckingParticipantsCIP %}
+                        {% if hasAnyCheckingParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -132,7 +132,7 @@
                     <!-- Checking QTS -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any ECT that have status CheckingQTS #}
-                        {% if hasAnyCheckingQTSParticipants %}
+                        {% if hasAnyCheckingQTSParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -151,7 +151,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyCheckingQTSParticipantsCIP %}
+                        {% if hasAnyCheckingQTSParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -174,7 +174,7 @@
                     <!-- Eligible to start -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any ECT that have status Eligible #}
-                        {% if hasAnyEligibleParticipants %}
+                        {% if hasAnyEligibleParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -197,7 +197,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyEligibleParticipantsCIP %}
+                        {% if hasAnyEligibleParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -223,7 +223,7 @@
                 {% set mentorHtml %}
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any mentors that have status Contacted #}
-                        {% if hasAnyContactedMentorParticipants %}
+                        {% if hasAnyContactedMentorParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -242,7 +242,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyContactedMentorParticipantsCIP %}
+                        {% if hasAnyContactedMentorParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -265,7 +265,7 @@
                     <!-- DfE checking eligibility -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any mentors that have status Checking #}
-                        {% if hasAnyCheckingMentorParticipants %}
+                        {% if hasAnyCheckingMentorParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -284,7 +284,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyCheckingMentorParticipantsCIP %}
+                        {% if hasAnyCheckingMentorParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -307,7 +307,7 @@
                     <!-- Checking QTS -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any mentors that have status CheckingQTS #}
-                        {% if hasAnyCheckingQTSMentorParticipants %}
+                        {% if hasAnyCheckingQTSMentorParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -326,7 +326,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyCheckingQTSMentorParticipantsCIP %}
+                        {% if hasAnyCheckingQTSMentorParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -349,7 +349,7 @@
                     <!-- Eligible to start -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any mentors that have status Eligible #}
-                        {% if hasAnyEligibleMentorParticipants %}
+                        {% if hasAnyEligibleMentorParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -372,7 +372,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyEligibleMentorParticipantsCIP %}
+                        {% if hasAnyEligibleMentorParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -400,7 +400,7 @@
                 <!-- Moving to the school -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any users that have status TransferIn #}
-                        {% if hasAnyTransferInParticipants %}
+                        {% if hasAnyTransferInParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -419,7 +419,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyTransferInParticipantsCIP %}
+                        {% if hasAnyTransferInParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -442,7 +442,7 @@
                     <!-- Moving from the school -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any users that have status TransferOut #}
-                        {% if hasAnyTransferOutParticipants %}
+                        {% if hasAnyTransferOutParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -461,7 +461,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyTransferOutParticipantsCIP %}
+                        {% if hasAnyTransferOutParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -487,7 +487,7 @@
                     <!-- Withdrawn dashboard -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any users that have status Withdrawn #}
-                        {% if hasAnyWithdrawnParticipants %}
+                        {% if hasAnyWithdrawnParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -506,7 +506,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyWithdrawnParticipantsCIP %}
+                        {% if hasAnyWithdrawnParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -533,7 +533,7 @@
                     <!-- Not eligible dashboard -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any users that have status NotEligible #}
-                        {% if hasAnyNotEligibleParticipants %}
+                        {% if hasAnyNotEligibleParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -552,7 +552,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyNotEligibleParticipantsCIP %}
+                        {% if hasAnyNotEligibleParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -575,7 +575,7 @@
                     <!-- Moving from the school -->
                     {% if data['inductionProgramme'] == "FIP" %}
                         {# Check to see if there are any users that have status TransferOut #}
-                        {% if hasAnyTransferOutParticipants %}
+                        {% if hasAnyTransferOutParticipants22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferred from your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
@@ -594,7 +594,7 @@
                             </table>
                         {% endif %}
                     {% elif data['inductionProgramme'] == "CIP" %}
-                        {% if hasAnyTransferOutParticipantsCIP %}
+                        {% if hasAnyTransferOutParticipantsCIP22 %}
                             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transfered from your school</h2>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-two-thirds">
