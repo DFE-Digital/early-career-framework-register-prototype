@@ -93,11 +93,7 @@
                 {% if participant.startDate %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        {% if data.participants[id].type == "ect" %}
-                            Induction start
-                        {% elif data.participants[id].type == "mentor" %}
-                            Mentoring start
-                        {% endif %}
+                        Start term
                     </dt>
                     <dd class="govuk-summary-list__value">
                         {{ participant.startDate }}
@@ -105,6 +101,48 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
                 {% endif %}
+
+                 <!-- Start date -->
+                {% if participant.startDate %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {% if data.participants[id].type == "ect" %}
+                            Induction start
+                        {% elif data.participants[id].type == "mentor" %}
+                            Mentoring start
+                        {% endif %}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                </div>
+                {% endif %}
+
+
+                <!-- Start date -->
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Appropriate body
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.abConfirm == "Yes" %}
+                            {{ data.abName }}
+                        {% else %}
+
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a></dd>
+                </div>
+
+
+
+
+
+
+
+
 
                 <!-- Mentor -->
                 {% if participant.mentor %}

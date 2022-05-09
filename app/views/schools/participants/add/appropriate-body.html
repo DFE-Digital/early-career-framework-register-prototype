@@ -20,6 +20,14 @@
                 </div>
 
                 <form class="form" action="check-your-answers" method="post" >
+
+                    {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Confirm using reported AB", checked: "checked" }
+                            ]
+                    } | decorateFormAttributes(['participants', id, 'abConfirm']) ) }}
+
                     {{ govukButton({
                         text: "Confirm"
                     }) }}
