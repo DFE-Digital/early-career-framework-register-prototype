@@ -16,9 +16,13 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            {% if data['cohort'] == "2022" %}
+
+            {% else %}
             <div class="govuk-inset-text">
             <p>You’ll be able to add Autumn 2022 starters from May. We’ll email schools as soon as the new term is added.</p>
             </div>
+            {% endif %}
 
             <!-- If coming from the CYA page -->
             {% if data['cya-action'] == "change-start-date" %}
@@ -38,14 +42,30 @@
                 {% endif %}
             {% endif %}
 
+                {% if data['cohort'] == "2022" %}
+
+                    {{ govukRadios({
+                    items: [
+                        { value: "Autumn 2022", text: "Autumn 2022" },
+                        { value: "Spring 2023", text: "Spring 2023" },
+                        { value: "Summer 2023", text: "Summer 2023" }
+
+                    ]
+                } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
+
+                {% else %}
+
+
                 {{ govukRadios({
                     items: [
                         { value: "Spring 2022", text: "Spring 2022" },
                         { value: "Summer 2022", text: "Summer 2022" },
-                        { value: "Autumn 2021", text: "Autumn 2022" }
+                        { value: "Autumn 2022", text: "Autumn 2022" }
 
                     ]
                 } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
+
+                {% endif %}
 
 
 

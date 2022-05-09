@@ -38,6 +38,12 @@
                 {% if participant.inductionDay %}
                     {% include "includes/summary_induction_date.html" %}
                 {% endif %}
+
+                {% if participant.abConfirm %}
+                    {% include "includes/summary_aBody.html" %}
+                {% endif %}
+
+
                 <!-- Mentor details -->
                 {# {% if not data.participants[id].isMentor %}
                     {% if participant.mentor %}
@@ -53,6 +59,9 @@
                 {% elif data.participants[id].type == "ectTransfer" %}
                     {% include "includes/summary_training_transfer.html" %}
                 {% endif %}
+
+
+
 
             </dl>
 
@@ -107,6 +116,18 @@
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "Contacted"
                     } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                {% endif %}
+
+
+                {% if data['cohort'] == "2022" %}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Cohort 2022", checked: "checked" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort2022']) ) }}
 
                 {% endif %}
 
