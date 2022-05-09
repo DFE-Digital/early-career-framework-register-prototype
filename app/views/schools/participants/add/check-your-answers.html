@@ -119,6 +119,18 @@
 
                 {% endif %}
 
+
+                {% if data['cohort'] == "2022" %}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Cohort 2022", checked: "checked" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort2022']) ) }}
+
+                {% endif %}
+
                 {{ govukButton({
                     text: "Confirm and add"
                 }) }}
