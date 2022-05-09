@@ -20,10 +20,22 @@
     </div>
     <div class="govuk-summary-list__row ">
         <dt class="govuk-summary-list__key">Training provider</dt>
-        <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>    
+        <dd class="govuk-summary-list__value">{{ data.leadProvider }}</dd>
     </div>
     <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
         <dt class="govuk-summary-list__key">Delivery partner</dt>
         <dd class="govuk-summary-list__value">{{ data.deliveryPartner }}</dd>
-    </div>    
+    </div>
+
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Appropriate body</dt>
+        <dd class="govuk-summary-list__value">{{ data.abName }}</dd>
+        <dd class="govuk-summary-list__actions">
+        {% if data['abName'] %}
+            <a class="govuk-link" href="appropriate-body/type">Change<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+        {% else %}
+            <a class="govuk-link" href="appropriate-body/type">Report<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+        {% endif %}
+    </div>
 </dl>
