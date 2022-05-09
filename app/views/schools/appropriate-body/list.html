@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-<!-- This is just here to show what we could pull in Jo, not what we should use :-) -->  
+<!-- This is just here to show what we could pull in Jo, not what we should use :-) -->
 {% set pageHeading = 'Which ' + data.abType + ' in ' + data.abRegion + ' have you appointed?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -20,7 +20,7 @@
 
                 {% if data['abRegion'] == "East Midlands and the Humber"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -61,7 +61,7 @@
 
                 {% elif data['abRegion'] == "East of England and North-East London"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -105,7 +105,7 @@
 
                 {% elif data['abRegion'] == "Lancashire and West Yorkshire"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -160,7 +160,7 @@
 
                 {% elif data['abRegion'] == "North of England"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -194,7 +194,7 @@
 
                 {% elif data['abRegion'] == "North-West London and South-Central England"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -246,7 +246,7 @@
 
                 {% elif data['abRegion'] == "South-East England and South London"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -292,7 +292,7 @@
 
                 {% elif data['abRegion'] == "South-West England"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -330,7 +330,7 @@
 
                 {% elif data['abRegion'] == "West Midlands"  %}
 
-                    {% if data['abType'] == "Teaching school hub" %}
+                    {% if data['abType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
