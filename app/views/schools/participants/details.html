@@ -129,8 +129,8 @@
                     <dd class="govuk-summary-list__value">
                         {% if participant.abConfirm == "Yes" %}
                             {{ data.abName }}
-                        {% else %}
-
+                        {% elif participant.abName %}
+                            {{ participant.abName }}
                         {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a></dd>

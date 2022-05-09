@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "In which region is the " + data.abType + " based?" %}
+<!-- Can we make this so "teaching" and "local" are lower case? -->
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
+
+            <form class="form" action="list" method="post" >
+
+                {{ govukRadios({
+                    items: [
+                        { value: "East Midlands and the Humber", text: "East Midlands and the Humber" },
+                        { value: "East of England and North-East London", text: "East of England and North-East London" },
+                        { value: "Lancashire and West Yorkshire", text: "Lancashire and West Yorkshire" },
+                        { value: "North of England", text: "North of England" },
+                        { value: "North-West London and South-Central England", text: "North-West London and South-Central England" },
+                        { value: "South-East England and South London", text: "South-East England and South London" },
+                        { value: "South-West England", text: "South-West England" },
+                        { value: "West Midlands", text: "West Midlands" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'abRegion']) ) }}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -3,8 +3,8 @@
     <dd class="govuk-summary-list__value">
         {% if participant.abConfirm == "Yes" %}
             {{ data.abName }}
-        {% else %}
-
+        {% elif participant.abName %}
+            {{ participant.abName }}
         {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="induction-start-date">Change<span class="govuk-visually-hidden"> start date</span></a></dd>

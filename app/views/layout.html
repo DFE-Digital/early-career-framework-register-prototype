@@ -107,10 +107,19 @@
 
         {% else %}
 
-            {{ govukBackLink({
-                text: "Back to manage your training",
-                href: "../manage-your-training#current-year"
-            }) }}
+            {% if data['cohort'] == "2022" %}
+                {{ govukBackLink({
+                    text: "Back to manage your training",
+                    href: "../manage-your-training#new-year"
+                }) }}
+
+            {% elif data['cohort'] == "2021" %}
+                {{ govukBackLink({
+                    text: "Back to manage your training",
+                    href: "../manage-your-training#current-year"
+                }) }}
+
+            {% endif %}
 
         {% endif %}
 
