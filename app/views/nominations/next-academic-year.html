@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Does your school expect any ECTs in the next academic year?" %}
+{% set pageHeading = "Does your school expect any new ECTs in the 2022 to 2023 academic year?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +13,12 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			<p>ECTs are teachers who have finished their initial teacher training.</p>
-          	<p>It does not include teachers who started or completed their statutory induction before 1 September 2022.</p>
+          	<p>Do not include:
+            <ul  class="govuk-list govuk-list--bullet">
+            <li>ECTs who started training in the 2021 to 2022 academic year</li>
+            <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
+            </ul>
+            </p>
 
             {# If not already training using FIP then always look to see how they will run programme like new #}
             {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" ) or ( data['inductionProgramme'] == "noECT" )) %}

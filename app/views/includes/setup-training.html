@@ -1,16 +1,16 @@
-<h3 class="govuk-heading-m">How to set up training for ECTs starting in the 2022 to 2023 academic year</h3>
+<h3 class="govuk-heading-m">Tell us about any new ECTs starting training in the 2022 to 2023 academic year</h3>
 
 
 
 {% if data['inductionProgramme'] == "FIP" %}
-    <p>We need to know if:</p>
+    <p>We need to know:</p>
     <ul class="govuk-list govuk-list--bullet">
-        <li>your school expects any ECTs in the next academic year</li>
-        <li>you plan to change how you run training for any new ECTs</li>
+        <li>whether or not your school expects any new ECTs</li>
+        <li>if you plan to change how you run training for any new ECTs</li>
 {% else %}
     <p>We need to know:</p>
     <ul class="govuk-list govuk-list--bullet">
-        <li>if your school expects any ECTs in the next academic year</li>
+        <li>whether or not your school expects any new ECTs</li>
         <li>which training programme you want to use for any new ECTs</li>
 {% endif %}
 </ul>
@@ -18,10 +18,12 @@
 {# <p>It should only take a few minutes to get set up and you can change your answers later if you need to.</p> #}
 {# Old version of content can revert to if need be #}
 <p>You can change your answers later if you need to.</p>
-<p class="govuk-!-margin-bottom-5">It should only take a few minutes to get set up. </p>
+<!-- <p class="govuk-!-margin-bottom-5">It should only take a few minutes to get set up. </p>
+Not happy with including this. Some users may struggle and it's not best practice to suggest quick progress as standard. -->
 
 <div class="govuk-inset-text">
-    <p>You can do this later if you do not have the information you need yet.</p>
+    <p>Do not include ECTs who started their training in the 2021 to 2022 academic year.</p>
+    <p>You can manage their training in the '2021 to 2022' tab.</p>
 </div>
 
 <form action="/nominations/next-academic-year" method="post" >
