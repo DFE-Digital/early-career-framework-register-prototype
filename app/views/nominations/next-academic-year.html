@@ -12,13 +12,14 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>ECTs are teachers who have finished their initial teacher training.</p>
-          	<p>Do not include:
+			<p>Do not include:
             <ul  class="govuk-list govuk-list--bullet">
             <li>ECTs who started training in the 2021 to 2022 academic year</li>
             <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
             </ul>
             </p>
+			<p>ECTs are teachers who have finished their initial teacher training.</p>
+          	
 
             {# If not already training using FIP then always look to see how they will run programme like new #}
             {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" ) or ( data['inductionProgramme'] == "noECT" )) %}
