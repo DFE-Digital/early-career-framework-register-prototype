@@ -11,6 +11,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        <p class="govuk-body">You can enter their personal or school email address.</p>
+
         <!-- If coming from the participant details page -->
 
             <form class="form" action="confirmation" method="post">
@@ -19,8 +21,8 @@
 
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-visually-hidden" for="event-name">Email address</label>
-                    <div id="event-name-hint" class="govuk-hint">You can enter their personal or school email address.</div>
-                        
+
+
                     {% if data['active-user'] == "ect-1" %}
                     <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-email" name="participant-1-email" type="text" value="" >
                     {% elif data['active-user'] == "ect-2" %}
@@ -34,14 +36,14 @@
                     {% else %}
                         <input class="govuk-input govuk-!-width-two-thirds" id="random-email" name="random-naemailme" type="text" value="" >
                     {% endif %}
-                    
-                                                        
+
+
                 </div>
 
                 <!-- Clears the reason so can be used again -->
                 <input type="hidden" name="change-name-reason" id="change-name-reason" value="" />
                 <input type="hidden" name="change-email-reason" id="change-email-reason" value="" />
-            
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
