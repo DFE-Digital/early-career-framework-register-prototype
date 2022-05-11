@@ -16,13 +16,6 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data['cohort'] == "2022" %}
-
-            {% else %}
-            <div class="govuk-inset-text">
-            <p>You’ll be able to add Autumn 2022 starters from May. We’ll email schools as soon as the new term is added.</p>
-            </div>
-            {% endif %}
 
             <!-- If coming from the CYA page -->
             {% if data['cya-action'] == "change-start-date" %}
