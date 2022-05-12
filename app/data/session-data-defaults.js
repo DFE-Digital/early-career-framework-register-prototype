@@ -26,6 +26,7 @@ module.exports = {
     inductionStart: 'Spring 2022',
     linkExpire: '2 March 2022',
     expiryTime: '1pm',
+    multi-cohort: 'Yes',
     inductionProgramme: "",
     fipPartnership: "",
     // rolesexplanation: "Seen",
