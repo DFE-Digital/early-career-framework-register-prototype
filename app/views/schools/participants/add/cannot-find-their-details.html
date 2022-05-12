@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = 'We cannot find ' + participant.name + '’s record' %}
-{% set pageSection = "" %}
+{% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
