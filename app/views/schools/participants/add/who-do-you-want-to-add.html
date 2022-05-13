@@ -12,13 +12,22 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <form class="form" action="name" method="post" class="govuk-!-margin-bottom-8">
+
+
+            {% if data['cohort'] == "2022" %}
+                <form class="form" action="check-transfer" method="post" class="govuk-!-margin-bottom-8">
+            {% elif data['cohort'] == "2021" %}
+                <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-8">
+            {% else %}
+                <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
+            
 
                 {{ govukRadios({
                     items: [
-                        { value: "ectTransfer, redirect(what-we-need)", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
-                        { value: "ect", text: "A new ECT" },
-                        { value: "mentor", text: "A new mentor" }
+                        { value: "ectTransfer", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
+                        { value: "ect, redirect(name)", text: "A new ECT" },
+                        { value: "mentor, redirect(name)", text: "A new mentor" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'type']) ) }}
 
