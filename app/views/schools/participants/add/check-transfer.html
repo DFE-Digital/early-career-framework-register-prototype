@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "You cannot transfer an ECT or mentor before they start their ECF-based training" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>If a teacher has already started their ECF-based training or mentoring at another school in the 2021 to 2022 academic year:</p>
+
+        <div class="govuk-inset-text"><a href="#" class="govuk-link">Report a transferring ECT or mentor who started training in the 2021 to 2022 academic year</a></div>
+
+        <!-- BRIAN - please add link below to the 'What we need from you screen' in the 2021 to 2022 year -->
+
+        
+        <p>If a teacher has not started their ECF-based training or mentoring at another school:</p>
+
+         <!-- BRIAN - please add link below to the '/schools/participants/add/name' in the 2022 to 2023 year -->
+
+        <div class="govuk-inset-text"><a href="#" class="govuk-link">Register a new ECT or mentor</a></div>
+
+        <p>If you need support to report a transfer, contact us: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+
+
+            </div>
+    
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
