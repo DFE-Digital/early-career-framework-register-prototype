@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
 {% set pageHeading = "An induction tutor has already been nominated" %}
 {% set pageSection = "" %}
@@ -18,9 +19,9 @@
 
       <h2 class="govuk-heading-m">What you can do</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li>if you were nominated, <a href="../sign-in">sign in</a></li>
+        <li>if you were nominated, <a href="/sign-in">sign in</a></li>
         <li>if you were not nominated, check with your colleagues first</li>
-        <li>if you don’t know where the email was sent, <a href="#">sign in to DfE</a> and check your GIAS email address</li>
+        <li>if you don’t know where the email was sent, <a href="https://services.signin.education.gov.uk/">sign in to DfE</a> and check your GIAS email address</li>
       </ul>
 
       </div>
