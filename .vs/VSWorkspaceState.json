@@ -2,16 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\assets",
-    "\\app\\assets\\sass",
-    "\\app\\assets\\sass\\components",
-    "\\app\\assets\\sass\\patterns",
-    "\\app\\routes",
-    "\\app\\views",
-    "\\app\\views\\includes",
-    "\\app\\views\\schools",
-    "\\app\\views\\schools\\materials"
+    "\\app\\views"
   ],
-  "SelectedNode": "\\app\\views\\includes\\confirmation_ect.html",
+  "SelectedNode": "\\app\\views\\schools\\participants\\add\\name.html",
   "PreviewInSolutionExplorer": false
 }

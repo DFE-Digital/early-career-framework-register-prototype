@@ -29,6 +29,27 @@
             </ul>
             <p>If your school does not have this information, contact the person directly to ask for it.</p>
 
+        {% if data['inductionProgramme'] == "FIP" %}
+            <div class="govuk-inset-text">
+            <p>Before you add an ECT or mentor, you should let them know that we:
+                                  <ul class="govuk-list govuk-list--bullet">
+                                  <li>use their personal data to arrange DfE funding</li>
+                                  <li>need to share this data with training providers and other organisations involved in ECT induction and ECF-based training</li>
+                                  </ul> </p>
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../privacy-policy/">Read our privacy policy</a></p>
+            </div>
+        {% endif %}
+
+        {% if data['inductionProgramme'] == "CIP" %}
+            <div class="govuk-inset-text">
+            <p>Before you add an ECT or mentor, you should let them know that we:
+                                  <ul class="govuk-list govuk-list--bullet">
+                                  <li>use their personal data to arrange DfE funding</li>
+                                  <li>need to share this data with training providers and other organisations involved in ECT induction and ECF-based training</li>
+                                  </ul> </p>
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../privacy-policy/">Read our privacy policy</a></p>
+            </div>
+        {% endif %}
             
             <form method="post" action="name" >            
                 
