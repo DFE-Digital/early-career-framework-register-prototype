@@ -16,7 +16,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-7">
+            {% if not data['setup'] %}
+                <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-7">
+            {% else %}
+                <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-7">
+            {% endif %}
 
                 <label for="abName"></label>
 

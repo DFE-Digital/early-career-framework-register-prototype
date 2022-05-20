@@ -27,6 +27,9 @@
                     ]
                 } | decorateFormAttributes("abType")) }}
 
+                {% if not data['setup'] %}
+                <p class="govuk-body govuk-!-margin-bottom-7"><a class="govuk-link" href="/schools/training-programme/success">We have not appointed an appropriate body</a></p>
+                {% endif %}
 
                 {{ govukButton({
                     text: "Continue"

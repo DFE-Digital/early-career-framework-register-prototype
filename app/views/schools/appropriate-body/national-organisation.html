@@ -14,17 +14,19 @@
 
             <!-- Corrected acronym "IStip" and added acronym "NTA" -->
 
-
-            <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-8">
-            <!-- <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8"> -->
+            {% if not data['setup'] %}
+                <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-8">
+            {% else %}
+                <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
                         { value: "Independent Schools Teacher Induction Panel (IStip)", text: "Independent Schools Teacher Induction Panel (IStip)" },
-      
+
                         { value: "National Teacher Accreditation (NTA)", text: "National Teacher Accreditation (NTA)" }
-                        
+
                     ]
                 } | decorateFormAttributes("abName")) }}
 

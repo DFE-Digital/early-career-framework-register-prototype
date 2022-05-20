@@ -1,7 +1,18 @@
 
 <!-- This is only for testing not build yet -->
+
+{% if not data['abName'] %}
+
 <h2 class="govuk-heading-m">Tell us which appropriate body you’ve appointed</h2>
-<p><a href="/schools/appropriate-body/type">Report the appropriate body</a> for ECTs starting induction in the academic year 2022 to 2023.</p>
+<p><a href="/schools/appropriate-body/type?setup=No">Report the appropriate body</a> for ECTs starting induction in the academic year 2022 to 2023.</p>
+{% else %}
+
+<h2 class="govuk-heading-m">If you work with more than one appropriate body</h2>
+            <p class="govuk-body">You can report a different appropriate body for an ECT when you first register them on our service.</p>
+            <p class="govuk-body">If the ECT is already registered, select their name on the <a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">ECTS and mentors</a> page to view their information and change their appropriate body.</p>
+
+
+{% endif %}
 <!-- /////// -->
 
 <h2 class="govuk-heading-m">You can now add ECTs and mentors when you’re ready</h2>
