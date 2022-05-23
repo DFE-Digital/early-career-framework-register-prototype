@@ -28,9 +28,12 @@
 
                 } | decorateFormAttributes(['participants', id, 'abType']) ) }}
 
-                {% if not data['setup'] %}
-                <p class="govuk-body govuk-!-margin-bottom-7"><a class="govuk-link" href="/schools/training-programme/success">We have not appointed an appropriate body</a></p>
-                {% endif %}
+                <div class="govuk-visually-hidden">
+                {{ govukCheckboxes({
+                    items: [ { value: "No", text: "No", checked: checked } ]
+                } | decorateFormAttributes(['participants', id, 'abConfirm']) ) }}
+                </div>
+
 
                 {{ govukButton({
                     text: "Continue"
