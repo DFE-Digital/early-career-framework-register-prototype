@@ -3,17 +3,51 @@
 
 {% if not data['abName'] %}
 
-<h2 class="govuk-heading-m">Tell us which appropriate body you’ve appointed</h2>
-<p><a href="/schools/appropriate-body/type?setup=No">Report the appropriate body</a> for ECTs starting induction in the academic year 2022 to 2023.</p>
-{% else %}
+<h2 class="govuk-heading-m">What you still need to do in this service</h2>
+<p>As soon as possible:
+<ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
+    <li>assign mentors to these new ECTs</li>
+    <li><a href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you've appointed</a> for your new ECTs</li>
+</ul>
+</p>
+
+<p>You can tell us this information later if you do not know it yet.</p>
+
+{% end if %}
+
+
+
+{% if data['abName'] %}
+
+<h2 class="govuk-heading-m">What you still need to do in this service</h2>
+<p>As soon as possible:
+<ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
+    <li>assign mentors to these new ECTs</li>
+</ul>
+</p>
+
+<p>You can tell us this information later if you do not know it yet.</p>
+
+{% endif %>
+
+
+
+
+
+<!-- OLD CONTENT
 
 <h2 class="govuk-heading-m">If you work with more than one appropriate body</h2>
             <p class="govuk-body">You can report a different appropriate body for an ECT when you first register them on our service.</p>
             <p class="govuk-body">If the ECT is already registered, select their name on the <a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">ECTS and mentors</a> page to view their information and change their appropriate body.</p>
 
 
-{% endif %}
+-->
+
 <!-- /////// -->
+
+<!-- OLD CONTENT
 
 <h2 class="govuk-heading-m">You can now add ECTs and mentors when you’re ready</h2>
 <p>You must tell us their:</p>
@@ -27,3 +61,5 @@
     <li>ECTs and mentors will not be asked to provide this information themselves</li>
     <li>we can confirm if they’re eligible for funding more quickly</li>
 </ul>
+
+-->
