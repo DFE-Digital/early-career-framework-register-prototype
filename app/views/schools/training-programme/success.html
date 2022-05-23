@@ -2,18 +2,13 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{# Not sure has been removed currently from the options #}
-<!-- Checked -->
-<!-- {% if data['newYear-changeProviders'] == "notSure" %} -->
-	<!-- {% set pageHeading = "Training programme confirmed" %} -->
-<!-- {% else %} -->
 
 {% if data['abName'] %}
     {% set pageHeading = "You’ve submitted your training information and reported your appropriate body" %}
 {% else %}
     {% set pageHeading = "You’ve submitted your training information" %}
 {% endif %}
-<!-- {% endif %} -->
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -28,6 +23,10 @@
                 html: "Academic year<br><strong>2022 to 2023</strong>",
                 classes: "govuk-!-margin-bottom-7"
             }) }}
+
+
+
+
 
             <!-- Next academic year content -->
 
@@ -48,24 +47,19 @@
                         {% include "includes/nextYear_ChangeToDIY.html" %}
                     {% endif %}
                 {% endif %}
-
-
-
                 <!-- Dont show to anyone on DYO -->
                 {% if data['newYear-why-changing'] != "nextYear-DYO" %}
                     {# Default content for carrying on with no change to programme #}
-                        {% include "includes/success_fip_nochange.html" %}
+
+                    {% include "includes/success_fip_nochange.html" %}
                 {% endif %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
 
             <!-- Dont show to anyone on DYO -->
             {% elif data['newYear-inductionProgramme'] == "DYO" %}
-
                 {% include "includes/nextYear_ChangeToDIY.html" %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
-
             {% elif data['newYear-inductionProgramme'] == "FIP" %}
-<p>
                  <h2 class="govuk-heading-m">What to do next</h2>
                     <p>You need to:</p>
                     <ul class="govuk-list govuk-list--bullet">
@@ -80,13 +74,8 @@
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
 
             {% elif data['newYear-inductionProgramme'] == "CIP" %}
-
-
-
                 {% include "includes/nextYear_ChangeToCip.html" %}
-
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
-
 
             <!-- // of next academic year content -->
             {% else %}

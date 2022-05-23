@@ -1,40 +1,24 @@
-
-<!-- This is only for testing not build yet -->
-
-{% if not data['abName'] %}
-
-<h2 class="govuk-heading-m">What you still need to do in this service</h2>
-<p>As soon as possible:
-<ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
-    <li>assign mentors to these new ECTs</li>
-    <li><a href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you've appointed</a> for your new ECTs</li>
-</ul>
-</p>
-
-<p>You can tell us this information later if you do not know it yet.</p>
-
-{% end if %}
-
-
-
 {% if data['abName'] %}
 
-<h2 class="govuk-heading-m">What you still need to do in this service</h2>
-<p>As soon as possible:
-<ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
-    <li>assign mentors to these new ECTs</li>
-</ul>
-</p>
+    <h2 class="govuk-heading-m">What you still need to do in this service</h2>
+    <p>As soon as possible:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
+        <li>assign mentors to these new ECTs</li>
+    </ul>
+    <p>You can tell us this information later if you do not know it yet.</p>
 
-<p>You can tell us this information later if you do not know it yet.</p>
+{% else %}
+    <h2 class="govuk-heading-m">What you still need to do in this service</h2>
+    <p>As soon as possible:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs</a> starting training at your school in 2022 to 2023</li>
+        <li>assign mentors to these new ECTs</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you’ve appointed</a> for your new ECTs</li>
+    </ul>
+    <p>You can tell us this information later if you do not know it yet.</p>
 
-{% endif %>
-
-
-
-
+{% endif %}
 
 <!-- OLD CONTENT
 
