@@ -31,15 +31,10 @@
 
                         <!-- School currently FIP -->
                         {% if data['inductionProgramme'] == "FIP" %}
-
-                            {% if data['newYear-changeProviders'] == "notSure" %}
-                                <!-- Removed this option at present -->
-                                {% include "includes/manage_training_fip_notsure.html" %}
-                            {% elif data['newYear-changeProviders'] == "No" %}
-                                <!-- Next academic year they will continue with FIP -->
-                                <!-- Default manage training for FIP with no change to programme -->
+                            <!-- No change -->
+                            {% if data['newYear-changeProviders'] == "No" %}
                                 {% include "includes/manage_training_fip_nochange.html" %}
-                            <!-- Plan to change -->
+                            <!-- Change needed -->
                             {% elif data['newYear-changeProviders'] == "Yes" %}
                                 {% if data['newYear-why-changing'] == "nextYear-DYO" %}
                                     <!-- Next academic year they want to switch to DIY -->
@@ -55,11 +50,9 @@
                                     {% include "includes/manage_training_fip_switch_cip.html" %}
                                 {% endif %}
                             {% endif %}
-                            <!-- // plan to change -->
 
                         <!-- School currently CIP -->
                         {% elif data['inductionProgramme'] == "CIP" %}
-
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
@@ -67,10 +60,8 @@
                             {% elif data['newYear-inductionProgramme'] == "DYO" %}
                                 {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
-
                         <!-- School currently DIY -->
                         {% elif data['inductionProgramme'] == "DYO" %}
-
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
@@ -78,10 +69,8 @@
                             {% elif data['newYear-inductionProgramme'] == "DYO" %}
                                 {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
-
                         <!-- School currently on noECT -->
                         {% elif data['inductionProgramme'] == "noECT" %}
-
                             {% if data['newYear-inductionProgramme'] == "CIP" %}
                                 {% include "includes/manage_training_fip_switch_cip.html" %}
                             {% elif data['newYear-inductionProgramme'] == "FIP" %}
@@ -89,11 +78,10 @@
                             {% elif data['newYear-inductionProgramme'] == "DYO" %}
                                 {% include "includes/manage_training_fip_switch_diy.html" %}
                             {% endif %}
-
                         {% endif %}
 
+                    <!-- Setup how to run training for next academic year -->
                     {% else %}
-                        <!-- Setup how to run training for next academic year -->
                         <h3 class="govuk-heading-m">Tell us if any new ECTs will start training at your school in the 2022 to 2023 academic year</h3>
                         <!-- FIP -->
                         {% if data['inductionProgramme'] == "FIP" %}
@@ -101,14 +89,16 @@
                             <ul class="govuk-list govuk-list--bullet">
                                 <li>whether or not your school expects any new ECTs</li>
                                 <li>if you plan to change how you run training for any new ECTs</li>
+                            </ul>
                         <!-- All other programmes -->
                         {% else %}
                             <p>We need to know:</p>
                             <ul class="govuk-list govuk-list--bullet">
                                 <li>whether or not your school expects any new ECTs</li>
                                 <li>which training programme you want to use for any new ECTs</li>
+                            </ul>
                         {% endif %}
-                        </ul>
+
                         <p>You can tell us this later if you do not know yet. You can also change your answers if you need to.</p>
                         <div class="govuk-inset-text">
                             <p>Do not include ECTs who started their training in the 2021 to 2022 academic year.</p>
