@@ -61,14 +61,14 @@
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
             {% elif data['newYear-inductionProgramme'] == "FIP" %}
                  <h2 class="govuk-heading-m">What to do next</h2>
-                    <p>You need to:</p>
+                    <p>As soon as possible:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>choose one of the 6 DfE-funded training providers as soon as possible</li>
-                        <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
-                        <li>have an appropriate body in place</li>
+                        <li>contact one of the 6 DfE-funded training providers to register for training</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you’ve appointed</a> for your ECTs</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add your ECTs and mentors</a> so we can check their eligibility for funding</li>
                     </ul>
-                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme">Read our guidance (opens in new tab)</a> to find out how to complete these steps.</p>
-                    <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us to arrange funding.</p>
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+                    <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange your DfE funding.</p>
 
                 {% include "includes/nextYear_ChangeToFip.html" %}
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
@@ -83,26 +83,26 @@
                 {# Programme is FIP #}
                 {% if (data['inductionProgramme'] === "FIP") %}
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    <p>You need to:</p>
+                    <p>As soon as possible:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>choose one of the 6 DfE-funded training providers as soon as possible</li>
-                        <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
-                        <li>have an appropriate body in place</li>
+                        <li>contact one of the 6 DfE-funded training providers to register for training</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you’ve appointed</a> for your ECTs</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add your ECTs and mentors</a> so we can check their eligibility for funding</li>
                     </ul>
-                    <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in new tab)</a> to find out how to complete these steps.</p>
-                    <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us to arrange funding.</p>
+                    <p>You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange your DfE funding.</p>
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
                     <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
                 {# Programme is CIP #}
                 {% elif (data['inductionProgramme'] === "CIP") %}
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    <p>You need to:</p>
+                    <p>As soon as possible:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>compare and choose which DfE-accredited materials you want to use</li>
-                        <li>use this service to tell us which materials you want to use</li>
-                        <li>tell us each ECT and mentor’s name and email address as soon as possible</li>
-                        <li>have an appropriate body in place</li>
+                        <li><a href="https://support-for-early-career-teachers.education.gov.uk/" rel="noreferrer noopener" target="_blank">choose the DfE-accredited materials you want to use (opens in new tab)</a> - you may need to create an account to access the materials</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/which">tell us which materials you want to use</a> to deliver your training</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/type?setup=No">tell us which appropriate body you’ve appointed</a> for your ECTs</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add your ECTs and mentors</a> so we can check their eligibility for funding</li>
                     </ul>
-                    <p><a href="../how-to-set-up-your-programme">Read our guidance (opens in new tab)</a> to find out how to complete these steps.</p>
+                    <p><a href="../how-to-set-up-your-programme">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
                     <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
                 {# Programme is DIY #}
                 {% elif (data['inductionProgramme'] === "DYO") %}
