@@ -131,9 +131,19 @@
                             {{ data.abName }}
                         {% elif participant.abName %}
                             {{ participant.abName }}
+                        {% else %}
+
                         {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a></dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if participant.abConfirm == "Yes" %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a></dd>
+                        {% elif participant.abName %}
+                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a></dd>
+                        {% else %}
+                            <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> appropriate body</span></a></dd>
+                        {% endif %}
+
                 </div>
 
 
