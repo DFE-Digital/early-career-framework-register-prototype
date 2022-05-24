@@ -35,11 +35,11 @@
         <dt class="govuk-summary-list__key">Appropriate body</dt>
         <dd class="govuk-summary-list__value">{{ data.abName }}</dd>
         <dd class="govuk-summary-list__actions">
-        {# {% if data['abName'] %}
-            <a class="govuk-link" href="appropriate-body/type">Change<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+        {% if data['abName'] %}
+
         {% else %}
-            <a class="govuk-link" href="appropriate-body/type?setup=No">Report<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
-        {% endif %} #}
+            <a class="govuk-link" href="appropriate-body/type?setup=No">Add<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+        {% endif %}
         </dd>
     </div>
 </dl>
