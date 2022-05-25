@@ -491,7 +491,7 @@
 
     <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
     <script type="text/javascript">
-      var selectEl = document.querySelector('#participants-GZK-abName')
+      var selectEl = document.querySelector('#participants-{{ id }}-abName')
       accessibleAutocomplete.enhanceSelectElement({
         autoselect: true,
         defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
@@ -505,7 +505,7 @@
         var submittedEl = document.querySelector('.submitted')
         submittedEl.classList.remove('submitted--hidden')
         var params = new URLSearchParams(document.location.search.split('?')[1])
-        document.querySelector('.submitted__abName').innerHTML = params.get('abparticipants-GZK-abNameName')
+        document.querySelector('.submitted__abName').innerHTML = params.get('abparticipants-{{ id }}-abNameName')
       }
     </script>
 
