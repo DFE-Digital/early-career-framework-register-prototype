@@ -1,15 +1,28 @@
-<h2 class="govuk-heading-m">Tell us which appropriate body you’ve appointed</h2>
-<p><a href="/schools/appropriate-body/type">Report the appropriate body</a> for ECTs starting induction in the academic year 2022 to 2023.</p>
+{% if data['abName'] %}
 
-<h2 class="govuk-heading-m">You can now add ECTs and mentors when you’re ready</h2>
-<p>You must tell us their:</p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>full name</li>
-    <li>email address</li>
-</ul>
-<p>You can now choose to enter their teacher reference number (TRN) and date of birth too.</p>
-<p>If you can tell us this extra information:</p>
-<ul class="govuk-list govuk-list--bullet">
-    <li>ECTs and mentors will not be asked to provide this information themselves</li>
-    <li>we can confirm if they’re eligible for funding more quickly</li>
-</ul>
+                    <h2 class="govuk-heading-m">What to do next</h2>
+                    <p>As soon as possible:</p>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Register with one of the 6 DfE-funded training providers. You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange the funding.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">Add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
+                        <li>Use this service to tell us which mentor has been assigned to each ECT.</li>
+                    </ol>
+                    
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+                    <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
+
+{% else %}
+
+                    <h2 class="govuk-heading-m">What to do next</h2>
+                    <p>As soon as possible:</p>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Register with one of the 6 DfE-funded training providers. You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange the funding.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/type?setup=No">Tell us which appropriate body you’ve appointed</a> for your ECTs.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">Add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
+                        <li>Use this service to tell us which mentor has been assigned to each ECT.</li>
+                    </ol>
+                    
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+                    <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
+
+{% endif %}
