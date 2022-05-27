@@ -12,11 +12,9 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- Corrected acronym "IStip" and added acronym "NTA" -->
-
-            <div class="govuk-inset-text">
-                  <p>Remember to contact the appropriate body directly to appoint them for your ECTs, if you have not done so already.</p>
-            </div>
+            <!-- Content in include as used in various pages -->
+            {% include "includes/rememberAB.html" %}
+            <!-- // -->
 
             {% if not data['setup'] %}
                 <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-8">
@@ -28,12 +26,9 @@
                     classes: "govuk-radios--inline",
                     items: [
                         { value: "Independent Schools Teacher Induction Panel (IStip)", text: "Independent Schools Teacher Induction Panel (IStip)" },
-
                         { value: "National Teacher Accreditation (NTA)", text: "National Teacher Accreditation (NTA)" }
-
                     ]
                 } | decorateFormAttributes("abName")) }}
-
 
                 {{ govukButton({
                     text: "Continue"

@@ -13,14 +13,13 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
-            <p class="govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+            <p class="govuk-body govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
-            <p>{{ data.deliveryPartner }}</p>
+            <p class="govuk-body">{{ data.deliveryPartner }}</p>
 
-            <p class="govuk-!-margin-bottom-5 govuk-!-margin-top-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"   class="govuk-link">check your options (opens in new tab)</a>.</p>
+            <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"  class="govuk-link">check your options (opens in new tab)</a>.</p>
 
-            <form class="form" action="/schools/appropriate-body/type" method="post" >
-            <!-- <form class="form" action="success" method="post" > -->
+            <form class="form" action="/schools/appropriate-body/" method="post" >
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
@@ -28,13 +27,10 @@
                         { value: "Yes, redirect(/schools/training-programme/why-are-you-changing)", text: "Yes" },
                         { value: "No", text: "No" }
                     ]
-                } | decorateFormAttributes('newYear-changeProviders')) }}
+                } | decorateFormAttributes('newYearProviderChange')) }}
 
-                {# { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } --> #}
-
-                {# <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p> #}
                 <!-- Just for dashboard to remove the NoECT that we set on previous page -->
-				<input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="" />
+				<input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="FIP" />
 
                 {{ govukButton({
                     text: "Continue"

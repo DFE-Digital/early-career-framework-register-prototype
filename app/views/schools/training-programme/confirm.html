@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-inductionProgramme'] %}
+{% if data['NewYearInductionProgramme'] %}
     {% if data['inductionProgramme'] == "FIP" %}
+        <!-- If you get here then you are currently on FIP but switching -->
         {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
     {% else %}
         {% set pageHeading = "Are you sure this is how you want to run your training?" %}
@@ -23,56 +24,31 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <!-- Check to make sure its the newYear programme flow we are on -->
-            {% if data['newYear-inductionProgramme'] == "" %}
+            <!-- Check to make sure its the newYear programme flow we are on then only 3 options for content -->
+            {% if data['NewYearInductionProgramme'] != "" %}
 
-                {% if (data['newYear-why-changing'] == "nextYear-FIP") %}
-                    <p>You’ve chosen to use a training provider, funded by the DfE.</p>
-                    <p>You’ll need to:
+                {% if ((data['newYearChangeWhat'] == "switchFIP") or (data['NewYearHowRun'] == "FIP" )) %}
+                    <p class="govuk-body">You’ve chosen to use a training provider, funded by the DfE.</p>
+                    <p class="govuk-body">You’ll need to:
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                         <li>choose a training provider </li>
                         <li>add your ECTs and mentors</li>
                     </ul>
-                {% elif (data['newYear-why-changing'] == "nextYear-CIP") %}
-                    <p>You’ve chosen to deliver your own programme using DfE accredited materials.</p>
-                    <p>You’ll need to:
+                {% elif ((data['newYearChangeWhat'] == "switchCip") or (data['NewYearHowRun'] == "CIP" )) %}
+                    <p class="govuk-body">You’ve chosen to deliver your own programme using DfE accredited materials.</p>
+                    <p class="govuk-body">You’ll need to:
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                         <li>choose your training materials</li>
                         <li>add your ECTs and mentors</li>
                     </ul>
-                {% elif (data['newYear-why-changing'] == "nextYear-DYO") %}
+                {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
                     <!-- noECT to DIY  -->
-                    <p>You’re choosing to design and deliver your own programme based on the early career framework (ECF).</p>
+                    <p class="govuk-body">You’re choosing to design and deliver your own programme based on the early career framework (ECF).</p>
                     <p class="govuk-body">You’ll need to design a 2-year programme of support and training that covers every ’learn that’ and ’learn how to’ statement in the <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</p>
                     <p class="govuk-!-margin-bottom-7"><a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" rel="noreferrer noopener" target="_blank"> See our statutory guidance (opens in new tab)</a> for information about funding, time off timetable, and roles.</p>
                 {% endif %}
 
 
-            {% elif data['newYear-inductionProgramme'] == "FIP" %}
-                <p>You’ve chosen to use a training provider, funded by the DfE.</p>
-                    <p>You’ll need to:
-                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                        <li>choose a training provider </li>
-                        <li>add your ECTs and mentors</li>
-                    </ul>
-
-            {% elif data['newYear-inductionProgramme'] == "CIP" %}
-
-                    <p>You’ve chosen to deliver your own programme using DfE accredited materials.</p>
-                    <p>You’ll need to:
-                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                        <li>choose your training materials</li>
-                        <li>add your ECTs and mentors</li>
-                    </ul>
-
-            {% elif data['newYear-inductionProgramme'] == "DYO" %}
-
-                    <!-- noECT to DIY  -->
-                    <p>You’re choosing to design and deliver your own programme based on the early career framework (ECF).</p>
-                    <p class="govuk-body">You’ll need to design a 2-year programme of support and training that covers every ’learn that’ and ’learn how to’ statement in the <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</p>
-                    <p class="govuk-!-margin-bottom-7"><a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" rel="noreferrer noopener" target="_blank"> See our statutory guidance (opens in new tab)</a> for information about funding, time off timetable, and roles.</p>
-
-            <!-- Not the newYear programme flow -->
             {% else %}
 
                 <!-- if changing programme -->
@@ -131,10 +107,14 @@
                 {% endif %}
             {% endif %}
 
-            <form method="post" action="/schools/appropriate-body/type" >
-                {% if data['change-programme'] == "Yes" %}
-                <!-- This removes the change-programme value so we are out of that loop -->
-                <!-- <input type="hidden" name="change-programme" id="change-programme" value="" /> -->
+            <form method="post" action="/schools/appropriate-body/" >
+                <!-- This will assign correct induction programme to new academic year -->
+                {% if ((data['newYearChangeWhat'] == "switchFIP") or (data['NewYearHowRun'] == "FIP" )) %}
+                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="FIP" />
+                {% elif ((data['newYearChangeWhat'] == "switchCip") or (data['NewYearHowRun'] == "CIP" )) %}
+                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="CIP" />
+                {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
+                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="DYO" />
                 {% endif %}
 
                 {{ govukButton({

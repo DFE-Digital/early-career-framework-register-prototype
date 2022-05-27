@@ -13,15 +13,17 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- This page is only shown to schools currently on FIP programme  -->
-            {% if data['newYear-why-changing'] == "changeLeadProvider" %}
+            {% if data['newYearChangeWhat'] == "leadProvider" %}
                 <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
                 <p>They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however.</p>
-            {% elif data['newYear-why-changing'] == "changeDeliveryPartner" %}
+            {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
                 <p>{{ data.deliveryPartner }} will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
                 <p>They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however.</p>
             {% endif %}
 
-            <form method="post" action="/schools/appropriate-body/type" class="govuk-!-margin-top-7" >
+            <form method="post" action="/schools/appropriate-body/" class="govuk-!-margin-top-7" >
+
+                <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="FIP" />
 
                 {{ govukButton({
                     text: "Confirm"

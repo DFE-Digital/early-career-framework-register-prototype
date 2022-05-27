@@ -16,9 +16,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <div class="govuk-inset-text">
-                <p>Remember to contact the appropriate body directly to appoint them for your ECTs, if you have not done so already.</p>
-            </div>
+            {% include "includes/rememberAB.html" %}
 
             {% if not data['setup'] %}
                 <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-7">
@@ -249,23 +247,8 @@
 
                     {% endif %}
 
-
-
-
-                        {# <option value="NELT Teaching School Hub">NELT Teaching School Hub</option>
-                        <option value="Northern Lights TSH: South Tyne & Wear">Northern Lights TSH: South Tyne & Wear</option>
-                        <option value="One Cumbria Teaching School Hub">One Cumbria Teaching School Hub</option>
-                        <option value="Red Kite Teaching School Hub">Red Kite Teaching School Hub</option>
-                        <option value="Tees Valley Teaching School Hub">Tees Valley Teaching School Hub</option>
-                        <option value="The Three Rivers Teaching School Hub">The Three Rivers Teaching School Hub</option> #}
-
                     </select>
                 </div>
-
-
-
-
-
 
                 {{ govukButton({
                     text: "Continue"

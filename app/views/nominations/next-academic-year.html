@@ -12,12 +12,12 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>Do not include:</p>
+			<p class="govuk-body">Do not include:</p>
             <ul  class="govuk-list govuk-list--bullet">
                 <li>ECTs who started training in the 2021 to 2022 academic year</li>
                 <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
             </ul>
-			<p>ECTs are teachers who have finished their initial teacher training.</p>
+			<p class="govuk-body">ECTs are teachers who have finished their initial teacher training.</p>
 
             <!-- If FIP then we will ask if they wish to continue in the same way -->
             {% if data['inductionProgramme'] == "FIP" %}
@@ -34,10 +34,10 @@
 					    { value: "Yes", text: "Yes" },
 					    { value: "No, redirect(/nominations/confirmation)", text: "No" }
 				    ]
-				} | decorateFormAttributes('newYear-expectECT')) }}
+				} | decorateFormAttributes('newYearECTs')) }}
 
 				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
-                <input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
+                <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="noECT" >
 
                 {{ govukButton({
                 	text: "Continue"
