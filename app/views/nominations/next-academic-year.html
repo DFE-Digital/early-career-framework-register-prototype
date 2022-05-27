@@ -12,21 +12,21 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<p>Do not include:
+			<p>Do not include:</p>
             <ul  class="govuk-list govuk-list--bullet">
-            <li>ECTs who started training in the 2021 to 2022 academic year</li>
-            <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
+                <li>ECTs who started training in the 2021 to 2022 academic year</li>
+                <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
             </ul>
-            </p>
 			<p>ECTs are teachers who have finished their initial teacher training.</p>
-          	
 
-            {# If not already training using FIP then always look to see how they will run programme like new #}
-            {% if (( data['inductionProgramme'] == "CIP") or ( data['inductionProgramme'] == "DYO" ) or ( data['inductionProgramme'] == "noECT" )) %}
+            <!-- If FIP then we will ask if they wish to continue in the same way -->
+            {% if data['inductionProgramme'] == "FIP" %}
+    			<form class="form" action="/schools/training-programme/same" method="post">
+            <!-- All other current training programmes will be asked how they will run their training -->
+            {% else %}
                 <form class="form" action="/schools/training-programme/how-will-you-run" method="post">
-            {% elif data['inductionProgramme'] == "FIP" %}
-    			<!-- Checked --><form class="form" action="/schools/training-programme/same" method="post">
             {% endif %}
+
 
 				{{ govukRadios({
 				    classes: "govuk-radios--inline",
@@ -37,9 +37,9 @@
 				} | decorateFormAttributes('newYear-expectECT')) }}
 
 				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
-				<!-- Checked --><input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
+                <input type="hidden" name="newYear-inductionProgramme" id="newYear-inductionProgramme" value="noECT" >
 
-            	{{ govukButton({
+                {{ govukButton({
                 	text: "Continue"
             	}) }}
 
