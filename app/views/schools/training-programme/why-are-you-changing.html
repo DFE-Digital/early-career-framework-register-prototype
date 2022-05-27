@@ -15,7 +15,7 @@
 
             <form class="form" action="confirm-change-cohort-programme" method="post" >
 
-                {% if data['inductionProgramme'] == "FIP" %}
+                {# {% if data['inductionProgramme'] == "FIP" %} #}
 
                     {{ govukRadios({
                         fieldset: {
@@ -30,7 +30,7 @@
                     } | decorateFormAttributes('newYearChangeWhat')) }}
 
 
-                {% elif data['inductionProgramme'] == "CIP" %}
+                {# {% elif data['inductionProgramme'] == "CIP" %}
 
                     {{ govukRadios({
                         fieldset: {
@@ -57,7 +57,7 @@
                         ]
                     } | decorateFormAttributes('newYearChangeWhat')) }}
 
-                {% endif %}
+                {% endif %} #}
 
             {{ govukButton({
                 text: "Continue"

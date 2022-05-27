@@ -28,65 +28,103 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            <!-- FIP option to OPT OUT -->
-            {% if data['newYearProviderChange'] %}
-                <!-- If the school wishes to change their current FIP training -->
-                {% if data['newYearProviderChange'] == "Yes" %}
+            {% if data['NewYearInductionProgramme'] != "" %}
 
-                    {% if data['newYearChangeWhat'] == "leadProvider" %}
-                        <!-- Wants to change lead provider -->
-                        {% include "includes/nextYear_ChangeLeadProvider.html" %}
-                    {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
-                        <!-- Wants to change delivery partner -->
-                        {% include "includes/nextYear_ChangeDeliveryPartner.html" %}
-                    {% elif data['newYearChangeWhat'] == "nextYear-CIP" %}
-                        <!-- Wants to change trainging to CIP -->
-                        {% include "includes/nextYear_ChangeToCip.html" %}
-                    {% elif data['newYearChangeWhat'] == "nextYear-FIP" %}
-                        <!-- Wants to change training to FIP -->
-                        {% include "includes/nextYear_ChangeToFip.html" %}
-                    {% elif data['newYearChangeWhat'] == "nextYear-DYO" %}
-                        <!-- Wants to change training to DIY -->
-                        {% include "includes/nextYear_ChangeToDIY.html" %}
+                <!-- if school is currently training with FIP and is not looking to change -->
+                {% if data['NewYearInductionProgramme'] == "FIP" %}
+
+                    {% if ((data['newYearChangeWhat'] == "leadProvider") or (data['newYearChangeWhat'] == "deliveryPartner")) %}
+
+                        <h2 class="govuk-heading-m">What happens next</h2>
+                        {% if data['newYearChangeWhat'] == "deliveryPartner" %}
+                            <p>We’ll let {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+                        {% elif data['newYearChangeWhat'] == "leadProvider" %}
+                            <p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+                        {% endif %}
+                        <p>They may contact you to confirm this.</p>
+
+                        <h2 class="govuk-heading-m">What to do next</h2>
+                        <p>As soon as possible:</p>
+                        <ul class="govuk-list govuk-list--number govuk-list--spaced">
+                            <li>confirm the change with your new lead provider
+                            {% if not data['abName'] %}
+                            <li>tell us which appropriate body you’ve appointed for your ECTs</li>
+                            {% endif %}
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding</li>
+                            <li>use this service to tell us which mentor has been assigned to each ECT</li>
+                        </ul>
+
+                        <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+
+                    {% else %}
+                        <!-- Not looking to make any changes to their FIP training -->
+                        <h2 class="govuk-heading-m">What to do next</h2>
+                        <p class="govuk-body">As soon as possible:</p>
+                        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                            {% if not data['abName'] %}
+                            <li>tell us which appropriate body you’ve appointed for your ECTs</li>
+                            {% endif %}
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add the new ECTs and mentors</a> to this service so we can check their eligibility for DfE funding</li>
+                            <li>use this service to tell us which mentor has been assigned to each ECT</li>
+                        </ul>
+
                     {% endif %}
 
-                {% else %}
-                <!-- Dont show to anyone on DYO -->
-                    {# {% if data['newYearChangeWhat'] != "nextYear-DYO" %} #}
 
-                    <!-- Default content for carrying on with no change to programme -->
-                    {% include "includes/nyProgrammeFipNoChange.html" %}
-                {% endif %}
+                <!-- School has switched from FIP or is choosing any of the other training programmes -->
+                {% elif ((data['newYearChangeWhat'] == "switchFIP") or (data['NewYearHowRun'] == "FIP" )) %}
 
-                <p class="govuk-body govuk-!-margin-top-7"><a href="/schools/manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
-
-
-
-            <!-- All other programmes must choose training type again -->
-            {% elif data['NewYearInductionProgramme'] == "DYO" %}
-                {% include "includes/nextYear_ChangeToDIY.html" %}
-                <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
-            {% elif data['NewYearInductionProgramme'] == "FIP" %}
-                 <h2 class="govuk-heading-m">What to do next</h2>
+                    <h2 class="govuk-heading-m">What to do next</h2>
                     <p>As soon as possible:</p>
                     <ol class="govuk-list govuk-list--number govuk-list--spaced">
                         <li>Register with one of the 6 DfE-funded training providers. You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange the funding.</li>
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/appropriate-body/?setup=No">Tell us which appropriate body you’ve appointed</a> for your ECTs.</li>
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">Add your ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
+                        {% if not data['abName'] %}
+                        <li>Tell us which appropriate body you’ve appointed for your ECTs.</li>
+                        {% endif %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">Add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
                         <li>Use this service to tell us which mentor has been assigned to each ECT.</li>
                     </ol>
+
                     <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
 
+                {% elif ((data['newYearChangeWhat'] == "switchCip") or (data['NewYearHowRun'] == "CIP" )) %}
 
-                {% include "includes/nextYear_ChangeToFip.html" %}
+                    <h2 class="govuk-heading-m">What to do next</h2>
+                    <p>As soon as possible:</p>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li><a href="https://support-for-early-career-teachers.education.gov.uk/" rel="noreferrer noopener" target="_blank">Choose the DfE-accredited materials you want to use (opens in new tab)</a> - you may need to create an account to access the materials.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/which">Tell us which materials you want to use.</a></li>
+                        {% if not data['abName'] %}
+                        <li>Tell us which appropriate body you’ve appointed for your ECTs.</li>
+                        {% endif %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">Add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
+                        <li>Use this service to tell us which mentor has been assigned to each ECT.</li>
+                    </ol>
+                    <p><a href="../how-to-set-up-your-programme">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+
+                {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
+
+                    <h2 class="govuk-heading-m">What to do next</h2>
+                    <p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Early Career Framework (ECF) (opens in new tab)</a>.</li>
+                    <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>is based on the ECF</li>
+                        <li>meets the statutory requirements</li>
+                    </ul>
+                    <p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>
+                    <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank"> See our guidance collection (opens in new tab)</a> for more information about induction, training and support for ECTs.</p>
+
+                {% endif %}
+
+
                 <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
 
-            {% elif data['NewYearInductionProgramme'] == "CIP" %}
-                {% include "includes/nextYear_ChangeToCip.html" %}
-                <p class="govuk-link govuk-!-margin-top-5"><a href="../manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
 
-            <!-- // of next academic year content -->
+
+
+
             {% else %}
+            <!-- //////////////// end of new year //////////// -->
 
                 {# Programme is FIP #}
                 {% if (data['inductionProgramme'] === "FIP") %}

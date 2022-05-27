@@ -94,6 +94,8 @@
                                             {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
                                                 {{ data.leadProvider }}
                                             {% endif %}
+                                        {% elif data['NewYearHowRun'] %}
+                                            To be confirmed
                                         {% else %}
                                             {{ data.leadProvider }}
                                         {% endif %}
@@ -109,6 +111,8 @@
                                             {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
                                                 To be confirmed
                                             {% endif %}
+                                        {% elif data['NewYearHowRun'] %}
+                                            To be confirmed
                                         {% else %}
                                             {{ data.deliveryPartner }}
                                         {% endif %}
