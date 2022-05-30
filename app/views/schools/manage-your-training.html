@@ -25,19 +25,16 @@
                     <!-- New Year training has not been setup -->
 
                         <h3 class="govuk-heading-m">Tell us if any new ECTs will start training at your school in the 2022 to 2023 academic year</h3>
-                        {% if data['inductionProgramme'] == "FIP" %}
-                            <p>We need to know:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>whether or not your school expects any new ECTs</li>
-                                <li>if you plan to change how you run training for any new ECTs</li>
-                            </ul>
-                        {% else %}
-                            <p>We need to know:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>whether or not your school expects any new ECTs</li>
-                                <li>which training programme you want to use for any new ECTs</li>
-                            </ul>
-                        {% endif %}
+
+                        <p>We need to know:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>whether or not your school expects any new ECTs</li>
+                            {% if data['inductionProgramme'] == "FIP" %}
+                            <li>if you plan to change how you run training for any new ECTs</li>
+                            {% else %}
+                            <li>which training programme you want to use for any new ECTs</li>
+                            {% endif %}
+                        </ul>
 
                         <p>You can tell us this later if you do not know yet. You can also change your answers if you need to.</p>
                         <div class="govuk-inset-text">
