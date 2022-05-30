@@ -16,13 +16,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {# Multiple admission years dashboard #}
-            {% if data['multi-cohort'] == "Yes" %}
 
                 {% set newYearHtml %}
 
-                    {% if not data['NewYearInductionProgramme'] %}
                     <!-- New Year training has not been setup -->
+                    {% if not data['NewYearInductionProgramme'] %}
 
                         <h3 class="govuk-heading-m">Tell us if any new ECTs will start training at your school in the 2022 to 2023 academic year</h3>
 
@@ -49,10 +47,11 @@
                             }) }}
                         </form>
 
-                    {% else %}
                     <!-- Setup of training for the next academic year has happened -->
+                    {% else %}
 
                         <!-- NoECTs expected  -->
+                        <!-- //////////////////////////////////// -->
                         {% if data['NewYearInductionProgramme'] == "noECT" %}
 
                             <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
@@ -72,7 +71,7 @@
 
                             <!-- ALl training programmes require these first 3 rows induction length, ects and tutor-->
                             {% include "includes/mtLengthEctTutor.html" %}
-                            <!-- // -->
+                            <!-- //////////////////////////////////// -->
 
                             <!-- FIP -->
                             {% if data['NewYearInductionProgramme'] == "FIP" %}
@@ -149,8 +148,7 @@
                                 </div>
 
                             {% endif %}
-                            <!-- // -->
-
+                            <!-- //////////////////////////////////// -->
 
                             <!-- All training will need appropriate body row -->
                             {% include "includes/mtAB.html" %}
@@ -158,10 +156,6 @@
 
                         </dl>
                         {% endif %}
-
-
-
-
                     {% endif %}
 
                 {% endset -%}
@@ -240,18 +234,7 @@
                             </div>
                         {% endif %}
 
-                        {# <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Appropriate body</dt>
-        <dd class="govuk-summary-list__value">{{ data.abName }}</dd>
-        <dd class="govuk-summary-list__actions">
-        {% if data['abName'] %}
-            <a class="govuk-link" href="appropriate-body/">Change<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
-        {% else %}
-            <a class="govuk-link" href="appropriate-body/">Add<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
-        {% endif %}
-    </div> #}
-    <!-- Can we switch to the standard "Add" for unpopulated and "Change" for populated? "Tell us" is a bit iffy grammatically and I'd rather go with the extablished content for the pattern than start reinventing the wheel. The subsequent screen will clarify, anyway. -->
-                    </dl=
+                    </dl>
 
                     {% include "includes/mt-message.html" %}
                     <!-- ///// End of 2021 //// -->
@@ -264,8 +247,6 @@
                     {% include "includes/myt_pastYear.html" %}
                     <!-- ///// End of 2020 //// -->
                 {% endset -%}
-
-
 
                 {% set pastArchiveHtml %}
                     <!-- ///// Start of 2019 //// -->
@@ -280,14 +261,7 @@
                     ]
                 }) }}
 
-                <!-- { label: "2020 to 2021", id: "past-week", panel: { html: pastWeekHtml } } -->
-
-            {% else %}
-
-               {% include "includes/single-dashboard.html" %}
-
-            {% endif %}
-
         </div>
     </div>
+
 {% endblock %}

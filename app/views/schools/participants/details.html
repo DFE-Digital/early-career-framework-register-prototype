@@ -121,7 +121,7 @@
 
 
                 <!-- Start date -->
-
+                {% if data.participants[id].type == "ect" %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Appropriate body
@@ -145,14 +145,7 @@
                         {% endif %}
 
                 </div>
-
-
-
-
-
-
-
-
+                {% endif %}
 
                 <!-- Mentor -->
                 {% if participant.mentor %}
