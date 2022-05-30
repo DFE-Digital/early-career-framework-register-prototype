@@ -42,9 +42,7 @@
 
 
 
-                {% if participant.abConfirm %}
-                    {% include "includes/summary_aBody.html" %}
-                {% elif participant.abName %}
+                {% if data.participants[id].type == "ect" %}
                     {% include "includes/summary_aBody.html" %}
                 {% endif %}
 

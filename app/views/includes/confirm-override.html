@@ -1,0 +1,5 @@
+<div class="govuk-visually-hidden">
+    {{ govukCheckboxes({
+        items: [ { value: "No", text: "No", checked: checked } ]
+    } | decorateFormAttributes(['participants', id, 'abConfirm']) ) }}
+</div>

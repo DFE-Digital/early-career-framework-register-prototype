@@ -1,0 +1,36 @@
+{% if data['abName'] %}
+
+<h2 class="govuk-heading-m">What happens next</h2>
+<p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+<p>They may contact you to confirm this.</p>
+
+<h2 class="govuk-heading-m">What to do next</h2>
+                    <p>As soon as possible:</p>
+                    <ul class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>confirm the change with your new lead provider
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding</li>
+                        <li>use this service to tell us which mentor has been assigned to each ECT</li>
+                    </ul>
+                    
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+                    
+
+{% else %}
+
+<h2 class="govuk-heading-m">What happens next</h2>
+<p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+<p>They may contact you to confirm this.</p>
+
+<h2 class="govuk-heading-m">What to do next</h2>
+                    <p>As soon as possible:</p>
+                    <ul class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>confirm the change with your new lead provider
+                        <li>tell us which appropriate body you’ve appointed for your ECTs</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding</li>
+                        <li>use this service to tell us which mentor has been assigned to each ECT</li>
+                    </ul>
+                    
+                    <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
+                    
+
+{% endif %}
