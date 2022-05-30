@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.4",
-    "acorn": "^8.7.0",
+    "acorn": "^8.7.1",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
     "basic-auth-connect": "^1.0.0",
