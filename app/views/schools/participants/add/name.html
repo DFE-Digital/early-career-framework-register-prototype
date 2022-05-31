@@ -23,8 +23,8 @@
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
             {% else %}
 
-            <!-- Add journey -->
-                {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
+            <!-- Add journey -->                    
+            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
 
                     {% if data['linkaction'] == "cannotFind" %}
                         {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
