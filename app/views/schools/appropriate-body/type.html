@@ -12,12 +12,9 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-            {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
-
             <p class="govuk-body">If your school works with more than one, first tell us about the appropriate body appointed for the majority of your ECTs. You can add the others later.</p>
 
-            <form class="form" action="region" method="post" class="govuk-!-margin-bottom-8">
+            <form class="form" action="lookup" method="post" >
 
                 {{ govukRadios({
                     items: [
@@ -27,6 +24,9 @@
                     ]
                 } | decorateFormAttributes("abType")) }}
 
+                {% if not data['setup'] %}
+                <p class="govuk-body govuk-!-margin-bottom-7"><a class="govuk-link" href="/schools/training-programme/success">I do not know the appropriate body yet</a></p>
+                {% endif %}
 
                 {{ govukButton({
                     text: "Continue"

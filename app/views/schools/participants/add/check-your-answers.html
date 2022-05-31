@@ -41,11 +41,10 @@
 
 
 
-
-                {% if participant.abConfirm %}
+                {% if data.participants[id].abConfirm == "Yes" or data.participants[id].abName %}
+                {% if data.participants[id].type == "ect" %}
                     {% include "includes/summary_aBody.html" %}
-                {% elif participant.abName %}
-                    {% include "includes/summary_aBody.html" %}
+                {% endif %}
                 {% endif %}
 
 

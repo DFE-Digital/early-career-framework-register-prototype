@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data['newYear-expectECT'] == "No"  %}
+{% if data['newYearECTs'] == "No"  %}
     <!-- Checked -->{% set pageHeading = "Your information has been saved" %}
 {% elif data['newYear-sameProgramme'] %}
     {% set pageHeading = "Your information has been saved" %}
@@ -27,7 +27,7 @@
             <p>We’ll contact {{ data.schoolName }} in the next academic year.</p>
             <p>If you do employ ECTs later this academic year, you can sign in to this service to let us know.</p>
 
-            {% if data['newYear-expectECT'] == "No" %}
+            {% if data['newYearECTs'] == "No" %}
             {# Could argue this link should only be available for those that didnt come via COMMS #}
                 <p><a href="/schools/manage-your-training#new-year" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
             {% endif %}
