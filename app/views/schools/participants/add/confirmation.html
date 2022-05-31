@@ -26,28 +26,47 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data['participantType'] == "mentor" %}
-                {% include "includes/confirmation_mentor.html" %}
-
-            {# If transferring teacher #}
+            {% if data['participantType'] == "mentor" %}                                
+                <!-- Hi Brian, As a temporary fix, we could add some information prompting the SIT to assign this new mentor 
+                on the ‘[Mentor name] has been added as a mentor’ confirmation page - but I’m also wondering if this confirmation 
+                content needs details of TRN / DOB requests and eligibility checks, same as the ECT confirmation content. -->                           
             {% else %}
-
-                {% if data.participants[id].mentorAssigned == "Yes" %}
-
-
-
-                {% elif data.participants[id].type == "ectTransfer" %}
-
-                    {% include "includes/confirmation_transfer.html" %}
-                {# Not Transfer and is ECT #}
-                {% elif data.participants[id].type == "ect" %}
+                
+                <!--- ECT -->
+                {% if data.participants[id].type == "ect" %}
                     {% include "includes/confirmation_ect.html" %}
+                <!-- ECT transferring -->          
+                {% elif data.participants[id].type == "ectTransfer" %}
+                    
+                    <h2 class="govuk-heading-m">What we’ll do with this information</h2>
+                    <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
+                    <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>                                            
+
+                    {% if data.participants[id].switchProgramme %}
+                        {% include "includes/confirmation_transfer_switch.html" %}
+                    {% else %}
+                        <!-- Checked over and simplified -->
+                        {% include "includes/confirmation_transfer.html" %}
+                    {% endif %}
+
+                    <p>Contact us if you need to make any changes: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>            
+
+                    <h2 class="govuk-heading-m">Remember to:</h2>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Report this transfer to your appropriate body. They need to complete some checks and update {{ participant.name }}’s record with the Teaching Regulation Agency (TRA).</li>
+                        {% if data['inductionProgramme'] == "FIP" %}
+                        <li>Confirm this transfer directly with your training programme provider.</li>
+                        {% endif %} 
+                        <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                    </ol>
 
                 {% endif %}
 
             {% endif %}
+            <!-- // -->
 
-            <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">View your ECTs and mentors</a></p>
+            <p class="govuk-body govuk-!-margin-top-9"><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">View your ECTs and mentors</a></p>
 
         </div>
     </div>
