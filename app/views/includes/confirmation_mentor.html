@@ -1,0 +1,29 @@
+
+    <!-- If SIT adds the TRN -->
+    {% if data.participants[id].trnKnown == "Yes" %}
+
+        {% if data.participants[id].type == "mentor" %}
+
+        <h2 class="govuk-heading-m">Eligibility for funding</h2>
+        <p class="govuk-body">Our checks have confirmed this person is eligible for DfE-funded mentor training to support ECTs.</p>
+        <p class="govuk-body">They should receive:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>ECF-based mentor training</li>
+            <li>adequate time to take part in training</li>
+        </ul>        
+        <p class="govuk-body">{{ participant.name }} does not need to provide us with any more information.</p>        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">We’ll pass {{ participant.name }}’s information to their training provider.</p>
+
+        {% endif %}
+        <!-- Links -->
+
+    {% else %}
+
+        NO TRN
+
+
+    {% endif %}
+
+
+
