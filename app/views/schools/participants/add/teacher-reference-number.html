@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
+{% if data.participants[id].type == "sitMentor" %}
+    {% set pageHeading = 'What’s your teacher reference number (TRN)?' %}
+{% else %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
