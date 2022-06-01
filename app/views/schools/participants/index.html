@@ -26,10 +26,14 @@
                 <ul class="govuk-list">
                     {% if data['cohort'] == "2022" %}
                         <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+                        {% if not data['sitMentor'] %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor">Add yourself as a mentor</a></li>
+                        {% endif %}
                     {% elif data['cohort'] == "2021" %}
                         <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+                        {% if not data['sitMentor'] %}
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor">Add yourself as a mentor</a></li>
+                        {% endif %}
                     {% endif %}
                 </ul>
             </div>
@@ -949,7 +953,7 @@
                                 {% include "includes/dash_fip_head.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
-                                        {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                        {% if participant.status == "Eligible" and ((participant.type == "mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" %}
                                             {% include "includes/dash_fip_row.html" %}
                                         {% endif %}
                                     {% endfor %}

@@ -75,8 +75,20 @@
                 <!-- Clears any change action from the CYA - we may not need moving forwards  -->
                 {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
 
+
+                {% if data.participants[id].type == "sitMentor" %}
+
+                    {{ govukInput({
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                        value: "Eligible"
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
+
+
+
                 <!-- If transferring in -->
-                {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer"  %}
+                {% elif data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer"  %}
                     {{ govukInput({
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "TransferIn"
