@@ -953,7 +953,7 @@
                                 {% include "includes/dash_fip_head.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
-                                        {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "FIP" %}
+                                        {% if participant.status == "Eligible" and ((participant.type == "mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" %}
                                             {% include "includes/dash_fip_row.html" %}
                                         {% endif %}
                                     {% endfor %}

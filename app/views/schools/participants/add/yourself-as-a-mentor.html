@@ -33,13 +33,30 @@
                     classes: "govuk-!-width-two-thirds govuk-visually-hidden"
                 } | decorateFormAttributes(['participants', id, 'name']) ) }}
 
-                <!-- Hidden sit as mentor check -->
-                {{ govukCheckboxes({
-                    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1 govuk-visually-hidden",
+                {% if data['inductionProgramme'] == "CIP" %}
+                <!-- CIP -->
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "CIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                {% else %}
+                <!-- FIP -->
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "FIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                {% endif %}
+
+
+
+                {{ govukRadios({
+                    classes: "govuk-visually-hidden",
                     items: [
-                        { value: "sitMentor", text: "Sit as mentor", checked: checked }
+                        { value: "sitMentor", text: "A sit mentor", checked: checked }
                     ]
                 } | decorateFormAttributes(['participants', id, 'type']) ) }}
+
+
 
                 {{ govukButton({
                     text: "Confirm"

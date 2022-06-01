@@ -83,8 +83,8 @@ module.exports = router => {
 
     res.locals.hasAnyCheckingQTSMentorParticipantsCIP = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" && p.programme == "CIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyCheckingQTSMentorParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "FIP" && p.cohort2021 == "Yes" )
-    res.locals.hasAnyEligibleMentorParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "FIP" && p.cohort2022 == "Yes" )
+    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && (p.type === "mentor" || "sitMentor") && p.programme == "FIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyEligibleMentorParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && (p.type === "mentor" || "sitMentor") && p.programme == "FIP" && p.cohort2022 == "Yes" )
 
     res.locals.hasAnyEligibleMentorParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "CIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyEligibleMentorParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "CIP" && p.cohort2022 == "Yes" )
