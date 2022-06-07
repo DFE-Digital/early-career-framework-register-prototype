@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
+{% if data.participants[id].type == "sitMentor" %}
+    {% set pageHeading = 'What’s your date of birth?' %}
+{% else %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +16,10 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      		{% if data['cya-action'] == "change-dob" %}
+            {% if data.participants[id].type == "sitMentor" %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+
+      		{% elif data['cya-action'] == "change-dob" %}
       		<form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
         		<input type="hidden" name="cya-action" id="cya-action" value="" />
       		{% else %}

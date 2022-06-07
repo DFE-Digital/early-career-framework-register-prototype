@@ -11,32 +11,44 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
 
-            <!-- <div class="govuk-inset-text">
-            <p>Do you want to tell us about a teacher who started their ECF-based training or mentoring in the 2012 to 2022 academic year?</p>
-            <p>You need to do this in the 2021 to 2022 cohort tab.</p>
-            </div> -->
-
-            <p>We need to find the right person in our database so we can transfer their record to your school.</p>
-            <p>To do this, you need to tell us their:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>full name</li>
-                <li>teacher reference number (TRN)</li>
-                <li>date of birth</li>
-                <li>email address (personal or school)</li>
-                <li>start date at your school</li>
-            </ul>
-            <p>If your school does not have this information, contact the person directly to ask for it.</p>
-
+            {% if data.participants[id].type == "ectTransfer" %}
+                <p class="govuk-body">We need to find the right person in our database so we can transfer their record to your school.</p>
+                <p class="govuk-body">To do this, you need to tell us their:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>full name</li>
+                    <li>teacher reference number (TRN)</li>
+                    <li>date of birth</li>
+                    <li>email address (personal or school)</li>
+                    <li>start date at your school</li>
+                </ul>
+                <p class="govuk-body">If your school does not have this information, contact the person directly to ask for it.</p>            
             
-            <form method="post" action="name" >            
-                
+            {% else %}
+            
+                <p class="govuk-body">You must tell us their:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>full name</li>
+                    <li>email address</li>
+                </ul>
+                <p class="govuk-body">You can now choose to enter their teacher reference number (TRN) and date of birth too.</p>
+                <p class="govuk-body">If you can tell us this extra information:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>ECTs and mentors will not be asked to provide this information themselves</li>
+                    <li>we can confirm if they’re eligible for funding more quickly</li>
+                </ul>            
+
+            {% endif %} 
+
+            {% include "includes/gdpr.html" %}
+            
+            <form method="post" action="name" >                            
                 {{ govukButton({
                     text: "Continue"
                 }) }}            
-
             </form>
+
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,281 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Which ' + data.abType + ' have you appointed for ' + participant.name + '?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-7">
+
+                <div class="autocomplete-wrapper govuk-!-width-two-thirds govuk-!-margin-bottom-7">
+
+                <!-- Teaching School Hub -->
+                {% if data['abType'] == "teaching school hub" %}
+
+                    {{ govukSelect({
+                        items: [
+                            { value: "", text: "" },
+                            { value: "Barnsley and Doncaster Teaching School Hub", text: "Barnsley and Doncaster Teaching School Hub" },
+                            { value: "DRET Teaching School Hub", text: "DRET Teaching School Hub" },
+                            { value: "Flying High Teaching School Hub", text: "Flying High Teaching School Hub" },
+                            { value: "L.E.A.D. Teaching School Hub Lincolnshire", text: "L.E.A.D. Teaching School Hub Lincolnshire" },
+                            { value: "Leicester & Leicestershire TSH", text: "Leicester & Leicestershire TSH" },
+                            { value: "Leicestershire & Rutland TS Hub", text: "Leicestershire & Rutland TS Hub" },
+                            { value: "Pathfinder Teaching School Hub", text: "Pathfinder Teaching School Hub" },
+                            { value: "Potentia TSH", text: "Potentia TSH" },
+                            { value: "Redhill Teaching Hub", text: "Redhill Teaching Hub" },
+                            { value: "South Yorkshire Teaching Hub", text: "South Yorkshire Teaching Hub" },
+                            { value: "Spencer Teaching School Hub", text: "Spencer Teaching School Hub" },
+                            { value: "The Vantage Teaching School Hub North Humber", text: "The Vantage Teaching School Hub North Humber" },
+                            { value: "Alpha Teaching School Hub", text: "Alpha Teaching School Hub" },
+                            { value: "Cambridgeshire and Peterborough Teaching School Hub", text: "Cambridgeshire and Peterborough Teaching School Hub" },
+                            { value: "Chafford Hundred Teaching School Hub", text: "Chafford Hundred Teaching School Hub" },
+                            { value: "East London Teaching School Hub", text: "East London Teaching School Hub" },
+                            { value: "Inspiration Teaching School Hub", text: "Inspiration Teaching School Hub" },
+                            { value: "London District East Teaching School Hub", text: "London District East Teaching School Hub" },
+                            { value: "North East London Teaching School Hub", text: "North East London Teaching School Hub" },
+                            { value: "Saffron Teaching School Hub", text: "Saffron Teaching School Hub" },
+                            { value: "The Julian Teaching School Hub", text: "The Julian Teaching School Hub" },
+                            { value: "Unity Teaching School Hub", text: "Unity Teaching School Hub" },
+                            { value: "Bright Futures Teaching School Hub - Manchester & Stockport", text: "Bright Futures Teaching School Hub - Manchester & Stockport" },
+                            { value: "Bright Futures Teaching School Hub - Salford & Trafford", text: "Bright Futures Teaching School Hub - Salford & Trafford" },
+                            { value: "Calderdale and Kirklees Teaching School Hub", text: "Calderdale and Kirklees Teaching School Hub" },
+                            { value: "Embrace Teaching School Hub (SW Lancashire)", text: "Embrace Teaching School Hub (SW Lancashire)" },
+                            { value: "Exceed Teaching School Hub", text: "Exceed Teaching School Hub" },
+                            { value: "Generate Teaching Hub", text: "Generate Teaching Hub" },
+                            { value: "Inspire Learning Teaching School Hub NW", text: "Inspire Learning Teaching School Hub NW" },
+                            { value: "Leeds Teaching School Hub", text: "Leeds Teaching School Hub" },
+                            { value: "Rainbow Teaching School Hub", text: "Rainbow Teaching School Hub" },
+                            { value: "Selby and Wakefield Teaching School Hub", text: "Selby and Wakefield Teaching School Hub" },
+                            { value: "Star Teaching School Hub Bolton, Bury, Rochdale", text: "Star Teaching School Hub Bolton, Bury, Rochdale" },
+                            { value: "Star Teaching School Hub North West Lancashire", text: "Star Teaching School Hub North West Lancashire" },
+                            { value: "Star Teaching School Hub Pennine Lancashire", text: "Star Teaching School Hub Pennine Lancashire" },
+                            { value: "The East Manchester Teaching Hub", text: "The East Manchester Teaching Hub" },
+                            { value: "NELT Teaching School Hub", text: "NELT Teaching School Hub" },
+                            { value: "Northern Lights TSH: South Tyne & Wear", text: "Northern Lights TSH: South Tyne & Wear" },
+                            { value: "One Cumbria Teaching School Hub", text: "One Cumbria Teaching School Hub" },
+                            { value: "Red Kite Teaching School Hub", text: "Red Kite Teaching School Hub" },
+                            { value: "Tees Valley Teaching School Hub", text: "Tees Valley Teaching School Hub" },
+                            { value: "The Three Rivers Teaching School Hub", text: "The Three Rivers Teaching School Hub" },
+                            { value: "Alban Teaching School Hub", text: "Alban Teaching School Hub" },
+                            { value: "Astra Teaching School Hub, Buckinghamshire", text: "Astra Teaching School Hub, Buckinghamshire" },
+                            { value: "Central London Teaching School Hub", text: "Central London Teaching School Hub" },
+                            { value: "Chiltern Teaching School Hub", text: "Chiltern Teaching School Hub" },
+                            { value: "North West London Teaching School Hub (NWLTSH)", text: "North West London Teaching School Hub (NWLTSH)" },
+                            { value: "Northamptonshire Teaching School Hub", text: "Northamptonshire Teaching School Hub" },
+                            { value: "Oxfordshire Teaching School Hub", text: "Oxfordshire Teaching School Hub" },
+                            { value: "Teach West London", text: "Teach West London" },
+                            { value: "TSH Berkshire", text: "TSH Berkshire" },
+                            { value: "GLF West Sussex Teaching School Hub", text: "GLF West Sussex Teaching School Hub" },
+                            { value: "Harris City Academy Crystal Palace Teaching School Hub", text: "Harris City Academy Crystal Palace Teaching School Hub" },
+                            { value: "HISP Teaching School Hub", text: "HISP Teaching School Hub" },
+                            { value: "Kent Teaching School hub", text: "Kent Teaching School hub" },
+                            { value: "London South Teaching School Hub", text: "London South Teaching School Hub" },
+                            { value: "SFET Teaching School Hub", text: "SFET Teaching School Hub" },
+                            { value: "STEP Ahead Teaching School Hub", text: "STEP Ahead Teaching School Hub" },
+                            { value: "Thames Gateway Teaching School Hub", text: "Thames Gateway Teaching School Hub" },
+                            { value: "Thames South Teaching School Hub", text: "Thames South Teaching School Hub" },
+                            { value: "Wandle Teaching School Hub", text: "Wandle Teaching School Hub" },
+                            { value: "Xavier Teaching School Hub", text: "Xavier Teaching School Hub" },
+                            { value: "Balcarras", text: "Balcarras" },
+                            { value: "Colyton Teaching School Hub", text: "Colyton Teaching School Hub" },
+                            { value: "Five Counties Teaching School Hub - South Gloucestershire and Bath and North East Somerset", text: "Five Counties Teaching School Hub - South Gloucestershire and Bath and North East Somerset" },
+                            { value: "Five Counties Teaching School Hubs Alliance (Bristol/North Somerset)", text: "Five Counties Teaching School Hubs Alliance (Bristol/North Somerset)" },
+                            { value: "Five Counties Teaching School Hubs Alliance (Somerset)", text: "Five Counties Teaching School Hubs Alliance (Somerset)" },
+                            { value: "Kingsbridge Teaching School Hub", text: "Kingsbridge Teaching School Hub" },
+                            { value: "Odyssey Teaching School Hub", text: "Odyssey Teaching School Hub" },
+                            { value: "One Cornwall Teaching School Hub (East Cornwall)", text: "One Cornwall Teaching School Hub (East Cornwall)" },
+                            { value: "One Cornwall Teaching School Hub (West)", text: "One Cornwall Teaching School Hub (West)" },
+                            { value: "South Central Teaching School Hub", text: "South Central Teaching School Hub" },
+                            { value: "Swindon and Wiltshire Teaching School Hub", text: "Swindon and Wiltshire Teaching School Hub" },
+                            { value: "Ark Teaching School Hub", text: "Ark Teaching School Hub" },
+                            { value: "Arthur Terry Teaching School Hub - North Birmingham", text: "Arthur Terry Teaching School Hub - North Birmingham" },
+                            { value: "Cheshire Teaching School Hub", text: "Cheshire Teaching School Hub" },
+                            { value: "Coventry and Central Warwickshire Teaching School Hub", text: "Coventry and Central Warwickshire Teaching School Hub" },
+                            { value: "Haybridge Teaching School Hub", text: "Haybridge Teaching School Hub" },
+                            { value: "John Taylor Teaching School Hub", text: "John Taylor Teaching School Hub" },
+                            { value: "Manor Teaching School Hub", text: "Manor Teaching School Hub" },
+                            { value: "Prince Henry’s Teaching School Hub", text: "Prince Henry’s Teaching School Hub" },
+                            { value: "STEP", text: "STEP" },
+                            { value: "The Golden Thread Teaching School Hub", text: "The Golden Thread Teaching School Hub" },
+                            { value: "Tudor Grange Teaching School Hub", text: "Tudor Grange Teaching School Hub" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+
+                {% else %}
+
+                    {{ govukSelect({
+                        items: [
+                            { value: "", text: "" },
+                            { value: "Derby", text: "Derby" },
+                            { value: "Derbyshire", text: "Derbyshire" },
+                            { value: "Doncaster", text: "Doncaster" },
+                            { value: "East Riding of Yorkshire", text: "East Riding of Yorkshire" },
+                            { value: "Kingston upon Hull", text: "Kingston upon Hull" },
+                            { value: "Leicestershire", text: "Leicestershire" },
+                            { value: "North Lincolnshire", text: "North Lincolnshire" },
+                            { value: "Nottingham", text: "Nottingham" },
+                            { value: "Nottinghamshire", text: "Nottinghamshire" },
+                            { value: "Rotherham", text: "Rotherham" },
+                            { value: "York", text: "York" },
+                            { value: "Barking and Dagenham", text: "Barking and Dagenham" },
+                            { value: "Cambridgeshire", text: "Cambridgeshire" },
+                            { value: "Essex", text: "Essex" },
+                            { value: "Hackney", text: "Hackney" },
+                            { value: "Haringey", text: "Haringey" },
+                            { value: "Havering", text: "Havering" },
+                            { value: "Newham", text: "Newham" },
+                            { value: "Norfolk", text: "Norfolk" },
+                            { value: "Peterborough", text: "Peterborough" },
+                            { value: "Redbridge", text: "Redbridge" },
+                            { value: "Southend-On-Sea", text: "Southend-On-Sea" },
+                            { value: "Suffolk", text: "Suffolk" },
+                            { value: "Thurrock", text: "Thurrock" },
+                            { value: "Tower Hamlets", text: "Tower Hamlets" },
+                            { value: "Waltham Forest", text: "Waltham Forest" },
+                            { value: "Blackburn with Darwen", text: "Blackburn with Darwen" },
+                            { value: "Blackpool", text: "Blackpool" },
+                            { value: "Bolton", text: "Bolton" },
+                            { value: "Bradford", text: "Bradford" },
+                            { value: "Calderdale", text: "Calderdale" },
+                            { value: "Halton", text: "Halton" },
+                            { value: "Kirklees", text: "Kirklees" },
+                            { value: "Knowsley", text: "Knowsley" },
+                            { value: "Lancashire", text: "Lancashire" },
+                            { value: "Leeds", text: "Leeds" },
+                            { value: "Liverpool", text: "Liverpool" },
+                            { value: "Manchester", text: "Manchester" },
+                            { value: "Rochdale", text: "Rochdale" },
+                            { value: "Salford", text: "Salford" },
+                            { value: "Sefton", text: "Sefton" },
+                            { value: "St Helens", text: "St Helens" },
+                            { value: "Stockport", text: "Stockport" },
+                            { value: "Trafford", text: "Trafford" },
+                            { value: "Wakefield", text: "Wakefield" },
+                            { value: "Warrington", text: "Warrington" },
+                            { value: "Wigan", text: "Wigan" },
+                            { value: "Wirral", text: "Wirral" },
+                            { value: "Darlington", text: "Darlington" },
+                            { value: "Durham", text: "Durham" },
+                            { value: "Gateshead", text: "Gateshead" },
+                            { value: "North Tyneside", text: "North Tyneside" },
+                            { value: "North Yorkshire", text: "North Yorkshire" },
+                            { value: "Northumberland", text: "Northumberland" },
+                            { value: "Redcar and Cleveland", text: "Redcar and Cleveland" },
+                            { value: "South Tyneside", text: "South Tyneside" },
+                            { value: "Stockton-on-Tees", text: "Stockton-on-Tees" },
+                            { value: "Sunderland", text: "Sunderland" },
+                            { value: "Barnet", text: "Barnet" },
+                            { value: "Bedford", text: "Bedford" },
+                            { value: "Bracknell Forest", text: "Bracknell Forest" },
+                            { value: "Brent", text: "Brent" },
+                            { value: "Buckinghamshire", text: "Buckinghamshire" },
+                            { value: "Camden", text: "Camden" },
+                            { value: "Central Bedfordshire", text: "Central Bedfordshire" },
+                            { value: "City of Westminster", text: "City of Westminster" },
+                            { value: "Ealing", text: "Ealing" },
+                            { value: "Enfield", text: "Enfield" },
+                            { value: "Hammersmith and Fulham", text: "Hammersmith and Fulham" },
+                            { value: "Harrow", text: "Harrow" },
+                            { value: "Hertfordshire", text: "Hertfordshire" },
+                            { value: "Hillingdon", text: "Hillingdon" },
+                            { value: "Hounslow", text: "Hounslow" },
+                            { value: "Islington", text: "Islington" },
+                            { value: "Kensington and Chelsea", text: "Kensington and Chelsea" },
+                            { value: "Luton", text: "Luton" },
+                            { value: "Milton Keynes", text: "Milton Keynes" },
+                            { value: "North Northamptonshire", text: "North Northamptonshire" },
+                            { value: "Reading", text: "Reading" },
+                            { value: "West Berkshire", text: "West Berkshire" },
+                            { value: "West Northamptonshire", text: "West Northamptonshire" },
+                            { value: "Windsor and Maidenshead", text: "Windsor and Maidenshead" },
+                            { value: "Wokingham", text: "Wokingham" },
+                            { value: "Bexley", text: "Bexley" },
+                            { value: "Brighton and Hove", text: "Brighton and Hove" },
+                            { value: "Croydon", text: "Croydon" },
+                            { value: "Greenwich", text: "Greenwich" },
+                            { value: "Hampshire", text: "Hampshire" },
+                            { value: "Kent", text: "Kent" },
+                            { value: "Kingston upon Thames", text: "Kingston upon Thames" },
+                            { value: "Lambeth", text: "Lambeth" },
+                            { value: "Lewisham", text: "Lewisham" },
+                            { value: "Medway", text: "Medway" },
+                            { value: "Merton", text: "Merton" },
+                            { value: "Portsmouth", text: "Portsmouth" },
+                            { value: "Richmond upon Thames", text: "Richmond upon Thames" },
+                            { value: "Southwark", text: "Southwark" },
+                            { value: "Sutton", text: "Sutton" },
+                            { value: "Wandsworth", text: "Wandsworth" },
+                            { value: "West Sussex", text: "West Sussex" },
+                            { value: "Bristol", text: "Bristol" },
+                            { value: "Devon", text: "Devon" },
+                            { value: "Dorset", text: "Dorset" },
+                            { value: "Gloucestershire", text: "Gloucestershire" },
+                            { value: "Plymouth", text: "Plymouth" },
+                            { value: "Somerset", text: "Somerset" },
+                            { value: "South Gloucestershire", text: "South Gloucestershire" },
+                            { value: "Swindon", text: "Swindon" },
+                            { value: "Wiltshire", text: "Wiltshire" },
+                            { value: "Birmingham", text: "Birmingham" },
+                            { value: "Cheshire East", text: "Cheshire East" },
+                            { value: "Cheshire West and Chester", text: "Cheshire West and Chester" },
+                            { value: "Coventry", text: "Coventry" },
+                            { value: "Sandwell", text: "Sandwell" },
+                            { value: "Shropshire", text: "Shropshire" },
+                            { value: "Solihull", text: "Solihull" },
+                            { value: "Staffordshire", text: "Staffordshire" },
+                            { value: "Telford and Wrekin", text: "Telford and Wrekin" },
+                            { value: "Walsall", text: "Walsall" },
+                            { value: "Warwickshire", text: "Warwickshire" },
+                            { value: "Wolverhampton", text: "Wolverhampton" },
+                            { value: "Worcestershire", text: "Worcestershire" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+
+                {% endif %}
+
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var selectEl = document.querySelector('#participants-{{ id }}-abName')
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
+        minLength: 2,
+        selectElement: selectEl
+      })
+
+      var queryStringParameters = window.location.search
+      var previouslySubmitted = queryStringParameters.length > 0
+      if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl.classList.remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document.querySelector('.submitted__participants-{{ id }}-abName').innerHTML = params.get('participants-{{ id }}-abName')
+      }
+    </script>
+
+
+
+
+
+{% endblock %}
