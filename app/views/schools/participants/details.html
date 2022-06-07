@@ -122,6 +122,8 @@
 
                 <!-- Start date -->
                 {% if data.participants[id].type == "ect" %}
+                    {% if ((data['abName']) or (participant.abConfirm == "Yes") or (participant.abName)) %}
+
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Appropriate body
@@ -145,6 +147,7 @@
                         {% endif %}
 
                 </div>
+                    {% endif %}
                 {% endif %}
 
                 <!-- Mentor -->
