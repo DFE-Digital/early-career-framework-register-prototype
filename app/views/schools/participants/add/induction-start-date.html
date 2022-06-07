@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
+
+{% if data.participants[id].type == "ect" %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
+{% elif data.participants[id].type == "mentor" %}
+    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+{% endif %}
+
+
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +19,11 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
+            {% if data.participants[id].type == "ect" %}
+                <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
+            {% elif data.participants[id].type == "mentor" %}
+                {# <p>This is the date when the mentor’s induction programme formally starts.</p> #}
+            {% endif %}
 
                     {# Removed as part of the multiple cohort mentor work #}
                     {# {% if hasMentors %}

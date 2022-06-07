@@ -19,7 +19,22 @@
 
         <div class="govuk-grid-column-two-thirds">
             <p>Before your early career teachers (ECTs) and mentors can start, we need to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for this programme.</p>
-            <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p>
+            {# <p>You need to tell us their names and email addresses. We’ll then contact them to <a class="govuk-link govuk-link--no-visited-state" href="what-each-person-does?link-action=view">explain their role</a> and what they need to do next.</p> #}
+
+
+            {# <div class="govuk-button-group govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+
+                         {{ govukButton({
+                            text: "Add an ECT or mentor",
+                            href: "add/"
+                        }) }}
+
+
+
+                        <a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor">Add yourself as a mentor</a>
+
+                        </div> #}
+
 
 
             <div class="govuk-inset-text govuk-!-margin-bottom-7">
@@ -1223,15 +1238,17 @@
                 {# Tabs #}
                 {{ govukTabs({
                     items: [
-                        { label: "Contacted", id: "contacted", panel: { html: contactedHtml } },
-                        { label: "Checking", id: "checking", panel: { html: checkingHtml } },
-                        { label: "ECTs", id: "ect", panel: { html: ectHtml } },
-                        { label: "Mentors", id: "mentors", panel: { html: mentorHtml } },
+
+                        { label: "Checks in progress", id: "checking", panel: { html: checkingHtml } },
+                        { label: "Eligible ECTs", id: "ect", panel: { html: ectHtml } },
+                        { label: "Eligible mentors", id: "mentors", panel: { html: mentorHtml } },
                         { label: "Moving school", id: "transfers", panel: { html: transferHtml } },
                         { label: "Not training", id: "not-training", panel: { html: nottrainingHtml } }
                     ]
                 }) }}
                 {# // Tabs #}
+
+{# { label: "Checking", id: "contacted", panel: { html: contactedHtml } }, #}
 
         {% endif %}
 
