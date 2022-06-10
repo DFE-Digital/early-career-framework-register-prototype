@@ -1,7 +1,7 @@
 const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Chris P Bacon',
-  leadProvider: 'Ambition Institute',
+  leadProvider: 'Teach First',
   deliveryPartner: 'Kings College London'
 }
 
