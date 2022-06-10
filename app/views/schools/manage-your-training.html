@@ -20,37 +20,24 @@
                 <!-- Intro for training -->
                 {% include "includes/mtLengthEctTutor.html" %}
 
-
-
                 <h2 class="govuk-heading-m govuk-!-margin-top-9">2022 to 2023 academic year</h2>
 
                     <!-- New Year training has not been setup -->
                     {% if not data['NewYearInductionProgramme'] %}
-
                         <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
-
-
                         {# <form action="/nominations/" method="post" >
                             <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="Started"  />
                             {{ govukButton({
                                 text: "Start now"
                             }) }}
                         </form> #}
-
-                    <!-- Setup of training for the next academic year has happened -->
                     {% else %}
-
                         <!-- NoECTs expected  -->
-                        <!-- //////////////////////////////////// -->
                         {% if data['NewYearInductionProgramme'] == "noECT" %}
-
                             <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                             <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
-
                         <!-- Expects to have ECTs -->
-                        <!-- //////////////////////////////////// -->
                         {% else %}
-
                             {% if data['newYearChangeWhat'] == "nextYear-CIP" %}
                                 {% if not data['nextYear-accredited-materials'] %}
                                 <h2 class="govuk-heading-m">Choose your training materials</h2>
@@ -60,10 +47,10 @@
                             {% endif %}
 
                             <!-- FIP -->
-                            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+
 
                             {% if data['NewYearInductionProgramme'] == "FIP" %}
-
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
@@ -106,6 +93,13 @@
 
                             {% elif data['NewYearInductionProgramme'] == "CIP" %}
 
+
+                                {% if not data['nextYear-accredited-materials'] %}
+                                    {# <h2 class="govuk-heading-m">Choose your training materials</h2> #}
+                                    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
+                                {% endif %}
+
+                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">DfE accredited materials</dd>
@@ -128,7 +122,7 @@
                                 </div>
 
                             {% elif data['NewYearInductionProgramme'] == "DYO" %}
-
+                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Design and deliver your own programme based on the Early Career Framework (ECF)</dd>
