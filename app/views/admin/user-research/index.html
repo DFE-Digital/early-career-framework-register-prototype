@@ -12,10 +12,11 @@
 
         {# <p>No current user research taking place.</p> #}
         <!-- <p>Looking at how ECTs can move from one school to another depending on their programme.</p> -->
-        <p class="govuk-body-s">Running: 9 to 11 May 2022</p>
+        <p class="govuk-body-s">Running: 10 to 17 June 2022</p>
         {# <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> #}
         <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p>
 
+        <h2 class="govuk-heading-s">Using a training provider funded by DFE</h2>
         <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
@@ -24,7 +25,7 @@
             <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
             <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
             <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
-            <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
+            {# <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> #}
 
             <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
 
@@ -66,7 +67,65 @@
 
 
             {{ govukButton({
-                text: "Start and sign in"
+                text: "Continue"
+            }) }}
+        </form>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+        <h2 class="govuk-heading-s">Delivering own programme using DfE-accredited materials</h2>
+        <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+
+            <!-- Programme choice -->
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="CIP" />
+            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+            <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
+
+
+
+            <!-- Dashboard options -->
+            <!-- <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> -->
+            <!-- <input type="hidden" name="show-participant-no-QTS" id="show-participant-no-QTS" value="Yes" /> -->
+            <!-- <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" /> -->
+
+            <!-- Participants -->
+            <!-- <input type="hidden" name="participantType" id="participantType" value="" />
+            <input type="hidden" name="participant-1-name" id="participant-1-name" value="Hugo Furst" />
+            <input type="hidden" name="participant-1-know-trn" id="participant-1-know-trn" value="Yes" />
+            <input type="hidden" name="participant-1-trn" id="participant-1-trn" value="5472825" />
+            <input type="hidden" name="participant-1-dob-date-day" id="participant-1-dob-date-day" value="10" />
+            <input type="hidden" name="participant-1-dob-date-month" id="participant-1-dob-date-month" value="08" />
+            <input type="hidden" name="participant-1-dob-date-year" id="participant-1-dob-date-year" value="1980" />
+            <input type="hidden" name="participant-1-email" id="participant-1-email" value="hugo.furst@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-1-start-date" id="participant-1-start-date" value="Autumn 2021" />
+            <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
+            <input type="hidden" name="participant-1-mentor" id="participant-1-mentor" value="Brian Coult" />
+            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Yes" /> -->
+
+            <!-- Mentor -->
+            <!-- <input type="hidden" name="participant-1-mentor-name" id="participant-1-mentor-name" value="Brian Coult" />
+            <input type="hidden" name="participant-1-mentor-know-trn" id="participant-1-mentor-know-trn" value="Yes" />
+            <input type="hidden" name="participant-1-mentor-trn" id="participant-1-mentor-trn" value="8886667" />
+            <input type="hidden" name="participant-1-mentor-email" id="participant-1-mentor-email" value="brian.coultc@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-1-mentor-start-date" id="participant-1-mentor-start-date" value="Autumn 2021" />
+            <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
+            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" /> -->
+
+
+            <!-- <input type="hidden" name="participant-2-name" id="participant-2-name" value="Nicola Page" />
+            <input type="hidden" name="participant-2-email" id="participant-2-email" value="nicolap@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
+
+            <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
+            <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" /> -->
+
+
+            {{ govukButton({
+                text: "Continue"
             }) }}
         </form>
 
