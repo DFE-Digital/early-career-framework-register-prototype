@@ -171,7 +171,12 @@
                         </div>
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-                            <dd class="govuk-summary-list__value">12</dd>
+                            <dd class="govuk-summary-list__value">
+                            {% if data['inductionProgramme'] == "CIP" %}
+                                4
+                            {% else %}
+                                12
+                            {% endif %}</dd>
                             <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/?cohort=2021">Manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
                         </div>
                         <div class="govuk-summary-list__row">
