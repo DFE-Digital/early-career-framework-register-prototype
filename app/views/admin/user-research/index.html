@@ -16,16 +16,7 @@
         {# <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> #}
         <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p>
 
-
-        <form action="/emails/next-academic-year" method="post" >
-
-            <input type="hidden" id="cohort" name="cohort" value="2022" />
-
-            <!-- Programme choice -->
-            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
-            <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
-            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
-            {# <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> #}
+         {# <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> #}
 
             <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
 
@@ -66,16 +57,27 @@
             <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" /> -->
 
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
-
-
-
 
 
         {# <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+
+
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+            <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> #}
+
+
+
+
+
+        <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
 
@@ -87,7 +89,7 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form> #}
+        </form>
 
     </div>
 </div>
