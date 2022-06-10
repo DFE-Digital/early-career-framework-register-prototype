@@ -27,13 +27,15 @@
                     <!-- New Year training has not been setup -->
                     {% if not data['NewYearInductionProgramme'] %}
 
-                        <p>Tell us if any new ECTs will start training at your school in the 2022 to 2023 academic year</p>
-                        <form action="/nominations/" method="post" >
+                        <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
+
+
+                        {# <form action="/nominations/" method="post" >
                             <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="Started"  />
                             {{ govukButton({
                                 text: "Start now"
                             }) }}
-                        </form>
+                        </form> #}
 
                     <!-- Setup of training for the next academic year has happened -->
                     {% else %}
