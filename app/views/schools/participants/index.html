@@ -651,14 +651,22 @@
                 {{ govukTabs({
                     items: [
 
-                        { label: "Checks in progress", id: "checking", panel: { html: checkingHtml } },
+
                         { label: "ECTs", id: "ect", panel: { html: ectHtml } },
                         { label: "Mentors", id: "mentors", panel: { html: mentorHtml } },
-                        { label: "Moving school", id: "transfers", panel: { html: transferHtml } },
-                        { label: "Not training", id: "not-training", panel: { html: nottrainingHtml } }
+                        { label: "Moving school", id: "transfers", panel: { html: transferHtml } }
                     ]
                 }) }}
                 {# // Tabs #}
+
+
+{# { label: "Checks in progress", id: "checking", panel: { html: checkingHtml } },
+                        { label: "ECTs", id: "ect", panel: { html: ectHtml } },
+                        { label: "Mentors", id: "mentors", panel: { html: mentorHtml } },
+                        { label: "Moving school", id: "transfers", panel: { html: transferHtml } },
+                        { label: "Not training", id: "not-training", panel: { html: nottrainingHtml } } #}
+
+
 
 {# { label: "Checking", id: "contacted", panel: { html: contactedHtml } }, #}
 

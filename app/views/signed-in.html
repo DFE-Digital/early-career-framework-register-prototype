@@ -21,7 +21,7 @@
         {% if data['registering'] == "Yes"%}
           <form class="form" action="privacy-policy" method="post">
         {% elif ((data['inductionProgramme'] == "FIP") or ( data['inductionProgramme'] == "CIP" )) %}
-          <form class="form" action="schools/manage-your-training#new-year" method="post">
+          <form class="form" action="/nominations/" method="post">
         {% else %}
           {% if data['participantType'] == "sitMentor" %}
             <form class="form" action="two-roles" method="post">
