@@ -8,13 +8,17 @@
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">ECTs and mentors</dt>
         <dd class="govuk-summary-list__value">
-            {% if data['inductionProgramme'] == "CIP" %}
+            {% if data['inductionProgramme'] == "noECT" %}
+                0
+            {% elif data['inductionProgramme'] == "CIP" %}
                 4
             {% else %}
                 12
             {% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
+        <dd class="govuk-summary-list__actions">
+
+        <a class="govuk-link" href="participants/">{% if data['inductionProgramme'] == "noECT" %}Add{% else %}Add or manage{% endif %}<span class="govuk-visually-hidden"> ECTs or mentors</span></a></dd>
     </div>
     {% endif %}
     {# <div class="govuk-summary-list__row">
