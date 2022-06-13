@@ -59,7 +59,7 @@
 
 
 
-        {# <form action="/emails/next-academic-year" method="post" >
+        <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
 
@@ -71,19 +71,19 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form> #}
+        </form>
 
 
-        <form action="/emails/next-academic-year" method="post" >
+        {# <form action="/emails/next-academic-year" method="post" >
 
-            {# <input type="hidden" id="cohort" name="cohort" value="2022" /> #}
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
             <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="noECT" />
             <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
 
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form>
+        </form> #}
 
 
 
