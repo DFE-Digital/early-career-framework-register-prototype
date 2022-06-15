@@ -16,48 +16,49 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-                <!-- Intro for training -->
+                <!-- Top sections with Induction tutor, ects and mentors -->
                 {% include "includes/mtLengthEctTutor.html" %}
+                <!-- ////////////////////// -->
 
+                <!-- Next incoming year -->
                 <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-3">ECF-based training starting 2022 to 2023 academic year</h2>
 
-                    <!-- New Year training has not been setup -->
-                    {% if not data['NewYearInductionProgramme'] %}
-                        <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
-                        {# <form action="/nominations/" method="post" >
-                            <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="Started"  />
-                            {{ govukButton({
-                                text: "Start now"
-                            }) }}
-                        </form> #}
+                <!-- New Year training has not been setup -->
+                {% if not data['NewYearInductionProgramme'] %}
+
+                    <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
+                    {# <form action="/nominations/" method="post" >
+                        <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="Started"  />
+                        {{ govukButton({
+                            text: "Start now"
+                        }) }}
+                    </form> #}
+
+
+                {% else %}
+                    <!-- NoECTs expected  -->
+                    {% if data['NewYearInductionProgramme'] == "noECT" %}
+                        <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
+                        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
+
+                    <!-- Expects to have ECTs -->
                     {% else %}
-                        <!-- NoECTs expected  -->
-                        {% if data['NewYearInductionProgramme'] == "noECT" %}
-                            <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
-                            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
-                        <!-- Expects to have ECTs -->
-                        {% else %}
-                            {% if data['newYearChangeWhat'] == "nextYear-CIP" %}
-                                {% if not data['nextYear-accredited-materials'] %}
+
+                        {% if data['newYearChangeWhat'] == "nextYear-CIP" %}
+                            {% if not data['nextYear-accredited-materials'] %}
                                 <h2 class="govuk-heading-m">Choose your training materials</h2>
                                 <p><a href="/schools/materials/" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a></p>
                                 <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
-                                {% endif %}
                             {% endif %}
+                        {% endif %}
 
-                            <!-- FIP -->
-
-
-                            {% if data['NewYearInductionProgramme'] == "FIP" %}
+                        {% if data['NewYearInductionProgramme'] == "FIP" %}
                             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
-
-                             <div class="govuk-summary-list__row">
+                                <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Duration</dt>
                                     <dd class="govuk-summary-list__value">2 years</dd>
                                     <dd class="govuk-summary-list__actions"></dd>
                                 </div>
-
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
@@ -98,16 +99,14 @@
                                     <dd class="govuk-summary-list__actions"></dd>
                                 </div>
 
-                            {% elif data['NewYearInductionProgramme'] == "CIP" %}
+                        {% elif data['NewYearInductionProgramme'] == "CIP" %}
 
+                            {% if not data['nextYear-accredited-materials'] %}
+                                {# <h2 class="govuk-heading-m">Choose your training materials</h2> #}
+                                <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
+                            {% endif %}
 
-                                {% if not data['nextYear-accredited-materials'] %}
-                                    {# <h2 class="govuk-heading-m">Choose your training materials</h2> #}
-                                    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
-                                {% endif %}
-
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
-
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">DfE accredited materials</dd>
@@ -116,9 +115,7 @@
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Materials supplier</dt>
                                     <dd class="govuk-summary-list__value">
-                                        {% if data['nextYear-accredited-materials'] %}
-                                            {{ data['nextYear-accredited-materials'] }}
-                                        {% endif %}
+                                        {% if data['nextYear-accredited-materials'] %}{{ data['nextYear-accredited-materials'] }}{% endif %}
                                     </dd>
                                     <dd class="govuk-summary-list__actions">
                                         {% if data['nextYear-accredited-materials'] %}
@@ -129,32 +126,29 @@
                                     </dd>
                                 </div>
 
-                            {% elif data['NewYearInductionProgramme'] == "DYO" %}
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                        {% elif data['NewYearInductionProgramme'] == "DYO" %}
+
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Design and deliver your own programme based on the Early Career Framework (ECF)</dd>
                                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
                                 </div>
 
-                            {% endif %}
-                            <!-- //////////////////////////////////// -->
-
-                            <!-- All training will need appropriate body row -->
-                            {% include "includes/mtAB.html" %}
-                            <!-- //////////////////////////////////// -->
-
-                        </dl>
                         {% endif %}
+                        <!-- //////////////////////////////////// -->
+
+                        <!-- All training will need appropriate body row -->
+                        {% include "includes/mtAB.html" %}
+                        <!-- //////////////////////////////////// -->
+
+                            </dl>
                     {% endif %}
 
-
-                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+                {% endif %}
 
 
-
+                <!-- Current academic year -->
                 <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-3">ECF-based training started 2021 to 2022 academic year</h2>
 
                     <!-- ///// Start of 2021 //// -->
