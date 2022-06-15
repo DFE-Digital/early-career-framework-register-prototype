@@ -27,7 +27,7 @@ module.exports = router => {
 
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyContactedParticipants22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP" && p.cohort2022 == "Yes"  )
-    res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP"  )
     res.locals.hasAnyContactedParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP" && p.cohort2022 == "Yes" )
 
 
@@ -43,7 +43,7 @@ module.exports = router => {
 
     res.locals.hasAnyEligibleParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "FIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyEligibleParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "FIP" && p.cohort2022 == "Yes")
-    res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP"  )
     res.locals.hasAnyEligibleParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" && p.cohort2022 == "Yes" )
 
     res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn' && p.programme == "FIP" && p.cohort2021 == "Yes" )

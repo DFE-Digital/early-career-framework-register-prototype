@@ -1,7 +1,7 @@
 const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Chris P Bacon',
-  leadProvider: 'Teach First',
+  leadProvider: 'Ambition Institute',
   deliveryPartner: 'Kings College London'
 }
 
@@ -50,9 +50,9 @@ module.exports = {
         // TranferOut Mentor
         KJ8: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2222", email: "kate.lloyd@test.dfe.gov.uk", newLeadProvider: "Ambition Institute",  name: "Kate Lloyd", programme: "FIP", startDate: "Autumn 2021", status: "TransferOut", trnKnown: "Yes", trnNumber: "3241234", type: "mentor", usingCurrentTraining: "Yes", leavingDay: "10", leavingMonth: "8", leavingYear: "2022" },
         // Checking with TRA
-        GH3: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "7", inductionYear: "2022", dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.richards@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", name: "Luke Richards", programme: "FIP", startDate: "Spring 2022", status: "Checking", trnKnown: "Yes", trnNumber: "7840285", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        // GH3: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "7", inductionYear: "2022", dobDay: "1", dobMonth: "1", dobYear: "2222", email: "luke.richards@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", name: "Luke Richards", programme: "FIP", startDate: "Spring 2022", status: "Checking", trnKnown: "Yes", trnNumber: "7840285", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // Checking QTS
-        DB5: { cohort2021: "Yes", inductionDay: "5", inductionMonth: "7", inductionYear: "2022", dobDay: "1", dobMonth: "1", dobYear: "2222", email: "mili.malde@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Mili Malde", programme: "FIP", startDate: "Spring 2022", status: "CheckingQTS", trnKnown: "Yes", trnNumber: "1424353", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
+        // DB5: { cohort2021: "Yes", inductionDay: "5", inductionMonth: "7", inductionYear: "2022", dobDay: "1", dobMonth: "1", dobYear: "2222", email: "mili.malde@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "James Doe", name: "Mili Malde", programme: "FIP", startDate: "Spring 2022", status: "CheckingQTS", trnKnown: "Yes", trnNumber: "1424353", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
         // Contacted
         BCF: { cohort2021: "Yes", inductionDay: "1", inductionMonth: "7", inductionYear: "2022", email: "noTRNdLPdDPnotTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", name: "Stanislaw Klajn", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", type: "ect", usingCurrentTraining: "No", usingCurrentProvider: "No" },
 
