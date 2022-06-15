@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "User research" %}
-{% set pageSection = "Multiple academic years and appropriate body" %}
+{% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
 
@@ -10,13 +10,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
-        {# <p>No current user research taking place.</p> #}
-        <!-- <p>Looking at how ECTs can move from one school to another depending on their programme.</p> -->
-        <p class="govuk-body-s">Running: 10 to 17 June 2022</p>
-        {# <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> #}
-        <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p>
+        <p>No current user research taking place.</p>
+        
+        <!-- <p class="govuk-body-s">Running: 10 to 17 June 2022</p> -->
+        <!-- <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> -->
+        <!-- <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p> -->
 
-         {# <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> #}
+         <!-- <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> -->
 
             <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
 
@@ -59,7 +59,7 @@
 
 
 
-        <form action="/emails/next-academic-year" method="post" >
+        <!-- <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
 
@@ -71,10 +71,10 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form>
+        </form> -->
 
 
-        {# <form action="/emails/next-academic-year" method="post" >
+        <!-- <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
             <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="noECT" />
@@ -83,13 +83,13 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form> #}
+        </form> -->
 
 
 
 
 
-        {# <form action="/emails/next-academic-year" method="post" >
+        <!-- <form action="/emails/next-academic-year" method="post" >
 
             <input type="hidden" id="cohort" name="cohort" value="2022" />
 
@@ -101,7 +101,7 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        </form> #}
+        </form> -->
 
     </div>
 </div>
