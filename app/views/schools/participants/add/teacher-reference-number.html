@@ -175,7 +175,13 @@
                         {% endif %}
                     
                     {% elif data.participants[id].type == "sitMentor" %}
-
+                        
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "Yes", text: "Fail validation" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
