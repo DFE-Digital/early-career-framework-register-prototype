@@ -54,8 +54,12 @@
     {% endif %} 
 
 <!-- TRN not known -->
-{% else %}     
-    {% if data.participants[id].type == "ect" %}   
+{% else %}
+    {% if data.participants[id].type == "sitMentor" %}   
+
+        {% set pageHeading = '' + participant.name +  ' has been added as an ECT Brian' %}
+
+    {% elif data.participants[id].type == "ect" %}   
         {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
     {% elif data.participants[id].type == "mentor" %} 
         {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
