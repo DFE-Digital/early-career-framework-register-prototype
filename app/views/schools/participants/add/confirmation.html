@@ -2,11 +2,6 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-
-
-
-
-<!-- TRN -->
 {% if data.participants[id].trnKnown == "Yes" %}
 
     {% if data.participants[id].type == "ect" %}    
@@ -30,26 +25,21 @@
     {% elif data.participants[id].type == "mentor" %}
 
         {% if ((data.participants[id].eroMultiMentor == "Yes") or (data.participants[id].eroMentor == "Yes")) %} 
-            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}
-        <!-- Different title for CIP over FIP for mentor -->
+            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}        
         {% elif ((data.participants[id].dbMatched == "Yes") or (data.participants[id].ineligible == "Yes")) %}   
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s details' %}
         {% else %}
-
             {% if data['inductionProgramme'] == "FIP" %}
                 {% set pageHeading = '' + participant.name +  ' is registered and eligible for DfE-funded mentor training' %}        
             {% elif data['inductionProgramme'] == "CIP" %}
                 {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}        
             {% endif %}
-
         {% endif %}
-
     {% endif %} 
 
-<!-- TRN not known -->
+<!-- TRN not known or not given -->
 {% else %}
-    {% if data.participants[id].type == "sitMentor" %}   
-        
+    {% if data.participants[id].type == "sitMentor" %}           
         
         {% if ((data.participants[id].ineligible == "Yes") or (data.participants[id].dbMatched == "Yes")) %}
             {% set pageHeading = 'We’re checking your details' %}
@@ -73,8 +63,6 @@
                 titleText: pageHeading,
                 classes: "govuk-!-margin-bottom-7"
             }) }}
-
-
             
             {% if ((data.participants[id].trnKnown == "Yes") or (data.participants[id].type == "ectTransfer")) %}
 
@@ -83,7 +71,7 @@
                 {% if data.participants[id].type == "ect" %}
                 
                     <br>ECT</p>
-                    {% if data.participants[id].exempt == "Yes" %}
+                    {% if data.participants[id].exempt == "Yes" %}                        
                         {% include "includes/confirmation_ExemptECT.html" %}
                     {% elif data.participants[id].competedInduction == "Yes" %}
                         {% include "includes/confirmation_CompletedInductionECT.html" %}
@@ -104,7 +92,6 @@
                 {% elif data.participants[id].type == "ectTransfer" %}
 
                     <br>Transfer</p>
-
                     <h2 class="govuk-heading-m">What we’ll do with this information</h2>
                     <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
                     <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
@@ -131,7 +118,6 @@
                 {% elif data.participants[id].type == "mentor" %}
                     
                     <br>Mentor</p>
-
                     {% if data.participants[id].ineligible == "Yes" %}
                         {% include "includes/confirmation_IneligbleMentor.html" %}
                     {% elif data.participants[id].eroMentor == "Yes" %}
@@ -142,22 +128,29 @@
                         {% include "includes/confirmation_NoMatchMentor.html" %}
                     {% else %}
                         {% include "includes/confirmation_EligibleMentor.html" %}
-                    {% endif %}
-                    <!-- Hi Brian, As a temporary fix, we could add some information prompting the SIT to assign this new mentor 
-            on the ‘[Mentor name] has been added as a mentor’ confirmation page - but I’m also wondering if this confirmation 
-            content needs details of TRN / DOB requests and eligibility checks, same as the ECT confirmation content. -->                           
+                    {% endif %}                    
 
                 {% endif %}
-
 
             {% elif data.participants[id].trnKnown == "No" %}
 
                 <p>No TRN
-
                 {% if data.participants[id].type == "ect" %}
-                <br>ECT</p>
-
-
+                    
+                    <br>ECT</p>
+                    <h2 class="govuk-heading-m">What happens next</h2>
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    <p>We’ll ask them to use this service to tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>full name</li>
+                        <li>date of birth</li>
+                        <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>
+                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>                
+                
+                {% elif data.participants[id].type == "mentor" %}
+                
+                    <br>Mentor</p>
                     <h2 class="govuk-heading-m">What happens next</h2>
                     <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
                     <p>We’ll ask them to use this service to tell us their:</p>
@@ -168,60 +161,30 @@
                     </ul>
                     <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
 
-
-                {% elif data.participants[id].type == "ectTransfer" %}
-                <br>Transfer</p>
-
-                {% elif data.participants[id].type == "mentor" %}
-                <br>Mentor</p>
-                <h2 class="govuk-heading-m">What happens next</h2>
-                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    <p>We’ll ask them to use this service to tell us their:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>full name</li>
-                        <li>date of birth</li>
-                        <li>teacher reference number (TRN) or National Insurance number</li>
-                    </ul>
-                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
-
                 {% endif %}
 
-            {% else %}
+            {% if data.participants[id].type == "sitMentor" %}   
+                
+                <p>Sit Mentor</p>                
+                {% if data.participants[id].dbMatched == "Yes" %}
+                    {% include "includes/confirmation_NoMatchSitMentor.html" %}                    
+                {% elif data.participants[id].ineligible == "Yes" %}
+                    {% include "includes/confirmation_IneligiblesitMentor.html" %}                    
+                {% else %}
+                    {% include "includes/confirmation_sitMentor.html" %}                    
+                {% endif %}            
 
-                {% if data.participants[id].type == "sitMentor" %}   
-
-                    {% if data.participants[id].dbMatched == "Yes" %}
-                        {% include "includes/confirmation_NoMatchSitMentor.html" %}                    
-                    {% elif data.participants[id].ineligible == "Yes" %}
-                        {% include "includes/confirmation_IneligiblesitMentor.html" %}                    
-                    {% else %}
-                        {% include "includes/confirmation_sitMentor.html" %}                    
-                    {% endif %}
-
-                {% endif %}
-
-
-            {% endif %}
-            
-            
-            
-            
-                      
-            
-
+            {% endif %}            
             <!-- /////////////////////// -->
             
             <ul class="govuk-list govuk-!-margin-top-7">
                 {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
                     {% if not ((data.participants[id].competedInduction) or (data.participants[id].exempt)) %}
-                <li><a class="govuk-link govuk-link--no-visited-state" href="#">Assign a mentor to this ECT</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Assign a mentor to this ECT</a></li>
                     {% endif %}
                 {% endif %}
                 <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
             </ul>
-
-
-
          
 
         </div>
