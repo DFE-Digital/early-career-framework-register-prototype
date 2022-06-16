@@ -39,8 +39,12 @@
 
 <!-- TRN not known or not given -->
 {% else %}
-    {% if data.participants[id].type == "sitMentor" %}           
-        
+     
+    {% if data.participants[id].type == "ect" %}   
+        {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
+    {% elif data.participants[id].type == "mentor" %} 
+        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}    
+    {% elif data.participants[id].type == "sitMentor" %}                   
         {% if ((data.participants[id].ineligible == "Yes") or (data.participants[id].dbMatched == "Yes")) %}
             {% set pageHeading = 'We’re checking your details' %}
         {% elif data['inductionProgramme'] == "FIP" %}
@@ -163,7 +167,8 @@
 
                 {% endif %}
 
-            {% if data.participants[id].type == "sitMentor" %}   
+
+            {% elif data.participants[id].type == "sitMentor" %}   
                 
                 <p>Sit Mentor</p>                
                 {% if data.participants[id].dbMatched == "Yes" %}
