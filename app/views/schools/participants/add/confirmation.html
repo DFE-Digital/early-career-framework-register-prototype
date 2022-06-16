@@ -28,16 +28,24 @@
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s qualified teacher status' %}
         {% elif data.participants[id].dbMatched == "Yes" %}   
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s details' %}
-        {% else %}
+        {% else %}        
             {% set pageHeading = '' + participant.name +  ' is registered and eligible for ECF-based training' %}
         {% endif %}
 
     {% elif data.participants[id].type == "mentor" %}
+
+    
         <!-- Different title for CIP over FIP for mentor -->
-        {% if data['inductionProgramme'] == "FIP" %}
-            {% set pageHeading = '' + participant.name +  ' is registered and eligible for DfE-funded mentor training' %}        
-        {% elif data['inductionProgramme'] == "CIP" %}
-            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}        
+        {% if data.participants[id].dbMatched == "Yes" %}   
+            {% set pageHeading = 'We’re checking ' + participant.name +  '’s details' %}
+        {% else %}
+
+            {% if data['inductionProgramme'] == "FIP" %}
+                {% set pageHeading = '' + participant.name +  ' is registered and eligible for DfE-funded mentor training' %}        
+            {% elif data['inductionProgramme'] == "CIP" %}
+                {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}        
+            {% endif %}
+
         {% endif %}
 
     {% endif %} 
@@ -111,7 +119,11 @@
                 {% elif data.participants[id].type == "mentor" %}
                     
                     <br>Mentor</p>
-                    {% include "includes/confirmation_EligibleMentor.html" %}
+                    {% if data.participants[id].dbMatched == "Yes" %} 
+                        {% include "includes/confirmation_NoMatchMentor.html" %}
+                    {% else %}
+                        {% include "includes/confirmation_EligibleMentor.html" %}
+                    {% endif %}
                     <!-- Hi Brian, As a temporary fix, we could add some information prompting the SIT to assign this new mentor 
             on the ‘[Mentor name] has been added as a mentor’ confirmation page - but I’m also wondering if this confirmation 
             content needs details of TRN / DOB requests and eligibility checks, same as the ECT confirmation content. -->                           
