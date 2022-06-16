@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set pageHeading = "User research" %}
-{% set pageSection = "Multiple academic years" %}
+{% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
 
@@ -10,21 +10,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
-        {# <p>No current user research taking place.</p> #}
-        <!-- <p>Looking at how ECTs can move from one school to another depending on their programme.</p> -->
-        <p class="govuk-body-s">Running: 9 to 11 May 2022</p>
-        {# <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> #}
-        <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p>
+        <p>No current user research taking place.</p>
+        
+        <!-- <p class="govuk-body-s">Running: 10 to 17 June 2022</p> -->
+        <!-- <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> -->
+        <!-- <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p> -->
 
-        <form action="/emails/next-academic-year" method="post" >
-
-            <input type="hidden" id="cohort" name="cohort" value="2022" />
-
-            <!-- Programme choice -->
-            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
-            <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
-            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
-            <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
+         <!-- <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" /> -->
 
             <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
 
@@ -65,10 +57,51 @@
             <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" /> -->
 
 
+
+
+        <!-- <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+
+
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+            <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+
             {{ govukButton({
-                text: "Start and sign in"
+                text: "Continue"
             }) }}
-        </form>
+        </form> -->
+
+
+        <!-- <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="noECT" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> -->
+
+
+
+
+
+        <!-- <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="CIP" />
+            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+            <input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> -->
 
     </div>
 </div>

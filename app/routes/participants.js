@@ -20,13 +20,14 @@ module.exports = router => {
   router.all('/schools/participants', (req, res, next) => {
     const participants = req.session.data.participants
     res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
+    res.locals.hasSitMentor = Object.values(participants).some((p) => p.type === 'sitMentor')
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.type === 'mentorTransfer')
 
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyContactedParticipants22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP" && p.cohort2022 == "Yes"  )
-    res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP"  )
     res.locals.hasAnyContactedParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP" && p.cohort2022 == "Yes" )
 
 
@@ -42,7 +43,7 @@ module.exports = router => {
 
     res.locals.hasAnyEligibleParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "FIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyEligibleParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "FIP" && p.cohort2022 == "Yes")
-    res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP"  )
     res.locals.hasAnyEligibleParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" && p.cohort2022 == "Yes" )
 
     res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn' && p.programme == "FIP" && p.cohort2021 == "Yes" )
@@ -82,8 +83,8 @@ module.exports = router => {
 
     res.locals.hasAnyCheckingQTSMentorParticipantsCIP = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" && p.programme == "CIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyCheckingQTSMentorParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.type == "mentor" && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "FIP" && p.cohort2021 == "Yes" )
-    res.locals.hasAnyEligibleMentorParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "FIP" && p.cohort2022 == "Yes" )
+    res.locals.hasAnyEligibleMentorParticipants = Object.values(participants).some((p) => p.status === 'Eligible' && (p.type === "mentor" || "sitMentor") && p.programme == "FIP" && p.cohort2021 == "Yes" )
+    res.locals.hasAnyEligibleMentorParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && (p.type === "mentor" || "sitMentor") && p.programme == "FIP" && p.cohort2022 == "Yes" )
 
     res.locals.hasAnyEligibleMentorParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "CIP" && p.cohort2021 == "Yes" )
     res.locals.hasAnyEligibleMentorParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.type == "mentor" && p.programme == "CIP" && p.cohort2022 == "Yes" )
@@ -93,6 +94,11 @@ module.exports = router => {
 
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
+  })
+
+
+  router.all('/schools/participants/add/yourself-as-a-mentor', (req, res) => {
+    res.redirect(`/schools/participants/${generateRandomString()}/add/yourself-as-a-mentor`)
   })
 
 

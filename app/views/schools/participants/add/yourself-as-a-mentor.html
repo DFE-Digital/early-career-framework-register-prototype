@@ -12,7 +12,7 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
+
             <p>The induction tutor and mentor roles are separate. <a href="../what-each-person-does?link-action=view" >Check what each role needs to do</a>.</p>
             <p>You should only assign yourself as a mentor in exceptional circumstances. If your school needs you to do this, you should:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -20,14 +20,50 @@
                 <li>put safeguards in place so that your role as an ECT’s mentor is kept separate from your role in their assessment</li>
             </ul>
 
-            <form method="post" action="confirmation" >
-                <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
-                <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" />
-                <input type="hidden" name="link-action" id="link-action" value="" /><!-- Clears any link action -->
+            <form method="post" action="teacher-reference-number" >
+
+                <!-- Name added in -->
+                {{ govukInput({
+                    label: {
+                        text: pageHeading,
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    value: data.sitName,
+                    classes: "govuk-!-width-two-thirds govuk-visually-hidden"
+                } | decorateFormAttributes(['participants', id, 'name']) ) }}
+
+                {% if data['inductionProgramme'] == "CIP" %}
+                <!-- CIP -->
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "CIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                {% else %}
+                <!-- FIP -->
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "FIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                {% endif %}
+
+
+
+                {{ govukRadios({
+                    classes: "govuk-visually-hidden",
+                    items: [
+                        { value: "sitMentor", text: "A sit mentor", checked: checked }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'type']) ) }}
+
+
+
                 {{ govukButton({
                     text: "Confirm"
                 }) }}
             </form>
+
+
         </div>
     </div>
 {% endblock %}
