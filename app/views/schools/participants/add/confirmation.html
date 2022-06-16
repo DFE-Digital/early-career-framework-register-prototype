@@ -6,34 +6,46 @@
 <!-- {% if data.participants[id].mentorAssigned == "Yes" %}
     {% set pageHeading = '' + participant.mentor +  ' has been assigned to mentor ' + participant.name +  '' %}
 {% elif data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
-    {% set pageHeading = '' + participant.name +  ' has been registered at your school' %}
+    
 {% elif data.participants[id].type == "sitMentor" %}
     {% set pageHeading = 'You’ve been added as a mentor' %} -->
     <!-- Hi Brian, I think we may need a CYA and/or another confirmation page for '[Existing mentor] has been assigned to an ECT', no conditional content needed in the page -->
 <!-- {% endif %} -->
 
-<!-- IF TRN known then good chance of been eligible -->
+
+
+
+
+
+
+
+<!-- TRN -->
 {% if data.participants[id].trnKnown == "Yes" %}
 
-    {% if data.participants[id].type == "ect" %}
+    {% if data.participants[id].type == "ect" %}    
         <!-- FIP and CIP -->
         {% set pageHeading = '' + participant.name +  ' is registered and eligible for ECF-based training' %}
+
     {% elif data.participants[id].type == "mentor" %}
         <!-- Different title for CIP over FIP for mentor -->
-        {% if data['induction-programme'] == "CIP" %}
-            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}
-        {% elif data['induction-programme'] == "FIP" %}
-            {% set pageHeading = '' + participant.name +  ' is registered and eligible for DfE-funded mentor training' %}
+        {% if data['inductionProgramme'] == "FIP" %}
+            {% set pageHeading = '' + participant.name +  ' is registered and eligible for DfE-funded mentor training' %}        
+        {% elif data['inductionProgramme'] == "CIP" %}
+            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}        
         {% endif %}
-        
+
     {% endif %} 
 
-{% else %} 
-
-
+<!-- TRN not known -->
+{% else %}     
+    {% if data.participants[id].type == "ect" %}   
+        {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
+    {% elif data.participants[id].type == "mentor" %} 
+        {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
+    {% endif %} 
+    <!-- There is no option for transfer as they have to provide the TRN -->
 {% endif %}
-
-
+<!-- ///////////////// -->
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -46,54 +58,102 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data.participants[id].type == "mentor" %}        
             
-                {% include "includes/confirmation_mentor.html" %}
-            <!-- Hi Brian, As a temporary fix, we could add some information prompting the SIT to assign this new mentor 
+            {% if ((data.participants[id].trnKnown == "Yes") or (data.participants[id].type == "ectTransfer")) %}
+
+                <p>TRN Known
+
+                {% if data.participants[id].type == "ect" %}
+                
+                    <br>ECT</p>
+                    {% include "includes/confirmation_EligibleECT.html" %}
+
+                {% elif data.participants[id].type == "ectTransfer" %}
+
+                    <br>Transfer</p>
+
+                    <h2 class="govuk-heading-m">What we’ll do with this information</h2>
+                    <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
+                    <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>                                            
+
+                    {% if data.participants[id].switchProgramme %}
+                        {% include "includes/confirmation_transfer_switch.html" %}
+                    {% else %}
+                        <!-- Checked over and simplified -->
+                        {% include "includes/confirmation_transfer.html" %}
+                    {% endif %}
+
+                    <p>Contact us if you need to make any changes: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>            
+
+                    <h2 class="govuk-heading-m">Remember to:</h2>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Report this transfer to your appropriate body. They need to complete some checks and update {{ participant.name }}’s record with the Teaching Regulation Agency (TRA).</li>
+                        {% if data['inductionProgramme'] == "FIP" %}
+                        <li>Confirm this transfer directly with your training programme provider.</li>
+                        {% endif %} 
+                        <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                    </ol>
+
+                {% elif data.participants[id].type == "mentor" %}
+                    
+                    <br>Mentor</p>
+                    {% include "includes/confirmation_mentor.html" %}
+                    <!-- Hi Brian, As a temporary fix, we could add some information prompting the SIT to assign this new mentor 
             on the ‘[Mentor name] has been added as a mentor’ confirmation page - but I’m also wondering if this confirmation 
             content needs details of TRN / DOB requests and eligibility checks, same as the ECT confirmation content. -->                           
-                        
-            <!--- ECT -->
-            {% elif data.participants[id].type == "ect" %}
 
-                ECT
-                {% include "includes/confirmation_ect.html" %}
-
-            <!-- ECT transferring -->                          
-            {% elif data.participants[id].type == "ectTransfer" %}
-
-            ECT Transfer
-
-                <h2 class="govuk-heading-m">What we’ll do with this information</h2>
-                <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
-                <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>                                            
-
-                {% if data.participants[id].switchProgramme %}
-                    {% include "includes/confirmation_transfer_switch.html" %}
-                {% else %}
-                    <!-- Checked over and simplified -->
-                    {% include "includes/confirmation_transfer.html" %}
                 {% endif %}
 
-                <p>Contact us if you need to make any changes: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>            
 
-                <h2 class="govuk-heading-m">Remember to:</h2>
-                <ol class="govuk-list govuk-list--number govuk-list--spaced">
-                    <li>Report this transfer to your appropriate body. They need to complete some checks and update {{ participant.name }}’s record with the Teaching Regulation Agency (TRA).</li>
-                    {% if data['inductionProgramme'] == "FIP" %}
-                    <li>Confirm this transfer directly with your training programme provider.</li>
-                    {% endif %} 
-                    <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
-                </ol>
+            {% elif data.participants[id].trnKnown == "No" %}
 
-            {% endif %}            
+                <p>No TRN
+
+                {% if data.participants[id].type == "ect" %}
+                <br>ECT</p>
+
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    <p>We’ll ask them to use this service to tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>full name</li>
+                        <li>date of birth</li>
+                        <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>
+                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
+
+
+                {% elif data.participants[id].type == "ectTransfer" %}
+                <br>Transfer</p>
+
+                {% elif data.participants[id].type == "mentor" %}
+                <br>Mentor</p>
+                <h2 class="govuk-heading-m">What happens next</h2>
+                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
+                    <p>We’ll ask them to use this service to tell us their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>full name</li>
+                        <li>date of birth</li>
+                        <li>teacher reference number (TRN) or National Insurance number</li>
+                    </ul>
+                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
+
+                {% endif %}
+
+            {% endif %}
+            
+            
+            
+            
+                      
             
 
-            
+            <!-- /////////////////////// -->
             
             <ul class="govuk-list">
-                {% if data.participants[id].type == "ect" %}
+                {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
                 <li><a class="govuk-link govuk-link--no-visited-state" href="#">Assign a mentor to this ECT</a></li>
                 {% endif %}
                 <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
