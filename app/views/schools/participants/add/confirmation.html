@@ -57,7 +57,7 @@
 {% else %}
     {% if data.participants[id].type == "sitMentor" %}   
 
-        {% set pageHeading = '' + participant.name +  ' has been added as an ECT Brian' %}
+        {% set pageHeading = 'You’re registered and eligible for DfE-funded mentor training' %}
 
     {% elif data.participants[id].type == "ect" %}   
         {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
@@ -190,6 +190,26 @@
                     <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
 
                 {% endif %}
+
+            {% else %}
+
+                {% if data.participants[id].type == "sitMentor" %}   
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+                    <p>You’re now registered for DfE-funded mentor training to support ECTs.</p>
+                    <p>We’ll pass your information to your school’s training provider. They’ll contact you directly with more information about your programme.</p>
+                    <p>You should receive:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>ECF-based mentor training</li>
+                        <li>adequate time to take part in training</li>
+                    </ul>
+
+                    <h2 class="govuk-heading-m">Where to find help and information</h2>
+                    <p>You can <a href="https://manage-training-for-early-career-teachers.education.gov.uk/pages/mentor-additional-information" target="_blank" >read our guidance for mentors (link opens in a new tab)</a>.</p>
+
+
+                {% endif %}
+
 
             {% endif %}
             
