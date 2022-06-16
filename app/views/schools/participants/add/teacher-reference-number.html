@@ -122,6 +122,13 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'ineligible']) ) }}
 
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "Yes", text: "Exempt from induction" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'exempt']) ) }}
+
 
 
                     {% elif data.participants[id].type == "ectTransfer" %}
