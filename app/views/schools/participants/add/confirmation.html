@@ -24,9 +24,13 @@
 
     {% if data.participants[id].type == "ect" %}    
         <!-- FIP and CIP -->
-        {% if data.participants[id].noQTS == "Yes" %}    
+        {% if data.participants[id].competedInduction == "Yes" %}
+            {% set pageHeading = '' + participant.name +  '  is not eligible for funded ECF-based training during their induction' %}
+        {% elif data.participants[id].noQTS == "Yes" %}    
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s qualified teacher status' %}
-        {% elif data.participants[id].dbMatched == "Yes" %}   
+        {% elif data.participants[id].regInduction == "No" %}   
+            {% set pageHeading = '' + participant.name +  ' has been added - now check their induction is registered' %}
+        {% elif ((data.participants[id].dbMatched == "Yes") or (data.participants[id].ineligible == "Yes")) %}   
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s details' %}
         {% else %}        
             {% set pageHeading = '' + participant.name +  ' is registered and eligible for ECF-based training' %}
@@ -34,9 +38,10 @@
 
     {% elif data.participants[id].type == "mentor" %}
 
-    
+        {% if ((data.participants[id].eroMultiMentor == "Yes") or (data.participants[id].eroMentor == "Yes")) %} 
+            {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}
         <!-- Different title for CIP over FIP for mentor -->
-        {% if data.participants[id].dbMatched == "Yes" %}   
+        {% elif data.participants[id].dbMatched == "Yes" %}   
             {% set pageHeading = 'We’re checking ' + participant.name +  '’s details' %}
         {% else %}
 
@@ -80,9 +85,14 @@
                 {% if data.participants[id].type == "ect" %}
                 
                     <br>ECT</p>
-                    {% if data.participants[id].noQTS == "Yes" %} 
+                    {% if data.participants[id].competedInduction == "Yes" %}
+                        {% include "includes/confirmation_CompletedInductionECT.html" %}
+                    {% elif data.participants[id].noQTS == "Yes" %} 
                         {% include "includes/confirmation_noQTSECT.html" %}
-
+                    {% elif data.participants[id].regInduction == "No" %}  
+                        {% include "includes/confirmation_NoRegInduction.html" %}
+                    {% elif data.participants[id].ineligible == "Yes" %} 
+                        {% include "includes/confirmation_IneligibleECT.html" %}
                     {% elif data.participants[id].dbMatched == "Yes" %} 
                         {% include "includes/confirmation_noMatchECT.html" %}
                     {% else %}
@@ -119,7 +129,12 @@
                 {% elif data.participants[id].type == "mentor" %}
                     
                     <br>Mentor</p>
-                    {% if data.participants[id].dbMatched == "Yes" %} 
+
+                    {% if data.participants[id].eroMentor == "Yes" %}
+                        {% include "includes/confirmation_EROMentor.html" %}
+                    {% elif data.participants[id].eroMultiMentor == "Yes" %} 
+                        {% include "includes/confirmation_EligibleMultiSchoolECT.html" %}
+                    {% elif data.participants[id].dbMatched == "Yes" %} 
                         {% include "includes/confirmation_NoMatchMentor.html" %}
                     {% else %}
                         {% include "includes/confirmation_EligibleMentor.html" %}
@@ -179,7 +194,9 @@
             
             <ul class="govuk-list">
                 {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
+                    {% if not data.participants[id].competedInduction %}
                 <li><a class="govuk-link govuk-link--no-visited-state" href="#">Assign a mentor to this ECT</a></li>
+                    {% endif %}
                 {% endif %}
                 <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
             </ul>
