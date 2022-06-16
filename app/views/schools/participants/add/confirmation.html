@@ -49,7 +49,10 @@
 <!-- TRN not known -->
 {% else %}
     {% if data.participants[id].type == "sitMentor" %}   
-        {% if data['inductionProgramme'] == "FIP" %}
+
+        {% if data.participants[id].ineligible == "Yes" %}
+            {% set pageHeading = 'We’re checking your details' %}
+        {% elif data['inductionProgramme'] == "FIP" %}
             {% set pageHeading = 'You’re registered and eligible for DfE-funded mentor training' %}
         {% elif data['inductionProgramme'] == "CIP" %}
             {% set pageHeading = 'You’re registered to mentor ECTs' %}
@@ -186,8 +189,11 @@
 
                 {% if data.participants[id].type == "sitMentor" %}   
 
-                    {% include "includes/confirmation_sitMentor.html" %}
-                    
+                    {% if data.participants[id].ineligible == "Yes" %}
+                        {% include "includes/confirmation_IneligiblesitMentor.html" %}                    
+                    {% else %}
+                        {% include "includes/confirmation_sitMentor.html" %}                    
+                    {% endif %}
 
                 {% endif %}
 
