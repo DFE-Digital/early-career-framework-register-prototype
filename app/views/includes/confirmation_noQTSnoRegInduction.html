@@ -1,0 +1,34 @@
+<h2 class="govuk-heading-m">Eligibility for funding</h2>
+
+<h3 class="govuk-heading-s">Their induction has not been registered yet</h3>
+<p>Your appropriate body must register {{ participant.name }}’s induction with the Teaching Regulation Agency (TRA).</p>
+<p>This is an important step to make sure funding is in place for their statutory induction and ECF-based training.</p>
+<p>Contact your appropriate body directly to arrange this.</p>
+
+<h3 class="govuk-heading-s">They do not have qualified teacher status (QTS) yet</h3>        
+<p class="govuk-body">{{ participant.name }} needs this to be eligible for funded training.</p>
+<p>We’ll keep checking their status. You can sign in to your account to see if things have changed.</p>
+<p>{{ participant.name }} does not need to provide us with any more information.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>    
+{% if data['inductionProgramme'] == "FIP" %}        
+    <p>We’ll pass {{ participant.name }}’s information to their training provider. This means they’ll be ready to start once we confirm their eligibility.</p>
+    <p>If eligible, they should receive:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>ECF-based training</li>
+        <li>mentoring</li>
+        <li>time off timetable to take part in training and mentoring sessions</li>
+    </ul>
+
+{% elif data['inductionProgramme'] == "CIP" %}    
+
+    <p>They’ll receive a link to their training materials within the next 24 hours. This means they’ll be ready to start once we confirm their eligibility.</p>
+    <p>If they do not receive anything, they should check their spam or junk folder.</p>
+    <p>If eligible, they should receive:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>ECF-based training</li>
+        <li>mentoring</li>
+        <li>time off timetable to take part in training and mentoring sessions</li>
+    </ul>
+
+{% endif %}

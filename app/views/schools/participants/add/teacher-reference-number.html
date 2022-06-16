@@ -69,6 +69,13 @@
                     {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 
 
+                    {{ govukCheckboxes({
+                        classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                        items: [
+                            { value: "No", text: "No induction registered" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'regInduction']) ) }}
+
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
@@ -94,9 +101,37 @@
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
                             items: [
-                                { value: "Yes", text: "ERO or mentor at multiple schools" }
+                                { value: "Yes", text: "Mentor at multiple schools" }
                             ]
                         } | decorateFormAttributes(['participants', id, 'eroMultiMentor']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Yes", text: "ERO" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'eroMentor']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "Yes", text: "Completed induction" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'competedInduction']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "Yes", text: "Ineligible (Active flags)" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'ineligible']) ) }}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "Yes", text: "Exempt from induction" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'exempt']) ) }}
 
 
 

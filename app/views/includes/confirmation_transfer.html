@@ -1,7 +1,7 @@
     <!-- NO match -->
     {% if data.participants[id].trainingMatch == "No" %}
         
-        {% if data['induction-programme'] == "FIP" %}                
+        {% if data['inductionProgramme'] == "FIP" %}                
             <!-- Will teacher continue on their different training to the schools -->
             {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
                 <p>We’ll let your provider know about the transfer. They’ll advise how {{ participant.name }} should transfer onto their programme.</p>
