@@ -131,9 +131,9 @@
       {% if data['registering'] == "Yes" %}
         <!-- Giving us your registration details to confirm you are eligible -->
         {% if data['participantType'] == "ECT" %}
-          <form method="post" action="schools/participants/register/teacher-reference-number" >
+          <form method="post" action="/schools/participants/register/teacher-reference-number" >
         {% else %}
-          <form method="post" action="schools/participants/register/have-trn" >
+          <form method="post" action="/schools/participants/register/have-trn" >
         {% endif %}
       {% else %}
         <form method="post" action="schools/training-programme/" >

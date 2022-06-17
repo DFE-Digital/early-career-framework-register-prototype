@@ -45,11 +45,15 @@
           			classes: "govuk-!-width-two-thirds"
         		} | decorateFormAttributes('register-teacher-reference-number')) }}
 
-        		<p class="govuk-body govuk-!-margin-bottom-7"><a href="national-insurance-number">Cannot find your TRN?</a></p>
+        		
 
+				<div class="govuk-button-group">
             	{{ govukButton({
               		text: "Continue"
             	}) }}
+
+				<p class="govuk-body"><a href="national-insurance-number">Cannot find your TRN?</a></p>
+				</div>
 
       		</form>
     	</div>
