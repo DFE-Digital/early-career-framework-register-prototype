@@ -25,7 +25,7 @@ module.exports = {
     leadProviderMaterialsTransfer: "Education Development Trust",
     linkExpire: '2 March 2022',
     expiryTime: '1pm',
-    inductionProgramme: "",
+    inductionProgramme: "FIP",
     fipPartnership: "",
     // rolesexplanation: "Seen",
     participants: {
