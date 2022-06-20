@@ -23,7 +23,6 @@ module.exports = {
     deliveryPartnerTransfer: "Inspire Teaching School Hub",
     leadProviderMaterials: "Teach First",
     leadProviderMaterialsTransfer: "Education Development Trust",
-    inductionStart: 'Spring 2022',
     linkExpire: '2 March 2022',
     expiryTime: '1pm',
     inductionProgramme: "",
@@ -32,7 +31,7 @@ module.exports = {
     participants: {
         ME1: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", usingCurrentTraining: "Yes" },
         ME2: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", name: 'James Doe', email: 'james.doe@example.com', type: 'mentor', programme: "FIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", usingCurrentTraining: "Yes" },
-        DN2: { cohort2021: "Yes", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", name: 'Tony Headford', email: "noTRNsLPdDP@test.dfe.gov.uk", type: "mentor", programme: "FIP", startDate: "Autumn 2021", status: "Eligible", trnKnown: "Yes", trnNumber: "8974264", usingCurrentTraining: "Yes" },
+        DN2: { cohort2021: "Yes", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", name: 'Tony Headford', email: "noTRNsLPdDP@test.dfe.gov.uk", type: "mentor", programme: "FIP", startDate: "Autumn 2021", status: "Contacted", trnKnown: "No", usingCurrentTraining: "Yes" },
 
         // CIP
         SI3: { cohort2021: "Yes", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "steven.woods@test.dfe.gov.uk", mentor: "Fabio Volpe", name: "Steven Woods", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "1231312", type: "ect", usingCurrentMaterials: "Yes" },

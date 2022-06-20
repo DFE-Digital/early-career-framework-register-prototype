@@ -22,24 +22,25 @@
                 {% if ((data['inductionProgramme'] == "FIP") or (data['NewYearInductionProgramme'] == "FIP")) %}
 
                     <!-- Check to see if there are any ECT that have status contacted -->
-                    {% if hasAnyContactedValidate %}
+                    {% if hasAnyContacted %}
                         <table class="govuk-table govuk-!-margin-bottom-9">
                             {% include "includes/validate_fip_head.html" %}
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     {% if participant.status == "Contacted" and participant.programme == "FIP" %}
                                         <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell "><a href="/schools/validate/{{ id }}/" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+                                            <td class="govuk-table__cell "><a href="/schools/validate/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>
+
                     {% endif %}
                 {% elif ((data['inductionProgramme'] == "CIP") or (data['NewYearInductionProgramme'] == "CIP")) %}
-                    {% if hasAnyContactedValidateCIP %}
+                    {% if hasAnyContacted %}
                         <table class="govuk-table govuk-!-margin-bottom-9">
-                            {% include "includes/dash_cip_head.html" %}
+                            {% include "includes/validate_fip_head.html" %}
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     {% if participant.status == "Contacted" and participant.programme == "CIP" %}
