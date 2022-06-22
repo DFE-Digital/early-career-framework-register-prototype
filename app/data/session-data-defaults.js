@@ -26,7 +26,7 @@ module.exports = {
     linkExpire: '2 March 2022',
     expiryTime: '1pm',
     inductionProgramme: "FIP",
-    fipPartnership: "",
+    fipPartnership: "Yes",
     // rolesexplanation: "Seen",
     participants: {
         ME1: { cohort2021: "Yes", inductionDay: "3", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", name: 'Jane Doe', email: 'jane.doe@example.com', type: 'mentor', programme: "CIP", status: 'Eligible', programme: "FIP", startDate: "Autumn 2021", usingCurrentTraining: "Yes" },

@@ -19,16 +19,6 @@ module.exports = router => {
     res.render('schools/participants/what-each-person-does')
   })
 
-  router.all('/schools/participants/contacted-user-list', (req, res) => {
-    res.render('schools/participants/contacted-user-list')
-  })
-
-  router.all('/participants/validate', (req, res, next) => {
-    const participants = req.session.data.participants
-    res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
-    next()
-  })
-
   router.all('/schools/participants', (req, res, next) => {
     const participants = req.session.data.participants
     res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
@@ -87,35 +77,31 @@ module.exports = router => {
     next()
   })
 
-//   Generates new participant ID for an ECT, Mentor or transfer
+  // Generates new participant ID for an ECT, Mentor or transfer
   router.all('/schools/participants/add', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/who-do-you-want-to-add`)
   })
 
-//   Generates new participant ID for SIT as a mentor
+  // Generates new participant ID for SIT as a mentor
   router.all('/schools/participants/add/yourself-as-a-mentor', (req, res) => {
     res.redirect(`/schools/participants/${generateRandomString()}/add/yourself-as-a-mentor`)
   })
 
 
 
+  router.all('/schools/participants/:id/add/:view', (req, res) => {
+    res.render(`schools/participants/add/${req.params.view}`)
+  })
 
-
-
-router.all('/schools/participants/:id', (req, res) => {
-    res.render('schools/participants/details')
-})
-
+  router.all('/schools/participants/:id/add/type', (req, res, next) => {
+    const participants = req.session.data.participants
+    next()
+  })
 
 
   router.all('/schools/participants/:id/add/email-address', (req, res, next) => {
     const participants = req.session.data.participants
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
-    next()
-  })
-
-  router.all('/schools/participants/:id/add/type', (req, res, next) => {
-    const participants = req.session.data.participants
     next()
   })
 
@@ -141,11 +127,16 @@ router.all('/schools/participants/:id', (req, res) => {
     next()
   })
 
-  router.all('/schools/participants/:id/add/:view', (req, res) => {
-    res.render(`schools/participants/add/${req.params.view}`)
+  // Details page for a participant
+  router.all('/schools/participants/:id', (req, res) => {
+    res.render('schools/participants/details')
   })
 
+  router.all('/support/participants/:id/details/:view', (req, res) => {
+    res.render(`support/participants/details/${req.params.view}`)
+  })
 
+  // Transfer a participant
   router.all('/schools/participants/:id/transfer/', (req, res) => {
     res.render('schools/participants/transfer/index')
   })
@@ -154,7 +145,7 @@ router.all('/schools/participants/:id', (req, res) => {
     res.render(`schools/participants/transfer/${req.params.view}`)
   })
 
-
+  // Remove a participant
   router.all('/schools/participants/:id/remove/', (req, res) => {
     res.render('schools/participants/remove/confirm')
   })
@@ -163,19 +154,16 @@ router.all('/schools/participants/:id', (req, res) => {
     res.render(`schools/participants/remove/${req.params.view}`)
   })
 
-  router.all('/support/participants/:id/', (req, res) => {
-    res.render('support/participants/details')
-})
-router.all('/support/participants/:id/details/:view', (req, res) => {
-    res.render(`support/participants/details/${req.params.view}`)
-})
 
+  // User validation
+  router.all('/participants/validate', (req, res, next) => {
+    const participants = req.session.data.participants
+    res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
+    next()
+  })
 
-router.all('/participants/validate/:id/', (req, res) => {
-    res.render('participants/validate/email')
-})
-
-
-
+  router.all('/participants/validate/:id/:view', (req, res) => {
+    res.render(`participants/validate/${req.params.view}`)
+  })
 
 }
