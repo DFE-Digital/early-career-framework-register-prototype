@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Do you want to stay with ' + data.leadProvider + '?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">The change will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+
+            <form class="form" action="new-page" method="post" >
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",
+                        fieldset: {
+                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "Yes", text: "Yes" },
+                            { value: "No", text: "No" }                            
+                        ]
+                    } | decorateFormAttributes('newYearStayLeadProvider')) }}
+                
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

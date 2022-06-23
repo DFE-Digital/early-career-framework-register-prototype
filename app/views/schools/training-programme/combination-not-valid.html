@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "This combination of delivery partner and lead provider are no longer working together" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            
+            <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} are no longer working together to provide ecf-based training.</p>
+            <p>This means you will need to choose to keep your lead provider for the next academic year or choose a new provider and delivery partner.</p>
+
+            
+                <form class="form" action="/schools/training-programme/lead-provider" method="post" >            
+
+                
+
+                <!-- Just for dashboard to remove the NoECT that we set on previous page -->
+				<input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="FIP" />
+
+                {{ govukButton({
+                    text: "Accept and continue"
+                }) }}
+
+          </form>
+      </div>
+  </div>
+
+{% endblock %}
