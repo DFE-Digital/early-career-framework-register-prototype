@@ -173,4 +173,28 @@ router.all('/support/participants/:id/details/:view', (req, res) => {
     res.render(`support/participants/details/${req.params.view}`)
 })
 
+// User validation
+router.all('/participants/validate', (req, res, next) => {
+  const participants = req.session.data.participants
+  res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
+  next()
+})
+
+router.all('/participants/validate/:id/:view', (req, res) => {
+  res.render(`participants/validate/${req.params.view}`)
+})
+
+
+// User validation
+router.all('/participants/change', (req, res, next) => {
+  const participants = req.session.data.participants
+  res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
+  next()
+})
+
+router.all('/participants/change/:id/:view', (req, res) => {
+  res.render(`participants/change/${req.params.view}`)
+})
+
+
 }
