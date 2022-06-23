@@ -3,9 +3,9 @@
 
 
 {% if data.participants[id].type == "ect" %}
-    {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s new induction start date? ' %}
 {% elif data.participants[id].type == "mentor" %}
-    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+    {% set pageHeading = 'What new date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
 
 
@@ -25,17 +25,8 @@
                 {# <p>This is the date when the mentor’s induction programme formally starts.</p> #}
             {% endif %}
 
-                    {# Removed as part of the multiple cohort mentor work #}
-                    {# {% if hasMentors %}
-                        <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
-                    {% else %} #}
-
-                {% if data['abName'] %}
-                    <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
-                {% else %}
-                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-                {% endif %}
-                    {# {% endif %} #}
+                    
+            <form class="form" action="/schools/participants/{{ id }}" method="post" class="govuk-!-margin-bottom-8">                    
 
 
 
