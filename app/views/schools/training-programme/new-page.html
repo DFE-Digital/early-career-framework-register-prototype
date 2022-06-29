@@ -1,10 +1,15 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
+
+<!-- NOT SURE THIS PAGE IS THE BEST OPTION, prefer to adapt previous page and use existing pathways. 
+
+BELOW IS MY ATTEMPT AT USING YOUR TEMPLATE FOR THIS PAGE, BRIAN, BUT I THINK WITH THE ADDITION OF CIP AND FIP AS OPTIONS, IT WAS GETTING MESSY. -->
+
 {% if data['newYearStayLeadProvider'] == "Yes" %}
-    {% set pageHeading = "Keep lead provider" %}
+    {% set pageHeading = 'To use ' + data.leadProvider + ' with another delivery partner' %}
 {% elif data['newYearStayLeadProvider'] == "No" %}
-    {% set pageHeading = "Not staying with lead provider" %}
+    {% set pageHeading = "How to use another delivery method for training starting in the 2022 to 2023 academic year" %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,17 +24,22 @@
                 
                 {% if data['newYearStayLeadProvider'] == "Yes" %}
 
-                    <p>Show new content + possible below info</p>
-
-                    <p>{{ data.deliveryPartner }} will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-                <p>They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however.</p>
+                    <p class="govuk-body">Contact {{ data.leadProvider }} as soon as possible.</p>
+                    <p class="govuk-body">They'll arrange a new delivery partner for the ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body">{{ data.leadProvider }} will then report the new partnership to us, so we can make sure your school receives the correct funding.</p>
 
                 {% elif data['newYearStayLeadProvider'] == "No" %}
 
-                    <p>Show new content + possible below info</p>
+                    <h2 class="govuk-heading-m">To use a different lead provider and delivery partner</h2>
 
-                    <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to deliver training for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-                    <p>They can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year however.</p>
+                    <p>Contact the lead provider as soon as possible.</p>
+                    <p>They'll arrange a new delivery partner for the ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body">Your new lead provider will then report the new partnership to us and we'll make sure your school receives the correct funding.</p>
+
+                    <h2 class="govuk-heading-m">To deliver your own programme using DfE-accredited materials, or design and deliver your own programme</h2>
+
+                    <p>Read about these options in our <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#option-2">guidance for schools (opens in new tab)</a>.</p>
+                    <p>You'll need to use this service to tell us which delivery method you've chosen, so we can make sure your school receives the correct funding.</p>
 
                 {% endif %}
 
@@ -47,4 +57,6 @@
 
         </div>
     </div>
+
 {% endblock %}
+
