@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "This combination of delivery partner and lead provider are no longer working together" %}
+{% set pageHeading = "You cannot choose this combination of lead provider and delivery partner for your new ECTs and their mentors" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,9 +13,15 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             
-            <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} are no longer working together to provide ecf-based training.</p>
-            <p>This means you will need to choose to keep your lead provider for the next academic year or choose a new provider and delivery partner.</p>
-
+            <p class="govuk-body">This is because {{ data.deliveryPartner }} will stop working with {{ data.leadProvider }} at the end of the 2022 to 2023 academic year.</p>
+            <h2 class="govuk-heading-m">Your options</h2>
+            <p>To arrange ECF-based training and mentor training to start in the 2022 to 2023 academic year, you can:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>stay with {{ data.leadProvider }} and choose another delivery partner</li>
+                <li>choose a different lead provider and delivery partner</li>
+                <li>use another delivery method - either using DfE-accredited materials or designing and delivering your own programme based on the ECF</li>
+            </ul>
+            
             
                 <form class="form" action="/schools/training-programme/lead-provider" method="post" >            
 
