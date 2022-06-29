@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-<!-- THINK WE COULD USE OR ADAPT PART OF THE EXISTING JOURNEY HERE, SPECIFICALLY "why-are-you-changing.html"
-
-We also need to include the option to switch to accredited materials or design and deliver their own programme, so a straight Y/N option doesn't really work -->
-
 {% set pageHeading = 'Will you use ' + data.leadProvider + ' with an alternative delivery partner?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
