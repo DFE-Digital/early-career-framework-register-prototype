@@ -107,7 +107,7 @@
                 {% endif %}
             {% endif %}
 
-            <form method="post" action="/schools/appropriate-body/" >
+            <form method="post" action="/schools/appropriate-body" >
                 <!-- This will assign correct induction programme to new academic year -->
                 {% if ((data['newYearChangeWhat'] == "switchFIP") or (data['NewYearHowRun'] == "FIP" )) %}
                     <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="FIP" />
