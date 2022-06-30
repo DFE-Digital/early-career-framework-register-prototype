@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYearStayLeadProvider'] == "Yes" %}
-    {% set pageHeading = 'What to do next' %}
+    {% set pageHeading = 'What you need to do' %}
 {% elif data['newYearStayLeadProvider'] == "No" %}
-    {% set pageHeading = "What to do next" %}
+    {% set pageHeading = "What you need to do" %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -20,7 +20,7 @@
                 {% if data['newYearStayLeadProvider'] == "Yes" %}
 
                     <p class="govuk-body">Contact {{ data.leadProvider }} as soon as possible.</p>
-                    <p class="govuk-body">They'll arrange a new delivery partner for the ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body">They'll arrange a new delivery partner for your ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
                     <p class="govuk-body">{{ data.leadProvider }} will then report the new partnership to us, so we can make sure your school receives the correct funding.</p>
 
                 {% elif data['newYearStayLeadProvider'] == "No" %}
@@ -28,8 +28,8 @@
                     
 
                     <p>Contact your chosen lead provider as soon as possible.</p>
-                    <p>They'll arrange a new delivery partner for the ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
-                    <p class="govuk-body">Your new lead provider will then report the new partnership to us and we'll make sure your school receives the correct funding.</p>
+                    <p>They'll arrange a new delivery partner for your ECF-based training and mentor training starting in the 2022 to 2023 academic year.</p>
+                    <p class="govuk-body">Your new lead provider will then report the partnership to us. We'll then make sure your school receives the correct funding.</p>
 
                     
 

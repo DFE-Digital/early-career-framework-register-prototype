@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "You cannot choose this combination of lead provider and delivery partner for your new ECTs and their mentors" %}
+{% set pageHeading = "You cannot use this combination of lead provider and delivery partner for your new ECTs and their mentors" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,11 +13,11 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             
-            <p class="govuk-body">This is because {{ data.deliveryPartner }} will stop working with {{ data.leadProvider }} [new registrations].</p>
+            <p class="govuk-body">This is because {{ data.deliveryPartner }} will no longer be a delivery partner for {{ data.leadProvider }}.</p>
             <p>For ECTs and mentors starting training in the 2022 to 2023 academic year, you can either use:</p>
             <ul class="govuk-list govuk-list--bullet">
-                <li>your current lead provider {{ data.leadProvider }} with an alternative delivery partner</li>
-                <li>a different lead provider and delivery partner</li>
+                <li>your lead provider {{ data.leadProvider }} with another delivery partner</li>
+                <li>another combination of lead provider and delivery partner</li>
             </ul>
             
             
