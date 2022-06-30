@@ -3,7 +3,7 @@
 
 
 {% if data.participants[id].type == "ect" %}
-    {% set pageHeading = 'What’s ' + participant.name + '’s new induction start date? ' %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s correct induction start date? ' %}
 {% elif data.participants[id].type == "mentor" %}
     {% set pageHeading = 'What new date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
@@ -20,7 +20,7 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if data.participants[id].type == "ect" %}
-                <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
+                <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
             {% elif data.participants[id].type == "mentor" %}
                 {# <p>This is the date when the mentor’s induction programme formally starts.</p> #}
             {% endif %}
