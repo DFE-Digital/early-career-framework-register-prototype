@@ -13,13 +13,16 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             
-            <p class="govuk-body">This is because {{ data.deliveryPartner }} will no longer be a delivery partner for {{ data.leadProvider }}.</p>
+            <p class="govuk-body">This is because {{ data.deliveryPartner }} will not be continuing as a delivery partner for {{ data.leadProvider }}.</p>
             <p>For ECTs and mentors starting training in the 2022 to 2023 academic year, you can either use:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>your lead provider {{ data.leadProvider }} with another delivery partner</li>
                 <li>another combination of lead provider and delivery partner</li>
             </ul>
-            
+
+            <div class="govuk-inset-text">
+            ECTs and mentors who started training in the 2021 to 2022 academic year can continue with {{ data.leadProvider }} and {{ data.deliveryPartner }}.</p>
+            </div>
             
                 <form class="form" action="/schools/training-programme/lead-provider" method="post" >            
 
