@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'You cannot change ' + participant.name +'’s name' %}
+{% set pageHeading = 'You cannot edit ' + participant.name +'’s name' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,9 +17,9 @@
             {% if data.participants[id].reasonChangeName == "Registered by mistake" %}
                 
                 {% if data.participants[id].type == "ect" %}
-                    <p>If {{ participant.name }} is no longer completing their ECF induction at your school, you <a href="/schools/participants/{{ id }}/remove/confirm">need to remove them from this service</a>.</p>
+                    <p>If {{ participant.name }} is not serving their induction at your school, you need to <a href="/schools/participants/{{ id }}/remove/confirm">remove them from this service</a>.</p>
                 {% elif data.participants[id].type == "mentor" %}
-                    <p>If {{ participant.name }} is no longer mentoring at your school, you need to remove them from this service.</p>
+                    <p>If {{ participant.name }} will not be mentoring at your school, you need to remove them from this service.</p>
                 {% endif %}                
 
             {% elif data.participants[id].reasonChangeName == "Not started employment" %}
@@ -27,14 +27,14 @@
                 {% if data.participants[id].type == "ect" %}
                     <p>You need to register the new ECT separately. This is so that:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>we can check their eligibility for funded training</li>
-                        <li>their training is recorded against their own teacher reference number (TRN)</li>
+                        <li>we can check their eligibility for DfE funding for ECF-based training and mentor support</li>
+                        <li>their training can be recorded against the correct teacher reference number (TRN)</li>
                     </ul>
                     <p><a href="/schools/participants/add/">Add a new ECT</a></p>
 
                 {% elif data.participants[id].type == "mentor" %}
                     
-                    <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
+                    <p>You need to register the new mentor separately. This is so we can confirm their eligibility for DfE funding.</p>
                     <p><a href="../add/name?participantType=mentor">Add a new mentor</a></p>
 
                 {% endif %}                
