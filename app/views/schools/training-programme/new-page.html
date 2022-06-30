@@ -2,9 +2,9 @@
 {% set schoolSignedIn = true %}
 
 {% if data['newYearStayLeadProvider'] == "Yes" %}
-    {% set pageHeading = 'To use ' + data.leadProvider + ' with another delivery partner' %}
+    {% set pageHeading = 'What to do next' %}
 {% elif data['newYearStayLeadProvider'] == "No" %}
-    {% set pageHeading = "To use a different lead provider and delivery partner" %}
+    {% set pageHeading = "What to do next" %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
