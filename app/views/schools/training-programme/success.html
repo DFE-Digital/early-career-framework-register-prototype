@@ -103,24 +103,30 @@
                     {# <p><a href="../how-to-set-up-your-programme">Read our step by step guidance (opens in new tab)</a> if you need more help.</p> #}
 
                 {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
+                
+                    <h2 class="govuk-heading-m">What to do next</h2>                    
+                    {% if data['abName'] %}
+                    <p>You need to design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a>.</p>
+                    {% else %}
 
-                    <h2 class="govuk-heading-m">What to do next</h2>
-                    <p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</li>
+                    <p>You need to:</p>                    
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a></li>
+                        <li>tell us which appropriate body you’ve appointed for your ECTs</li>
+                    </ul>
+                    {% endif %}
                     
-                            <!-- THis one -->
-
+                    <p>You do not need to register your ECTs and mentors on this service.</p>
+                    
                     {% if data['abName'] %}
                     <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
                     <ul class="govuk-list govuk-list--bullet">
                         <li>is based on the ECF</li>
                         <li>meets the statutory requirements</li>
-                    </ul>
-                    {% else %}
-
-                    
+                    </ul>                    
                     {% endif %}
 
-                    <p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>
+                    
                     <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank"> See our guidance collection (opens in new tab)</a> for more information about induction, training and support for ECTs.</p>
 
                 {% endif %}
@@ -163,22 +169,31 @@
                     <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
                 {# Programme is DIY #}
                 {% elif (data['inductionProgramme'] === "DYO") %}
-                    <h2 class="govuk-heading-m">What to do next</h2>
+                   
+                
+                <h2 class="govuk-heading-m">What to do next</h2>                    
+                {% if data['abName'] %}
+                <p>You need to design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a>.</p>
+                {% else %}
 
-                    
-                    <p>You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</li>
-                                                
-                        {% if not data['abName'] %}
-                        <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>is based on the ECF</li>
-                            <li>meets the statutory requirements</li>
-                        </ul>
-                        {% endif %}
+                <p>You need to:</p>                    
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a></li>
+                    <li>tell us which appropriate body you’ve appointed for your ECTs</li>
+                </ul>
+                {% endif %}
+                
+                <p>You do not need to register your ECTs and mentors on this service.</p>
+                
+                {% if data['abName'] %}
+                <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>is based on the ECF</li>
+                    <li>meets the statutory requirements</li>
+                </ul>                    
+                {% endif %}
 
 
-                    <p>You do not need to add information about your ECTs and mentors to this service.</p>
-                    <p><a class="govuk-link" href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects" class="govuk-link" rel="noreferrer noopener" target="_blank"> See our guidance collection (opens in new tab)</a> for more information about induction, training and support for ECTs.</p>
                 {% elif (data['inductionProgramme'] === "noECT") %}
                     <h2 class="govuk-heading-m">What to do next</h2>
                     <p>Your school will not receive any more messages about statutory inductions for ECTs until the next academic year.</p>
