@@ -21,7 +21,10 @@
             </ul>
 
             <div class="govuk-inset-text">
-            ECTs and mentors who started training in the 2021 to 2022 academic year can continue with {{ data.leadProvider }} and {{ data.deliveryPartner }}.</p>
+                {{ data.leadProvider }} and {{ data.deliveryPartner }} can continue delivering training to ECTs and mentors who started in the 2021 to 2022 academic year.
+
+
+            </p>
             </div>
             
                 <form class="form" action="/schools/training-programme/lead-provider" method="post" >            
@@ -32,7 +35,7 @@
 				<input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="FIP" />
 
                 {{ govukButton({
-                    text: "Accept and continue"
+                    text: "Continue"
                 }) }}
 
           </form>
