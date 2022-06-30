@@ -1,9 +1,8 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-<!-- Page heading for change induction start date = '' + participant.name + '’s induction start date has been changed to {start date variable} -->
-
 {% set pageHeading = '' + participant.name + '’s name has been changed to ' + participant.nameNew + '' %}    
+{% set pageHeading = '' + participant.name + '’s induction start date has been changed' %}    
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +12,7 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ govukPanel({
-                titleText: pageHeading,
+                titleText: pageHeading,                
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 

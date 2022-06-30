@@ -28,8 +28,6 @@
                     
             <form class="form" action="/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">                    
 
-
-
 				{{ govukDateInput({
 					id: 'session-date-induction',
 					fieldset: {
@@ -40,20 +38,17 @@
 					},
 					items: [
 						{
-							name: '[participants][' + id + '][inductionDay]',
-							value: data.participants[id]['inductionDay'],
+							name: '[participants][' + id + '][inductionDay]',							
 							classes: "govuk-input--width-2",
 							label: 'Day'
 						},
 						{
-							name: '[participants][' + id + '][inductionMonth]',
-							value: data.participants[id]['inductionMonth'],
+							name: '[participants][' + id + '][inductionMonth]',							
 							classes: "govuk-input--width-2",
 							label: 'Month'
 						},
 						{
-							name: '[participants][' + id + '][inductionYear]',
-							value: data.participants[id]['inductionYear'],
+							name: '[participants][' + id + '][inductionYear]',							
 							classes: "govuk-input--width-4",
 							label: 'Year'
 						}
