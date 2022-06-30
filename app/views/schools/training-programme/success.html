@@ -44,13 +44,14 @@
                         <p>They may contact you to confirm this.</p>
 
                         <h2 class="govuk-heading-m">What to do next</h2>
+                        
                         <p>As soon as possible:</p>
-                        <ul class="govuk-list govuk-list--number govuk-list--spaced">
+                        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
                             <li>confirm the change with your new lead provider
                             {% if not data['abName'] %}
                             <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                             {% endif %}
-                            <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding</li>
+                            <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
                             <li>use this service to tell us which mentor has been assigned to each ECT</li>
                         </ul>
 
@@ -58,7 +59,7 @@
 
                     {% else %}
                         <!-- Not looking to make any changes to their FIP training -->
-                        <h2 class="govuk-heading-m">What to do next</h2>
+                        <h2 class="govuk-heading-m">What to do next</h2>                        
                         <p class="govuk-body">As soon as possible:</p>
                         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
                             {% if not data['abName'] %}
@@ -76,13 +77,13 @@
 
                     <h2 class="govuk-heading-m">What to do next</h2>
                     <p>As soon as possible:</p>
-                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                    <ol class="govuk-list govuk-list--bullet govuk-list--spaced">
                         <li>Register with one of the 6 DfE-funded training providers. You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange the funding.</li>
                         {% if not data['abName'] %}
-                        <li>Tell us which appropriate body you’ve appointed for your ECTs.</li>
+                        <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                         {% endif %}
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">Add new ECTs and mentors to this service</a> so we can check their eligibility for DfE funding.</li>
-                        <li>Use this service to tell us which mentor has been assigned to each ECT.</li>
+                        <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
+                        <li>use this service to tell us which mentor has been assigned to each ECT</li>
                     </ol>
 
                     <p><a href="https://manage-training-for-early-career-teachers.education.gov.uk/how-to-set-up-your-programme" rel="noreferrer noopener" target="_blank">Read our step by step guidance (opens in new tab)</a> if you need more help.</p>
@@ -92,26 +93,33 @@
                     <h2 class="govuk-heading-m">What to do next</h2>
                     <p>As soon as possible:</p>
                     <ol class="govuk-list govuk-list--bullet govuk-list--spaced">
-                        <li><!--<a href="https://support-for-early-career-teachers.education.gov.uk/" rel="noreferrer noopener" target="_blank">-->choose the DfE-accredited materials you want to use - you may need to create an account to access the materials.</li>
-                        {# <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/which">Tell us which materials you want to use.</a></li> #}
-                        <li>tell us which materials you want to use.</li>
+                        <li>choose the DfE-accredited materials you want to use - you may need to create an account to access the materials</li>                                                
                         {% if not data['abName'] %}
-                        <li>tell us which appropriate body you’ve appointed for your ECTs.</li>
+                        <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                         {% endif %}
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">add the new ECTs and mentors</a> to this service so we can check their eligibility for DfE funding.</li>
-                        <li>use this service to tell us which mentor has been assigned to each ECT.</li>
+                        <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
+                        <li>use this service to tell us which mentor has been assigned to each ECT</li>
                     </ol>
                     {# <p><a href="../how-to-set-up-your-programme">Read our step by step guidance (opens in new tab)</a> if you need more help.</p> #}
 
                 {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
 
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    <p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Early Career Framework (ECF) (opens in new tab)</a>.</li>
+                    <p class="govuk-body">You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</li>
+                    
+                            <!-- THis one -->
+
+                    {% if data['abName'] %}
                     <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
                     <ul class="govuk-list govuk-list--bullet">
                         <li>is based on the ECF</li>
                         <li>meets the statutory requirements</li>
                     </ul>
+                    {% else %}
+
+                    
+                    {% endif %}
+
                     <p class="govuk-body">You do not need to add information about your ECTs and mentors to this service.</p>
                     <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank"> See our guidance collection (opens in new tab)</a> for more information about induction, training and support for ECTs.</p>
 
@@ -156,12 +164,17 @@
                 {# Programme is DIY #}
                 {% elif (data['inductionProgramme'] === "DYO") %}
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    <p>You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link" rel="noreferrer noopener" target="_blank">Early Career Framework (ECF) (opens in new tab)</a>.</li>
-                    <p>Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
+
+                    
+                    <p>You need to design a 2-year programme of support and training that covers every ‘learn that’ and ‘learn how to’ statement in the <a  href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</li>
+                                                
+                        {% if not data['abName'] %}
+                        <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
                         <ul class="govuk-list govuk-list--bullet">
                             <li>is based on the ECF</li>
                             <li>meets the statutory requirements</li>
                         </ul>
+                        {% endif %}
 
 
                     <p>You do not need to add information about your ECTs and mentors to this service.</p>
