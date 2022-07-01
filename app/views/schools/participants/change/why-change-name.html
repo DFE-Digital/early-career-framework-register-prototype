@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+    
+{% set pageHeading = 'Why do you need to edit ' + participant.name + '’s name?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            
+
+            <form method="post" action="name" >
+
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "Why do you need to edit NAME’s name", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                    { value: "Legal reason", text: "They’ve changed their name - for example, due to marriage or divorce" },
+                    { value: "Misspelt", text: "Their name has been entered incorrectly" },
+                    { value: "Registered by mistake, redirect(cannot-change)", text: "This teacher should not have been registered on this service" },
+                    { value: "Not started employment, redirect(cannot-change)", text: "I want to replace them with a different person" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'reasonChangeName']) ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+

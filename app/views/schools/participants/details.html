@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = '' + participant.name + '' %}
+{% if participant.nameNew %}
+    {% set pageHeading = '' + participant.nameNew + '' %}
+                        {% else %}                        
+                            {% set pageHeading = '' + participant.name + '' %}
+                        {% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,13 +20,19 @@
                 <!-- Name -->
                 <div class="govuk-summary-list__row {% if data.participants[id].status == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.nameNew %}
+                            {{ participant.nameNew }}
+                        {% else %}                        
+                            {{ participant.name }}
+                        {% endif %}
+                    </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions">
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            <a class="govuk-link" href="/schools/participants/{{ id }}/change/why-change-name?detailsChange=Name">Edit<span class="govuk-visually-hidden"> name</span></a>
                             <!-- <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>                             -->
                         {% endif %}
                     </dd>
@@ -73,9 +84,15 @@
                 {% if participant.email %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.emailCorrect %}
+                            {{ participant.emailCorrect }}
+                        {% else %}                        
+                            {{ participant.email }}
+                        {% endif %}
+                        </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/email-address?detailsChange=Email">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
                     {% endif %}
                 </div>
                 {% endif %}
@@ -88,22 +105,10 @@
                         {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
                     </dd>
                 </div>
-
-                <!-- Start date -->
-                {% if participant.startDate %}
-                <!-- <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Start term
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ participant.startDate }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
-                </div> -->
-                {% endif %}
-
+                
+                
                  <!-- Start date -->
-                {% if participant.startDate %}
+                {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         {% if data.participants[id].type == "ect" %}
@@ -113,9 +118,13 @@
                         {% endif %}
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% if participant.inductionDayCorrect %}
+                            {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
+                        {% else %}
+                            {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date?detailsChange=Date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
                 {% endif %}
 

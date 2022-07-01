@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What should we change their name to?' %}
+{% set pageHeading = 'What should we edit ' + participant.name + '’s name to?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,29 +13,15 @@
 
             <form class="form" action="confirmation" method="post">
 
-                <div class="govuk-form-group">
-                    <label class="govuk-label govuk-visually-hidden" for="event-name">Full name</label>
-                    
-                    {% if data['active-user'] == "ect-1" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-name" name="participant-1-name" type="text" value="" >
-                    {% elif data['active-user'] == "ect-2" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-name" name="participant-2-name" type="text" value="" >
-                    {% elif data['active-user'] == "mentor-1" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-name" name="participant-1-mentor-name" type="text" value="" >
-                    {% elif data['active-user'] == "mentor-2" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-mentor-name" name="participant-2-mentor-name" type="text" value="" >
-                    {% elif data['active-user'] == "sitMentor" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-sitmentor-name" name="participant-1-sitmentor-name" type="text" value="" >
-                    {% else %}
-                        <input class="govuk-input govuk-!-width-two-thirds" id="random-name" name="random-name" type="text" value="" >
-                    {% endif %}
-                                                                                                                    
-                </div>
-
-                <!-- Clears the reason so can be used again -->
-                <input type="hidden" name="change-name-reason" id="change-name-reason" value="" />
-                <input type="hidden" name="change-email-reason" id="change-email-reason" value="" />
-
+                {{ govukInput({
+                    label: {
+                        text: pageHeading,
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-!-width-two-thirds"
+                } | decorateFormAttributes(['participants', id, 'nameNew']) ) }}
+                
 
                 {{ govukButton({
                     text: "Continue"

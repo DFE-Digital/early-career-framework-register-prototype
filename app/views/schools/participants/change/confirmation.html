@@ -1,56 +1,13 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% if data['details-change-action'] == "change-email" %}
-
-    {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'Why do you need to edit Hugo Furst’s email address?' %}
-    {% else %}
-        {% if data['active-user'] == "ect-2" %}
-            {% set pageHeading = '' + data['participant-2-name'] + '’s email address has been changed' %}
-        {% elif data['active-user'] == "ect-1" %}
-            {% set pageHeading = '' + data['participant-1-name'] + '’s email address has been changed' %}
-        {% elif data['active-user'] == "mentor-1" %}
-            {% set pageHeading = '' + data['participant-1-mentor-name'] + '’s email address has been changed' %}
-        {% elif data['active-user'] == "mentor-2" %}
-            {% set pageHeading = '' + data['participant-2-mentor-name'] + '’s email address has been changed' %}
-        {% elif data['active-user'] == "sitMentor" %}
-            {% set pageHeading = 'Hugo Furst’s email address has been changed' %}
-        {% else %}
-            {% set pageHeading = '' + data['random-name'] + '’s email address has been changed' %}
-        {% endif %}
-    {% endif %}
-
-{% elif data['details-change-action'] == "change-name" %}
-
-    {% if data['induction-tutor'] == "Yes" %}
-        {% set pageHeading = 'Why do you need to edit Hugo Furst’s name?' %}
-    {% else %}
-        {% if data['active-user'] == "ect-1" %}
-            {% set pageHeading = '' + data['participant-1-name'] + '’s name has been changed' %}    
-        {% elif data['active-user'] == "ect-2" %}
-            {% set pageHeading = '' + data['participant-2-name'] + '’s name has been changed' %}        
-        {% elif data['active-user'] == "mentor-1" %}
-            {% set pageHeading = '' + data['participant-1-mentor-name'] + '’s name has been changed' %}
-        {% elif data['active-user'] == "mentor-2" %}
-            {% set pageHeading = '' + data['participant-2-mentor-name'] + '’s name has been changed' %}
-        {% elif data['active-user'] == "sitMentor" %}
-            {% set pageHeading = 'Hugo Furst’s name has been changed' %}
-        {% else %}
-            {% set pageHeading = '' + data['random-name'] + '’s name has been changed' %}
-        {% endif %}
-    {% endif %}
-
-{% elif data['details-change-action'] == "change-mentor" %}
-
-    {% if data['active-user'] == "ect-2" %}
-        {% set pageHeading = '' + data['participant-2-name'] + '’s mentor has been assigned' %}
-    {% elif data['active-user'] == "ect-1" %}
-        {% set pageHeading = '' + data['participant-1-name'] + '’s mentor has been assigned' %}
-    {% endif %}
-
+{% if data['detailsChange'] == "Email" %}
+    {% set pageHeading = '' + participant.name + '’s email address has been updated' %}    
+{% elif data['detailsChange'] == "Name" %}
+    {% set pageHeading = '' + participant.name + '’s name has been edited to ' + participant.nameNew + '' %}    
+{% elif data['detailsChange'] == "Date" %}
+    {% set pageHeading = '' + participant.name + '’s induction start date has been changed' %}    
 {% endif %}
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -60,13 +17,13 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ govukPanel({
-                titleText: pageHeading,
+                titleText: pageHeading,                
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
             <ul class="govuk-list">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="../../participants/details?details-change-action=">Return to their details</a></li>            
-                <li><a class="govuk-link govuk-link--no-visited-state" href="../../participants/?linkaction=">Return to your ECTs and mentors</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}">Return to their details</a></li>            
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">Return to your ECTs and mentors</a></li>
             </ul>
             
                 
