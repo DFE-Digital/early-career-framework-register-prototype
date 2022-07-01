@@ -73,7 +73,13 @@
                 {% if participant.email %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.emailCorrect %}
+                            {{ participant.emailCorrect }}
+                        {% else %}                        
+                            {{ participant.email }}
+                        {% endif %}
+                        </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/email-address">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
                     {% endif %}
