@@ -88,22 +88,10 @@
                         {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
                     </dd>
                 </div>
-
-                <!-- Start date -->
-                {% if participant.startDate %}
-                <!-- <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Start term
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ participant.startDate }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
-                </div> -->
-                {% endif %}
-
+                
+                
                  <!-- Start date -->
-                {% if participant.startDate %}
+                {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         {% if data.participants[id].type == "ect" %}
@@ -113,9 +101,13 @@
                         {% endif %}
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% if participant.inductionDayCorrect %}
+                            {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
+                        {% else %}
+                            {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
                 {% endif %}
 
