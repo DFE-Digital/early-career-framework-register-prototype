@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = '' + participant.name + '' %}
+{% if participant.nameNew %}
+    {% set pageHeading = '' + participant.nameNew + '' %}
+                        {% else %}                        
+                            {% set pageHeading = '' + participant.name + '' %}
+                        {% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,7 +20,13 @@
                 <!-- Name -->
                 <div class="govuk-summary-list__row {% if data.participants[id].status == "Withdrawn" %} govuk-summary-list__row--no-actions {% endif %}">
                     <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.nameNew %}
+                            {{ participant.nameNew }}
+                        {% else %}                        
+                            {{ participant.name }}
+                        {% endif %}
+                    </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions">
                         {% if data['induction-tutor'] == "Yes" %}
