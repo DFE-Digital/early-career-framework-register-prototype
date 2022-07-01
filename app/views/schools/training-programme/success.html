@@ -33,12 +33,12 @@
                 <!-- if school is currently training with FIP and is not looking to change -->
                 {% if data['NewYearInductionProgramme'] == "FIP" %}
 
-                    {% if ((data['newYearChangeWhat'] == "leadProvider") or (data['newYearChangeWhat'] == "deliveryPartner")) %}
+                    {% if ((data['newYearChangeWhat'] == "leadProvider") or (data['newYearChangeWhat'] == "deliveryPartner") or ( data['newYearStayLeadProvider'] )) %}
 
                         <h2 class="govuk-heading-m">What happens next</h2>
-                        {% if data['newYearChangeWhat'] == "deliveryPartner" %}
+                        {% if ((data['newYearChangeWhat'] == "deliveryPartner") or ( data['newYearStayLeadProvider'] == "Yes" )) %}
                             <p>We’ll let {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
-                        {% elif data['newYearChangeWhat'] == "leadProvider" %}
+                        {% elif ((data['newYearChangeWhat'] == "leadProvider") or ( data['newYearStayLeadProvider'] == "No" )) %}
                             <p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school wants to make a change for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
                         {% endif %}
                         <p>They may contact you to confirm this.</p>

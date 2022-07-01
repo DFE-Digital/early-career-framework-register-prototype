@@ -19,7 +19,11 @@
 
             <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"  class="govuk-link">check your options (opens in new tab)</a>.</p>
 
-            <form class="form" action="/schools/appropriate-body" method="post" >
+            {% if data['validCombo'] == "No" %}
+                <form class="form" action="/schools/training-programme/combination-not-valid" method="post" >
+            {% else %}
+                <form class="form" action="/schools/appropriate-body/" method="post" >
+            {% endif %}
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
