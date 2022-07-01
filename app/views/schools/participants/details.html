@@ -90,9 +90,6 @@
                 </div>
                 
                 
-
-
-
                  <!-- Start date -->
                 {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
@@ -104,7 +101,11 @@
                         {% endif %}
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% if participant.inductionDayCorrect %}
+                            {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
+                        {% else %}
+                            {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+                        {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
