@@ -3,7 +3,7 @@
 
 
 {% if data.participants[id].type == "ect" %}
-    {% set pageHeading = 'What’s ' + participant.name + '’s new induction start date? ' %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s correct induction start date? ' %}
 {% elif data.participants[id].type == "mentor" %}
     {% set pageHeading = 'What new date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
@@ -20,15 +20,13 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if data.participants[id].type == "ect" %}
-                <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>
+                <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
             {% elif data.participants[id].type == "mentor" %}
                 {# <p>This is the date when the mentor’s induction programme formally starts.</p> #}
             {% endif %}
 
                     
-            <form class="form" action="/schools/participants/{{ id }}" method="post" class="govuk-!-margin-bottom-8">                    
-
-
+            <form class="form" action="/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">                    
 
 				{{ govukDateInput({
 					id: 'session-date-induction',
@@ -40,20 +38,17 @@
 					},
 					items: [
 						{
-							name: '[participants][' + id + '][inductionDay]',
-							value: data.participants[id]['inductionDay'],
+							name: '[participants][' + id + '][inductionDayCorrect]',							
 							classes: "govuk-input--width-2",
 							label: 'Day'
 						},
 						{
-							name: '[participants][' + id + '][inductionMonth]',
-							value: data.participants[id]['inductionMonth'],
+							name: '[participants][' + id + '][inductionMonthCorrect]',							
 							classes: "govuk-input--width-2",
 							label: 'Month'
 						},
 						{
-							name: '[participants][' + id + '][inductionYear]',
-							value: data.participants[id]['inductionYear'],
+							name: '[participants][' + id + '][inductionYearCorrect]',							
 							classes: "govuk-input--width-4",
 							label: 'Year'
 						}

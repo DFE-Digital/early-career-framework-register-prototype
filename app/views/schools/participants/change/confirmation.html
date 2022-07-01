@@ -5,6 +5,8 @@
     {% set pageHeading = '' + participant.name + '’s email address has been updated' %}    
 {% elif data['detailsChange'] == "Name" %}
     {% set pageHeading = '' + participant.name + '’s name has been edited to ' + participant.nameNew + '' %}    
+{% elif data['detailsChange'] == "Date" %}
+    {% set pageHeading = '' + participant.name + '’s induction start date has been changed' %}    
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,7 +17,7 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ govukPanel({
-                titleText: pageHeading,
+                titleText: pageHeading,                
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 

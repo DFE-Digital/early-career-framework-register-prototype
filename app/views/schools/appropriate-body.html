@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Have you appointed an appropriate body?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {# <p class="govuk-body">If your school works with more than one, first tell us about the appropriate body appointed for the majority of your ECTs. You can add the others later.</p> #}
+
+            <form class="form" action="/schools/appropriate-body/" method="post" >
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    items: [
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(/schools/training-programme/success)", text: "No" }
+                    ]
+                } | decorateFormAttributes("abKnown")) }}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
