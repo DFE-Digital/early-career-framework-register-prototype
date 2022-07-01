@@ -19,21 +19,21 @@
             
             <form class="form" action="/schools/appropriate-body" method="post" >
 
-                    {{ govukRadios({
-                        classes: "govuk-radios--inline",
-                        fieldset: {
-                            legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
-                        },
-                        items: [
-                            { value: "Yes", text: "Yes" },
-                            { value: "No", text: "No" }                            
-                        ]
-                    } | decorateFormAttributes('newYearStayLeadProvider')) }}
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                        legend: { text: "pageHeading", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes" },
+                        { value: "No", text: "No" }                            
+                    ]
+                } | decorateFormAttributes('newYearStayLeadProvider')) }}
                 
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
 
             </form>
 
