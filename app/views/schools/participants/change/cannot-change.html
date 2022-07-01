@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "You cannot change their name" %}
-
+{% set pageHeading = 'You cannot edit ' + participant.name +'’s name' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,122 +12,31 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if ((data['change-name-reason'] == "Not started employment") or (data['change-email-reason'] == "Not started employment")) %}
-
-                <p>If 
-                {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }} is no longer completing their ECF induction
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }} is no longer completing their ECF induction
-                {% elif data['active-user'] == "mentor-1" %} 
-                    {{ data['participant-1-mentor-name'] }} is no longer mentoring
-                {% elif data['active-user'] == "mentor-2" %} 
-                    {{ data['participant-2-mentor-name'] }} is no longer mentoring
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}                      
-                at your school, you need to remove them from this service.</p>
-
-
-                <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
+            {% if data.participants[id].reasonChangeName == "Registered by mistake" %}
                 
-                <p>Contact {{ data.leadProvider }} to remove {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }}
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }}
-                {% elif data['active-user'] == "mentor-1" %}
-                    {{ data['participant-1-mentor-name'] }}
-                {% elif data['active-user'] == "mentor-2" %}
-                    {{ data['participant-2-mentor-name'] }}
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}.</p>
+                {% if data.participants[id].type == "ect" %}
+                    <p>If {{ participant.name }} is not serving their induction at your school, you need to <a href="/schools/participants/{{ id }}/remove/confirm">remove them from this service</a>.</p>
+                {% elif data.participants[id].type == "mentor" %}
+                    <p>If {{ participant.name }} will not be mentoring at your school, you need to remove them from this service.</p>
+                {% endif %}                
 
-                <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                <!-- <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }}
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }}
-                {% elif data['active-user'] == "mentor-1" %}
-                    {{ data['participant-1-mentor-name'] }}
-                {% elif data['active-user'] == "mentor-2" %}
-                    {{ data['participant-2-mentor-name'] }}
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}</a></p> -->
+            {% elif data.participants[id].reasonChangeName == "Not started employment" %}
 
-                <!--- IF ECT --->
-                {% if data['user-type'] == "ECT" %}
-
+                {% if data.participants[id].type == "ect" %}
                     <p>You need to register the new ECT separately. This is so that:</p>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>we can check their eligibility for funded training</li>
-                        <li>their training is recorded against their own teacher reference number (TRN)</li>
+                        <li>we can check their eligibility for DfE funding for ECF-based training and mentor support</li>
+                        <li>their training can be recorded against the correct teacher reference number (TRN)</li>
                     </ul>
-                    <p><a href="../add/name?participantType=ECT">Add a new ECT</a></p>
-                
-                {% elif data['user-type'] == "Mentor" %}
+                    <p><a href="/schools/participants/add/">Add a new ECT</a></p>
 
-                    <p>You need to register the new mentor separately. This is so we can confirm their eligibility for relevant funding.</p>
+                {% elif data.participants[id].type == "mentor" %}
+                    
+                    <p>You need to register the new mentor separately. This is so we can confirm their eligibility for DfE funding.</p>
                     <p><a href="../add/name?participantType=mentor">Add a new mentor</a></p>
 
-                {% endif %}
-                
-            {% elif ((data['change-name-reason'] == "Registered by mistake") or (data['change-email-reason'] == "Registered by mistake")) %}
+                {% endif %}                
 
-                <p>If
-                {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }} is no longer completing their ECF induction
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }} is no longer completing their ECF induction
-                {% elif data['active-user'] == "mentor-1" %}
-                    {{ data['participant-1-mentor-name'] }} is no longer mentoring
-                {% elif data['active-user'] == "mentor-2" %}
-                    {{ data['participant-2-mentor-name'] }} is no longer mentoring
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}
-                at your school, you need to remove them from this service.</p>
-
-                <!--- IF CHECKING DETAILS OR VALIDATED FIP --->
-                <p>Contact {{ data.leadProvider }} to remove  {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }}
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }}
-                {% elif data['active-user'] == "mentor-1" %}
-                    {{ data['participant-1-mentor-name'] }}
-                {% elif data['active-user'] == "mentor-2" %}
-                    {{ data['participant-2-mentor-name'] }}
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}.</p>
-
-                <!--- IF CIP, OR FIP CONTACTED FOR INFORMATION OR INELIGIBLE --->
-                
-                <!-- <p><a href="../confirm-delete">Remove {% if data['active-user'] == "ect-1" %}
-                    {{ data['participant-1-name'] }}
-                {% elif data['active-user'] == "ect-2" %}
-                    {{ data['participant-2-name'] }}
-                {% elif data['active-user'] == "mentor-1" %}
-                    {{ data['participant-1-mentor-name'] }}
-                {% elif data['active-user'] == "mentor-2" %}
-                    {{ data['participant-2-mentor-name'] }}
-                {% elif data['active-user'] == "sitMentor" %}
-                    {{ data.sitName }}
-                {% else %}
-                    {% set pageHeading = 'this person' %}
-                {% endif %}</a></p> -->
-            
             {% endif %}
 
 

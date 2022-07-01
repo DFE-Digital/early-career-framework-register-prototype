@@ -21,7 +21,7 @@
                         {% if data['induction-tutor'] == "Yes" %}
                             <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            <a class="govuk-link" href="/schools/participants/{{ id }}/change/why-change-name?detailsChange=Name">Edit<span class="govuk-visually-hidden"> name</span></a>
                             <!-- <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>                             -->
                         {% endif %}
                     </dd>
@@ -73,9 +73,15 @@
                 {% if participant.email %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.email }}</dd>
+                    <dd class="govuk-summary-list__value">
+                        {% if participant.emailCorrect %}
+                            {{ participant.emailCorrect }}
+                        {% else %}                        
+                            {{ participant.email }}
+                        {% endif %}
+                        </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/email-address?detailsChange=Email">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
                     {% endif %}
                 </div>
                 {% endif %}
@@ -107,7 +113,7 @@
                             {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
                         {% endif %}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date?detailsChange=Date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
                 </div>
                 {% endif %}
 
