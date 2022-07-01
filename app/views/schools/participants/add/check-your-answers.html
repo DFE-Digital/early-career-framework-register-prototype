@@ -33,13 +33,11 @@
                                 
                 <!-- Induction start date -->
                 {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
+                    {% include "includes/summary_induction_date.html" %}                   
                 {% endif %}
 
-
-
                 {% if data.participants[id].abConfirm == "Yes" or data.participants[id].abName %}
-                {% if data.participants[id].type == "ect" %}
+                {% if data.participants[id].type == "ect" %}                
                     {% include "includes/summary_aBody.html" %}
                 {% endif %}
                 {% endif %}
