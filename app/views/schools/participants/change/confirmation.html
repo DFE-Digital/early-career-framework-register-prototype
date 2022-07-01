@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-
-{% set pageHeading = '' + participant.name + '’s name has been edited to ' + participant.nameNew + '' %}    
-{% set pageHeading = '' + participant.name + '’s email address has been updated' %}    
+{% if data['detailsChange'] == "Email" %}
+    {% set pageHeading = '' + participant.name + '’s email address has been updated' %}    
+{% elif data['detailsChange'] == "Name" %}
+    {% set pageHeading = '' + participant.name + '’s name has been edited to ' + participant.nameNew + '' %}    
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
