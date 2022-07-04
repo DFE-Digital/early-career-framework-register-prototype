@@ -23,7 +23,7 @@
       		</ul>
 
             {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
-            <p>You can usually find it on your payslip, teachers’ pension documents, or teacher training records.</p>
+            <p>You can usually find your TRN on your payslip, teachers’ pension documents or teacher training records.</p>
               {% endif %}
       		{% if data['linkaction'] == "change-trn" %}
       		<!-- If using change link -->
@@ -46,14 +46,14 @@
           			classes: "govuk-!-width-two-thirds"
         		} | decorateFormAttributes('register-teacher-reference-number')) }}
 
-        		
+
 
 				<div class="govuk-button-group">
             	{{ govukButton({
               		text: "Continue"
             	}) }}
 
-				<p class="govuk-body"><a href="national-insurance-number">Cannot find your TRN?</a></p>
+				<p class="govuk-body"><a href="national-insurance-number">I cannot find my TRN</a></p>
 				</div>
 
       		</form>
