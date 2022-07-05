@@ -8,6 +8,7 @@ module.exports = router => {
     '/support/participants/:id/*',
     '/participants/validate/:id',
     '/participants/validate/:id/*'
+    
   ], (req, res, next) => {
     const data = req.session.data
     res.locals.id = req.params.id
@@ -162,8 +163,18 @@ module.exports = router => {
     next()
   })
 
-  router.all('/participants/validate/:id/:view', (req, res) => {
-    res.render(`participants/validate/${req.params.view}`)
+  router.all('/schools/participants/validate/:id/:view', (req, res) => {
+    res.render(`schools/participants/validate/${req.params.view}`)
+  })
+
+  router.all('/schools/participants/:id/change', (req, res, next) => {
+    const participants = req.session.data.participants
+    res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
+    next()
+  })
+  
+  router.all('/schools/participants/:id/change/:view', (req, res) => {
+    res.render(`schools/participants/change/${req.params.view}`)
   })
 
 }

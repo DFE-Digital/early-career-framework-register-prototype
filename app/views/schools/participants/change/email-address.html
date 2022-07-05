@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s their new email address? ' %}
+{% set pageHeading = 'What’s ' + participant.name + '’s correct email address? ' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -9,40 +9,17 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p class="govuk-body">You can enter their personal or school email address.</p>
-
-        <!-- If coming from the participant details page -->
-
-            <form class="form" action="confirmation" method="post">
-                <!-- <input type="hidden" id="details-change-action" name="details-change-action" value="" />
-                <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /> -->
-
-                <div class="govuk-form-group">
-                    <label class="govuk-label govuk-visually-hidden" for="event-name">Email address</label>
-
-
-                    {% if data['active-user'] == "ect-1" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-email" name="participant-1-email" type="text" value="" >
-                    {% elif data['active-user'] == "ect-2" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-email" name="participant-2-email" type="text" value="" >
-                    {% elif data['active-user'] == "mentor-1" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-mentor-email" name="participant-1-mentor-email" type="text" value="" >
-                    {% elif data['active-user'] == "mentor-2" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-2-mentor-email" name="participant-2-mentor-email" type="text" value="" >
-                    {% elif data['active-user'] == "sitMentor" %}
-                    <input class="govuk-input govuk-!-width-two-thirds" id="participant-1-sitmentor-email" name="participant-1-sitmentor-email" type="text" value="" >
-                    {% else %}
-                        <input class="govuk-input govuk-!-width-two-thirds" id="random-email" name="random-naemailme" type="text" value="" >
-                    {% endif %}
-
-
-                </div>
-
-                <!-- Clears the reason so can be used again -->
-                <input type="hidden" name="change-name-reason" id="change-name-reason" value="" />
-                <input type="hidden" name="change-email-reason" id="change-email-reason" value="" />
+            <p class="govuk-body">You can enter their personal or school email address.</p>            
+                
+            <form class="form" action="/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">                
+                
+                
+                {{ govukInput({
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    classes: "govuk-!-width-two-thirds"
+                } | decorateFormAttributes(['participants', id, 'emailCorrect']) ) }}
 
                 {{ govukButton({
                     text: "Continue"

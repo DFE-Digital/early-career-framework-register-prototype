@@ -67,16 +67,28 @@
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Training provider</dt>
                                     <dd class="govuk-summary-list__value">
-                                        {% if data['newYearProviderChange'] == "Yes" %}
-                                            {% if data['newYearChangeWhat'] == "leadProvider" %}
+                                        
+                                        {% if data['newYearStayLeadProvider'] %}
+
+                                            {% if data['newYearStayLeadProvider'] == "No" %}
                                                 To be confirmed
-                                            {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
+                                            {% elif data['newYearStayLeadProvider'] == "Yes" %}
                                                 {{ data.leadProvider }}
                                             {% endif %}
-                                        {% elif data['NewYearHowRun'] %}
-                                            To be confirmed
+
                                         {% else %}
-                                            {{ data.leadProvider }}
+                                        
+                                            {% if data['newYearProviderChange'] == "Yes" %}
+                                                {% if data['newYearChangeWhat'] == "leadProvider" %}
+                                                    To be confirmed
+                                                {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
+                                                    {{ data.leadProvider }}
+                                                {% endif %}
+                                            {% elif data['NewYearHowRun'] %}
+                                                To be confirmed
+                                            {% else %}
+                                                {{ data.leadProvider }}
+                                            {% endif %}
                                         {% endif %}
                                         </dd>
                                     <dd class="govuk-summary-list__actions"></dd>
@@ -84,16 +96,24 @@
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Delivery partner</dt>
                                     <dd class="govuk-summary-list__value">
-                                        {% if data['newYearProviderChange'] == "Yes" %}
-                                            {% if data['newYearChangeWhat'] == "leadProvider" %}
-                                                To be confirmed
-                                            {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
-                                                To be confirmed
-                                            {% endif %}
-                                        {% elif data['NewYearHowRun'] %}
+
+                                        {% if data['newYearStayLeadProvider'] %}
+                                            
                                             To be confirmed
+
                                         {% else %}
-                                            {{ data.deliveryPartner }}
+
+                                            {% if data['newYearProviderChange'] == "Yes" %}
+                                                {% if data['newYearChangeWhat'] == "leadProvider" %}
+                                                    To be confirmed
+                                                {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
+                                                    To be confirmed
+                                                {% endif %}
+                                            {% elif data['NewYearHowRun'] %}
+                                                To be confirmed
+                                            {% else %}
+                                                {{ data.deliveryPartner }}
+                                            {% endif %}
                                         {% endif %}
                                     </dd>
                                     <dd class="govuk-summary-list__actions"></dd>
@@ -131,7 +151,7 @@
                             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Programme</dt>
-                                    <dd class="govuk-summary-list__value">Design and deliver your own programme based on the Early Career Framework (ECF)</dd>
+                                    <dd class="govuk-summary-list__value">Design and deliver your own programme based on the early career framework (ECF)</dd>
                                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
                                 </div>
 
@@ -167,7 +187,7 @@
                                 {% elif data['inductionProgramme'] == "CIP" %}
                                     DfE accredited materials
                                 {% elif data['inductionProgramme'] == "DYO" %}
-                                    Design and deliver your own programme based on the Early Career Framework (ECF)
+                                    Design and deliver your own programme based on the early career framework (ECF)
                                 {% elif data['inductionProgramme'] == "noECT" %}
                                     Expecting no early career teachers
                                 {% elif (data['inductionProgramme'] === "temphold") %}
