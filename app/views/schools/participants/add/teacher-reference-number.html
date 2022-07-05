@@ -58,13 +58,31 @@
                     pattern: "[0-9]*"
 				} | decorateFormAttributes(['participants', id, 'trnNumber']) ) }}
 
+
+                {% if data.participants[id].type == "mentor"  %}
+
+                <div class="govuk-button-group">
+
+                {{ govukButton({
+              		text: "Continue"
+            	}) }}
+
+                <a class="govuk-link" href="/schools/participants/{{ id }}/add/email-address">Does not have a TRN</a>
+
+                </div>
+
+
+                {% else %}
+
             	{{ govukButton({
               		text: "Continue"
             	}) }}
 
+                {% endif %}
+
                 {% if data['linkaction'] != "cannotFind" %}
 
-                <div class="govuk-!-padding-top-5 key">
+                <div class="govuk-!-padding-top-5 key govuk-visually-hidden">
 
                     {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 
