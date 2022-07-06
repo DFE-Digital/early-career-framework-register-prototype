@@ -68,7 +68,7 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if ((data.participants[id].trnKnown == "Yes") or (data.participants[id].type == "ectTransfer")) %}
+            {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
 
                 {# <p>TRN Known #}
 
