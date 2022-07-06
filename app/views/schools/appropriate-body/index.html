@@ -24,9 +24,9 @@
                     ]
                 } | decorateFormAttributes("abType")) }}
 
-                {# {% if not data['setup'] %}
+                {% if not data['setup'] %}
                 <p class="govuk-body govuk-!-margin-bottom-7"><a class="govuk-link" href="/schools/training-programme/success">I do not know the appropriate body yet</a></p>
-                {% endif %} #}
+                {% endif %}
 
                 {{ govukButton({
                     text: "Continue"
