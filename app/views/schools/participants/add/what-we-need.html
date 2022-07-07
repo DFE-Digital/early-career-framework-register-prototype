@@ -41,6 +41,8 @@
 
             {% elif data.participants[id].type == "mentor" %}
 
+                <p>We need to check the mentor's details in the Teaching Regulation Agency records. This is to make sure they're eligible for DfE funding.</p>
+
                 <p class="govuk-body">You must tell us their:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>full name</li>
@@ -48,7 +50,7 @@
                     <li>mentoring start date at your school</li>
                 </ul>
                 {# <p class="govuk-body">You can now choose to enter their teacher reference number (TRN) and date of birth too.</p> #}
-                <p class="govuk-body">We can carry out the eligibility checks immediately if you can tell us their:</p>
+                <p class="govuk-body">We can run the eligibility checks immediately if you can also tell us their:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>teacher reference number (TRN)</li>
                     <li>date of birth</li>
@@ -57,7 +59,12 @@
                     <li>we can confirm if they’re eligible for funding more quickly</li> #}
                 </ul>
 
-                <p>If you do not have their TRN and date of birth, we'll need to email the mentor to ask them to add these to the service. We'll only be able to check their eligibility for DfE funding once we have all their information.</p>
+                <p>If you do not have these, we'll email the mentor to ask them to add their TRN and date of birth to the service.</p>
+
+                <div class="govuk-inset-text">
+                This can cause a delay in confirming their eligibility, as we can only run the checks once we have all their details.</p>
+                </div>
+
 
                 
             {% endif %}
