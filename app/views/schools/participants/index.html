@@ -53,11 +53,11 @@
                                 </div>
                             </div>
                             <table class="govuk-table govuk-!-margin-bottom-9">
-                                {% include "includes/dash_fip_head.html" %}
+                                {% include "includes/dash_fip_head_checking.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
                                         {% if participant.status == "Contacted" and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row.html" %}
+                                            {% include "includes/dash_fip_row_checking.html" %}
                                         {% endif %}
                                     {% endfor %}
                                 </tbody>
@@ -72,11 +72,11 @@
                                 </div>
                             </div>
                             <table class="govuk-table govuk-!-margin-bottom-9">
-                                {% include "includes/dash_fip_head.html" %}
+                                {% include "includes/dash_fip_head_checking.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
                                         {% if participant.status == "Checking" and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row.html" %}
+                                            {% include "includes/dash_fip_row_checking.html" %}
                                         {% endif %}
                                     {% endfor %}
                                 </tbody>
@@ -91,11 +91,11 @@
                                 </div>
                             </div>
                             <table class="govuk-table govuk-!-margin-bottom-9">
-                                {% include "includes/dash_fip_head.html" %}
+                                {% include "includes/dash_fip_head_checking.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
                                         {% if participant.status == "CheckingQTS" and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row.html" %}
+                                            {% include "includes/dash_fip_row_checking.html" %}
                                         {% endif %}
                                     {% endfor %}
                                 </tbody>
