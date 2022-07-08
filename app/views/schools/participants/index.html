@@ -182,11 +182,11 @@
                                 </div>
                             </div>
                             <table class="govuk-table">
-                                {% include "includes/dash_fip_head.html" %}
+                                {% include "includes/dash_fip_head_eligible.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
                                         {% if participant.status == "Eligible" and participant.type == "ect" and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row.html" %}
+                                            {% include "includes/dash_fip_row_eligible.html" %}
                                         {% endif %}
                                     {% endfor %}
                                 </tbody>
@@ -236,11 +236,11 @@
                                 </div>
                             </div>
                             <table class="govuk-table">
-                                {% include "includes/dash_fip_head_mentor.html" %}
+                                {% include "includes/dash_fip_head_eligible_mentor.html" %}
                                 <tbody class="govuk-table__body">
                                     {% for id, participant in data.participants %}
                                         {% if participant.status == "Eligible" and ((participant.type == "mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row_mentor.html" %}
+                                            {% include "includes/dash_fip_row_eligible_mentor.html" %}
                                         {% endif %}
                                     {% endfor %}
                                 </tbody>
