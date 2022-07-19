@@ -38,6 +38,30 @@
         	{% include "includes/break.html" %}
 
 
+			<h2 class="govuk-heading-m">Appropriate body demo</h2>
+        	<p>Quick links to allow demo of the appropriate body functionality.</p>
+
+			<form action="/schools/appropriate-body/" method="post" >
+
+				<input type="hidden" id="cohort" name="cohort" value="2022" />
+	
+				<input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+				<input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
+				<input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+				<input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
+	
+				<input type="hidden" name="newYearECTs" id="newYearECTs" value="Yes" />
+				<input type="hidden" name="newYearProviderChange" id="newYearProviderChange" value="No" />
+	
+	
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+			</form>
+
+			{% include "includes/break.html" %}
+
+
         	<h2 class="govuk-heading-m">User research</h2>
         	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
             {# <p>No current user research taking place.</p> #}
