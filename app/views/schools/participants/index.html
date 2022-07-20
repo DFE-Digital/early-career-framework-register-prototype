@@ -57,71 +57,30 @@
             {% set ectHtml %}                
                 <!-- If programme for this year or last year is FIP -->
                 {% if ((data['inductionProgramme'] == "FIP") or (data['NewYearInductionProgramme'] == "FIP")) %}
-                    <!-- Eligible tab FIP -->
+                    <!-- Eligible ect tab FIP -->
                     {% include "includes/eligible_fip.html" %} 
                 <!-- If programme for this year or last year is CIP -->
                 {% elif ((data['inductionProgramme'] == "CIP") or (data['NewYearInductionProgramme'] == "CIP")) %}
-                    <!-- Eligible tab CIP -->
+                    <!-- Eligible ect tab CIP -->
                     {% include "includes/eligible_cip.html" %}
                 {% endif %}            
             {% endset -%}
-            <!-- // ect tab -->
+            <!-- // eligible ects tab -->
 
 
-
-
-                <!-- Mentor Tab -->
-                {% set mentorHtml %}
-
-                    {% if ((data['inductionProgramme'] == "FIP") or (data['NewYearInductionProgramme'] == "FIP")) %}                                                
-
-                        {% if hasAnyEligibleParticipants %}
-                            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
-                            <div class="govuk-grid-row">
-                                <div class="govuk-grid-column-two-thirds">
-                                    {% if data['fipPartnership'] == "Yes" %}
-                                        <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
-                                    {% else %}
-                                        <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <table class="govuk-table">
-                                {% include "includes/dash_fip_head_eligible_mentor.html" %}
-                                <tbody class="govuk-table__body">
-                                    {% for id, participant in data.participants %}
-                                        {% if participant.status == "Eligible" and ((participant.type == "mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" %}
-                                            {% include "includes/dash_fip_row_eligible_mentor.html" %}
-                                        {% endif %}
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        {% endif %}
-
-                    {% elif ((data['inductionProgramme'] == "CIP") or (data['NewYearInductionProgramme'] == "CIP")) %}
-                        
-                        {% if hasAnyEligibleParticipants %}
-                            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
-                            <div class="govuk-grid-row">
-                                <div class="govuk-grid-column-two-thirds">
-                                    <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
-                                </div>
-                            </div>
-                            <table class="govuk-table">
-                                {% include "includes/dash_cip_head.html" %}
-                                <tbody class="govuk-table__body">
-                                    {% for id, participant in data.participants %}
-                                        {% if participant.status == "Eligible" and ((participant.type == "mentor") or (participant.type == "sitMentor")) and participant.programme == "CIP" %}
-                                            {% include "includes/dash_cip_row.html" %}
-                                        {% endif %}
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        {% endif %}
-
-                    {% endif %}
-
-                {% endset -%}                
+            <!-- Eligible Mentors -->
+            {% set mentorHtml %}
+                <!-- If programme for this year or last year is FIP -->
+                {% if ((data['inductionProgramme'] == "FIP") or (data['NewYearInductionProgramme'] == "FIP")) %}                                                
+                    <!-- Eligible mentor tab CIP -->
+                    {% include "includes/eligibleMentor_fip.html" %}                
+                <!-- If programme for this year or last year is CIP -->
+                {% elif ((data['inductionProgramme'] == "CIP") or (data['NewYearInductionProgramme'] == "CIP")) %}
+                    <!-- Eligible mentor tab CIP -->
+                    {% include "includes/eligibleMentor_cip.html" %}
+                {% endif %}
+            {% endset -%}                
+            <!-- // eligible mentors tab -->
 
                 
                 {% set transferHtml %}
