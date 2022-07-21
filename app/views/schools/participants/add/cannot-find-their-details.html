@@ -47,12 +47,13 @@
                 </div>
             </dl>
 
-            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+            <h3 class="govuk-heading-m">If this information is correct</h3>
+            {# <p class="govuk-body">We cannot find this person's training record based on the information you’ve entered.</p> #}
+            <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
 
-                <h3 class="govuk-heading-s">If this information is correct</h3>
-
-                <p>You can still continue to register {{ participant.name }}. We'll contact them to check their information.</p>
-
+            {# <p>Speak to support etc etc etc</p> #}
+            {# {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %} #}
+                {# <p>You can still continue to register {{ participant.name }}. We'll contact them to check their information.</p>
                 <form class="form" action="email-address" method="post" >
             {% else %}
                 <form class="form" action="cannot-add" method="post" >
@@ -60,11 +61,8 @@
                 {{ govukButton({
                     text: "Confirm and continue"
                 }) }}
-            </form>
+            </form> #}
 
-
-
-
-    </div>
+        </div>
     </div>
 {% endblock %}
