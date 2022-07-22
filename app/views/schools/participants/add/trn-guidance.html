@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "What the mentor needs to do if they do not have a TRN" %}
+{% set pageHeading = 'How ' + participant.name + ' can get their TRN' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,15 +16,16 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p class="govuk-body">If the mentor:</p>
+            <p class="govuk-body">If {{ participant.name }}:</p>
             <ul class="govuk-list govuk-list--bullet">
                     <li>had one but cannot find it, they can use the service to <a href="https://find-a-lost-trn.education.gov.uk/start" class="govuk-link" rel="noreferrer noopener" target="_blank">find a lost TRN (opens in new tab)</a></li>
                     <li>has never had one, they can use our guide to <a href="https://manage-training-for-early-career-teachers.education.gov.uk/participants/start-registration/get-a-trn" class="govuk-link" rel="noreferrer noopener" target="_blank">get a TRN (opens in new tab)</a></li>
             </ul>
 
-            <p class="govuk-body">You cannot register the mentor on this service without a TRN, as we use this information to check their eligibility for DfE funding.</p>
+            <p class="govuk-body">You cannot register {{ participant.name }} as a mentor without their TRN, as we use this information to check their eligibility for DfE funding.</p>
 
-            <p class="govuk-body">The mentor does not need to be a teacher to have a TRN.</p>
+            <p class="govuk-body">{{ participant.name }} does not need to be a teacher to have a TRN.</p>
+
 
           
 
