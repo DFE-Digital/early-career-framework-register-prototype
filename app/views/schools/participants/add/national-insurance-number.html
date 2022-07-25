@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = 'What’s ' + participant.name + '’s National Insurance number?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <!-- Check if we are adding extra layers to validate -->
+
+            <form class="form" action="email-address" method="post" >
+
+          {{ govukInput({
+            label: { text: "National Insurance number", classes: "govuk-visually-hidden" },
+            hint: { text: "It’s on their National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’." },
+            classes: "govuk-!-width-two-thirds",
+            spellcheck: false
+          } | decorateFormAttributes(['participants', id, 'nationalInsuranceNumber']) ) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

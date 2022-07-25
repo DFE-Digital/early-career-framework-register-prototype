@@ -48,8 +48,17 @@
             </dl>
 
             <h3 class="govuk-heading-m">If this information is correct</h3>
+
+             <p>Tell us their National Insurance number to help us find their details.</p>
+          <form class="form" action="national-insurance-number" method="post" >
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </form>
+
+
             {# <p class="govuk-body">We cannot find this person's training record based on the information you’ve entered.</p> #}
-            <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+            {# <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p> #}
 
             {# <p>Speak to support etc etc etc</p> #}
             {# {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %} #}
