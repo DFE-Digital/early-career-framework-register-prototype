@@ -11,8 +11,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <form class="form" action="contact-support" method="post" >
-
+            {% if participant.niNumberFail == "Yes" %}
+                <form class="form" action="contact-support" method="post" >
+            {% else %}
+                <form class="form" action="email-address" method="post" >
+            {% endif %}
                 {{ govukInput({
                     label: { text: "National Insurance number", classes: "govuk-visually-hidden" },
                     hint: { text: "It’s on their National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’." },
