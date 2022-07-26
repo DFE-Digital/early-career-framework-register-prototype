@@ -22,6 +22,11 @@
                 {% if participant.dobDay %}
                     {% include "includes/summary_dob.html" %}
                 {% endif %}
+
+                {% if participant.nationalInsuranceNumber %}
+                    {% include "includes/summary_ni.html" %}
+                {% endif %}
+
                 <!-- Joining Date -->
                 {% if participant.joiningDay %}
                     {% include "includes/summary_joining.html" %}
@@ -30,14 +35,14 @@
                 {% if participant.email %}
                     {% include "includes/summary_email.html" %}
                 {% endif %}
-                                
+
                 <!-- Induction start date -->
                 {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}                   
+                    {% include "includes/summary_induction_date.html" %}
                 {% endif %}
 
                 {% if data.participants[id].abConfirm == "Yes" or data.participants[id].abName %}
-                {% if data.participants[id].type == "ect" %}                
+                {% if data.participants[id].type == "ect" %}
                     {% include "includes/summary_aBody.html" %}
                 {% endif %}
                 {% endif %}
