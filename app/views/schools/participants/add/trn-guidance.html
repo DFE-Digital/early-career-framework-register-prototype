@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'You cannot add ' + participant.name + 'as a mentor without their TRN' %}
+{% set pageHeading = 'You cannot add ' + participant.name + ' as a mentor without their TRN' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
