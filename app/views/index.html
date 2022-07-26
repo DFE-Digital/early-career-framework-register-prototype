@@ -13,7 +13,7 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			<!-- <p>Testing deployment</p> -->
     		<ul class="govuk-list govuk-body-s">
-          		<li>Last updated: 20 July 2022</li>
+          		<li>Last updated: 26 July 2022</li>
             	<li>Prototype version: {{releaseVersion}}</li>
         	</ul>
         	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
@@ -44,16 +44,16 @@
 			<form action="/schools/appropriate-body/" method="post" >
 
 				<input type="hidden" id="cohort" name="cohort" value="2022" />
-	
+
 				<input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
 				<input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
 				<input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
 				<input type="hidden" name="multi-cohort" id="multi-cohort" value="Yes" />
-	
+
 				<input type="hidden" name="newYearECTs" id="newYearECTs" value="Yes" />
 				<input type="hidden" name="newYearProviderChange" id="newYearProviderChange" value="No" />
-	
-	
+
+
 				{{ govukButton({
 					text: "Continue"
 				}) }}
