@@ -60,14 +60,10 @@
 
 
                  <div class="govuk-!-padding-top-5 key">
-
-
-
-
                     {{ govukCheckboxes({
                         classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
                         items: [
-                            { value: "Yes", text: "Fail NI number validation" }
+                            { value: "Yes", text: "NI number fails to help validate" }
                         ]
                     } | decorateFormAttributes(['participants', id, 'niNumberFail']) ) }}
 
