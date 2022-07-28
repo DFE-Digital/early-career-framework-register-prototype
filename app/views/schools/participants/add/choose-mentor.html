@@ -16,12 +16,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
             <p>If the mentor is not listed below, you’ll need to <a href="/schools/participants/add/">add a new mentor</a>.</p>
 
             {% if hasMentors %}
-                
-                <!-- If mentors exist -->
+            <!-- If mentors exist in the cohort -->
+
                 <form class="form" action="confirmation" method="post" >
 
 
@@ -42,14 +41,17 @@
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-                
+
+                <!-- Check if participant is TransferringIn -->
+                <!-- This is just a trigger to suggest on the front end that an ECT is on a different programme to show that flow -->
+
                 </form>
 
             {% else %}
-            
-                <p>You have not added any mentors. </p>            
+            <!-- no mentors to choose from -->
+            <p>You have not added any mentors. </p>
+                <!-- Brian - I edited this to remove the word "cohort". As far as I know, we don't use it in user-facing content. -->
                 <p><a class="govuk-link govuk-link--no-visited-state" href="#">Add a new mentor</a></p>
-
             {% endif %}
         </div>
     </div>
