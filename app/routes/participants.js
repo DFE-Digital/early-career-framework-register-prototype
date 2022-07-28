@@ -119,11 +119,8 @@ module.exports = router => {
     // console.log(Object.values(participants).some((p) => p.type === 'mentor'))
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor').map(p => {
-      return { text: p.name }
-      // `${p.name} ${p.email}`
-    })
-    // res.locals.mentors.push({ text: 'Add a new mentor' })
-    // res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor')
+      return { text: p.name }      
+    })    
     console.log(res.locals)
     next()
   })

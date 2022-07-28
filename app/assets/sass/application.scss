@@ -41,6 +41,11 @@ $govuk-assets-path: '/govuk/assets/';
 }
 
 .light-grey { background-color: #f3f2f1 }
+.light-grey-listing { background-color: #f3f2f1 }
+ul .light-grey-listing { padding-top: 5px; padding-bottom: 1px; padding-left: 30px; margin-bottom: 5px; }
+a:link.word { color: #f47738; }
+a:link.end { color: #d4351c; }
+
 
 // TODO: Temporary fix
 // Remove when bug is resolved: https://github.com/alphagov/govuk-frontend/issues/2495

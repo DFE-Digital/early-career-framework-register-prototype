@@ -4,6 +4,7 @@
 
 {% if data.participants[id].trnNumber %}
 
+
     {% if data.participants[id].type == "ect" %}
         <!-- FIP and CIP -->
         {% if data.participants[id].exempt == "Yes" %}
@@ -176,7 +177,7 @@
             <ul class="govuk-list govuk-!-margin-top-7">
                 {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
                     {% if not ((data.participants[id].competedInduction) or (data.participants[id].exempt)) %}
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Assign a mentor to this ECT</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor to this ECT</a></li>
                     {% endif %}
                 {% endif %}
                 <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
