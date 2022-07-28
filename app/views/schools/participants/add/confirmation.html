@@ -2,8 +2,11 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].trnNumber %}
 
+{% if data.participants[id].mentorAssigned == "Yes" %}
+    {% set pageHeading = '' + participant.mentor +  ' has been assigned to mentor ' + participant.name +  '' %}
+
+{% elif data.participants[id].trnNumber %}
 
     {% if data.participants[id].type == "ect" %}
         <!-- FIP and CIP -->
@@ -71,7 +74,10 @@
 
             {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}                
 
-                {% if data.participants[id].type == "ect" %}
+
+                {% if data.participants[id].mentorAssigned == "Yes" %}
+
+                {% elif data.participants[id].type == "ect" %}
                     
                     {% if data.participants[id].exempt == "Yes" %}
                         {% include "includes/confirmation_ExemptECT.html" %}
@@ -113,7 +119,9 @@
                         <li>Confirm this transfer directly with your training programme provider.</li>
                         {% endif %}
                         <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                        {% if data.participants[id].mentorAssigned != "Yes" %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                        {% endif %}
                     </ol>
 
                 {% elif data.participants[id].type == "mentor" %}
@@ -177,7 +185,9 @@
             <ul class="govuk-list govuk-!-margin-top-7">
                 {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "ectTransfer")) %}
                     {% if not ((data.participants[id].competedInduction) or (data.participants[id].exempt)) %}
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="choose-mentor">Assign a mentor to this ECT</a></li>
+                        {% if data.participants[id].mentorAssigned != "Yes" %}
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor to this ECT</a></li>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
                 <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
