@@ -2,8 +2,10 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
+{% if data.participants[id].type == "ectTransfer" %}
+    {% set pageHeading = '' + participant.name +  ' has been registered at your school' %}
 
-{% if data.participants[id].mentorAssigned == "Yes" %}
+{% elif data.participants[id].mentorAssigned == "Yes" %}
     {% set pageHeading = '' + participant.mentor +  ' has been assigned to mentor ' + participant.name +  '' %}
 
 {% elif data.participants[id].trnNumber %}
