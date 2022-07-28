@@ -24,7 +24,7 @@
                     <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
             {% else %}
 
-            <!-- Add journey -->                    
+            <!-- Add journey -->
             {% if data.participants[id].type == "ect" %}
 
                     {% if data['linkaction'] == "cannotFind" %}
@@ -33,7 +33,7 @@
                         {% else %}
                             <form class="form" action="know-trn" method="post">
                         {% endif %}
-                            
+
                             <input type="hidden" name="linkaction" id="linkaction" value="" />
                             {{ govukCheckboxes({
                                 classes: "govuk-checkboxes--small govuk-visually-hidden",
@@ -47,7 +47,7 @@
                         <form class="form" action="teacher-reference-number" method="post">
 
                     {% endif %}
-            
+
             {% elif data.participants[id].type == "mentor"  %}
 
                     {% if data['linkaction'] == "cannotFind" %}
@@ -66,7 +66,7 @@
                             } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
                     {% else %}
 
-                        <form class="form" action="know-trn" method="post">
+                        <form class="form" action="teacher-reference-number" method="post">
 
                     {% endif %}
 

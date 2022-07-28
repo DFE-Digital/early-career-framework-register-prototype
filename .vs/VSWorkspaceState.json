@@ -3,8 +3,8 @@
     "",
     "\\app",
     "\\app\\views",
-    "\\app\\views\\schools",
-    "\\app\\views\\schools\\appropriate-body"
+    "\\app\\views\\schools"
   ],
+  "SelectedNode": "\\app\\views\\schools\\participants\\add\\trn-guidance.html",
   "PreviewInSolutionExplorer": false
 }
