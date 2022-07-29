@@ -10,26 +10,31 @@
         <div class="govuk-grid-column-two-thirds">
 
             <h1 class="govuk-heading-xl">
-                <span class="govuk-caption-xl">Prototype work</span>
+                <span class="govuk-caption-xl">Prototype</span>
                 Page listings
             </h1>
 
-            <p class="govuk-body-s">Last updated 29 July 2022</p>
-            <p><a href="data">Data been stored as part of current session</a></p>
-            <p>Some pages have dynamic content - so without going through the flows that lead to them its not possible to show the right content for all scenarios.</p>
+            <p class="govuk-body-s">Last updated 29 July 2022</p>            
+            <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
-            <!-- ////////////////////////////////// -->
 
-            <h2 class="govuk-heading-l govuk-!-margin-bottom-0">Access to the service</h2>
+
+            {% set checkingHtml %}
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Accessing the service</h2>
             <p>Various routes into the service either via sign in, access link or email and sign up journey for schools.</p>
             {# <p>Induction Tutor is notified via email that they have been nominated. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></p> #}
-            <h3 class="govuk-heading-m">Monitoring the GIAS email address</h3>
+            
+            <h3 class="govuk-heading-s">Monitoring the GIAS email address</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/emails/tell-us-if-you-have-nqt" >(Email) - Does your school expect any early career teachers in the term ahead? *</a></li>
             </ul>
-            <h3 class="govuk-heading-m">Service pages</h3>
-            <ul class="govuk-list govuk-list--bullet">
+            
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
 
+            <h3 class="govuk-heading-s">Service pages</h3>
+            <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/start" >Manage training for early career teachers*</a></li>
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
                     <li><a class="govuk-link" href="/how-to-set-up-your-programme" >Set up your school’s early career teacher training programme: step by step*</a></li>
@@ -48,9 +53,6 @@
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
                         <li><a class="govuk-link" href="/emails/tell-us-if-you-have-nqt" >(Email) - Does your school expect any early career teachers in the term ahead? *</a> move on to confirm is school has ECTs and induction tutor nomination</li>
                     </ul>
-
-
-
                 </ul>
                 <li><a class="govuk-link" href="/check-your-email" >Check your email*</a></li>
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
@@ -67,16 +69,9 @@
 
             </ul>
 
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
 
-
-
-
-
-
-
-
-            <h2 class="govuk-heading-l">Confirm if school has ECTs and nominate an induction tutor</h2>
-
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Confirm if has ECTs and nominate an induction tutor</h2>
             <p>Email links them to service to confirm ECTs and nominate induction tutor.</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/nominations/expect-early-career-teachers" >Do you expect any early career teachers to join your school this academic year?</a></li>
@@ -100,6 +95,26 @@
 
 
             </ul>
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
+
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Others (still to check)</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/guidance_1" >Guidance: Induction training and support for new teachers</a></li>
+                <li><a class="govuk-link" href="/sign-out" >Sign out</a></li>
+                <li><a class="govuk-link" href="/pseudo-email-training-provider-invite" >Training provider invite</a></li>
+                <li><a class="govuk-link" href="/teacher-or-mentors/cip-validation/email-sign-in-ect-mentor" >Link to sign in ECT start</a></li>
+                <li><a class="govuk-link" href="/teacher-or-mentors/cip-validation/pseudo-email-sign-in-ect" >Link to sign in</a></li>
+            </ul>
+
+
+
+            {% endset -%}
+
+                    
+
+
+            {% set ectHtml %}
 
             <h3 class="govuk-heading-m">Nominated as an induction tutor</h3>
             <ul class="govuk-list govuk-list--bullet">
@@ -188,52 +203,33 @@
             </ul>
 
 
-            <!-- Test -->
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            {% endset -%}
 
-            <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Manage ECT and mentors</h2>
-            
-            {% include "includes/listings/manage-ect-mentor.html" %}
+            {% set mentorHtml %}
 
-            
-            {% include "includes/listings/transfer-out.html" %}
-            {% include "includes/listings/remove-ect-mentor.html" %}
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Manage ECT and mentors</h2>
+                
+                {% include "includes/listings/manage-ect-mentor.html" %}                
+                {% include "includes/listings/transfer-out.html" %}
+                {% include "includes/listings/remove-ect-mentor.html" %}
+                {% include "includes/listings/add-ect.html" %}
+                {% include "includes/listings/assign-mentor.html" %}
+                {% include "includes/listings/add-mentor.html" %}
+                {% include "includes/listings/add-sit-mentor.html" %}
+                {% include "includes/listings/add-transfer.html" %}
+                {% include "includes/listings/validation.html" %}
+                <h2 class="govuk-heading-l">Orphaned pages</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a class="govuk-link" href="/schools/participants/what-each-person-does">Check what each person needs to do in the early career teacher training programme</a></li>
+                </ul>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+                    <li><a class="govuk-link" href="/schools/participants/add/existing-mentor" >Do you want to add a mentor from another cohort? (Not in use)</a></li>
+                    <li><a class="govuk-link" href="/schools/participants/add/which-mentor" >Which mentor do you want to add to the 2021 cohort? (Not in use)</a></li>
+                </ul>
 
-            {% include "includes/listings/add-ect.html" %}
-            {% include "includes/listings/assign-mentor.html" %}
-            {% include "includes/listings/add-mentor.html" %}
-            {% include "includes/listings/add-sit-mentor.html" %}
-            {% include "includes/listings/add-transfer.html" %}
-            {% include "includes/listings/validation.html" %}
+            {% endset -%}
 
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-            <h2 class="govuk-heading-l">Orphaned pages</h2>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/schools/participants/what-each-person-does">Check what each person needs to do in the early career teacher training programme</a></li>
-            </ul>
-            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
-                <li><a class="govuk-link" href="/schools/participants/add/existing-mentor" >Do you want to add a mentor from another cohort? (Not in use)</a></li>
-                <li><a class="govuk-link" href="/schools/participants/add/which-mentor" >Which mentor do you want to add to the 2021 cohort? (Not in use)</a></li>
-            </ul>
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-            
-
-            
-
-
-            <h2 class="govuk-heading-l">Others (still to check)</h2>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/guidance_1" >Guidance: Induction training and support for new teachers</a></li>
-                <li><a class="govuk-link" href="/sign-out" >Sign out</a></li>
-                <li><a class="govuk-link" href="/pseudo-email-training-provider-invite" >Training provider invite</a></li>
-                <li><a class="govuk-link" href="/teacher-or-mentors/cip-validation/email-sign-in-ect-mentor" >Link to sign in ECT start</a></li>
-                <li><a class="govuk-link" href="/teacher-or-mentors/cip-validation/pseudo-email-sign-in-ect" >Link to sign in</a></li>
-            </ul>
+            {% set nottrainingHtml %}
 
             <h2 class="govuk-heading-l">Training provider signed in</h2>
             <ul class="govuk-list govuk-list--bullet">
@@ -248,6 +244,24 @@
                 <li><a class="govuk-link" href="/lead-provider/your-schools" >Your schools (2021)</a></li>
                 <li><a class="govuk-link" href="/lead-provider/school-listing-2022" >Your schools (2022)</a></li>
             </ul>
+
+            {% endset -%}
+
+
+            <!-- Tabs -->
+            {{ govukTabs({
+                items: [
+
+                    { label: "Access", id: "checking", panel: { html: checkingHtml } },
+                    { label: "Programme", id: "ect", panel: { html: ectHtml } },
+                    { label: "Manage ECT and mentors", id: "mentors", panel: { html: mentorHtml } },                    
+                    { label: "Provider", id: "not-training", panel: { html: nottrainingHtml } }
+
+                ]
+            }) }}
+            
+            <p><a href="data">Data been stored as part of current session</a></p>
+
     </div>
 </div>
 
