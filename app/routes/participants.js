@@ -135,12 +135,12 @@ module.exports = router => {
   })
 
   // Transfer a participant
-  router.all('/schools/participants/:id/transfer/', (req, res) => {
-    res.render('schools/participants/transfer/index')
+  router.all('/schools/participants/:id/transfer-out/', (req, res) => {
+    res.render('schools/participants/transfer-out/index')
   })
 
-  router.all('/schools/participants/:id/transfer/:view', (req, res) => {
-    res.render(`schools/participants/transfer/${req.params.view}`)
+  router.all('/schools/participants/:id/transfer-out/:view', (req, res) => {
+    res.render(`schools/participants/transfer-out/${req.params.view}`)
   })
 
   // Remove a participant
