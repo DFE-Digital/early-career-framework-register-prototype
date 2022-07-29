@@ -14,8 +14,9 @@
                 Page listings
             </h1>
 
-            <p class="govuk-body-s">Last updated 28 July 2022</p>
+            <p class="govuk-body-s">Last updated 29 July 2022</p>
             <p><a href="data">Data been stored as part of current session</a></p>
+            <p>Some pages have dynamic content - so without going through the flows that lead to them its not possible to show the right content for all scenarios.</p>
 
             <!-- ////////////////////////////////// -->
 
@@ -191,6 +192,8 @@
             <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
             {% include "includes/listings/manage-ect-mentor.html" %}
+            {% include "includes/listings/transfer-out.html" %}
+            {% include "includes/listings/remove-ect-mentor.html" %}
 
             {% include "includes/listings/add-ect.html" %}
             {% include "includes/listings/assign-mentor.html" %}
