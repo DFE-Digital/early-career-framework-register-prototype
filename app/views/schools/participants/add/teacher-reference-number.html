@@ -64,8 +64,10 @@
               		    text: "Continue"
             	    }) }}
 
-                    {% if data.participants[id].type == "mentor" or data.participants[id].type == "sitMentor" %}
+                    {% if data.participants[id].type == "mentor" %}
                         <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
+                    {% elif data.participants[id].type == "sitMentor" %}
+                        <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
                     {% endif%}
 
                 </div>
