@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'We still cannot find ' + participant.name + '’s record' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This could be because the information does not match their Teaching Regulation Agency (TRA) record.</p>
+
+            <h2 class="govuk-heading-m">Contact our support team as soon as possible</h2>
+            <p>We need to do a manual check of the records.</p>
+            <p>Email us at: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+            <p class="govuk-body">Include their:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>full name</li>
+                <li>teacher-reference-number (TRN)</li>
+                <li>date of birth</li>
+            </ul>
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">View your ECTs and mentors</a></p>
+        </div>
+    </div>
+{% endblock %}

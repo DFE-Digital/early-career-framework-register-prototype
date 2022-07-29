@@ -43,10 +43,10 @@
                 	text: "Continue"
             	}) }}
 
-				
+
 				{% if data['inductionProgramme'] == "FIP" %}
-				
-					<div class="govuk-!-padding-top-5 key">
+
+					<div class="govuk-!-padding-top-5">
 
 
                     {{ govukCheckboxes({
@@ -57,7 +57,7 @@
                     } | decorateFormAttributes(['validCombo']) ) }}
 
 
-                       
+
 					</div>
 				{% endif %}
 
