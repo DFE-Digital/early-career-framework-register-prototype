@@ -129,11 +129,8 @@ module.exports = router => {
     // console.log(Object.values(participants).some((p) => p.type === 'mentor'))
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor').map(p => {
-      return { text: p.name }
-      // `${p.name} ${p.email}`
-    })
-    // res.locals.mentors.push({ text: 'Add a new mentor' })
-    // res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor')
+      return { text: p.name }      
+    })    
     console.log(res.locals)
     next()
   })
@@ -148,12 +145,12 @@ module.exports = router => {
   })
 
   // Transfer a participant
-  router.all('/schools/participants/:id/transfer/', (req, res) => {
-    res.render('schools/participants/transfer/index')
+  router.all('/schools/participants/:id/transfer-out/', (req, res) => {
+    res.render('schools/participants/transfer-out/index')
   })
 
-  router.all('/schools/participants/:id/transfer/:view', (req, res) => {
-    res.render(`schools/participants/transfer/${req.params.view}`)
+  router.all('/schools/participants/:id/transfer-out/:view', (req, res) => {
+    res.render(`schools/participants/transfer-out/${req.params.view}`)
   })
 
   // Remove a participant
