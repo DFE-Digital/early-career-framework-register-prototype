@@ -48,7 +48,11 @@
                     <p class="govuk-body">You’re choosing to design and deliver your own programme based on the early career framework (ECF).</p>
                     <p class="govuk-body">You’ll need to design a 2-year programme of support and training that covers every ’learn that’ and ’learn how to’ statement in the <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework" rel="noreferrer noopener" target="_blank">early career framework (ECF) (opens in new tab)</a>.</p>
                     <p class="govuk-!-margin-bottom-7"><a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview#schools-designing-and-delivering-their-own-ecf-based-induction" rel="noreferrer noopener" target="_blank"> See our statutory guidance (opens in new tab)</a> for information about funding, time off timetable, and roles.</p>
-                {% endif %}
+                
+                {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "temphold" )) %}
+                
+                <p>You’ve chosen to use a training provider funded by your school.</p>
+                    {% endif %}
 
 
             {% else %}
@@ -117,6 +121,8 @@
                     <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="CIP" />
                 {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
                     <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="DYO" />
+                {% elif ((data['newYearChangeWhat'] == "switchTemphold") or (data['NewYearHowRun'] == "temphold" )) %}
+                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="temphold" />
                 {% endif %}
 
                 {{ govukButton({
