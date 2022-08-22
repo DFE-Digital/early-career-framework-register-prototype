@@ -28,7 +28,7 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data['NewYearInductionProgramme'] != "" %}
+            {% if data['NewYearInductionProgramme']  %}
 
                 <!-- if school is currently training with FIP and is not looking to change -->
                 {% if data['NewYearInductionProgramme'] == "FIP" %}
@@ -128,6 +128,14 @@
 
                     
                     <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank"> See our guidance collection (opens in new tab)</a> for more information about induction, training and support for ECTs.</p>
+
+                {% elif ((data['newYearChangeWhat'] == "switchTemphold") or (data['NewYearHowRun'] == "temphold" )) %}
+
+                <h2 class="govuk-heading-m">What to do next</h2>
+                    <p>You need to <a href="https://www.gov.uk/guidance/funding-and-eligibility-for-ecf-based-training" class="govuk-link" rel="noreferrer noopener" target="_blank">make your own arrangements with a training provider (opens in new tab)</a>, approved by the DfE.</p>
+                    <p>You do not need to add information about your ECTs and mentors to this service.</p>
+                    <p>If you change your mind about how you want to run your training, email <a class="govuk-link" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>.</p>
+                    <p class="govuk-link govuk-!-margin-top-7"><a href="../manage-your-training">Continue to manage your training</a></p>
 
                 {% endif %}
 
