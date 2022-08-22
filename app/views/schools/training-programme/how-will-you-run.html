@@ -19,7 +19,7 @@
 
             <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 
-                {% if data['eligible-funding'] == "No" %}
+                {% if data['inductionProgramme'] == "temphold" %}
 
                     {{ govukRadios({
                         items: [

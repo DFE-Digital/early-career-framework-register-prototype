@@ -1,5 +1,6 @@
 {% if data['NewYearInductionProgramme'] != "DYO" %}
-    {% if data['newYearChangeWhat'] != "switchDyo" %}
+    {% if data['NewYearInductionProgramme'] != "temphold" %}
+        {% if data['newYearChangeWhat'] != "switchDyo" %}
 
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Appropriate body</dt>
@@ -13,5 +14,6 @@
     </dd>
 </div>
 
+    {% endif %}
     {% endif %}
 {% endif %}
