@@ -22,8 +22,7 @@
                 {% if data['inductionProgramme'] == "temphold" %}
 
                     {{ govukRadios({
-                        items: [
-                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                        items: [                            
                             { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },
                             { value: "temphold", text: "Use a training provider funded by your school" },
                             { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
