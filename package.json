@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.4",
-    "acorn": "^8.7.0",
+    "acorn": "^8.8.0",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
     "basic-auth-connect": "^1.0.0",
@@ -34,7 +34,7 @@
     "gulp-nodemon": "^2.5.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "inquirer": "^8.2.2",
+    "inquirer": "^9.1.0",
     "keypather": "^3.0.0",
     "lodash": "^4.17.21",
     "luxon": "^2.3.2",
@@ -50,9 +50,9 @@
   },
   "devDependencies": {
     "glob": "^8.0.1",
-    "jest": "^27.5.1",
+    "jest": "^28.1.3",
     "standard": "^17.0.0",
-    "supertest": "^6.2.2"
+    "supertest": "^6.2.4"
   },
   "jest": {
     "testRunner": "jest-jasmine2"
