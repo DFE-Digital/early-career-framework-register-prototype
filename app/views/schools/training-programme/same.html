@@ -2,6 +2,8 @@
 {% set schoolSignedIn = true %}
 
 {% set pageHeading = "Are you planning to change your current training provider?" %}
+
+{% set pageHeading = "Do you want to use the same lead provider and delivery partner for your new ECTs?" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,9 +17,9 @@
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
             <p class="govuk-body govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
-            <p class="govuk-body">{{ data.deliveryPartner }}</p>
+            <p class="govuk-body govuk-!-margin-bottom-5">{{ data.deliveryPartner }}</p>
 
-            <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"  class="govuk-link">check your options (opens in new tab)</a>.</p>
+            {# <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"  class="govuk-link">check your options (opens in new tab)</a>.</p> #}
 
             {% if data['validCombo'] == "No" %}
                 <form class="form" action="/schools/training-programme/combination-not-valid" method="post" >
@@ -28,8 +30,8 @@
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
-                        { value: "Yes, redirect(/schools/training-programme/why-are-you-changing)", text: "Yes" },
-                        { value: "No", text: "No" }
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(/schools/training-programme/why-are-you-changing)", text: "No" }
                     ]
                 } | decorateFormAttributes('newYearProviderChange')) }}
 
