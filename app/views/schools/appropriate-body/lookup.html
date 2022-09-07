@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Which ' + data.abType + ' have you appointed?' %}
+{% set pageHeading = 'Which ' + data.appropriateBodyType + ' have you appointed?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
             {% include "includes/rememberAB.html" %}
 
-            {% if not data['setup'] %}
+            {% if not data['appropriateBody'] %}
                 <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-7">
             {% else %}
                 <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-7">
@@ -30,7 +30,7 @@
                 <div class="autocomplete-wrapper govuk-!-width-two-thirds govuk-!-margin-bottom-7">
                     <select name="abName" id="abName">
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         <option value=""></option>
                         <option value="Barnsley and Doncaster Teaching School Hub">Barnsley and Doncaster Teaching School Hub</option>

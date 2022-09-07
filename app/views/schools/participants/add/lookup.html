@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Which ' + data.abType + ' have you appointed for ' + participant.name + '?' %}
+{% set pageHeading = 'Which ' + data.appropriateBodyType + ' have you appointed for ' + participant.name + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,7 +19,7 @@
                 <div class="autocomplete-wrapper govuk-!-width-two-thirds govuk-!-margin-bottom-7">
 
                 <!-- Teaching School Hub -->
-                {% if data['abType'] == "teaching school hub" %}
+                {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                     {{ govukSelect({
                         items: [
