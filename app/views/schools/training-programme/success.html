@@ -28,10 +28,10 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if data['NewYearInductionProgramme']  %}
+            {% if data['inductionProgrammeYearTwo']  %}
 
                 <!-- if school is currently training with FIP and is not looking to change -->
-                {% if data['NewYearInductionProgramme'] == "FIP" %}
+                {% if data['inductionProgrammeYearTwo'] == "FIP" %}
 
                     {% if ((data['newYearChangeWhat'] == "leadProvider") or (data['newYearChangeWhat'] == "deliveryPartner") or ( data['newYearStayLeadProvider'] )) %}
 

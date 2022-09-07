@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data['NewYearInductionProgramme'] %}
+{% if data['inductionProgrammeYearTwo'] %}
     {% if data['inductionProgramme'] == "FIP" %}
         <!-- If you get here then you are currently on FIP but switching -->
         {% set pageHeading = "Are you sure you want to change how you’ll run your training?" %}
@@ -25,7 +25,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <!-- Check to make sure its the newYear programme flow we are on then only 3 options for content -->
-            {% if data['NewYearInductionProgramme']  %}
+            {% if data['inductionProgrammeYearTwo']  %}
 
 
 
@@ -126,13 +126,13 @@
             {% endif %}
                 <!-- This will assign correct induction programme to new academic year -->
                 {% if ((data['newYearChangeWhat'] == "switchFIP") or (data['NewYearHowRun'] == "FIP" )) %}
-                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="FIP" />
+                    <input type="hidden" id="inductionProgrammeYearTwo" name="inductionProgrammeYearTwo" value="FIP" />
                 {% elif ((data['newYearChangeWhat'] == "switchCip") or (data['NewYearHowRun'] == "CIP" )) %}
-                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="CIP" />
+                    <input type="hidden" id="inductionProgrammeYearTwo" name="inductionProgrammeYearTwo" value="CIP" />
                 {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
-                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="DYO" />
+                    <input type="hidden" id="inductionProgrammeYearTwo" name="inductionProgrammeYearTwo" value="DYO" />
                 {% elif ((data['newYearChangeWhat'] == "switchTemphold") or (data['NewYearHowRun'] == "temphold" )) %}
-                    <input type="hidden" id="NewYearInductionProgramme" name="NewYearInductionProgramme" value="temphold" />
+                    <input type="hidden" id="inductionProgrammeYearTwo" name="inductionProgrammeYearTwo" value="temphold" />
                 {% endif %}
 
                 {{ govukButton({

@@ -19,7 +19,7 @@
             <p>This illustrates the user flows that an ECT or Mentor will go through when validating their details such as TRN, DOB and NI number that the school induction tutor did not enter.</p>
 
             <!-- Contacted ECTs -->
-            {% if ((data['inductionProgramme'] == "FIP") or (data['NewYearInductionProgramme'] == "FIP")) %}
+            {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
 
                 <!-- Check to see if there are any ECT or Mentors that have status contacted -->
                 {% if hasAnyContacted %}
@@ -37,7 +37,7 @@
                     </table>
 
                 {% endif %}
-            {% elif ((data['inductionProgramme'] == "CIP") or (data['NewYearInductionProgramme'] == "CIP")) %}
+            {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
                 {% if hasAnyContacted %}
                     <table class="govuk-table govuk-!-margin-bottom-9">
                         {% include "includes/validate_fip_head.html" %}

@@ -1,7 +1,7 @@
-{% macro programmeFIP ( 
+{% macro programmeFIP (
     programme = ""
 ) %}
-    
-    {% if ((data['inductionProgramme'] == '{{ programme }}') or (data['NewYearInductionProgramme'] == '{{ programme }}' )) %}
+
+    {% if ((data['inductionProgramme'] == '{{ programme }}') or (data['inductionProgrammeYearTwo'] == '{{ programme }}' )) %}
 
 {% endmacro %}

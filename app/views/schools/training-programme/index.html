@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 {% set showBackLink = false %}
 
-{% if data['NewYearInductionProgramme'] %}
+{% if data['inductionProgrammeYearTwo'] %}
     {% set pageHeading = "How do you want to run your training in the next academic year?" %}
 {% else %}
     {% set pageHeading = "How do you want to run your training in 2022 to 2023?" %}
@@ -25,7 +25,7 @@
 
 
 
-            {% if data['NewYearInductionProgramme'] %}
+            {% if data['inductionProgrammeYearTwo'] %}
 
                 {% if data['inductionProgramme'] == "FIP" %}
 
