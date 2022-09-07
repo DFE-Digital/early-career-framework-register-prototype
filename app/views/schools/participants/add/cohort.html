@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+{% if data['notcorrect'] == "Yes" %}
+    {% set pageHeading = 'Did ' + participant.name + ' start their ECF-based training in the 2021 to 2022 academic year? ' %}
+{% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
+    {% set pageHeading = 'Which academic year is ' + participant.name + ' starting their ECF-based training? ' %}
+{% else %}
+    {% set pageHeading = 'Confirm ' + participant.name + ' will be starting their ECF-based training in the 2022 to 2023 academic year? ' %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
+
+                <p>Words...</p>
+
+            {% else %}
+
+                <p class="govuk-!-margin-bottom-7">This is when {{ participant.name }}’s induction formally starts.</p>
+
+            {% endif %}
+
+
+
+            {% if data['appropriateBodyName'] %}
+                <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+            {% else %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}
+
+
+                {% if data['notcorrect'] == "Yes" %}
+
+                    <input type="hidden" name="notcorrect" id="notcorrect" value="" />
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",
+                        items: [
+                            { value: "Yes", text: "Yes" },
+                            { value: "No, redirect(cannot-add)", text: "No" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
+
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                {% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "2022", text: "2021 to 2022" },
+                            { value: "2023", text: "2022 to 2023" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+
+                {% else %}
+
+                    <!-- Add cohort as new year hidden from visual browser -->
+                    {{ govukCheckboxes({
+                        items: [
+                            { value: "2022", text: "2021 to 2022 academic year", checked: "true" }
+                        ]
+                    } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
+                    <!-- // -->
+
+                    <div class="govuk-button-group">
+
+                        {{ govukButton({
+                            text: "Confirm and continue"
+                        }) }}
+                        <a class="govuk-link" href="cohort?notcorrect=Yes">This is not the correct year</a>
+
+                    </div>
+
+
+                {% endif %}
+
+			</form>
+    	</div>
+  	</div>
+{% endblock %}
