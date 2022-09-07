@@ -11,7 +11,7 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
+
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
@@ -42,7 +42,7 @@
                     {% include "includes/summary_induction_date.html" %}
                 {% endif %}
 
-                {% if data.participants[id].abConfirm == "Yes" or data.participants[id].abName %}
+                {% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
                 {% if data.participants[id].type == "ect" %}
                     {% include "includes/summary_aBody.html" %}
                 {% endif %}

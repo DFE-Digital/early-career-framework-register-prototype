@@ -2,17 +2,11 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-<!-- Brian - If FIP user coming from /schools/training-programme/confirm-choice-later, H1 should be 'you’ve submitted your information' -->
-
-
-<!-- If appropriate body has been chosen as part of the journey -->
-{% if data['abName'] %}
+{% if data['appropriateBodyName'] %}
     {% set pageHeading = "You’ve submitted your training information and reported your appropriate body" %}
-<!-- otherwise -->
 {% else %}
     {% set pageHeading = "You’ve submitted your training information" %}
 {% endif %}
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -48,7 +42,7 @@
                         <p>As soon as possible:</p>
                         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
                             <li>confirm the change with your new lead provider
-                            {% if not data['abName'] %}
+                            {% if not data['appropriateBodyName'] %}
                             <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                             {% endif %}
                             <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
@@ -62,7 +56,7 @@
                         <h2 class="govuk-heading-m">What to do next</h2>
                         <p class="govuk-body">As soon as possible:</p>
                         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-                            {% if not data['abName'] %}
+                            {% if not data['appropriateBodyName'] %}
                             <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                             {% endif %}
                             <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
@@ -79,7 +73,7 @@
                     <p>As soon as possible:</p>
                     <ol class="govuk-list govuk-list--bullet govuk-list--spaced">
                         <li>Register with one of the 6 DfE-funded training providers. You do not need to let the DfE know which provider you choose. Your training provider will contact us directly to arrange the funding.</li>
-                        {% if not data['abName'] %}
+                        {% if not data['appropriateBodyName'] %}
                         <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                         {% endif %}
                         <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
@@ -94,7 +88,7 @@
                     <p>As soon as possible:</p>
                     <ol class="govuk-list govuk-list--bullet govuk-list--spaced">
                         <li>choose the DfE-accredited materials you want to use - you may need to create an account to access the materials</li>
-                        {% if not data['abName'] %}
+                        {% if not data['appropriateBodyName'] %}
                         <li>tell us which appropriate body you’ve appointed for your ECTs</li>
                         {% endif %}
                         <li>add the new ECTs and mentors to this service so we can check their eligibility for DfE funding</li>
@@ -105,7 +99,7 @@
                 {% elif ((data['newYearChangeWhat'] == "switchDyo") or (data['NewYearHowRun'] == "DYO" )) %}
 
                     <h2 class="govuk-heading-m">What to do next</h2>
-                    {% if data['abName'] %}
+                    {% if data['appropriateBodyName'] %}
                     <p>You need to design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a>.</p>
                     {% else %}
 
@@ -118,7 +112,7 @@
 
                     <p>You do not need to register your ECTs and mentors on this service.</p>
 
-                    {% if data['abName'] %}
+                    {% if data['appropriateBodyName'] %}
                     <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
                     <ul class="govuk-list govuk-list--bullet">
                         <li>is based on the ECF</li>
@@ -180,7 +174,7 @@
 
 
                 <h2 class="govuk-heading-m">What to do next</h2>
-                {% if data['abName'] %}
+                {% if data['appropriateBodyName'] %}
                 <p>You need to design a 2-year programme of support and training that covers every 'learn that' and 'learn how to' statement in the <a href="https://www.gov.uk/government/publications/early-career-framework" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">early career framework (opens in new tab)</a>.</p>
                 {% else %}
 
@@ -193,7 +187,7 @@
 
                 <p>You do not need to register your ECTs and mentors on this service.</p>
 
-                {% if data['abName'] %}
+                {% if data['appropriateBodyName'] %}
                 <p class="govuk-body">Contact your appropriate body to find out what evidence is needed to demonstrate that your programme:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>is based on the ECF</li>

@@ -18,7 +18,7 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-			
+
 
             {% if data.participants[id].type == "ect" %}
                 <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
@@ -31,7 +31,7 @@
                         <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
                     {% else %} #}
 
-                {% if data['abName'] %}
+                {% if data['appropriateBodyName'] %}
                     <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
                 {% else %}
                     <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">

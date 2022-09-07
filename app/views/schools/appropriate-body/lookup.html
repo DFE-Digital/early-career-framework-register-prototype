@@ -5,8 +5,6 @@
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{# <link rel="stylesheet" href="assets/css/accessible-autocomplete.min.css" /> #}
-
 <link rel="stylesheet" href="/public/css/accessible-autocomplete.min.css">
 
 {% block content %}
@@ -24,11 +22,11 @@
                 <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-7">
             {% endif %}
 
-                <label for="abName"></label>
+                <label for="appropriateBodyName"></label>
 
 
                 <div class="autocomplete-wrapper govuk-!-width-two-thirds govuk-!-margin-bottom-7">
-                    <select name="abName" id="abName">
+                    <select name="appropriateBodyName" id="appropriateBodyName">
 
                     {% if data['appropriateBodyType'] == "teaching school hub" %}
 
@@ -261,7 +259,7 @@
 
     <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
     <script type="text/javascript">
-      var selectEl = document.querySelector('#abName')
+      var selectEl = document.querySelector('#appropriateBodyName')
       accessibleAutocomplete.enhanceSelectElement({
         autoselect: true,
         defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
@@ -275,7 +273,7 @@
         var submittedEl = document.querySelector('.submitted')
         submittedEl.classList.remove('submitted--hidden')
         var params = new URLSearchParams(document.location.search.split('?')[1])
-        document.querySelector('.submitted__abName').innerHTML = params.get('abName')
+        document.querySelector('.submitted__appropriateBodyName').innerHTML = params.get('appropriateBodyName')
       }
     </script>
 
