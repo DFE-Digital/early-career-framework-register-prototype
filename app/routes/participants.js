@@ -24,7 +24,7 @@ module.exports = router => {
     const participants = req.session.data.participants
     res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
     res.locals.hasSitMentor = Object.values(participants).some((p) => p.type === 'sitMentor')
-    res.locals.hastransfers = Object.values(participants).some((p) => p.type === 'transfer')
+    res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.type === 'mentorTransfer')
 
