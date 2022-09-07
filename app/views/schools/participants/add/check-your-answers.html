@@ -17,6 +17,12 @@
 
                 <!-- Name -->
                 {% include "includes/summary_name.html" %}
+
+                <!-- Induction start date -->
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
+                {% endif %}
+
                 <!-- TRN -->
                 {% include "includes/summary_trn.html" %}
                 <!-- Date of birth -->
@@ -37,10 +43,7 @@
                     {% include "includes/summary_email.html" %}
                 {% endif %}
 
-                <!-- Induction start date -->
-                {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
-                {% endif %}
+                
 
                 {% if participant.cohort %}
                     {% include "includes/summary_cohort.html" %}
@@ -82,13 +85,6 @@
                 <!-- Clears any change action from the CYA - we may not need moving forwards  -->
                 {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
 
-
-
-
-
-
-
-
                 {% if data.participants[id].type == "sitMentor" %}
 
                     {{ govukInput({
@@ -101,14 +97,14 @@
 
 
                 <!-- If transferring in -->
-                {% elif data.participants[id].type == "transfer" or data.participants[id].type == "mentorTransfer"  %}
+                {% elif data.participants[id].type == "transfer" %}
                     {{ govukInput({
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "TransferIn"
                     } | decorateFormAttributes(['participants', id, 'status']) ) }}
 
                 <!-- Otherwise if TRN provided  -->
-                {% elif participant.trnKnown == "Yes" %}
+                {% else %}
 
                     {% if data.participants[id].noRecordsMatched == "Yes" %}
 
@@ -138,14 +134,7 @@
 
                     {% endif %}
 
-                <!-- If no TRN we need to contact them to provde the details -->
-                {% else %}
-
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "Contacted"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
+                <!-- If no TRN we need to contact them to provde the details -->                
                 {% endif %}
 
 

@@ -27,7 +27,6 @@ module.exports = {
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",
-
     inductionProgrammeYearTwo: "FIP",
     inductionProgrammeYearTwoECTs: "Yes",
     inductionProgrammeYearTwoProviderChange: "No",
