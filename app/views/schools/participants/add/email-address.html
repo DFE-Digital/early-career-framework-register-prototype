@@ -20,12 +20,12 @@
 
             {% else %}
 
-                {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
+                {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor"  %}
 
                     <form class="form" action="cohort" method="post" class="govuk-!-margin-bottom-8">
 
                 {% else %}
-                    {% if data.participants[id].type == "transfer" %}
+                    {% if data.participants[id].type == "Transfer" %}
 
                         <!-- Is a mentor -->
                         {# {% if data.participants[id].isMentor == "Yes" %} #}

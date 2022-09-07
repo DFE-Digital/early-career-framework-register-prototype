@@ -33,7 +33,7 @@
 
                         {% endif %}
 
-                    {% elif data.participants[id].type == "mentor" %}
+                    {% elif data.participants[id].type == "Mentor" %}
 
 
                     {% endif %}
@@ -44,7 +44,7 @@
 
                             <p>If {{ participant.name }} should not have been registered, you need to <a href="/schools/participants/{{ id }}/remove/confirm">need to remove all their information from this service</a>.</p>
 
-                        {% elif data.participants[id].type == "mentor" %}
+                        {% elif data.participants[id].type == "Mentor" %}
 
 
                         {% endif %}
@@ -78,7 +78,7 @@
                             </ul>
                             <p><a href="/schools/participants/add/">Add the new ECT</a></p>
 
-                        {% elif data.participants[id].type == "mentor" %}
+                        {% elif data.participants[id].type == "Mentor" %}
 
                             <h2 class="govuk-heading-m">Contact the lead provider to withdraw this mentor</h2>
                             <p>If you want to replace {{ participant.name }} because this mentor will not be serving their induction at your school, you’ll need to contact the lead provider {{ data.leadProvider }} to withdraw them.</p>
@@ -108,7 +108,7 @@
                             </ul>
                             <p><a href="/schools/participants/add/">Add the new ECT</a></p>
 
-                        {% elif data.participants[id].type == "mentor" %}
+                        {% elif data.participants[id].type == "Mentor" %}
 
                             <h2 class="govuk-heading-m">Contact our support team to remove this mentor</h2>
                             <p>If you want to replace {{ participant.name }} because this teacher will not be mentoring at your school, first all of {{ participant.name }}’s information must be removed.</p>

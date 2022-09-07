@@ -101,8 +101,8 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.type == "ect" or participant.type == "transfer" %}ECT
-                        {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
+                        {% if participant.type == "ECT" or participant.type == "Transfer" %}ECT
+                        {% elif participant.type == "Mentor" or participant.type == "Transfer" %}Mentor{% endif %}
                     </dd>
                 </div>
 
@@ -113,7 +113,7 @@
                     <dt class="govuk-summary-list__key">
                         {% if data.participants[id].type == "ect" %}
                             Induction start
-                        {% elif data.participants[id].type == "mentor" %}
+                        {% elif data.participants[id].type == "Mentor" %}
                             Mentoring start
                         {% endif %}
                     </dt>
@@ -226,7 +226,7 @@
                         {% elif data.participants[id].status == "NotEligible" %}
 
                             {% if data.participants[id].programme == "FIP" %}
-                                {% if data.participants[id].type == "mentor" %}
+                                {% if data.participants[id].type == "Mentor" %}
                                     {% if data.participants[id].status == "alreadyFunded" %}
                                         <p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>
                                     {% else %}
@@ -254,9 +254,9 @@
                 {% endif %}
             </dl>
 
-            {% if data.participants[id].type == "ect" or data.participants[id].type == "transfer" %}
+            {% if data.participants[id].type == "ect" or data.participants[id].type == "Transfer" %}
                 <h2 class="govuk-heading-m">No longer training?</h2>
-            {% elif data.participants[id].type == "mentor" or data.participants[id].type == "mentorTransfer" or data.participants[id].type == "sitMentor" %}
+            {% elif data.participants[id].type == "Mentor" or data.participants[id].type == "Transfer" or data.participants[id].type == "sitMentor" %}
                 <h2 class="govuk-heading-m">No longer mentoring?</h2>
             {% endif %}
 

@@ -3,7 +3,7 @@
 
 {% if data.participants[id].type == "ect" %}
     {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
-{% elif data.participants[id].type == "mentor" %}
+{% elif data.participants[id].type == "Mentor" %}
     {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
 
@@ -20,7 +20,7 @@
 
                 <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
 
-            {% elif data.participants[id].type == "mentor" %}
+            {% elif data.participants[id].type == "Mentor" %}
 
                 {# <p>This is the date when the mentor formally starts mentoring an ECT.</p> #}
 

@@ -29,7 +29,7 @@
 
       {% if data['inductionProgramme'] == "FIP" %}
       <!-- FIP -->
-        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "Transfer" )) %}
           <!-- Participant type ECT -->
           {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
@@ -59,7 +59,7 @@
           {% endif %}
 
 
-        {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
+        {% elif ((data['participantType'] == "Mentor") or (data['participantType'] == "sitMentor")) %}
         <!-- Participant type is Mentor or sitMentor -->
             {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
@@ -90,7 +90,7 @@
 
       {% elif data['inductionProgramme'] == "CIP" %}
       <!-- CIP -->
-        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "ECT-transfer" )) %}
+        {% if ((data['participantType'] == "ECT") or (data['participantType'] == "Transfer" )) %}
         <!-- Participant ECT -->
           {% if data['register-validate'] == "noMatch" %}
             <!-- Validation failed -->
@@ -100,7 +100,7 @@
             <p class="govuk-body">We’ll email you a link to access your materials within the next 24 hours.</p>
           {% endif %}
 
-        {% elif ((data['participantType'] == "mentor") or (data['participantType'] == "sitMentor")) %}
+        {% elif ((data['participantType'] == "Mentor") or (data['participantType'] == "sitMentor")) %}
         <!-- Participant Mentor or sitMentor -->
           {% if data['register-validate'] == "noMatch" %}
           <!-- Validation failed -->
