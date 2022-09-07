@@ -5,7 +5,7 @@
 {% if data['notcorrect'] == "Yes" %}
     {% set pageHeading = 'Did ' + participant.name + ' start their ECF-based training in the 2021 to 2022 academic year? ' %}
 {% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
-    {% set pageHeading = 'Which academic year is ' + participant.name + ' starting their ECF-based training? ' %}
+    {% set pageHeading = 'Which academic year will ' + participant.name + ' start their ECF-based training? ' %}
 {% else %}
     {% set pageHeading = 'Confirm ' + participant.name + ' will be starting their ECF-based training in the 2022 to 2023 academic year? ' %}
 {% endif %}
@@ -17,17 +17,6 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            {% if participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
-
-                <p>Words...</p>
-
-            {% else %}
-
-                <p class="govuk-!-margin-bottom-7">This is when {{ participant.name }}’s induction formally starts.</p>
-
-            {% endif %}
-
 
 
             {% if data['appropriateBodyName'] %}
@@ -44,7 +33,7 @@
                     {{ govukRadios({
                         classes: "govuk-radios--inline",
                         items: [
-                            { value: "Yes", text: "Yes" },
+                            { value: "2021", text: "Yes" },
                             { value: "No, redirect(cannot-add)", text: "No" }
                         ]
                     } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
@@ -58,8 +47,8 @@
 
                     {{ govukRadios({
                         items: [
-                            { value: "2022", text: "2021 to 2022" },
-                            { value: "2023", text: "2022 to 2023" }
+                            { value: "2021", text: "2021 to 2022" },
+                            { value: "2022", text: "2022 to 2023" }
                         ]
                     } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
 
@@ -69,7 +58,7 @@
 
 
                 {% else %}
-
+                    <div class="govuk-visually-hidden">
                     <!-- Add cohort as new year hidden from visual browser -->
                     {{ govukCheckboxes({
                         items: [
@@ -77,6 +66,7 @@
                         ]
                     } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
                     <!-- // -->
+                    </div>
 
                     <div class="govuk-button-group">
 
