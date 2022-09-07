@@ -110,7 +110,7 @@
 
                         {% elif data.participants[id].type == "mentor" %}
 
-                            <h2 class="govuk-heading-m">Contact our support team to remove this ECT</h2>
+                            <h2 class="govuk-heading-m">Contact our support team to remove this mentor</h2>
                             <p>If you want to replace {{ participant.name }} because this teacher will not be mentoring at your school, first all of {{ participant.name }}’s information must be removed.</p>
                             <p>We'll need to do this for you, as their information has already been processed as part of our funding eligibility checks.</p>
                             <p>Email our support team so we can remove this mentor's information: <a href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
@@ -126,27 +126,6 @@
 
 
 
-                {# {% else %} #}
-
-                    {% if data.participants[id].type == "ect" %}
-
-                        <p>If you want to replace {{ participant.name }} because this ECT will not be serving their induction at your school, first you need to <a href="/schools/participants/{{ id }}/remove/confirm">remove all {{ participant.name }}’s information from the service</a>.</p>
-                        <p>You’ll then need to add the other ECT separately. This is so that:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>we can check their eligibility for DfE funding for ECF-based training, mentor support and time off timetable</li>
-                            <li>their training can be recorded against the correct teacher reference number (TRN)</li>
-                        </ul>
-
-                    {% elif data.participants[id].type == "mentor" %}
-
-                        <p>If you want to replace {{ participant.name }} because this teacher will not be mentoring at your school, first you need to remove all {{ participant.name }}’s information from the service.</p>
-                        <p>You need to add the other mentor separately. This is so we can check their eligibility for DfE funding.</p>
-
-                    {% endif %}
-
-
-
-                {# {% endif %} #}
 
 
             {% endif %}

@@ -264,7 +264,7 @@
             {% if data.participants[id].type == "sitMentor" %}
                 <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
             {% endif %}
-            <p>Tell us <a href="{{ id }}/transfer/">{{ participant.name }} is transferring to another school</a></p>
+            <p>Tell us <a href="{{ id }}/transfer-out/">{{ participant.name }} is transferring to another school</a></p>
 
             {% if data.participants[id].programme == "FIP" %}
                 <!-- Make sure not already declared by a provider -->

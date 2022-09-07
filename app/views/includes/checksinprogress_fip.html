@@ -1,0 +1,66 @@
+                    <!-- ECTs or Mentors that need to be contacted -->
+                    <!-- No definition of year as we want to show ALL across the board -->
+                    {% if hasAnyContactedParticipants %}
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p>We’ve emailed these teachers to ask for their date of birth and teacher reference number (TRN) or National Insurance number.We need this information to check their details in the Teaching Regulation Agency records.</p>
+                            </div>
+                        </div>
+                        <table class="govuk-table govuk-!-margin-bottom-7">
+                            {% include "includes/dash_fip_head_checking.html" %}
+                            <tbody class="govuk-table__body">
+                                {% for id, participant in data.participants %}
+                                    <!-- Only those with a status contacted -->
+                                    {% if participant.status == "Contacted" and participant.programme == "FIP" %}
+                                        {% include "includes/dash_fip_row_checking.html" %}
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+
+                    <!-- ECTs or Mentors that we need to check their eligibility -->
+                    <!-- No definition of year as we want to show ALL across the board -->
+                    {% if hasAnyCheckingParticipants %}
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p>We’re checking these teachers’ details with the Teaching Regulation Agency.We’ll confirm if they’re eligible for DfE funding soon.</p>
+                            </div>
+                        </div>
+                        <table class="govuk-table govuk-!-margin-bottom-7">
+                            {% include "includes/dash_fip_head_checking.html" %}
+                            <tbody class="govuk-table__body">
+                                {% for id, participant in data.participants %}
+                                    <!-- Only those with a status checking -->
+                                    {% if participant.status == "Checking" and participant.programme == "FIP" %}
+                                        {% include "includes/dash_fip_row_checking.html" %}
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                    
+                    <!-- ECTs or Mentors that dont have QTS -->
+                    <!-- No definition of year as we want to show ALL across the board -->
+                    {% if hasAnyCheckingQTSParticipants %}
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for DfE funding.We’ll keep checking for changes to their status.</p>
+                            </div>
+                        </div>
+                        <table class="govuk-table govuk-!-margin-bottom-9">
+                            {% include "includes/dash_fip_head_checking.html" %}
+                            <tbody class="govuk-table__body">
+                                {% for id, participant in data.participants %}
+                                    <!-- Only those with a status checkingQTS -->
+                                    {% if participant.status == "CheckingQTS" and participant.programme == "FIP" %}
+                                        {% include "includes/dash_fip_row_checking.html" %}
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                    <!-- // FIP options -->

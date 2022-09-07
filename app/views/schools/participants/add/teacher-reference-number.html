@@ -17,7 +17,7 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
 
       		<p class="govuk-body">This unique ID:</p>
       		<ul class="govuk-list govuk-list--bullet">
@@ -58,6 +58,7 @@
                     pattern: "[0-9]*"
 				} | decorateFormAttributes(['participants', id, 'trnNumber']) ) }}
 
+<<<<<<< HEAD
 
                 {% if data.participants[id].type == "mentor"  %}
 
@@ -77,6 +78,21 @@
             	{{ govukButton({
               		text: "Continue"
             	}) }}
+=======
+                <div class="govuk-button-group">
+
+            	    {{ govukButton({
+              		    text: "Continue"
+            	    }) }}
+
+                    {% if data.participants[id].type == "mentor" %}
+                        <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
+                    {% elif data.participants[id].type == "sitMentor" %}
+                        <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
+                    {% endif%}
+
+                </div>
+>>>>>>> main
 
                 {% endif %}
 
