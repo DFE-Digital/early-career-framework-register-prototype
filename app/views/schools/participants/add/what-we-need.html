@@ -25,8 +25,6 @@
                 </ul>
                 <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
 
-
-
             {% elif data.participants[id].type == "transfer" %}
                 <p class="govuk-body">We need to find the right person in our database so we can transfer their record to your school.</p>
                 <p class="govuk-body">To do this, you need to tell us their:</p>
@@ -55,9 +53,11 @@
             {% include "includes/gdpr.html" %}
 
             <form method="post" action="name" >
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
+
             </form>
 
         </div>
