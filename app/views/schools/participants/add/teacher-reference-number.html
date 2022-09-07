@@ -7,9 +7,9 @@
 
         {% if participant.type == "ECT" %}
             {% set pageHeading = 'You cannot add an ECT with an induction start date of ' + participant.inductionMonth | toMonth + ' ' + participant.inductionYear + '' %}
-        {% elif participant.type == "mentor" %}
+        {% elif participant.type == "Mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
-        {% elif participant.type == "transfer" %}
+        {% elif participant.type == "Transfer" %}
 
         {% endif %}
 
@@ -70,7 +70,7 @@
                         <!-- Look for if coming from cannot find in database -->
                         {% if data['linkaction'] == "cannotFind" %}
                                 
-                            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                            {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor" %}
                                 <form class="form" action="email-address" method="post">
                             {% else %}
                                 <form class="form" action="joining-date" method="post">
@@ -101,7 +101,7 @@
                             text: "Continue"
                         }) }}
 
-                        {% if data.participants[id].type == "mentor" %}
+                        {% if data.participants[id].type == "Mentor" %}
                             <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
                         {% elif data.participants[id].type == "sitMentor" %}
                             <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
@@ -112,9 +112,9 @@
                     {% if data['linkaction'] != "cannotFind" %}
 
                         <div class="key">
-                            {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                            {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
-                            {% elif data.participants[id].type == "transfer" %}                            
+                            {% elif data.participants[id].type == "Transfer" %}                            
                                 {% include "includes/trnKey_transfer.html "%}
                             {% elif data.participants[id].type == "sitMentor" %}
                                 {% include "includes/trnkey_sitmentor.html" %}
@@ -144,7 +144,7 @@
                     <!-- Look for if coming from cannot find in database -->
                     {% if data['linkaction'] == "cannotFind" %}
                             
-                        {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                        {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor" %}
                             <form class="form" action="email-address" method="post">
                         {% else %}
                             <form class="form" action="joining-date" method="post">
@@ -175,7 +175,7 @@
                         text: "Continue"
                     }) }}
 
-                    {% if data.participants[id].type == "mentor" %}
+                    {% if data.participants[id].type == "Mentor" %}
                         <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
                     {% elif data.participants[id].type == "sitMentor" %}
                         <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
@@ -186,9 +186,9 @@
                 {% if data['linkaction'] != "cannotFind" %}
 
                     <div class="key">
-                        {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
+                        {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor" %}
                             {% include "includes/trnKey_ectMentor.html" %}
-                        {% elif data.participants[id].type == "transfer" %}                            
+                        {% elif data.participants[id].type == "Transfer" %}                            
                             {% include "includes/trnKey_transfer.html "%}
                         {% elif data.participants[id].type == "sitMentor" %}
                             {% include "includes/trnkey_sitmentor.html" %}

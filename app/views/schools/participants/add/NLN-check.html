@@ -56,7 +56,7 @@
                 {% if data['inductionProgramme'] == "FIP" %}<p>If you're already signed up with a delivery partner (the organisation that will deliver your training), they can help you to contact {{ participant.newLeadprovider }}.</p>{% endif %}
                 <p>You can now continue to register {{ participant.name }}.</p>
 
-            {% elif data.participants[id].type == "transfer" %}
+            {% elif data.participants[id].type == "Transfer" %}
 
                 <!-- If ECT will continue with their current provider at their new school -->
                 {% if data.participants[id].trainingMatch == "No"%}

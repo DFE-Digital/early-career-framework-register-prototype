@@ -6,14 +6,14 @@
 
     {% if data['participantType'] == "ECT" %}
         {% set pageHeading = 'You’re registered and eligible for ECF-based training' %}
-    {% elif data['participantType'] == "mentor" %}
+    {% elif data['participantType'] == "Mentor" %}
         {% set pageHeading = 'You’re registered and eligible for DfE-funded mentor training' %}
     {% endif %}
 {% elif data['inductionProgramme'] == "CIP" %}
 
     {% if data['participantType'] == "ECT" %}
         {% set pageHeading = 'You’re registered and eligible for ECF-based training' %}
-    {% elif data['participantType'] == "mentor" %}
+    {% elif data['participantType'] == "Mentor" %}
         {% set pageHeading = 'You’re registered to mentor ECTs' %}
     {% endif %}
 
@@ -42,7 +42,7 @@
 
                     {% include "includes/USERconfirmation_EligibleFipECT.html" %}            
             
-                {% elif data['participantType'] == "mentor" %}
+                {% elif data['participantType'] == "Mentor" %}
 
                     {% include "includes/USERconfirmation_EligibleFipMentor.html" %}            
 
@@ -54,7 +54,7 @@
 
                     {% include "includes/USERconfirmation_EligibleCipECT.html" %}            
             
-                {% elif data['participantType'] == "mentor" %}
+                {% elif data['participantType'] == "Mentor" %}
 
                     {% include "includes/USERconfirmation_EligibleCipMentor.html" %}            
 

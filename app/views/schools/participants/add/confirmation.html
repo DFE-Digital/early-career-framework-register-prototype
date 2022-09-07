@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "transfer" %}
+{% if data.participants[id].type == "Transfer" %}
     {% set pageHeading = '' + participant.name +  ' has been registered at your school' %}
 
 {% elif data.participants[id].mentorAssigned == "Yes" %}
@@ -28,7 +28,7 @@
             {% set pageHeading = '' + participant.name +  ' is registered and eligible for ECF-based training' %}
         {% endif %}
 
-    {% elif data.participants[id].type == "mentor" %}
+    {% elif data.participants[id].type == "Mentor" %}
 
         {% if ((data.participants[id].eroMultiMentor == "Yes") or (data.participants[id].eroMentor == "Yes")) %}
             {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}
@@ -48,7 +48,7 @@
 
     {% if data.participants[id].type == "ect" %}
         {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
-    {% elif data.participants[id].type == "mentor" %}
+    {% elif data.participants[id].type == "Mentor" %}
         {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
     {% elif data.participants[id].type == "sitMentor" %}
         {% if ((data.participants[id].ineligible == "Yes") or (data.participants[id].noRecordsMatched == "Yes")) %}
@@ -74,7 +74,7 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "transfer")) %}
+            {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "Transfer")) %}
 
 
                 {% if data.participants[id].mentorAssigned == "Yes" %}
@@ -99,7 +99,7 @@
                         {% include "includes/confirmation_EligibleECT.html" %}
                     {% endif %}
 
-                {% elif data.participants[id].type == "transfer" %}
+                {% elif data.participants[id].type == "Transfer" %}
 
                     <h2 class="govuk-heading-m">What we’ll do with this information</h2>
                     <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
@@ -126,7 +126,7 @@
                         {% endif %}
                     </ol>
 
-                {% elif data.participants[id].type == "mentor" %}
+                {% elif data.participants[id].type == "Mentor" %}
 
                     {% if data.participants[id].ineligible == "Yes" %}
                         {% include "includes/confirmation_IneligbleMentor.html" %}
@@ -156,7 +156,7 @@
                     </ul>
                     <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
 
-                {% elif data.participants[id].type == "mentor" %}
+                {% elif data.participants[id].type == "Mentor" %}
 
                     <h2 class="govuk-heading-m">What happens next</h2>
                     <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
@@ -186,7 +186,7 @@
             <!-- /////////////////////// -->
 
             <ul class="govuk-list govuk-!-margin-top-7">
-                {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "transfer")) %}
+                {% if ((data.participants[id].type == "ect") or (data.participants[id].type == "Transfer")) %}
                     {% if not ((data.participants[id].completedInduction) or (data.participants[id].inductionExempt)) %}
                         {% if data.participants[id].mentorAssigned != "Yes" %}
                     <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor to this ECT</a></li>

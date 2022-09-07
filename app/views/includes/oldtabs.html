@@ -185,7 +185,7 @@
                     {% include "includes/dash_fip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Contacted" and participant.type == "mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% if participant.status == "Contacted" and participant.type == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
                                 {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -204,7 +204,7 @@
                     {% include "includes/dash_fip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Checking" and participant.type == "mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% if participant.status == "Checking" and participant.type == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
                                 {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -223,7 +223,7 @@
                     {% include "includes/dash_fip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "CheckingQTS" and participant.type == "mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
                                 {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -246,7 +246,7 @@
                     {% include "includes/dash_fip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% if participant.status == "Eligible" and participant.type == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
                                 {% include "includes/dash_fip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -267,7 +267,7 @@
                     {% include "includes/dash_cip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Contacted" and participant.type == "mentor" and participant.programme == "CIP" %}
+                            {% if participant.status == "Contacted" and participant.type == "Mentor" and participant.programme == "CIP" %}
                                 {% include "includes/dash_cip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -286,7 +286,7 @@
                     {% include "includes/dash_cip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Checking" and participant.type == "mentor" and participant.programme == "CIP" %}
+                            {% if participant.status == "Checking" and participant.type == "Mentor" and participant.programme == "CIP" %}
                                 {% include "includes/dash_cip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -305,7 +305,7 @@
                     {% include "includes/dash_cip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "CheckingQTS" and participant.type == "mentor" and participant.programme == "CIP" %}
+                            {% if participant.status == "CheckingQTS" and participant.type == "Mentor" and participant.programme == "CIP" %}
                                 {% include "includes/dash_cip_row.html" %}
                             {% endif %}
                         {% endfor %}
@@ -324,7 +324,7 @@
                     {% include "includes/dash_cip_head.html" %}
                     <tbody class="govuk-table__body">
                         {% for id, participant in data.participants %}
-                            {% if participant.status == "Eligible" and participant.type == "mentor" and participant.programme == "CIP" %}
+                            {% if participant.status == "Eligible" and participant.type == "Mentor" and participant.programme == "CIP" %}
                                 {% include "includes/dash_cip_row.html" %}
                             {% endif %}
                         {% endfor %}

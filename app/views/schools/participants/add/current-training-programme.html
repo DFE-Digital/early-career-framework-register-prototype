@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 {% if data['inductionProgramme'] == "CIP" %}
-    {% if data.participants[id].type == "mentor" %}
+    {% if data.participants[id].type == "Mentor" %}
         {% set pageHeading = 'Will ' + participant.name + ' continue mentoring ECTs using the same materials?' %}
     {% else %}
         {% set pageHeading = 'Will ' + participant.name + ' continue with their current materials?' %}
