@@ -11,7 +11,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if data.participants[id].type == "ectTransfer" %}
                 <p class="govuk-body">We need to find the right person in our database so we can transfer their record to your school.</p>
@@ -50,10 +50,7 @@
                 </ul>
                 <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
 
-
-
-
-                {% endif %}
+            {% endif %}
 
             {% include "includes/gdpr.html" %}
 
