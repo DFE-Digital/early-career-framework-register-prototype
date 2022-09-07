@@ -70,7 +70,7 @@
 
                     {% endif %}
 
-            {% elif data.participants[id].type == "transferECTorMentor" or data.participants[id].type == "mentorTransfer"  %}
+            {% elif data.participants[id].type == "transfer" or data.participants[id].type == "mentorTransfer"  %}
                     <!-- Look for if coming from cannot find in database -->
                     {% if data['linkaction'] == "cannotFind" %}
                         <form class="form" action="joining-date" method="post">
