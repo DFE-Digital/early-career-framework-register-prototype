@@ -23,14 +23,20 @@
                 <li>check their details in the Teaching Regulation Agency records</li>
                 <li>confirm their eligibility for DfE-funded training and access to materials</li>
             </ul>
+            {# <p class="govuk-!-margin-top-9"><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new ECT or mentor</a></p> #}
 
-            <div class="govuk-!-margin-bottom-9">
-                <ul class="govuk-list">
+            <div class="govuk-!-margin-top-8">
+            {{ govukButton({
+                    text: "Add a new ECT or mentor"
+                }) }}
+            </div>
+
+                {# <ul class="govuk-list">
                     <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new ECT or mentor</a></li>
                     <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new mentor</a></li>
                     <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Transfer in an ECT or mentor from another school</a></li>
-                </ul>
-            </div>
+                </ul> #}
+
         </div>
 
         <!-- SIT details and contact information -->
