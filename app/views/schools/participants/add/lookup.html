@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Which ' + data.abType + ' have you appointed for ' + participant.name + '?' %}
+{% set pageHeading = 'Which ' + data.appropriateBodyType + ' have you appointed for ' + participant.name + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,7 +19,7 @@
                 <div class="autocomplete-wrapper govuk-!-width-two-thirds govuk-!-margin-bottom-7">
 
                 <!-- Teaching School Hub -->
-                {% if data['abType'] == "teaching school hub" %}
+                {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                     {{ govukSelect({
                         items: [
@@ -109,7 +109,7 @@
                             { value: "The Golden Thread Teaching School Hub", text: "The Golden Thread Teaching School Hub" },
                             { value: "Tudor Grange Teaching School Hub", text: "Tudor Grange Teaching School Hub" }
                         ]
-                    } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                    } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                 {% else %}
 
@@ -239,7 +239,7 @@
                             { value: "Wolverhampton", text: "Wolverhampton" },
                             { value: "Worcestershire", text: "Worcestershire" }
                         ]
-                    } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                    } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                 {% endif %}
 
@@ -256,7 +256,7 @@
 
     <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
     <script type="text/javascript">
-      var selectEl = document.querySelector('#participants-{{ id }}-abName')
+      var selectEl = document.querySelector('#participants-{{ id }}-appropriateBodyName')
       accessibleAutocomplete.enhanceSelectElement({
         autoselect: true,
         defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
@@ -270,7 +270,7 @@
         var submittedEl = document.querySelector('.submitted')
         submittedEl.classList.remove('submitted--hidden')
         var params = new URLSearchParams(document.location.search.split('?')[1])
-        document.querySelector('.submitted__participants-{{ id }}-abName').innerHTML = params.get('participants-{{ id }}-abName')
+        document.querySelector('.submitted__participants-{{ id }}-appropriateBodyName').innerHTML = params.get('participants-{{ id }}-appropriateBodyName')
       }
     </script>
 

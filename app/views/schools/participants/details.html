@@ -3,7 +3,7 @@
 
 {% if participant.nameNew %}
     {% set pageHeading = '' + participant.nameNew + '' %}
-                        {% else %}                        
+                        {% else %}
                             {% set pageHeading = '' + participant.name + '' %}
                         {% endif %}
 
@@ -23,7 +23,7 @@
                     <dd class="govuk-summary-list__value">
                         {% if participant.nameNew %}
                             {{ participant.nameNew }}
-                        {% else %}                        
+                        {% else %}
                             {{ participant.name }}
                         {% endif %}
                     </dd>
@@ -87,7 +87,7 @@
                     <dd class="govuk-summary-list__value">
                         {% if participant.emailCorrect %}
                             {{ participant.emailCorrect }}
-                        {% else %}                        
+                        {% else %}
                             {{ participant.email }}
                         {% endif %}
                         </dd>
@@ -105,8 +105,8 @@
                         {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
                     </dd>
                 </div>
-                
-                
+
+
                  <!-- Start date -->
                 {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
@@ -132,7 +132,7 @@
                 <!-- Start date -->
                 {% if data.participants[id].type == "ect" %}
 
-                    {% if ((data['abName']) or (participant.abConfirm == "Yes") or (participant.abName)) %}
+                    {% if ((data['appropriateBodyName']) or (participant.abConfirm == "Yes") or (participant.appropriateBodyName)) %}
 
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
@@ -140,17 +140,17 @@
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     {% if participant.abConfirm == "Yes" %}
-                                        {{ data.abName }}
-                                    {% elif participant.abName %}
-                                        {{ participant.abName }}
+                                        {{ data.appropriateBodyName }}
+                                    {% elif participant.appropriateBodyName %}
+                                        {{ participant.appropriateBodyName }}
                                     {% else %}
-                                        {{ data.abName }}
+                                        {{ data.appropriateBodyName }}
                                     {% endif %}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {% if participant.abConfirm == "Yes" %}
                                         <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
-                                    {% elif participant.abName %}
+                                    {% elif participant.appropriateBodyName %}
                                         <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% else %}
                                         <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
