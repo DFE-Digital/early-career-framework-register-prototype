@@ -14,7 +14,7 @@
                 Page listings
             </h1>
 
-            <p class="govuk-body-s">Last updated 29 July 2022</p>            
+            <p class="govuk-body-s">Last updated 29 July 2022</p>
             <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
 
@@ -25,13 +25,13 @@
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Accessing the service</h2>
             <p>Various routes into the service either via sign in, access link or email and sign up journey for schools.</p>
             {# <p>Induction Tutor is notified via email that they have been nominated. <span class="miro-link"><a href="https://miro.com/app/board/o9J_ldVNkCY=/?moveToWidget=3074457355250705583&cot=14">User journey on Miro</a></span></p> #}
-            
+
             <h3 class="govuk-heading-s">Monitoring the GIAS email address</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/emails/tell-us-if-you-have-nqt" >(Email) - Does your school expect any early career teachers in the term ahead? *</a></li>
             </ul>
-            
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
             <h3 class="govuk-heading-s">Service pages</h3>
             <ul class="govuk-list govuk-list--bullet">
@@ -69,7 +69,7 @@
 
             </ul>
 
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Confirm if has ECTs and nominate an induction tutor</h2>
             <p>Email links them to service to confirm ECTs and nominate induction tutor.</p>
@@ -96,7 +96,7 @@
 
             </ul>
 
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">            
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Others (still to check)</h2>
             <ul class="govuk-list govuk-list--bullet">
@@ -111,7 +111,7 @@
 
             {% endset -%}
 
-                    
+
 
 
             {% set ectHtml %}
@@ -196,10 +196,10 @@
             </ul>
 
 
-            <h3 class="govuk-heading-m">Not expecting any ECT (noECT)</h3>
+            <h3 class="govuk-heading-m">Not expecting any ECT (noECTs)</h3>
             <p>When a school is not expecting to have any ECTs but has an induction tutor.</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
-                <li><a class="govuk-link" href="/schools/manage-your-training?inductionProgramme=noECT" >Manage your training</a></li>
+                <li><a class="govuk-link" href="/schools/manage-your-training?inductionProgramme=noECTs" >Manage your training</a></li>
             </ul>
 
 
@@ -208,8 +208,8 @@
             {% set mentorHtml %}
 
                 <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Manage ECT and mentors</h2>
-                
-                {% include "includes/listings/manage-ect-mentor.html" %}                
+
+                {% include "includes/listings/manage-ect-mentor.html" %}
                 {% include "includes/listings/transfer-out.html" %}
                 {% include "includes/listings/remove-ect-mentor.html" %}
                 {% include "includes/listings/add-ect.html" %}
@@ -254,12 +254,12 @@
 
                     { label: "Access", id: "checking", panel: { html: checkingHtml } },
                     { label: "Programme", id: "ect", panel: { html: ectHtml } },
-                    { label: "Participants", id: "mentors", panel: { html: mentorHtml } },                    
+                    { label: "Participants", id: "mentors", panel: { html: mentorHtml } },
                     { label: "Provider/Support", id: "not-training", panel: { html: nottrainingHtml } }
 
                 ]
             }) }}
-            
+
             <p><a href="data">Data been stored as part of current session</a></p>
 
     </div>

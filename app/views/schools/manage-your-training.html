@@ -29,8 +29,8 @@
                     <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
 
                 {% else %}
-                    <!-- NoECTs expected  -->
-                    {% if data['inductionProgrammeYearTwo'] == "noECT" %}
+                    <!-- noECTs expected  -->
+                    {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
                         <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                         <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
 
@@ -190,7 +190,7 @@
                                     DfE accredited materials
                                 {% elif data['inductionProgramme'] == "DYO" %}
                                     Design and deliver your own programme based on the early career framework (ECF)
-                                {% elif data['inductionProgramme'] == "noECT" %}
+                                {% elif data['inductionProgramme'] == "noECTs" %}
                                     Expecting no early career teachers
                                 {% elif (data['inductionProgramme'] === "temphold") %}
                                     You’ve chosen to use a training provider funded by your school
