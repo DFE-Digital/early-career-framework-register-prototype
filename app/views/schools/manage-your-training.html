@@ -18,18 +18,18 @@
 
                 <!-- Top sections with Induction tutor, ects and mentors -->
                 {% include "includes/mtLengthEctTutor.html" %}
-                <!-- ////////////////////// -->
 
-                <!-- Next incoming year -->
+                <!-- New academic year -->
                 <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-3">ECF-based training starting 2022 to 2023 academic year</h2>
 
-                <!-- New Year training has not been setup -->
+                <!-- Not setup -->
                 {% if not data['inductionProgrammeYearTwo'] %}
 
                     <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
 
+                <!-- Training setup -->
                 {% else %}
-                    <!-- noECTs expected  -->
+                    <!-- No ECTs -->
                     {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
                         <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                         <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
