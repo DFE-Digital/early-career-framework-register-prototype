@@ -8,7 +8,7 @@ module.exports = router => {
     '/support/participants/:id/*',
     '/participants/validate/:id',
     '/participants/validate/:id/*'
-    
+
   ], (req, res, next) => {
     const data = req.session.data
     res.locals.id = req.params.id
@@ -27,11 +27,11 @@ module.exports = router => {
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.type === 'mentorTransfer')
-    
+
 
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted'  )
     res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking' )
-    res.locals.hasAnyCheckingQTSParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' )    
+    res.locals.hasAnyCheckingQTSParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' )
     res.locals.hasAnyEligibleParticipants = Object.values(participants).some((p) => p.status === 'Eligible'  )
     res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn' )
     res.locals.hasAnyTransferOutParticipants = Object.values(participants).some((p) => p.status === 'TransferOut' )
@@ -41,25 +41,25 @@ module.exports = router => {
     // res.locals.hasAnyContactedParticipants22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "FIP" && p.cohort2022 == "Yes"  )
     // res.locals.hasAnyContactedParticipantsCIP = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP"  )
     // res.locals.hasAnyContactedParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Contacted' && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    
+
     // res.locals.hasAnyCheckingParticipants22 = Object.values(participants).some((p) => p.status === 'Checking' && p.programme == "FIP" && p.cohort2022 == "Yes" )
     // res.locals.hasAnyCheckingParticipantsCIP = Object.values(participants).some((p) => p.status === 'Checking' && p.programme == "CIP" && p.cohort2021 == "Yes" )
     // res.locals.hasAnyCheckingParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Checking' && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    
+
     // res.locals.hasAnyCheckingQTSParticipants22 = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.programme == "FIP" && p.cohort2022 == "Yes")
     // res.locals.hasAnyCheckingQTSParticipantsCIP = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.programme == "CIP" && p.cohort2021 == "Yes" )
     // res.locals.hasAnyCheckingQTSParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'CheckingQTS' && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    
+
     // res.locals.hasAnyEligibleParticipants22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "FIP" && p.cohort2022 == "Yes")
     // res.locals.hasAnyEligibleParticipantsCIP = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP"  )
     // res.locals.hasAnyEligibleParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'Eligible' && p.programme == "CIP" && p.cohort2022 == "Yes" )
-    
+
     // res.locals.hasAnyTransferInParticipants22 = Object.values(participants).some((p) => p.status === 'TransferIn' && p.programme == "FIP" && p.cohort2022 == "Yes")
-    
+
     // res.locals.hasAnyTransferOutParticipants22 = Object.values(participants).some((p) => p.status === 'TransferOut' && p.programme == "FIP" && p.cohort2022 == "Yes")
-    
+
     // res.locals.hasAnyWithdrawnParticipants22 = Object.values(participants).some((p) => p.status === 'Withdrawn' && p.programme == "FIP" && p.cohort2022 == "Yes")
-    
+
     // res.locals.hasAnyNotEligibleParticipants22 = Object.values(participants).some((p) => p.status === 'NotEligible' && p.programme == "FIP" && p.cohort2022 == "Yes" )
     // res.locals.hasAnyTransferInParticipantsCIP = Object.values(participants).some((p) => p.status === 'TransferIn' && p.programme == "CIP" && p.cohort2021 == "Yes" )
     // res.locals.hasAnyTransferInParticipantsCIP22 = Object.values(participants).some((p) => p.status === 'TransferIn' && p.programme == "CIP" && p.cohort2022 == "Yes" )
@@ -129,8 +129,8 @@ module.exports = router => {
     // console.log(Object.values(participants).some((p) => p.type === 'mentor'))
     res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
     res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor').map(p => {
-      return { text: p.name }      
-    })    
+      return { text: p.name }
+    })
     console.log(res.locals)
     next()
   })
@@ -179,7 +179,7 @@ module.exports = router => {
     res.locals.hasAnyContacted = Object.values(participants).some((p) => p.status === 'Contacted' )
     next()
   })
-  
+
   router.all('/schools/participants/:id/change/:view', (req, res) => {
     res.render(`schools/participants/change/${req.params.view}`)
   })

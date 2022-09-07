@@ -28,8 +28,9 @@
 
 			{% if ((data['cya-action'] == "change-trn") or (data['cya-action'] == "change-know-trn")) %}
 			    <form class="form" action="check-your-answers" method="post">
-				<input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
-			{% else %}
+				<input type="hidden" id="cya-action" name="cya-action" value="" />
+
+            {% else %}
                 <!-- Look for if coming from cannot find in database -->
                 {% if data['linkaction'] == "cannotFind" %}
                         {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
@@ -43,8 +44,8 @@
                             items: [
                                 { value: "", text: "Is not matched", checked: "true" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-                <!-- Otherwise normal path -->
+                        } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
+
                 {% else %}
                     <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}
@@ -74,78 +75,15 @@
 
                 {% if data['linkaction'] != "cannotFind" %}
 
-                <div class="govuk-!-padding-top-5 key">
+                <div class="key">
 
                     {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
 
-
-                    {{ govukCheckboxes({
-                        classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                        items: [
-                            { value: "No", text: "No induction registered" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'regInduction']) ) }}
-
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                            items: [
-                                { value: "Yes", text: "Fail validation" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "No QTS" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "Participant already doing ECF-based training" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "Mentor at multiple schools" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'eroMultiMentor']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small ",
-                            items: [
-                                { value: "Yes", text: "ERO" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'eroMentor']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                            items: [
-                                { value: "Yes", text: "Completed induction" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'competedInduction']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                            items: [
-                                { value: "Yes", text: "Ineligible (Active flags)" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'ineligible']) ) }}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                            items: [
-                                { value: "Yes", text: "Exempt from induction" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'exempt']) ) }}
+                        {% include "includes/trnKey_ectMentor.html" %}
 
 
 
-                    {% elif data.participants[id].type == "ectTransfer" %}
+                    {% elif data.participants[id].type == "transfer" %}
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
@@ -168,7 +106,7 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}
 
-                        {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                        {% if data.participants[id].type == "transfer" or data.participants[id].type == "mentorTransfer" %}
                              {{ govukCheckboxes({
                                 classes: "govuk-checkboxes--small",
                                 items: [
@@ -191,7 +129,7 @@
                             items: [
                                 { value: "Yes", text: "Fail validation" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
