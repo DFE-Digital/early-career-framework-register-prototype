@@ -32,9 +32,9 @@
                         { value: "Yes", text: "Yes" },
                         { value: "No, redirect(/schools/training-programme/why-are-you-changing)", text: "No" }
                     ]
-                } | decorateFormAttributes('newYearProviderChange')) }}
+                } | decorateFormAttributes('inductionProgrammeYearTwoProviderChange')) }}
 
-                <!-- Just for dashboard to remove the noECTs that we set on previous page -->
+                <!-- Dashboard to set programme to FIP, will be changed out if NO and other option chosen -->
 				<input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="FIP" />
 
                 {{ govukButton({
