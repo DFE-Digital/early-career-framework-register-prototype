@@ -23,7 +23,7 @@ module.exports = {
     deliveryPartnerTransfer: "Inspire Teaching School Hub",
     leadProviderMaterials: "Teach First",
     leadProviderMaterialsTransfer: "Education Development Trust",
-    linkExpire: '2 March 2022',
+    linkExpire: '22 September 2022',
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",

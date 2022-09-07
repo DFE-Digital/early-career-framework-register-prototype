@@ -116,12 +116,6 @@
 
             <h2 class="govuk-heading-m">Manage training dashboard</h2>
             <div class="govuk-grid-row">
-                 <div class="govuk-grid-column-one-half govuk-visually-hidden">
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Show multiple cohorts", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Multiple cohort years", checked: checked } ]
-                    } | decorateFormAttributes('multi-cohort')) }}
-                </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
