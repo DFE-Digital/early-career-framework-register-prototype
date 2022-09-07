@@ -17,6 +17,12 @@
 
                 <!-- Name -->
                 {% include "includes/summary_name.html" %}
+
+                <!-- Induction start date -->
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
+                {% endif %}
+                
                 <!-- TRN -->
                 {% include "includes/summary_trn.html" %}
                 <!-- Date of birth -->
@@ -37,10 +43,7 @@
                     {% include "includes/summary_email.html" %}
                 {% endif %}
 
-                <!-- Induction start date -->
-                {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
-                {% endif %}
+                
 
                 {% if participant.cohort %}
                     {% include "includes/summary_cohort.html" %}
