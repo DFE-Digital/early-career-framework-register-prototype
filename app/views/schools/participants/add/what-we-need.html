@@ -11,11 +11,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-<<<<<<< HEAD
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-=======
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
->>>>>>> main
 
             {% if data.participants[id].type == "ectTransfer" %}
                 <p class="govuk-body">We need to find the right person in our database so we can transfer their record to your school.</p>
@@ -39,57 +35,22 @@
                     <li>email address (personal or school)</li>
                     <li>induction start date</li>
                 </ul>
-<<<<<<< HEAD
-
-                <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
-
-
-            {% elif data.participants[id].type == "mentor" %}
-
-                <p>We need to check the mentor’s details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
-=======
 
                 <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
 
 
             {% else %}
->>>>>>> main
 
                 <p class="govuk-body">You must tell us their:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>full name</li>
-<<<<<<< HEAD
-                    <li>email address (personal or school)</li>
-                    <li>mentoring start date at your school</li>
-                </ul>
-                {# <p class="govuk-body">You can now choose to enter their teacher reference number (TRN) and date of birth too.</p> #}
-                <p class="govuk-body">We can run the eligibility checks immediately if you can also tell us their:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>teacher reference number (TRN)</li>
-                    <li>date of birth</li>
-
-                    {# <li>ECTs and mentors will not be asked to provide this information themselves</li>
-                    <li>we can confirm if they’re eligible for funding more quickly</li> #}
-                </ul>
-
-                <p>If you do not have these, we’ll email the mentor to ask them to add their TRN and date of birth to the service. This can cause a delay in confirming their eligibility, as we only run the checks once we have all their details.</p>
-                
-
-
-                
-            {% endif %}
-=======
                     <li>teacher reference number (TRN)</li>
                     <li>date of birth</li>
                     <li>email address (personal or school)</li>
                 </ul>
                 <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
 
-
-
-
-                {% endif %}
->>>>>>> main
+            {% endif %}
 
             {% include "includes/gdpr.html" %}
 
