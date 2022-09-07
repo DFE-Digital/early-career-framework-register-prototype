@@ -12,21 +12,20 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <p class="govuk-body">ECTs are teachers who have finished their initial teacher training.</p>
 			<p class="govuk-body">Do not include:</p>
-            <ul  class="govuk-list govuk-list--bullet">
+            <ul  class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
                 <li>ECTs who started training in the 2021 to 2022 academic year</li>
                 <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
             </ul>
-			<p class="govuk-body">ECTs are teachers who have finished their initial teacher training.</p>
 
-            <!-- If FIP then we will ask if they wish to continue in the same way -->
+            <!-- If FIP last academic year  -->
             {% if data['inductionProgramme'] == "FIP" %}
     			<form class="form" action="/schools/training-programme/same" method="post">
-            <!-- All other current training programmes will be asked how they will run their training -->
+            <!-- All others will be asked how they will run their training this next academic year -->
             {% else %}
                 <form class="form" action="/schools/training-programme/how-will-you-run" method="post">
             {% endif %}
-
 
 				{{ govukRadios({
 				    classes: "govuk-radios--inline",
@@ -36,30 +35,25 @@
 				    ]
 				} | decorateFormAttributes('newYearECTs')) }}
 
-				<!-- Just for dashboard to set noECT / overridden if user chooses yes on next page -->
+				<!-- Just for dashboard to set noECT / overridden on next page if user chooses yes -->
                 <input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="noECT" >
 
                 {{ govukButton({
                 	text: "Continue"
             	}) }}
 
-
+                <!-- //////////////////////// KEY ////////////////////////////// -->
 				{% if data['inductionProgramme'] == "FIP" %}
-
-					<div class="govuk-!-padding-top-5">
-
-
-                    {{ govukCheckboxes({
-                        classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
-                        items: [
-                            { value: "No", text: "LP/DP combo no longer valid" }
-                        ]
-                    } | decorateFormAttributes(['validCombo']) ) }}
-
-
-
+					<div class="key">
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+                            items: [
+                                { value: "No", text: "LP/DP combo no longer valid" }
+                            ]
+                        } | decorateFormAttributes(['validCombo']) ) }}
 					</div>
 				{% endif %}
+                <!-- //////////////////////// END OF KEY ////////////////////////////// -->
 
 
           	</form>
