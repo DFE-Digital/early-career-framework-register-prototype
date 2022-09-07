@@ -98,7 +98,7 @@
                 <!-- Otherwise if TRN provided  -->
                 {% elif participant.trnKnown == "Yes" %}
 
-                    {% if data.participants[id].dbMatched == "Yes" %}
+                    {% if data.participants[id].noRecordsMatched == "Yes" %}
 
                         {{ govukInput({
                             classes: "govuk-!-width-two-thirds govuk-visually-hidden",

@@ -14,18 +14,16 @@
             <p class="govuk-body">You can enter their personal or school email address.</p>
 
             {% if data['cya-action'] == "change-email" %}
-            <form class="form" action="check-your-answers" method="post">
-                <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 
-            {% elif ((data['details-change-action'] == "change-email" ) or (data['details-change-action'] == "change-email-2")) %}
-            <form class="form" action="../details" method="post">
-                <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
-                <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+                <form class="form" action="check-your-answers" method="post">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
 
             {% else %}
-            <!-- Add journey -->
+
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
+
                     <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
+
                 {% else %}
                     {% if data.participants[id].type == "transfer" %}
 
