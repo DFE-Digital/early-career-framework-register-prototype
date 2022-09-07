@@ -26,11 +26,12 @@
                 <form class="form" action="/schools/appropriate-body/" method="post" >
             {% endif %}
 
+                <!-- Values need to be opposite due to way heading is -->
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     items: [
-                        { value: "Yes", text: "Yes" },
-                        { value: "No, redirect(/schools/training-programme/why-are-you-changing)", text: "No" }
+                        { value: "No", text: "Yes" },
+                        { value: "Yes, redirect(/schools/training-programme/why-are-you-changing)", text: "No" }
                     ]
                 } | decorateFormAttributes('inductionProgrammeYearTwoProviderChange')) }}
 
