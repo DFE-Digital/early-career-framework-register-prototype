@@ -101,7 +101,7 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.type == "ect" or participant.type == "transfer" %}ECT
+                        {% if participant.type == "ECT" or participant.type == "transfer" %}ECT
                         {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
                     </dd>
                 </div>

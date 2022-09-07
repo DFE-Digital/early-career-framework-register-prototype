@@ -6,7 +6,7 @@
 
     {% if not data['inductionProgrammeYearTwo'] %}
 
-        {% if participant.type == "ect" %}
+        {% if participant.type == "ECT" %}
             {% set pageHeading = 'You cannot add an ECT with this induction start date' %}
         {% elif participant.type == "mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
