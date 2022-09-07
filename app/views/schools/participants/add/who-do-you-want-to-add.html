@@ -12,32 +12,17 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data['cohort'] == "2022" %}
-                <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-8">
-            {% elif data['cohort'] == "2021" %}
-                <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-8">
-            {% else %}
-                <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-8">
-            {% endif %}
 
-            {% if data['cohort'] == "2022" %}
+            <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-7">
+
                 {{ govukRadios({
                     items: [
-                        { value: "ectTransfer, redirect(check-transfer)", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
+                        { value: "transferECTorMentor", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
                         { value: "ect", text: "A new ECT" },
                         { value: "mentor", text: "A new mentor" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'type']) ) }}
 
-            {% else %}
-                {{ govukRadios({
-                    items: [
-                        { value: "ectTransfer", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
-                        { value: "ect", text: "A new ECT" },
-                        { value: "mentor", text: "A new mentor" }
-                    ]
-                } | decorateFormAttributes(['participants', id, 'type']) ) }}
-            {% endif %}
 
                 <!-- Assign programme type -->
                 {% if data['inductionProgrammeYearTwo'] == "CIP" %}

@@ -145,7 +145,7 @@
 
 
 
-                    {% elif data.participants[id].type == "ectTransfer" %}
+                    {% elif data.participants[id].type == "transferECTorMentor" %}
 
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small ",
@@ -168,7 +168,7 @@
                             ]
                         } | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}
 
-                        {% if data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer" %}
+                        {% if data.participants[id].type == "transferECTorMentor" or data.participants[id].type == "mentorTransfer" %}
                              {{ govukCheckboxes({
                                 classes: "govuk-checkboxes--small",
                                 items: [

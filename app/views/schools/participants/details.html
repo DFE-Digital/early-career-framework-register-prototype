@@ -101,7 +101,7 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.type == "ect" or participant.type == "ectTransfer" %}ECT
+                        {% if participant.type == "ect" or participant.type == "transferECTorMentor" %}ECT
                         {% elif participant.type == "mentor" or participant.type == "mentorTransfer" %}Mentor{% endif %}
                     </dd>
                 </div>
@@ -254,7 +254,7 @@
                 {% endif %}
             </dl>
 
-            {% if data.participants[id].type == "ect" or data.participants[id].type == "ectTransfer" %}
+            {% if data.participants[id].type == "ect" or data.participants[id].type == "transferECTorMentor" %}
                 <h2 class="govuk-heading-m">No longer training?</h2>
             {% elif data.participants[id].type == "mentor" or data.participants[id].type == "mentorTransfer" or data.participants[id].type == "sitMentor" %}
                 <h2 class="govuk-heading-m">No longer mentoring?</h2>

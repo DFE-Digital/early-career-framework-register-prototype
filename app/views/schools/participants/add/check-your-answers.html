@@ -61,7 +61,7 @@
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
                     {% include "includes/summary_training_ect_mentor.html" %}
                 <!-- If Transferring -->
-                {% elif data.participants[id].type == "ectTransfer" %}
+                {% elif data.participants[id].type == "transferECTorMentor" %}
                     {% include "includes/summary_training_transfer.html" %}
                 {% endif %}
 
@@ -89,7 +89,7 @@
 
 
                 <!-- If transferring in -->
-                {% elif data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer"  %}
+                {% elif data.participants[id].type == "transferECTorMentor" or data.participants[id].type == "mentorTransfer"  %}
                     {{ govukInput({
                         classes: "govuk-!-width-two-thirds govuk-visually-hidden",
                         value: "TransferIn"

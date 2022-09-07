@@ -29,7 +29,7 @@
                     {% if data.participants[id].type == "ect" %}
                         <form class="form" action="check-your-answers" method="post" >
                     <!-- Transfer Journey -->
-                    {% elif data.participants[id].type == "ectTransfer" %}
+                    {% elif data.participants[id].type == "transferECTorMentor" %}
 
                         {% if data.participants[id].diffInductionProgramme == "Yes" %}
                             <form class="form" action="different-programme" method="post" >

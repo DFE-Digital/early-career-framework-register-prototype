@@ -9,7 +9,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <p class="govuk-body">You can enter their personal or school email address.</p>
 
@@ -27,7 +27,7 @@
                 {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor"  %}
                     <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
                 {% else %}
-                    {% if data.participants[id].type == "ectTransfer" %}
+                    {% if data.participants[id].type == "transferECTorMentor" %}
 
                         <!-- Is a mentor -->
                         {# {% if data.participants[id].isMentor == "Yes" %} #}
