@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+{% if participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" %}
+
+    {% if not data['inductionProgrammeYearTwo'] %}
+
+        {% if participant.type == "ect" %}
+            {% set pageHeading = 'You cannot add an ECT with this induction start date' %}
+        {% elif participant.type == "mentor" %}
+            {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
+        {% elif participant.type == "transfer" %}
+
+        {% endif %}
+    
+    {% endif %}
+
+{% endif %}
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageNavigation %}
+
+{% endblock %}
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+                <p>{{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }} is in the 2022 to 2023 academic year.</p>
+                <p>You have not <a href="/nominations/">told us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year, and how you will run your ECF-based training.</p>
+
+    	</div>
+    </div>
+{% endblock %}
