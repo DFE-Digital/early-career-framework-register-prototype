@@ -19,18 +19,16 @@
     ]
 } | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}
 
-{% if data.participants[id].type == "Transfer" or data.participants[id].type == "Transfer" %}
-    {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
-        items: [
-            { value: "Yes", text: "Is mentor" }
-        ]
-    } | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
-
-    {{ govukCheckboxes({
-    classes: "govuk-checkboxes--small ",
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small",
     items: [
-        { value: "Yes", text: "ERO or mentor at multiple schools" }
+        { value: "Yes", text: "Is mentor" }
     ]
+} | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
+
+{{ govukCheckboxes({
+classes: "govuk-checkboxes--small ",
+items: [
+    { value: "Yes", text: "ERO or mentor at multiple schools" }
+]
 } | decorateFormAttributes(['participants', id, 'eroMultiMentor']) ) }}
-{% endif %}
