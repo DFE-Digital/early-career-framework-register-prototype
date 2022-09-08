@@ -115,7 +115,7 @@
                             {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
                             {% elif data.participants[id].type == "Transfer" %}                            
-                                {% include "includes/trnKey_transfer.html "%}
+                                {% include "includes/trnKey_transfer.html" %}
                             {% elif data.participants[id].type == "sitMentor" %}
                                 {% include "includes/trnkey_sitmentor.html" %}
                             {% endif %}                                            
@@ -189,7 +189,7 @@
                         {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                             {% include "includes/trnKey_ectMentor.html" %}
                         {% elif data.participants[id].type == "Transfer" %}                            
-                            {% include "includes/trnKey_transfer.html "%}
+                            {% include "includes/trnKey_transfer.html" %}
                         {% elif data.participants[id].type == "sitMentor" %}
                             {% include "includes/trnkey_sitmentor.html" %}
                         {% endif %}                                            

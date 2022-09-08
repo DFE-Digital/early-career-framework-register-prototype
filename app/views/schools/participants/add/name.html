@@ -43,7 +43,11 @@
 
                 {% else %}
 
-                    <form class="form" action="induction-start-date" method="post">
+                    {% if data.participants[id].type == "Transfer" %}
+                        <form class="form" action="teacher-reference-number" method="post">
+                    {% else %}
+                        <form class="form" action="induction-start-date" method="post">
+                    {% endif %}
 
                 {% endif %}
 
