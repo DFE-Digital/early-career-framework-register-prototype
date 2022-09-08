@@ -16,7 +16,7 @@
 
                 {# {% if data.participants[id].validated == "Yes" %} #}
 
-                    {% if data.participants[id].type == "ect" %}
+                    {% if data.participants[id].type == "ECT" %}
 
                         {% if data.participants[id].programme == "FIP" %}
 
@@ -40,7 +40,7 @@
 
                 {# {% else %} #}
 
-                        {% if data.participants[id].type == "ect" %}
+                        {% if data.participants[id].type == "ECT" %}
 
                             <p>If {{ participant.name }} should not have been registered, you need to <a href="/schools/participants/{{ id }}/remove/confirm">need to remove all their information from this service</a>.</p>
 
@@ -64,7 +64,7 @@
 
                     {% if data.participants[id].programme == "FIP" %}
 
-                        {% if data.participants[id].type == "ect" %}
+                        {% if data.participants[id].type == "ECT" %}
 
                             <h2 class="govuk-heading-m">Contact the lead provider to withdraw this ECT</h2>
                             <p>If you want to replace {{ participant.name }} because this ECT will not be serving their induction at your school, you’ll need to contact the lead provider {{ data.leadProvider }} to withdraw them.</p>
@@ -93,7 +93,7 @@
 
                     {% elif data.participants[id].programme == "CIP" %}
 
-                        {% if data.participants[id].type == "ect" %}
+                        {% if data.participants[id].type == "ECT" %}
 
                             <h2 class="govuk-heading-m">Contact our support team to remove this ECT</h2>
                             <p>If you want to replace {{ participant.name }} because this ECT will not be serving their induction at your school, first all of {{ participant.name }}’s information must be removed.</p>

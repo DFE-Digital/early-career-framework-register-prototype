@@ -32,18 +32,17 @@
                         <form class="form" action="email-address" method="post">
                     {% endif %}
 
-                    <input type="hidden" name="linkaction" id="linkaction" value="" />
-
-                    {{ govukCheckboxes({
-                        classes: "govuk-checkboxes--small govuk-visually-hidden",
-                        items: [
-                            { value: "", text: "Is not matched", checked: "true" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
+                        <input type="hidden" name="linkaction" id="linkaction" value="" />
+=
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden",
+                            items: [
+                                { value: "", text: "Is not matched", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
 
                 {% else %}
 
-                    <!-- <form class="form" action="teacher-reference-number" method="post"> -->
                     <form class="form" action="induction-start-date" method="post">
 
                 {% endif %}
@@ -60,7 +59,6 @@
                 } | decorateFormAttributes(['participants', id, 'name']) ) }}
 
 
-
                 {% if data['inductionProgrammeYearTwo'] == "CIP" %}
 
                     {{ govukInput({
@@ -68,30 +66,28 @@
                         value: "CIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
 
-
-                {% elif data['inductionProgramme'] == "CIP" %}
-                <!-- CIP -->
+                {% elif data['inductionProgramme'] == "CIP" %}                
+                    
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "CIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
                 {% else %}
-                <!-- FIP -->
+                
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "FIP"
                     } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                
                 {% endif %}
-
-
-
-
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
 
             </form>
+            
         </div>
     </div>
 {% endblock %}

@@ -52,7 +52,7 @@
 
 
                 {% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
-                {% if data.participants[id].type == "ect" %}
+                {% if data.participants[id].type == "ECT" %}
                     {% include "includes/summary_aBody.html" %}
                 {% endif %}
                 {% endif %}
@@ -67,7 +67,7 @@
 
                 <!-- Training -->
                 <!-- If adding ECT or MENTOR -->
-                {% if data.participants[id].type == "ect" or data.participants[id].type == "Mentor" %}
+                {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                     {% include "includes/summary_training_ect_mentor.html" %}
                 <!-- If Transferring -->
                 {% elif data.participants[id].type == "Transfer" %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "ect" %}
+{% if data.participants[id].type == "ECT" %}
     {% set pageHeading = 'When do you expect ' + participant.name + ' to start their induction programme?' %}
 {% elif data.participants[id].type == "Mentor" %}
     {% set pageHeading = 'When do you expect ' + participant.name + ' to begin mentoring ECTs?' %}

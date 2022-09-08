@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "ect" %}
+{% if data.participants[id].type == "ECT" %}
     {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
 {% elif data.participants[id].type == "Mentor" %}
     {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
@@ -16,7 +16,7 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].type == "ect" %}
+            {% if data.participants[id].type == "ECT" %}
 
                 <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
 

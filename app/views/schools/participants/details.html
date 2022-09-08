@@ -111,7 +111,7 @@
                 {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        {% if data.participants[id].type == "ect" %}
+                        {% if data.participants[id].type == "ECT" %}
                             Induction start
                         {% elif data.participants[id].type == "Mentor" %}
                             Mentoring start
@@ -130,7 +130,7 @@
 
 
                 <!-- Start date -->
-                {% if data.participants[id].type == "ect" %}
+                {% if data.participants[id].type == "ECT" %}
 
                     {% if ((data['appropriateBodyName']) or (participant.abConfirm == "Yes") or (participant.appropriateBodyName)) %}
 
@@ -232,7 +232,7 @@
                                     {% else %}
                                         <p>This person is not eligible for this programme.</p>
                                     {% endif %}
-                                {% elif data.participants[id].type == "ect" %}
+                                {% elif data.participants[id].type == "ECT" %}
                                     {% if data.participants[id].status == "inductionStarted" %}
                                         <p>This is because they started or completed their statutory induction before 1 September 2021.</p>
                                     {% else %}
@@ -254,7 +254,7 @@
                 {% endif %}
             </dl>
 
-            {% if data.participants[id].type == "ect" or data.participants[id].type == "Transfer" %}
+            {% if data.participants[id].type == "ECT" or data.participants[id].type == "Transfer" %}
                 <h2 class="govuk-heading-m">No longer training?</h2>
             {% elif data.participants[id].type == "Mentor" or data.participants[id].type == "Transfer" or data.participants[id].type == "sitMentor" %}
                 <h2 class="govuk-heading-m">No longer mentoring?</h2>
