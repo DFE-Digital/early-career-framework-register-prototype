@@ -56,25 +56,24 @@
                         text: "Continue"
                     }) }}
 
-
                 {% else %}
-                    <div class="govuk-visually-hidden">
-                    <!-- Add cohort as new year hidden from visual browser -->
-                    {{ govukCheckboxes({
-                        items: [
-                            { value: "2022", text: "2021 to 2022 academic year", checked: "true" }
-                        ]
-                    } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
-                    <!-- // -->
+
+                    <div class="govuk-visually-hidden">                                        
+                        {{ govukCheckboxes({
+                            items: [
+                                { value: "2022", text: "2021 to 2022 academic year", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort']) ) }}                    
                     </div>
 
                     <div class="govuk-button-group">
-
                         {{ govukButton({
                             text: "Confirm and continue"
                         }) }}
-                        <a class="govuk-link" href="cohort?notcorrect=Yes">This is not the correct year</a>
+                        <!-- <a class="govuk-link" href="academic-year?notcorrect=Yes">This is not the correct year</a> -->
+                        <a class="govuk-link" href="cannot-add?correctYear=No">This is not the correct year</a>
 
+                        
                     </div>
 
 

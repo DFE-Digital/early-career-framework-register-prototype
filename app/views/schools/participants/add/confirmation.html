@@ -44,7 +44,7 @@
     {% endif %}
 
 <!-- TRN not known or not given -->
-{% else %}
+<!-- {% else %}
 
     {% if data.participants[id].type == "ECT" %}
         {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
@@ -58,7 +58,7 @@
         {% elif data['inductionProgramme'] == "CIP" %}
             {% set pageHeading = 'You’re registered to mentor ECTs' %}
         {% endif %}
-    {% endif %}
+    {% endif %} -->
     <!-- There is no option for transfer as they have to provide the TRN -->
 {% endif %}
 <!-- ///////////////// -->
@@ -140,36 +140,7 @@
                         {% include "includes/confirmation_EligibleMentor.html" %}
                     {% endif %}
 
-                {% endif %}
-
-            {% elif not data.participants[id].trnKnown %}
-
-                {% if data.participants[id].type == "ECT" %}
-
-                    <h2 class="govuk-heading-m">What happens next</h2>
-                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    <p>We’ll ask them to use this service to tell us their:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>full name</li>
-                        <li>date of birth</li>
-                        <li>teacher reference number (TRN) or National Insurance number</li>
-                    </ul>
-                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
-
-                {% elif data.participants[id].type == "Mentor" %}
-
-                    <h2 class="govuk-heading-m">What happens next</h2>
-                    <p>We’ll let this person know you’ve registered them for ECF-based training at your school.</p>
-                    <p>We’ll ask them to use this service to tell us their:</p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>full name</li>
-                        <li>date of birth</li>
-                        <li>teacher reference number (TRN) or National Insurance number</li>
-                    </ul>
-                    <p>We can then confirm if they’re eligible for funded ECF-based training.</p>
-
-                {% endif %}
-
+                {% endif %}            
 
             {% elif data.participants[id].type == "sitMentor" %}
 
