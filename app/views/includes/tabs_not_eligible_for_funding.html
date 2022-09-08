@@ -1,0 +1,9 @@
+<!-- If programme for this year or last year is FIP -->
+{% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
+    <!-- Not eligible tab FIP -->
+    {% include "includes/notEligible_fip.html" %}
+<!-- If programme for this year or last year is CIP -->
+{% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
+    <!-- Not eligible tab CIP -->
+    {% include "includes/notEligible_cip.html" %}
+{% endif %}

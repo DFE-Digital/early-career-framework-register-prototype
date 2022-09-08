@@ -28,105 +28,52 @@
                     <ul class="govuk-list govuk-list--bullet">
                         <li>check their details in the Teaching Regulation Agency records</li>
                         <li>confirm their eligibility for DfE-funded training and access to materials</li>
-                        {# <li>confirm their eligibility for DfE-funded training</li> #}
-                    </ul>
-                    {# <p class="govuk-!-margin-top-9"><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new ECT or mentor</a></p> #}
+                        <!-- <li>confirm their eligibility for DfE-funded training</li> -->
+                    </ul>                    
 
                     <div class="govuk-!-margin-top-6">
                         {{ govukButton({
                             text: "Add a new ECT or mentor",
                             href: "add/"
                         }) }}
-                    </div>
-
-                <!-- <ul class="govuk-list">
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new ECT or mentor</a></li>
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add a new mentor</a></li>
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Transfer in an ECT or mentor from another school</a></li>
-                </ul> -->
+                    </div>                
 
                 </div>
             </div>
 
 
         </div>
-
-        <!-- SIT details and contact information -->
+        
+        <!-- SIT information -->
         {% include "includes/sit_details.html" %}
+
 
         <div class="govuk-grid-column-full">
 
             <!-- Checks in progress -->
             {% set checkingHtml %}
-                <!-- If programme for this year or last year is FIP -->
-                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-                    <!-- Checks in progres tab FIP -->
-                    {% include "includes/checksinprogress_fip.html" %}
-                <!-- If programme for this year or last year is CIP -->
-                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-                    <!-- Checks in progress tab CIP -->
-                    {% include "includes/checksinprogress_cip.html" %}
-                {% endif %}
-            {% endset -%}
-            <!-- // checks in progress -->
+                {% include "includes/tabs_checks_in_progress.html" %}
+            {% endset -%}            
 
             <!-- Eligible ECTs -->
             {% set ectHtml %}
-                <!-- If programme for this year or last year is FIP -->
-                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-                    <!-- Eligible ect tab FIP -->
-                    {% include "includes/eligible_fip.html" %}
-                <!-- If programme for this year or last year is CIP -->
-                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-                    <!-- Eligible ect tab CIP -->
-                    {% include "includes/eligible_cip.html" %}
-                {% endif %}
-            {% endset -%}
-            <!-- // eligible ects tab -->
-
+                {% include "includes/tabs_eligible_ects.html" %}
+            {% endset -%}            
 
             <!-- Eligible Mentors -->
             {% set mentorHtml %}
-                <!-- If programme for this year or last year is FIP -->
-                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-                    <!-- Eligible mentor tab CIP -->
-                    {% include "includes/eligibleMentor_fip.html" %}
-                <!-- If programme for this year or last year is CIP -->
-                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-                    <!-- Eligible mentor tab CIP -->
-                    {% include "includes/eligibleMentor_cip.html" %}
-                {% endif %}
-            {% endset -%}
-            <!-- // eligible mentors tab -->
+                {% include "includes/tabs_eligible_mentors.html" %}
+            {% endset -%}            
 
             <!-- Moving school tab -->
             {% set movingSchoolHtml %}
-                <!-- If programme for this year or last year is FIP -->
-                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-                    <!-- Moving schools tab FIP -->
-                    {% include "includes/movingSchool_fip.html" %}
-                <!-- If programme for this year or last year is CIP -->
-                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-                    <!-- Moving schools tab CIP -->
-                    {% include "includes/movingSchool_cip.html" %}
-                {% endif %}
-            {% endset -%}
-            <!-- // Moving school tab -->
-
+                {% include "includes/tabs_moving_school.html" %}
+            {% endset -%}            
 
             <!-- Not eligible for funding tab -->
             {% set notEligibleHtml %}
-                <!-- If programme for this year or last year is FIP -->
-                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-                    <!-- Not eligible tab FIP -->
-                    {% include "includes/notEligible_fip.html" %}
-                <!-- If programme for this year or last year is CIP -->
-                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-                    <!-- Not eligible tab CIP -->
-                    {% include "includes/notEligible_cip.html" %}
-                {% endif %}
-            {% endset -%}
-            <!-- // Not eligible for funding -->
+                {% include "includes/tabs_not_eligible_for_funding.html" %}                
+            {% endset -%}            
 
             {{ govukTabs({
                 items: [
