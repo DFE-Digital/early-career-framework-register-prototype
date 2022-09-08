@@ -18,7 +18,7 @@
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     <!-- Only those with a status eligible and type is mentor or sitmentor -->
-                                    {% if participant.status == "Eligible" and ((participant.type == "Mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2021" %}
+                                    {% if participant.status == "Eligible" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2021" %}
                                         {% include "includes/dash_fip_row_eligible_mentor.html" %}
                                     {% endif %}
                                 {% endfor %}
@@ -31,7 +31,7 @@
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     <!-- Only those with a status eligible and type is mentor or sitmentor -->
-                                    {% if participant.status == "Eligible" and ((participant.type == "Mentor") or (participant.type == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2022" %}
+                                    {% if participant.status == "Eligible" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2022" %}
                                         {% include "includes/dash_fip_row_eligible_mentor.html" %}
                                     {% endif %}
                                 {% endfor %}

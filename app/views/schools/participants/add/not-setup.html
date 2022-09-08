@@ -6,11 +6,11 @@
 
     {% if not data['inductionProgrammeYearTwo'] %}
 
-        {% if participant.type == "ECT" %}
+        {% if participant.role == "ECT" %}
             {% set pageHeading = 'You cannot add an ECT with this induction start date' %}
-        {% elif participant.type == "Mentor" %}
+        {% elif participant.role == "Mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
-        {% elif participant.type == "Transfer" %}
+        {% elif participant.role == "Transfer" %}
 
         {% endif %}
     

@@ -12,7 +12,7 @@
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     <!-- Only those with a status eligible and type is ECT -->
-                                    {% if participant.status == "Eligible" and participant.type == "ECT" and participant.programme == "CIP" %}
+                                    {% if participant.status == "Eligible" and participant.role == "ECT" and participant.programme == "CIP" %}
                                         {% include "includes/dash_cip_row.html" %}
                                     {% endif %}
                                 {% endfor %}

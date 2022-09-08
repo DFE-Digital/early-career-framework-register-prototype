@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "Transfer" %}
+{% if data.participants[id].role == "Transfer" %}
     {% set pageHeading = '' + participant.name +  ' has been registered at your school' %}
 
 {% elif data.participants[id].mentorAssigned == "Yes" %}
@@ -10,7 +10,7 @@
 
 {% elif data.participants[id].trnNumber %}
 
-    {% if data.participants[id].type == "ECT" %}
+    {% if data.participants[id].role == "ECT" %}
         <!-- FIP and CIP -->
         {% if data.participants[id].inductionExempt == "Yes" %}
             {% set pageHeading = '' + participant.name +  '  does not need to serve statutory induction for early career teachers' %}
@@ -28,7 +28,7 @@
             {% set pageHeading = '' + participant.name +  ' is registered and eligible for ECF-based training' %}
         {% endif %}
 
-    {% elif data.participants[id].type == "Mentor" %}
+    {% elif data.participants[id].role == "Mentor" %}
 
         {% if ((data.participants[id].eroMultiMentor == "Yes") or (data.participants[id].eroMentor == "Yes")) %}
             {% set pageHeading = '' + participant.name +  ' is registered as a mentor' %}
@@ -46,11 +46,11 @@
 <!-- TRN not known or not given -->
 <!-- {% else %}
 
-    {% if data.participants[id].type == "ECT" %}
+    {% if data.participants[id].role == "ECT" %}
         {% set pageHeading = '' + participant.name +  ' has been added as an ECT' %}
-    {% elif data.participants[id].type == "Mentor" %}
+    {% elif data.participants[id].role == "Mentor" %}
         {% set pageHeading = '' + participant.name +  ' has been added as a mentor' %}
-    {% elif data.participants[id].type == "sitMentor" %}
+    {% elif data.participants[id].role == "sitMentor" %}
         {% if ((data.participants[id].ineligible == "Yes") or (data.participants[id].noRecordsMatched == "Yes")) %}
             {% set pageHeading = 'We’re checking your details' %}
         {% elif data['inductionProgramme'] == "FIP" %}
@@ -74,12 +74,12 @@
                 classes: "govuk-!-margin-bottom-7"
             }) }}
 
-            {% if ((data.participants[id].type == "ECT") or (data.participants[id].type == "Transfer")) %}
+            {% if ((data.participants[id].role == "ECT") or (data.participants[id].role == "Transfer")) %}
 
 
                 {% if data.participants[id].mentorAssigned == "Yes" %}
 
-                {% elif data.participants[id].type == "ECT" %}
+                {% elif data.participants[id].role == "ECT" %}
 
                     {% if data.participants[id].inductionExempt == "Yes" %}
                         {% include "includes/confirmation_ExemptECT.html" %}
@@ -99,7 +99,7 @@
                         {% include "includes/confirmation_EligibleECT.html" %}
                     {% endif %}
 
-                {% elif data.participants[id].type == "Transfer" %}
+                {% elif data.participants[id].role == "Transfer" %}
 
                     <h2 class="govuk-heading-m">What we’ll do with this information</h2>
                     <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
@@ -126,7 +126,7 @@
                         {% endif %}
                     </ol>
 
-                {% elif data.participants[id].type == "Mentor" %}
+                {% elif data.participants[id].role == "Mentor" %}
 
                     {% if data.participants[id].ineligible == "Yes" %}
                         {% include "includes/confirmation_IneligbleMentor.html" %}
@@ -142,7 +142,7 @@
 
                 {% endif %}            
 
-            {% elif data.participants[id].type == "sitMentor" %}
+            {% elif data.participants[id].role == "sitMentor" %}
 
 
                 {% if data.participants[id].noRecordsMatched == "Yes" %}
@@ -157,7 +157,7 @@
             <!-- /////////////////////// -->
 
             <ul class="govuk-list govuk-!-margin-top-7">
-                {% if ((data.participants[id].type == "ECT") or (data.participants[id].type == "Transfer")) %}
+                {% if ((data.participants[id].role == "ECT") or (data.participants[id].role == "Transfer")) %}
                     {% if not ((data.participants[id].completedInduction) or (data.participants[id].inductionExempt)) %}
                         {% if data.participants[id].mentorAssigned != "Yes" %}
                     <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor to this ECT</a></li>
