@@ -28,13 +28,13 @@
                         { value: "Yes", text: "Yes" },
                         { value: "No, redirect(why-are-you-changing)", text: "No" }
                     ]
-                } | decorateFormAttributes('newYearProviderChange')) }}
+                } | decorateFormAttributes('inductionProgrammeYearTwoProviderChange')) }}
 
                 <!-- { value: "notSure, redirect(confirm-choice-later)", text: "I do not know yet" } -->
 
                 <p class="govuk-!-margin-bottom-5"><a href="confirm-choice-later">I do not know yet</a></p>
-                <!-- Just for dashboard to remove the NoECT that we set on previous page -->
-				<input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="" />
+                <!-- Just for dashboard to remove the noECTs that we set on previous page -->
+				<input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="" />
 
                 {{ govukButton({
                     text: "Continue"

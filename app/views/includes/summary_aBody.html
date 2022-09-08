@@ -2,9 +2,9 @@
     <dt class="govuk-summary-list__key">Appropriate body</dt>
     <dd class="govuk-summary-list__value">
         {% if participant.abConfirm == "Yes" %}
-            {{ data.abName }}
-        {% elif participant.abName %}
-            {{ participant.abName }}
+            {{ data.appropriateBodyName }}
+        {% elif participant.appropriateBodyName %}
+            {{ participant.appropriateBodyName }}
         {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="induction-start-date">Change<span class="govuk-visually-hidden"> start date</span></a></dd>

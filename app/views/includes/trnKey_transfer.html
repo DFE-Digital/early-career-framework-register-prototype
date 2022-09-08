@@ -1,0 +1,34 @@
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [
+        { value: "No", text: "Training using different LP and DP" }
+    ]
+} | decorateFormAttributes(['participants', id, 'trainingMatch']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [
+        { value: "No", text: "Training using same LP and different DP" }
+    ]
+} | decorateFormAttributes(['participants', id, 'dpMatch']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small",
+    items: [
+        { value: "Yes", text: "Training on different main programme"}
+    ]
+} | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small",
+    items: [
+        { value: "Yes", text: "Is mentor" }
+    ]
+} | decorateFormAttributes(['participants', id, 'isMentor']) ) }}
+
+{{ govukCheckboxes({
+classes: "govuk-checkboxes--small ",
+items: [
+    { value: "Yes", text: "ERO or mentor at multiple schools" }
+]
+} | decorateFormAttributes(['participants', id, 'eroMultiMentor']) ) }}

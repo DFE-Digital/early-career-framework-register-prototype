@@ -15,8 +15,12 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            
+            {% if data['correctYear'] == "No" %}
 
-            {% if data.participants[id].eroMultiMentor == "Yes" %}
+                <p>We cannot add this person based on the information you’ve entered.</p>            
+
+            {% elif data.participants[id].eroMultiMentor == "Yes" %}
                 <p>Additional content should we need it Kate around ERO mentor or mentor at multiple schools.</p>
             {% elif data.participants[id].usingCurrentTraining == "No" %}
 

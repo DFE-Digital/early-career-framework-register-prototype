@@ -5,28 +5,28 @@
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
     </div>
     <!-- We do not show ECTs or Mentors to DIY -->
-    {% if data['newYearChangeWhat'] != "nextYear-DYO" %}
-        <div class="govuk-summary-list__row">
+    {% if not ((data['newYearChangeWhat'] == "nextYear-DYO") or (data['inductionProgramme'] == "temphold" )) %}
+        {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">ECTs</dt>
             <dd class="govuk-summary-list__value">
-                {% if data['inductionProgramme'] == "noECT" %}
+                {% if data['inductionProgramme'] == "noECTs" %}
                     0
                 {% elif data['inductionProgramme'] == "CIP" %}
                     4
                 {% elif data['inductionProgramme'] == "FIP" %}
-                    9
+                    12
                 {% else %}
-                    9
+                    12
                 {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="participants/#ect">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>
+                <a class="govuk-link" href="participants/">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>
             </dd>
         </div>
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Mentors</dt>
             <dd class="govuk-summary-list__value">
-                {% if data['inductionProgramme'] == "noECT" %}
+                {% if data['inductionProgramme'] == "noECTs" %}
                     0
                 {% elif data['inductionProgramme'] == "CIP" %}
                     2
@@ -37,9 +37,30 @@
                 {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="participants/#mentors">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>
+                <a class="govuk-link" href="participants/">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>
+            </dd>
+        </div> #}
+
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+            <dd class="govuk-summary-list__value">
+                {% if data['inductionProgramme'] == "noECTs" %}
+                    0
+                {% elif data['inductionProgramme'] == "CIP" %}
+                    6
+                {% elif data['inductionProgramme'] == "FIP" %}
+                    16
+                {% else %}
+                    16
+                {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="participants/">Add or manage<span class="govuk-visually-hidden"> ECTs or mentors</span></a>
             </dd>
         </div>
+
+
     {% endif %}
     <!-- // -->
 </dl>

@@ -12,8 +12,9 @@
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
         <p class="govuk-!-padding-bottom-3">Preload the prototype with user data.</p>
-
+        {# <form class="form" action="/schools/participants/" method="post" class=""> #}
         <form class="form" action="/schools/manage-your-training" method="post" class="">
+
 
             <h2 class="govuk-heading-m">Induction programme</h2>
             <div class="govuk-grid-row">
@@ -49,7 +50,8 @@
                             { value: "FIP", text: "FIP - training provider, funded by the DfE", conditional: { html: partnerHtml } },
                             { value: "CIP", text: "CIP - Deliver using DfE accredited materials", conditional: { html: materialsHtml } },
                             { value: "DYO", text: "DYO - Design and deliver own based ECF" },
-                            { value: "noECT", text: "Not expecting to have any early career teachers" }
+                            { value: "temphold", text: "Use a training provider funded by your school" },
+                            { value: "noECTs", text: "Not expecting to have any early career teachers" }
                         ]
                       } | decorateFormAttributes('inductionProgramme')) }}
                 </div>
@@ -101,7 +103,7 @@
                         },
                         items: [
                             { value: "ECT", text: "Early career teacher", conditional: { html: validateHtml } },
-                            { value: "mentor", text: "Mentor", conditional: { html: betaHtml } },
+                            { value: "Mentor", text: "Mentor", conditional: { html: betaHtml } },
                             { value: "sitMentor", text: "SIT as mentor" }
                         ]
                       } | decorateFormAttributes('participantType')) }}
@@ -114,12 +116,6 @@
 
             <h2 class="govuk-heading-m">Manage training dashboard</h2>
             <div class="govuk-grid-row">
-                 <div class="govuk-grid-column-one-half govuk-visually-hidden">
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Show multiple cohorts", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Multiple cohort years", checked: checked } ]
-                    } | decorateFormAttributes('multi-cohort')) }}
-                </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
@@ -212,7 +208,7 @@
                     text: "Add preloaded information and continue"
                 }) }}
 
-                
+
 
         </form>
 

@@ -19,13 +19,27 @@
 
             <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
 
-                {{ govukRadios({
-                    items: [
-                        { value: "FIP", text: "Use a training provider, funded by the DfE" },
-                        { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },
-                        { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
-                    ]
-                } | decorateFormAttributes("NewYearHowRun")) }}
+                {% if data['inductionProgramme'] == "temphold" %}
+
+                    {{ govukRadios({
+                        items: [                            
+                            { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },
+                            { value: "temphold", text: "Use a training provider funded by your school" },
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("NewYearHowRun")) }}
+
+                {% else %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },                        
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("NewYearHowRun")) }}
+
+                {% endif %}
 
 
                 {{ govukButton({

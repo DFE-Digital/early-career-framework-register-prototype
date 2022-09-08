@@ -18,26 +18,19 @@
 
                 <!-- Top sections with Induction tutor, ects and mentors -->
                 {% include "includes/mtLengthEctTutor.html" %}
-                <!-- ////////////////////// -->
 
-                <!-- Next incoming year -->
+                <!-- New academic year -->
                 <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-3">ECF-based training starting 2022 to 2023 academic year</h2>
 
-                <!-- New Year training has not been setup -->
-                {% if not data['NewYearInductionProgramme'] %}
+                <!-- Not setup -->
+                {% if not data['inductionProgrammeYearTwo'] %}
 
                     <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
-                    {# <form action="/nominations/" method="post" >
-                        <input type="hidden" name="NewYearInductionProgramme" id="NewYearInductionProgramme" value="Started"  />
-                        {{ govukButton({
-                            text: "Start now"
-                        }) }}
-                    </form> #}
 
-
+                <!-- Training setup -->
                 {% else %}
-                    <!-- NoECTs expected  -->
-                    {% if data['NewYearInductionProgramme'] == "noECT" %}
+                    <!-- No ECTs -->
+                    {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
                         <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                         <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
 
@@ -52,7 +45,7 @@
                             {% endif %}
                         {% endif %}
 
-                        {% if data['NewYearInductionProgramme'] == "FIP" %}
+                        {% if data['inductionProgrammeYearTwo'] == "FIP" %}
                             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">Duration</dt>
@@ -67,7 +60,7 @@
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Training provider</dt>
                                     <dd class="govuk-summary-list__value">
-                                        
+
                                         {% if data['newYearStayLeadProvider'] %}
 
                                             {% if data['newYearStayLeadProvider'] == "No" %}
@@ -77,8 +70,8 @@
                                             {% endif %}
 
                                         {% else %}
-                                        
-                                            {% if data['newYearProviderChange'] == "Yes" %}
+
+                                            {% if data['inductionProgrammeYearTwoProviderChange'] == "Yes" %}
                                                 {% if data['newYearChangeWhat'] == "leadProvider" %}
                                                     To be confirmed
                                                 {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
@@ -98,12 +91,12 @@
                                     <dd class="govuk-summary-list__value">
 
                                         {% if data['newYearStayLeadProvider'] %}
-                                            
+
                                             To be confirmed
 
                                         {% else %}
 
-                                            {% if data['newYearProviderChange'] == "Yes" %}
+                                            {% if data['inductionProgrammeYearTwoProviderChange'] == "Yes" %}
                                                 {% if data['newYearChangeWhat'] == "leadProvider" %}
                                                     To be confirmed
                                                 {% elif data['newYearChangeWhat'] == "deliveryPartner" %}
@@ -119,7 +112,7 @@
                                     <dd class="govuk-summary-list__actions"></dd>
                                 </div>
 
-                        {% elif data['NewYearInductionProgramme'] == "CIP" %}
+                        {% elif data['inductionProgrammeYearTwo'] == "CIP" %}
 
                             {% if not data['nextYear-accredited-materials'] %}
                                 {# <h2 class="govuk-heading-m">Choose your training materials</h2> #}
@@ -146,7 +139,7 @@
                                     </dd>
                                 </div>
 
-                        {% elif data['NewYearInductionProgramme'] == "DYO" %}
+                        {% elif data['inductionProgrammeYearTwo'] == "DYO" %}
 
                             <dl class="govuk-summary-list govuk-!-margin-bottom-3">
                                 <div class="govuk-summary-list__row">
@@ -154,6 +147,15 @@
                                     <dd class="govuk-summary-list__value">Design and deliver your own programme based on the early career framework (ECF)</dd>
                                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
                                 </div>
+
+                        {% elif data['inductionProgrammeYearTwo'] == "temphold" %}
+
+                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">Programme</dt>
+                                        <dd class="govuk-summary-list__value">You’ve chosen to use a training provider funded by your school</dd>
+                                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="programme-choice">Change<span class="govuk-visually-hidden"> programme</span></a></dd>
+                                    </div>
 
                         {% endif %}
                         <!-- //////////////////////////////////// -->
@@ -188,7 +190,7 @@
                                     DfE accredited materials
                                 {% elif data['inductionProgramme'] == "DYO" %}
                                     Design and deliver your own programme based on the early career framework (ECF)
-                                {% elif data['inductionProgramme'] == "noECT" %}
+                                {% elif data['inductionProgramme'] == "noECTs" %}
                                     Expecting no early career teachers
                                 {% elif (data['inductionProgramme'] === "temphold") %}
                                     You’ve chosen to use a training provider funded by your school

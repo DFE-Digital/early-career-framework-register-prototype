@@ -13,7 +13,19 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].type == "ectTransfer" %}
+            {% if data.participants[id].type == "ECT" %}
+
+                <p class="govuk-body">You must tell us their:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>full name</li>
+                    <li>teacher reference number (TRN)</li>
+                    <li>date of birth</li>
+                    <li>email address (personal or school)</li>
+                    <li>induction start date</li>
+                </ul>
+                <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
+
+            {% elif data.participants[id].type == "Transfer" %}
                 <p class="govuk-body">We need to find the right person in our database so we can transfer their record to your school.</p>
                 <p class="govuk-body">To do this, you need to tell us their:</p>
                 <ul class="govuk-list govuk-list--bullet">
@@ -25,7 +37,7 @@
                 </ul>
                 <p class="govuk-body">If your school does not have this information, contact the person directly to ask for it.</p>
 
-            {% elif data.participants[id].type == "ect" %}
+            {% elif data.participants[id].type == "Mentor" %}
 
                 <p class="govuk-body">You must tell us their:</p>
                 <ul class="govuk-list govuk-list--bullet">
@@ -33,45 +45,19 @@
                     <li>teacher reference number (TRN)</li>
                     <li>date of birth</li>
                     <li>email address (personal or school)</li>
-                    <li>induction start date</li>
                 </ul>
-
                 <p class="govuk-body">We use this information to check their details in the Teaching Regulation Agency records. This is to make sure they’re eligible for DfE funding.</p>
 
-
-            {% elif data.participants[id].type == "mentor" %}
-
-                <p>We need to check the mentor's details in the Teaching Regulation Agency records. This is to make sure they're eligible for DfE funding.</p>
-
-                <p class="govuk-body">You must tell us their:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>full name</li>
-                    <li>email address (personal or school)</li>
-                    <li>mentoring start date at your school</li>
-                </ul>
-                {# <p class="govuk-body">You can now choose to enter their teacher reference number (TRN) and date of birth too.</p> #}
-                <p class="govuk-body">We can run the eligibility checks immediately if you can also tell us their:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>teacher reference number (TRN)</li>
-                    <li>date of birth</li>
-
-                    {# <li>ECTs and mentors will not be asked to provide this information themselves</li>
-                    <li>we can confirm if they’re eligible for funding more quickly</li> #}
-                </ul>
-
-                <p>If you do not have these, we'll email the mentor to ask them to add their TRN and date of birth to the service. This can cause a delay in confirming their eligibility, as we only run the checks once we have all their details.</p>
-                
-
-
-                
             {% endif %}
 
             {% include "includes/gdpr.html" %}
 
             <form method="post" action="name" >
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
+
             </form>
 
         </div>

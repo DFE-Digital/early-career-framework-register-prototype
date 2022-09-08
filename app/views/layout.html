@@ -50,11 +50,7 @@
     serviceName: serviceName,
     serviceUrl: "/",
     containerClasses: "govuk-width-container",
-    navigation: [
-      {
-        href: "#1",
-        text: 'admin@example.com' if isAdmin else (data['school-email-address'] or 'headteacher@school.gov.uk')
-      },
+    navigation: [      
       {
         href: "/sign-out",
         text: "Sign out"

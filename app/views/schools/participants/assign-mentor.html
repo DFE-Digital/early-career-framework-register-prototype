@@ -26,10 +26,10 @@
                 {% else %}
 
                 <!-- Add journey -->
-                    {% if data.participants[id].type == "ect" %}
+                    {% if data.participants[id].type == "ECT" %}
                         <form class="form" action="check-your-answers" method="post" >
                     <!-- Transfer Journey -->
-                    {% elif data.participants[id].type == "ectTransfer" %}
+                    {% elif data.participants[id].type == "Transfer" %}
 
                         {% if data.participants[id].diffInductionProgramme == "Yes" %}
                             <form class="form" action="different-programme" method="post" >

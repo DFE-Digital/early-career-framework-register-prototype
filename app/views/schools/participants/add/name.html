@@ -12,74 +12,45 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-            <!-- Is user coming from the CYA -->
+            <!-- ////// CHECK THIS IS STILL NEEDED //////// -->
             {% if data['cya-action'] == "change-name" %}
                 <form class="form" action="check-your-answers" method="post">
-                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the cya change link action -->
-            <!-- Is user coming from the details page -->
-            {% elif ((data['details-change-action'] == "change-name" ) or (data['details-change-action'] == "change-name-2")) %}
+                    <input type="hidden" id="cya-action" name="cya-action" value="" />
+
+            {% elif data['details-change-action'] == "change-name" %}
                 <form class="form" action="../details" method="post">
-                    <input type="hidden" id="details-change-action" name="details-change-action" value="" /><!-- Clears the link action-->
-                    <input type="hidden" id="details-change-action-2" name="details-change-action-2" value="" /><!-- Clears the link action-->
+                    <input type="hidden" id="details-change-action" name="details-change-action" value="" />
+            <!-- ////// END //////// -->
+
             {% else %}
 
-            <!-- Add journey -->
-            {% if data.participants[id].type == "ect" %}
+                {% if data['linkaction'] == "cannotFind" %}
 
-                    {% if data['linkaction'] == "cannotFind" %}
-                        {% if data.participants[id].type == "ect" %}
-                            <form class="form" action="email-address" method="post">
-                        {% else %}
-                            <form class="form" action="know-trn" method="post">
-                        {% endif %}
-
-                            <input type="hidden" name="linkaction" id="linkaction" value="" />
-                            {{ govukCheckboxes({
-                                classes: "govuk-checkboxes--small govuk-visually-hidden",
-                                items: [
-                                    { value: "", text: "Is not matched", checked: "true" }
-                                ]
-                            } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-
-                    {% else %}
-
-                        <form class="form" action="teacher-reference-number" method="post">
-
-                    {% endif %}
-
-            {% elif data.participants[id].type == "mentor"  %}
-
-                    {% if data['linkaction'] == "cannotFind" %}
-                        {% if data.participants[id].type == "ect" or data.participants[id].type == "mentor" %}
-                            <form class="form" action="email-address" method="post">
-                        {% else %}
-                            <form class="form" action="know-trn" method="post">
-                        {% endif %}
-
-                            <input type="hidden" name="linkaction" id="linkaction" value="" />
-                            {{ govukCheckboxes({
-                                classes: "govuk-checkboxes--small govuk-visually-hidden",
-                                items: [
-                                    { value: "", text: "Is not matched", checked: "true" }
-                                ]
-                            } | decorateFormAttributes(['participants', id, 'dbMatched']) ) }}
-                    {% else %}
-
-                        <form class="form" action="teacher-reference-number" method="post">
-
-                    {% endif %}
-
-            {% elif data.participants[id].type == "ectTransfer" or data.participants[id].type == "mentorTransfer"  %}
-                    <!-- Look for if coming from cannot find in database -->
-                    {% if data['linkaction'] == "cannotFind" %}
+                    {% if data.participants[id].type == "Transfer" %}
                         <form class="form" action="joining-date" method="post">
-                        <input type="hidden" name="linkaction" id="linkaction" value="" />
-                    <!-- Otherwise normal path -->
                     {% else %}
-                        <form class="form" action="teacher-reference-number" method="post" >
+                        <form class="form" action="email-address" method="post">
                     {% endif %}
+
+                        <input type="hidden" name="linkaction" id="linkaction" value="" />
+=
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden",
+                            items: [
+                                { value: "", text: "Is not matched", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
+
+                {% else %}
+
+                    {% if data.participants[id].type == "Transfer" %}
+                        <form class="form" action="teacher-reference-number" method="post">
+                    {% else %}
+                        <form class="form" action="induction-start-date" method="post">
+                    {% endif %}
+
                 {% endif %}
+
             {% endif %}
 
                 {{ govukInput({
@@ -91,11 +62,36 @@
                     classes: "govuk-!-width-two-thirds"
                 } | decorateFormAttributes(['participants', id, 'name']) ) }}
 
+
+                {% if data['inductionProgrammeYearTwo'] == "CIP" %}
+
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "CIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
+                {% elif data['inductionProgramme'] == "CIP" %}                
+                    
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "CIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+
+                {% else %}
+                
+                    {{ govukInput({
+                        classes: "govuk-visually-hidden",
+                        value: "FIP"
+                    } | decorateFormAttributes(['participants', id, 'programme']) ) }}
+                
+                {% endif %}
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}
 
             </form>
+            
         </div>
     </div>
 {% endblock %}

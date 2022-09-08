@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 <!-- This is just here to show what we could pull in Jo, not what we should use :-) -->
-{% set pageHeading = 'Which ' + data.abType + ' in ' + data.abRegion + ' have you appointed for ' + participant.name + '?' %}
+{% set pageHeading = 'Which ' + data.appropriateBodyType + ' in ' + data.abRegion + ' have you appointed for ' + participant.name + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,7 +20,7 @@
 
                 {% if data['abRegion'] == "East Midlands and the Humber"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -37,7 +37,7 @@
                                 { value: "Spencer Teaching School Hub", text: "Spencer Teaching School Hub" },
                                 { value: "The Vantage Teaching School Hub North Humber", text: "The Vantage Teaching School Hub North Humber" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -55,13 +55,13 @@
                                 { value: "Rotherham", text: "Rotherham" },
                                 { value: "York", text: "York" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "East of England and North-East London"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -76,7 +76,7 @@
                                 { value: "The Julian Teaching School Hub", text: "The Julian Teaching School Hub" },
                                 { value: "Unity Teaching School Hub", text: "Unity Teaching School Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -99,13 +99,13 @@
                             { value: "Waltham Forest", text: "Waltham Forest" }
 
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "Lancashire and West Yorkshire"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -124,7 +124,7 @@
                                 { value: "Star Teaching School Hub Pennine Lancashire", text: "Star Teaching School Hub Pennine Lancashire" },
                                 { value: "The East Manchester Teaching Hub", text: "The East Manchester Teaching Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -154,13 +154,13 @@
                                 { value: "Wirral", text: "Wirral" }
 
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "North of England"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -171,7 +171,7 @@
                                 { value: "Tees Valley Teaching School Hub", text: "Tees Valley Teaching School Hub" },
                                 { value: "The Three Rivers Teaching School Hub", text: "The Three Rivers Teaching School Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -188,13 +188,13 @@
                                 { value: "Stockton-on-Tees", text: "Stockton-on-Tees" },
                                 { value: "Sunderland", text: "Sunderland" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "North-West London and South-Central England"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -208,7 +208,7 @@
                                 { value: "Teach West London", text: "Teach West London" },
                                 { value: "TSH Berkshire", text: "TSH Berkshire" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -240,13 +240,13 @@
                                 { value: "Windsor and Maidenshead", text: "Windsor and Maidenshead" },
                                 { value: "Wokingham", text: "Wokingham" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "South-East England and South London"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -262,7 +262,7 @@
                                 { value: "Wandle Teaching School Hub", text: "Wandle Teaching School Hub" },
                                 { value: "Xavier Teaching School Hub", text: "Xavier Teaching School Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -286,13 +286,13 @@
                                 { value: "Wandsworth", text: "Wandsworth" },
                                 { value: "West Sussex", text: "West Sussex" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "South-West England"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -308,7 +308,7 @@
                                 { value: "South Central Teaching School Hub", text: "South Central Teaching School Hub" },
                                 { value: "Swindon and Wiltshire Teaching School Hub", text: "Swindon and Wiltshire Teaching School Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -324,13 +324,13 @@
                                 { value: "Swindon", text: "Swindon" },
                                 { value: "Wiltshire", text: "Wiltshire" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 
                 {% elif data['abRegion'] == "West Midlands"  %}
 
-                    {% if data['abType'] == "teaching school hub" %}
+                    {% if data['appropriateBodyType'] == "teaching school hub" %}
 
                         {{ govukRadios({
                             items: [
@@ -346,7 +346,7 @@
                                 { value: "The Golden Thread Teaching School Hub", text: "The Golden Thread Teaching School Hub" },
                                 { value: "Tudor Grange Teaching School Hub", text: "Tudor Grange Teaching School Hub" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% else %}
 
@@ -366,7 +366,7 @@
                                 { value: "Wolverhampton", text: "Wolverhampton" },
                                 { value: "Worcestershire", text: "Worcestershire" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'abName']) ) }}
+                        } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
 
                     {% endif %}
 

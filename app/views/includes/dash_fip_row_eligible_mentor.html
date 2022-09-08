@@ -1,0 +1,22 @@
+<tr class="govuk-table__row">
+    <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+    <td class="govuk-table__cell">        
+        {% if participant.inductionDayCorrect %}
+            {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
+        {% else %}
+            {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+        {% endif %}
+    </td>
+    <td class="govuk-table__cell">
+        {% if participant.type == "ECT" %}
+            {% if participant.mentor %}
+                {{ participant.mentor }}
+            {% else %}
+                <a href="/schools/participants/{{ id }}/add/choose-mentor" class="govuk-link govuk-link--no-visited-state">Assign mentor</a>
+            {% endif %}
+        {% else %}
+            Name
+        {% endif %}
+    </td>
+    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+</tr>
