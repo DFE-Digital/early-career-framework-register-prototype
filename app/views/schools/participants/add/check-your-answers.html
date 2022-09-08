@@ -80,9 +80,7 @@
             </dl>
 
                 <form class="form" action="confirmation" method="post" >
-
-                <!-- This will set the correct status for the participant so that they appear on the correct part of the dashboard -->
-                <!-- Clears any change action from the CYA - we may not need moving forwards  -->
+                
                 {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
 
                 {% if data.participants[id].type == "sitMentor" %}
@@ -94,8 +92,6 @@
 
                     <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
 
-
-
                 <!-- If transferring in -->
                 {% elif data.participants[id].type == "Transfer" %}
                     {{ govukInput({
@@ -105,58 +101,27 @@
 
                 <!-- Otherwise if TRN provided  -->
                 {% else %}
-
-                    {% if data.participants[id].noRecordsMatched == "Yes" %}
+                    
+                    <!-- No QTS -->
+                    {% if data.participants[id].noQTS == "Yes" %}
 
                         {{ govukInput({
                             classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                            value: "Contacted"
+                            value: "CheckingQTS"
                         } | decorateFormAttributes(['participants', id, 'status']) ) }}
 
+                    <!-- Eligible -->
                     {% else %}
-                        <!-- No QTS -->
-                        {% if data.participants[id].noQTS == "Yes" %}
 
-                            {{ govukInput({
-                                classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                                value: "CheckingQTS"
-                            } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                        <!-- Eligible -->
-                        {% else %}
-
-                            {{ govukInput({
-                                classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                                value: "Eligible"
-                            } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                        {% endif %}
+                        {{ govukInput({
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "Eligible"
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
 
                     {% endif %}
-
-                <!-- If no TRN we need to contact them to provde the details -->                
+                
                 {% endif %}
-
-
-                {% if data['cohort'] == "2022" %}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
-                            items: [
-                                { value: "Yes", text: "Cohort 2022", checked: "checked" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'cohort2022']) ) }}
-
-                {% elif data['cohort'] == "2021" %}
-
-                        {{ govukCheckboxes({
-                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
-                            items: [
-                                { value: "Yes", text: "Cohort 2021", checked: "checked" }
-                            ]
-                        } | decorateFormAttributes(['participants', id, 'cohort2021']) ) }}
-
-                {% endif %}
+                
 
                 {{ govukButton({
                     text: "Confirm and add"
