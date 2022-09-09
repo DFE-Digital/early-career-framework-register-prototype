@@ -1,0 +1,23 @@
+ <h2 class="govuk-heading-m">What we’ll do with this information</h2>
+                    <p>We’ll let {{ participant.name }} know you’ve registered them for ECF-based training at your school.</p>
+                    <p>They’ll appear in the ’Moving school’ tab on your dashboard until their start date.</p>
+
+                    {% if data.participants[id].switchProgramme %}
+                        {% include "includes/confirmation_transfer_switch.html" %}
+                    {% else %}                        
+                        {% include "includes/confirmation_transfer.html" %}
+                    {% endif %}
+
+                    <p>Contact us if you need to make any changes: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+                    <h2 class="govuk-heading-m">Remember to:</h2>
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Report this transfer to your appropriate body. They need to complete some checks and update {{ participant.name }}’s record with the Teaching Regulation Agency (TRA).</li>
+                        {% if data['inductionProgramme'] == "FIP" %}
+                        <li>Confirm this transfer directly with your training programme provider.</li>
+                        {% endif %}
+                        <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
+                        {% if data.participants[id].mentorAssigned != "Yes" %}
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                        {% endif %}
+                    </ol>

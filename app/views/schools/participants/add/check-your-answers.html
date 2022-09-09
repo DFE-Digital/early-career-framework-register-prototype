@@ -14,114 +14,46 @@
 
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-
-                <!-- Name -->
+                
                 {% include "includes/summary_name.html" %}
-
-                <!-- Induction start date -->
                 {% if participant.inductionDay %}
                     {% include "includes/summary_induction_date.html" %}
                 {% endif %}
-
-                <!-- TRN -->
+                
                 {% include "includes/summary_trn.html" %}
-                <!-- Date of birth -->
-                {% if participant.dobDay %}
-                    {% include "includes/summary_dob.html" %}
-                {% endif %}
-
+                {% include "includes/summary_dob.html" %}
+                
                 {% if participant.nationalInsuranceNumber %}
                     {% include "includes/summary_ni.html" %}
                 {% endif %}
-
-                <!-- Joining Date -->
+                
                 {% if participant.joiningDay %}
                     {% include "includes/summary_joining.html" %}
                 {% endif %}
-                <!-- Email -->
-                {% if participant.email %}
-                    {% include "includes/summary_email.html" %}
-                {% endif %}
+                                
+                {% include "includes/summary_email.html" %} 
 
-                
-
-                {% if participant.cohort %}
+                {% if data.participants[id].role == "ECT" %}
                     {% include "includes/summary_cohort.html" %}
                 {% endif %}
 
-
-
                 {% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
-                {% if data.participants[id].role == "ECT" %}
-                    {% include "includes/summary_aBody.html" %}
-                {% endif %}
-                {% endif %}
-
-
-                <!-- Mentor details -->
-                {# {% if not data.participants[id].isMentor %}
-                    {% if participant.mentor %}
-                        {% include "includes/summary_mentor.html" %}
+                    {% if data.participants[id].role == "ECT" %}
+                        {% include "includes/summary_aBody.html" %}
                     {% endif %}
-                {% endif %} #}
+                {% endif %}                                    
 
-                <!-- Training -->
-                <!-- If adding ECT or MENTOR -->
-                {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
+                {% if data.participants[id].role == "ECT" %}
                     {% include "includes/summary_training_ect_mentor.html" %}
-                <!-- If Transferring -->
                 {% elif data.participants[id].role == "Transfer" %}
                     {% include "includes/summary_training_transfer.html" %}
                 {% endif %}
 
-
-
-
             </dl>
 
-                <form class="form" action="confirmation" method="post" >
+            <form class="form" action="confirmation" method="post" >
                 
-                {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
-
-                {% if data.participants[id].role == "sitMentor" %}
-
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "Eligible"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
-
-                <!-- If transferring in -->
-                {% elif data.participants[id].role == "Transfer" %}
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "TransferIn"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                <!-- Otherwise if TRN provided  -->
-                {% else %}
-                    
-                    <!-- No QTS -->
-                    {% if data.participants[id].noQTS == "Yes" %}
-
-                        {{ govukInput({
-                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                            value: "CheckingQTS"
-                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    <!-- Eligible -->
-                    {% else %}
-
-                        {{ govukInput({
-                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                            value: "Eligible"
-                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    {% endif %}
-                
-                {% endif %}
-                
+                {% include "includes/hidden_status_set.html" %}
 
                 {{ govukButton({
                     text: "Confirm and add"

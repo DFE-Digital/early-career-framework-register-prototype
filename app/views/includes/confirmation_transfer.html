@@ -1,5 +1,5 @@
     <!-- NO match -->
-    {% if data.participants[id].trainingMatch == "No" %}
+    {% if data.participants[id].transferProgramme == "differentLPandDP" %}
         
         {% if data['inductionProgramme'] == "FIP" %}                
             <!-- Will teacher continue on their different training to the schools -->
@@ -24,7 +24,7 @@
         {% endif %}         
         
     <!-- Match LP but not DP -->
-    {% elif data.participants[id].dpMatch == "No" %}
+    {% elif data.participants[id].transferProgramme == "differentDP" %}
     
         <!-- Teacher will continue using schools DP -->
         {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}

@@ -12,7 +12,6 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
             <form class="form" action="lookup" method="post" class="govuk-!-margin-bottom-8">
 
                 {{ govukRadios({
@@ -21,12 +20,10 @@
                         { value: "national organisation, redirect(national-organisation)", text: "National organisation" },
                         { value: "teaching school hub", text: "Teaching school hub" }
                     ]
-
                 } | decorateFormAttributes(['participants', id, 'appropriateBodyType']) ) }}
 
                 <!-- This is just to remove the CONFIRM if clicked on that first -->
-                {% include "includes/confirm-override.html" %}
-                <!-- // -->
+                {% include "includes/hidden_ab_override.html" %}                
 
                 {{ govukButton({
                     text: "Continue"

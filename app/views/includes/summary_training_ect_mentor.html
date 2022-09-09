@@ -1,19 +1,20 @@
-<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+<div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">                            
-        {% if data['inductionProgramme'] == "FIP" %}    
+        {% if participant.programme == "FIP" %}    
             Training with                                                            
-        {% elif data['inductionProgramme'] == "CIP" %}    
+        {% elif participant.programme == "CIP" %}    
             Materials supplier                          
         {% endif %}
     </dt>
     <dd class="govuk-summary-list__value">
         <ul class="govuk-list">
-        {% if data['inductionProgramme'] == "FIP" %}    
+        {% if participant.programme == "FIP" %}    
             <li>{{ data.leadProvider}}</li>
             <li>{{ data.deliveryPartner }}</li>
-        {% elif data['inductionProgramme'] == "CIP" %}    
+        {% elif participant.programme == "CIP" %}    
             <li>{{ data.leadProviderMaterials }}</li>        
         {% endif %}
         </ul>
-    </dd>                        
+    </dd>   
+    <dd class="govuk-summary-list__actions"></dd>                     
 </div>
