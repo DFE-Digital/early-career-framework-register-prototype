@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data.participants[id].usingCurrentTraining == "No" %}
+    {% set pageHeading = 'Contact us to transfer ' + participant.name + '' %}
+{% else %}
+    {% set pageHeading = 'You cannot add ' + participant.name + '' %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            
+
+            {% if data.participants[id].eroMultiMentor == "Yes" %}
+                <p>Additional content should we need it Kate around ERO mentor or mentor at multiple schools.</p>
+            {% elif data.participants[id].usingCurrentTraining == "No" %}
+
+            {% elif data.participants[id].continueProgramme != "No" %}
+                {% if data.participants[id].existingMatch == "Yes" %}
+                    <p>Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
+                {% else %}
+                    <p>We cannot find this person's training record based on the information you’ve entered.</p>
+                    <p class="govuk-body">This could be because:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>the information does not match their Teaching Regulation Agency record</li>
+                        <li>they're not registered on an ECF-based training progamme yet</li>
+                    </ul>
+                {% endif %}
+            {% endif %}
+
+            <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">View your ECTs and mentors</a></p>
+        </div>
+    </div>
+{% endblock %}

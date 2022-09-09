@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Which national appropriate body have you appointed ' + participant.name + '?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <!-- Corrected acronym "IStip" and added acronym "NTA" -->
+
+
+            <form class="form" action="check-your-answers" method="post" >
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    items: [
+                        { value: "Independent Schools Teacher Induction Panel (IStip)", text: "Independent Schools Teacher Induction Panel (IStip)" },
+
+                        { value: "National Teacher Accreditation (NTA)", text: "National Teacher Accreditation (NTA)" }
+
+                    ]
+                } | decorateFormAttributes(['participants', id, 'appropriateBodyName']) ) }}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
