@@ -29,7 +29,7 @@
         {% set pageHeading = 'What’s your teacher reference number (TRN)?' %}
     {% else %}
         {% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
-    {% endif %}    
+    {% endif %}
 
 {% endif %}
 
@@ -69,13 +69,13 @@
                     {% else %}
                         <!-- Look for if coming from cannot find in database -->
                         {% if data['linkaction'] == "cannotFind" %}
-                                
+
                             {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                                 <form class="form" action="email-address" method="post">
                             {% else %}
                                 <form class="form" action="joining-date" method="post">
                             {% endif %}
-                            
+
                             <input type="hidden" name="linkaction" id="linkaction" value="" />
                             {{ govukCheckboxes({
                                 classes: "govuk-checkboxes--small govuk-visually-hidden",
@@ -111,19 +111,19 @@
 
                     {% if data['linkaction'] != "cannotFind" %}
 
-                        <div class="key">
+                        <div class=" govuk-visually-hidden key">
                             {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
-                            {% elif data.participants[id].type == "Transfer" %}                            
+                            {% elif data.participants[id].type == "Transfer" %}
                                 {% include "includes/trnKey_transfer.html" %}
                             {% elif data.participants[id].type == "sitMentor" %}
                                 {% include "includes/trnkey_sitmentor.html" %}
-                            {% endif %}                                            
+                            {% endif %}
                         </div>
-                    
+
                     {% endif %}
-                
-                
+
+
                 {% endif %}
 
 
@@ -143,13 +143,13 @@
                 {% else %}
                     <!-- Look for if coming from cannot find in database -->
                     {% if data['linkaction'] == "cannotFind" %}
-                            
+
                         {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                             <form class="form" action="email-address" method="post">
                         {% else %}
                             <form class="form" action="joining-date" method="post">
                         {% endif %}
-                        
+
                         <input type="hidden" name="linkaction" id="linkaction" value="" />
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-visually-hidden",
@@ -188,15 +188,15 @@
                     <div class="key">
                         {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                             {% include "includes/trnKey_ectMentor.html" %}
-                        {% elif data.participants[id].type == "Transfer" %}                            
+                        {% elif data.participants[id].type == "Transfer" %}
                             {% include "includes/trnKey_transfer.html" %}
                         {% elif data.participants[id].type == "sitMentor" %}
                             {% include "includes/trnkey_sitmentor.html" %}
-                        {% endif %}                                            
+                        {% endif %}
                     </div>
-                
+
                 {% endif %}
-            
+
             {% endif %}
       		</form>
     	</div>
