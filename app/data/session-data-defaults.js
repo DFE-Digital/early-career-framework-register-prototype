@@ -27,9 +27,9 @@ module.exports = {
     expiryTime: '1pm',
     inductionProgramme: "FIP",
     fipPartnership: "Yes",
-    inductionProgrammeYearTwo: "FIP",
-    inductionProgrammeYearTwoECTs: "Yes",
-    inductionProgrammeYearTwoProviderChange: "No",
+    // inductionProgrammeYearTwo: "FIP",
+    // inductionProgrammeYearTwoECTs: "Yes",
+    // inductionProgrammeYearTwoProviderChange: "No",
     appropriateBodyType: "local authority",
     appropriateBodyName: "North Tyneside",
 
