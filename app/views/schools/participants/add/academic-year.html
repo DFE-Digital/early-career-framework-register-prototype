@@ -3,11 +3,11 @@
 
 
 {% if data['notcorrect'] == "Yes" %}
-    {% set pageHeading = 'Did ' + participant.name + ' start their ECF-based training in the 2021 to 2022 academic year? ' %}
+    {% set pageHeading = 'Did ' + participant.name + ' start ECF-based training in the 2021 to 2022 academic year? ' %}
 {% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
     {% set pageHeading = 'Which academic year will ' + participant.name + ' start their ECF-based training? ' %}
 {% else %}
-    {% set pageHeading = 'Confirm ' + participant.name + ' will be starting their ECF-based training in the 2022 to 2023 academic year? ' %}
+    {% set pageHeading = 'Confirm ' + participant.name + ' will start ECF-based training in the 2022 to 2023 academic year ' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -58,12 +58,12 @@
 
                 {% else %}
 
-                    <div class="govuk-visually-hidden">                                        
+                    <div class="govuk-visually-hidden">
                         {{ govukCheckboxes({
                             items: [
                                 { value: "2022", text: "2021 to 2022 academic year", checked: "true" }
                             ]
-                        } | decorateFormAttributes(['participants', id, 'cohort']) ) }}                    
+                        } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
                     </div>
 
                     <div class="govuk-button-group">
@@ -71,9 +71,9 @@
                             text: "Confirm and continue"
                         }) }}
                         <!-- <a class="govuk-link" href="academic-year?notcorrect=Yes">This is not the correct year</a> -->
-                        <a class="govuk-link" href="cannot-add?correctYear=No">This is not the correct year</a>
+                        <a class="govuk-link" href="cannot-add?correctYear=No">Choose a different year</a>
 
-                        
+
                     </div>
 
 
