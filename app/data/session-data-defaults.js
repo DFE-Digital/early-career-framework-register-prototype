@@ -38,7 +38,7 @@ module.exports = {
 
     // rolesexplanation: "Seen",
     participants: {
-        ME1: { 
+        ME1: {
             type: 'Mentor',
             name: 'Jane Doe',
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -48,9 +48,9 @@ module.exports = {
             usingCurrentTraining: "Yes",
             cohort: "2021",
             programme: "FIP",
-            status: 'Eligible'            
+            status: 'Eligible'
         },
-        ME2: { 
+        ME2: {
             type: 'Mentor',
             name: 'James Doe',
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -58,11 +58,11 @@ module.exports = {
             dobDay: "1", dobMonth: "1", dobYear: "2001",
             email: 'james.doe@example.com',
             usingCurrentTraining: "Yes",
-            cohort: "2021",            
+            cohort: "2021",
             programme: "FIP",
-            status: 'Eligible'            
+            status: 'Eligible'
         },
-        DN2: { 
+        DN2: {
             type: 'Mentor',
             name: 'Tony Headford',
             inductionDay: "1", inductionMonth: "9", inductionYear: "2021",
@@ -72,16 +72,16 @@ module.exports = {
             usingCurrentTraining: "Yes",
             cohort: "2021",
             programme: "FIP",
-            status: "Eligible"            
+            status: "Eligible"
         },
         // CIP
         SI3: { type: "ECT", name: "Steven Woods", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "steven.woods@test.dfe.gov.uk", mentor: "Fabio Volpe", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "1231312", usingCurrentMaterials: "Yes", cohort: "2021" },
         PYE: { type: "ECT", name: "Jo Dimbleby", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "2", dobMonth: "2", dobYear: "2002", email: "jo.dimbleby@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", mentor: "Elena Bracey", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "34543654", usingCurrentMaterials: "Yes", cohort: "2021" },
         JA8: { type: 'Mentor', name: "Elena Bracey", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "elena.bracey@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "6517984", usingCurrentMaterials: "Yes", cohort: "2021" },
         OBW: { type: 'Mentor', name: "Fabio Volpe", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "fabio.volpe@test.dfe.gov.uk", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "5647894", usingCurrentMaterials: "Yes", cohort: "2021" },
-        
+
         //FIP
-        PQ9: { 
+        PQ9: {
             type: "ECT",
             name: "Nicola Page",
             inductionDay: "11", inductionMonth: "4", inductionYear: "2022",
@@ -95,7 +95,7 @@ module.exports = {
             status: "Withdrawn",
             mentor: "James Doe"
         },
-        SD2: { 
+        SD2: {
             type: "ECT",
             name: "Jack Bracewell",
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -110,7 +110,7 @@ module.exports = {
             status: "NotEligible",
             mentor: "James Doe"
         },
-        EP5: { 
+        EP5: {
             type: "ECT",
             name: "Luke Didsbury",
             inductionDay: "5", inductionMonth: "9", inductionYear: "2022",
@@ -123,7 +123,7 @@ module.exports = {
             programme: "FIP",
             status: "Eligible"
         },
-        Z87: { 
+        Z87: {
             type: "ECT",
             name: "Ruby Lally",
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -138,7 +138,7 @@ module.exports = {
             status: "Eligible",
             mentor: "Tony Headford"
         },
-        IQ8: { 
+        IQ8: {
             type: "ECT",
             name: "James Liddell",
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -151,7 +151,7 @@ module.exports = {
             status: "Eligible",
             mentor: "Jane Doe"
         },
-        VLT: { 
+        VLT: {
             type: "ECT",
             name: "Steven Wood",
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -165,7 +165,7 @@ module.exports = {
             mentor: "James Doe"
         },
         // TranferOut Mentor
-        KJ8: { 
+        KJ8: {
             type: "Mentor",
             name: "Kate Lloyd",
             inductionDay: "3", inductionMonth: "9", inductionYear: "2021",
@@ -173,14 +173,14 @@ module.exports = {
             dobDay: "1", dobMonth: "1", dobYear: "2222",
             email: "kate.lloyd@test.dfe.gov.uk",
             usingCurrentTraining: "Yes",
-            newLeadProvider: "Ambition Institute",            
+            newLeadProvider: "Ambition Institute",
             cohort: "2021",
             programme: "FIP",
-            status: "TransferOut",            
-            leavingDay: "10", leavingMonth: "8", leavingYear: "2022",            
+            status: "TransferOut",
+            leavingDay: "10", leavingMonth: "8", leavingYear: "2022",
         },
         // Checking with TRA
-        GH3: { 
+        GH3: {
             type: "ECT",
             name: "Luke Richards",
             inductionDay: "3", inductionMonth: "7", inductionYear: "2022",
@@ -192,10 +192,10 @@ module.exports = {
             usingCurrentProvider: "No",
             cohort: "2021",
             programme: "FIP",
-            status: "Checking"                        
+            status: "Checking"
         },
         // Checking QTS
-        DB5: { 
+        DB5: {
             type: "ECT",
             name: "Mili Malde",
             inductionDay: "5", inductionMonth: "7", inductionYear: "2022",
@@ -207,16 +207,16 @@ module.exports = {
             usingCurrentProvider: "No",
             cohort: "2021",
             programme: "FIP",
-            status: "CheckingQTS",            
+            status: "CheckingQTS",
             mentor: "James Doe"
         },
         // Contacted
-        // BCF: { 
+        // BCF: {
         //     type: "ECT",
         //     name: "Stanislaw Klajn",
         //     inductionDay: "1", inductionMonth: "7", inductionYear: "2022",
         //     email: "noTRNdLPdDPnotTold@test.dfe.gov.uk",
-        //     newLeadProvider: "Ambition Institute",            
+        //     newLeadProvider: "Ambition Institute",
         //     programme: "FIP",
         //     status: "Contacted",
         //     usingCurrentTraining: "No",
