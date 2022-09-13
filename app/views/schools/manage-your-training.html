@@ -52,6 +52,25 @@
                                     <dd class="govuk-summary-list__value">2 years</dd>
                                     <dd class="govuk-summary-list__actions"></dd>
                                 </div>
+                                <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+            <dd class="govuk-summary-list__value">
+                {% if data['inductionProgramme'] == "noECTs" %}
+                    0
+                {% elif data['inductionProgramme'] == "CIP" %}
+                    6
+                {% elif data['inductionProgramme'] == "FIP" %}
+                    15
+                {% else %}
+                    15
+                {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+        </div>
+
+
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
@@ -180,6 +199,24 @@
                             <dd class="govuk-summary-list__value">2 years</dd>
                             <dd class="govuk-summary-list__actions"></dd>
                         </div>
+
+                        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+            <dd class="govuk-summary-list__value">
+                {% if data['inductionProgramme'] == "noECTs" %}
+                    0
+                {% elif data['inductionProgramme'] == "CIP" %}
+                    6
+                {% elif data['inductionProgramme'] == "FIP" %}
+                    1
+                {% else %}
+                    1
+                {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+        </div>
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Programme</dt>
