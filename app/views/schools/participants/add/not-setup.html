@@ -2,7 +2,7 @@
 {% set schoolSignedIn = true %}
 
 
-{% if participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" %}
+{% if participant.inductionMonth == "09" or participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" or participant.inductionMonth == "01" or participant.inductionMonth == "02" or participant.inductionMonth == "03" or participant.inductionMonth == "04" or participant.inductionMonth == "05" %}
 
     {% if not data['inductionProgrammeYearTwo'] %}
 
@@ -13,7 +13,7 @@
         {% elif participant.type == "Transfer" %}
 
         {% endif %}
-    
+
     {% endif %}
 
 {% endif %}
