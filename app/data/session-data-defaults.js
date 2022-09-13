@@ -30,8 +30,8 @@ module.exports = {
     // inductionProgrammeYearTwo: "FIP",
     // inductionProgrammeYearTwoECTs: "Yes",
     // inductionProgrammeYearTwoProviderChange: "No",
-    appropriateBodyType: "local authority",
-    appropriateBodyName: "North Tyneside",
+    // appropriateBodyType: "local authority",
+    // appropriateBodyName: "North Tyneside",
 
 
 
