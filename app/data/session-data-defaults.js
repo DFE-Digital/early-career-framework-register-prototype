@@ -113,14 +113,15 @@ module.exports = {
         EP5: {
             type: "ECT",
             name: "Luke Didsbury",
-            inductionDay: "5", inductionMonth: "9", inductionYear: "2022",
+            inductionDay: "5", inductionMonth: "4", inductionYear: "2022",
             trnNumber: "3242348",
             dobDay: "1", dobMonth: "1", dobYear: "2222",
             email: "luke.didsbury@test.dfe.gov.uk",
             usingCurrentTraining: "Yes",
             newLeadProvider: "Ambition Institute",
-            cohort: "2022",
+            cohort: "2021",
             programme: "FIP",
+            mentor: "James Doe",
             status: "Eligible"
         },
         Z87: {
