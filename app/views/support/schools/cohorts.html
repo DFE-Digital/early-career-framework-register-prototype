@@ -51,16 +51,16 @@
                         <!-- Using an approved training provider -->
                         {% if data['inductionProgramme'] == "FIP" %}
                             <!-- Needed for if we show the actions line or not -->
-                            
-                            <div class="govuk-summary-list__row">                            
+
+                            <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Lead provider</dt>
-                                <dd class="govuk-summary-list__value">{% if data.schools[id].newleadProvider %}{{ data.schools[id].newleadProvider }}{% else %}{{ data.schools[id].leadProvider }}{% endif %}</dd>                                
+                                <dd class="govuk-summary-list__value">{% if data.schools[id].newleadProvider %}{{ data.schools[id].newleadProvider }}{% else %}{{ data.schools[id].leadProvider }}{% endif %}</dd>
                                 <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> to a training provider</span></a>
                                 </dd>
-                                
+
                             </div>
-                            {% if data['fipPartnership'] == "Yes" %}
+                            {% if data['providerPartnership'] == "Yes" %}
                                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                                     <dt class="govuk-summary-list__key">Delivery partner</dt>
                                     <dd class="govuk-summary-list__value">{{ data.schools[id].deliveryPartner }}</dd>
@@ -172,7 +172,7 @@
 
 
 
-            
+
 
         </div>
     </div>
