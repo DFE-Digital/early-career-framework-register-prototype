@@ -25,14 +25,14 @@ module.exports = {
     leadProviderMaterialsTransfer: "Teach First",
     linkExpire: '22 September 2022',
     expiryTime: '1pm',
-    inductionProgramme: "CIP",
-    // fipPartnership: "Yes",
-    // accredited-materials: ""
+    inductionProgramme: "FIP",
+    fipPartnership: "Yes",
     // inductionProgrammeYearTwo: "FIP",
     // inductionProgrammeYearTwoECTs: "Yes",
     // inductionProgrammeYearTwoProviderChange: "No",
     // appropriateBodyType: "local authority",
     // appropriateBodyName: "North Tyneside",
+    // accredited-materials: "",
 
 
 
