@@ -1,5 +1,5 @@
 {% if ((data['inductionProgramme'] == "FIP") and (data['providerPartnership'] == "Yes")) %}
-    {% if data['twoWeek'] == "Yes" %}
+    {% if data['partnershipChallengeWindow'] == "Yes" %}
         <p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
     {% endif %}
 {% endif %}

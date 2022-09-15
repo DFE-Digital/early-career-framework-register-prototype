@@ -21,7 +21,7 @@
                 <h2 class="govuk-heading-m">Help with making changes</h2>
                 <p class="govuk-body">Read our guidance and the step-by-step instructions for <a class="govuk-link govuk-link--no-visited-state " rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#making-changes-to-an-existing-training-programme">making changes to an existing training programme (opens in new tab)</a>.</p>
 
-                {% if data['twoWeek'] == "Yes" %}
+                {% if data['partnershipChallengeWindow'] == "Yes" %}
                     <h2 class="govuk-heading-m">Tell us if these training provider details are wrong</h2>
                     <p class="govuk-body">{{ data.leadProvider }} and {{ data.deliveryPartner }} have told us they’re providing your training. If this is wrong, you need to <a href="report/incorrect-signup">tell us before {{ data.linkExpire }}</a>.</p>
                 {% endif %}

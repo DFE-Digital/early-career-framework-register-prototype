@@ -24,7 +24,7 @@
                         <!-- Partnership -->
                         {{ govukCheckboxes({
                             fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                            items: [ { value: "Yes", text: "In partnership" } ]
+                            items: [ { value: "Yes", text: "In partnership with Provider" } ]
                         } | decorateFormAttributes('providerPartnership')) }}
 
                         <!-- Not eligible for funding -->
@@ -58,13 +58,13 @@
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Within 2 week period", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Within 2 week period where school can challenge" } ]
-                    } | decorateFormAttributes('twoWeek')) }}
+                        items: [ { value: "Yes", text: "Within 2 week period where a school can challenge the partnership" } ]
+                    } | decorateFormAttributes('partnershipChallengeWindow')) }}
                 </div>
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <h2 class="govuk-heading-m">Validation</h2>
+            {# <h2 class="govuk-heading-m">Validation</h2>
             <p>To see correct specific programme content you must choose induction programme.</p>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
@@ -112,7 +112,7 @@
 
                 </div>
             </div>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
 
             <h2 class="govuk-heading-m">Manage training dashboard</h2>
             <div class="govuk-grid-row">
@@ -143,7 +143,7 @@
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
-            <h2 class="govuk-heading-m">Participant dashboard</h2>
+            {# <h2 class="govuk-heading-m">Participant dashboard</h2>
             <p>To allow you to see the dashboard sections for the various different stages of participant validation.</p>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
@@ -185,7 +185,7 @@
                 </div>
             </div>
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
 
 
             <h2 class="govuk-heading-m">Entry page</h2>
