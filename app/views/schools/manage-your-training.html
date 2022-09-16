@@ -14,24 +14,24 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-                <!-- Top sections with Induction tutor, ects and mentors -->
+                <!-- Top section with Induction tutor, total ects and mentors -->
                 {% include "includes/mtLengthEctTutor.html" %}
 
+                {# <h2 class="govuk-heading-l govuk-!-margin-top-9">ECF-based training</h2> #}
 
-                <h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-3">ECF-based training</h2>
+                <!-- Checks in progress -->
+                {% set newAcademicYearHtml %}
 
-                <!-- Not setup -->
-                {% if not data['inductionProgrammeYearTwo'] %}
-                <!-- New academic year -->
-                    <h3 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-3">2022 to 2023 academic year</h3>
+                    <!-- Not setup -->
+                    {% if not data['inductionProgrammeYearTwo'] %}
 
-                    <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year.</p>
+                        {# <h3 class="govuk-heading-m govuk-!-margin-bottom-3">2022 to 2023 academic year</h3> #}
+                        <p><a href="/nominations/">Tell us if any new ECTs will start training</a> at your school in the 2022 to 2023 academic year and how you will run your ECF-based training.</p>
+                        <p>You can then add new ECTs to this academic year.</p>
 
-                <!-- Training setup -->
-                {% else %}
+                    {% else %}
 
-                <!-- New academic year -->
-                <h3 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-3">Starting year 1 in 2022 to 2023 academic year</h3>
+                        <h3 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-3">Starting year 1 in 2022 to 2023 academic year</h3>
 
                     <!-- No ECTs -->
                     {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
@@ -57,24 +57,22 @@
                                     <dd class="govuk-summary-list__actions"></dd>
                                 </div>
                                 <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-            <dd class="govuk-summary-list__value">
-                {% if data['inductionProgramme'] == "noECTs" %}
-                    0
-                {% elif data['inductionProgramme'] == "CIP" %}
-                    6
-                {% elif data['inductionProgramme'] == "FIP" %}
-                    0
-                {% else %}
-                    0
-                {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
+                                    <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                                    <dd class="govuk-summary-list__value">
+                                        {% if data['inductionProgramme'] == "noECTs" %}
+                                            0
+                                        {% elif data['inductionProgramme'] == "CIP" %}
+                                            6
+                                        {% elif data['inductionProgramme'] == "FIP" %}
+                                            0
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </dd>
+                                    <dd class="govuk-summary-list__actions">
 
-            </dd>
-        </div>
-
-
+                                    </dd>
+                                </div>
                                 <div class="govuk-summary-list__row ">
                                     <dt class="govuk-summary-list__key">Programme</dt>
                                     <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
@@ -190,37 +188,70 @@
                             </dl>
                     {% endif %}
 
+
+
+
+
                 {% endif %}
 
 
-                <!-- Current academic year -->
-                <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-3">Started year 1 in 2021 to 2022 academic year</h2>
+
+
+            {% endset -%}
+            <!-- // checks in progress -->
+
+            <!-- Checks in progress -->
+            {% set currentAcademicYearHtml %}
+
+
+                    <!-- Current academic year -->
+                {# <h2 class="govuk-heading-m govuk-!-margin-bottom-3">2021 to 2022 academic year</h2> #}
+                <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Started year 1 in 2021 to 2022 academic year</h2> -->
 
                     <!-- ///// Start of 2021 //// -->
                     <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                         <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Duration</dt>
-                            <dd class="govuk-summary-list__value">2 years</dd>
+                            <dt class="govuk-summary-list__key">Year 1</dt>
+                            <dd class="govuk-summary-list__value">2021 to 2022</dd>
                             <dd class="govuk-summary-list__actions"></dd>
                         </div>
-
                         <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
-            <dd class="govuk-summary-list__value">
-                {% if data['inductionProgramme'] == "noECTs" %}
-                    0
-                {% elif data['inductionProgramme'] == "CIP" %}
-                    6
-                {% elif data['inductionProgramme'] == "FIP" %}
-                    9
-                {% else %}
-                    9
-                {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
+                            <dt class="govuk-summary-list__key">Year 2</dt>
+                            <dd class="govuk-summary-list__value">2022 to 2023</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Completion date</dt>
+                            <dd class="govuk-summary-list__value">July 2023</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if data['inductionProgramme'] == "noECTs" %}
+                                    0
+                                {% elif data['inductionProgramme'] == "CIP" %}
+                                    6
+                                {% elif data['inductionProgramme'] == "FIP" %}
+                                    9
+                                {% else %}
+                                    9
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
 
-            </dd>
-        </div>
+                            </dd>
+                        </div>
+
+
+
+
+
+                    </dl>
+
+
+                    <h2 class="govuk-heading-m">How you’re running your training</h2>
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Programme</dt>
@@ -284,6 +315,46 @@
 
                     {% include "includes/mt-message.html" %}
                     <!-- ///// End of 2021 //// -->
+
+
+
+
+            {% endset -%}
+            <!-- // checks in progress -->
+
+            <!-- Checks in progress -->
+            {% set finalAcademicYearHtml %}
+                <!-- If programme for this year or last year is FIP -->
+                {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
+                    <!-- Checks in progres tab FIP -->
+                    {% include "includes/checksinprogress_fip.html" %}
+                <!-- If programme for this year or last year is CIP -->
+                {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
+                    <!-- Checks in progress tab CIP -->
+                    {% include "includes/checksinprogress_cip.html" %}
+                {% endif %}
+            {% endset -%}
+            <!-- // checks in progress -->
+
+
+
+
+
+            {{ govukTabs({
+                items: [
+                    { label: "2022 to 2023 academic year", id: "checking", panel: { html: newAcademicYearHtml } },
+                    { label: "2021 to 2022 academic year", id: "ECT", panel: { html: currentAcademicYearHtml } }
+
+
+                ]
+            }) }}
+
+            <!-- { label: "2020 to 2021 academic year", id: "ECT", panel: { html: finalAcademicYearHtml } } -->
+
+
+
+
+
 
 
 
