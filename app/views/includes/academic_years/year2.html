@@ -4,37 +4,44 @@
 
                     <!-- ///// Start of 2021 //// -->
 
-
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">ECTs doing year 2</h2>
-
-
-                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Started training</dt>
-                            <dd class="govuk-summary-list__value">2021 to 2022 academic year</dd>
-                            <dd class="govuk-summary-list__actions"></dd>
-                        </div>
                         {# <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Year 2</dt>
                             <dd class="govuk-summary-list__value">2022 to 2023</dd>
                             <dd class="govuk-summary-list__actions"></dd>
                         </div> #}
-                        <div class="govuk-summary-list__row">
+                        {# <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Completion date</dt>
                             <dd class="govuk-summary-list__value">July 2023</dd>
                             <dd class="govuk-summary-list__actions"></dd>
-                        </div>
+                        </div> #}
                         <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dt class="govuk-summary-list__key">ECTs</dt>
                             <dd class="govuk-summary-list__value">
                                 {% if data['inductionProgramme'] == "noECTs" %}
                                     0
                                 {% elif data['inductionProgramme'] == "CIP" %}
                                     6
                                 {% elif data['inductionProgramme'] == "FIP" %}
-                                    9
+                                    6
                                 {% else %}
-                                    9
+                                    6
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Mentors</dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if data['inductionProgramme'] == "noECTs" %}
+                                    0
+                                {% elif data['inductionProgramme'] == "CIP" %}
+                                    6
+                                {% elif data['inductionProgramme'] == "FIP" %}
+                                    3
+                                {% else %}
+                                    3
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
@@ -46,11 +53,11 @@
 
 
 
-                    </dl>
+                    {# </dl> #}
 
 
-                    <h2 class="govuk-heading-s">How you’re running their training</h2>
-                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                    {# <h2 class="govuk-heading-s">How you’re running their training</h2> #}
+                    {# <dl class="govuk-summary-list govuk-!-margin-bottom-7"> #}
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Programme</dt>
