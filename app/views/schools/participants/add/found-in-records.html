@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'We have found ' + participant.name + '’s record' %}
+{% set pageHeading = 'DfE funding check for ' + participant.name + '' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,13 +15,17 @@
 
             {% if data.participants[id].type == "ECT" %}
 
-                <p class="govuk-body">We have used the information you’ve provided to match {{ participant.name }}’s details in the Teaching Regulation Agency records. This helps us make sure they’re eligible for DfE funding.</p>
+
+                <p>We have checked {{ participant.name }}’s name, TRN and date of birth with the Teaching Regulation Agency and confirm they are correct.</p>
+                <p>This will help us make sure they are eligible for funding for early career teaching training.</p>
+
+                {# <p class="govuk-body">We have used the information you’ve provided to match {{ participant.name }}’s details in the Teaching Regulation Agency records. This helps us make sure they’re eligible for DfE funding.</p>
                 <p>Continue to tell us their:
                 <ul class="govuk-list govuk-list--bullet">
                     <li>email address</li>
                     <li>appropriate body</li>
                     <li>start year of ECF-based training</li>
-                </ul>
+                </ul> #}
 
 
             {% elif data.participants[id].type == "Transfer" %}
