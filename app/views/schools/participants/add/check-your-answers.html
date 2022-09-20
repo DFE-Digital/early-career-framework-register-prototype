@@ -12,16 +12,11 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1"> Matched (TRA) record</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
                 <!-- Name -->
                 {% include "includes/summary_name.html" %}
-
-                <!-- Induction start date -->
-                {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
-                {% endif %}
 
                 <!-- TRN -->
                 {% include "includes/summary_trn.html" %}
@@ -29,6 +24,24 @@
                 {% if participant.dobDay %}
                     {% include "includes/summary_dob.html" %}
                 {% endif %}
+            </dl>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+                <!-- Name -->
+                {# {% include "includes/summary_name.html" %} #}
+
+                <!-- Induction start date -->
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
+                {% endif %}
+
+                <!-- TRN -->
+                {# {% include "includes/summary_trn.html" %} #}
+                <!-- Date of birth -->
+                {# {% if participant.dobDay %}
+                    {% include "includes/summary_dob.html" %}
+                {% endif %} #}
 
                 {% if participant.nationalInsuranceNumber %}
                     {% include "includes/summary_ni.html" %}
@@ -43,7 +56,7 @@
                     {% include "includes/summary_email.html" %}
                 {% endif %}
 
-                
+
 
                 {% if participant.cohort %}
                     {% include "includes/summary_cohort.html" %}
@@ -80,7 +93,7 @@
             </dl>
 
                 <form class="form" action="confirmation" method="post" >
-                
+
                 {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
 
                 {% if data.participants[id].type == "sitMentor" %}
@@ -101,7 +114,7 @@
 
                 <!-- Otherwise if TRN provided  -->
                 {% else %}
-                    
+
                     <!-- No QTS -->
                     {% if data.participants[id].noQTS == "Yes" %}
 
@@ -119,9 +132,9 @@
                         } | decorateFormAttributes(['participants', id, 'status']) ) }}
 
                     {% endif %}
-                
+
                 {% endif %}
-                
+
 
                 {{ govukButton({
                     text: "Confirm and add"
