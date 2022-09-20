@@ -1,4 +1,4 @@
-<dl class="govuk-summary-list govuk-!-margin-bottom-3">
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
     <div class="govuk-summary-list__row ">
         <dt class="govuk-summary-list__key">Induction tutor</dt>
         <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
@@ -46,23 +46,23 @@
 
 
         <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">ECTs</dt>
+            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
             <dd class="govuk-summary-list__value">
                 {% if data['inductionProgramme'] == "noECTs" %}
                     0
                 {% elif data['inductionProgramme'] == "CIP" %}
                     6
                 {% elif data['inductionProgramme'] == "FIP" %}
-                    6
+                    9
                 {% else %}
-                    6
+                    9
                 {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="participants/#ECT">Add or manage<span class="govuk-visually-hidden"> ECTs </span></a>
             </dd>
         </div>
-        <div class="govuk-summary-list__row">
+        {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Mentors</dt>
             <dd class="govuk-summary-list__value">
                 {% if data['inductionProgramme'] == "noECTs" %}
@@ -78,7 +78,7 @@
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="participants/#mentors">Add or manage<span class="govuk-visually-hidden"> mentors</span></a>
             </dd>
-        </div>
+        </div> #}
         </dl>
         {# <p><a class="govuk-link" href="participants/">Add or manage your ECTs and mentors<span class="govuk-visually-hidden"> ECTs or mentors</span></a></p> #}
 
