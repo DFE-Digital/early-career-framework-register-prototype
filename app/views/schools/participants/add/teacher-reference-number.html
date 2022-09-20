@@ -6,7 +6,7 @@
     {% if not data['inductionProgrammeYearTwo'] %}
 
         {% if participant.type == "ECT" %}
-            {% set pageHeading = 'Before you can add ' + participant.name + ' with an induction start date of ' + participant.inductionMonth | toMonth + ' ' + participant.inductionYear + '' %}
+            {% set pageHeading = 'We need some more information' %}
         {% elif participant.type == "Mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
         {% elif participant.type == "Transfer" %}
@@ -51,7 +51,8 @@
                 {% if participant.inductionMonth == "09" or participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" or participant.inductionMonth == "01" or participant.inductionMonth == "02" or participant.inductionMonth == "03" or participant.inductionMonth == "04" or participant.inductionMonth == "05" %}
 
 
-                    <p>We need to know whether your school is expecting any ECTs and whether you plan to change how you run the training in 2022 to 2023.</p>
+                    <p>Before you can add {{ participant.name }} with an induction start date of {{ participant.inductionMonth | toMonth }} {{ participant.inductionYear }}, we need you to give us a few more details.</p>
+                    {# <p>We need to know whether your school is expecting any ECTs and whether you plan to change how you run the training in 2022 to 2023.</p> #}
 
                     {{ govukButton({
                         text: "Continue",
@@ -65,7 +66,7 @@
                         The person’s name and induction start date will not be saved. You’ll need to enter this information again.
                     </div> -->
 
-                    
+
 
                 </a>
 
