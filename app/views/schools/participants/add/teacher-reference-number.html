@@ -129,7 +129,7 @@
 
                     {% if data['linkaction'] != "cannotFind" %}
 
-                        <div class=" govuk-visually-hidden key">
+                        <div class="govuk-visually-hidden key">
                             {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
                             {% elif data.participants[id].type == "Transfer" %}
@@ -203,7 +203,7 @@
 
                 {% if data['linkaction'] != "cannotFind" %}
 
-                    <div class="key">
+                    <div class="govuk-visually-hidden key">
                         {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                             {% include "includes/trnKey_ectMentor.html" %}
                         {% elif data.participants[id].type == "Transfer" %}
