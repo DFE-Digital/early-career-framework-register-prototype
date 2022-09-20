@@ -4,7 +4,7 @@
 
 {% if data['notcorrect'] == "Yes" %}
     {% set pageHeading = 'Did ' + participant.name + ' start ECF-based training in the 2021 to 2022 academic year? ' %}
-{% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" %}
+{% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" or participant.inductionMonth == "05" or participant.inductionMonth == "06" or participant.inductionMonth == "07" or participant.inductionMonth == "08" %}
     {% set pageHeading = 'Which academic year will ' + participant.name + ' start their ECF-based training? ' %}
 {% else %}
     {% set pageHeading = 'Confirm ' + participant.name + ' will start ECF-based training in the 2022 to 2023 academic year ' %}
