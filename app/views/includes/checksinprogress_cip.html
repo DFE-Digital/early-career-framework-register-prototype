@@ -18,8 +18,8 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    {% endif %}                    
-              
+                    {% endif %}
+
                     <!-- ECTs or Mentors that we need to check their eligibility -->
                     <!-- No definition of year as we want to show ALL across the board -->
                     {% if hasAnyCheckingParticipants %}
@@ -27,6 +27,7 @@
                         <div class="govuk-grid-row">
                             <div class="govuk-grid-column-two-thirds">
                                 <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                                <p>Your training provider is still able to begin training even if your appropriate body has not yet registered the early career teacher’s induction.</p>
                             </div>
                         </div>
                         <table class="govuk-table govuk-!-margin-bottom-9">
@@ -41,7 +42,7 @@
                             </tbody>
                         </table>
                     {% endif %}
-                    
+
                     <!-- ECTs or Mentors that dont have QTS -->
                     <!-- No definition of year as we want to show ALL across the board -->
                     {% if hasAnyCheckingQTSParticipants %}
@@ -62,4 +63,4 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    {% endif %} 
+                    {% endif %}
