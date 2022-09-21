@@ -1,3 +1,7 @@
+
+{% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
+                    {% if data.participants[id].type == "ECT" %}
+
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Appropriate body</dt>
     <dd class="govuk-summary-list__value">
@@ -9,3 +13,6 @@
     </dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="induction-start-date">Change<span class="govuk-visually-hidden"> start date</span></a></dd>
 </div>
+
+    {% endif %}
+                {% endif %}
