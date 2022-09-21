@@ -1,0 +1,6 @@
+{{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "TransferIn", text: "Transferring in" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
