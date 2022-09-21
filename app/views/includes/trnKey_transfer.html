@@ -1,23 +1,23 @@
 {{ govukCheckboxes({
     classes: "govuk-checkboxes--small ",
     items: [
-        { value: "No", text: "Training using different LP and DP" }
+        { value: "differentLPandDP", text: "Training using different LP and DP" }
     ]
-} | decorateFormAttributes(['participants', id, 'trainingMatch']) ) }}
+} | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}
 
 {{ govukCheckboxes({
     classes: "govuk-checkboxes--small ",
     items: [
-        { value: "No", text: "Training using same LP and different DP" }
+        { value: "differentDP", text: "Training using same LP and different DP" }
     ]
-} | decorateFormAttributes(['participants', id, 'dpMatch']) ) }}
+} | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}
 
 {{ govukCheckboxes({
     classes: "govuk-checkboxes--small",
     items: [
-        { value: "Yes", text: "Training on different main programme"}
+        { value: "differentProgramme", text: "Training on different main programme"}
     ]
-} | decorateFormAttributes(['participants', id, 'diffInductionProgramme']) ) }}
+} | decorateFormAttributes(['participants', id, 'transferProgramme']) ) }}
 
 {{ govukCheckboxes({
     classes: "govuk-checkboxes--small",

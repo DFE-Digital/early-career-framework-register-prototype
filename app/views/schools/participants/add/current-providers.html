@@ -21,7 +21,7 @@
                 <!-- CYA action -->
                 <form class="form" action="../details" method="post" >
             {% else %}
-                {% if data.participants[id].trainingMatch == "No"%}
+                {% if data.participants[id].transferProgramme == "differentLPandDP"%}
                     <form class="form" action="check-your-answers" method="post" >
                 {% else %}
                     <form class="form" action="check-your-answers" method="post" >

@@ -4,7 +4,7 @@
 
 
     {% if data['inductionProgramme'] == "FIP" %}
-        {% if data.participants[id].trainingMatch == "No"%}
+        {% if data.participants[id].transferProgramme == "differentLPandDP"%}
         <!-- No match on programme -->
                 {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 <!-- Using programme currently on -->
@@ -18,7 +18,7 @@
         <!-- Not got to yet -->
         {% endif %}
     {% elif data['inductionProgramme'] == "CIP" %}
-        {% if data.participants[id].trainingMatch == "No"%}
+        {% if data.participants[id].transferProgramme == "differentLPandDP"%}
                 {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                     {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will carry ontrain ' + participant.name + ' at your school?' %}
                 {% else %}

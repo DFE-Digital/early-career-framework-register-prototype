@@ -22,11 +22,11 @@ module.exports = router => {
 
   router.all('/schools/participants', (req, res, next) => {
     const participants = req.session.data.participants
-    res.locals.hasECTs = Object.values(participants).some((p) => p.type === 'ect')
-    res.locals.hasSitMentor = Object.values(participants).some((p) => p.type === 'sitMentor')
-    res.locals.hasEctTransfers = Object.values(participants).some((p) => p.type === 'ectTransfer')
-    res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
-    res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.type === 'mentorTransfer')
+    res.locals.hasECTs = Object.values(participants).some((p) => p.role === 'ect')
+    res.locals.hasSitMentor = Object.values(participants).some((p) => p.role === 'sitMentor')
+    res.locals.hasEctTransfers = Object.values(participants).some((p) => p.role === 'ectTransfer')
+    res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
+    res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.role === 'mentorTransfer')
 
 
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted'  )
@@ -64,13 +64,13 @@ module.exports = router => {
 
   router.all('/schools/participants/:id/add/email-address', (req, res, next) => {
     const participants = req.session.data.participants
-    res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
+    res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
     next()
   })
 
   router.all('/schools/participants/:id/add/start-date', (req, res, next) => {
     const participants = req.session.data.participants
-    res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
+    res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
     next()
   })
 
@@ -78,9 +78,9 @@ module.exports = router => {
     const participants = req.session.data.participants
     // console.log(participants)
     // console.log(Object.values(participants))
-    // console.log(Object.values(participants).some((p) => p.type === 'mentor'))
-    res.locals.hasMentors = Object.values(participants).some((p) => p.type === 'mentor')
-    res.locals.mentors = Object.values(participants).filter((p) => p.type === 'mentor').map(p => {
+    // console.log(Object.values(participants).some((p) => p.role === 'mentor'))
+    res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
+    res.locals.mentors = Object.values(participants).filter((p) => p.role === 'mentor').map(p => {
       return { text: p.name }
     })
     console.log(res.locals)

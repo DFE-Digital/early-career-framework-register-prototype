@@ -12,16 +12,15 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
             <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-7">
 
                 {{ govukRadios({
                     items: [
-                        { value: "Transfer", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring", hint: { text: "" } },
+                        { value: "Transfer", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring" },
                         { value: "ECT", text: "A new ECT" },
                         { value: "Mentor", text: "A new mentor" }
                     ]
-                } | decorateFormAttributes(['participants', id, 'type']) ) }}
+                } | decorateFormAttributes(['participants', id, 'role']) ) }}
 
                 {{ govukButton({
                     text: "Continue"

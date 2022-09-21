@@ -1,0 +1,11 @@
+{% if data.participants[id].ineligible == "Yes" %}
+                        {% include "includes/confirmation_IneligbleMentor.html" %}
+                    {% elif data.participants[id].eroMentor == "Yes" %}
+                        {% include "includes/confirmation_EROMentor.html" %}
+                    {% elif data.participants[id].eroMultiMentor == "Yes" %}
+                        {% include "includes/confirmation_EligibleMultiSchoolECT.html" %}
+                    {% elif data.participants[id].noRecordsMatched == "Yes" %}
+                        {% include "includes/confirmation_NoMatchMentor.html" %}
+                    {% else %}
+                        {% include "includes/confirmation_EligibleMentor.html" %}
+                    {% endif %}

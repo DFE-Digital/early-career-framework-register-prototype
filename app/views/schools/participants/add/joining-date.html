@@ -22,39 +22,22 @@
 						}
 					},
 					items: [
-						{
-							name: '[participants][' + id + '][joiningDay]',
-							value: data.participants[id]['joiningDay'],
-							classes: "govuk-input--width-2",
-							label: 'Day'
-						},
-						{
-							name: '[participants][' + id + '][joiningMonth]',
-							value: data.participants[id]['joiningMonth'],
-							classes: "govuk-input--width-2",
-							label: 'Month'
-						},
-						{
-							name: '[participants][' + id + '][joiningYear]',
-							value: data.participants[id]['joiningYear'],
-							classes: "govuk-input--width-4",
-							label: 'Year'
-						}
+						{ name: '[participants][' + id + '][joiningDay]', value: data.participants[id]['joiningDay'], classes: "govuk-input--width-2", label: 'Day' },
+						{ name: '[participants][' + id + '][joiningMonth]', value: data.participants[id]['joiningMonth'], classes: "govuk-input--width-2", label: 'Month' },
+						{ name: '[participants][' + id + '][joiningYear]', value: data.participants[id]['joiningYear'], classes: "govuk-input--width-4", label: 'Year' }
 					],
-					hint: {
-						text: "For example, 14 7 2023"
-					}
+					hint: { text: "For example, 14 7 2023" }
 				}) }}
 
 
-                {% if data.participants[id].existingMatch == "Yes" %}
+                <!-- {% if data.participants[id].existingMatch == "Yes" %}
 
                     {{ govukInput({
                         classes: "govuk-visually-hidden",
                         value: "Transfer"
-                    } | decorateFormAttributes(['participants', id, 'type']) ) }}
+                    } | decorateFormAttributes(['participants', id, 'role']) ) }}
 
-                {% endif %}
+                {% endif %} -->
 
 				{{ govukButton({
 					text: "Continue"

@@ -26,14 +26,14 @@
                 {% else %}
 
                 <!-- Add journey -->
-                    {% if data.participants[id].type == "ECT" %}
+                    {% if data.participants[id].role == "ECT" %}
                         <form class="form" action="check-your-answers" method="post" >
                     <!-- Transfer Journey -->
-                    {% elif data.participants[id].type == "Transfer" %}
+                    {% elif data.participants[id].role == "Transfer" %}
 
-                        {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                        {% if data.participants[id].transferProgramme == "differentProgramme" %}
                             <form class="form" action="different-programme" method="post" >
-                        {% elif data.participants[id].trainingMatch == "No" or data.participants[id].dpMatch == "No" %}
+                        {% elif data.participants[id].transferProgramme == "differentLPandDP" or data.participants[id].transferProgramme == "differentDP" %}
                             <form class="form" action="current-training-programme" method="post" >
                         {% else %}
                             <form class="form" action="check-your-answers" method="post" >

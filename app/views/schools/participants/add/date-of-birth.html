@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "sitMentor" %}
-    {% set pageHeading = 'What’s your date of birth?' %}
-{% else %}
-    {% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
+{% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" %}
+	{% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
+<!-- {% elif data.participants[id].role == "sitMentor" %}
+    {% set pageHeading = 'What’s your date of birth?' %}     -->
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,63 +16,11 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].type == "sitMentor" %}
-                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-
-      		{% elif data['cya-action'] == "change-dob" %}
-      		    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-        		<input type="hidden" name="cya-action" id="cya-action" value="" />
-
-            {% else %}
-
-			  	{% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
-
-                    {% if data.participants[id].noRecordsMatched == "Yes" %}
-                        {% if data['linkaction'] == "cannotFind" %}
-                            <form class="form" action="email-address" method="post">
-                            <input type="hidden" name="linkaction" id="linkaction" value="" />
-
-                            {{ govukCheckboxes({
-                                classes: "govuk-checkboxes--small govuk-visually-hidden",
-                                items: [
-                                    { value: "", text: "Is not matched", checked: "true" }
-                                ]
-                            } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
-
-                        {% else %}
-                            <form class="form" action="cannot-find-their-details" method="post">
-                        {% endif %}
-
-
-                    {% else %}
-
-                        {% if data.participants[id].existingMatch == "Yes" %}
-                            <form class="form" action="moving-from-another-school" method="post">
-                        {% else %}
-                            <!-- Default path -->
-				  	        <form class="form" action="found-in-records" method="post">
-                        {% endif %}
-                    {% endif %}
-
-
-                {% else %}
-
-                    {% if data.participants[id].eroMultiMentor == "Yes" %}
-
-                        <form class="form" action="cannot-add" method="post">
-
-                    {% elif data.participants[id].noRecordsMatched == "Yes" %}
-                        {% if data['linkaction'] == "cannotFind" %}
-                            <form class="form" action="joining-date" method="post">
-                            <input type="hidden" name="linkaction" id="linkaction" value="" />
-                        {% else %}
-                            <form class="form" action="cannot-find-their-details" method="post">
-                        {% endif %}
-                    {% else %}
-					    <form class="form" action="joining-date" method="post">
-                    {% endif %}
-				{% endif %}
-      		{% endif %}
+			  	{% if data.participants[id].role == "ECT" %}
+				  	<form class="form" action="email-address" method="post">
+				{% elif data.participants[id].role == "Transfer" %}
+					<form class="form" action="joining-date" method="post">
+      		    {% endif %}
 
 
 				{{ govukDateInput({
@@ -84,34 +32,16 @@
 						}
 					},
 					items: [
-						{
-							name: '[participants][' + id + '][dobDay]',
-							value: data.participants[id]['dobDay'],
-							classes: "govuk-input--width-2",
-							label: 'Day'
-						},
-						{
-							name: '[participants][' + id + '][dobMonth]',
-							value: data.participants[id]['dobMonth'],
-							classes: "govuk-input--width-2",
-							label: 'Month'
-						},
-						{
-							name: '[participants][' + id + '][dobYear]',
-							value: data.participants[id]['dobYear'],
-							classes: "govuk-input--width-4",
-							label: 'Year'
-						}
+						{ name: '[participants][' + id + '][dobDay]', value: data.participants[id]['dobDay'], classes: "govuk-input--width-2", label: 'Day' },
+						{ name: '[participants][' + id + '][dobMonth]', value: data.participants[id]['dobMonth'], classes: "govuk-input--width-2", label: 'Month' },
+						{ name: '[participants][' + id + '][dobYear]', value: data.participants[id]['dobYear'], classes: "govuk-input--width-4", label: 'Year' }
 					],
-					hint: {
-						text: "For example, 14 7 1990"
-					}
+					hint: { text: "For example, 14 7 1990" }
 				}) }}
 
         		{{ govukButton({
           			text: "Continue"
         		}) }}
-
 
       		</form>
 

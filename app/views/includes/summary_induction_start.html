@@ -1,13 +1,13 @@
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-        {% if data.participants[id].type == "ECT" %}
+        {% if data.participants[id].role == "ECT" %}
             Start term
-        {% elif data.participants[id].type == "Mentor" %}
+        {% elif data.participants[id].role == "Mentor" %}
             Start term
         {% endif %}
     </dt>
     <dd class="govuk-summary-list__value">
         {{ participant.startDate }}
     </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-date">Change<span class="govuk-visually-hidden"> start date for  {% if data.participants[id].type == "ECT" %}induction programme{% elif data.participants[id].type == "Mentor" %}mentoring{% endif %}</span></a></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="start-date?cya-action=change-date">Change<span class="govuk-visually-hidden"> start date for  {% if data.participants[id].role == "ECT" %}induction programme{% elif data.participants[id].role == "Mentor" %}mentoring{% endif %}</span></a></dd>
 </div>

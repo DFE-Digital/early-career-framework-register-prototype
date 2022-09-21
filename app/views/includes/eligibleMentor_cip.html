@@ -12,8 +12,8 @@
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
                                     <!-- Only those with a status eligible and type is mentor or sitmentor -->
-                                    {% if participant.status == "Eligible" and ((participant.type == "Mentor") or (participant.type == "sitMentor")) and participant.programme == "CIP" %}
-                                        {% include "includes/dash_cip_row_mentor.html" %}
+                                    {% if participant.status == "Eligible" and ((participant.role == "Mentor") or (participant.role == "sitMentor")) and participant.programme == "CIP" %}
+                                        {% include "includes/dash_cip_row.html" %}
                                     {% endif %}
                                 {% endfor %}
                             </tbody>

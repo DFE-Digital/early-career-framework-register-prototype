@@ -1,8 +1,9 @@
 <!-- FIP programme -->
-{% if data['inductionProgramme'] == "FIP" %}
+{% if participant.programme == "FIP" %}
+
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+            {% if data.participants[id].transferProgramme == "differentProgramme" %}
                 {% if data.participants[id].switchProgramme == "Yes" %}
                     Training with
                 {% elif data.participants[id].continueProgramme == "Yes" %}
@@ -15,7 +16,7 @@
         <dd class="govuk-summary-list__value">
             <ul class="govuk-list">
             <!-- ECT or Mentor is on a different Induction programme to the school -->
-            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+            {% if data.participants[id].transferProgramme == "differentProgramme" %}
 
                 {% if data.participants[id].switchProgramme == "Yes" %}
                     <!-- Moves to schools FIP programme -->
@@ -28,10 +29,10 @@
             <!-- ECT or Mentor is training using a different provider or partner to the school -->
             {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 <!-- Is going to use their current training -->
-                {% if data.participants[id].dpMatch == "No" %}
+                {% if data.participants[id].transferProgramme == "differentDP" %}
                     <li>{{ data.leadProvider }}</li>
                     <li>{{ data.deliveryPartnerTransfer }}</li>
-                {% elif data.participants[id].trainingMatch == "No" %}
+                {% elif data.participants[id].transferProgramme == "differentLPandDP" %}
                     <li>{{ data.leadProviderTransfer }}</li>
                     <li>{{ data.deliveryPartnerTransfer }}</li>
                 {% endif %}
@@ -51,7 +52,7 @@
             </ul>
         </dd>
         <dd class="govuk-summary-list__actions">
-            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+            {% if data.participants[id].transferProgramme == "differentProgramme" %}
                 <a class="govuk-link" href="programme">
             {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
                 <a class="govuk-link" href="current-training-programme">
@@ -62,11 +63,11 @@
     </div>
 
 <!-- School is on CIP induction programme -->
-{% elif data['inductionProgramme'] == "CIP" %}
+{% elif participant.programme == "CIP" %}
 
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+            {% if data.participants[id].transferProgramme == "differentProgramme" %}
                 {% if data.participants[id].switchProgramme == "Yes" %}
                     Materials supplier
                 {% elif data.participants[id].continueProgramme == "Yes" %}
@@ -79,7 +80,7 @@
         <dd class="govuk-summary-list__value">
             <ul class="govuk-list">
 
-                {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                {% if data.participants[id].transferProgramme == "differentProgramme" %}
 
                     {% if data.participants[id].switchProgramme == "Yes" %}
                         <li>{{ data.leadProviderMaterials}}</li>
@@ -90,7 +91,7 @@
 
                 {% elif data.participants[id].usingCurrentTrainingMaterials == "Yes" %}
                     <!-- Check if noMatch -->
-                    {% if participant.trainingMatch == "No" %}
+                    {% if participant.transferProgramme == "differentLPandDP" %}
                         <li>{{ data.leadProviderMaterialsTransfer }}</li>
                     {% endif %}
                 <!-- Matched but using different programme  -->
@@ -104,7 +105,7 @@
             </ul>
         </dd>
         <dd class="govuk-summary-list__actions">
-            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+            {% if data.participants[id].transferProgramme == "differentProgramme" %}
                 <a class="govuk-link" href="programme">
             {% elif data.participants[id].usingCurrentTrainingMaterials == "Yes" %}
                 <a class="govuk-link" href="current-training-programme">

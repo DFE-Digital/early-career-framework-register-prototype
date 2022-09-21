@@ -18,7 +18,7 @@
 
             <p class="govuk-body">Check the information you entered is correct.</p>
 
-            {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
+            {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
                 <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records to make sure they’re eligible for this funded programme.</p>
             {% else %}
                 <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can transfer their record to your school.</p>

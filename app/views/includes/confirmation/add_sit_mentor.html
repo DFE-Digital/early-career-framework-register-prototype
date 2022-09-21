@@ -1,0 +1,7 @@
+{% if data.participants[id].noRecordsMatched == "Yes" %}
+                    {% include "includes/confirmation_NoMatchSitMentor.html" %}
+                {% elif data.participants[id].ineligible == "Yes" %}
+                    {% include "includes/confirmation_IneligiblesitMentor.html" %}
+                {% else %}
+                    {% include "includes/confirmation_sitMentor.html" %}
+                {% endif %}

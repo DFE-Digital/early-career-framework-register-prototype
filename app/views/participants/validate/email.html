@@ -18,7 +18,7 @@
 {% block content %}
     <div class="pseudo-bg"></div>
 
-        {% if data.participants[id].type == "ECT" %}
+        {% if data.participants[id].role == "ECT" %}
 
             <div class="email-metadata">
                 <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
@@ -52,12 +52,12 @@
             </div>
 
 
-        {% elif data.participants[id].type == "Mentor" %}
+        {% elif data.participants[id].role == "Mentor" %}
 
 
 
 
-        {% elif data.participants[id].type == "sitMentor" %}
+        {% elif data.participants[id].role == "sitMentor" %}
 
 
 

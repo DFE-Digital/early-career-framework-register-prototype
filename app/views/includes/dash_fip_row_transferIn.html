@@ -1,8 +1,8 @@
 <tr class="govuk-table__row">
     <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
-    <td class="govuk-table__cell ">{{ participant.type | titleCase }}</td>
+    <td class="govuk-table__cell ">{{ participant.role | titleCase }}</td>
     <td class="govuk-table__cell">{{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}</td>
-    <td class="govuk-table__cell">{% if participant.type == "ECT" or participant.type == "Transfer" %}
+    <td class="govuk-table__cell">{% if participant.role == "ECT" or participant.role == "Transfer" %}
         {% if participant.mentor %}
             {{ participant.mentor }}
         {% else %}

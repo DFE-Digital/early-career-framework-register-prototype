@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "ECT" %}
+{% if data.participants[id].role == "ECT" %}
     {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
-{% elif data.participants[id].type == "Mentor" %}
-    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+<!-- {% elif data.participants[id].role == "Mentor" %}
+    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %} -->
 {% endif %}
-
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,46 +14,22 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+            
+            <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>            
 
-            {% if data.participants[id].type == "ECT" %}
-                <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
-            {% elif data.participants[id].type == "Mentor" %}
-                {# <p>This is the date when the mentor formally starts mentoring an ECT.</p> #}
-            {% endif %}
-
-            <form class="form" action="teacher-reference-number" method="post" class="govuk-!-margin-bottom-8">
+            <form class="form" action="teacher-reference-number" method="post" >
 
 				{{ govukDateInput({
 					id: 'session-date-induction',
 					fieldset: {
-						legend: {
-							text: pageHeading,
-							classes: "govuk-visually-hidden"
-						}
+						legend: { text: pageHeading, classes: "govuk-visually-hidden" }
 					},
 					items: [
-						{
-							name: '[participants][' + id + '][inductionDay]',
-							value: data.participants[id]['inductionDay'],
-							classes: "govuk-input--width-2",
-							label: 'Day'
-						},
-						{
-							name: '[participants][' + id + '][inductionMonth]',
-							value: data.participants[id]['inductionMonth'],
-							classes: "govuk-input--width-2",
-							label: 'Month'
-						},
-						{
-							name: '[participants][' + id + '][inductionYear]',
-							value: data.participants[id]['inductionYear'],
-							classes: "govuk-input--width-4",
-							label: 'Year'
-						}
+						{ name: '[participants][' + id + '][inductionDay]', value: data.participants[id]['inductionDay'], classes: "govuk-input--width-2", label: 'Day' },
+						{ name: '[participants][' + id + '][inductionMonth]', value: data.participants[id]['inductionMonth'], classes: "govuk-input--width-2", label: 'Month' },
+						{ name: '[participants][' + id + '][inductionYear]', value: data.participants[id]['inductionYear'], classes: "govuk-input--width-4", label: 'Year' }
 					],
-					hint: {
-						text: "For example, 14 9 2022"
-					}
+					hint: { text: "For example, 14 9 2022" }
 				}) }}
 
 				{{ govukButton({

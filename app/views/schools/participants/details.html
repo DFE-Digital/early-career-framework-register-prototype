@@ -101,8 +101,8 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.type == "ECT" or participant.type == "Transfer" %}ECT
-                        {% elif participant.type == "Mentor" or participant.type == "Transfer" %}Mentor{% endif %}
+                        {% if participant.role == "ECT" or participant.role == "Transfer" %}ECT
+                        {% elif participant.role == "Mentor" or participant.role == "Transfer" %}Mentor{% endif %}
                     </dd>
                 </div>
 
@@ -111,9 +111,9 @@
                 {% if participant.inductionDay %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        {% if data.participants[id].type == "ECT" %}
+                        {% if data.participants[id].role == "ECT" %}
                             Induction start
-                        {% elif data.participants[id].type == "Mentor" %}
+                        {% elif data.participants[id].role == "Mentor" %}
                             Mentoring start
                         {% endif %}
                     </dt>
@@ -130,7 +130,7 @@
 
 
                 <!-- Start date -->
-                {% if data.participants[id].type == "ECT" %}
+                {% if data.participants[id].role == "ECT" %}
 
                     {% if ((data['appropriateBodyName']) or (participant.abConfirm == "Yes") or (participant.appropriateBodyName)) %}
 
@@ -226,13 +226,13 @@
                         {% elif data.participants[id].status == "NotEligible" %}
 
                             {% if data.participants[id].programme == "FIP" %}
-                                {% if data.participants[id].type == "Mentor" %}
+                                {% if data.participants[id].role == "Mentor" %}
                                     {% if data.participants[id].status == "alreadyFunded" %}
                                         <p>This person is ready to mentor ECTs this year. Our checks show they're already receiving funded mentor training as part of the early roll-out of the early career framework (ECF) reforms. </p>
                                     {% else %}
                                         <p>This person is not eligible for this programme.</p>
                                     {% endif %}
-                                {% elif data.participants[id].type == "ECT" %}
+                                {% elif data.participants[id].role == "ECT" %}
                                     {% if data.participants[id].status == "inductionStarted" %}
                                         <p>This is because they started or completed their statutory induction before 1 September 2021.</p>
                                     {% else %}
@@ -254,14 +254,14 @@
                 {% endif %}
             </dl>
 
-            {% if data.participants[id].type == "ECT" or data.participants[id].type == "Transfer" %}
+            {% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" %}
                 <h2 class="govuk-heading-m">No longer training?</h2>
-            {% elif data.participants[id].type == "Mentor" or data.participants[id].type == "Transfer" or data.participants[id].type == "sitMentor" %}
+            {% elif data.participants[id].role == "Mentor" or data.participants[id].role == "Transfer" or data.participants[id].role == "sitMentor" %}
                 <h2 class="govuk-heading-m">No longer mentoring?</h2>
             {% endif %}
 
             <!-- If SIT Mentor -->
-            {% if data.participants[id].type == "sitMentor" %}
+            {% if data.participants[id].role == "sitMentor" %}
                 <p><a href="induction-tutor/full-name">Replace the induction tutor for this school</a></p>
             {% endif %}
             <p>Tell us <a href="{{ id }}/transfer-out/">{{ participant.name }} is transferring to another school</a></p>
