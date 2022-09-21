@@ -6,7 +6,7 @@
     {% if not data['inductionProgrammeYearTwo'] %}
 
         {% if participant.type == "ECT" %}
-            {% set pageHeading = 'Before you can add ' + participant.name + ' with an induction start date of ' + participant.inductionMonth | toMonth + ' ' + participant.inductionYear + '' %}
+            {% set pageHeading = 'We need some more information' %}
         {% elif participant.type == "Mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
         {% elif participant.type == "Transfer" %}
@@ -133,7 +133,7 @@
 
                     {% if data['linkaction'] != "cannotFind" %}
 
-                        <div class=" govuk-visually-hidden key">
+                        <div class="govuk-visually-hidden key">
                             {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
                             {% elif data.participants[id].type == "Transfer" %}

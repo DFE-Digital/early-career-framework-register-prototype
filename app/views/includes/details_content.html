@@ -18,7 +18,7 @@
         <div class="govuk-inset-text">
           {% if data['inductionProgramme'] == "FIP" %}
 
-            {% if data['fipPartnership'] == "Yes" %}
+            {% if data['providerPartnership'] == "Yes" %}
               <p><span class="govuk-!-font-weight-bold">Status:</span> DfE checking eligibility</p>
               <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
             {% else %}
@@ -36,7 +36,7 @@
         <div class="govuk-inset-text">
         {% if data['inductionProgramme'] == "FIP" %}
 
-          {% if data['fipPartnership'] == "Yes" %}
+          {% if data['providerPartnership'] == "Yes" %}
             <p><span class="govuk-!-font-weight-bold">Status:</span> Eligible to start</p>
             <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
           {% else %}

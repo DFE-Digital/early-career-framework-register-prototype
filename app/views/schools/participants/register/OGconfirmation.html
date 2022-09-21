@@ -16,7 +16,7 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-	
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -33,7 +33,7 @@
           <!-- Participant type ECT -->
           {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
-            {% if (data['fipPartnership'] == "Yes") %}
+            {% if (data['providerPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
               <p class="govuk-body">You will not need to use this service again during your training.</p>
@@ -47,7 +47,7 @@
 
           {% else %}
           <!-- Not failed validation -->
-            {% if (data['fipPartnership'] == "Yes") %}
+            {% if (data['providerPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">You will not need to use this service again during your training.</p>
               <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>
@@ -63,7 +63,7 @@
         <!-- Participant type is Mentor or sitMentor -->
             {% if data['register-validate'] == "noMatch" %}
           <!-- Fail validation -->
-              {% if (data['fipPartnership'] == "Yes") %}
+              {% if (data['providerPartnership'] == "Yes") %}
             <!-- In Partnership -->
                 <p class="govuk-body">We may need to contact you for more information to complete your registration.</p>
                 <p class="govuk-body">You will not need to use this service again during your training.</p>
@@ -76,7 +76,7 @@
 
             {% else %}
           <!-- Not failed validation -->
-              {% if (data['fipPartnership'] == "Yes") %}
+              {% if (data['providerPartnership'] == "Yes") %}
             <!-- In Partnership -->
               <p class="govuk-body">You will not need to use this service again during your training.</p>
               <p class="govuk-body">{{ data.schoolName }} has chosen {{ data.deliveryPartner }} and {{ data.leadProvider }} to deliver your training programme. These organisations will contact you directly with more information. They can also answer any questions you may have about your training materials.</p>

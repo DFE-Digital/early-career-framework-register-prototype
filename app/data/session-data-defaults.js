@@ -23,15 +23,20 @@ module.exports = {
     deliveryPartnerTransfer: "Inspire Teaching School Hub",
     leadProviderMaterials: "Education Development Trust",
     leadProviderMaterialsTransfer: "Teach First",
-    linkExpire: '22 September 2022',
+    linkExpire: '12 October 2022',
     expiryTime: '1pm',
+    // FIP
     inductionProgramme: "FIP",
-    fipPartnership: "Yes",
-    // inductionProgrammeYearTwo: "FIP",
+    providerPartnership: "Yes",
+    //
+    // Year Two
     // inductionProgrammeYearTwoECTs: "Yes",
     // inductionProgrammeYearTwoProviderChange: "No",
+    // inductionProgrammeYearTwo: "FIP",
     // appropriateBodyType: "local authority",
     // appropriateBodyName: "North Tyneside",
+    //
+    // CIP
     // accredited-materials: "",
 
 

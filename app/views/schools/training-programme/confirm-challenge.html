@@ -14,25 +14,25 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            
 
-            
-            
-            
+
+
+
+
 
                 <!-- Brian -if the school selects any reason EXCEPT no ECTs-->
                 <p>{{ data.leadProvider }} and {{ data.deliveryPartner }} will not be able to run training for your school in the academic year 2022 to 2023.</p>
 
-            
 
-            
+
+
             <form method="post" action="submitted" class="govuk-!-margin-top-7" >
-                <input type="hidden" name="fipPartnership" id="fipPartnership" value="" />
+                <input type="hidden" name="providerPartnership" id="providerPartnership" value="" />
                 {{ govukButton({
                     text: "Confirm and remove"
                 }) }}
             </form>
-            
+
 
         </div>
     </div>
