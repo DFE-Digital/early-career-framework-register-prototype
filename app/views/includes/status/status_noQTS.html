@@ -1,0 +1,6 @@
+{{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small ",
+                                items: [
+                                    { value: "CheckingQTS", text: "Checking QTS" }
+                                ]
+                            } | decorateFormAttributes(['participants', id, 'status']) ) }}

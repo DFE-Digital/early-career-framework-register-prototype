@@ -1,0 +1,6 @@
+{{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small ",
+                                items: [
+                                    { value: "Eligible", text: "Eligible for training" }
+                                ]
+                            } | decorateFormAttributes(['participants', id, 'status']) ) }}
