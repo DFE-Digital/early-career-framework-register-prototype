@@ -13,7 +13,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {# <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Details matched with Teacher Regulations Agency record</h2> #}
-            <p>You cannot edit their name, TRN or date of birth as we have matched them with a Teacher Regulations Agency record.</p>
+            <p>You cannot change the name, TRN or date of birth as these have already been matched with the Teaching Regulation Agency record.</p>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-8">
                 {% include "includes/summary_name.html" %}
@@ -22,7 +22,6 @@
             </dl>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-
                 {% include "includes/summary_induction_date.html" %}
                 {% include "includes/summary_ni.html" %}
                 {% include "includes/summary_joining.html" %}
@@ -30,56 +29,34 @@
                 {% include "includes/summary_cohort.html" %}
                 {% include "includes/summary_aBody.html" %}
                 <!-- {% include "includes/summary_mentor.html" %} -->
-
-                {% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
-                    {% include "includes/summary_training_ect_mentor.html" %}
-                {% elif data.participants[id].type == "Transfer" %}
-                    {% include "includes/summary_training_transfer.html" %}
-                {% endif %}
+                {% include "includes/summary_training.html" %}
             </dl>
 
             <form class="form" action="confirmation" method="post" >
 
-                {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
-
-                {% if data.participants[id].type == "sitMentor" %}
-
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "Eligible"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
-
-                <!-- If transferring in -->
-                {% elif data.participants[id].type == "Transfer" %}
-                    {{ govukInput({
-                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                        value: "TransferIn"
-                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                <!-- Otherwise if TRN provided  -->
-                {% else %}
-
-                    <!-- No QTS -->
-                    {% if data.participants[id].noQTS == "Yes" %}
-
-                        {{ govukInput({
-                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                            value: "CheckingQTS"
-                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    <!-- Eligible -->
-                    {% else %}
-
-                        {{ govukInput({
-                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
-                            value: "Eligible"
-                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
-
-                    {% endif %}
-
+                <!-- This clears any cya links -->
+                {% if data['cya-action'] %}
+                    <input type="hidden" name="cya-action" id="cya-action" value="" />
                 {% endif %}
+                <!-- // -->
+
+                <div class="govuk-visually-hidden key">
+                    {% if data.participants[id].type == "sitMentor" %}
+                        {% include "includes/status/status_sitMentor.html" %}
+                    <!-- If transferring in -->
+                    {% elif data.participants[id].type == "Transfer" %}
+                        {% include "includes/status/status_transferIn.html" %}
+                    <!-- Otherwise if TRN provided  -->
+                    {% else %}
+                        <!-- No QTS -->
+                        {% if data.participants[id].noQTS == "Yes" %}
+                            {% include "includes/status/status_noQTS.html" %}
+                        <!-- Eligible -->
+                        {% else %}
+                            {% include "includes/status/status_eligible.html" %}
+                        {% endif %}
+                    {% endif %}
+                </div>
 
 
                 {{ govukButton({
