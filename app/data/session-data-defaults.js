@@ -8,7 +8,7 @@ const defaults = {
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName
 const sitName = process.env.FULL_NAME || defaults.sitName
 const sitFirstName = sitName.split(' ')[0]
-const sitEmail = `${sitName.toLowerCase().replace(' ', '.')}@dfe.test.gov.uk`
+const sitEmail = `${sitName.toLowerCase().replace(' ', '.')}@dfe.usertest.gov.uk`
 const deliveryPartner = process.env.DELIVERY_PARTNER || defaults.deliveryPartner
 const leadProvider = process.env.LEAD_PROVIDER || defaults.leadProvider
 
@@ -21,21 +21,23 @@ module.exports = {
     deliveryPartner,
     leadProviderTransfer: "Teach First",
     deliveryPartnerTransfer: "Inspire Teaching School Hub",
-    leadProviderMaterials: "Teach First",
-    leadProviderMaterialsTransfer: "Education Development Trust",
-    linkExpire: '22 September 2022',
+    leadProviderMaterials: "Education Development Trust",
+    leadProviderMaterialsTransfer: "Teach First",
+    linkExpire: '12 October 2022',
     expiryTime: '1pm',
+    // FIP
     inductionProgramme: "FIP",
-    fipPartnership: "Yes",
-    inductionProgrammeYearTwo: "FIP",
-    inductionProgrammeYearTwoECTs: "Yes",
-    inductionProgrammeYearTwoProviderChange: "No",
-    appropriateBodyrole: "local authority",
-    appropriateBodyName: "North Tyneside",
-
-
-
-
+    providerPartnership: "Yes",
+    //
+    // Year Two
+    // inductionProgrammeYearTwoECTs: "Yes",
+    // inductionProgrammeYearTwoProviderChange: "No",
+    // inductionProgrammeYearTwo: "FIP",
+    // appropriateBodyType: "local authority",
+    // appropriateBodyName: "North Tyneside",
+    //
+    // CIP
+    // accredited-materials: "",
     // rolesexplanation: "Seen",
     participants: {
         ME1: {
@@ -113,14 +115,15 @@ module.exports = {
         EP5: {
             role: "ECT",
             name: "Luke Didsbury",
-            inductionDay: "5", inductionMonth: "9", inductionYear: "2022",
+            inductionDay: "5", inductionMonth: "4", inductionYear: "2022",
             trnNumber: "3242348",
             dobDay: "1", dobMonth: "1", dobYear: "2222",
             email: "luke.didsbury@test.dfe.gov.uk",
             usingCurrentTraining: "Yes",
             newLeadProvider: "Ambition Institute",
-            cohort: "2022",
+            cohort: "2021",
             programme: "FIP",
+            mentor: "James Doe",
             status: "Eligible"
         },
         Z87: {

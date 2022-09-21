@@ -186,7 +186,7 @@
                         <!-- Checking-->
                         {% elif data.participants[id].status == "Checking" %}
                             {% if data['inductionProgramme'] == "FIP" %}
-                                {% if data['fipPartnership'] == "Yes" %}
+                                {% if data['providerPartnership'] == "Yes" %}
                                     <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
                                 {% else %}
                                     <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
@@ -197,7 +197,7 @@
                         <!-- Eligible -->
                         {% elif data.participants[id].status == "Eligible" %}
                             {% if data.participants[id].programme == "FIP" %}
-                                {% if data['fipPartnership'] == "Yes" %}
+                                {% if data['providerPartnership'] == "Yes" %}
                                     <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
                                 {% else %}
                                     <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>

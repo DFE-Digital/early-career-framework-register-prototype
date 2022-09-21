@@ -5,7 +5,7 @@
                         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
                         <div class="govuk-grid-row">
                             <div class="govuk-grid-column-two-thirds">
-                                {% if data['fipPartnership'] == "Yes" %}
+                                {% if data['providerPartnership'] == "Yes" %}
                                     <p>We’ve confirmed these people are eligible for this programme. We’ve given their details to your provider.</p>
                                 {% else %}
                                     <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
@@ -13,8 +13,8 @@
                             </div>
                         </div>
 
-                        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">2021 to 2022 academic year</h2>
-                        <table class="govuk-table">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ECF-based training start date 2021 to 2022</h2>
+                        <table class="govuk-table govuk-!-margin-bottom-7">
                             {% include "includes/dash_fip_head_eligible.html" %}
                             <tbody class="govuk-table__body">
                                 {% for id, participant in data.participants %}
@@ -26,7 +26,7 @@
                             </tbody>
                         </table>
 
-                        <h2 class="govuk-heading-s govuk-!-margin-bottom-0">2022 to 2023 academic year</h2>
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ECF-based training start date 2022 to 2023</h2>
                         <table class="govuk-table">
                             {% include "includes/dash_fip_head_eligible.html" %}
                             <tbody class="govuk-table__body">

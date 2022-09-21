@@ -1,5 +1,11 @@
+{% if not data.participants[id].isMentor %}
+                    {% if participant.mentor %}
+
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Mentor</dt>
     <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="choose-mentor?cya-action=change-mentor">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
 </div>
+
+{% endif %}
+                {% endif %}

@@ -12,48 +12,52 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Details matched with Teacher Regulations Agency record</h2> #}
+            <p>You cannot change the name, TRN or date of birth as these have already been matched with the Teaching Regulation Agency record.</p>
 
-            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-                
+            <dl class="govuk-summary-list govuk-!-margin-bottom-8">
                 {% include "includes/summary_name.html" %}
-                {% if participant.inductionDay %}
-                    {% include "includes/summary_induction_date.html" %}
-                {% endif %}
-                
                 {% include "includes/summary_trn.html" %}
                 {% include "includes/summary_dob.html" %}
-                
-                {% if participant.nationalInsuranceNumber %}
-                    {% include "includes/summary_ni.html" %}
-                {% endif %}
-                
-                {% if participant.joiningDay %}
-                    {% include "includes/summary_joining.html" %}
-                {% endif %}
-                                
-                {% include "includes/summary_email.html" %} 
+            </dl>
 
-                {% if data.participants[id].role == "ECT" %}
-                    {% include "includes/summary_cohort.html" %}
-                {% endif %}
-
-                {% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
-                    {% if data.participants[id].role == "ECT" %}
-                        {% include "includes/summary_aBody.html" %}
-                    {% endif %}
-                {% endif %}                                    
-
-                {% if data.participants[id].role == "ECT" %}
-                    {% include "includes/summary_training_ect_mentor.html" %}
-                {% elif data.participants[id].role == "Transfer" %}
-                    {% include "includes/summary_training_transfer.html" %}
-                {% endif %}
-
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                {% include "includes/summary_induction_date.html" %}
+                {% include "includes/summary_ni.html" %}
+                {% include "includes/summary_joining.html" %}
+                {% include "includes/summary_email.html" %}
+                {% include "includes/summary_cohort.html" %}
+                {% include "includes/summary_aBody.html" %}
+                <!-- {% include "includes/summary_mentor.html" %} -->
+                {% include "includes/summary_training.html" %}
             </dl>
 
             <form class="form" action="confirmation" method="post" >
-                
-                {% include "includes/hidden_status_set.html" %}
+
+                <!-- This clears any cya links -->
+                {% if data['cya-action'] %}
+                    <input type="hidden" name="cya-action" id="cya-action" value="" />
+                {% endif %}
+                <!-- // -->
+
+                <div class="govuk-visually-hidden key">
+                    {% if data.participants[id].type == "sitMentor" %}
+                        {% include "includes/status/status_sitMentor.html" %}
+                    <!-- If transferring in -->
+                    {% elif data.participants[id].type == "Transfer" %}
+                        {% include "includes/status/status_transferIn.html" %}
+                    <!-- Otherwise if TRN provided  -->
+                    {% else %}
+                        <!-- No QTS -->
+                        {% if data.participants[id].noQTS == "Yes" %}
+                            {% include "includes/status/status_noQTS.html" %}
+                        <!-- Eligible -->
+                        {% else %}
+                            {% include "includes/status/status_eligible.html" %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+
 
                 {{ govukButton({
                     text: "Confirm and add"

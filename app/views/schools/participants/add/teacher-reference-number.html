@@ -1,10 +1,36 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" %}
-    {% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
-<!-- {% elif data.participants[id].role == "sitMentor" %}
-    {% set pageHeading = 'What’s your teacher reference number (TRN)?' %} -->
+{% if participant.inductionMonth == "09" or participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" or participant.inductionMonth == "01" or participant.inductionMonth == "02" or participant.inductionMonth == "03" or participant.inductionMonth == "04" or participant.inductionMonth == "05" %}
+
+    {% if not data['inductionProgrammeYearTwo'] %}
+
+        {% if participant.type == "ECT" %}
+            {% set pageHeading = 'We need some more information' %}
+        {% elif participant.type == "Mentor" %}
+            {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
+        {% elif participant.type == "Transfer" %}
+
+        {% endif %}
+
+    {% else %}
+
+        {% if data.participants[id].role == "sitMentor" %}
+            {% set pageHeading = 'What’s your teacher reference number (TRN)?' %}
+        {% else %}
+            {% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
+        {% endif %}
+
+    {% endif %}
+
+{% else %}
+
+    {% if data.participants[id].role == "sitMentor" %}
+        {% set pageHeading = 'What’s your teacher reference number (TRN)?' %}
+    {% else %}
+        {% set pageHeading = 'What’s ' + participant.name + '’s teacher reference number (TRN)?' %}
+    {% endif %}
+
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,22 +43,134 @@
 	<div class="govuk-grid-row">
     	<div class="govuk-grid-column-two-thirds">
 
-        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                    
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p class="govuk-body">This unique ID:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>is usually 7 digits long, for example ’4567814’</li>
-                <li>may include the letters ‘RP’ or a slash ‘/’ symbol, for example ‘RP99/12345’</li>
-                <li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
-            </ul>                
+            {% if not data['inductionProgrammeYearTwo'] %}
+
+                {% if participant.inductionMonth == "09" or participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" or participant.inductionMonth == "01" or participant.inductionMonth == "02" or participant.inductionMonth == "03" or participant.inductionMonth == "04" or participant.inductionMonth == "05" %}
+
+
+                    <p>We need to know whether your school is expecting any ECTs and whether you plan to change how you run the training in 2022 to 2023.</p>
+                    <div class="govuk-inset-text">
+                        {{ participant.name }}’s name and induction start date will not be saved. You’ll need to enter this information again once you have setup your training for 2022 to 2023.
+                    </div>
+
+                    <form method="post" action="/nominations" />
+                    {{ govukButton({
+                        text: "Continue to setup your training"
+
+                    }) }}
+                    </form>
+
+                    <!-- <p>You need to tell us how you will run your ECF-based training at your school</a> in the 2022 to 2023 academic year, so you can add {{ participant.name }} and any other ECTs or mentors.</p> -->
+
+
+                    <!-- <div class="govuk-inset-text">
+                        The person’s name and induction start date will not be saved. You’ll need to enter this information again.
+                    </div> -->
+
+
+
+                </a>
+
+
+                {% else %}
+
+                    <p class="govuk-body">This unique ID:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>is usually 7 digits long, for example ’4567814’</li>
+                        <li>may include the letters ‘RP’ or a slash ‘/’ symbol, for example ‘RP99/12345’</li>
+                        <li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
+                    </ul>
+
+                    {% if ((data['cya-action'] == "change-trn") or (data['cya-action'] == "change-know-trn")) %}
+                        <form class="form" action="check-your-answers" method="post">
+                        <input type="hidden" id="cya-action" name="cya-action" value="" />
+
+                    {% else %}
+                        <!-- Look for if coming from cannot find in database -->
+                        {% if data['linkaction'] == "cannotFind" %}
+
+                            {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
+                                <form class="form" action="email-address" method="post">
+                            {% else %}
+                                <form class="form" action="joining-date" method="post">
+                            {% endif %}
+
+                            <input type="hidden" name="linkaction" id="linkaction" value="" />
+                            {{ govukCheckboxes({
+                                classes: "govuk-checkboxes--small govuk-visually-hidden",
+                                items: [ { value: "", text: "Is not matched", checked: "true" } ]
+                            } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
+
+                        {% else %}
+                            <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
+                        {% endif %}
+
+                    {% endif %}
+
+                    {{ govukInput({
+                        label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                        classes: "govuk-!-width-two-thirds",
+                        inputmode: "numeric",
+                        pattern: "[0-9]*"
+                    } | decorateFormAttributes(['participants', id, 'trnNumber']) ) }}
+
+                    <div class="govuk-button-group">
+
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+
+                        {% if data.participants[id].role == "Mentor" %}
+                            <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
+                        {% elif data.participants[id].role == "sitMentor" %}
+                            <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
+                        {% endif%}
+
+                    </div>
+
+                    {% if data['linkaction'] != "cannotFind" %}
+
+                        <div class="govuk-visually-hidden key">
+                            {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
+                                {% include "includes/trnKey_ectMentor.html" %}
+                            {% elif data.participants[id].role == "Transfer" %}
+                                {% include "includes/trnKey_transfer.html" %}
+                            {% elif data.participants[id].role == "sitMentor" %}
+                                {% include "includes/trnkey_sitmentor.html" %}
+                            {% endif %}
+                        </div>
+
+                    {% endif %}
+
+
+                {% endif %}
+
+
+            {% else %}
+
+                <p class="govuk-body">This unique ID:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>is usually 7 digits long, for example ’4567814’</li>
+                    <li>may include the letters ‘RP’ or a slash ‘/’ symbol, for example ‘RP99/12345’</li>
+                    <li>may also be called a QTS, GTC, DfE, DfES or DCSF number</li>
+                </ul>
+
+                {% if ((data['cya-action'] == "change-trn") or (data['cya-action'] == "change-know-trn")) %}
+                    <form class="form" action="check-your-answers" method="post">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" />
+
+                {% else %}
                     <!-- Look for if coming from cannot find in database -->
-                    <!-- {% if data['linkaction'] == "cannotFind" %}                            
+                    {% if data['linkaction'] == "cannotFind" %}
+
                         {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
                             <form class="form" action="email-address" method="post">
                         {% else %}
                             <form class="form" action="joining-date" method="post">
                         {% endif %}
-                        
+
                         <input type="hidden" name="linkaction" id="linkaction" value="" />
                         {{ govukCheckboxes({
                             classes: "govuk-checkboxes--small govuk-visually-hidden",
@@ -40,16 +178,16 @@
                         } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
 
                     {% else %}
-                        
+
                     {% endif %} -->
 
                 <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
 
                     {{ govukInput({
-                        label: { 
-                            text: pageHeading, 
-                            classes: "govuk-visually-hidden", 
-                            isPageHeading: false 
+                        label: {
+                            text: pageHeading,
+                            classes: "govuk-visually-hidden",
+                            isPageHeading: false
                         },
                         classes: "govuk-!-width-two-thirds",
                         inputmode: "numeric",
@@ -72,19 +210,19 @@
 
                 <!-- {% if data['linkaction'] != "cannotFind" %} -->
 
-                <div class="key">
-                    {% if data.participants[id].role == "ECT" %}
-                        {% include "includes/trnKey_ectMentor.html" %}
-                    {% elif data.participants[id].role == "Transfer" %}                            
-                        {% include "includes/trnKey_transfer.html" %}
-                    <!--{% elif data.participants[id].role == "sitMentor" %}
-                        {% include "includes/trnkey_sitmentor.html" %} -->
-                    {% endif %}                                            
-                </div>
-                
-                <!-- {% endif %} -->
-            
-            
+                    <div class="govuk-visually-hidden key">
+                        {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
+                            {% include "includes/trnKey_ectMentor.html" %}
+                        {% elif data.participants[id].role == "Transfer" %}
+                            {% include "includes/trnKey_transfer.html" %}
+                        {% elif data.participants[id].role == "sitMentor" %}
+                            {% include "includes/trnkey_sitmentor.html" %}
+                        {% endif %}
+                    </div>
+
+                {% endif %}
+
+            {% endif %}
       		</form>
     	</div>
     </div>

@@ -2,13 +2,12 @@
 {% set schoolSignedIn = true %}
 
 
-
-<!-- {% if data['notcorrect'] == "Yes" %} -->
-    <!-- {% set pageHeading = 'Did ' + participant.name + ' start their ECF-based training in the 2021 to 2022 academic year? ' %} -->
-{% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" %}
+{% if data['notcorrect'] == "Yes" %}
+    {% set pageHeading = 'Did ' + participant.name + ' start ECF-based training in the 2021 to 2022 academic year? ' %}
+{% elif participant.inductionMonth == "5" or participant.inductionMonth == "6" or participant.inductionMonth == "7" or participant.inductionMonth == "8" or participant.inductionMonth == "05" or participant.inductionMonth == "06" or participant.inductionMonth == "07" or participant.inductionMonth == "08" %}
     {% set pageHeading = 'Which academic year will ' + participant.name + ' start their ECF-based training? ' %}
 {% else %}
-    {% set pageHeading = 'Confirm that ' + participant.name + ' will start their ECF-based training in the 2022 to 2023 academic year? ' %}    
+    {% set pageHeading = 'Confirm ' + participant.name + ' will start ECF-based training in the 2022 to 2023 academic year ' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -40,13 +39,22 @@
 
                 {% else %}
 
-                    {% include "includes/hidden_cohort_2022_value.html" %}
+                    <div class="govuk-visually-hidden">
+                        {{ govukCheckboxes({
+                            items: [
+                                { value: "2022", text: "2021 to 2022 academic year", checked: "true" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort']) ) }}
+                    </div>
 
                     <div class="govuk-button-group">
                         {{ govukButton({
                             text: "Confirm and continue"
-                        }) }}                        
-                        <a class="govuk-link" href="cannot-add-to-another-academic-year">This is not the right academic year</a>
+                        }) }}
+                        <!-- <a class="govuk-link" href="academic-year?notcorrect=Yes">This is not the correct year</a> -->
+                        <a class="govuk-link" href="cannot-add?correctYear=No">Choose a different year</a>
+
+
                     </div>
 
                 {% endif %}

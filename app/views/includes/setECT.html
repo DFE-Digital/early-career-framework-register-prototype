@@ -11,7 +11,7 @@
         {% if ((data['participant-1-added'] == "Yes") or (data['participant-2-added'] == "Yes")) %}
 
             {% if ((data['participant-1-eligible'] == "No" ) or (data['participant-2-eligible'] == "No" ) or (data['participant-1-mentor-eligible'] == "No" ) or (data['participant-2-mentor-eligible'] == "No" ))  %}
-        
+
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
@@ -24,11 +24,11 @@
                         <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                         <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
                         <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
-                        <th class="govuk-table__header" scope="col">Induction start</th>                        
+                        <th class="govuk-table__header" scope="col">Induction start</th>
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
-                    
+
                     {% if data['participant-1-added'] == "Yes" %}
                         {% if data['participant-1-eligible'] == "No" %}
                         <tr class="govuk-table__row">
@@ -59,7 +59,7 @@
         {% endif %}<!-- // participants added -->
         {% endif %}<!-- // not shown to older school years -->
 
-    
+
         <!-- DfE checking eligibility -->
         {% if data['show-participant-status-checking'] == "Yes" %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
@@ -73,7 +73,7 @@
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
                     <th class="govuk-table__header" scope="col">Induction start</th>
                     <!-- <th class="govuk-table__header" scope="col">Action required</th>                 -->
                 </tr>
@@ -92,7 +92,7 @@
                     <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                     <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                     <!-- <td class="govuk-table__cell">None</td> -->
-                    
+
                 </tr>
             </tbody>
         </table>
@@ -111,7 +111,7 @@
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
                     <th class="govuk-table__header" scope="col">Induction start</th>
                     <!-- <th class="govuk-table__header" scope="col">Action required</th>                 -->
                 </tr>
@@ -134,7 +134,7 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 {% if data['inductionProgramme'] == "FIP" %}
-                    {% if data['fipPartnership'] == "Yes" %}
+                    {% if data['providerPartnership'] == "Yes" %}
                         <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
                     {% else %}
                         <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
@@ -151,9 +151,9 @@
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
                     <!-- <th class="govuk-table__header" scope="col">Induction start</th> -->
-                    <th class="govuk-table__header" scope="col">Action required</th>                                                
+                    <th class="govuk-table__header" scope="col">Action required</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -219,7 +219,7 @@
                     <td class="govuk-table__cell">{{ data.leadProvider }}</td>
                     <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                     <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
-                    <td class="govuk-table__cell">None</td>                
+                    <td class="govuk-table__cell">None</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell"><a href="details?status=Start&ParticipantType=Mentor&user-details=Random&random-name=Stanislaw Klajn&random-type=Mentor" class="govuk-link govuk-link--no-visited-state">Stanislaw Klajn</a></td>
@@ -227,7 +227,7 @@
                     <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                     <!-- <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td> -->
                     <td class="govuk-table__cell">None</td>
-                    
+
                 </tr>
                 {% endif %}
 
@@ -237,7 +237,7 @@
                     <td class="govuk-table__cell">{{ data.leadProvider }}</td>
                     <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                     <!-- <td class="govuk-table__cell ">Autumn {{ data['cohort'] }}</td> -->
-                    <td class="govuk-table__cell">None</td>                
+                    <td class="govuk-table__cell">None</td>
                 </tr>
                 {% endif %}
             </tbody>
@@ -249,7 +249,7 @@
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Name</th>
                     <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Lead provider</th>
-                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>                
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Delivery partner</th>
                     <th class="govuk-table__header" scope="col">Induction start</th>
                     <!-- <th class="govuk-table__header" scope="col">Action required</th>                                                 -->
                 </tr>
@@ -325,7 +325,7 @@
                     <td class="govuk-table__cell">{{ data.deliveryPartner }}</td>
                     <td class="govuk-table__cell">Autumn {{ data['cohort'] }}</td>
                     <!-- <td class="govuk-table__cell">None</td> -->
-                    
+
                 </tr>
                 {% endif %}
 
@@ -340,7 +340,7 @@
                 {% endif %}
             </tbody>
         </table>
-        {% endif %}    
+        {% endif %}
 
     {% endset -%}
     <!-- // -->

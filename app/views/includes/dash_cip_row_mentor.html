@@ -8,13 +8,7 @@
         {% endif %}
     </td>
     <td class="govuk-table__cell">
-        {% if participant.type == "ECT" %}
-            {% if participant.mentor %}
-                {{ participant.mentor }}
-            {% else %}
-                <a href="/schools/participants/{{ id }}/add/choose-mentor" class="govuk-link govuk-link--no-visited-state">Assign mentor</a>
-            {% endif %}
-        {% endif %}
+        NAME of ECT
     </td>
     <!-- <td class="govuk-table__cell">{{ data.leadProviderMaterials }}</td> -->
     <td class="govuk-table__cell govuk-table__cell--numeric"></td>

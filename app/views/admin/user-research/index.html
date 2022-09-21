@@ -10,15 +10,16 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
-        <p>No current user research taking place.</p>
-
-        <!-- <p class="govuk-body-s">Running: 10 to 17 June 2022</p> -->
-        <!-- <h2 class="govuk-heading-m">Multiple cohorts or academic years</h2> -->
-        <!-- <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p> -->
+        {# <p>No current user research taking place.</p> #}
 
 
+        <h2 class="govuk-heading-m">Multiple academic years</h2>
+        <p class="govuk-body">Running: 12 to 24 September 2022</p>
+        <p>Dashboard changes and flows to test how we schools will tell us about training in the next academic year, as well as reporting approrpriate body.</p>
 
-            <!-- <input type="hidden" name="accredited-materials" id="accredited-materials" value="Ambition Institute" />             -->
+
+
+
 
             <!-- Dashboard options -->
 
@@ -65,7 +66,7 @@
 
 
             <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
-            <input type="hidden" name="fipPartnership" id="fipPartnership" value="Yes" />
+            <input type="hidden" name="providerPartnership" id="providerPartnership" value="Yes" />
             <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
 
             {{ govukButton({
@@ -89,18 +90,10 @@
 
 
 
-        <form action="/schools/appropriate-body/" method="post" >
+        <form action="/schools/manage-your-training" method="post" >
 
-            <input type="hidden" id="cohort" name="cohort" value="2022" />
-
-            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
-            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
             <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
-
-
-            <input type="hidden" name="inductionProgrammeYearTwoECTs" id="inductionProgrammeYearTwoECTs" value="Yes" />
-            <input type="hidden" name="inductionProgrammeYearTwoProviderChange" id="inductionProgrammeYearTwoProviderChange" value="No" />
-
+            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Education Development Trust" />
 
             {{ govukButton({
                 text: "Continue"
