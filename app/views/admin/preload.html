@@ -150,12 +150,12 @@
                     
                     {{ govukCheckboxes({    
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
-                        items: [ { value: "Yes", text: "Eligible ECTs" } ]
+                        items: [ { value: "Yes", text: "Eligible ECTs", checked: checked } ]
                     } | decorateFormAttributes('showTabEligibleECT')) }}                
 
                     {{ govukCheckboxes({    
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
-                        items: [ { value: "Yes", text: "Eligible mentors" } ]
+                        items: [ { value: "Yes", text: "Eligible mentors", checked: checked } ]
                     } | decorateFormAttributes('showTabEligibleMentor')) }}                
 
                     <!-- {{ govukCheckboxes({    
@@ -165,12 +165,12 @@
 
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "DfE checking eligibility" } ]
+                        items: [ { value: "Yes", text: "DfE checking eligibility", checked: checked } ]
                     } | decorateFormAttributes('showTabCheckingEligibility')) }}
 
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Checking QTS" } ]
+                        items: [ { value: "Yes", text: "Checking QTS", checked: checked } ]
                     } | decorateFormAttributes('showTabQTS')) }}                    
 
                     
@@ -179,22 +179,22 @@
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Not eligible for funded training" } ]
+                        items: [ { value: "Yes", text: "Not eligible for funded training", checked: checked } ]
                     } | decorateFormAttributes('showTabNotEligible')) }}                    
 
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "No longer been trained" } ]
+                        items: [ { value: "Yes", text: "No longer been trained", checked: checked } ]
                     } | decorateFormAttributes('showTabWithdrawn')) }}
 
                     {{ govukCheckboxes({                    
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Transferring in" } ]
+                        items: [ { value: "Yes", text: "Transferring in", checked: checked } ]
                     } | decorateFormAttributes('showTabTransferIn')) }}
 
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Transferring out" } ]
+                        items: [ { value: "Yes", text: "Transferring out", checked: checked } ]
                     } | decorateFormAttributes('showTabTransferOut')) }}
                 </div>
             </div>
