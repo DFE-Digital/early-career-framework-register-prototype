@@ -26,7 +26,7 @@
 
                 {% if data['linkaction'] == "cannotFind" %}
 
-                    {% if data.participants[id].type == "transfer" %}
+                    {% if data.participants[id].role == "transfer" %}
                         <form class="form" action="joining-date" method="post">
                     {% else %}
                         <form class="form" action="email-address" method="post">

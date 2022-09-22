@@ -13,7 +13,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].type == "ECT" %}
+            {% if data.participants[id].role == "ECT" %}
 
 
                 <p>We have checked {{ participant.name }}’s name, TRN and date of birth with the Teaching Regulation Agency and confirm they are correct.</p>
@@ -28,10 +28,10 @@
                 </ul> #}
 
 
-            {% elif data.participants[id].type == "Transfer" %}
+            {% elif data.participants[id].role == "Transfer" %}
 
 
-            {% elif data.participants[id].type == "Mentor" %}
+            {% elif data.participants[id].role == "Mentor" %}
 
 
             {% endif %}

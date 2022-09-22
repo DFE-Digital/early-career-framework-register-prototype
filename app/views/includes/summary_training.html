@@ -1,6 +1,6 @@
 
 
-{% if data.participants[id].type == "ECT" or data.participants[id].type == "Mentor" %}
+{% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
     <dt class="govuk-summary-list__key">
         {% if data['inductionProgramme'] == "FIP" %}
@@ -21,7 +21,7 @@
     </dd>
 </div>
 
-{% elif data.participants[id].type == "Transfer" %}
+{% elif data.participants[id].role == "Transfer" %}
 
 
         <!-- FIP programme -->
