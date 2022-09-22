@@ -143,49 +143,46 @@
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 
-            {# <h2 class="govuk-heading-m">Participant dashboard</h2>
-            <p>To allow you to see the dashboard sections for the various different stages of participant validation.</p>
+            <h2 class="govuk-heading-m">ECT and mentors dashboard</h2>
+            <p>To show the dashboard tabs for the various different statuses of ECT and mentor eligibility.</p>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Contacted", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Contacted for information" } ]
-                    } | decorateFormAttributes('show-participant-status-contacted')) }}
+                    
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "Training or eligible for training" } ]
+                    } | decorateFormAttributes('showTabEligible')) }}                
 
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Checking details", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Checking details" } ]
-                    } | decorateFormAttributes('show-participant-status-checking')) }}
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "DfE checking eligibility" } ]
+                    } | decorateFormAttributes('showTabChecking')) }}
 
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Eligible to start" } ]
-                    } | decorateFormAttributes('show-participant-status-eligible')) }}
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "Checking QTS" } ]
+                    } | decorateFormAttributes('showTabQTS')) }}                    
 
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Declared participants", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Participants declared by provider" } ]
-                    } | decorateFormAttributes('validated-ect')) }}
+                    
+
                 </div>
                 <div class="govuk-grid-column-one-half">
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Not eligible", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Not eligible" } ]
-                    } | decorateFormAttributes('show-participant-not-eligible')) }}
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "Not eligible for funded training" } ]
+                    } | decorateFormAttributes('showTabNotEligible')) }}                    
 
-                    {{ govukCheckboxes({
-                       fieldset: { legend: { text: "No QTS", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                       items: [ { value: "Yes", text: "No QTS" } ]
-                    } | decorateFormAttributes('show-participant-no-QTS')) }}
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "No longer been trained" } ]
+                    } | decorateFormAttributes('showTabWithdrawn')) }}
 
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "Withdrawn", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "Yes", text: "Withdrawn by provider" } ]
-                    } | decorateFormAttributes('show-participant-withdrawn')) }}
+                    {{ govukCheckboxes({                    
+                        items: [ { value: "Yes", text: "Transferring in" } ]
+                    } | decorateFormAttributes('showTabTransferIn')) }}
+
+                    {{ govukCheckboxes({                        
+                        items: [ { value: "Yes", text: "Transferring out" } ]
+                    } | decorateFormAttributes('showTabTransferOut')) }}
                 </div>
             </div>
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> 
 
 
             <h2 class="govuk-heading-m">Entry page</h2>

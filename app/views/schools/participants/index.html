@@ -50,30 +50,35 @@
 
         <div class="govuk-grid-column-full">
 
-            <!-- Checks in progress -->
-            {% set checkingHtml %}
-                {% include "includes/tabs_checks_in_progress.html" %}
-            {% endset -%}            
+            
+            {# {% if ((data['showTabChecking'] ) or (data['showTabQTS'] )) %}
+                {% set checkingHtml %}
+                    {% include "includes/tabs_checks_in_progress.html" %}
+                {% endset -%}
+            {% endif %}    
+                    
+            {% if data['showTabEligible'] %}
+            
+                {% set ectHtml %}
+                    {% include "includes/tabs_eligible_ects.html" %}
+                {% endset -%}                        
+                {% set mentorHtml %}
+                    {% include "includes/tabs_eligible_mentors.html" %}
+                {% endset -%}            
+            {% endif %}
 
-            <!-- Eligible ECTs -->
-            {% set ectHtml %}
-                {% include "includes/tabs_eligible_ects.html" %}
-            {% endset -%}            
+            {% if ((data['showTabTransferIn'] ) or (data['showTabTransferOut'] )) %}                
+                {% set movingSchoolHtml %}
+                    {% include "includes/tabs_moving_school.html" %}
+                {% endset -%}            
+            {% endif %}
 
-            <!-- Eligible Mentors -->
-            {% set mentorHtml %}
-                {% include "includes/tabs_eligible_mentors.html" %}
-            {% endset -%}            
-
-            <!-- Moving school tab -->
-            {% set movingSchoolHtml %}
-                {% include "includes/tabs_moving_school.html" %}
-            {% endset -%}            
-
-            <!-- Not eligible for funding tab -->
-            {% set notEligibleHtml %}
-                {% include "includes/tabs_not_eligible_for_funding.html" %}                
-            {% endset -%}            
+            {% if ((data['showTabNotEligible'] ) or (data['showTabWithdrawn'] )) %}                
+                {% set notEligibleHtml %}
+                    {% include "includes/tabs_not_eligible_for_funding.html" %}                
+                {% endset -%}            
+            {% endif %}
+            
 
             {{ govukTabs({
                 items: [
@@ -83,7 +88,60 @@
                     { label: "Moving school", id: "transfers", panel: { html: movingSchoolHtml } },
                     { label: "Not eligible for funding", id: "not-training", panel: { html: notEligibleHtml } }
                 ]
-            }) }}
+            }) }} #}
+            
+
+        {% if ((data['showTabChecking'] ) or (data['showTabQTS'] ) or (data['showTabEligible'] ) or (data['showTabTransferIn'] ) or (data['showTabTransferOut'] ) or (data['showTabNotEligible'] ) or (data['showTabWithdrawn'] )) %}
+
+            <div class="govuk-tabs" data-module="govuk-tabs">
+                <h2 class="govuk-tabs__title">Funding eligibility for your ECTs and mentors</h2>
+                <ul class="govuk-tabs__list">
+                    {% if ((data['showTabChecking'] ) or (data['showTabQTS'] )) %}
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected"><a class="govuk-tabs__tab" href="#checkingHtml">Checks in progress</a></li>
+                    {% endif %}
+                    {% if data['showTabEligible'] %}
+                        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#ectHtml">Eligible ECTs</a></li>
+                        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#mentorHtml">Eligible mentors</a></li>
+                    {% endif %}
+                    {% if ((data['showTabTransferIn'] ) or (data['showTabTransferOut'] )) %}
+                        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#movingSchoolHtml">Moving school</a></li>
+                    {% endif %}
+                    {% if ((data['showTabNotEligible'] ) or (data['showTabWithdrawn'] )) %}
+                        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#notEligibleHtml">Not eligible for funding</a></li>
+                    {% endif %}
+                </ul>
+                
+                {% if ((data['showTabChecking'] ) or (data['showTabQTS'] )) %}
+                    <div class="govuk-tabs__panel" id="checkingHtml">                    
+                        {% include "includes/tabs_checks_in_progress.html" %}                                    
+                    </div>
+                {% endif %}
+
+                {% if data['showTabEligible'] %}
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="ectHtml">                    
+                        {% include "includes/tabs_eligible_ects.html" %}
+                    </div>                
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mentorHtml">     
+                        {% include "includes/tabs_eligible_mentors.html" %}               
+                    </div>
+                {% endif %}
+
+                {% if ((data['showTabTransferIn'] ) or (data['showTabTransferOut'] )) %}
+                <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="movingSchoolHtml">                    
+                    {% include "includes/tabs_moving_school.html" %}
+                </div>
+                {% endif %}
+
+                {% if ((data['showTabNotEligible'] ) or (data['showTabWithdrawn'] )) %}
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notEligibleHtml">                    
+                        {% include "includes/tabs_not_eligible_for_funding.html" %}                
+                    </div>
+                {% endif %}
+
+            </div>
+
+        
+        {% endif %}
 
         </div>
 
