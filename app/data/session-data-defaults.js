@@ -193,18 +193,17 @@ module.exports = {
             mentor: "James Doe"
         },
         // Contacted
-        // BCF: {
-        //     role: "ECT",
-        //     name: "Stanislaw Klajn",
-        //     inductionDay: "1", inductionMonth: "7", inductionYear: "2022",
-        //     email: "noTRNdLPdDPnotTold@test.dfe.gov.uk",
-        //     newLeadProvider: "Ambition Institute",
-        //     programme: "FIP",
-        //     status: "Contacted",
-        //     usingCurrentTraining: "No",
-        //     usingCurrentProvider: "No",
-        //     cohort: "2021"
-        // },
+        BCF: {
+            role: "ECT",
+            name: "Stanislaw Klajn",
+            inductionDay: "5", inductionMonth: "9", inductionYear: "2022",                        
+            email: "stanislaw.klajn@test.dev.gov.uk",
+            usingCurrentTraining: "Yes",
+            cohort: "2022",
+            programme: "FIP",
+            status: "Contacted",
+            mentor: "Benedict Springbett"
+        },
         // LWM: { inductionDay: "1", inductionMonth: "7", inductionYear: "2022", email: "noTRNdLPdDPnotTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", name: "Jo Dimbleby", programme: "FIP", startDate: "Spring 2022", status: "Contacted", trnKnown: "No", role: "Mentor", usingCurrentTraining: "No", usingCurrentProvider: "No", cohort: "2021" },
         // PO9: { role: "ECT", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", email: "noTRNdLPdDPTold@test.dfe.gov.uk", newLeadProvider: "Ambition Institute", mentor: "Tony Headford", name: "Paul Hayes", programme: "FIP", startDate: "Spring 2022", status: "Eligible", trnKnown: "No", usingCurrentTraining: "No", usingCurrentProvider: "No", cohort: "2021" },
         // YZG: { role: "ECT", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", email: "noTRNsProg@test.dfe.gov.uk", mentor: "James Doe", name: "Kate Thompson", programme: "FIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "No", usingCurrentTraining: "Yes", cohort: "2021" },

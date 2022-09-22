@@ -27,8 +27,6 @@ module.exports = router => {
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.role === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.role === 'mentorTransfer')
-
-
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted'  )
     res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking' )
     res.locals.hasAnyCheckingQTSParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' )

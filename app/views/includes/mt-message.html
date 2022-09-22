@@ -5,7 +5,7 @@
 {% endif %}
 
 {% if ((data['inductionProgramme'] == "CIP" ) and (data['accredited-materials'] )) %}
-    <p class="govuk-!-padding-top-3">Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>
+    <p>Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>
 {% elif (data['inductionProgramme'] === "temphold") %}
     <p>You do not need to add information about your ECTs and mentors to this service.</p>
 {% endif %}
