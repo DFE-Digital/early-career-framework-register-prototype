@@ -148,15 +148,18 @@
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
                     
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
                         items: [ { value: "Yes", text: "Training or eligible for training" } ]
                     } | decorateFormAttributes('showTabEligible')) }}                
 
                     {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "DfE checking eligibility" } ]
-                    } | decorateFormAttributes('showTabChecking')) }}
+                    } | decorateFormAttributes('showTabCheckingEligibility')) }}
 
                     {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Checking QTS" } ]
                     } | decorateFormAttributes('showTabQTS')) }}                    
 
@@ -165,18 +168,22 @@
                 </div>
                 <div class="govuk-grid-column-one-half">
                     {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Not eligible for funded training" } ]
                     } | decorateFormAttributes('showTabNotEligible')) }}                    
 
                     {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "No longer been trained" } ]
                     } | decorateFormAttributes('showTabWithdrawn')) }}
 
                     {{ govukCheckboxes({                    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Transferring in" } ]
                     } | decorateFormAttributes('showTabTransferIn')) }}
 
                     {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Transferring out" } ]
                     } | decorateFormAttributes('showTabTransferOut')) }}
                 </div>
