@@ -150,8 +150,18 @@
                     
                     {{ govukCheckboxes({    
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
-                        items: [ { value: "Yes", text: "Training or eligible for training" } ]
-                    } | decorateFormAttributes('showTabEligible')) }}                
+                        items: [ { value: "Yes", text: "Eligible ECTs" } ]
+                    } | decorateFormAttributes('showTabEligibleECT')) }}                
+
+                    {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                        items: [ { value: "Yes", text: "Eligible mentors" } ]
+                    } | decorateFormAttributes('showTabEligibleMentor')) }}                
+
+                    <!-- {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                        items: [ { value: "Yes", text: "Eligible mentors" } ]
+                    } | decorateFormAttributes('showTabEligibleMentorNF')) }}                 -->
 
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
