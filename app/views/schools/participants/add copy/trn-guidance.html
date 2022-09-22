@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "sitMentor" %}
+{% if data.participants[id].role == "sitMentor" %}
     {% set pageHeading = 'You cannot add yourself as a mentor without your TRN' %}
 {% else %}
     {% set pageHeading = 'You cannot add ' + participant.name + ' as a mentor without their TRN' %}
@@ -20,7 +20,7 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {% if data.participants[id].type == "sitMentor" %}
+            {% if data.participants[id].role == "sitMentor" %}
             <p class="govuk-body">If you:</p>
             <ul class="govuk-list govuk-list--bullet">
                     <li>had a TRN but cannot find it, use the <a href="https://find-a-lost-trn.education.gov.uk/start" class="govuk-link" rel="noreferrer noopener" target="_blank">find a lost TRN service (opens in new tab)</a></li>

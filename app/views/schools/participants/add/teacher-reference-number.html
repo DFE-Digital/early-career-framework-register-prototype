@@ -5,11 +5,11 @@
 
     {% if not data['inductionProgrammeYearTwo'] %}
 
-        {% if participant.type == "ECT" %}
+        {% if participant.role == "ECT" %}
             {% set pageHeading = 'We need some more information' %}
-        {% elif participant.type == "Mentor" %}
+        {% elif participant.role == "Mentor" %}
             {% set pageHeading = 'You cannot add a mentor with an induction start date' %}
-        {% elif participant.type == "Transfer" %}
+        {% elif participant.role == "Transfer" %}
 
         {% endif %}
 
@@ -32,6 +32,7 @@
     {% endif %}
 
 {% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -178,21 +179,17 @@
                         } | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
 
                     {% else %}
+                        <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
+                    {% endif %}
 
-                    {% endif %} -->
+                {% endif %}
 
-                <form class="form" action="date-of-birth" method="post" class="govuk-!-margin-bottom-8">
-
-                    {{ govukInput({
-                        label: {
-                            text: pageHeading,
-                            classes: "govuk-visually-hidden",
-                            isPageHeading: false
-                        },
-                        classes: "govuk-!-width-two-thirds",
-                        inputmode: "numeric",
-                        pattern: "[0-9]*"
-                    } | decorateFormAttributes(['participants', id, 'trnNumber']) ) }}
+                {{ govukInput({
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    classes: "govuk-!-width-two-thirds",
+                    inputmode: "numeric",
+                    pattern: "[0-9]*"
+                } | decorateFormAttributes(['participants', id, 'trnNumber']) ) }}
 
                 <div class="govuk-button-group">
 
@@ -200,15 +197,15 @@
                         text: "Continue"
                     }) }}
 
-                    <!-- {% if data.participants[id].role == "Mentor" %}
+                    {% if data.participants[id].role == "Mentor" %}
                         <a class="govuk-link" href="trn-guidance">They do not have a TRN</a>
                     {% elif data.participants[id].role == "sitMentor" %}
                         <a class="govuk-link" href="trn-guidance">I do not have a TRN</a>
-                    {% endif%} -->
+                    {% endif%}
 
                 </div>
 
-                <!-- {% if data['linkaction'] != "cannotFind" %} -->
+                {% if data['linkaction'] != "cannotFind" %}
 
                     <div class="govuk-visually-hidden key">
                         {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}

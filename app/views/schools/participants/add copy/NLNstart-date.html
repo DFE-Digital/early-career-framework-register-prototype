@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].type == "ect" %}
+{% if data.participants[id].role == "ect" %}
     {% set pageHeading = 'When do you expect ' + participant.name + ' to start their induction programme?' %}
-{% elif data.participants[id].type == "mentor" %}
+{% elif data.participants[id].role == "mentor" %}
     {% set pageHeading = 'When do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
 {% endif %}
 
@@ -23,7 +23,7 @@
                     <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
             {% else %}
             <!-- Add journey -->
-                {% if data.participants[id].type == "mentor"%}
+                {% if data.participants[id].role == "mentor"%}
                     {# {% if data['appropriateBodyName'] %}
                         <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
                     {% else %} #}

@@ -1,40 +1,62 @@
-{% if hasAnyTransferInParticipants %}
-                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
-                        <div class="govuk-grid-row">
-                            <div class="govuk-grid-column-two-thirds">
-                                <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
-                            </div>
-                        </div>
-                        <table class="govuk-table govuk-!-margin-bottom-9">
-                            {% include "includes/dash_fip_head_transferIn.html" %}
-                            <tbody class="govuk-table__body">
-                                {% for id, participant in data.participants %}
-                                    <!-- Only those with a status TransferIn and type is ALL -->
-                                    {% if participant.status == "TransferIn" and participant.programme == "FIP" %}
-                                        {% include "includes/dash_fip_row_transferIn.html" %}
-                                    {% endif %}
-                                {% endfor %}
-                            </tbody>
-                        </table>
+
+{% if data['showTabTransferIn'] == "Yes" %} 
+    {% if hasAnyTransferInParticipants %}    
+        
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+            </div>
+        </div>
+
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">ECTs</h3>
+        <table class="govuk-table govuk-!-margin-bottom-5">
+            {% include "includes/dash_fip_head_transferIn.html" %}
+            <tbody class="govuk-table__body">
+                {% for id, participant in data.participants %}
+                    <!-- Only those with a status TransferIn and type is ALL -->
+                    {% if participant.status == "TransferIn" and participant.programme == "FIP" and participant.role == "ECT" %}
+                        {% include "includes/dash_fip_row_transferIn.html" %}
                     {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Mentors</h3>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            {% include "includes/dash_fip_head_transferInMentor.html" %}
+            <tbody class="govuk-table__body">
+                {% for id, participant in data.participants %}
+                    <!-- Only those with a status TransferIn and type is ALL -->
+                    {% if participant.status == "TransferIn" and participant.programme == "FIP" and participant.role == "Mentor" %}
+                        {% include "includes/dash_fip_row_transferInMentor.html" %}
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endif %}                    
+
                     
-                    <!-- Transferring out FIP -->
-                    {% if hasAnyTransferOutParticipants %}
-                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
-                        <div class="govuk-grid-row">
-                            <div class="govuk-grid-column-two-thirds">
-                                <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
-                            </div>
-                        </div>
-                        <table class="govuk-table govuk-!-margin-bottom-9">
-                            {% include "includes/dash_fip_head_transferOut.html" %}
-                            <tbody class="govuk-table__body">
-                                {% for id, participant in data.participants %}
-                                    <!-- Only those with a status TransferOut and type is ALL -->
-                                    {% if participant.status == "TransferOut" and participant.programme == "FIP" %}
-                                        {% include "includes/dash_fip_row_transferOut.html" %}
-                                    {% endif %}
-                                {% endfor %}
-                            </tbody>
-                        </table>
+{% if data['showTabTransferOut'] == "Yes" %}  
+    {% if hasAnyTransferOutParticipants %}    
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+            </div>
+        </div>
+        <table class="govuk-table govuk-!-margin-bottom-9">
+            {% include "includes/dash_fip_head_transferOut.html" %}
+            <tbody class="govuk-table__body">
+                {% for id, participant in data.participants %}
+                    <!-- Only those with a status TransferOut and type is ALL -->
+                    {% if participant.status == "TransferOut" and participant.programme == "FIP" %}
+                        {% include "includes/dash_fip_row_transferOut.html" %}
                     {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endif %}                                    

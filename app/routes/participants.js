@@ -27,11 +27,11 @@ module.exports = router => {
     res.locals.hasEctTransfers = Object.values(participants).some((p) => p.role === 'ectTransfer')
     res.locals.hasMentors = Object.values(participants).some((p) => p.role === 'mentor')
     res.locals.hasMentorTransfers = Object.values(participants).some((p) => p.role === 'mentorTransfer')
-
-
     res.locals.hasAnyContactedParticipants = Object.values(participants).some((p) => p.status === 'Contacted'  )
     res.locals.hasAnyCheckingParticipants = Object.values(participants).some((p) => p.status === 'Checking' )
     res.locals.hasAnyCheckingQTSParticipants = Object.values(participants).some((p) => p.status === 'CheckingQTS' )
+    res.locals.hasAnyEligibleECTs = Object.values(participants).some((p) => p.status === 'Eligible' && p.role == "ECT" && p.cohort == "2021" )
+    res.locals.hasAnyEligibleECTsNewYear = Object.values(participants).some((p) => p.status === 'Eligible' && p.role == "ECT" && p.cohort == "2022"  )
     res.locals.hasAnyEligibleParticipants = Object.values(participants).some((p) => p.status === 'Eligible'  )
     res.locals.hasAnyTransferInParticipants = Object.values(participants).some((p) => p.status === 'TransferIn' )
     res.locals.hasAnyTransferOutParticipants = Object.values(participants).some((p) => p.status === 'TransferOut' )

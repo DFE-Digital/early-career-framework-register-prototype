@@ -41,10 +41,10 @@
                 <!-- // -->
 
                 <div class="govuk-visually-hidden key">
-                    {% if data.participants[id].type == "sitMentor" %}
+                    {% if data.participants[id].role == "sitMentor" %}
                         {% include "includes/status/status_sitMentor.html" %}
                     <!-- If transferring in -->
-                    {% elif data.participants[id].type == "Transfer" %}
+                    {% elif data.participants[id].role == "Transfer" %}
                         {% include "includes/status/status_transferIn.html" %}
                     <!-- Otherwise if TRN provided  -->
                     {% else %}
