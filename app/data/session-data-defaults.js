@@ -40,65 +40,13 @@ module.exports = {
     // accredited-materials: "",
     // rolesexplanation: "Seen",
     participants: {
+        // FIP Mentors
+        ME1: { role: 'Mentor', name: 'Kate Thompson', inductionDay: "6", inductionMonth: "9", inductionYear: "2021", trnNumber: "2345528", dobDay: "1", dobMonth: "1", dobYear: "2001", email: 'kate.thompson@dfe.test.com', usingCurrentTraining: "Yes", cohort: "2021", programme: "FIP", status: 'Eligible' },
+        ME2: { role: 'Mentor', name: 'Benedict Springbett', inductionDay: "6", inductionMonth: "9", inductionYear: "2021", trnNumber: "1239044", dobDay: "1", dobMonth: "1", dobYear: "2001", email: 'james.doe@dfe.test.com', usingCurrentTraining: "Yes", cohort: "2021", programme: "FIP", status: 'Eligible' },
+        OP2: { role: 'Mentor', name: 'Tony Headford', inductionDay: "6", inductionMonth: "9", inductionYear: "2021", trnNumber: "7564996", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "tony.headford@test.dfe.gov.uk", usingCurrentTraining: "Yes", cohort: "2021", programme: "FIP", status: "Eligible" },
+        DN2: { role: 'Mentor', name: 'Saheida Khanom', inductionDay: "5", inductionMonth: "9", inductionYear: "2022", trnNumber: "7564996", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "saheida.khanom@test.dfe.gov.uk", usingCurrentTraining: "Yes", cohort: "2022", programme: "FIP", status: "Eligible" },        
 
-        // Mentors
-        ME1: {
-            role: 'Mentor',
-            name: 'Kate Thompson',
-            inductionDay: "6", inductionMonth: "9", inductionYear: "2021",
-            trnNumber: "2345528",
-            dobDay: "1", dobMonth: "1", dobYear: "2001",
-            email: 'kate.thompson@dfe.test.com',
-            usingCurrentTraining: "Yes",
-            cohort: "2021",
-            programme: "FIP",
-            status: 'Eligible'
-        },
-        ME2: {
-            role: 'Mentor',
-            name: 'Benedict Springbett',
-            inductionDay: "6", inductionMonth: "9", inductionYear: "2021",
-            trnNumber: "1239044",
-            dobDay: "1", dobMonth: "1", dobYear: "2001",
-            email: 'james.doe@dfe.test.com',
-            usingCurrentTraining: "Yes",
-            cohort: "2021",
-            programme: "FIP",
-            status: 'Eligible'
-        },
-        OP2: {
-            role: 'Mentor',
-            name: 'Tony Headford',
-            inductionDay: "6", inductionMonth: "9", inductionYear: "2021",
-            trnNumber: "7564996",
-            dobDay: "1", dobMonth: "1", dobYear: "2001",
-            email: "tony.headford@test.dfe.gov.uk",
-            usingCurrentTraining: "Yes",
-            cohort: "2021",
-            programme: "FIP",
-            status: "Eligible"
-        },
-
-        DN2: {
-            role: 'Mentor',
-            name: 'Saheida Khanom',
-            inductionDay: "5", inductionMonth: "9", inductionYear: "2022",
-            trnNumber: "7564996",
-            dobDay: "1", dobMonth: "1", dobYear: "2001",
-            email: "saheida.khanom@test.dfe.gov.uk",
-            usingCurrentTraining: "Yes",
-            cohort: "2022",
-            programme: "FIP",
-            status: "Eligible"
-        },
-        
-        // CIP
-        SI3: { role: "ECT", name: "Steven Woods", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "steven.woods@test.dfe.gov.uk", mentor: "Fabio Volpe", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "1231312", usingCurrentMaterials: "Yes", cohort: "2021" },
-        PYE: { role: "ECT", name: "Jo Dimbleby", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "2", dobMonth: "2", dobYear: "2002", email: "jo.dimbleby@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", mentor: "Elena Bracey", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "34543654", usingCurrentMaterials: "Yes", cohort: "2021" },
-        JA8: { role: 'Mentor', name: "Elena Bracey", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "elena.bracey@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "6517984", usingCurrentMaterials: "Yes", cohort: "2021" },
-        OBW: { role: 'Mentor', name: "Fabio Volpe", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "fabio.volpe@test.dfe.gov.uk", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "5647894", usingCurrentMaterials: "Yes", cohort: "2021" },
-
-        //FIP
+        //FIP ECTS
         PQ9: {
             role: "ECT",
             name: "Nicola Page",
@@ -183,6 +131,21 @@ module.exports = {
             status: "Eligible",
             mentor: "Benedict Springbett"
         },
+
+        BCC: {
+            role: "ECT",
+            name: "Brian Coult",
+            inductionDay: "5", inductionMonth: "9", inductionYear: "2022",
+            trnNumber: "5567956",
+            dobDay: "1", dobMonth: "1", dobYear: "1111",
+            email: "steven.wood@test.dev.gov.uk",
+            usingCurrentTraining: "Yes",
+            cohort: "2022",
+            programme: "FIP",
+            status: "Eligible",
+            mentor: "Benedict Springbett"
+        },
+        
         // TranferOut Mentor
         KJ8: {
             role: "Mentor",
@@ -260,7 +223,14 @@ module.exports = {
         JHW: { dobDay: "1", dobMonth: "10", dobYear: "2010", email: "TR ECT noMatch schooLP schooDP notTold@test.dfe.gov.uk", joiningDay: "8", joiningMonth: "11", joiningYear: "2022", newLeadProvider: "Best Practice Network", name: "Jo Dimbleby", partnershipWithProvider: "Yes", programme: "FIP", status: "TransferIn", programmeMatch: "No", trnNumber: "345435345", role: "Mentor", usingCurrentTraining: "No", usingCurrentTrainingProgramme: "No", usingCurrentProvider: "No" },
 
 
+        // CIP Mentors        
+        JA8: { role: 'Mentor', name: "Elena Bracey", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "elena.bracey@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "6517984", usingCurrentMaterials: "Yes", cohort: "2021" },
+        OBW: { role: 'Mentor', name: "Fabio Volpe", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "fabio.volpe@test.dfe.gov.uk", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "5647894", usingCurrentMaterials: "Yes", cohort: "2021" },
 
+        // CIP ECT
+        SI3: { role: "ECT", name: "Steven Woods", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "1", dobMonth: "1", dobYear: "2001", email: "steven.woods@test.dfe.gov.uk", mentor: "Fabio Volpe", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "1231312", usingCurrentMaterials: "Yes", cohort: "2021" },
+        PYE: { role: "ECT", name: "Jo Dimbleby", inductionDay: "1", inductionMonth: "9", inductionYear: "2021", dobDay: "2", dobMonth: "2", dobYear: "2002", email: "jo.dimbleby@test.dfe.gov.uk", newMaterialsSupplier: "Teach First", mentor: "Elena Bracey", programme: "CIP", startDate: "Summer 2022", status: "Eligible", trnKnown: "Yes", trnNumber: "34543654", usingCurrentMaterials: "Yes", cohort: "2021" },
+        
         // TRANSFER CIP
         ZZL: { dobDay: "12", dobMonth: "12", dobYear: "2012", email: "CIP TR ECT noMatch schooProg@test.dfe.gov.uk", joiningDay: "4", joiningMonth: "6", joiningYear: "2023", mentor: "Jane Doe", name: "CIP TR ECT noMatch schooProg", programme: "CIP", status: "TransferIn", programmeMatch: "No", trnNumber: "45645753", role: "transfer", usingCurrentMaterials: "Yes", usingCurrentTrainingMaterials: "No" },
         RSD: { dobDay: "12", dobMonth: "3", dobYear: "1988", email: "CIP TR ECT noMatch contProg@test.dfe.gov.uk", joiningDay: "6", joiningMonth: "8", joiningYear: "2023", mentor: "FIP Jane Doe", name: "CIP TR ECT noMatch contProg", programme: "CIP", status: "TransferIn", programmeMatch: "No", trnNumber: "567567567", role: "transfer", usingCurrentTrainingMaterials: "Yes" },

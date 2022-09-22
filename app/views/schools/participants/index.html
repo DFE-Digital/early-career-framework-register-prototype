@@ -80,12 +80,12 @@
 
                     {% if data['showTabEligibleECT'] == "Yes" %}
                         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="ectHtml">                    
-                            {% include "includes/tabs_eligible_ects.html" %}
+                            {% include "includes/dashboard/eligible_ect.html" %}
                         </div>                
                     {% endif %}
                     {% if ((data['showTabEligibleMentor'] == "Yes") or ( data['showTabEligibleMentorNF'] )) %}
                         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mentorHtml">     
-                            {% include "includes/tabs_eligible_mentors.html" %}               
+                            {% include "includes/dashboard/eligible_mentor.html" %}               
                         </div>
                     {% endif %}
                     
