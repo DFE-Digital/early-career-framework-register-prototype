@@ -35,7 +35,7 @@
                             <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>                    
                         {% else %}
                             
-                            <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Year 1</h3>                        
+                            <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Year 1 ECF-based training</h3>                        
                         
                             {% if data['newYearChangeWhat'] == "nextYear-CIP" %}
                                 {% if not data['nextYear-accredited-materials'] %}
@@ -46,29 +46,8 @@
                             {% endif %}
 
                             {% if data['inductionProgrammeYearTwo'] == "FIP" %}
-                                <dl class="govuk-summary-list govuk-!-margin-bottom-3">                                
-                                    <div class="govuk-summary-list__row">
-                                        <dt class="govuk-summary-list__key">ECTs</dt>
-                                        <dd class="govuk-summary-list__value">
-                                            {% if data['inductionProgramme'] == "noECTs" %}0
-                                            {% elif data['inductionProgramme'] == "CIP" %}6
-                                            {% elif data['inductionProgramme'] == "FIP" %}0
-                                            {% else %}0
-                                            {% endif %}
-                                        </dd>
-                                        <dd class="govuk-summary-list__actions"></dd>                                        
-                                    </div>
-                                    <div class="govuk-summary-list__row">
-                                        <dt class="govuk-summary-list__key">Mentors</dt>
-                                        <dd class="govuk-summary-list__value">
-                                            {% if data['inductionProgramme'] == "noECTs" %}0
-                                            {% elif data['inductionProgramme'] == "CIP" %}6
-                                            {% elif data['inductionProgramme'] == "FIP" %}0
-                                            {% else %}0
-                                            {% endif %}
-                                        </dd>
-                                        <dd class="govuk-summary-list__actions"></dd>                                        
-                                    </div>
+                                <dl class="govuk-summary-list govuk-!-margin-bottom-9">                                
+                                   
                                     <div class="govuk-summary-list__row ">
                                         <dt class="govuk-summary-list__key">Programme</dt>
                                         <dd class="govuk-summary-list__value">Training provider, funded by the DfE</dd>
@@ -119,6 +98,28 @@
                                             {% endif %}
                                         </dd>
                                         <dd class="govuk-summary-list__actions"></dd>
+                                    </div>
+                                     <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">ECTs</dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['inductionProgramme'] == "noECTs" %}0
+                                            {% elif data['inductionProgramme'] == "CIP" %}6
+                                            {% elif data['inductionProgramme'] == "FIP" %}0
+                                            {% else %}0
+                                            {% endif %}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions"></dd>                                        
+                                    </div>
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">Mentors</dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['inductionProgramme'] == "noECTs" %}0
+                                            {% elif data['inductionProgramme'] == "CIP" %}6
+                                            {% elif data['inductionProgramme'] == "FIP" %}0
+                                            {% else %}0
+                                            {% endif %}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions"></dd>                                        
                                     </div>
 
                             {% elif data['inductionProgrammeYearTwo'] == "CIP" %}
