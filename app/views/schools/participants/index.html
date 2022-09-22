@@ -50,7 +50,7 @@
 
         <div class="govuk-grid-column-full">
                 
-            {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" ) or (data['showTabEligible'] == "Yes" ) or (data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" ) or (data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
+            {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" ) or (data['showTabEligibleECT'] == "Yes" ) or (data['showTabEligibleMentor'] == "Yes" ) or (data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" ) or (data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
 
                 <div class="govuk-tabs" data-module="govuk-tabs">
                     <h2 class="govuk-tabs__title">Funding eligibility for your ECTs and mentors</h2>
@@ -58,8 +58,10 @@
                         {% if (( data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" )) %}
                             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected"><a class="govuk-tabs__tab" href="#checkingHtml">Checks in progress</a></li>
                         {% endif %}
-                        {% if data['showTabEligible'] == "Yes" %}
+                        {% if data['showTabEligibleECT'] == "Yes" %}
                             <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#ectHtml">Eligible ECTs</a></li>
+                        {% endif %}
+                        {% if data['showTabEligibleMentor'] == "Yes" %}
                             <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#mentorHtml">Eligible mentors</a></li>
                         {% endif %}
                         {% if ((data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" )) %}
