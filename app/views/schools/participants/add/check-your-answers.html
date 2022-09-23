@@ -41,22 +41,29 @@
                 <!-- // -->
 
                 <div class="govuk-visually-hidden key">
-                    {% if data.participants[id].role == "sitMentor" %}
+                    {% if data.participants[id].role == "sitMentor" %}                    
                         {% include "includes/status/status_sitMentor.html" %}
                     <!-- If transferring in -->
                     {% elif data.participants[id].role == "Transfer" %}
+
+                    
                         {% include "includes/status/status_transferIn.html" %}
                     <!-- Otherwise if TRN provided  -->
                     {% else %}
+                    
                         <!-- No QTS -->
                         {% if data.participants[id].noQTS == "Yes" %}
                             {% include "includes/status/status_noQTS.html" %}
                         <!-- Eligible -->
                         {% else %}
+
+                        HERE
                             {% include "includes/status/status_eligible.html" %}
                         {% endif %}
                     {% endif %}
                 </div>
+
+                
 
 
                 {{ govukButton({
