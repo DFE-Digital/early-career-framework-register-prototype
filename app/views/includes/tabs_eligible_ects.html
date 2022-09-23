@@ -1,9 +1,5 @@
-<!-- If programme for this year or last year is FIP -->
 {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-    <!-- Eligible ect tab FIP -->
     {% include "includes/eligible_fip.html" %}
-<!-- If programme for this year or last year is CIP -->
 {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-    <!-- Eligible ect tab CIP -->
     {% include "includes/eligible_cip.html" %}
 {% endif %}
