@@ -1,9 +1,0 @@
-<!-- If programme for this year or last year is FIP -->
-{% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-    <!-- Moving schools tab FIP -->
-    {% include "includes/movingSchool_fip.html" %}
-<!-- If programme for this year or last year is CIP -->
-{% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-    <!-- Moving schools tab CIP -->
-    {% include "includes/movingSchool_cip.html" %}
-{% endif %}
