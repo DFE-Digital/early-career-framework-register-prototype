@@ -28,7 +28,7 @@
                     <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
                 {% endif %}                
 
-            
+            {% endif %}
         
                 {{ govukInput({
                     label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
@@ -39,7 +39,7 @@
                     text: "Continue"
                 }) }}
 
-            {% endif %}
+            
 
 
             </form>
