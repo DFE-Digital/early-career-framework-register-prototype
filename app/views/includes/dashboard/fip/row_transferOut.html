@@ -1,5 +1,6 @@
 <tr class="govuk-table__row">
     <td class="govuk-table__cell "><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">{{ participant.name }}</a></td>
+    {# <td class="govuk-table__cell ">{{ participant.name }}</a> <span class="govuk-body govuk-!-font-size-14"><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">(manage)</span></td> #}
     <td class="govuk-table__cell">
     {% if participant.role == "ECT" %}
         {% if participant.mentor %}
