@@ -2,7 +2,7 @@
 {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
 
 
-    {% if data['showTabWithdrawn'] == "Yes" %}
+
     {% if hasAnyWithdrawnParticipants %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
         <div class="govuk-grid-row">
@@ -11,19 +11,19 @@
             </div>
         </div>
         <table class="govuk-table govuk-!-margin-bottom-9">
-            {% include "includes/dash_fip_head.html" %}
+            {% include "includes/dashboard/fip/head_notTraining.html" %}
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     {% if participant.status == "Withdrawn" and participant.programme == "FIP" %}
-                        {% include "includes/dash_fip_row.html" %}
+                        {% include "includes/dashboard/fip/row_notTraining.html" %}
                     {% endif %}
                 {% endfor %}
             </tbody>
         </table>
     {% endif %}
-{% endif %}
 
-{% if data['showTabNotEligible'] == "Yes" %}
+
+
     {% if hasAnyNotEligibleParticipants %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
         <div class="govuk-grid-row">
@@ -32,22 +32,22 @@
             </div>
         </div>
         <table class="govuk-table govuk-!-margin-bottom-9">
-            {% include "includes/dash_head_notE.html" %}
+            {% include "includes/dashboard/fip/head_notEligible.html" %}
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     {% if participant.status == "NotEligible" and participant.programme == "FIP" %}
-                        {% include "includes/dash_row_notE.html" %}
+                        {% include "includes/dashboard/fip/row_notEligible.html" %}
                     {% endif %}
                 {% endfor %}
             </tbody>
         </table>
     {% endif %}
-{% endif %}
+
 
 
 {% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
 
-    {% if data['showTabWithdrawn'] == "Yes" %}
+
     {% if hasAnyWithdrawnParticipants %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">No longer being trained</h2>
         <div class="govuk-grid-row">
@@ -67,9 +67,9 @@
             </tbody>
         </table>
     {% endif %}
-{% endif %}
 
-{% if data['showTabNotEligible'] == "Yes" %}
+
+
     {% if hasAnyNotEligibleParticipants %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Not eligible for funded training</h2>
         <div class="govuk-grid-row">
@@ -88,7 +88,7 @@
             </tbody>
         </table>
     {% endif %}
-{% endif %}
+
 
 
 {% endif %}

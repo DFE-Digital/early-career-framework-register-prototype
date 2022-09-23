@@ -25,26 +25,26 @@
                 <div class="govuk-grid-column-three-quarters">
                     <ul class="govuk-list govuk-list--bullet">
                         <li>check their details in the Teaching Regulation Agency records</li>
-                        <li>confirm their eligibility for DfE-funded training and access to materials</li>                        
-                    </ul>                    
+                        <li>confirm their eligibility for DfE-funded training and access to materials</li>
+                    </ul>
 
                     <div class="govuk-!-margin-top-6">
                         {{ govukButton({
                             text: "Add a new ECT or mentor",
                             href: "add/"
                         }) }}
-                    </div>                
+                    </div>
 
                 </div>
             </div>
         </div>
-        
+
         <!-- SIT information -->
         {% include "includes/sit_details.html" %}
         <!-- // -->
 
         <div class="govuk-grid-column-full">
-                
+
             {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" ) or (data['showTabEligibleECT'] == "Yes" ) or (data['showTabEligibleMentor'] == "Yes" ) or (data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" ) or (data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
 
                 <div class="govuk-tabs" data-module="govuk-tabs">
@@ -66,40 +66,40 @@
                             <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#notEligibleHtml">Not eligible for funding</a></li>
                         {% endif %}
                     </ul>
-                    
+
                     {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" )) %}
-                        <div class="govuk-tabs__panel" id="checkingHtml">                    
-                            {% include "includes/tabs_checks_in_progress.html" %}                                    
+                        <div class="govuk-tabs__panel" id="checkingHtml">
+                            {% include "includes/tabs_checks_in_progress.html" %}
                         </div>
                     {% endif %}
 
                     {% if data['showTabEligibleECT'] == "Yes" %}
-                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="ectHtml">                    
+                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="ectHtml">
                             {% include "includes/dashboard/eligible_ect.html" %}
-                        </div>                
-                    {% endif %}
-                    {% if ((data['showTabEligibleMentor'] == "Yes") or ( data['showTabEligibleMentorNF'] )) %}
-                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mentorHtml">     
-                            {% include "includes/dashboard/eligible_mentor.html" %}               
                         </div>
                     {% endif %}
-                    
+                    {% if ((data['showTabEligibleMentor'] == "Yes") or ( data['showTabEligibleMentorNF'] )) %}
+                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mentorHtml">
+                            {% include "includes/dashboard/eligible_mentor.html" %}
+                        </div>
+                    {% endif %}
+
 
                     {% if ((data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" )) %}
-                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="movingSchoolHtml">                    
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="movingSchoolHtml">
                         {% include "includes/dashboard/movingSchools.html" %}
                     </div>
                     {% endif %}
 
                     {% if ((data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
-                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notEligibleHtml">                    
-                            {% include "includes/tabs_not_eligible_for_funding.html" %}                
+                        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notEligibleHtml">
+                            {% include "includes/dashboard/notEligible.html" %}
                         </div>
                     {% endif %}
 
                 </div>
 
-            
+
             {% endif %}
 
         </div>
