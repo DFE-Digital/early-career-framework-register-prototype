@@ -3,80 +3,167 @@
 {% set schoolSignedIn = false %}
 {% set showadminPrimaryNav = true %}
 
-{% set pageHeading = "Dean Winchester" %}
-{% set pageSection = "Early career teacher" %}
-
+{% set pageHeading = "Participants" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            
-			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                        			
-			
-			{% set pastDayHtml %}
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-				{{ govukSummaryList({			
-					classes: 'govuk-!-margin-bottom-9',	
-					rows: [                
-					{ key: { text: "Email" }, value: { text: "dean@test.dfe.gov.uk" } },             
-					{ key: { text: "TRN" }, value: { text: "1234567" } },					
-					{ key: { text: "Status" },  value: { text: "Eligible to start" }  },
-					{ key: { text: "Induction start date" },  value: { text: "1 September 2021" }  },
-					{ key: { text: "Notes" }, value: { text: data.support.notes | nl2br | safe if data.support.notes else "No notes" },
-						actions: {
-						items: [
-							{ href: "/support/participant-add-notes", text: "Change notes" if data.support.notes else "Add notes" }
-						]
-						}
-					}
-					]
-				}) }}
+            <div class="govuk-grid-row light-grey govuk-!-padding-top-4 govuk-!-margin-bottom-3">
+                <div class="govuk-grid-column-two-thirds ">
+                {{ govukInput({
+                        label: {
+                            text: "Participant’s name, school’s name or URN",
+                            classes: "govuk-label",
+                            isPageHeading: false
+                        },
+                        classes: "govuk-!-width-full"
+                } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
+                </div>
 
-			{% endset -%}
+                <div class="govuk-grid-column-one-third  ">
 
-			{% set pastWeekHtml %}
+                {{ govukSelect({
+                        label: {
+                            text: "Filter by type",
+                            classes: "govuk-label",
+                            isPageHeading: false
+                        },
+                        items: [
+                            { value: "", text: "" },
+                            { value: "ECT", text: "ECT" },
+                            { value: "Mentor", text: "Mentor" },
+                            { value: "npq", text: "NPQ" }
+                        ],
+                        classes: "govuk-!-width-full"
+                } | decorateFormAttributes(['participants', id, 'schoolSearch']) ) }}
 
-				{{ govukSummaryList({              
-					rows: [				  	
-						{ key: { text: "School" }, value: { html: '<a href="#">Ashley Primary School</a>' } },				  			  						
-						{ key: { text: "Training cohort" }, value: { text: "2021 to 2022" } },
-						{ key: { text: "Mentor" }, value: { html: '<a href="#">Kate Lloyd</a>' } },                
-						{ key: { text: "Programme" }, value: { text: "DfE-funded training provider" } },
-						{ key: { text: "Lead provider" }, value: { html: '<a href="#">{{ data.leadProvider }}</a>' } },
-						{ key: { text: "Delivery partner" }, value: { html: '<a href="#">{{ data.deliveryPartner }}</a>' } },				  
-						{ key: { text: "Materials supplier" }, value: { html: '<a href="#">{{ data.materialsSupplier }}</a>' } }				  
-					]
-				}) }}
-			
-			{% endset -%}
+                </div>
+                <div class="govuk-grid-column-full">
 
-			{% set pastMonthHtml %}
+                {{ govukButton({
+                    text: "Search"
 
-			{{ govukSummaryList({              
-				rows: [				  	
-					{ key: { text: "Registered" }, value: { text: "11 August 2021" } },				  			  						
-					{ key: { text: "Programme changes" }, value: { text: "None" } },
-					{ key: { text: "Moved schools" }, value: { text: "None" } },                
-					{ key: { text: "Declarations made" }, value: { text: "3" } }					
-				]
-			}) }}
-			
-			{% endset -%}
-			
+                }) }}
+                </div>
+            </div>
 
-			{{ govukTabs({
-				items: [
-					{ label: "Details", id: "past-day", panel: { html: pastDayHtml } },
-					{ label: "School", id: "past-week", panel: { html: pastWeekHtml } },
-					{ label: "History", id: "past-month", panel: { html: pastMonthHtml } }					
-				]
-			}) }}
-						
-            <p><a href="#">Delete participant</a></p>
-        
-          </div>
-	</div>
+
+            <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">School</th>
+                            <th scope="col" class="govuk-table__header">TRN</th>
+                            {# <th scope="col" class="govuk-table__header">Role</th>                             #}
+                            <th scope="col" class="govuk-table__header">Lead Provider</th>
+                            <th scope="col" class="govuk-table__header">Delivery partner</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.programme == "FIP" %}
+                                {% include "includes/support_dash_fip_row_new.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "Full name" },
+                    { text: "Role" },
+                    { text: "School", classes: 'govuk-!-width-one-quarter' },
+                    { text: "School URM/network" },
+                    { text: "Date added" },
+                    { text: "Validation status", classes: 'govuk-!-width-one-quarter' }
+                ],
+                rows: [
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Dean Winchester</a>' },
+                        { text: "Mentor" },
+                        { text: "16-19 Abingdon" },
+                        { text: "133226" },
+                        { text: "20 Jul 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bruce Wayne</a>' },
+                        { text: "Mentor" },
+                        { text: "3 Dimensions" },
+                        { text: "134909" },
+                        { text: "29 Oct 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Luke Skywalker</a>' },
+                        { text: "Mentor" },
+                        { text: "Abberley Hall" },
+                        { text: "117011" },
+                        { text: "15 Jul 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start: ERO</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Sam Winchester</a>' },
+                        { text: "NPQ" },
+                        { text: "Ashley Primary School" },
+                        { text: "108685" },
+                        { text: "29 Sep 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Damon Salvatore</a>' },
+                        { text: "Mentor" },
+                        { text: "Easingwold Community Primary School" },
+                        { text: "121331" },
+                        { text: "29 Sep 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Bakki Hammnah</a>' },
+                        { text: "ECT" },
+                        { text: "Gosforth Academy" },
+                        { text: "136352" },
+                        { text: "16 Feb 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Steven Rogers</a>' },
+                        { text: "Mentor" },
+                        { text: "Huntington School" },
+                        { text: "121673" },
+                        { text: "29 Sep 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Natasha Romanoff</a>' },
+                        { text: "NPQ" },
+                        { text: "Ponteland Primary School" },
+                        { text: "145780" },
+                        { text: "29 Sep 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--yellow">Pending</strong>' }
+                    ],
+                    [
+                        { html: '<a href="/support/participants/" class="govuk-link govuk-link--no-visited-state">Peter Parker</a>' },
+                        { text: "ECT" },
+                        { text: "Westmoor Primary School" },
+                        { text: "108582" },
+                        { text: "11 Aug 2021" },
+                        { html: '<strong class="govuk-tag govuk-tag--green">Eligible to start</strong>' }
+                    ]
+                ]
+            }) }}
+    </div>
+
+    </div>
+
+
 
 {% endblock %}
