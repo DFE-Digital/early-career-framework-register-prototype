@@ -16,11 +16,9 @@
 
             {% include "includes/rememberAB.html" %}
 
-            {% if not data['appropriateBody'] %}
-                <form class="form" action="/schools/training-programme/success" method="post" class="govuk-!-margin-bottom-7">
-            {% else %}
+
                 <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-7">
-            {% endif %}
+
 
                 <label for="appropriateBodyName"></label>
 
