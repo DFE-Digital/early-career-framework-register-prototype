@@ -16,28 +16,13 @@
 
             <form class="form" action="lookup" method="post" >
 
-                {% if data['appropriateBody'] == "Change" %}
-
-                    {{ govukRadios({
-                        items: [
-                            { value: "local authority", text: "Local authority" },
-                            { value: "national organisation, redirect(national-organisation)", text: "National organisation" },
-                            { value: "teaching school hub", text: "Teaching school hub" }
-                        ]
-                    } | decorateFormAttributes("appropriateBodyTypeChange")) }}
-
-                {% else %}
-
-
-                    {{ govukRadios({
-                        items: [
-                            { value: "local authority", text: "Local authority" },
-                            { value: "national organisation, redirect(national-organisation)", text: "National organisation" },
-                            { value: "teaching school hub", text: "Teaching school hub" }
-                        ]
-                    } | decorateFormAttributes("appropriateBodyType")) }}
-
-                {% endif %}
+                {{ govukRadios({
+                    items: [
+                        { value: "local authority", text: "Local authority" },
+                        { value: "national organisation, redirect(national-organisation)", text: "National organisation" },
+                        { value: "teaching school hub", text: "Teaching school hub" }
+                    ]
+                } | decorateFormAttributes("appropriateBodyTypeChange")) }}
 
                 {% if not data['appropriateBody'] %}
                 <p class="govuk-body govuk-!-margin-bottom-7"><a class="govuk-link" href="/schools/training-programme/success">I do not know the appropriate body yet</a></p>

@@ -149,11 +149,11 @@
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {% if participant.abConfirm == "Yes" %}
-                                        <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body/">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% elif participant.appropriateBodyName %}
-                                        <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body/type">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% else %}
-                                        <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body/type">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% endif %}
                                 </dd>
                             </div>
