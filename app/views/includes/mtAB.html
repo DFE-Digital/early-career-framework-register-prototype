@@ -2,17 +2,17 @@
     {% if data['inductionProgrammeYearTwo'] != "temphold" %}
         {% if data['newYearChangeWhat'] != "switchDyo" %}
 
-<div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Appropriate body</dt>
-    <dd class="govuk-summary-list__value">{{ data.appropriateBodyName }}</dd>
-    <dd class="govuk-summary-list__actions">
-    {% if data['appropriateBodyName'] %}
-
-    {% else %}
-        <a class="govuk-link" href="appropriate-body/?appropriateBody=No">Add<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
-    {% endif %}
-    </dd>
-</div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Appropriate body</dt>
+                <dd class="govuk-summary-list__value">{{ data.appropriateBodyName }}</dd>
+                <dd class="govuk-summary-list__actions">
+                    {% if data['appropriateBodyName'] %}
+                        <a class="govuk-link" href="/schools/appropriate-body/change/">Change<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+                    {% else %}
+                        <a class="govuk-link" href="/schools/appropriate-body/?appropriateBody=No">Add<span class="govuk-visually-hidden"> your appropriate body</span></a></dd>
+                    {% endif %}
+                </dd>
+            </div>
 
     {% endif %}
     {% endif %}
