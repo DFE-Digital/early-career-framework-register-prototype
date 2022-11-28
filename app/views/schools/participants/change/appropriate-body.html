@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Which type of appropriate body have you appointed?" %}
+{% set pageHeading = 'Which type of appropriate body have you appointed for ' +  participant.name + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,8 +12,6 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            {# <p class="govuk-body">If your school works with more than one appropriate body, first tell us about the one appointed for the majority of your ECTs. You can add the others later.</p> #}
-
             <form class="form" action="lookup" method="post" >
 
                 {{ govukRadios({
@@ -22,7 +20,8 @@
                         { value: "national organisation, redirect(national-organisation)", text: "National organisation" },
                         { value: "teaching school hub", text: "Teaching school hub" }
                     ]
-                } | decorateFormAttributes("appropriateBodyTypeChange")) }}
+                } | decorateFormAttributes(['participants', id, 'appropriateBodyType']) ) }}
+
 
 
                 {{ govukButton({
