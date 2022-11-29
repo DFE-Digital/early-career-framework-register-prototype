@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'Which ' + data.appropriateBodyType + ' have you appointed for ' +  participant.name + '?' %}
+{% set pageHeading = 'Which ' + participant.appropriateBodyType + ' have you appointed for ' +  participant.name + '?' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
