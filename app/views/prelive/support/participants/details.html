@@ -1,0 +1,272 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = '' + participant.name + '' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% set pageSection = "Early career teacher" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+			{{ participants.name }}
+
+			{% set pastDayHtml %}
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+				  		<dt class="govuk-summary-list__key">Name</dt>
+				  		<dd class="govuk-summary-list__value">
+						{% if participant.nameNew %}
+                            {{ participant.nameNew }}
+                        {% else %}                        
+                            {{ participant.name }}
+                        {% endif %}
+						</dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+					</div>
+                    <div class="govuk-summary-list__row">
+				  		<dt class="govuk-summary-list__key">Email</dt>
+				  		<dd class="govuk-summary-list__value">
+						{% if participant.emailCorrect %}
+                            {{ participant.emailCorrect }}
+                        {% else %}                        
+                            {{ participant.email }}
+                        {% endif %}
+						</dd>
+				  		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+					</div>
+                    {% if data['inductionProgramme'] == "FIP" %}
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">ID</dt>
+						<dd class="govuk-summary-list__value">{{ participant.iD }}</dd>
+				  	</div>
+                    {% endif %}
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">Validation status</dt>
+						<dd class="govuk-summary-list__value">{{ participant.status }}</dd>
+				  	</div>
+					{# <div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Training cohort</dt>
+						<dd class="govuk-summary-list__value">2021 to 2022</dd>
+					</div> #}
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">Start term</dt>
+						<dd class="govuk-summary-list__value">{{ participant.startDate }}</dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Notes</dt>
+						<dd class="govuk-summary-list__value">{{ data.support.notes | nl2br }}</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+				  	</div>
+				</dl>
+				<!-- {{ govukSummaryList({
+					classes: 'govuk-!-margin-bottom-9',
+					rows: [
+					{ key: { text: "Email" }, value: { html: 'participant.email' } },
+					{ key: { text: "TRN" }, value: { text: "1234567" } },
+					{ key: { text: "Status" },  value: { text: "Eligible to start" }  },
+					{ key: { text: "Induction start date" },  value: { text: "1 September 2021" }  },
+					{ key: { text: "Notes" }, value: { text: data.support.notes | nl2br | safe if data.support.notes else "No notes" },
+						actions: {
+						items: [
+							{ href: "/support/participant-add-notes", text: "Change notes" if data.support.notes else "Add notes" }
+						]
+						}
+					}
+					]
+				}) }} -->
+			{% endset -%}
+
+			{% set pastWeekHtml %}
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">School</dt>
+						<dd class="govuk-summary-list__value">Ashley Primary School</dd>
+					</div>
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">Mentor</dt>
+						<dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a></dd> #}
+					</div>
+
+
+					{% if data.participants[id].programme == "FIP" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Lead provider</dt>
+						<dd class="govuk-summary-list__value">
+							{% if data.participants[id].usingCurrentTraining == "Yes" %}
+								{{ data.leadProvider}}
+							{# Not using schools training #}
+							{% elif data.participants[id].usingCurrentTraining == "No" %}
+							{# Using schools provider but not delivery partner #}
+								{% if data.participants[id].usingCurrentProvider == "Yes" %}
+									{{ data.leadProvider}}
+								{% elif data.participants[id].usingCurrentProvider == "No" %}
+									{# Using with new provider #}
+									{{ participant.newLeadProvider }}
+								{% endif %}
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd>
+					</div>
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key">Delivery partner</dt>
+						<dd class="govuk-summary-list__value">
+							{% if data.participants[id].usingCurrentTraining == "Yes" %}
+								{{ data.deliveryPartner }}
+							{# Not using schools training #}
+							{% elif data.participants[id].usingCurrentTraining == "No" %}
+								{# Using schools provider but not delivery partner #}
+								{% if data.participants[id].usingCurrentProvider == "Yes" %}
+									To be confirmed
+								{# Not using schools provider #}
+								{% elif data.participants[id].usingCurrentProvider == "No" %}
+									{# Partnership with new provider #}
+									To be confirmed
+								{% endif %}
+							{% endif %}
+						</dd>
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd> #}
+					</div>
+					{% elif data.participants[id].programme == "CIP" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Materials supplier</dt>
+						<dd class="govuk-summary-list__value">
+							{{ data.leadProviderMaterials }}
+						</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+					</div>
+					{% endif %}
+				</dl>
+			{% endset -%}
+
+			{% set pastMonthHtml %}
+
+			{{ govukSummaryList({
+				rows: [
+					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
+					{ key: { text: "Programme changes" }, value: { text: "None" } },
+                    { key: { text: "School transfers" }, value: { html: '10 March 2022<br>Gob out information' } }
+				]
+			}) }}
+
+			{# <h2 class="govuk-heading-m">School transfers</h2>
+            <p class="govuk-!-margin-bottom-0">Reported: 10 March 2022</p>
+			{{ govukTable({
+                classes: "govuk-!-margin-bottom-3",
+				captionClasses: "govuk-table__caption--m",
+				head: [
+				  {
+					text: "New school",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "New programme",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "New LP/DP/Materials",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Joining date",
+					classes: 'govuk-!-width-one-quarter'
+				  }
+				],
+				rows: [
+				  [
+					{
+					  text: "ACME school"
+					},
+					{
+					  text: "Programme"
+					},
+					{
+						text: "Ambition Institute"
+					  },
+					{
+					  text: "15 March 2022"
+					}
+
+				  ]
+				]
+			  }) }}
+
+
+
+			{{ govukTable({
+				captionClasses: "govuk-table__caption--m",
+
+				head: [
+				  {
+					text: "Old school",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Old programme",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Old LP/DP/Materials",
+					classes: 'govuk-!-width-one-quarter'
+				  },
+				  {
+					text: "Leaving date",
+					classes: 'govuk-!-width-one-quarter'
+				  }
+				],
+				rows: [
+				  [
+					{
+					  text: "ACME school"
+					},
+					{
+					  text: "Programme"
+					},
+					{
+						text: "Ambition Institute"
+					  },
+					{
+					  text: "15 March 2022"
+					}
+				  ]
+				]
+			  }) }} #}
+
+			<!-- <h2 class="govuk-heading-m">Programme changes</h2>
+			{{ govukSummaryList({
+				rows: [
+					{ key: { text: "Added to the service" }, value: { text: "11 August 2021" } },
+					{ key: { text: "Programme changes" }, value: { text: "None" } },
+					{ key: { text: "Moved schools" }, value: { text: "None" } }
+
+
+				]
+			}) }} -->
+
+			{% endset -%}
+
+
+			{{ govukTabs({
+				items: [
+					{ label: "Details", id: "past-day", panel: { html: pastDayHtml } },
+					{ label: "School", id: "past-week", panel: { html: pastWeekHtml } },
+					{ label: "History", id: "past-month", panel: { html: pastMonthHtml } }
+				]
+			}) }}
+
+            <p><a href="#">Delete participant</a></p>
+
+          </div>
+	</div>
+
+{% endblock %}

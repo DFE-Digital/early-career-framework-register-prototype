@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = '' + school.name + '' %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+                <ul class="app-subnav__list">
+                    <li class="app-subnav__list-item app-subnav__list-item--selected"><a class="app-subnav__link govuk-link--no-visited-state" href="overview">Overview</a></li>
+                    <li class="app-subnav__list-item"><a class="app-subnav__link govuk-link--no-visited-state" href="participants">Participants</a></li>
+                    <li class="app-subnav__list-item"><a class="app-subnav__link govuk-link--no-visited-state" href="cohorts">Cohorts</a></li>
+                </ul>
+            </nav>
+
+
+            <h2 class="govuk-heading-l">Overview</h2>
+
+            {% if data.schools[id].inductionName %}
+            {{ govukButton({
+                text: "Impersonate induction tutor"
+            }) }}
+            {% endif %}
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Induction tutor</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].inductionName }}</dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="induction-coordinators/new">
+                        {% if data.schools[id].inductionName %}
+                        Change
+                        {% else %}
+                        Add induction tutor
+                        {% endif %}
+                        <span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Email</dt>
+                    <dd class="govuk-summary-list__value"><a href="#">{{ data.schools[id].inductionEmail }}</a></dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="induction-coordinators/new">
+                        {% if data.schools[id].inductionName %}
+                        Change
+                        {% else %}
+                        Add induction tutor
+                        {% endif %}
+                        <span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">URN</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].urn }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Local authority</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].localAuthority }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                
+                <!-- <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Local trust</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].localTrust }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div> -->
+                <!-- <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Establishment group</dt>
+                    <dd class="govuk-summary-list__value">{{ data.schools[id].group }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div> -->
+            </dl>
+
+            <p><a href="" class="govuk-link govuk-link--no-visited-state">Set up 2020 cohort for NQT+1s. Right click and copy link address for use in macros.</a></p>
+
+        </div>
+    </div>
+
+{% endblock %}

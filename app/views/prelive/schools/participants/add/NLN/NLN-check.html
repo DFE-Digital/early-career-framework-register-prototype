@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data['inductionProgramme'] == "FIP" %}
+    {% if data.participants[id].transferProgramme == "differentLPandDP"%}
+        {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+            {% set pageHeading = 'You must check ' + data.leadProviderTransfer + ' is able to continue training ' + participant.name + '' %}
+        {% else %}
+            <!-- Not got to yet -->
+            <!-- {% set pageHeading = 'You must check ' + data.leadProvider + ' is able to train ' + participant.name + ''  %} -->
+        {% endif %}
+    {% else %}
+    <!-- Promgramme match -->
+    <!-- Not got to yet -->
+    {% endif %}
+{% elif data['inductionProgramme'] == "CIP" %}
+    {% if data.participants[id].transferProgramme == "differentLPandDP"%}
+        {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+            {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will carry ontrain ' + participant.name + ' at your school?' %}
+        {% else %}
+            {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will train ' + participant.name + ' at your school?' %}
+        {% endif %}
+    {% else %}
+    <!-- Programme match -->
+    {% endif %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if data.participants[id].role == "ECT" %}
+                <!-- If ECT will train with a new provider -->
+                <p>{{ participant.newLeadprovider }} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
+                <!-- Only FIP -->
+                {% if data['inductionProgramme'] == "FIP" %}<p>If you're already signed up with a delivery partner (the organisation that will deliver your training), they can help you to contact {{ participant.newLeadprovider }}.</p>{% endif %}
+                <p>You can now continue to register {{ participant.name }}.</p>
+
+            {% elif data.participants[id].role == "Transfer" %}
+
+                <!-- If ECT will continue with their current provider at their new school -->
+                {% if data.participants[id].transferProgramme == "differentLPandDP"%}
+                    {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                        <p>Your school must check {{ data.leadProvider }} is able to train this person when they transfer to your school.</p>
+                        <p>{{ data.leadProvider }} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
+                    {% else %}
+                        <p>Your school must check {{ data.leadProviderTransfer }} is able to continue training this person when they transfer to your school.</p>
+                    {% endif %}
+                {% else %}
+                    <p>Your school must check {% if data.participants[id].transferProgramme == "differentLPandDP" %}ACME Provider{% else %}{{ participant.newLeadprovider }}{% endif %} is able to train this person when they transfer to your school.</p>
+                {% endif %}
+                <!-- <p>{% if data.participants[id].transferProgramme == "differentLPandDP" %}ACME Provider{% else %}{{ participant.newLeadprovider }}{% endif %} needs to confirm this directly with us too. We can then update our records.</p> -->
+
+                {% if data.participants[id].usingCurrentTrainingProgramme != "No" %}
+                    <p>{% if data.participants[id].transferProgramme == "differentLPandDP" %}{{ data.leadProviderTransfer }}{% else %}{{ participant.newLeadprovider }}{% endif %} then needs to confirm this directly with us, so we can arrange the correct funding.</p>
+                {% endif %}
+                <p>You can now continue to register {{ participant.name }}.</p>
+
+            {% endif %}
+
+            <form class="form" action="check-your-answers" method="post" >
+
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

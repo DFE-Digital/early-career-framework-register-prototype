@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+{% if data.participants[id].role == "ECT" %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s correct induction start date? ' %}
+{% elif data.participants[id].role == "Mentor" %}
+    {% set pageHeading = 'What new date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+{% endif %}
+
+
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            {% if data.participants[id].role == "ECT" %}
+                <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>
+            {% elif data.participants[id].role == "Mentor" %}
+                {# <p>This is the date when the mentor formally starts mentoring an ECT.</p> #}
+            {% endif %}
+
+                    
+            <form class="form" action="/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">                    
+
+				{{ govukDateInput({
+					id: 'session-date-induction',
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [
+						{
+							name: '[participants][' + id + '][inductionDayCorrect]',							
+							classes: "govuk-input--width-2",
+							label: 'Day'
+						},
+						{
+							name: '[participants][' + id + '][inductionMonthCorrect]',							
+							classes: "govuk-input--width-2",
+							label: 'Month'
+						},
+						{
+							name: '[participants][' + id + '][inductionYearCorrect]',							
+							classes: "govuk-input--width-4",
+							label: 'Year'
+						}
+					],
+					hint: {
+						text: "For example, 14 9 2022"
+					}
+				}) }}
+
+
+
+				{{ govukButton({
+					text: "Confirm and send"
+				}) }}
+
+			</form>
+    	</div>
+  	</div>
+{% endblock %}

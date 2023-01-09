@@ -1,0 +1,25 @@
+{% if data['inductionProgramme'] == "FIP" %}   
+    <h2 class="govuk-heading-m">Eligibility for funding</h2>
+    <p class="govuk-body">Our checks have confirmed this person is eligible for DfE-funded mentor training to support ECTs.</p>        
+    <p class="govuk-body">They should receive:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>ECF-based mentor training</li>
+        <li>adequate time to take part in training</li>
+    </ul>        
+    <p class="govuk-body">{{ participant.name }} does not need to provide us with any more information.</p>        
+    
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">We’ll pass {{ participant.name }}’s information to their training provider.</p>
+
+
+{% elif data['inductionProgramme'] == "CIP" %}        
+    <h2 class="govuk-heading-m">Eligibility</h2>
+    <p class="govuk-body">Our checks have confirmed this person is eligible to mentor ECTs.</p>
+    <p class="govuk-body">They should be given adequate time to conduct mentoring sessions with ECTs.</p>
+    <p class="govuk-body">{{ participant.name }} does not need to provide us with any more information.</p>
+    
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">They’ll receive a link to their training materials within the next 24 hours. If they do not receive anything, they should check their spam or junk folder.</p>
+
+
+{% endif %}

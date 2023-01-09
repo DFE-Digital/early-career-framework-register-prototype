@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Schools and Teachers" %}
+{% set pageSection = "Prototype work" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+			<!-- <p>Testing deployment</p> -->
+    		<ul class="govuk-list govuk-body-s">
+          		<li>Last updated: 9 January 2023</li>
+            	<li>Prototype version: {{releaseVersion}}</li>
+        	</ul>
+        	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
+
+        	{{ govukButton({
+      			text: "Journey from first email contact",
+      			href: "/emails/tell-us-if-you-have-nqt"
+    		}) }}
+            <br>
+    		{{ govukButton({
+      			text: "Page listings",
+      			href: "admin/listings",
+      			classes: "govuk-button--secondary"
+    		}) }}
+
+        	{{ govukButton({
+      			text: "Preload options",
+      			href: "/admin/preload",
+      			classes: "govuk-button--secondary govuk-!-margin-left-1"
+    		}) }}
+
+        	{% include "includes/break.html" %}
+
+
+			{# <h2 class="govuk-heading-m">Appropriate body demo</h2>
+        	<p>Quick links to allow demo of the appropriate body functionality.</p>
+
+			<form action="/schools/appropriate-body/" method="post" >
+
+				<input type="hidden" id="cohort" name="cohort" value="2022" />
+
+				<input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+				<input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
+				<input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+				<input type="hidden" name="inductionProgrammeYearTwoECTs" id="inductionProgrammeYearTwoECTs" value="Yes" />
+				<input type="hidden" name="inductionProgrammeYearTwoProviderChange" id="inductionProgrammeYearTwoProviderChange" value="No" />
+
+
+				{{ govukButton({
+					text: "Continue"
+				 }) }}
+			</form>
+
+			{% include "includes/break.html" %} #}
+
+
+        	<h2 class="govuk-heading-m">User research</h2>
+        	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+            {# <p>No current user research taking place.</p> #}
+        	{{ govukButton({
+            	text: "Continue",
+            	href: "admin/user-research/"
+        	}) }}
+
+        	{% include "includes/break.html" %}
+
+    		<h2 class="govuk-heading-m">Development baseline</h2>
+        	<p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
+
+			<form method="post" action="/index" >
+            	{{ govukButton({
+                	text: "Continue",
+                	href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
+            	}) }}
+        	</form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

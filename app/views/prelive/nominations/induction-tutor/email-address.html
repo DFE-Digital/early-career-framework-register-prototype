@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% if data['induction-tutor-fullname'] %}
+  {% set pageHeading = 'What’s ' + data['induction-tutor-fullname'] + '’s email address? ' %}
+{% else %}
+  {% set pageHeading = "What’s your induction tutor’s email address?" %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+          <p>We’ll use this address to contact them with more information.</p>
+
+        {% if data['linkaction'] == "change-induction-name" %}
+        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8"></form>
+        {% else %}
+        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+        {% endif %}
+
+          {{ govukInput({
+            label: {
+                text: "Email address",
+                classes: "govuk-visually-hidden"
+              },
+            classes: "govuk-!-width-two-thirds",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false
+          } | decorateFormAttributes('induction-tutor-email')) }}
+
+          <input type="hidden" name="school-status" id="school-status" value="Signed up" />
+          <input type="hidden" name="induction-tutor-nominated" id="induction-tutor-nominated" value="No" />
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

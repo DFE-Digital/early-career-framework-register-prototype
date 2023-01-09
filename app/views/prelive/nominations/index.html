@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "What we need to know" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>We need to know:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>whether or not your school expects any new ECTs</li>
+                {% if data['inductionProgramme'] == "FIP" %}
+                <li>if you plan to change how you run training for any new ECTs</li>
+                {% else %}
+                <li>which training programme you want to use for any new ECTs</li>
+                {% endif %}
+            </ul>
+
+            <p>You can tell us this later if you do not know yet. You can also change your answers if you need to.</p>
+            <div class="govuk-inset-text">
+                <p>Do not include ECTs who started their training in the 2021 to 2022 academic year.</p>
+            </div>
+
+            <form action="/nominations/next-academic-year" method="post" >
+                <input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="Started"  />
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+
+      	</div>
+  	</div>
+
+{% endblock %}

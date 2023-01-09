@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% if data.participants[id].role == "ECT" %}
+    {% set pageHeading = 'When do you expect ' + participant.name + ' to start their induction programme?' %}
+{% elif data.participants[id].role == "Mentor" %}
+    {% set pageHeading = 'When do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+{% endif %}
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            <!-- If coming from the CYA page -->
+            {% if data['cya-action'] == "change-start-date" %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
+            {% else %}
+            <!-- Add journey -->
+                {% if data.participants[id].role == "Mentor"%}
+                    {# {% if data['appropriateBodyName'] %}
+                        <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+                    {% else %} #}
+                        <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                    {# {% endif %} #}
+                {% else %}
+                    <form class="form" action="induction-start-date" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
+            {% endif %}
+
+                {% if data['cohort'] == "2022" %}
+
+                    {{ govukRadios({
+                    items: [
+                        { value: "Autumn 2022", text: "Autumn 2022" },
+                        { value: "Spring 2023", text: "Spring 2023" },
+                        { value: "Summer 2023", text: "Summer 2023" }
+
+                    ]
+                } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
+
+                {% else %}
+
+
+                {{ govukRadios({
+                    items: [
+                        { value: "Spring 2022", text: "Spring 2022" },
+                        { value: "Summer 2022", text: "Summer 2022" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'startDate']) ) }}
+
+                {% endif %}
+
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

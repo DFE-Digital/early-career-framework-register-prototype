@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'When is ' + participant.name + ' leaving your school?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+			<!-- <p>This is the last day they are part of the staff at your school.</p> -->
+
+          	<form class="form" action="check-your-answers" method="post">
+
+                {{ govukDateInput({
+					id: 'session-date-joining',
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [
+						{
+							name: '[participants][' + id + '][leavingDay]',
+							value: data.participants[id]['leavingDay'],
+							classes: "govuk-input--width-2",
+							label: 'Day'
+						},
+						{
+							name: '[participants][' + id + '][leavingMonth]',
+							value: data.participants[id]['leavingMonth'],
+							classes: "govuk-input--width-2",
+							label: 'Month'
+						},
+						{
+							name: '[participants][' + id + '][leavingYear]',
+							value: data.participants[id]['leavingYear'],
+							classes: "govuk-input--width-4",
+							label: 'Year'
+						}
+					],
+					hint: {
+						text: "For example, 14 7 2023"
+					}
+				}) }}
+
+
+
+
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+    	</div>
+  	</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<h2 class="govuk-heading-m">Eligibility for funding</h2>        
+<p>We may contact {{participant.name}} for more information to help us confirm if they’re eligible for funded training.</p>
+<p>You can sign in to your account for updates.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>  
+
+{% if data['inductionProgramme'] == "FIP" %}        
+    <p>We’ll pass {{ participant.name }}’s information to their training provider. This means they’ll be ready to start once we confirm their eligibility.</p>
+    <p>If eligible, {{participant.name}} should be given adequate time to conduct mentoring sessions with ECTs.</p>
+    
+
+{% elif data['inductionProgramme'] == "CIP" %}    
+
+    <p>They’ll receive a link to their training materials within the next 24 hours. This means they’ll be ready to start once we confirm their eligibility.</p>
+    <p>If they do not receive anything, they should check their spam or junk folder.</p>
+    <p>If eligible, {{participant.name}} should be given adequate time to conduct mentoring sessions with ECTs.</p>
+    
+
+{% endif %}

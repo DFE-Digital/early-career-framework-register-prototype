@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% set showPhaseBanner = false %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+
+  <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="pseudo-bg"></div>
+<div class="email-metadata">
+  <p><strong>From: </strong>Department for Education: Teacher Continuing Professional Development </p>
+  <p><strong>Subject: </strong>Link to sign in</p>
+</div>
+<div class="pseudo-email-template">
+<p>Hello [full name],</p>
+
+<p>To sign in, please follow this link:
+<a href="signed-in">https://manage-training-for-early-career-teachers.education.gov.uk//users/confirm_sign_in?login_token=22345678as9fijhgt</a>
+<br/>(This link will expire at 1pm)</p>
+
+<p>Teacher Continuing Professional Development<br />
+<span style="color:#888888;">Department for Education</span></p>
+</div>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+                <!-- Name -->
+                {% include "includes/summary_name.html" %}
+                <!-- TRN -->
+                {% include "includes/summary_trn.html" %}
+                <!-- Date of birth -->
+                {% if participant.dobDay %}
+                    {% include "includes/summary_dob.html" %}
+                {% endif %}
+
+                {% if participant.nationalInsuranceNumber %}
+                    {% include "includes/summary_ni.html" %}
+                {% endif %}
+
+                <!-- Joining Date -->
+                {% if participant.joiningDay %}
+                    {% include "includes/summary_joining.html" %}
+                {% endif %}
+                <!-- Email -->
+                {% if participant.email %}
+                    {% include "includes/summary_email.html" %}
+                {% endif %}
+
+                <!-- Induction start date -->
+                {% if participant.inductionDay %}
+                    {% include "includes/summary_induction_date.html" %}
+                {% endif %}
+
+                {% if participant.cohort %}
+                    {% include "includes/summary_cohort.html" %}
+                {% endif %}
+
+
+
+                {% if data.participants[id].abConfirm == "Yes" or data.participants[id].appropriateBodyName %}
+                {% if data.participants[id].role == "ect" %}
+                    {% include "includes/summary_aBody.html" %}
+                {% endif %}
+                {% endif %}
+
+
+                <!-- Mentor details -->
+                {# {% if not data.participants[id].isMentor %}
+                    {% if participant.mentor %}
+                        {% include "includes/summary_mentor.html" %}
+                    {% endif %}
+                {% endif %} #}
+
+                <!-- Training -->
+                <!-- If adding ECT or MENTOR -->
+                {% if data.participants[id].role == "ect" or data.participants[id].role == "mentor" %}
+                    {% include "includes/summary_training_ect_mentor.html" %}
+                <!-- If Transferring -->
+                {% elif data.participants[id].role == "transfer" %}
+                    {% include "includes/summary_training_transfer.html" %}
+                {% endif %}
+
+
+
+
+            </dl>
+
+                <form class="form" action="confirmation" method="post" >
+
+                <!-- This will set the correct status for the participant so that they appear on the correct part of the dashboard -->
+                <!-- Clears any change action from the CYA - we may not need moving forwards  -->
+                {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
+
+
+
+
+
+
+
+
+                {% if data.participants[id].role == "sitMentor" %}
+
+                    {{ govukInput({
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                        value: "Eligible"
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
+
+
+
+                <!-- If transferring in -->
+                {% elif data.participants[id].role == "transfer" or data.participants[id].role == "mentorTransfer"  %}
+                    {{ govukInput({
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                        value: "TransferIn"
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                <!-- Otherwise if TRN provided  -->
+                {% elif participant.trnKnown == "Yes" %}
+
+                    {% if data.participants[id].noRecordsMatched == "Yes" %}
+
+                        {{ govukInput({
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "Contacted"
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                    {% else %}
+                        <!-- No QTS -->
+                        {% if data.participants[id].noQTS == "Yes" %}
+
+                            {{ govukInput({
+                                classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                                value: "CheckingQTS"
+                            } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                        <!-- Eligible -->
+                        {% else %}
+
+                            {{ govukInput({
+                                classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                                value: "Eligible"
+                            } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                        {% endif %}
+
+                    {% endif %}
+
+                <!-- If no TRN we need to contact them to provde the details -->
+                {% else %}
+
+                    {{ govukInput({
+                        classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                        value: "Contacted"
+                    } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                {% endif %}
+
+
+                {% if data['cohort'] == "2022" %}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Cohort 2022", checked: "checked" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort2022']) ) }}
+
+                {% elif data['cohort'] == "2021" %}
+
+                        {{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small govuk-visually-hidden ",
+                            items: [
+                                { value: "Yes", text: "Cohort 2021", checked: "checked" }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'cohort2021']) ) }}
+
+                {% endif %}
+
+                {{ govukButton({
+                    text: "Confirm and add"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

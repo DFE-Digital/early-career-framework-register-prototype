@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+
+    {% if data['inductionProgramme'] == "FIP" %}
+        {% if data.participants[id].transferProgramme == "differentLPandDP"%}
+        <!-- No match on programme -->
+                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                <!-- Using programme currently on -->
+                    {% set pageHeading = 'Have you asked ' + data.leadProviderTransfer + ' if they’ll carry on training ' + participant.name + ' at your school?' %}
+                {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                <!-- using schools programme -->
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProvider + ' will train ' + participant.name + ' at your school?' %}
+                {% endif %}
+        {% else %}
+        <!-- Promgramme match -->
+        <!-- Not got to yet -->
+        {% endif %}
+    {% elif data['inductionProgramme'] == "CIP" %}
+        {% if data.participants[id].transferProgramme == "differentLPandDP"%}
+                {% if data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will carry ontrain ' + participant.name + ' at your school?' %}
+                {% else %}
+                    {% set pageHeading = 'Have you confirmed ' +  data.leadProviderMaterialsTransfer + ' will train ' + participant.name + ' at your school?' %}
+                {% endif %}
+        {% else %}
+        <!-- Programme match -->
+        {% endif %}
+    {% endif %}
+
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>You must agree this with the lead provider directly.</p>
+
+            <form class="form" action="check" method="post" >
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                    legend: {
+                        text: "Do you know this person’s teacher reference number (TRN)?",
+                        isPageHeading: true,
+                        classes: "govuk-visually-hidden"
+                    }
+                    },
+                    items: [
+                        { value: "Yes, redirect(check-your-answers)", text: "Yes" },
+                        { value: "No", text: "No" }
+
+                    ]
+
+                } | decorateFormAttributes(['participants', id, 'partnershipWithProvider']) ) }}
+
+          <!-- {{ govukRadios({
+            items: [
+              { value: "FIP", text: "Use a different training provider, funded by the DfE" },
+              { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+              { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+            ]
+          } | decorateFormAttributes("inductionProgramme-addition")) }}
+             -->
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

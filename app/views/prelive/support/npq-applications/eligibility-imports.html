@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "NPQ Applications" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+    <ul class="app-subnav__list">
+      <li class="app-subnav__list-item">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="/support/npq-applications/">
+          Application Exports
+        </a>
+      </li>
+      <li class="app-subnav__list-item app-subnav__list-item--selected">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="/support/npq-applications/eligibility-imports">
+          Eligibility Imports
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+            {# <p>Manage your Completeds and delivery partners supplying training.</p> #}
+                {{ govukButton({
+                    text: "Schedule Import"
+
+                }) }}
+
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "Filename", classes: 'govuk-!-width-one-third' },
+                    { text: "Status"  },
+                    { text: "Scheduled" },
+                    { text: "Processed" },
+                    { text: "", format: "numeric"  }
+                ],
+                rows: [
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Completed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Completed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Completed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Completed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "eligibility_import_15_09_2022.csv" },
+                        { text: "Errors" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Failed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Failed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "NSU data Funding Policy Review [05.09-20.09 2022] - [digital] import sheet (1).csv" },
+                        { text: "Errors" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ],
+                    [
+                        { text: "eligibility_import_15_09_2022.csv" },
+                        { text: "Failed" },
+                        { html: "21 September 2022<br>4:29 PM"},
+                        { html: "21 September 2022<br>4:30 PM"},
+                        { html: '<a href="#">Results</a>', format: "numeric"}
+                    ]
+                ]
+            }) }}
+    </div>
+
+    </div>
+
+
+
+{% endblock %}

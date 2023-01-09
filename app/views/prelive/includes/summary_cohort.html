@@ -1,0 +1,21 @@
+{% if participant.cohort %}
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Academic year</dt>
+    <dd class="govuk-summary-list__value">
+        {% if participant.role == "Transfer" %}
+
+        {% else %}
+
+            {% if participant.cohort == "2022" %}
+                2022 to 2023
+            {% elif participant.cohort == "2021" %}
+                2021 to 2022
+            {% else %}
+
+            {% endif %}
+
+        {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> academic year they will start their ECF-based training</span></a></dd>
+</div>
+{% endif %}

@@ -1,0 +1,298 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Set up your school’s early career teacher training programme: step by step" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/step-by-step-nav.js"></script>
+    <script type="text/javascript">
+      var $element = $('#step-by-step-navigation')
+      var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+      stepByStepNavigation.start($element)
+    </script>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      <p>This guidance explains how and why to use the <a href="https://manage-training-for-early-career-teachers.education.gov.uk" class="govuk-link">Manage training for early career teachers</a>  service provided by the Department for Education (DfE).</p>
+      <p class="govuk-body">You can find information on <a href="https://www.gov.uk/government/collections/induction-training-and-support-for-early-career-teachers-ects">training, mentoring and induction for early career teachers (ECTs)</a> in our updated guidance collection.</p>
+
+      <h2 class="govuk-heading-m">How and why to use the DfE service</h2>
+      <p class="govuk-body">Any school offering statutory induction must use the service to tell us:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>which training option you’ve chosen</li>
+        <li>information about your ECTs and mentors (unless you choose to design and deliver your own ECF-based programme)</li></ul>
+
+      <p class="govuk-body">We need this information to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>check if ECTs and mentors are eligible for funded training and time off timetable (see guidance on <a href="https://www.gov.uk/guidance/funding-and-eligibility-for-ecf-based-training" class="govuk-link">funding and eligibility for ECF-based training</a> for more information)</li>
+      <li>pay your training provider, if you choose to use one</li>
+      <li>give access to DfE-accredited training materials, if you choose to use them</li></ul>
+
+      <p class="govuk-body">You must provide this in addition to any information you give a training provider or appropriate body.</p>
+
+      <div class="govuk-inset-text"><p>If your school has not used the service before, <a href="https://manage-training-for-early-career-teachers.education.gov.uk/nominations/resend-email">request a link to sign in</a>.</p>
+      <p>If this does not work, contact: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p></div>
+
+      <p class="govuk-body">Follow the steps below to provide the DfE with the information we need.</p>
+
+        <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
+
+        <ol class="app-step-nav__steps">
+
+          <!-- Step 1 -->
+              <li class="app-step-nav__step js-step" id="check-youre-allowed-to-drive" >
+                  <div class="app-step-nav__header js-toggle-panel" data-position="1">
+                    <h2 class="app-step-nav__title">
+                        <span class="app-step-nav__circle app-step-nav__circle--number">
+                          <span class="app-step-nav__circle-inner">
+                              <span class="app-step-nav__circle-background">
+                                <span class="govuk-visually-hidden">Step</span> 1
+                              </span>
+                          </span>
+                        </span>
+                        <span class="js-step-title">Tell us whether or not you expect ECTs to join your school in the academic year ahead</span>
+                    </h2>
+                  </div>
+
+                  <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-check-youre-allowed-to-drive-1">
+                    <p class="app-step-nav__paragraph">We ask you to do this before the start of each academic year. We recommend you do this as soon as possible.</p>
+
+              <p class="app-step-nav__paragraph">If your school is already registered on our service - <a href="https://manage-training-for-early-career-teachers.education.gov.uk/users/sign_in">sign in</a>.</p>
+
+              <p class="app-step-nav__paragraph">If your school is not registered on our service - <a href="https://manage-training-for-early-career-teachers.education.gov.uk/nominations/resend-email">get access here</a>.</p>
+
+              <p class="app-step-nav__paragraph">If you tell us you do not expect ECTs, you do not need to complete any more steps. Your school will not receive any more messages about ECF-based training  until the next academic year.</p>
+
+              <p class="app-step-nav__paragraph">Remember to sign in and tell us if things change and ECTs do start their induction at your school.</p>
+
+
+
+              <!-- <p class="app-step-nav__paragraph">Your school may have been a link so that you can 'tell us if you have ECTs (previously NQTs) joining you this academic year.'</p>
+              <p class="app-step-nav__paragraph">If you can not find this email, you can <a href="nominations/resend-email">send your school a new link</a>.</p> -->
+                  </div>
+              </li>
+          <!-- ////////////////////////// -->
+
+          <!-- Step 2 -->
+              <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
+                  <div class="app-step-nav__header js-toggle-panel" data-position="2">
+                    <h2 class="app-step-nav__title">
+                        <span class="app-step-nav__circle app-step-nav__circle--number">
+                          <span class="app-step-nav__circle-inner">
+                              <span class="app-step-nav__circle-background">
+                                <span class="govuk-visually-hidden">Step</span> 2
+                              </span>
+                          </span>
+                        </span>
+                        <span class="js-step-title">Choose or change your school’s induction tutor</span>
+                    </h2>
+                  </div>
+                  <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
+                    <p class="app-step-nav__paragraph">Your school must nominate an induction tutor to use our service. They’ll be our point of contact for ECF-based training.</p>
+              <ol class="app-step-nav__list " data-length="4">
+                <li class="app-step-nav__list-item js-list-item "><a data-position="2.1" class="app-step-nav__link js-link" href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#nominate-an-induction-tutor">Find out more about the role of an induction tutor</a></li>
+
+                <p class="app-step-nav__paragraph">Currently you can only nominate one induction tutor at a time. If you want more than one person to access the service, you can choose to register with a shared email address (for example, ‘admin@yourschool.com’).</p>
+
+                <p class="app-step-nav__paragraph">They’ll need to make sure your school <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#appoint-an-appropriate-body">has an appropriate body in place for your inductions</a>.</p>
+
+                <h3 class="govuk-heading-s">Nominate the induction tutor for your school</h3>
+
+                <p class="app-step-nav__paragraph">Your current induction tutor can <a href="https://manage-training-for-early-career-teachers.education.gov.uk/users/sign_in">sign in to the service</a> and nominate someone else to do the role instead. If they cannot do this, contact our support team for help: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a>
+
+
+                  </div>
+              </li>
+          <!-- ////////////////////////// -->
+
+          <!-- Step 3 -->
+              <li class="app-step-nav__step js-step" id="driving-lessons-and-practice" >
+                  <div class="app-step-nav__header js-toggle-panel" data-position="3">
+                    <h2 class="app-step-nav__title">
+                        <span class="app-step-nav__circle app-step-nav__circle--number">
+                          <span class="app-step-nav__circle-inner">
+                              <span class="app-step-nav__circle-background">
+                                <span class="govuk-visually-hidden">Step</span> 3
+                              </span>
+                          </span>
+                        </span>
+                        <span class="js-step-title">Choose how to run your programme</span>
+                    </h2>
+                  </div>
+                  <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-driving-lessons-and-practice-3">
+              <p class="app-step-nav__paragraph">Your school’s induction tutor needs to do this as soon as possible. ECTs cannot begin their statutory induction until a training programme is in place.
+              </p>
+
+              <p class="app-step-nav__paragraph">Your school can:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>choose to use a single programme for everyone, or different programmes to meet the needs of groups or individuals</li>
+              <li>change your programme choice(s) at any time</li>
+              </ul>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">Option 1</h3>
+              <p class="app-step-nav__paragraph"><a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#option-1">Use a DfE-funded training provider</a> - available for state-funded schools only</p>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">Option 2</h3>
+              <p class="app-step-nav__paragraph"><a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#option-2">Use DfE-accredited materials to deliver your own programme</a></p>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">Option 3</h3>
+              <p class="app-step-nav__paragraph"><a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#option-3">Design and deliver your own ECF-based programme</a></p>
+              <p class="app-step-nav__paragraph">If you choose option 3, you do not need to complete the steps listed below. </p>
+                  </div>
+              </li>
+          <!-- ////////////////////////// -->
+
+          <!-- Step 4 -->
+          <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test" >
+            <div class="app-step-nav__header js-toggle-panel" data-position="5">
+              <h2 class="app-step-nav__title">
+                <span class="app-step-nav__circle app-step-nav__circle--number">
+                  <span class="app-step-nav__circle-inner">
+                    <span class="app-step-nav__circle-background">
+                      <span class="govuk-visually-hidden">Step</span> 4
+                    </span>
+                  </span>
+                </span>
+                <span class="js-step-title">Select a DfE-funded training partner</span>
+              </h2>
+            </div>
+                  <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-book-and-manage-your-theory-test-5">
+              <p class="app-step-nav__paragraph">If you choose this training option, your school needs to select from the 6 training providers as soon as possible.</p>
+
+              <p class="app-step-nav__paragraph">Read our guidance for <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training#option-1">information about lead providers and delivery partners</a></p>
+
+              <p class="app-step-nav__paragraph">You can <a href="https://www.gov.uk/guidance/teaching-school-hubs">contact your local teaching school hub</a> for guidance.</p>
+
+              <div class="govuk-inset-text">You must confirm your choice of training provider directly with the provider. You do not need to let the DfE know which provider you choose. They’ll contact us to let us know.</div>
+
+              <p class="app-step-nav__paragraph">If you want to change your provider, you must contact them directly to discuss this.</p>
+
+
+                  </div>
+              </li>
+          <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test" >
+            <div class="app-step-nav__header js-toggle-panel" data-position="4">
+              <h2 class="app-step-nav__title">
+                <span class="app-step-nav__circle app-step-nav__circle--logic">
+                  <span class="app-step-nav__circle-inner">
+                    <span class="app-step-nav__circle-background">or</span>
+                  </span>
+                </span>
+                <span class="js-step-title">Select your DfE-accredited materials</span>
+              </h2>
+            </div>
+
+            <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-prepare-for-your-theory-test-4">
+              <p class="app-step-nav__paragraph">If you choose to deliver your own programme with accredited materials, your induction tutor needs to select materials as soon as possible.</p>
+                <ol class="app-step-nav__list " data-length="3">
+                <li class="app-step-nav__list-item js-list-item "><a data-position="4.1" class="app-step-nav__link js-link" href="https://support-for-early-career-teachers.education.gov.uk/">Compare DfE-accredited materials</a> - you may need to follow the instructions to create an account.</li>
+                  <li class="app-step-nav__list-item js-list-item "><a data-position="4.2" class="app-step-nav__link js-link" href="/start">Sign in to the service to tell us which materials you want to use</a></li>
+                </ol>
+            </div>
+            </li>
+          <!-- ////////////////////////// -->
+
+          <!-- Step 5 -->
+          <li class="app-step-nav__step js-step" id="book-and-manage-your-driving-test" >
+            <div class="app-step-nav__header js-toggle-panel" data-position="6">
+              <h2 class="app-step-nav__title">
+                <span class="app-step-nav__circle app-step-nav__circle--number">
+                  <span class="app-step-nav__circle-inner">
+                    <span class="app-step-nav__circle-background">
+                      <span class="govuk-visually-hidden">Step</span> 5
+                    </span>
+                  </span>
+                </span>
+                <span class="js-step-title">Register ECTs and their mentors</span>
+              </h2>
+            </div>
+            <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-book-and-manage-your-driving-test-6">
+
+            <h3>Add new ECTs and mentors</h3>
+              <p class="app-step-nav__paragraph">Your induction tutor must <a href= "https://manage-training-for-early-career-teachers.education.gov.uk/">sign in to the service</a> to tell us each person’s:</p>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li>full name (as it appears in the Teaching Regulation Agency records)</li>
+                <li>email address (school or personal)</li>
+              </ul>
+
+               <p class="app-step-nav__paragraph">You can also enter their teacher reference number (TRN) and date of birth. If you do this:</p>
+
+               <ul class="govuk-list govuk-list--bullet">
+                <li>ECTs and mentors will not be asked to provide this information themselves</li>
+                <li>we can confirm if they’re eligible for funding more quickly</li>
+              </ul>
+
+              <p class="app-step-nav__paragraph">If you do not enter their TRN and date of birth, we’ll need to email the ECT or mentor and ask them to use our service to provide it instead.</p>
+
+              <p class="app-step-nav__paragraph">Our <a href="https://www.gov.uk/guidance/funding-and-eligibility-for-ecf-based-training">funding and eligibility for ECF-based training</a> guidance explains why we need this information.</p>
+
+              <h3>Add a teacher transferring from another school where they’ve started ECF-based training or mentoring</h3>
+
+              <p class="app-step-nav__paragraph">We need to find the right person in our database so we can transfer their record to your school.</p>
+
+              <p class="app-step-nav__paragraph">To do this, your induction tutor needs to <a href="https://manage-training-for-early-career-teachers.education.gov.uk/">sign in to the service</a> and tell us the ECT or mentor’s:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>full name</li>
+                <li>TRN</li>
+                <li>date of birth</li>
+                <li>email address (personal or school)</li>
+                <li>start date at your school</li>
+              </ul>
+
+              <p class="app-step-nav__paragraph">If your school does not have this information, contact the person directly to ask for it.</p>
+
+              <p class="app-step-nav__paragraph">You do not need to add information about your ECTs and mentors if your school has chosen to design and deliver your own ECF-based programme.</p>
+            </div>
+          </li>
+
+          <li class="app-step-nav__step js-step" id="when-you-pass" >
+            <div class="app-step-nav__header js-toggle-panel" data-position="7">
+              <h2 class="app-step-nav__title">
+                <span class="app-step-nav__circle app-step-nav__circle--number">
+                  <span class="app-step-nav__circle-inner">
+                    <span class="app-step-nav__circle-background">
+                      <span class="govuk-visually-hidden">Step</span> 6
+                    </span>
+                  </span>
+                </span>
+                <span class="js-step-title">Begin your school's training programme</span>
+              </h2>
+            </div>
+            <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-when-you-pass-7">
+              <p class="app-step-nav__paragraph">Each ECT should start their training programme as soon as they begin their statutory induction. This can be at any point in the academic year.</p>
+
+              <p class="app-step-nav__paragraph">Your next step depends on the way you choose to run your programme. </p>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">If you’re using a DfE-funded training provider</h3>
+              <p class="app-step-nav__paragraph">Your lead provider or delivery partner will contact you directly about what to do next.</p>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">If you’re using DfE-accredited materials to deliver your own programme</h3>
+              <p class="app-step-nav__paragraph">We’ll email your ECTs and mentors a link to the materials you chose.</p>
+
+              <p class="app-step-nav__paragraph">You can also access the materials by creating an account in the <a href="https://support-for-early-career-teachers.education.gov.uk/">Support for early career teachers</a> service.</p>
+
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-padding-top-1">If you’re designing and delivering your own programme</h3>
+              <p class="app-step-nav__paragraph">You need to plan and create your materials.</p>
+
+
+              <p><a href="https://www.gov.uk/government/publications/appropriate-bodies-guidance-induction-and-the-early-career-framework">Contact your appropriate body</a> to find out more about next steps.</p>
+            </div>
+          </li>
+
+        </ol>
+        </div>
+
+    </div>
+  </div>
+{% endblock %}

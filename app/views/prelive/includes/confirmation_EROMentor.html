@@ -1,0 +1,12 @@
+
+{% if data['inductionProgramme'] == "FIP" %}
+
+<h2 class="govuk-heading-m">Eligibility for funding</h2>
+<p>Our checks show {{ participant.name }} has already received  DfE-funded mentor training to support ECTs.</p>
+<p>They do not need to provide us with any more information.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+<p>We’ll pass their information to your school’s training provider.</p>
+<p>{{ participant.name }} should be given adequate time to conduct mentoring sessions with ECTs.</p>
+
+{% endif %}

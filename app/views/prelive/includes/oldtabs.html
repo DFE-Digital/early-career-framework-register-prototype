@@ -1,0 +1,426 @@
+<div class="govuk-grid-column-full">
+
+    <!-- ECT TAB -->
+    {% set ectHtml %}
+
+        <!-- Contacted ECTs -->
+        {% if data['inductionProgramme'] == "FIP" %}
+        <!-- Check to see if there are any ECT that have status contacted -->
+            {% if hasAnyContactedParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.role == "ECT" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.role == "ECT" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingQTSParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for funded training. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.role == "ECT" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyEligibleParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        {% if data['providerPartnership'] == "Yes" %}
+                            <p>We’ve confirmed these people are eligible for this programme. We’ve given their details to your provider.</p>
+                        {% else %}
+                            <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.role == "ECT" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+        {% elif data['inductionProgramme'] == "CIP" %}
+
+            {% if hasAnyContactedParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.role == "ECT" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.role == "ECT" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingQTSParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.role == "ECT" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyEligibleParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.role == "ECT" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+        {% endif %}
+
+    {% endset -%}
+    <!-- // ect tab -->
+
+    <!-- Mentor Tab -->
+    {% set mentorHtml %}
+
+        {% if data['inductionProgramme'] == "FIP" %}
+
+            {% if hasAnyContactedMentorParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.role == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingMentorParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.role == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingQTSMentorParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.role == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyEligibleMentorParticipants22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        {% if data['providerPartnership'] == "Yes" %}
+                            <p>We’ve confirmed these people are eligible for this programme. We've given their details to your provider.</p>
+                        {% else %}
+                            <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_fip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.role == "Mentor" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                                {% include "includes/dash_fip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+        {% elif data['inductionProgramme'] == "CIP" %}
+
+            {% if hasAnyContactedMentorParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We need this to check their eligibility with the Teaching Regulation Agency.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Contacted" and participant.role == "Mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingMentorParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’re checking these people’s details with the Teaching Regulation Agency. We’ll confirm if they’re eligible for this programme soon.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Checking" and participant.role == "Mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyCheckingQTSMentorParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>These ECTs do not have qualified teacher status (QTS) yet. They need this to be eligible for this programme. We’ll keep checking their status and notify you if something changes.</p>
+                    </div>
+                </div>
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "CheckingQTS" and participant.role == "Mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+            {% if hasAnyEligibleMentorParticipantsCIP22 %}
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <p>We’ve confirmed these people are eligible for this programme. They have access to their materials.</p>
+                    </div>
+                </div>
+                <table class="govuk-table">
+                    {% include "includes/dash_cip_head.html" %}
+                    <tbody class="govuk-table__body">
+                        {% for id, participant in data.participants %}
+                            {% if participant.status == "Eligible" and participant.role == "Mentor" and participant.programme == "CIP" %}
+                                {% include "includes/dash_cip_row.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+    {% endif %}
+
+{% endset -%}
+<!-- // Mentor TAB -->
+
+<!-- Moving schools TAB -->
+{% set transferHtml %}
+<!-- Moving to the school -->
+    {% if data['inductionProgramme'] == "FIP" %}
+        <!-- Check to see if there are any users that have status TransferIn -->
+        {% if hasAnyTransferInParticipants22 %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_fip_head_transferIn.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, participant in data.participants %}
+                        {% if participant.status == "TransferIn" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% include "includes/dash_fip_row_transferIn.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        {% if hasAnyTransferOutParticipants22 %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_fip_head_transferOut.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, participant in data.participants %}
+                        {% if participant.status == "TransferOut" and participant.programme == "FIP" and participant.cohort2022 == "Yes" %}
+                            {% include "includes/dash_fip_row_transferOut.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+    {% elif data['inductionProgramme'] == "CIP" %}
+
+        {% if hasAnyTransferInParticipantsCIP22 %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring to your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are joining you from another school. You need to arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_cip_head_transferIn.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, participant in data.participants %}
+                        {% if participant.status == "TransferIn" and participant.programme == "CIP" %}
+                            {% include "includes/dash_cip_row_transferIn.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        {% if hasAnyTransferOutParticipantsCIP22 %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Transferring from your school</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>You’ve told us these people are moving to a new school. Their new school will arrange how they’ll continue their training.</p>
+                </div>
+            </div>
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                {% include "includes/dash_cip_head.html" %}
+                <tbody class="govuk-table__body">
+                    {% for id, participant in data.participants %}
+                        {% if participant.status == "TransferOut" and participant.programme == "CIP" %}
+                            {% include "includes/dash_cip_row_transferOut.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+    {% endif %}
+
+{% endset -%}
+<!-- // Transfer tab -->
+
+</div>

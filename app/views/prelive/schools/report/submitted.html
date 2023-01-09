@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "We’ve removed that provider from your account" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-margin-bottom-8">
+      {{ govukPanel({
+        titleText: pageHeading
+      }) }}
+      </div>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+
+      <p>We’ll let {{ data.leadProvider }} and {{ data.deliveryPartner }} know that your school will not be working with them.</p>
+      <p>They may contact you to confirm this.</p>
+      <p>It’s important to confirm with the provider you do want to work with as soon as possible.</p>
+
+
+      <p><a href="../manage-your-training" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
+    </div>
+  </div>
+{% endblock %}

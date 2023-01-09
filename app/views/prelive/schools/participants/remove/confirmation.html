@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = '' + participant.name + ' has been removed' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ govukPanel({
+                titleText: pageHeading,
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
+
+            {% if data['details-change-action'] == "change-mentor-details"%}
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="../participants?linkaction=">Return to your ECTs and mentors</a></p>
+
+            {% else %}
+
+                <h2 class="govuk-heading-m govuk-!-margin-top-7">What happens next</h2>
+                <p>You’ll no longer see {{ participant.name }}’s details in this service.</p>
+                <!-- Add logic to show for ppts who have yet to validate -->
+                {% if data.participants[id].status == "Contacted" %}
+                    <p>We’ll let {{ participant.name }} know that they do not need to provide us with any information to check their eligibility.</p>
+                {% endif %}
+
+                <!-- Mentor only add logic once checked in with Kate -->
+                {% if data.participants[id].role == "Mentor" %}
+                    <p>If you’d assigned {{ participant.name }} one or more ECTs, you need to select a different mentor for them.</p>
+                {% endif %}
+                <!-- // -->
+                <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">Return to your ECTs and mentors</a></p>
+
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

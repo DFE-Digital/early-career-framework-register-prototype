@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Are you sure you want to replace the induction tutor for your school?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+          <p>You can only assign one induction tutor to use this service for your school.</p>
+
+
+      <p>{{ data.sitName }} will no longer be able to:</p>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+        <li>sign in to this service</li>
+        <li>manage how your school runs your ECT training programme</li>
+        <li>add information about ECTs and mentors</li>
+        <li>tell us if things change at your school, for example if ECTs join or not</li>
+        <li>get notifications about the training programme and this service</li>
+      </ul>
+
+      <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+           You’ll be signed out of this service. You will not be able to sign in as {{ data.sitEmail }} again.
+          </strong>
+      </div>
+
+      <form method="post" action="confirmation" >
+        <input type="hidden" id="newSit" name="newSIT" value="Yes" />
+        <input type="hidden" id="signedOut" name="signedOut" value="Yes" />
+
+        {{ govukButton({
+          text: "Confirm and replace"
+        }) }}
+
+      </form>
+
+    </div>
+    </div>
+{% endblock %}

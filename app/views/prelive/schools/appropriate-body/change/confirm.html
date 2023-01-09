@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "You’ve told us you’ve changed your appropriate body" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {{ govukPanel({
+                titleText: pageHeading,
+                html: "Academic year<br><strong>2022 to 2023</strong>",
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+            <p>We’ll update this appropriate body information for any ECTs who:</p>
+            <ul class="govuk-list govuk-list--bullet">
+            <li>you’ve already added to this service</li>
+            <li>started their training in the 2022 to 2023 academic year</li>
+            </ul>
+            {# <p>We do this because most schools work with only one appropriate body.</p> #}
+
+            <!-- <h2 class="govuk-heading-m">How to report a different appropriate body for an ECT</h2>
+            <p class="govuk-body">If you’ve already added the ECT to this service, select their name on the <a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/?cohort=2022">ECTs and mentors</a> page to see their details and change their appropriate body.</p>
+            <p class="govuk-body">You can also report a different appropriate body for an ECT when you first add them to our service.</p> -->
+<!-- Assume you'll probably need to mess with the link here, since this appears to be the one for the 2021 to 2022 academic year -->
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/schools/manage-your-training#new-year">Return to manage your training</a></p>
+
+
+        </div>
+    </div>
+
+{% endblock %}

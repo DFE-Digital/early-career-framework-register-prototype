@@ -1,0 +1,45 @@
+    <!-- NO match -->
+    {% if data.participants[id].transferProgramme == "differentLPandDP" %}
+        
+        {% if data['inductionProgramme'] == "FIP" %}                
+            <!-- Will teacher continue on their different training to the schools -->
+            {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                <p>We’ll let your provider know about the transfer. They’ll advise how {{ participant.name }} should transfer onto their programme.</p>
+            {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                <p>We’ll contact their training lead provider, {{ data.leadProviderTransfer }}, and their delivery partner, {{ data.deliveryPartnerTransfer }}, to let them know that you’ve reported this transfer.</p>
+            {% endif %}
+
+        {% else %}
+            <!-- CIP -->
+            {% if data.participants[id].usingCurrentMaterials == "Yes" %}
+                <p>{{ participant.name }} will receive a link to their new training materials within 24 hours.</p>        
+            {% else %}
+                <p>To access the {{ data.leadProviderMaterialsTransfer }} training materials:</p>
+                <ol class="govuk-list govuk-list--number">
+                    <li>Visit <a href="https://support-for-early-career-teachers.education.gov.uk/users/sign-up" >https://support-for-early-career-teachers.education.gov.uk/users/sign-up</a>.</li>
+                    <li>Enter your email address to create a new account.</li>
+                </ol>
+            {% endif %}
+        
+        {% endif %}         
+        
+    <!-- Match LP but not DP -->
+    {% elif data.participants[id].transferProgramme == "differentDP" %}
+    
+        <!-- Teacher will continue using schools DP -->
+        {% if data.participants[id].usingCurrentTrainingProgramme == "No" %}
+            <p>We’ll contact your training delivery partner, {{ data.deliveryPartner }}, to let them know that you’ve reported this transfer. We recommend you confirm this with them directly too.</p>
+            {% if not data.participants[id].isMentor %}
+            <p>{{ data.deliveryPartner }} will advise how {{ participant.name }} should transfer onto their programme.</p>
+            {% endif %}            
+        <!-- Continue using their DP -->
+        {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+
+        {% elif data['inductionProgramme'] == "CIP" %}
+            <!-- <p>They’ll receive a link to their new training materials within 24 hours.</p> -->
+        {% endif %}
+        
+    <!-- Same DP/LP -->
+    {% else %}
+        <p>They’re already training with the same provider used by your school. We’ll let your provider know about the transfer.</p>
+    {% endif %}

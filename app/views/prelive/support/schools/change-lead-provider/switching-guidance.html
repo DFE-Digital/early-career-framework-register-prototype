@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "Check you have the information you need to make this change" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p><b>You must ask Hayes College to:</b></p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>confirm they’ve told Ambition Institute about the change</li>
+                <li>confirm which lead provider they want to work with instead</li>
+                <li>tell us which participants will be working with the new provider</li>
+            </ul>
+
+            <p><b>You must ask Ambition Institute to confirm that they've:</b></p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>submitted declarations for all relevant participants</li>
+                <li>withdrawn the relevant participants from their programme</li>
+            </ul>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "end-partnership"
+            }) }}
+
+
+        </div>
+    </div>
+
+{% endblock %}

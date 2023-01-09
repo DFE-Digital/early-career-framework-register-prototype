@@ -1,0 +1,11 @@
+{# {% if data['cohort'] == "2022" %}
+    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
+    {% if not data['sitMentor'] %}
+    <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor">Add yourself as a mentor</a></li>
+    {% endif %}
+{% elif data['cohort'] == "2021" %} #}
+    <li><a class="govuk-link govuk-link--no-visited-state" href="add/">Add an ECT or mentor</a></li>
+    {% if not data['sitMentor'] %}
+        <li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor">Add yourself as a mentor</a></li>
+    {% endif %}
+{# {% endif %} #}

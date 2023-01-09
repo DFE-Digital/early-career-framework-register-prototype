@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "The link provided is invalid" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <form class="form" action="/nominations/local-authority" method="post" >
+          {{ govukButton({
+              text: "Send new email"
+          }) }}
+        </form>
+
+
+
+      </div>
+    </div>
+
+{% endblock %}

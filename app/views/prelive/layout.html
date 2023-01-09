@@ -1,0 +1,183 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"           import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"           import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"         import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"              import govukButton %}
+{% from "govuk/components/character-count/macro.njk"     import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"          import govukCheckboxes %}
+{% from "govuk/components/date-input/macro.njk"          import govukDateInput %}
+{% from "govuk/components/details/macro.njk"             import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"       import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"       import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"            import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"         import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"               import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"          import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk"               import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"        import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"              import govukRadios %}
+{% from "govuk/components/select/macro.njk"              import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"           import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"        import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"               import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                 import govukTag %}
+{% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "/sign-out",
+        text: "Sign out"
+      }
+    ] if schoolSignedIn or isAdmin
+  }) }}
+
+
+{% if showadminPrimaryNav == true %}
+    {% block adminPrimaryNav %}
+        <div class="primary-nav-container">
+            <div class="govuk-width-container">
+                <div class="primary-nav">
+                    <div class="nav-item nav-item__selected">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/schools/">Schools<span class="govuk-visually-hidden">Current page</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/participants/">Participants</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/suppliers/">Suppliers</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/administrators/">Admin users</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/npq-applications/">NPQ Applications</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="/support/delivery-partners/">Delivery partners</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if showPhaseBanner != false %}
+    {{ govukPhaseBanner({
+      tag: { text: "Prototype" },
+      html: "This is a prototype. It is not a real service."
+    }) }}
+  {% endif %}
+
+    {% if showBackLink != false %}
+
+        {% if showManageBackLink != true %}
+
+            {{ govukBackLink({
+                text: "Back",
+                href: "javascript:history.go(-1)"
+            }) }}
+
+        {% else %}
+
+
+                {{ govukBackLink({
+                    text: "Back to manage your training",
+                    href: "../manage-your-training"
+                }) }}
+
+
+
+        {% endif %}
+
+    {% elif showManageSchools == true %}
+
+        {{ govukBackLink({
+            text: "Manage your schools",
+            href: "/schools/"
+        }) }}
+
+    {% endif %}
+
+  {% block pageNavigation %}{% endblock %}
+  {% block pageBanner %}{% endblock %}
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+    {{ govukFooter({
+      meta: {
+        html: '<h2 class="govuk-heading-m">Support and guidance</h2><p class="govuk-body-s">If you have a question, or you&apos;ve had a problem using this service, please contact us at <a class="govuk-footer__link" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p><ul class="govuk-footer__inline-list">
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Privacy
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Cookies
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Accessibility
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/prototype-admin/clear-data">
+                    Clear data
+                  </a>
+                </li>
+
+            </ul>',
+        items: [
+
+        ]
+      }
+    }) }}
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {{ data | log }}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}
