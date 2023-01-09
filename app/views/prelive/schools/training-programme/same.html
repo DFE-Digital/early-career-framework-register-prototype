@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Do you want to use the same lead provider and delivery partner for your new ECTs?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your DfE-funded lead provider</h2>
+            <p class="govuk-body govuk-!-margin-bottom-1">{{ data.leadProvider }}</p>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Your delivery partner</h2>
+            <p class="govuk-body govuk-!-margin-bottom-5">{{ data.deliveryPartner }}</p>
+
+            <!-- Commented out this line as we dont think its the right thing to do taking them away from the service mid flow -->
+            <!-- <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank"  class="govuk-link">check your options (opens in new tab)</a>.</p> -->
+
+            {% if data['validProviderDelivery'] == "No" %}
+                <form class="form" action="/schools/training-programme/combination-not-valid" method="post" >
+            {% else %}
+                <form class="form" action="/schools/appropriate-body/" method="post" >
+            {% endif %}
+
+                <!-- Values need to be opposite due to way heading is -->
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    items: [
+                        { value: "No", text: "Yes" },
+                        { value: "Yes, redirect(/schools/training-programme/why-are-you-changing)", text: "No" }
+                    ]
+                } | decorateFormAttributes('inductionProgrammeYearTwoProviderChange')) }}
+
+                <!-- Dashboard to set programme to FIP, will be changed out if NO and other option chosen -->
+				<input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="FIP" />
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+          </form>
+      </div>
+  </div>
+
+{% endblock %}

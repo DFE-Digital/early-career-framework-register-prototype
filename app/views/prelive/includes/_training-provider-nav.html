@@ -1,0 +1,13 @@
+<nav class="app-navigation govuk-clearfix">
+  <ul class="app-navigation__list app-width-container">
+    <li class="app-navigation__list-item {% if page == 'overview' %}app-navigation__list-item--current{% endif %}">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/lead-provider/dashboard">Overview</a>
+    </li>
+    <!-- <li class="app-navigation__list-item app-navigation__list-item--current">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/lead-provider/cohort-listing">Cohorts</a>
+    </li> -->
+    <li class="app-navigation__list-item {% if page == 'schools' %}app-navigation__list-item--current{% endif %}">
+      <a class="govuk-link govuk-link--no-visited-state app-navigation__link" href="/lead-provider/your-schools">Schools</a>
+    </li>
+  </ul>
+</nav>

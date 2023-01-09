@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'What’s ' + participant.name + '’s email address? ' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">You can enter their personal or school email address.</p>
+
+            {% if data['cya-action'] == "change-email" %}
+
+                <form class="form" action="check-your-answers" method="post">
+                    <input type="hidden" id="cya-action" name="cya-action" value="" /><!-- Clears the link action-->
+
+            {% else %}
+
+                {% if data.participants[id].role == "ect" or data.participants[id].role == "Mentor"  %}
+
+                    <form class="form" action="cohort" method="post" class="govuk-!-margin-bottom-8">
+
+                {% else %}
+                    {% if data.participants[id].role == "Transfer" %}
+
+                        <!-- Is a mentor -->
+                        {# {% if data.participants[id].isMentor == "Yes" %} #}
+                            <!-- Check if on a different main programme -->
+                            {% if data.participants[id].transferProgramme == "differentProgramme" %}
+                                <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                            <!-- Check if on a different provider/partner -->
+                            {% elif data.participants[id].transferProgramme == "differentLPandDP" or data.participants[id].transferProgramme == "differentDP" %}
+                                <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                            <!-- Otherwise go to CYA -->
+                            {% else %}
+                                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                            {% endif %}
+                        {# {% else %}
+
+                            {% if hasMentors %}
+                            <form class="form" action="choose-mentor" method="post" class="govuk-!-margin-bottom-8">
+                            {% else %}
+                                {% if data.participants[id].transferProgramme == "differentProgramme" %}
+                                    <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% elif data.participants[id].transferProgramme == "differentLPandDP" or data.participants[id].transferProgramme == "differentDP" %}
+                                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
+                                {% else %}
+                                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                                {% endif %}
+                            {% endif %}
+                        {% endif %} #}
+
+                    {% endif %}
+                {% endif %}
+
+            {% endif %}
+
+                {{ govukInput({
+                    label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                    classes: "govuk-!-width-two-thirds"
+                } | decorateFormAttributes(['participants', id, 'email']) ) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

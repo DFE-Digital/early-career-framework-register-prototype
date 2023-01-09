@@ -1,0 +1,25 @@
+<h2 class="govuk-heading-m">Eligibility</h2>
+<p>We may contact you for more information to help us confirm if you’re eligible for funded mentor training.</p>
+<p>You can sign in to your account for updates.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+{% if data['inductionProgramme'] == "FIP" %}
+    <p>We’ll pass your information to your school’s training provider. This means you’ll be ready to start once we confirm your eligibility. </p>
+    <p>They’ll contact you directly with more information about your programme.</p>
+    <p>Once we’ve confirmed you’re eligible, you should receive:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>ECF-based mentor training</li>
+        <li>adequate time to take part in training</li>
+    </ul>
+
+{% elif data['inductionProgramme'] == "CIP" %}
+
+    <p>You’ll receive a link to your training materials within the next 24 hours. This means you’ll be ready to start once we confirm your eligibility.</p>
+    <p>If you do not receive anything, you should check you spam or junk folder.</p>
+    <p>If eligible, you should be given adequate time to conduct mentoring sessions with ECTs.</p>
+    
+
+{% endif %}
+<h2 class="govuk-heading-m">Where to find help and information</h2>
+<p>You can <a href="https://manage-training-for-early-career-teachers.education.gov.uk/pages/mentor-additional-information" target="_blank">read our guidance for mentors (link opens in a new tab)</a>.</p>

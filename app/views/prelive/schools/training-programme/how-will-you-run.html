@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "How will you run training for new starters in the 2022 to 2023 academic year?" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This choice will only apply for ECTs and mentors starting in the 2022 to 2023 academic year.</p>
+            <p>Read our guidance to <a href="https://www.gov.uk/guidance/guidance-for-schools-how-to-manage-ecf-based-training" target="_blank">check your options (opens in new tab)</a>.</p>
+
+            {# <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p> #}
+
+            <form class="form" action="confirm" method="post" class="govuk-!-margin-bottom-8">
+
+                {% if data['inductionProgramme'] == "temphold" %}
+
+                    {{ govukRadios({
+                        items: [                            
+                            { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },
+                            { value: "temphold", text: "Use a training provider funded by your school" },
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("NewYearHowRun")) }}
+
+                {% else %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "CIP", text: "Deliver your own programme using DfE-accredited materials" },                        
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("NewYearHowRun")) }}
+
+                {% endif %}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "That email address is being used by another school" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p class="govuk-body">We need a different email address for each school.</p>
+        <p class="govuk-!-margin-bottom-7">Enter a different email address.</p>
+
+        <form class="form" action="full-name" method="post" >
+          {{ govukButton({
+            text: "Change email address"
+          }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

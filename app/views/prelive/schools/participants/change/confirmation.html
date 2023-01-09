@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% if data['detailsChange'] == "Email" %}
+    {% set pageHeading = '' + participant.name + '’s email address has been updated' %}    
+{% elif data['detailsChange'] == "Name" %}
+    {% set pageHeading = '' + participant.name + '’s name has been edited to ' + participant.nameNew + '' %}    
+{% elif data['detailsChange'] == "Date" %}
+    {% set pageHeading = '' + participant.name + '’s induction start date has been changed' %}    
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ govukPanel({
+                titleText: pageHeading,                
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
+
+            <ul class="govuk-list">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}">Return to their details</a></li>            
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">Return to your ECTs and mentors</a></li>
+            </ul>
+            
+                
+            
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+{% set showBackLink = false %}
+
+{% if data['inductionProgrammeYearTwo'] %}
+    {% set pageHeading = "How do you want to run your training in the next academic year?" %}
+{% else %}
+    {% set pageHeading = "How do you want to run your training in 2022 to 2023?" %}
+{% endif %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>If you’re not sure which option to choose, <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview" target="_blank">check our guidance on statutory changes and new training programmes (opens in new tab)</a>.</p>
+
+            <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p>
+
+            <form class="form" action="/schools/training-programme/confirm" method="post" class="govuk-!-margin-bottom-8">
+
+
+
+            {% if data['inductionProgrammeYearTwo'] %}
+
+                {% if data['inductionProgramme'] == "FIP" %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("nextYear-inductionProgramme")) }}
+
+                {% elif data['inductionProgramme'] == "CIP" %}
+
+                    {{ govukRadios({
+                        items: [
+                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                    } | decorateFormAttributes("nextYear-inductionProgramme")) }}
+
+
+                {% endif %}
+
+
+
+            {% else %}
+
+                    {% if data['change-programme'] == "Yes" %}
+                    {% if data['inductionProgramme'] == "DYO" %}
+                        {{ govukRadios({
+                        items: [
+                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+                            { value: "noECTs", text: "We do not expect any early career teachers to join" }
+                        ]
+                        } | decorateFormAttributes("inductionProgramme")) }}
+                    {% elif data['inductionProgramme'] == "noECTs" %}
+                        {{ govukRadios({
+                        items: [
+                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+                            { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
+                        ]
+                        }| decorateFormAttributes("inductionProgramme")) }}
+                    {% elif data['inductionProgramme'] == "CIP" %}
+                        <!-- No work on this as yet -->
+                    {% elif data['inductionProgramme'] == "FIP" %}
+                        <!-- No work on this as yet -->
+                        <p>You have not selected how to run your training programme in the preload.</p>
+                    {% endif %}
+                    {% elif data['eligible-funding'] == "No" %}
+                    {{ govukRadios({
+                        items: [
+                        { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+                        { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" },
+                        { value: "temphold", text: "Use a training provider funded by your school" },
+                        { value: "noECTs", text: "We do not expect any early career teachers to join" }
+                        ]
+                    } | decorateFormAttributes("inductionProgramme")) }}
+                    {% else %}
+                    {{ govukRadios({
+                        items: [
+                        { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                        { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
+                        { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" },
+                        { value: "noECTs", text: "We do not expect any early career teachers to join" }
+                        ]
+                    } | decorateFormAttributes("inductionProgramme")) }}
+                    {% endif %}
+
+            {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    </div>
+
+{% endblock %}

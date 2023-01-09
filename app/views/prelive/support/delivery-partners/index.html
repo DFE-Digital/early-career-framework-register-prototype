@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = false %}
+{% set showadminPrimaryNav = true %}
+
+{% set pageHeading = "Delivery partners" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <nav class="app-subnav" aria-label="Sub navigation">
+    <ul class="app-subnav__list">
+      <li class="app-subnav__list-item app-subnav__list-item--selected">
+        <a class="app-subnav__link govuk-link--no-visited-state" href="#">
+          All users
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+            {# <p>Manage your lead providers and delivery partners supplying training.</p> #}
+
+
+                {{ govukButton({
+                    text: "Add a new user"
+
+                }) }}
+
+
+
+
+
+            {{ govukTable({
+                caption: "Schools",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                firstCellIsHeader: false,
+                head: [
+                    { text: "Full name", classes: 'govuk-!-width-one-third' },
+                    { text: "Email address" },
+                    { text: "Delivery partner" }
+                ],
+                rows: [
+                    [
+                        { html: '<a href="#">Ambition Institute</a>' },
+                        { text: "hugo.furst@test.dfe.gov.uk" },
+                        { text: "Kings College London"}
+                    ],
+                    [
+                        { html: '<a href="#">Best Practice Network</a>' },
+                        { text: "hugo.furst@test.dfe.gov.uk" },
+                        { text: "Prince Henry’s Teaching School Hub"}
+                    ],
+                    [
+                        { html: '<a href="#">Tech First</a>' },
+                        { text: "hugo.furst@test.dfe.gov.uk" },
+                        { text: "Aspire Academy Trust"}
+                    ],
+                    [
+                        { html: '<a href="#">UCL Institute of Education</a>' },
+                        { text: "hugo.furst@test.dfe.gov.uk" },
+                        { text: "Kent Teaching School Hub"}
+                    ],
+                    [
+                        { html: '<a href="#">Academy Transformation Trust</a>' },
+                        { text: "chris.p.bacon@dfe.test.gov.uk" },
+                        { text: "Kings College London"}
+                    ],
+                    [
+                        { html: '<a href="#">Elliot Foundation</a>' },
+                        { text: "chris.p.bacon@dfe.test.gov.uk" },
+                        { text: "Prince Henry’s Teaching School Hub"}
+                    ],
+                    [
+                        { html: '<a href="#">Nova Education Trust</a>' },
+                        { text: "chris.p.bacon@dfe.test.gov.uk" },
+                        { text: "Aspire Academy Trust"}
+                    ],
+                    [
+                        { html: '<a href="#">South Yorkshire Teaching School Hub</a>' },
+                        { text: "chris.p.bacon@dfe.test.gov.uk" },
+                        { text: "Leeds Teaching School Hub"}
+                    ],
+                    [
+                        { html: '<a href="#">United Learning Trust</a>' },
+                        { text: "chris.p.bacon@dfe.test.gov.uk" },
+                        { text: "Kent Teaching School Hub"}
+                    ]
+                ]
+            }) }}
+    </div>
+
+    </div>
+
+
+
+{% endblock %}

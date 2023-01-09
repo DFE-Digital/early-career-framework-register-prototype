@@ -1,0 +1,148 @@
+
+
+{% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
+<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+    <dt class="govuk-summary-list__key">
+        {% if data['inductionProgramme'] == "FIP" %}
+            Training with
+        {% elif data['inductionProgramme'] == "CIP" %}
+            Materials supplier
+        {% endif %}
+    </dt>
+    <dd class="govuk-summary-list__value">
+        <ul class="govuk-list">
+        {% if data['inductionProgramme'] == "FIP" %}
+            <li>{{ data.leadProvider}}</li>
+            <li>{{ data.deliveryPartner }}</li>
+        {% elif data['inductionProgramme'] == "CIP" %}
+            <li>{{ data.leadProviderMaterials }}</li>
+        {% endif %}
+        </ul>
+    </dd>
+</div>
+
+{% elif data.participants[id].role == "Transfer" %}
+
+
+        <!-- FIP programme -->
+{% if data['inductionProgramme'] == "FIP" %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                {% if data.participants[id].switchProgramme == "Yes" %}
+                    Training with
+                {% elif data.participants[id].continueProgramme == "Yes" %}
+                    Materials supplier
+                {% endif %}
+            {% else %}
+                Training with
+            {% endif %}
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+            <!-- ECT or Mentor is on a different Induction programme to the school -->
+            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+
+                {% if data.participants[id].switchProgramme == "Yes" %}
+                    <!-- Moves to schools FIP programme -->
+                    <li>{{ data.leadProvider}}</li>
+                    <li>{{ data.deliveryPartner }}</li>
+                {% elif data.participants[id].continueProgramme == "Yes" %}
+                    <li>{{ data.leadProviderMaterialsTransfer }}</li>
+                {% endif %}
+
+            <!-- ECT or Mentor is training using a different provider or partner to the school -->
+            {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                <!-- Is going to use their current training -->
+                {% if data.participants[id].dpMatch == "No" %}
+                    <li>{{ data.leadProvider }}</li>
+                    <li>{{ data.deliveryPartnerTransfer }}</li>
+                {% elif data.participants[id].trainingMatch == "No" %}
+                    <li>{{ data.leadProviderTransfer }}</li>
+                    <li>{{ data.deliveryPartnerTransfer }}</li>
+                {% endif %}
+            <!-- Is not going to use the default or the current programme they are on -->
+            {% elif data.participants[id].usingCurrentTrainingProgramme == "No" %}
+                <!-- Is going to train on same as school -->
+                {% if data.participants[id].usingCurrentTraining == "Yes" %}
+                    <li>{{ data.leadProvider}}</li>
+                    <li>{{ data.deliveryPartner }}</li>
+                {% endif %}
+            <!-- Default for school -->
+            {% else %}
+                <li>{{ data.leadProvider}}</li>
+                <li>{{ data.deliveryPartner }}</li>
+            {% endif %}
+
+            </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                <a class="govuk-link" href="programme">
+            {% elif data.participants[id].usingCurrentTrainingProgramme == "Yes" %}
+                <a class="govuk-link" href="current-training-programme">
+            {% else %}
+                <a class="govuk-link" href="current-training-programme">
+            {% endif %}
+            Change<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+
+<!-- School is on CIP induction programme -->
+{% elif data['inductionProgramme'] == "CIP" %}
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                {% if data.participants[id].switchProgramme == "Yes" %}
+                    Materials supplier
+                {% elif data.participants[id].continueProgramme == "Yes" %}
+                    Training with
+                {% endif %}
+            {% else %}
+                Materials supplier
+            {% endif %}
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+
+                {% if data.participants[id].diffInductionProgramme == "Yes" %}
+
+                    {% if data.participants[id].switchProgramme == "Yes" %}
+                        <li>{{ data.leadProviderMaterials}}</li>
+                    {% elif data.participants[id].continueProgramme == "Yes" %}
+                        <li>{{ data.leadProvider}}</li>
+                        <li>{{ data.deliveryPartner }}</li>
+                    {% endif %}
+
+                {% elif data.participants[id].usingCurrentTrainingMaterials == "Yes" %}
+                    <!-- Check if noMatch -->
+                    {% if participant.trainingMatch == "No" %}
+                        <li>{{ data.leadProviderMaterialsTransfer }}</li>
+                    {% endif %}
+                <!-- Matched but using different programme  -->
+                {% elif participant.usingCurrentTrainingMaterials == "No" %}
+                    <!-- Check if going to use schools current materials provider -->
+                    {% if participant.usingCurrentMaterials == "Yes" %}
+                        <li>{{ data.leadProviderMaterials}}</li>
+                    {% endif %}
+                {% endif %}
+
+            </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data.participants[id].diffInductionProgramme == "Yes" %}
+                <a class="govuk-link" href="programme">
+            {% elif data.participants[id].usingCurrentTrainingMaterials == "Yes" %}
+                <a class="govuk-link" href="current-training-programme">
+            {% else %}
+                <a class="govuk-link" href="current-training-programme">">
+            {% endif %}
+            Change<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+
+{% endif %}
+
+
+
+
+{% endif %}

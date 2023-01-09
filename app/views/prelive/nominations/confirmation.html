@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Your information has been saved" %}
+
+<!-- {% if data['inductionProgrammeYearTwoECTs'] == "No"  %}
+    {% set pageHeading = "Your information has been saved" %}
+{% elif data['newYear-sameProgramme'] %}
+    {% set pageHeading = "Your information has been saved" %}
+{% else %}
+    {% set pageHeading = "Your information has been saved for this academic year" %}
+{% endif %} -->
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ govukPanel({
+                titleText: pageHeading,
+                html: "Academic year<br><strong>2022 to 2023</strong>",
+                classes: "govuk-!-margin-bottom-7"
+            }) }}
+
+            <h3 class="govuk-heading-m">What happens next</h3>
+            <p>We’ll contact {{ data.schoolName }} in the academic year 2023 to 2024.</p>
+            <p>If you do employ ECTs later this academic year, you can sign in to this service to let us know.</p>
+
+            {% if data['inductionProgrammeYearTwoECTs'] == "No" %}
+                <!-- Could argue this link should only be available for those that didnt come via COMMS -->
+                <p><a href="/schools/manage-your-training" class="govuk-link govuk-link--no-visited-state">Return to manage your training</a></p>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}

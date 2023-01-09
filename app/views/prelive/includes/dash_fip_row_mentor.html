@@ -1,0 +1,10 @@
+<tr class="govuk-table__row">
+    <td class="govuk-table__cell ">{{ participant.name }}</td>
+    <td class="govuk-table__cell">{% if participant.inductionDayCorrect %}
+        {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
+    {% else %}
+        {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
+    {% endif %}</td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/schools/participants/{{ id }}" class="govuk-link govuk-link--no-visited-state">View</a><!--{{ participant.startDate }}--></td>
+</tr>

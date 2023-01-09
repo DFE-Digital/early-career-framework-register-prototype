@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                {% include "includes/summary_name.html" %}
+                {% include "includes/summary_leaving.html" %}
+            </dl>
+
+            <form class="form" action="confirmation" method="post" >
+
+                {{ govukInput({
+                    classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                    value: "TransferOut"
+                } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+
+                {{ govukButton({
+                    text: "Confirm and continue"
+                }) }}
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

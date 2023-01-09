@@ -1,0 +1,41 @@
+
+{% if ((data['showTabEligibleMentor'] == "Yes") or ( data['showTabEligibleMentorNF'] )) %}
+    {% if hasAnyEligibleParticipants %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Training or eligible for training</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {% if data['providerPartnership'] == "Yes" %}
+                    <p>We’ve confirmed these people are eligible for this programme. We’ve given their details to your provider.</p>
+                {% else %}
+                    <p>We’ve confirmed these people are eligible for this programme. Once you choose a training provider, they’ll contact your ECTs and mentors directly.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ECF-based training start date 2021 to 2022</h2>
+        <table class="govuk-table govuk-!-margin-bottom-7">
+            {% include "includes/dash_fip_head_eligible_mentor.html" %}
+            <tbody class="govuk-table__body">
+                {% for id, participant in data.participants %}
+                    <!-- Only those with a status eligible and type is mentor or sitmentor -->
+                    {% if participant.status == "Eligible" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2021" %}
+                        {% include "includes/dash_fip_row_eligible_mentor.html" %}
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ECF-based training start date 2022 to 2023</h2>
+        <table class="govuk-table">
+            {% include "includes/dash_fip_head_eligible_mentor.html" %}
+            <tbody class="govuk-table__body">
+                {% for id, participant in data.participants %}
+                    <!-- Only those with a status eligible and type is mentor or sitmentor -->
+                    {% if participant.status == "Eligible" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  and participant.programme == "FIP" and participant.cohort == "2022" %}
+                        {% include "includes/dash_fip_row_eligible_mentor.html" %}
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endif %}                    

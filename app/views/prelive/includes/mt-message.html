@@ -1,0 +1,11 @@
+{% if ((data['inductionProgramme'] == "FIP") and (data['providerPartnership'] == "Yes")) %}
+    {% if data['partnershipChallengeWindow'] == "Yes" %}
+        <p class="govuk-body">If this does not look right, <a href="report/incorrect-signup">report that your school has been confirmed incorrectly</a>. This link will expire on {{ data.linkExpire }}.</p>
+    {% endif %}
+{% endif %}
+
+{% if ((data['inductionProgramme'] == "CIP" ) and (data['accredited-materials'] )) %}
+    <p>Use these handbooks and training materials to help you plan your school’s  <a href="../../induction-tutor-materials/education-development-trust/year-one">{{ data['accredited-materials'] }}</a> induction programme.</p>
+{% elif (data['inductionProgramme'] === "temphold") %}
+    <p>You do not need to add information about your ECTs and mentors to this service.</p>
+{% endif %}

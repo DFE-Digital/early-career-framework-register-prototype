@@ -1,0 +1,26 @@
+{% extends "_wizard-form.html" %}
+{% set title = 'Will all participants in the 2021 to 2022 cohort be moving to ' + (data.admin['new-partnership'] or 'Capita') + '?' %}
+
+{% block form %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6'
+      }
+    },
+    items: [
+      {
+        text: "Yes, all",
+        value: "Everyone in the 2021 to 2022 cohort"
+      },
+      {
+        text: "No, only some",
+        value: "some"
+      }
+    ]
+  } | decorateFormAttributes(['admin', 'who']) ) }}
+{% endblock %}
+
+We assume that the current provider has submitted any start declarations for the participants it has onboarded

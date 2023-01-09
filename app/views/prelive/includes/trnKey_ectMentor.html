@@ -1,0 +1,44 @@
+<!-- {{ govukCheckboxes({
+    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+    items: [ { value: "No", text: "No induction registered" } ]
+} | decorateFormAttributes(['participants', id, 'inductionRegistered']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+    items: [ { value: "Yes", text: "Fail validation" } ]
+} | decorateFormAttributes(['participants', id, 'noRecordsMatched']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [ { value: "Yes", text: "No QTS" } ]
+} | decorateFormAttributes(['participants', id, 'noQTS']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [ { value: "Yes", text: "Participant already doing ECF-based training" } ]
+} | decorateFormAttributes(['participants', id, 'existingMatch']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [ { value: "Yes", text: "Mentor at multiple schools" } ]
+} | decorateFormAttributes(['participants', id, 'eroMultiMentor']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small ",
+    items: [ { value: "Yes", text: "ERO" } ]
+} | decorateFormAttributes(['participants', id, 'eroMentor']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+    items: [ { value: "Yes", text: "Completed induction" } ]
+} | decorateFormAttributes(['participants', id, 'completedInduction']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+    items: [ { value: "Yes", text: "Ineligible (Active flags)" } ]
+} | decorateFormAttributes(['participants', id, 'ineligible']) ) }}
+
+{{ govukCheckboxes({
+    classes: "govuk-checkboxes--small govuk-!-padding-bottom-1",
+    items: [ { value: "Yes", text: "Exempt from induction" } ]
+} | decorateFormAttributes(['participants', id, 'inductionExempt']) ) }} -->

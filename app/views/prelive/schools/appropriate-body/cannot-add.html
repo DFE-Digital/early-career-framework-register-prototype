@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+
+{% set pageHeading = 'You cannot add an appropriate body' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>We are working on this functionality and it should be available shortly.</p>
+
+
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/schools/manage-your-training">Back to manage your training</a></p>
+        </div>
+    </div>
+{% endblock %}

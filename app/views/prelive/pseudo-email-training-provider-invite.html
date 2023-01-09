@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set showPhaseBanner = false %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+
+  <link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" />
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="pseudo-bg"></div>
+<div class="pseudo-email-template">
+<p>Hello,
+<br /><br />
+Our service, Induction for early career teachers, is now live. You can use this service to find schools and add new partnerships.
+<br /><br />
+Find schools to recruit by:
+<br /></p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>filtering schools by name, local authority, MAT/network and more</li>
+  <li>seeing which schools are available or are in a partnership</li>
+  <li>targeting schools that are remote or have a pupil premium above 40%</li>
+</ul>
+<p>
+Add your new partnerships by:
+<br /></p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>selecting and confirming the schools you have a partnership with</li>
+</ul>
+<p>
+You can also use the service to check if your schools have added their early career teachers and mentors.
+<br /><br />
+This will ensure you are paid in time for your participants.
+<br /><br />
+Department of Education have created an account for you. Sign in with: email.address@trainingprovider.co.uk
+<br /><br />
+<a href="sign-in">Sign in and get started</a>.</p>
+</div>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}

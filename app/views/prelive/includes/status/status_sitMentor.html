@@ -1,0 +1,8 @@
+{{ govukCheckboxes({
+                            classes: "govuk-checkboxes--small ",
+                            items: [
+                                { value: "Eligible", text: "Eligible for training", checked: checked }
+                            ]
+                        } | decorateFormAttributes(['participants', id, 'status']) ) }}
+
+                        <input type="hidden" name="sitMentor" id="sitMentor" value="Yes" />
