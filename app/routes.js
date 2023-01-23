@@ -7,7 +7,4 @@ const router = express.Router()
 require('./routes/participants')(router)
 require('./routes/schools')(router)
 
-require('./routes/participants_prelive')(router)
-require('./routes/schools_prelive')(router)
-
 module.exports = router

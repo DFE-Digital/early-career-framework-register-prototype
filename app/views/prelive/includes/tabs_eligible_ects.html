@@ -1,5 +1,0 @@
-{% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgrammeYearTwo'] == "FIP")) %}
-    {% include "includes/eligible_fip.html" %}
-{% elif ((data['inductionProgramme'] == "CIP") or (data['inductionProgrammeYearTwo'] == "CIP")) %}
-    {% include "includes/eligible_cip.html" %}
-{% endif %}

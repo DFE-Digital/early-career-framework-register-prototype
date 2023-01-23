@@ -1,9 +1,0 @@
-{% if participant.joiningDay %}
-<div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Start date</dt>
-    <dd class="govuk-summary-list__value">
-        {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
-    </dd>
-    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a></dd>
-</div>
-{% endif %}

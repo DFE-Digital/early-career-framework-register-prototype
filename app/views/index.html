@@ -20,9 +20,10 @@
         	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
 
         	{{ govukButton({
-      			text: "Service start"
+      			text: "Service start",
+                href: "/emails/tell-us-if-you-have-nqt"
     		}) }}
-            {# href: "/emails/tell-us-if-you-have-nqt" #}
+
             <br>
     		{{ govukButton({
       			text: "Page listings",
@@ -71,14 +72,14 @@
 
         	{% include "includes/break.html" %}
 
-    		<h2 class="govuk-heading-m">Prelive - design work</h2>
+    		{# <h2 class="govuk-heading-m">Prelive - design work</h2>
         	<p>Version of the prototype that contains all the design work undertaken in 2022 not yet developed or implemented into live.</p>
 
 			<form method="post" action="/prelive/index" >
             	{{ govukButton({
                 	text: "Continue"
             	}) }}
-        	</form>
+        	</form> #}
 
 
 
