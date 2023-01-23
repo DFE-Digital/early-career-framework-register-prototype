@@ -16,8 +16,8 @@
                 <li>new ECTs starting ECF-based training in the 2022 to 2023 academic year</li>
                 <li>any mentors due to start mentor training in the same year</li>
             </ul>
-            
-            <form class="form" action="/schools/appropriate-body" method="post" >
+
+            <form class="form" action="/prelive/schools/appropriate-body" method="post" >
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
@@ -26,10 +26,10 @@
                     },
                     items: [
                         { value: "Yes", text: "Yes" },
-                        { value: "No", text: "No" }                            
+                        { value: "No", text: "No" }
                     ]
                 } | decorateFormAttributes('newYearStayLeadProvider')) }}
-                
+
 
                 {{ govukButton({
                     text: "Continue"

@@ -10,7 +10,7 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            
+
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <form method="post" action="search" class="form" />
@@ -47,7 +47,7 @@
                     text: "Search"
                 }) }}
             </form>
-            
+
         </div>
         <div class="govuk-grid-column-full">
 
@@ -74,9 +74,9 @@
                 </div>
             </div> -->
 
-            
-                
-                
+
+
+
 
                 <!-- <div class="govuk-grid-column-one-third  ">
 
@@ -97,16 +97,16 @@
 
                 </div> -->
                 <!-- <div class="govuk-grid-column-full"> -->
-            
+
             {% if data['searchWord'] == "urn" %}
-                
-            
+
+
             <table class="govuk-table govuk-!-margin-bottom-9">
                 {% include "includes/dash_support_schools_head_new.html" %}
                 <tbody class="govuk-table__body">
                     {% for id, school in data.schools %}
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/support/schools/{{ id }}/overview" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
+                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/prelive/support/schools/{{ id }}/overview" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
                         <td class="govuk-table__cell">{{ school.urn }}</td>
                         <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].localAuthority %}{{ school.localAuthority }}{% else %}-{% endif %}</td>
                         <!-- <td class="govuk-table__cell">-</td> -->
@@ -118,7 +118,7 @@
 
             {% elif data['searchWord'] == "trn" %}
 
-            <table class="govuk-table">                    
+            <table class="govuk-table">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header">Name</th>
@@ -128,9 +128,9 @@
                         <th scope="col" class="govuk-table__header">Delivery partner</th>
                     </tr>
                 </thead>
-                <tbody class="govuk-table__body">                    
+                <tbody class="govuk-table__body">
                     {% for id, participant in data.participants %}
-                        {% if participant.programme == "FIP" %}                            
+                        {% if participant.programme == "FIP" %}
                             {% include "includes/support_dash_fip_row.html" %}
                         {% endif %}
                     {% endfor %}

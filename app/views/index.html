@@ -13,15 +13,16 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 			<!-- <p>Testing deployment</p> -->
     		<ul class="govuk-list govuk-body-s">
-          		<li>Last updated: 9 January 2023</li>
+          		<li>Last updated: 20 January 2023</li>
             	<li>Prototype version: {{releaseVersion}}</li>
         	</ul>
+            <p>Version of the prototype mirroring the current live service. Does not contain any content or design work not yet approved for build or gone through user research.</p>
         	<p>Use this service to manage a school’s statutory induction programme for early career teachers.</p>
 
         	{{ govukButton({
-      			text: "Journey from first email contact",
-      			href: "/emails/tell-us-if-you-have-nqt"
+      			text: "Service start"
     		}) }}
+            {# href: "/emails/tell-us-if-you-have-nqt" #}
             <br>
     		{{ govukButton({
       			text: "Page listings",
@@ -70,13 +71,12 @@
 
         	{% include "includes/break.html" %}
 
-    		<h2 class="govuk-heading-m">Development baseline</h2>
-        	<p>Version of the prototype for use by the development team. Does not contain any content or design work not yet approved for build or gone through user research.</p>
+    		<h2 class="govuk-heading-m">Prelive - design work</h2>
+        	<p>Version of the prototype that contains all the design work undertaken in 2022 not yet developed or implemented into live.</p>
 
-			<form method="post" action="/index" >
+			<form method="post" action="/prelive/index" >
             	{{ govukButton({
-                	text: "Continue",
-                	href: "https://dev-dfe-ecf-register-partner.herokuapp.com/"
+                	text: "Continue"
             	}) }}
         	</form>
 

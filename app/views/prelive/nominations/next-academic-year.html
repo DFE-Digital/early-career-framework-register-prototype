@@ -21,10 +21,10 @@
 
             <!-- If FIP last academic year  -->
             {% if data['inductionProgramme'] == "FIP" %}
-    			<form class="form" action="/schools/training-programme/same" method="post">
+    			<form class="form" action="/prelive/schools/training-programme/same" method="post">
             <!-- All others will be asked how they will run their training this next academic year -->
             {% else %}
-                <form class="form" action="/schools/training-programme/how-will-you-run" method="post">
+                <form class="form" action="/prelive/schools/training-programme/how-will-you-run" method="post">
             {% endif %}
 
 				{{ govukRadios({

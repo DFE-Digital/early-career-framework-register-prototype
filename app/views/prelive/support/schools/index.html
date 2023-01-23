@@ -36,7 +36,7 @@
                 <tbody class="govuk-table__body">
                     {% for id, school in data.schools %}
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/support/schools/{{ id }}/overview" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
+                        <td class="govuk-table__cell govuk-!-width-one-third"><a href="/prelive/support/schools/{{ id }}/overview" class="govuk-link govuk-link--no-visited-state">{{ school.name }}</a></td>
                         <td class="govuk-table__cell">{{ school.urn }}</td>
                         <td class="govuk-table__cell govuk-!-width-one-quarter">{% if data.schools[id].localAuthority %}{{ school.localAuthority }}{% else %}-{% endif %}</td>
                         <td class="govuk-table__cell">-</td>

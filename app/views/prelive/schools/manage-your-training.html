@@ -25,13 +25,13 @@
 
                         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">New ECTs starting this year</h2>
 
-                        <p>To add ECTs to this academic year<a href="/nominations/"> tell us if your school expects any new ECTs and how their training will be run.</a></p>                        
+                        <p>To add ECTs to this academic year<a href="/prelive/nominations/"> tell us if your school expects any new ECTs and how their training will be run.</a></p>
 
                     {% else %}
 
                         {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
                             <p>You’ve told us you do not expect any new ECTs to start training at your school in the 2022 to 2023 academic year.</p>
-                            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
+                            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/prelive/nominations/next-academic-year">Tell us if this has changed</a></p>
                         {% else %}
 
                             <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Year 1 ECF-based training</h3>
@@ -39,7 +39,7 @@
                             {% if data['newYearChangeWhat'] == "nextYear-CIP" %}
                                 {% if not data['nextYear-accredited-materials'] %}
                                     <h2 class="govuk-heading-m">Choose your training materials</h2>
-                                    <p><a href="/schools/materials/" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a></p>
+                                    <p><a href="/prelive/schools/materials/" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a></p>
                                     <p class="govuk-!-margin-bottom-5">Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
                                 {% endif %}
                             {% endif %}
@@ -124,7 +124,7 @@
                             {% elif data['inductionProgrammeYearTwo'] == "CIP" %}
 
                                 {% if not data['nextYear-accredited-materials'] %}
-                                    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
+                                    <p><a href="/prelive/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
                                 {% endif %}
 
                                 <dl class="govuk-summary-list govuk-!-margin-bottom-7">

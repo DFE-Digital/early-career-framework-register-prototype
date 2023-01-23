@@ -22,7 +22,7 @@
 
                             <p>As {{ participant.name }} has been registered with a training provider, you’ll need to contact the lead provider {{ data.leadProvider }} to withdraw them.</p>
                             <p>{{ data.leadProvider }} will confirm the change directly with us. We’ll then remove {{ participant.name }}’s information from your account.</p>
-                            <p><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/manage-your-training">Return to manage your training</a></p>
+                            <p><a class="govuk-lin govuk-link--no-visited-statek" href="/prelive/schools/manage-your-training">Return to manage your training</a></p>
 
                         {% elif data.participants[id].programme == "CIP" %}
 
@@ -42,7 +42,7 @@
 
                         {% if data.participants[id].role == "ECT" %}
 
-                            <p>If {{ participant.name }} should not have been registered, you need to <a href="/schools/participants/{{ id }}/remove/confirm">need to remove all their information from this service</a>.</p>
+                            <p>If {{ participant.name }} should not have been registered, you need to <a href="/prelive/schools/participants/{{ id }}/remove/confirm">need to remove all their information from this service</a>.</p>
 
                         {% elif data.participants[id].role == "Mentor" %}
 
@@ -76,7 +76,7 @@
                                 <li>we can check their eligibility for DfE funding for ECF-based training, mentor support and time off timetable</li>
                                 <li>their training can be recorded against the correct teacher reference number (TRN)</li>
                             </ul>
-                            <p><a href="/schools/participants/add/">Add the new ECT</a></p>
+                            <p><a href="/prelive/schools/participants/add/">Add the new ECT</a></p>
 
                         {% elif data.participants[id].role == "Mentor" %}
 
@@ -86,7 +86,7 @@
 
                             <h2 class="govuk-heading-m">Add the other mentor to this service</h2>
                             <p>You need to do this separately so we can check their eligibility for DfE funding.</p>
-                            <p><a href="/schools/participants/add/">Add the new mentor</a></p>
+                            <p><a href="/prelive/schools/participants/add/">Add the new mentor</a></p>
 
                         {% endif %}
 
@@ -106,7 +106,7 @@
                                 <li>we can check their eligibility for DfE funding for ECF-based training, mentor support and time off timetable</li>
                                 <li>their training can be recorded against the correct teacher reference number (TRN)</li>
                             </ul>
-                            <p><a href="/schools/participants/add/">Add the new ECT</a></p>
+                            <p><a href="/prelive/schools/participants/add/">Add the new ECT</a></p>
 
                         {% elif data.participants[id].role == "Mentor" %}
 
@@ -117,7 +117,7 @@
 
                             <h2 class="govuk-heading-m">Add the other mentor to this service</h2>
                             <p>You need to do this separately so we can check their eligibility for DfE funding.</p>
-                            <p><a href="/schools/participants/add/">Add the new mentor</a></p>
+                            <p><a href="/prelive/schools/participants/add/">Add the new mentor</a></p>
 
                         {% endif %}
 
