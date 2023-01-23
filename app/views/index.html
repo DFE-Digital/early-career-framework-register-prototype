@@ -37,8 +37,49 @@
       			classes: "govuk-button--secondary govuk-!-margin-left-1"
     		}) }}
 
+        	{% include "includes/break.html" %}
 
 
+			{# <h2 class="govuk-heading-m">Appropriate body demo</h2>
+        	<p>Quick links to allow demo of the appropriate body functionality.</p>
+
+			<form action="/schools/appropriate-body/" method="post" >
+
+				<input type="hidden" id="cohort" name="cohort" value="2022" />
+
+				<input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+				<input type="hidden" name="accredited-materials" id="accredited-materials" value="Teach First" />
+				<input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+				<input type="hidden" name="inductionProgrammeYearTwoECTs" id="inductionProgrammeYearTwoECTs" value="Yes" />
+				<input type="hidden" name="inductionProgrammeYearTwoProviderChange" id="inductionProgrammeYearTwoProviderChange" value="No" />
+
+
+				{{ govukButton({
+					text: "Continue"
+				 }) }}
+			</form>
+
+			{% include "includes/break.html" %} #}
+
+
+        	<h2 class="govuk-heading-m">User research</h2>
+        	<p>Area of the prototype for user research purposes, including link to share with user testing participants.</p>
+            {# <p>No current user research taking place.</p> #}
+        	{{ govukButton({
+            	text: "Continue",
+            	href: "admin/user-research/"
+        	}) }}
+
+        	{% include "includes/break.html" %}
+
+    		<h2 class="govuk-heading-m">Prelive - design work</h2>
+        	<p>Version of the prototype that contains all the design work undertaken in 2022 not yet developed or implemented into live.</p>
+
+
+            	{{ govukButton({
+                	text: "Continue to Blue Sky prototype",
+                    href: "https://dfe-manage-training-ect.herokuapp.com/"
+            	}) }}
 
 
 
