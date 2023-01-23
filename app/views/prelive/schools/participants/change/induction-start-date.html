@@ -25,8 +25,8 @@
                 {# <p>This is the date when the mentor formally starts mentoring an ECT.</p> #}
             {% endif %}
 
-                    
-            <form class="form" action="/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">                    
+
+            <form class="form" action="/prelive/schools/participants/{{ id }}/change/confirmation" method="post" class="govuk-!-margin-bottom-8">
 
 				{{ govukDateInput({
 					id: 'session-date-induction',
@@ -38,17 +38,17 @@
 					},
 					items: [
 						{
-							name: '[participants][' + id + '][inductionDayCorrect]',							
+							name: '[participants][' + id + '][inductionDayCorrect]',
 							classes: "govuk-input--width-2",
 							label: 'Day'
 						},
 						{
-							name: '[participants][' + id + '][inductionMonthCorrect]',							
+							name: '[participants][' + id + '][inductionMonthCorrect]',
 							classes: "govuk-input--width-2",
 							label: 'Month'
 						},
 						{
-							name: '[participants][' + id + '][inductionYearCorrect]',							
+							name: '[participants][' + id + '][inductionYearCorrect]',
 							classes: "govuk-input--width-4",
 							label: 'Year'
 						}

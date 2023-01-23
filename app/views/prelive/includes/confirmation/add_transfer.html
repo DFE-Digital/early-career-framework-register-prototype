@@ -4,7 +4,7 @@
 
                     {% if data.participants[id].switchProgramme %}
                         {% include "includes/confirmation_transfer_switch.html" %}
-                    {% else %}                        
+                    {% else %}
                         {% include "includes/confirmation_transfer.html" %}
                     {% endif %}
 
@@ -18,6 +18,6 @@
                         {% endif %}
                         <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
                         {% if data.participants[id].mentorAssigned != "Yes" %}
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/prelive/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
                         {% endif %}
                     </ol>

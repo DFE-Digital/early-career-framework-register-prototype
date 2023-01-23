@@ -52,7 +52,7 @@
     containerClasses: "govuk-width-container",
     navigation: [
       {
-        href: "/sign-out",
+        href: "/prelive/sign-out",
         text: "Sign out"
       }
     ] if schoolSignedIn or isAdmin
@@ -65,22 +65,22 @@
             <div class="govuk-width-container">
                 <div class="primary-nav">
                     <div class="nav-item nav-item__selected">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/schools/">Schools<span class="govuk-visually-hidden">Current page</span></a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/schools/">Schools<span class="govuk-visually-hidden">Current page</span></a>
                     </div>
                     <div class="nav-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/participants/">Participants</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/participants/">Participants</a>
                     </div>
                     <div class="nav-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/suppliers/">Suppliers</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/suppliers/">Suppliers</a>
                     </div>
                     <div class="nav-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/administrators/">Admin users</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/administrators/">Admin users</a>
                     </div>
                     <div class="nav-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/npq-applications/">NPQ Applications</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/npq-applications/">NPQ Applications</a>
                     </div>
                     <div class="nav-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="/support/delivery-partners/">Delivery partners</a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="/prelive/support/delivery-partners/">Delivery partners</a>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
 
         {{ govukBackLink({
             text: "Manage your schools",
-            href: "/schools/"
+            href: "/prelive/schools/"
         }) }}
 
     {% endif %}

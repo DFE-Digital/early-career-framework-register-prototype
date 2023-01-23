@@ -122,7 +122,7 @@
                         {% endif %}
                         <li>Ask {{ participant.name }} or their previous school to provide records of any assessments and progress reviews completed so far.</li>
                         {% if data.participants[id].mentorAssigned != "Yes" %}
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/prelive/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor for {{ participant.name }}</a> as soon as possible.</li>
                         {% endif %}
                     </ol>
 
@@ -189,11 +189,11 @@
                 {% if ((data.participants[id].role == "ect") or (data.participants[id].role == "transfer")) %}
                     {% if not ((data.participants[id].completedInduction) or (data.participants[id].inductionExempt)) %}
                         {% if data.participants[id].mentorAssigned != "Yes" %}
-                    <li><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor to this ECT</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/prelive/schools/participants/{{ id }}/add/choose-mentor">Assign a mentor to this ECT</a></li>
                         {% endif %}
                     {% endif %}
                 {% endif %}
-                <li><a class="govuk-lin govuk-link--no-visited-statek" href="/schools/participants/">View your ECTs and mentors</a></li>
+                <li><a class="govuk-lin govuk-link--no-visited-statek" href="/prelive/schools/participants/">View your ECTs and mentors</a></li>
             </ul>
 
 

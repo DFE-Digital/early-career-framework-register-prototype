@@ -26,7 +26,7 @@
 				  		<dd class="govuk-summary-list__value">
 						{% if participant.nameNew %}
                             {{ participant.nameNew }}
-                        {% else %}                        
+                        {% else %}
                             {{ participant.name }}
                         {% endif %}
 						</dd>
@@ -37,7 +37,7 @@
 				  		<dd class="govuk-summary-list__value">
 						{% if participant.emailCorrect %}
                             {{ participant.emailCorrect }}
-                        {% else %}                        
+                        {% else %}
                             {{ participant.email }}
                         {% endif %}
 						</dd>
@@ -65,7 +65,7 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Notes</dt>
 						<dd class="govuk-summary-list__value">{{ data.support.notes | nl2br }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/prelive/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
 				  	</div>
 				</dl>
 				<!-- {{ govukSummaryList({
@@ -78,7 +78,7 @@
 					{ key: { text: "Notes" }, value: { text: data.support.notes | nl2br | safe if data.support.notes else "No notes" },
 						actions: {
 						items: [
-							{ href: "/support/participant-add-notes", text: "Change notes" if data.support.notes else "Add notes" }
+							{ href: "/prelive/support/participant-add-notes", text: "Change notes" if data.support.notes else "Add notes" }
 						]
 						}
 					}
@@ -116,7 +116,7 @@
 								{% endif %}
 							{% endif %}
 						</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/prelive/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd>
 					</div>
 					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key">Delivery partner</dt>
@@ -135,7 +135,7 @@
 								{% endif %}
 							{% endif %}
 						</dd>
-						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd> #}
+						{# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/prelive/support/participant-add-notes">Challenge<span class="govuk-visually-hidden"></span></a></dd> #}
 					</div>
 					{% elif data.participants[id].programme == "CIP" %}
 					<div class="govuk-summary-list__row">
@@ -143,7 +143,7 @@
 						<dd class="govuk-summary-list__value">
 							{{ data.leadProviderMaterials }}
 						</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/prelive/support/participant-add-notes">Add notes<span class="govuk-visually-hidden"></span></a></dd>
 					</div>
 					{% endif %}
 				</dl>
