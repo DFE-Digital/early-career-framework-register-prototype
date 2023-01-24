@@ -3,6 +3,8 @@
                             <dt class="govuk-summary-list__key">Length of induction</dt>
                             <dd class="govuk-summary-list__value">2 years</dd>
                         </div>
+
+                        {% if ((data['inductionProgramme'] == "FIP") or (data['inductionProgramme'] == "CIP")) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">ECTs and mentors</dt>
                             <dd class="govuk-summary-list__value">
@@ -20,6 +22,7 @@
                                 <a class="govuk-link" href="participants/">Add<span class="govuk-visually-hidden"> ECTs </span></a>
                             </dd>
                         </div>
+                        {% endif %}
                         <div class="govuk-summary-list__row ">
                             <dt class="govuk-summary-list__key">Induction tutor</dt>
                             <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
@@ -27,7 +30,7 @@
                         </div>
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Programme</dt>
-                            <dd class="govuk-summary-list__value ">
+                            <dd class="govuk-summary-list__value">
                                 {% if data['inductionProgramme'] == "FIP" %}
                                     Training provider, funded by the DfE
                                 {% elif data['inductionProgramme'] == "CIP" %}
@@ -68,13 +71,13 @@
                         <!-- Using DfE accredited materials -->
                         {% elif data['inductionProgramme'] == "CIP" %}
                             <div class="govuk-summary-list__row">
-                                <dt class="govuk-summary-list__key">Materials</dt>
+                                <dt class="govuk-summary-list__key">Materials supplier</dt>
                                 <dd class="govuk-summary-list__value">{% if data['accredited-materials'] %}{{ data['accredited-materials'] }}{% else %}{% endif %}</dd>
                                 <dd class="govuk-summary-list__actions">
                                     {% if data['accredited-materials'] %}
                                         <a class="govuk-link" href="materials/change">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
                                     {% else %}
-                                        <a class="govuk-link" href="materials/">Add<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                        <a class="govuk-link" href="materials/">Choose<span class="govuk-visually-hidden"> accredited materials</span></a>
                                     {% endif %}
                                 </dd>
                             </div>

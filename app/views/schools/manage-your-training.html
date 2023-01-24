@@ -125,10 +125,40 @@
                             {% elif data['inductionProgrammeYearTwo'] == "CIP" %}
 
                                 {% if not data['nextYear-accredited-materials'] %}
-                                    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>. Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
+
+                                    <h2 class="govuk-heading-m">Choose your training materials</h2>
+                                    <p><a href="/schools/materials/?cohort=2022" class="govuk-link govuk-link--no-visited-state">Tell us which materials you’ll use</a>.</p>
+                                    <p>Read our guidance to <a href="/choose-study-materials" target="_blank">compare materials (opens in new tab)</a>.</p>
                                 {% endif %}
 
+
                                 <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">Length of induction</dt>
+                                        <dd class="govuk-summary-list__value">2 years</dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if data['inductionProgramme'] == "noECTs" %}
+                                                0
+                                            {% elif data['inductionProgramme'] == "CIP" %}
+                                                6
+                                            {% elif data['inductionProgramme'] == "FIP" %}
+                                                9
+                                            {% else %}
+                                                9
+                                            {% endif %}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                            <a class="govuk-link" href="participants/">Add<span class="govuk-visually-hidden"> ECTs </span></a>
+                                        </dd>
+                                    </div>
+                                    <div class="govuk-summary-list__row ">
+                                        <dt class="govuk-summary-list__key">Induction tutor</dt>
+                                        <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
+                                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+                                    </div>
                                     <div class="govuk-summary-list__row ">
                                         <dt class="govuk-summary-list__key">Programme</dt>
                                         <dd class="govuk-summary-list__value">DfE accredited materials</dd>
@@ -143,12 +173,24 @@
                                             {% if data['nextYear-accredited-materials'] %}
                                                 <a class="govuk-link" href="materials/change?cohort=2022">Change<span class="govuk-visually-hidden"> accredited materials</span></a>
                                             {% else %}
-                                                <a class="govuk-link" href="materials/?cohort=2022">Tell us<span class="govuk-visually-hidden"> accredited materials</span></a>
+                                                <a class="govuk-link" href="materials/?cohort=2022">Choose<span class="govuk-visually-hidden"> accredited materials</span></a>
                                             {% endif %}
                                         </dd>
                                     </div>
                             {% elif data['inductionProgrammeYearTwo'] == "DYO" %}
                                 <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+
+                                    <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+
+                        <div class="govuk-summary-list__row ">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+                        </div>
+
                                     <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">Programme</dt>
                                         <dd class="govuk-summary-list__value">Design and deliver your own programme based on the early career framework (ECF)</dd>
