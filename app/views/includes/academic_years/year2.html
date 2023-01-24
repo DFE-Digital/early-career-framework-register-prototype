@@ -1,27 +1,30 @@
-<!-- Current academic year -->
-                {# <h2 class="govuk-heading-m govuk-!-margin-bottom-3">2021 to 2022 academic year</h2> #}
-                <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Started year 1 in 2021 to 2022 academic year</h2> -->
 
-                    <!-- ///// Start of 2021 //// -->
-
-                        {# <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Year 2</dt>
-                            <dd class="govuk-summary-list__value">2022 to 2023</dd>
-                            <dd class="govuk-summary-list__actions"></dd>
-                        </div> #}
-                        {# <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Completion date</dt>
-                            <dd class="govuk-summary-list__value">July 2023</dd>
-                            <dd class="govuk-summary-list__actions"></dd>
-                        </div> #}
-                        
-
-
-
-
-
-
-
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">Length of induction</dt>
+                            <dd class="govuk-summary-list__value">2 years</dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">ECTs and mentors</dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if data['inductionProgramme'] == "noECTs" %}
+                                    0
+                                {% elif data['inductionProgramme'] == "CIP" %}
+                                    6
+                                {% elif data['inductionProgramme'] == "FIP" %}
+                                    9
+                                {% else %}
+                                    9
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="participants/">Add<span class="govuk-visually-hidden"> ECTs </span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row ">
+                            <dt class="govuk-summary-list__key">Induction tutor</dt>
+                            <dd class="govuk-summary-list__value">{{ data.sitName }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="participants/induction-tutor/full-name?induction-tutor=Yes">Change<span class="govuk-visually-hidden"> your SIT</span></a></dd>
+                        </div>
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">Programme</dt>
                             <dd class="govuk-summary-list__value ">
@@ -48,7 +51,7 @@
                             {% else %}
                             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                             {% endif %}
-                                <dt class="govuk-summary-list__key">Provider</dt>
+                                <dt class="govuk-summary-list__key">Training provider</dt>
                                 <dd class="govuk-summary-list__value">{% if data['providerPartnership'] == "Yes" %}{{ data.leadProvider }}{% endif %}</dd>
                                 {% if data['providerPartnership'] != "Yes" %}
                                 <dd class="govuk-summary-list__actions">
@@ -77,44 +80,7 @@
                             </div>
                         {% endif %}
 
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">ECTs</dt>
-                            <dd class="govuk-summary-list__value">
-                                {% if data['inductionProgramme'] == "noECTs" %}
-                                    0
-                                {% elif data['inductionProgramme'] == "CIP" %}
-                                    6
-                                {% elif data['inductionProgramme'] == "FIP" %}
-                                    6
-                                {% else %}
-                                    6
-                                {% endif %}
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Mentors</dt>
-                            <dd class="govuk-summary-list__value">
-                                {% if data['inductionProgramme'] == "noECTs" %}
-                                    0
-                                {% elif data['inductionProgramme'] == "CIP" %}
-                                    6
-                                {% elif data['inductionProgramme'] == "FIP" %}
-                                    3
-                                {% else %}
-                                    3
-                                {% endif %}
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-
-                            </dd>
-                        </div>
-
-
-
-
+                        <!-- AB is not required before 2022 cohort year -->
                     </dl>
 
                     {% include "includes/mt-message.html" %}
