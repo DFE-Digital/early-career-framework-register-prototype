@@ -19,7 +19,7 @@
 
             <p>If you’re not sure which option to choose, <a href="https://www.gov.uk/government/publications/early-career-framework-reforms-overview/early-career-framework-reforms-overview" target="_blank">check our guidance on statutory changes and new training programmes (opens in new tab)</a>.</p>
 
-            <p class="govuk-body">You can also contact your <a href="#">appropriate body</a>.</p>
+            <p class="govuk-body">You can also contact your  <a href="#">local teaching school hub (opens in a new tab)</a> or <a href="#">appropriate body (opens in a new tab)</a>.</p>
 
             <form class="form" action="/schools/training-programme/confirm" method="post" class="govuk-!-margin-bottom-8">
 
@@ -40,7 +40,7 @@
 
                     {{ govukRadios({
                         items: [
-                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)" },
                             { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
                         ]
                     } | decorateFormAttributes("nextYear-inductionProgramme")) }}
@@ -56,7 +56,7 @@
                     {% if data['inductionProgramme'] == "DYO" %}
                         {{ govukRadios({
                         items: [
-                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)" },
                             { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
                             { value: "noECTs", text: "We do not expect any early career teachers to join" }
                         ]
@@ -64,7 +64,7 @@
                     {% elif data['inductionProgramme'] == "noECTs" %}
                         {{ govukRadios({
                         items: [
-                            { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                            { value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)" },
                             { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
                             { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" }
                         ]
@@ -87,7 +87,7 @@
                     {% else %}
                     {{ govukRadios({
                         items: [
-                        { value: "FIP", text: "Use a training provider, funded by the DfE" },
+                        { value: "FIP", text: "Use a training provider, funded by the DfE (full induction programme)" },
                         { value: "CIP", text: "Deliver your own programme using DfE accredited materials" },
                         { value: "DYO", text: "Design and deliver your own programme based on the early career framework (ECF)" },
                         { value: "noECTs", text: "We do not expect any early career teachers to join" }

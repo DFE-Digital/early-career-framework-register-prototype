@@ -13,16 +13,8 @@
 
           {{ govukSummaryList({
             rows: [
-          { key: { text: "Local Authority" }, value: { text: data['schools-local-authority'] }, actions: {
-            items: [
-              {
-              href: "schools-local-authority",
-              text: "Change",
-              visuallyHiddenText: "authority"
-              }
-            ]
-            }  },
-          { key: { text: "School" }, value: { text: data['school-name'] }, classes: "govuk-!-width-one-half", actions: {
+          
+          { key: { text: "Name" }, value: { text: data['school-name'] }, classes: "govuk-!-width-one-half", actions: {
             items: [
               {
               href: "schools-local-authority",
