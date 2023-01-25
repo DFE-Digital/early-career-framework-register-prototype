@@ -3,7 +3,7 @@
 {% set showManageBackLink = true %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Manage your ECTs and mentors" %}
+{% set pageHeading = "Your ECTs and mentors" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,7 +20,24 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <p>Register your ECTs and mentors as soon as possible so we can:</p>
+            <p>We’ll check your early career teacher (ECTs) and mentors details with the Teaching Regulation Agency to make sure they’re eligible for funding for the programme.</p>
+            <p>In the meantime ECTs can begin training with their training provider.</p>
+
+            
+			<div class="govuk-inset-text govuk-!-margin-bottom-7">
+				<ul class="govuk-list">
+
+					<!-- Allow for more than 1 ECT to be added -->					
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/who-do-you-want-to-add">Add an ECT or mentor</a></li>					
+					{% if not data['induction-tutor-as-mentor'] %}
+					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
+					{% endif %}
+				</ul>
+			</div>
+
+
+
+            <!-- <p>Register your ECTs and mentors as soon as possible so we can:</p>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-three-quarters">
                     <ul class="govuk-list govuk-list--bullet">
@@ -36,7 +53,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
         </div>
 
         
