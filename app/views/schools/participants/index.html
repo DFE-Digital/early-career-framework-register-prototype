@@ -3,7 +3,7 @@
 {% set showManageBackLink = true %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = "Funding eligibility for your ECTs and mentors" %}
+{% set pageHeading = "Manage your ECTs and mentors" %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -39,9 +39,7 @@
             </div>
         </div>
 
-        <!-- SIT information -->
-        {% include "includes/sit_details.html" %}
-        <!-- // -->
+        
 
         <div class="govuk-grid-column-full">
 
