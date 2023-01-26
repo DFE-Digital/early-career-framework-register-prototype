@@ -1,5 +1,5 @@
                     
-{% if hasAnyContactedParticipants %}
+{% if hasAnyContactedParticipantsMentor %}
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Contacted for information</h2>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -11,7 +11,7 @@
         <tbody class="govuk-table__body">
             {% for id, participant in data.participants %}
                 <!-- Only those with a status contacted -->
-                {% if participant.status == "Contacted" and participant.programme == "FIP" %}
+                {% if participant.status == "Contacted" and participant.programme == "FIP" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  %}
                     {% include "includes/dash_fip_row_checking.html" %}
                 {% endif %}
             {% endfor %}
@@ -20,7 +20,7 @@
 {% endif %}
 
 {% if data['showTabCheckingEligibility'] == "Yes"  %}                    
-    {% if hasAnyCheckingParticipants %}
+    {% if hasAnyCheckingParticipantsMentor %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">DfE checking eligibility</h2>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -33,7 +33,7 @@
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     <!-- Only those with a status checking -->
-                    {% if participant.status == "Checking" and participant.programme == "FIP" %}
+                    {% if participant.status == "Checking" and participant.programme == "FIP" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  %}
                         {% include "includes/dash_fip_row_checking.html" %}
                     {% endif %}
                 {% endfor %}
@@ -43,7 +43,7 @@
 {% endif %}                    
 
 {% if data['showTabQTS'] == "Yes" %}                    
-    {% if hasAnyCheckingQTSParticipants %}
+    {% if hasAnyCheckingQTSParticipantsMentor %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Checking QTS</h2>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -55,7 +55,7 @@
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     <!-- Only those with a status checkingQTS -->
-                    {% if participant.status == "CheckingQTS" and participant.programme == "FIP" %}
+                    {% if participant.status == "CheckingQTS" and participant.programme == "FIP" and ((participant.role == "Mentor") or (participant.role == "sitMentor"))  %}
                         {% include "includes/dash_fip_row_checking.html" %}
                     {% endif %}
                 {% endfor %}
