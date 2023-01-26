@@ -9,9 +9,8 @@
     <table class="govuk-table govuk-!-margin-bottom-7">
         {% include "includes/dash_fip_head_checking.html" %}
         <tbody class="govuk-table__body">
-            {% for id, participant in data.participants %}
-                <!-- Only those with a status contacted -->
-                {% if participant.status == "Contacted" and participant.programme == "FIP" %}
+            {% for id, participant in data.participants %}                
+                {% if participant.status == "Contacted" and participant.programme == "FIP" and participant.role == "ECT" %}
                     {% include "includes/dash_fip_row_checking.html" %}
                 {% endif %}
             {% endfor %}
@@ -33,7 +32,7 @@
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     <!-- Only those with a status checking -->
-                    {% if participant.status == "Checking" and participant.programme == "FIP" %}
+                    {% if participant.status == "Checking" and participant.programme == "FIP" and participant.role == "ECT" %}
                         {% include "includes/dash_fip_row_checking.html" %}
                     {% endif %}
                 {% endfor %}
@@ -55,7 +54,7 @@
             <tbody class="govuk-table__body">
                 {% for id, participant in data.participants %}
                     <!-- Only those with a status checkingQTS -->
-                    {% if participant.status == "CheckingQTS" and participant.programme == "FIP" %}
+                    {% if participant.status == "CheckingQTS" and participant.programme == "FIP" and participant.role == "ECT" %}
                         {% include "includes/dash_fip_row_checking.html" %}
                     {% endif %}
                 {% endfor %}

@@ -22,13 +22,32 @@
                     <!-- Not setup -->
                     {% if not data['inductionProgrammeYearTwo'] %}
 
-                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">New ECTs starting this year</h2>
-                        <p>To add ECTs to this academic year<a href="/nominations/"> tell us if your school expects any new ECTs and how their training will be run.</a></p>
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Tell us if any new ECTs will start training at your school in the 2022 to 2023 academic year</h2>
+                        <p>We need to know:</p>
+
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>whether or not your school expects any new ECTs</li>
+                            <li>if you plan to change how you run training for any new ECTs</li>
+                        </ul>
+                        <p>You can tell us this later if you do not know yet. You can also change your answers if you need to.</p>
+                        
+
+                        <div class="govuk-inset-text">
+                            <p>Do not include ECTs who started their training in the 2021 to 2022 academic year.</p>
+                            <p>You can manage their training in the ‘2021 to 2022’ tab.</p>
+                        </div>
+                        
+                        <form action="/nominations/next-academic-year" method="post" >
+                            <input type="hidden" name="inductionProgrammeYearTwo" id="inductionProgrammeYearTwo" value="Started"  />
+                            {{ govukButton({
+                                text: "Start now"                                
+                            }) }}                        
+                        </form>
 
                     {% else %}
 
                         {% if data['inductionProgrammeYearTwo'] == "noECTs" %}
-                            <p>You’ve told us you do not expect any new ECTs to start training at your school in the 2022 to 2023 academic year.</p>
+                            <p>Your school has told us you do not expect any ECTs to join you in the 2022 to 2023 academic year.</p>
                             <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/nominations/next-academic-year">Tell us if this has changed</a></p>
                         {% else %}
 
