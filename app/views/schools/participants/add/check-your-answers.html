@@ -11,17 +11,12 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
 
-            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Details matched with Teacher Regulations Agency record</h2> #}
-            <p>You cannot change the name, TRN or date of birth as these have already been matched with the Teaching Regulation Agency record.</p>
-
-            <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 {% include "includes/summary_name.html" %}
                 {% include "includes/summary_trn.html" %}
                 {% include "includes/summary_dob.html" %}
-            </dl>
-
-            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 {% include "includes/summary_induction_date.html" %}
                 {% include "includes/summary_ni.html" %}
                 {% include "includes/summary_joining.html" %}

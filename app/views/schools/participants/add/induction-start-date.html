@@ -15,9 +15,14 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
             
-            <p>This is the date when an ECT’s induction formally starts. This may be different to their contract start date.</p>            
+            <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>            
+            
 
-            <form class="form" action="teacher-reference-number" method="post" >
+			{% if data['appropriateBodyName'] %}
+                <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+            {% else %}
+                <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+            {% endif %}				
 
 				{{ govukDateInput({
 					id: 'session-date-induction',

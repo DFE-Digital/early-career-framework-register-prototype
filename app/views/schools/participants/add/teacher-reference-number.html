@@ -47,6 +47,7 @@
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if not data['inductionProgrammeYearTwo'] %}
+            
 
                 {% if participant.inductionMonth == "09" or participant.inductionMonth == "9" or participant.inductionMonth == "10" or participant.inductionMonth == "11" or participant.inductionMonth == "12" or participant.inductionMonth == "1" or participant.inductionMonth == "2" or participant.inductionMonth == "3" or participant.inductionMonth == "4" or participant.inductionMonth == "5" or participant.inductionMonth == "01" or participant.inductionMonth == "02" or participant.inductionMonth == "03" or participant.inductionMonth == "04" or participant.inductionMonth == "05" %}
 
@@ -133,7 +134,7 @@
 
                     {% if data['linkaction'] != "cannotFind" %}
 
-                        <div class="govuk-visually-hidden key">
+                        <div class="key">
                             {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
                                 {% include "includes/trnKey_ectMentor.html" %}
                             {% elif data.participants[id].role == "Transfer" %}
@@ -150,6 +151,8 @@
 
 
             {% else %}
+
+            
 
                 <p class="govuk-body">This unique ID:</p>
                 <ul class="govuk-list govuk-list--bullet">
@@ -207,7 +210,7 @@
 
                 {% if data['linkaction'] != "cannotFind" %}
 
-                    <div class="govuk-visually-hidden key">
+                    <div class="key">
                         {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
                             {% include "includes/trnKey_ectMentor.html" %}
                         {% elif data.participants[id].role == "Transfer" %}
