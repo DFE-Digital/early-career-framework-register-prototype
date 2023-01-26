@@ -36,6 +36,8 @@
             <form class="form" action="teacher-reference-number" method="post">                        
             {% elif data.participants[id].role == "Transfer" %}
             <form class="form" action="teacher-reference-number" method="post">
+            {% else %}
+                <form class="form" action="teacher-reference-number" method="post">
             {% endif %}
         
                 {{ govukInput({

@@ -73,7 +73,7 @@
                 <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                     <dt class="govuk-summary-list__key">Role</dt>
                     <dd class="govuk-summary-list__value">
-                        {% if participant.role == "ECT" or participant.role == "Transfer" %}ECT
+                        {% if participant.role == "ECT" or participant.role == "Transfer" %}Early career teacher
                         {% elif participant.role == "Mentor" or participant.role == "Transfer" %}Mentor{% endif %}
                     </dd>
                 </div>
@@ -111,13 +111,17 @@
                 {% endif %}
 
                 <!-- Mentor -->
-                {% if participant.mentor %}
+                {% if data.participants[id].role == "ECT" %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Mentor</dt>
-                    <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                    <dd class="govuk-summary-list__value">{% if participant.mentor %}{{ participant.mentor }}{% else %}Not yet assigned{% endif %}</dd>
+                    <dd class="govuk-summary-list__actions">
+                        
+                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                        
                 </div>
                 {% endif %}
+                
 
                 <!-- Status -->
                 {% if data['induction-tutor'] != "Yes" %}
@@ -148,8 +152,10 @@
                         {% elif data.participants[id].status == "Eligible" %}
                             {% if data.participants[id].programme == "FIP" %}
                                 {% if data['providerPartnership'] == "Yes" %}
+                                    <p>Eligible to start</p>
                                     <p>We’ve confirmed this person is eligible for this programme. Your training provider will contact them directly.</p>
                                 {% else %}
+                                    <p>Eligible to start</p>
                                     <p>We’ve confirmed this person is eligible for this programme. Once you choose a training provider, they’ll contact this person directly.</p>
                                 {% endif %}
                             {% elif data.participants[id].programme == "CIP" %}
@@ -221,7 +227,7 @@
                 {% if data.participants[id].status != "Eligible" %}
                 <p><a href="{{ id }}/remove/confirm">Remove {{ participant.name }}</a></p>
                 {% else %}
-                    <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>                    
+                    <p>Contact {{ data.leadProvider }} if you want to remove {{ participant.name }} from this cohort.</p>                    
                 {% endif %}
             <!-- Not FIP -->
             {% elif data.participants[id].programme == "CIP" %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" %}
+{% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" or data.participants[id].role == "Mentor" %}
 	{% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
 <!-- {% elif data.participants[id].role == "sitMentor" %}
     {% set pageHeading = 'What’s your date of birth?' %}     -->
@@ -16,7 +16,7 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			  	{% if data.participants[id].role == "ECT" %}
+			  	{% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
 				  	<form class="form" action="email-address" method="post">
 				{% elif data.participants[id].role == "Transfer" %}
 					<form class="form" action="joining-date" method="post">
