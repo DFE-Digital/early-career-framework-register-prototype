@@ -33,7 +33,7 @@
 					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
 				</ul>
-			</div>            
+			</div>
         </div>
 
     
@@ -42,8 +42,28 @@
             {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" ) or (data['showTabEligibleECT'] == "Yes" ) or (data['showTabEligibleMentor'] == "Yes" ) or (data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" ) or (data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
 
                 <div class="govuk-tabs" data-module="govuk-tabs">
-                    <h2 class="govuk-tabs__title">Funding eligibility for your ECTs and mentors</h2>
+                    <h2 class="govuk-tabs__title">{{ pageHeading }}</h2>
+                    
                     <ul class="govuk-tabs__list">
+                        <!-- {% if (( data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" )) %}
+                            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected"><a class="govuk-tabs__tab" href="#checkingHtml">Spare</a></li>
+                        {% endif %} -->
+                        {% if data['showTabEligibleECT'] == "Yes" %}
+                            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#ectHtml">ECTs</a></li>
+                        {% endif %}
+                        {% if data['showTabEligibleMentor'] == "Yes" %}
+                            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#mentorHtml">Mentors</a></li>
+                        {% endif %}
+                        {% if ((data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" )) %}
+                            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#movingSchoolHtml">Moving school</a></li>
+                        {% endif %}
+                        {% if ((data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
+                            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#notEligibleHtml">Not training</a></li>
+                        {% endif %}
+                    </ul>
+                    
+                    
+                    <!-- <ul class="govuk-tabs__list">
                         {% if (( data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" )) %}
                             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected"><a class="govuk-tabs__tab" href="#checkingHtml">Checks in progress</a></li>
                         {% endif %}
@@ -59,13 +79,11 @@
                         {% if ((data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
                             <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#notEligibleHtml">Not eligible for funding</a></li>
                         {% endif %}
-                    </ul>
+                    </ul> -->
 
-                    {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" )) %}
-                        <div class="govuk-tabs__panel" id="checkingHtml">
-                            {% include "includes/tabs_checks_in_progress.html" %}
-                        </div>
-                    {% endif %}
+
+                    
+                    
 
                     {% if data['showTabEligibleECT'] == "Yes" %}
                         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="ectHtml">
@@ -74,7 +92,7 @@
                     {% endif %}
                     {% if ((data['showTabEligibleMentor'] == "Yes") or ( data['showTabEligibleMentorNF'] )) %}
                         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mentorHtml">
-                            {% include "includes/dashboard/eligible_mentor.html" %}
+                            {% include "includes/dashboard/mentor.html" %}
                         </div>
                     {% endif %}
 
