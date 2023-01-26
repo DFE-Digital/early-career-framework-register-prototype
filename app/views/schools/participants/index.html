@@ -33,31 +33,10 @@
 					<li><a class="govuk-link govuk-link--no-visited-state" href="add/yourself-as-a-mentor?participantType=sitMentor">Add yourself as a mentor</a></li>
 					{% endif %}
 				</ul>
-			</div>
-
-
-
-            <!-- <p>Register your ECTs and mentors as soon as possible so we can:</p>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-three-quarters">
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>check their details in the Teaching Regulation Agency records</li>
-                        <li>confirm their eligibility for DfE-funded training and access to materials</li>
-                    </ul>
-
-                    <div class="govuk-!-margin-top-6">
-                        {{ govukButton({
-                            text: "Add a new ECT or mentor",
-                            href: "add/"
-                        }) }}
-                    </div>
-
-                </div>
-            </div> -->
+			</div>            
         </div>
 
-        
-
+    
         <div class="govuk-grid-column-full">
 
             {% if ((data['showTabCheckingEligibility'] == "Yes" ) or (data['showTabQTS'] == "Yes" ) or (data['showTabEligibleECT'] == "Yes" ) or (data['showTabEligibleMentor'] == "Yes" ) or (data['showTabTransferIn'] == "Yes" ) or (data['showTabTransferOut'] == "Yes" ) or (data['showTabNotEligible'] == "Yes" ) or (data['showTabWithdrawn'] == "Yes" )) %}
