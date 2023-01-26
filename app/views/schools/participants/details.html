@@ -30,44 +30,16 @@
                     {% if data.participants[id].status != "Withdrawn" %}
                     <dd class="govuk-summary-list__actions">
                         {% if data['induction-tutor'] == "Yes" %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> name</span></a>
+                            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
                         {% else %}
-                            <a class="govuk-link" href="/schools/participants/{{ id }}/change/why-change-name?detailsChange=Name">Edit<span class="govuk-visually-hidden"> name</span></a>
-                            <!-- <a class="govuk-link" href="change/not-editable">Edit<span class="govuk-visually-hidden"> name</span></a>                             -->
+                            <a class="govuk-link" href="/schools/participants/{{ id }}/change/why-change-name?detailsChange=Name">Change<span class="govuk-visually-hidden"> name</span></a>
+                            <!-- <a class="govuk-link" href="change/not-Changeable">Change<span class="govuk-visually-hidden"> name</span></a>                             -->
                         {% endif %}
                     </dd>
                     {% endif %}
                 </div>
+                
 
-                <!-- TRN -->
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">{% if participant.trnKnown == "No" %}TRN entered{% else %}TRN{% endif %}</dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if participant.trnKnown == "No" %}
-                            {{ participant.trnKnown }}
-                        {% else %}
-                            {{ participant.trnNumber }}
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        {% if participant.trnKnown == "No" %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                        {% else %}
-                            <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
-                        {% endif %}
-                    </dd>
-                </div>
-
-                <!-- DOB -->
-                {% if participant.dobDay %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Date of birth</dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ isoDateFromDateInputs(participant['dobYear'], participant['dobMonth'], participant['dobDay']) | dateWithYear }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> date of birth</span></a></dd>
-                </div>
-                {% endif %}
 
                 <!-- Joining date -->
                 {% if participant.joiningDay %}
@@ -76,7 +48,7 @@
                     <dd class="govuk-summary-list__value">
                         {{ isoDateFromDateInputs(participant['joiningYear'], participant['joiningMonth'], participant['joiningDay']) | dateWithYear }}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> joining date</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> joining date</span></a></dd>
                 </div>
                 {% endif %}
 
@@ -92,7 +64,7 @@
                         {% endif %}
                         </dd>
                     {% if data.participants[id].status != "Withdrawn" %}
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/email-address?detailsChange=Email">Edit<span class="govuk-visually-hidden"> email address</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/email-address?detailsChange=Email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
                     {% endif %}
                 </div>
                 {% endif %}
@@ -106,29 +78,7 @@
                     </dd>
                 </div>
 
-
-                 <!-- Start date -->
-                {% if participant.inductionDay %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        {% if data.participants[id].role == "ECT" %}
-                            Induction start
-                        {% elif data.participants[id].role == "Mentor" %}
-                            Mentoring start
-                        {% endif %}
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if participant.inductionDayCorrect %}
-                            {{ isoDateFromDateInputs(participant['inductionYearCorrect'], participant['inductionMonthCorrect'], participant['inductionDayCorrect']) | dateWithYear }}
-                        {% else %}
-                            {{ isoDateFromDateInputs(participant['inductionYear'], participant['inductionMonth'], participant['inductionDay']) | dateWithYear }}
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/schools/participants/{{ id }}/change/induction-start-date?detailsChange=Date">Edit<span class="govuk-visually-hidden"> start date for induction programme</span></a></dd>
-                </div>
-                {% endif %}
-
-
+                 
                 <!-- Start date -->
                 {% if data.participants[id].role == "ECT" %}
 
@@ -149,11 +99,11 @@
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {% if participant.abConfirm == "Yes" %}
-                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Change<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% elif participant.appropriateBodyName %}
-                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Change<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% else %}
-                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Edit<span class="govuk-visually-hidden"> appropriate body</span></a>
+                                        <a class="govuk-link" href="/schools/participants/{{ id }}/change/appropriate-body?appropriateBodyTypeChange=">Change<span class="govuk-visually-hidden"> appropriate body</span></a>
                                     {% endif %}
                                 </dd>
                             </div>
@@ -165,7 +115,7 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Mentor</dt>
                     <dd class="govuk-summary-list__value">{{ participant.mentor }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> mentor</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> mentor</span></a></dd>
                 </div>
                 {% endif %}
 
@@ -271,7 +221,7 @@
                 {% if data.participants[id].status != "Eligible" %}
                 <p><a href="{{ id }}/remove/confirm">Remove {{ participant.name }}</a></p>
                 {% else %}
-                    <p>Contact {{ data.leadProvider }} or {{ data.deliveryPartner }} if you want to remove {{ participant.name }}.</p>
+                    <p>If {{ participant.name }} should not be in this cohort, contact your training provider to remove them.</p>                    
                 {% endif %}
             <!-- Not FIP -->
             {% elif data.participants[id].programme == "CIP" %}

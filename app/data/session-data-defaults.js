@@ -2,7 +2,7 @@ const defaults = {
   schoolName: 'Acme Primary School',
   sitName: 'Chris P Bacon',
   leadProvider: 'Ambition Institute',
-  deliveryPartner: 'Kings College London'
+  deliveryPartner: 'Kings College London'  
 }
 
 const schoolName = process.env.SCHOOL_NAME || defaults.schoolName

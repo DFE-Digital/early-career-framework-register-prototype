@@ -12,13 +12,15 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p class="govuk-body">ECTs are teachers who have finished their initial teacher training.</p>
+            
 			<p class="govuk-body">Do not include:</p>
             <ul  class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
                 <li>ECTs who started training in the 2021 to 2022 academic year</li>
                 <li>any other teachers who started or completed their statutory induction before 1 September 2022</li>
             </ul>
+			<p class="govuk-body">ECTs are teachers who have finished their initial teacher training.</p>
 
+			
             <!-- If FIP last academic year  -->
             {% if data['inductionProgramme'] == "FIP" %}
     			<form class="form" action="/schools/training-programme/same" method="post">
