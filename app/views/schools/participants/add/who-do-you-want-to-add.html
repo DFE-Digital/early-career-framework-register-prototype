@@ -12,13 +12,14 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <p class="govuk-body">This could be a new teacher or a teacher transferring from another school where they’ve started ECF-based training or mentoring.</p>
+
             <form class="form" action="what-we-need" method="post" class="govuk-!-margin-bottom-7">
 
                 {{ govukRadios({
                     items: [
-                        { value: "Transfer", text: "A teacher transferring from another school where they’ve started ECF-based training or mentoring" },
-                        { value: "ECT", text: "A new ECT" },
-                        { value: "Mentor", text: "A new mentor" }
+                        { value: "ECT", text: "ECT" },
+                        { value: "Mentor", text: "Mentor" }
                     ]
                 } | decorateFormAttributes(['participants', id, 'role']) ) }}
 

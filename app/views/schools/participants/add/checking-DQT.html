@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Checking details given for ' + participant.name + ' in DQT' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">This page is not seen by the end user, it’s just to illustrate what we are doing underneath in the backend.</p>
+
+            <p class="govuk-body">Checking using TRN + DOB - but also pulling back name
+            <br>No check in Teacher Profiles until validated in DQT</p>
+
+            {% if data.participants[id].noRecordsMatchedDQT == "Yes" %}
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-7">User not found in DQT.</p>
+                <form class="form" action="cannot-find-their-details" method="post">
+            {% else %}
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-7">User found in DQT.</p>
+
+                {% if data.participants[id].knownByOtherName == "Yes" %}
+                    <form class="form" action="known-by-another-name" method="post">
+                {% else %}
+
+                    <form class="form" action="checking-teacher-profiles" method="post">
+                {% endif %}
+            {% endif %}
+
+        		    {{ govukButton({
+          			    text: "Continue"
+        		    }) }}
+
+      		    </form>
+
+    	</div>
+  	</div>
+{% endblock %}

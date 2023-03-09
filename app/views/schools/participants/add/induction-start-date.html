@@ -3,8 +3,10 @@
 
 {% if data.participants[id].role == "ECT" %}
     {% set pageHeading = 'What’s ' + participant.name + '’s induction start date? ' %}
-<!-- {% elif data.participants[id].role == "Mentor" %}
-    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %} -->
+{% elif data.participants[id].role == "Mentor" %}
+    {% set pageHeading = 'What date do you expect ' + participant.name + ' to begin mentoring ECTs?' %}
+{% elif data.participants[id].role == "sitMentor" %}
+    {% set pageHeading = 'What date do you expect to begin mentoring ECTs?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -14,15 +16,21 @@
     	<div class="govuk-grid-column-two-thirds">
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
-            <p>This is the date when the ECT’s induction programme formally starts. This may be different to their contract start date.</p>            
-            
 
-			{% if data['appropriateBodyName'] %}
-                <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+            {% if data.participants[id].role == "ECT" %}
+            <p class="govuk-body">This is the date when {{ participant.name }}’s induction programme formally starts. This may be different to their contract start date.</p>
+            {% endif %}
+
+            {% if data.participants[id.role] == "ECT" or data.participants[id.role] == "Transfer" %}
+			    {% if data['appropriateBodyName'] %}
+                    <form class="form" action="appropriate-body" method="post" class="govuk-!-margin-bottom-8">
+                {% else %}
+                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
+                {% endif %}
             {% else %}
+                <!-- Mentors do not see the AB pages -->
                 <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-            {% endif %}				
+            {% endif %}
 
 				{{ govukDateInput({
 					id: 'session-date-induction',
@@ -42,7 +50,7 @@
 				}) }}
 
 			</form>
-			
+
     	</div>
   	</div>
 {% endblock %}

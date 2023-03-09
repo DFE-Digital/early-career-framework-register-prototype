@@ -11,58 +11,50 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
+
+            {# <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Details matched with Teacher Regulations Agency record</h2> #}
+            <p class="govuk-body">You cannot change the name, TRN or date of birth as these have already been matched with the Teaching Regulation Agency (TRA) record.</p>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 {% include "includes/summary_name.html" %}
                 {% include "includes/summary_trn.html" %}
                 {% include "includes/summary_dob.html" %}
-                {% include "includes/summary_induction_date.html" %}
                 {% include "includes/summary_ni.html" %}
+                {% include "includes/summary_induction_date.html" %}
                 {% include "includes/summary_joining.html" %}
                 {% include "includes/summary_email.html" %}
                 {% include "includes/summary_cohort.html" %}
                 {% include "includes/summary_aBody.html" %}
-                <!-- {% include "includes/summary_mentor.html" %} -->
+                {# {% include "includes/summary_mentor.html" %} #}
                 {% include "includes/summary_training.html" %}
             </dl>
 
             <form class="form" action="confirmation" method="post" >
 
                 <!-- This clears any cya links -->
-                {% if data['cya-action'] %}
-                    <input type="hidden" name="cya-action" id="cya-action" value="" />
-                {% endif %}
+                {% if data['cya-action'] %}<input type="hidden" name="cya-action" id="cya-action" value="" />{% endif %}
                 <!-- // -->
 
                 <div class="govuk-visually-hidden key">
-                    {% if data.participants[id].role == "sitMentor" %}                    
+                    <!-- If sitMentor -->
+                    {% if data.participants[id].role == "sitMentor" %}
                         {% include "includes/status/status_sitMentor.html" %}
                     <!-- If transferring in -->
-                    {% elif data.participants[id].role == "Transfer" %}
-
-                    
+                    {% elif data.participants[id].role == "Transfer" or data.participants[id].role == "mentorTransfer" %}
                         {% include "includes/status/status_transferIn.html" %}
-                    <!-- Otherwise if TRN provided  -->
                     {% else %}
-                    
                         <!-- No QTS -->
                         {% if data.participants[id].noQTS == "Yes" %}
                             {% include "includes/status/status_noQTS.html" %}
                         <!-- Eligible -->
                         {% else %}
-
-                        HERE
                             {% include "includes/status/status_eligible.html" %}
                         {% endif %}
                     {% endif %}
                 </div>
 
-                
-
-
                 {{ govukButton({
-                    text: "Confirm and add"
+                    text: "Confirm and register"
                 }) }}
 
             </form>

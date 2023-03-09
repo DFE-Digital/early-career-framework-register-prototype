@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s ' + participant.name + '’s email address? ' %}
+{% if data.participants[id].role == "sitMentor" %}
+    {% set pageHeading = 'What’s your email address? ' %}
+{% else %}
+    {% set pageHeading = 'What’s ' + participant.name + '’s email address? ' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,27 +15,21 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p class="govuk-body">You can enter their personal or school email address.</p>
-        
-            {% if data.participants[id].role == "ECT" %}
-                <form class="form" action="induction-start-date" method="post" >            
-            {% elif data.participants[id].role == "Transfer" %}                                                        
-                                
-                <!-- Check if on a different main programme -->
-                {% if data.participants[id].transferProgramme == "differentProgramme" %}
-                    <form class="form" action="different-programme" method="post" class="govuk-!-margin-bottom-8">
-                <!-- Check if on a different provider/partner -->
-                {% elif data.participants[id].transferProgramme == "differentLPandDP" or data.participants[id].transferProgramme == "differentDP" %}
-                    <form class="form" action="current-training-programme" method="post" class="govuk-!-margin-bottom-8">
-                <!-- Otherwise go to CYA -->
-                {% else %}
-                    <form class="form" action="check-your-answers" method="post" class="govuk-!-margin-bottom-8">
-                {% endif %}                
-
-            {% elif data.participants[id].role == "Mentor" %}
-                <form class="form" action="check-your-answers" method="post" >            
+            {% if data.participants[id].role == "sitMentor" %}
+                <p class="govuk-body">You can enter your personal or school email address.</p>
+            {% else %}
+                <p class="govuk-body">You can enter their personal or school email address.</p>
             {% endif %}
-        
+
+
+            {% if data.participants[id].role == "ECT"%}
+                <form class="form" action="induction-start-date" method="post">
+            {% elif data.participants[id].role == "Mentor" or data.participants[id].role == "sitMentor" %}
+                <form class="form" action="check-your-answers" method="post">
+            {% elif data.participants[id].role == "Transfer" or data.participants[id].role == "mentorTransfer" %}
+                <form class="form" action="joining-date" method="post">
+            {% endif %}
+
                 {{ govukInput({
                     label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
                     classes: "govuk-!-width-two-thirds"
@@ -40,9 +38,6 @@
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-
-            
-
 
             </form>
 

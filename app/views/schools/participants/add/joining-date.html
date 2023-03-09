@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s ' + participant.name + '’s start date at your school? ' %}
+{% set pageHeading = 'When is ' + participant.name + ' moving to your school? ' %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +11,9 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-          	<form class="form" action="email-address" method="post">
+            <p class="govuk-body">This is the date when {{ participant.name }} started, or will start, at your school. This is not when their training programme formally started.</p>
+
+          	<form class="form" action="check-your-answers" method="post">
 
 				{{ govukDateInput({
 					id: 'session-date-joining',

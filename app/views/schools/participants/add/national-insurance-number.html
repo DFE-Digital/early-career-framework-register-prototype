@@ -10,12 +10,12 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
+
 
             {% if participant.niNumberFail == "Yes" %}
-                <form class="form" action="contact-support" method="post" >
+                <form class="form" action="cannot-find-their-details" method="post" >
             {% else %}
-                <form class="form" action="email-address" method="post" >
+                <form class="form" action="checking-teacher-profiles" method="post" >
             {% endif %}
                 {{ govukInput({
                     label: { text: "National Insurance number", classes: "govuk-visually-hidden" },

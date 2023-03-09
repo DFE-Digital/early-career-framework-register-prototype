@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'We cannot find ' + participant.name + '’s record' %}
+{% if participant.nationalInsuranceNumber %}
+    {% set pageHeading = 'We still cannot find ' + participant.name + '’s record' %}
+{% else %}
+    {% set pageHeading = 'We cannot find ' + participant.name + '’s record' %}
+{% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,28 +18,32 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <p class="govuk-body">Check the information you entered is correct.</p>
 
-            {% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
-                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records to make sure they’re eligible for this funded programme.</p>
+            {% if participant.nationalInsuranceNumber %}
+            <p class="govuk-body">This could be because the information does not match their Teaching Regulation Agency (TRA) record.</p>
             {% else %}
-                <p>We need to find {{ participant.name }} in the Teaching Regulation Agency records so we can transfer their record to your school.</p>
+            <p class="govuk-body">Check the information you entered is correct.</p>
+            <p class="govuk-body">We need to find {{ participant.name }} in the Teaching Regulation Agency records to make sure they’re eligible for this funded programme. When participants move school, we need to find their record so it can be transferred to your school. </p>
             {% endif %}
+
+
+
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-7">
                 <!-- Name -->
-                <div class="govuk-summary-list__row">
+                {# <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Name</dt>
                     <dd class="govuk-summary-list__value">{{ participant.name }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="name?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                </div>
+                </div> #}
                 <!-- TRN -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">TRN</dt>
                     <dd class="govuk-summary-list__value">{{ participant.trnNumber }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd>
+                    {# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="teacher-reference-number?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> teacher reference number</span></a></dd> #}
                 </div>
                 <!-- Date of birth -->
                 <div class="govuk-summary-list__row">
@@ -43,20 +51,51 @@
                     <dd class="govuk-summary-list__value">
                         {{ isoDateFromDateInputs(participant['dobYear'], participant['dobMonth'], participant['dobDay']) | dateWithYear }}
                     </dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd>
+                    {# <dd class="govuk-summary-list__actions"><a class="govuk-link" href="date-of-birth?linkaction=cannotFind">Change<span class="govuk-visually-hidden"> date of birth</span></a></dd> #}
                 </div>
+
+                <!-- NI -->
+                {% if participant.nationalInsuranceNumber %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">National Insurance number</dt>
+                    <dd class="govuk-summary-list__value">{{ participant.nationalInsuranceNumber }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> national insurance number</span></a></dd>
+                </div>
+                {% endif %}
+
+
+
             </dl>
 
-            <h3 class="govuk-heading-s">If this information is correct.</h3>
-
-            <p>We may be able to find their record using their National Insurance number.</p>
-            <form class="form" action="national-insurance-number" method="post" >
 
 
+            {% if participant.nationalInsuranceNumber %}
+
+                <h3 class="govuk-heading-m">If you are sure this information is correct</h3>
+
+                <p class="govuk-body">Contact us for help to register this ECT at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/schools/participants/">Return to your ECTs and mentors</a></p>
+
+
+            {% else %}
+
+                <h3 class="govuk-heading-m">If this information is correct</h3>
+
+                <p class="govuk-body">We may be able to find their record using their National Insurance number.</p>
+                <form class="form" action="national-insurance-number" method="post" >
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
+
+
+            {% endif %}
+
+
+
+
 
 
                  <div class="govuk-!-padding-top-5 key">

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Checking Teacher profiles' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">This page is not seen by the end user, it’s just to illustrate what we are doing underneath in the backend.</p>
+
+            <p class="govuk-body">Checking using TRN</p>
+
+            <!-- Can we find them in our records - if so they are a transfer -->
+
+
+
+
+
+
+            {% if data.participants[id].RecordsMatchedTP == "Yes" %}
+
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-7">User found in teacher profiles.</p>
+
+
+                {% if data.participants[id].ectMentor == "Yes" or data.participants[id].mentorECT == "Yes" %}
+
+                    <form class="form" action="cannot-add" method="post">
+
+                {% elif data.participants[id].role == "ECT" %}
+                    <form class="form" action="confirm-transfer" method="post">
+                {% elif data.participants[id].role == "Mentor" %}
+                    <form class="form" action="multiple-schools" method="post">
+                {% endif %}
+
+                    <!-- This changes the role from ECT/Mentor to a transfer variant -->
+                    {% if data.participants[id].role == "ECT" %}
+                        {{ govukInput({
+                            label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "Transfer"
+                        } | decorateFormAttributes(['participants', id, 'role']) ) }}
+
+                    {% elif data.participants[id].role == "Mentor" %}
+
+                        {{ govukInput({
+                            label: { text: pageHeading, classes: "govuk-visually-hidden", isPageHeading: false },
+                            classes: "govuk-!-width-two-thirds govuk-visually-hidden",
+                            value: "mentorTransfer"
+                        } | decorateFormAttributes(['participants', id, 'role']) ) }}
+
+                    {% endif %}
+                    <!-- // -->
+
+
+
+                    {{ govukCheckboxes({
+                        classes: "govuk-checkboxes--small govuk-visually-hidden",
+                        items: [ { value: "Yes", text: "No match in Teacher Profiles", checked: "true" } ]
+                    } | decorateFormAttributes(['participants', id, 'moveAddECT']) ) }}
+
+            <!-- If not found in our records likely to be a NEW addition -->
+            {% else %}
+
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-7">User not found in teacher profiles.</p>
+
+
+                {% if data.participants[id].role == "sitMentor" %}
+                    <form class="form" action="induction-start-date" method="post">
+                {% else %}
+                    <form class="form" action="email-address" method="post">
+                {% endif %}
+
+                {#
+                {% else %}
+                    <form class="form" action="name" method="post">
+                {% endif %} #}
+
+            {% endif %}
+
+
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+
+      		</form>
+
+    	</div>
+  	</div>
+{% endblock %}

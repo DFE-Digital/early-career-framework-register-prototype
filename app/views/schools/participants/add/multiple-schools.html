@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set schoolSignedIn = true %}
+
+{% set pageHeading = 'Will ' + participant.name + ' still mentor ECT’s at the school they’re moving from?' %}
+{% set pageHeading = 'Will ' + participant.name + ' only mentor ECT’s at your school?' %}
+{% set pageSection = " " + data.schoolName + " " %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds">
+
+        	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body">Our records show this person is already registered as a mentor at a different school.</p>
+            <p class="govuk-body">Although a mentor can mentor ECTs at multiple schools, they can only receive mentor training from one school at a time.</p>
+
+            <form class="form" action="email-address" method="post" class="govuk-!-margin-bottom-8">
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                        legend: { text: pageHeading, isPageHeading: true, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes" },
+                        { value: "No, redirect(cannot-add)", text: "No" }
+                    ]
+                } | decorateFormAttributes(['participants', id, 'confirmTransfer']) ) }}
+
+        		{{ govukButton({
+          			text: "Continue"
+        		}) }}
+
+      		</form>
+
+    	</div>
+  	</div>
+{% endblock %}

@@ -1,7 +1,14 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% set pageHeading = 'What’s this person’s full name?' %}
+{% if data.participants[id].differentName == "Yes" %}
+    {% set pageHeading = 'What other name is ' + participant.name + ' known by?' %}
+{% elif data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" %}
+    {% set pageHeading = 'What’s this ECT’s full name?' %}
+{% elif data.participants[id].role == "Mentor" or data.participants[id].role == "mentorTransfer" %}
+    {% set pageHeading = 'What’s this mentor’s full name?' %}
+{% endif %}
+
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +19,10 @@
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            
+            {% if data.participants[id].differentName == "Yes" %}
+            <p>We need to match their name with the record held by the Teaching Regulation Agency (TRA).</p>
+            {% endif %}
+
             <!--{% if data['linkaction'] == "cannotFind" %}
                 {% if data.participants[id].role == "Transfer" %}
                     <form class="form" action="joining-date" method="post">
@@ -32,14 +42,18 @@
             {% else %}-->
             <!-- {% endif %} -->
 
-            {% if data.participants[id].role == "ECT" %}
-            <form class="form" action="teacher-reference-number" method="post">                        
-            {% elif data.participants[id].role == "Transfer" %}
-            <form class="form" action="teacher-reference-number" method="post">
+            {% if data.participants[id].differentName == "Yes" %}
+                <form class="form" action="checking-teacher-profiles" method="post">
+
+                    {{ govukCheckboxes({
+                    classes: "govuk-checkboxes--small govuk-visually-hidden",
+                    items: [ { value: "No", text: "Not known by different name", checked: "true" } ]
+                } | decorateFormAttributes(['participants', id, 'differentName']) ) }}
+
             {% else %}
                 <form class="form" action="teacher-reference-number" method="post">
             {% endif %}
-        
+
                 {{ govukInput({
                     label: {
                         text: pageHeading,
@@ -49,7 +63,7 @@
                     classes: "govuk-!-width-two-thirds"
                 } | decorateFormAttributes(['participants', id, 'name']) ) }}
 
-                <!-- Hidden programme set -->
+                <!-- Sets programme choice at ECT level -->
                 {% include "includes/hidden_programme_value.html" %}
 
                 {{ govukButton({
@@ -57,7 +71,7 @@
                 }) }}
 
             </form>
-            
+
             </div>
         </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
 
-{% if data.participants[id].role == "ECT" or data.participants[id].role == "Transfer" or data.participants[id].role == "Mentor" %}
-	{% set pageHeading = 'What’s ' + participant.name + '’s date of birth?' %}
-<!-- {% elif data.participants[id].role == "sitMentor" %}
-    {% set pageHeading = 'What’s your date of birth?' %}     -->
+{% if data.participants[id].role == "sitMentor" %}
+    {% set pageHeading = 'What’s your date of birth?' %}
+{% else %}
+	{% set pageHeading = 'What’s ' +  participant.name + '’s date of birth?' %}
 {% endif %}
 {% set pageSection = " " + data.schoolName + " " %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,20 +16,12 @@
 
         	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			  	{% if data.participants[id].role == "ECT" or data.participants[id].role == "Mentor" %}
-				  	<form class="form" action="email-address" method="post">
-				{% elif data.participants[id].role == "Transfer" %}
-					<form class="form" action="joining-date" method="post">
-      		    {% endif %}
-
+			<form class="form" action="checking-DQT" method="post">
 
 				{{ govukDateInput({
 					id: 'session-date-dob',
 					fieldset: {
-						legend: {
-							text: pageHeading,
-							classes: "govuk-visually-hidden"
-						}
+						legend: { text: pageHeading, classes: "govuk-visually-hidden" }
 					},
 					items: [
 						{ name: '[participants][' + id + '][dobDay]', value: data.participants[id]['dobDay'], classes: "govuk-input--width-2", label: 'Day' },
@@ -47,4 +39,5 @@
 
     	</div>
   	</div>
+
 {% endblock %}

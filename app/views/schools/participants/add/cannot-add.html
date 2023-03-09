@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 {% set schoolSignedIn = true %}
+{% set showBackLink = false %}
+
 
 {% if data.participants[id].usingCurrentTraining == "No" %}
     {% set pageHeading = 'Contact us to transfer ' + participant.name + '' %}
@@ -15,31 +17,82 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
+
+
+            {% if data.participants[id].differentName == "No" %}
+                <p class="govuk-body">We cannot add this person based on the information you’ve entered.</p>
+                <p class="govuk-body">Contact us for help to register this {{ participant.role }} at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+
+
+            {% else %}
+
+            {# <p class="govuk-body">We cannot add this person based on the information you’ve entered.</p> #}
+
+            <!-- Option 1 -->
+            {# <p class="govuk-body">Our records show this person is already registered on an ECF-based training programme at your school.</p> #}
+            {# <p class="govuk-body">If {{ participant.name }} has been withdrawn by {{ data.leadProvider }}, you should contact them to get {{ participant.name }} reinstated.</p> #}
+
+
+            {# <p class="govuk-body">Our records show this person is already registered on an ECF-based training programme at another school.</p>
+            <p class="govuk-body">Contact us for help to register this {{ participant.role }} at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p> #}
+
+
+            <!-- Already registered as an ECT -->
+            {% if data.participants[id].ectMentor == "Yes" %}
+
+            <p class="govuk-body">Our records show {{ participant.name }} is currently registered as an ECT.</p>
+            <p class="govuk-body">Our service currently does not allow you to change an ECT into a mentor.</p>
+            <p class="govuk-body">You should contact {{ data.leadProvider }} to provide access to their mentor training.</p>
+            {% endif %}
+
+            <!-- Already registered as a mentor -->
+            {% if data.participants[id].mentorECT == "Yes" %}
+            <p class="govuk-body">Our records show {{ participant.name }} is currently registered as a mentor.</p>
+            <p class="govuk-body">Our service currently does not allow you to change a mentor into an ECT.</p>
+            {% endif %}
+
+
+
+
+            {% if data.participants[id].multiMentor == "Yes" %}
+            <p class="govuk-body">{{ participant.name }} can mentor ECTs at multiple schools but our service does not currently support this.</p>
+            <p class="govuk-body">Contact us for help to register this mentor at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+            {% endif %}
+
+
+            <!-- If academic year has not started -->
+            {% if participant.inductionMonth == "9" and participant.inductionYear == "2023"  %}
+            <p class="govuk-body">Hugo Furst’s induction will not start until the 2023 academic year.</p>
+            <p class="govuk-body">Our service is not yet open for registrations.</p>
+            {% endif %}
+
+
+            {% endif %}
+
             {% if data['correctYear'] == "No" %}
 
-                <p>We cannot add this person based on the information you’ve entered.</p>            
+                <p class="govuk-body">We cannot add this person based on the information you’ve entered.</p>
 
             {% elif data.participants[id].eroMultiMentor == "Yes" %}
-                <p>Additional content should we need it Kate around ERO mentor or mentor at multiple schools.</p>
+                <p class="govuk-body">Additional content should we need it Kate around ERO mentor or mentor at multiple schools.</p>
             {% elif data.participants[id].usingCurrentTraining == "No" %}
 
             {% elif data.participants[id].continueProgramme != "No" %}
                 {% if data.participants[id].existingMatch == "Yes" %}
-                    <p>Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
+                    <p class="govuk-body">Our records show this person is already registered on an ECF-based training progamme at a different school.</p>
                 {% else %}
-                    <p>We cannot find this person's training record based on the information you’ve entered.</p>
+                    {# <p class="govuk-body">We cannot find this person's training record based on the information you’ve entered.</p>
                     <p class="govuk-body">This could be because:</p>
                     <ul class="govuk-list govuk-list--bullet">
                         <li>the information does not match their Teaching Regulation Agency record</li>
                         <li>they're not registered on an ECF-based training progamme yet</li>
-                    </ul>
+                    </ul> #}
                 {% endif %}
             {% endif %}
 
-            <p>Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p>
+            {# <p class="govuk-body">Contact us for help to register this person at your school: <a class="govuk-link govuk-link--no-visited-state" href="mailto:continuing-professional-development@digital.education.gov.uk">continuing-professional-development@digital.education.gov.uk</a></p> #}
 
-            <p><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">View your ECTs and mentors</a></p>
+            <p class="govuk-body govuk-!-margin-top-7"><a class="govuk-link govuk-link--no-visited-state" href="../../../participants/">Return to your ECTs and mentors</a></p>
         </div>
     </div>
 {% endblock %}
